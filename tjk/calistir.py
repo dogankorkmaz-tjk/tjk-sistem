@@ -6,6 +6,7 @@ import os, sys, json, glob, datetime
 import numpy as np, pandas as pd
 from . import ortak as O
 from . import csvprog as C
+from . import sonuccsv as SC
 from .ozellik import hazirla, model_olasilik
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -445,8 +446,10 @@ def main():
     if mod == "sabah":
         sabah(bugun)
     elif mod == "canli":
+        SC.isle()
         canli(bugun)
     elif mod == "gece":
+        SC.isle()
         gece(bugun)
     elif mod == "gecmis":
         bas = datetime.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else bugun - datetime.timedelta(days=45)

@@ -181,7 +181,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <p class="note">TJK'dan indirdiğin "Günlük Yarış Programı" CSV dosyasını seç, yükle. Sistem koşu saatini, mesafeyi, pisti ve cinsi otomatik işler. Bir dakika içinde sayfada görünür.</p>
       <label class="sub" for="ghTok">GitHub anahtarı (yalnızca bu telefonda saklanır)</label>
       <input id="ghTok" type="password" autocomplete="off" style="width:100%;padding:9px;margin:6px 0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-mono)">
-      <input id="dosyaSec" type="file" multiple accept=".csv,text/csv,text/plain,.txt" style="width:100%;margin-bottom:12px">
+      <input id="dosyaSec" type="file" multiple accept=".csv,.doc,.html,.htm,text/csv,text/plain,.txt,application/msword,text/html" style="width:100%;margin-bottom:12px">
       <button id="yukleBtn" class="primary">Yükle</button>
       <div id="yukleSonuc" style="margin-top:12px;font-size:13px"></div>
     </div>
@@ -504,11 +504,15 @@ async function skorYukle(){
 // ---------- CSV yükleme (GitHub API, anahtar yalnızca bu tarayıcıda) ----------
 const GH='dogankorkmaz-tjk/tjk-sistem';
 try{ $('ghTok').value=localStorage.getItem('gm2_gh')||''; }catch(e){}
+function sadeHip(s){ return s.trim().toLocaleLowerCase('tr').replace(/ı/g,'i').replace(/ş/g,'s').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ö/g,'o').replace(/ç/g,'c').replace(/[^a-z]/g,''); }
 function dosyaAdi(metin){
+  // Kronometrik dereceler (.doc/HTML)
+  const k=metin.match(/(\d{2})\/(\d{2})\/(\d{4})\s+(\S+)\s+Ko[^<]{0,6}ular[^<]*Kronometrik/i);
+  if(k&&/Kronometrik/i.test(metin)) return {kl:'tjk_kron',ad:`${k[3]}-${k[2]}-${k[1]}-${sadeHip(k[4])}.html`};
   const l=metin.replace(/^\uFEFF/,'').split(/\r?\n/)[0]||''; const p=l.split(';'); const d=l.match(/(\d{2})\/(\d{2})\/(\d{4})/);
   if(!p[0]||!d) return null;
-  const h=p[0].trim().toLocaleLowerCase('tr').replace(/ı/g,'i').replace(/ş/g,'s').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ö/g,'o').replace(/ç/g,'c').replace(/[^a-z]/g,'');
-  return `${d[3]}-${d[2]}-${d[1]}-${h}.csv`;
+  const sonuc=/;Ganyan;Fark/.test(metin)||/GANYAN\(\d/.test(metin);
+  return {kl:sonuc?'tjk_sonuc':'tjk_csv', ad:`${d[3]}-${d[2]}-${d[1]}-${sadeHip(p[0])}.csv`};
 }
 function b64(str){ const b=new TextEncoder().encode(str); let s=''; for(const x of b) s+=String.fromCharCode(x); return btoa(s); }
 async function metinOku(f){
@@ -525,12 +529,12 @@ async function yukle(){
   for(const f of fl){
     try{
       const t=await metinOku(f); const ad=dosyaAdi(t);
-      if(!ad){ sat.push(`✗ ${esc(f.name)}: TJK program dosyası gibi görünmüyor`); continue; }
-      const url=`https://api.github.com/repos/${GH}/contents/data/tjk_csv/${ad}`;
+      if(!ad){ sat.push(`✗ ${esc(f.name)}: tanınan bir TJK dosyası gibi görünmüyor`); continue; }
+      const url=`https://api.github.com/repos/${GH}/contents/data/${ad.kl}/${ad.ad}`;
       const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
       let sha; const g=await fetch(url+'?ref=main',{headers:h}); if(g.ok) sha=(await g.json()).sha;
-      const r=await fetch(url,{method:'PUT',headers:h,body:JSON.stringify({message:'TJK program CSV '+ad,content:b64(t),branch:'main',sha})});
-      sat.push(r.ok?`✓ ${esc(ad)} yüklendi`:`✗ ${esc(ad)}: hata ${r.status} ${r.status===401||r.status===403||r.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`);
+      const r=await fetch(url,{method:'PUT',headers:h,body:JSON.stringify({message:'TJK dosya '+ad.kl+'/'+ad.ad,content:b64(t),branch:'main',sha})});
+      sat.push(r.ok?`✓ ${esc(ad.ad)} yüklendi (${{tjk_csv:'program',tjk_sonuc:'sonuç',tjk_kron:'kronometrik'}[ad.kl]})`:`✗ ${esc(ad.ad)}: hata ${r.status} ${r.status===401||r.status===403||r.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`);
     }catch(e){ sat.push(`✗ ${esc(f.name)}: ${esc(String(e))}`); }
   }
   out.innerHTML=sat.join('<br>')+'<br><span class="sub">Sistem 1–2 dakikada işler; sonra sayfayı yenile.</span>';
