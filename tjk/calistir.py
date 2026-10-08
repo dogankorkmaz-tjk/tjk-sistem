@@ -274,6 +274,25 @@ def skor():
     print("skor:", {k: out[k] for k in ("kosu", "fark", "fark_se")})
 
 
+def dene(t):
+    """Veri gerektirmeyen bağlantı denemesi: siteye erişim ve ayrıştırıcılar."""
+    ana = O.getir(O.BASE)
+    print("ana sayfa:", "YOK" if ana is None else f"{len(ana)} karakter")
+    hips = O.gunun_hipodromlari(t, ana or "")
+    print("bugünün hipodromları:", hips)
+    for h in hips[:2]:
+        html = O.getir(O.prog_url(t, h)) or ""
+        p = O.parse_prog(html, t.isoformat(), h)
+        print(f"  {h} program: {len(p)} at | saatler: {O.kosu_saatleri(html)} | bilgi örnek: {list(O.kosu_bilgileri(html).items())[:1]}")
+        dun = t - datetime.timedelta(days=1)
+        for u in O.sonuc_urls(t, h):
+            s = O.getir(u)
+            if s:
+                print(f"  {h} bugünkü sonuç satırı: {len(O.parse_sonuc(s, t.isoformat(), h))}"); break
+    agf = O.parse_agf(O.getir(O.BASE + "/agf-tablosu") or "")
+    print("AGF:", {h: {a: len(v) for a, v in d.items()} for h, d in agf.items()})
+
+
 def main():
     mod = sys.argv[1] if len(sys.argv) > 1 else "canli"
     simdi = O.tr_simdi(); bugun = simdi.date()
@@ -285,6 +304,8 @@ def main():
         gece(bugun)
     elif mod == "skor":
         skor()
+    elif mod == "dene":
+        dene(bugun)
     elif mod == "hepsi":
         gece(bugun); sabah(bugun); canli(bugun)
     else:

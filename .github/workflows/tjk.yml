@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
     inputs:
       mod:
-        description: "sabah / canli / gece / skor / hepsi"
-        default: "hepsi"
+        description: "sabah / canli / gece / skor / hepsi / dene"
+        default: "dene"
 
 concurrency:
   group: tjk
