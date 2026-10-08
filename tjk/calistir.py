@@ -280,17 +280,24 @@ def dene(t):
     print("ana sayfa:", "YOK" if ana is None else f"{len(ana)} karakter")
     hips = O.gunun_hipodromlari(t, ana or "")
     print("bugünün hipodromları:", hips)
+    rapor = {"zaman": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "ana_sayfa": None if ana is None else len(ana),
+             "hipodromlar": hips, "detay": {}}
     for h in hips[:2]:
         html = O.getir(O.prog_url(t, h)) or ""
         p = O.parse_prog(html, t.isoformat(), h)
         print(f"  {h} program: {len(p)} at | saatler: {O.kosu_saatleri(html)} | bilgi örnek: {list(O.kosu_bilgileri(html).items())[:1]}")
+        rapor["detay"][h] = {"program_html": len(html), "program_at": len(p), "saatler": O.kosu_saatleri(html),
+                             "bilgi": list(O.kosu_bilgileri(html).items())[:2]}
         dun = t - datetime.timedelta(days=1)
         for u in O.sonuc_urls(t, h):
             s = O.getir(u)
             if s:
-                print(f"  {h} bugünkü sonuç satırı: {len(O.parse_sonuc(s, t.isoformat(), h))}"); break
+                n = len(O.parse_sonuc(s, t.isoformat(), h))
+                print(f"  {h} bugünkü sonuç satırı: {n}"); rapor["detay"][h]["sonuc_satir"] = n; break
     agf = O.parse_agf(O.getir(O.BASE + "/agf-tablosu") or "")
     print("AGF:", {h: {a: len(v) for a, v in d.items()} for h, d in agf.items()})
+    rapor["agf"] = {h: {a: {ay: len(x) for ay, x in v.items()} for a, v in d.items()} for h, d in agf.items()}
+    yaz_json(os.path.join(SITE, "dene.json"), rapor)
 
 
 def main():

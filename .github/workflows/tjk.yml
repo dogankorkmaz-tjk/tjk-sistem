@@ -44,7 +44,8 @@ jobs:
         run: |
           git config user.name "tjk-bot"
           git config user.email "tjk-bot@users.noreply.github.com"
-          git add data docs
+          mkdir -p data docs/data
+          git add -A data docs
           if git diff --cached --quiet; then echo "değişiklik yok"; exit 0; fi
           git commit -m "veri $(date -u '+%Y-%m-%d %H:%M') UTC"
           for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
