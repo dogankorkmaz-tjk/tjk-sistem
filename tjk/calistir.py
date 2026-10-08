@@ -151,12 +151,39 @@ def agf_ekle(obj):
             if not d:
                 continue
             for a in k["atlar"]:
-                a["agf"] = d.get(a["no"])
+                v = d.get(a["no"])
+                a["agf"] = v
+                if v is not None and a.get("agf0") is None:
+                    a["agf0"] = v                    # ilk görülen AGF (sabah)
             k["agf_saat"] = O.tr_simdi().strftime("%H:%M")
+            k.setdefault("agf0_saat", k["agf_saat"])
     print("AGF eklendi:", {h: len(v) for h, v in agf.items()})
 
 
 # ------------------------------------------------------------------ canlı (sonuçlar)
+def agf_arsivle(obj):
+    """O günün ilk ve son AGF değerlerini data/agf/YYYY-MM.csv.gz içine yazar (ileride AGF-ganyan sapması testi için)."""
+    rows = []
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            for a in k["atlar"]:
+                if a.get("agf") is None and a.get("agf0") is None:
+                    continue
+                rows.append({"tarih": obj["tarih"], "hipodrom": h["id"], "kosu": k["kosu"], "no": a["no"],
+                             "agf0": a.get("agf0"), "agf": a.get("agf"),
+                             "agf0_saat": k.get("agf0_saat"), "agf_saat": k.get("agf_saat")})
+    if not rows:
+        return 0
+    yeni = pd.DataFrame(rows)
+    yol = os.path.join(VERI, "agf", obj["tarih"][:7] + ".csv.gz")
+    os.makedirs(os.path.dirname(yol), exist_ok=True)
+    if os.path.exists(yol):
+        yeni = pd.concat([pd.read_csv(yol), yeni], ignore_index=True)
+    yeni = yeni.drop_duplicates(O.K + ["no"], keep="last").sort_values(O.K + ["no"])
+    yeni.to_csv(yol, index=False)
+    return len(rows)
+
+
 def sonuclari_isle(obj, t, w0=None):
     """Biten koşulara sonuç sırası, kapanış ganyanı, piyasa ve model olasılığı ekler."""
     w0 = w0 if w0 is not None else obj.get("w0", 1.0)
@@ -236,6 +263,7 @@ def gece(bugun):
             obj = json.load(open(yol, encoding="utf-8"))
             if sonuclari_isle(obj, g):
                 yaz_json(yol, obj)
+            print("  AGF arşivlendi:", g, agf_arsivle(obj), "satır")
     if yeni_s:
         ns, npg = pd.DataFrame(yeni_s), pd.DataFrame(yeni_p)
         ekle("sonuclar", ns, sn.columns)
