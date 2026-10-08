@@ -109,6 +109,7 @@ svg text{fill:var(--muted);font:11px var(--f-mono)}
   <div class="tabs" role="tablist">
     <button role="tab" id="tabBugun" aria-selected="true">Yarışlar</button>
     <button role="tab" id="tabSkor" aria-selected="false">Canlı test</button>
+    <button role="tab" id="tabDosya" aria-selected="false">Dosya yükle</button>
   </div>
   <div id="durum" class="note"></div>
 
@@ -133,6 +134,17 @@ svg text{fill:var(--muted);font:11px var(--f-mono)}
   </section>
 
   <section id="skor" class="sec" hidden></section>
+  <section id="dosya" class="sec" hidden>
+    <div class="card">
+      <h2>TJK program dosyası (CSV)</h2>
+      <p class="note">TJK'dan indirdiğin "Günlük Yarış Programı" CSV dosyasını seç, yükle. Sistem koşu saatini, mesafeyi, pisti ve cinsi otomatik işler. Bir dakika içinde sayfada görünür.</p>
+      <label class="sub" for="ghTok">GitHub anahtarı (yalnızca bu telefonda saklanır)</label>
+      <input id="ghTok" type="password" autocomplete="off" style="width:100%;padding:9px;margin:6px 0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-mono)">
+      <input id="dosyaSec" type="file" multiple accept=".csv,text/csv,text/plain,.txt" style="width:100%;margin-bottom:12px">
+      <button id="yukleBtn">Yükle</button>
+      <div id="yukleSonuc" style="margin-top:12px;font-size:13px"></div>
+    </div>
+  </section>
 </div>
 
 <script>
@@ -421,12 +433,48 @@ async function skorYukle(){
   s+=`<div class="note">Model ${esc(S.freeze)} tarihinde donduruldu; bu sayfadaki her koşu modelin hiç görmediği veridir. Son hesap: ${esc(S.guncelleme)}.</div>`;
   el.innerHTML=s;
 }
+
+// ---------- CSV yükleme (GitHub API, anahtar yalnızca bu tarayıcıda) ----------
+const GH='dogankorkmaz-tjk/tjk-sistem';
+try{ $('ghTok').value=localStorage.getItem('gm2_gh')||''; }catch(e){}
+function dosyaAdi(metin){
+  const l=metin.replace(/^\uFEFF/,'').split(/\r?\n/)[0]||''; const p=l.split(';'); const d=l.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+  if(!p[0]||!d) return null;
+  const h=p[0].trim().toLocaleLowerCase('tr').replace(/ı/g,'i').replace(/ş/g,'s').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ö/g,'o').replace(/ç/g,'c').replace(/[^a-z]/g,'');
+  return `${d[3]}-${d[2]}-${d[1]}-${h}.csv`;
+}
+function b64(str){ const b=new TextEncoder().encode(str); let s=''; for(const x of b) s+=String.fromCharCode(x); return btoa(s); }
+async function metinOku(f){
+  const buf=await f.arrayBuffer(); let t=new TextDecoder('utf-8').decode(buf);
+  if(t.includes('\uFFFD')) t=new TextDecoder('windows-1254').decode(buf);
+  return t;
+}
+async function yukle(){
+  const tok=$('ghTok').value.trim(), fl=[...$('dosyaSec').files], out=$('yukleSonuc');
+  if(!tok){ out.innerHTML='<span class="warn">Önce GitHub anahtarını yaz.</span>'; return; }
+  if(!fl.length){ out.textContent='Dosya seçilmedi.'; return; }
+  try{ localStorage.setItem('gm2_gh',tok); }catch(e){}
+  out.textContent='Yükleniyor…'; const sat=[];
+  for(const f of fl){
+    try{
+      const t=await metinOku(f); const ad=dosyaAdi(t);
+      if(!ad){ sat.push(`✗ ${esc(f.name)}: TJK program dosyası gibi görünmüyor`); continue; }
+      const url=`https://api.github.com/repos/${GH}/contents/data/tjk_csv/${ad}`;
+      const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+      let sha; const g=await fetch(url+'?ref=main',{headers:h}); if(g.ok) sha=(await g.json()).sha;
+      const r=await fetch(url,{method:'PUT',headers:h,body:JSON.stringify({message:'TJK program CSV '+ad,content:b64(t),branch:'main',sha})});
+      sat.push(r.ok?`✓ ${esc(ad)} yüklendi`:`✗ ${esc(ad)}: hata ${r.status} ${r.status===401||r.status===403||r.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`);
+    }catch(e){ sat.push(`✗ ${esc(f.name)}: ${esc(String(e))}`); }
+  }
+  out.innerHTML=sat.join('<br>')+'<br><span class="sub">Sistem 1–2 dakikada işler; sonra sayfayı yenile.</span>';
+}
+$('yukleBtn').onclick=yukle;
 function sekme(ad){
-  $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor');
-  $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor';
+  $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor'); $('tabDosya').setAttribute('aria-selected',ad==='dosya');
+  $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor'; $('dosya').hidden=ad!=='dosya';
   if(ad==='skor'&&!SKOR) skorYukle();
 }
-$('tabBugun').onclick=()=>sekme('bugun'); $('tabSkor').onclick=()=>sekme('skor');
+$('tabBugun').onclick=()=>sekme('bugun'); $('tabSkor').onclick=()=>sekme('skor'); $('tabDosya').onclick=()=>sekme('dosya');
 if(location.hash==='#skor') sekme('skor');
 
 gunYukle(null);
