@@ -114,7 +114,7 @@ def fark_boy(s):
 def parse_fark(html, tarih, hip):
     """Sonuç sayfasındaki 'Fark' sütunu (önündeki attan bitiş farkı)."""
     try:
-        tablolar = pd.read_html(StringIO(html), thousands=None, converters={c: str for c in ["Sıra", "No", "Atın Adı", "Fark"]})
+        tablolar = pd.read_html(StringIO(html), thousands=None, converters={c: str for c in ["Sıra", "No", "Atın Adı", "Jokey", "Kilo", "Derece", "Ganyan", "Fark", "Hnd."]})
     except ValueError:
         return []
     out, kosu_no = [], 0
@@ -127,7 +127,7 @@ def parse_fark(html, tarih, hip):
             continue
         for _, r in t.iterrows():
             f = str(r.get("Fark", "")).strip()
-            out.append({"tarih": tarih, "hipodrom": hip, "kosu": kosu_no, "no": pd.to_numeric(r.get("No"), errors="coerce"),
+            out.append({"tarih": tarih, "hipodrom": hip, "kosu": kosu_no, "sira": pd.to_numeric(r.get("Sıra"), errors="coerce"), "no": pd.to_numeric(r.get("No"), errors="coerce"),
                         "fark_txt": "" if f == "nan" else f, "fark_boy": fark_boy(f)})
     return out
 

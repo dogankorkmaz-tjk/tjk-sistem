@@ -256,7 +256,7 @@ def gece(bugun):
                 continue
             yeni_s += s
             fk = O.parse_fark(html, g.isoformat(), h)
-            if fk: ekle("fark", pd.DataFrame(fk), ["tarih", "hipodrom", "kosu", "no", "fark_txt", "fark_boy"])
+            if fk: ekle("fark", pd.DataFrame(fk), ["tarih", "hipodrom", "kosu", "sira", "no", "fark_txt", "fark_boy"])
             yeni_p += O.parse_prog(O.getir(O.prog_url(g, h)) or "", g.isoformat(), h)
             print(" ", g, h, len(s), "satır")
         # o günün sitedeki kaydına eksik sonuçları ekle
@@ -295,9 +295,9 @@ def farkgecmis(bas, bit):
             if html: break
         if html: toplu += O.parse_fark(html, t, h)
         if len(toplu) >= 600:
-            ekle("fark", pd.DataFrame(toplu), ["tarih", "hipodrom", "kosu", "no", "fark_txt", "fark_boy"]); n += len(toplu); toplu = []; print(t, "kaydedildi", n, flush=True)
+            ekle("fark", pd.DataFrame(toplu), ["tarih", "hipodrom", "kosu", "sira", "no", "fark_txt", "fark_boy"]); n += len(toplu); toplu = []; print(t, "kaydedildi", n, flush=True)
     if toplu:
-        ekle("fark", pd.DataFrame(toplu), ["tarih", "hipodrom", "kosu", "no", "fark_txt", "fark_boy"]); n += len(toplu)
+        ekle("fark", pd.DataFrame(toplu), ["tarih", "hipodrom", "kosu", "sira", "no", "fark_txt", "fark_boy"]); n += len(toplu)
     print("farkgecmis bitti, satır:", n)
 
 
