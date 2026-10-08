@@ -14,6 +14,7 @@ def _tl(s):
     return float(str(s).replace(".", "").replace(",", "."))
 
 
+DEVIR = re.compile(r"((?:\d+\.\s*)?[A-Za-zÇĞİÖŞÜçğıöşü0-9' ]+?)\(([\d/,.]+)\)\s*:\s*Bilen çıkmamıştır,\s*([\d.,]+)\s*TL devretmiştir")
 ODEME = re.compile(r"((?:\d+\.\s*)?[A-Za-zÇĞİÖŞÜçğıöşü0-9' ]+?)\(([\d/,.]+)\)\s*:\s*([\d.]+,\d+)\s*TL")
 
 
@@ -39,6 +40,11 @@ def oku_sonuc_csv(yol):
                                "h": int(f[11]) if f[11].strip().isdigit() else np.nan, "fark_txt": fk, "fark_boy": O.fark_boy(fk)})
             continue
         if kn and ("TL" in s):
+            for x in DEVIR.finditer(s):
+                ad = x.group(1).strip(); sq = re.match(r"^(\d+)\.\s*(.*)$", ad)
+                # bu satırdaki devir tutarı İngilizce biçimde yazılmış: 104,912.44
+                odeme.append({"tarih": tarih, "hipodrom": hip, "kosu": kn, "tur": (sq.group(2) if sq else ad).upper() + " DEVİR",
+                              "seq": int(sq.group(1)) if sq else 0, "kombo": x.group(2), "tutar": float(x.group(3).replace(",", ""))})
             for x in ODEME.finditer(s):
                 ad = x.group(1).strip()
                 sq = re.match(r"^(\d+)\.\s*(.*)$", ad)
