@@ -427,6 +427,27 @@ def main():
         r = requests.get("https://www.tjk.org/robots.txt", timeout=30, headers={"User-Agent": "tjk-sistem/1.0 (kisisel arastirma)"})
         yaz_json(os.path.join(SITE, "robots_tjk.json"), {"durum": r.status_code, "metin": r.text[:6000]})
         print(r.status_code); print(r.text[:3000])
+    elif mod == "sonucbak":
+        # keşif: sonuç sayfasında ikramiye/havuz/devir bilgisi var mı? (yalnızca agftablosu)
+        from bs4 import BeautifulSoup
+        rapor = {"zaman": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "sayfalar": []}
+        for geri in (1, 2, 3):
+            t = bugun - datetime.timedelta(days=geri)
+            for h in O.TRH:
+                html = ""
+                for u in O.sonuc_urls(t, h):
+                    html = O.getir(u) or ""
+                    if html: break
+                if not html: continue
+                metin = BeautifulSoup(html, "html.parser").get_text("\n")
+                satirlar = [x.strip() for x in metin.splitlines() if x.strip()]
+                anahtar = ("altılı", "altili", "ikili", "üçlü", "ucul", "dörtlü", "sıralı", "devir", "ikramiye", "havuz", "ödül", "toplam")
+                ilgili = [x for x in satirlar if any(a in x.lower() for a in anahtar)]
+                rapor["sayfalar"].append({"tarih": t.isoformat(), "hip": h, "uzunluk": len(html), "ilgili": ilgili[:80], "bas": satirlar[:60]})
+                break
+            if len(rapor["sayfalar"]) >= 3: break
+        yaz_json(os.path.join(SITE, "probe_sonuc.json"), rapor)
+        print(json.dumps(rapor, ensure_ascii=False)[:3000])
     elif mod == "skor":
         skor()
     elif mod == "dene":
