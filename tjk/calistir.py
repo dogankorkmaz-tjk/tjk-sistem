@@ -286,14 +286,6 @@ def dene(t):
         html = O.getir(O.prog_url(t, h)) or ""
         p = O.parse_prog(html, t.isoformat(), h)
         print(f"  {h} program: {len(p)} at | saatler: {O.kosu_saatleri(html)} | bilgi örnek: {list(O.kosu_bilgileri(html).items())[:1]}")
-        import re as _re
-        from bs4 import BeautifulSoup as _BS
-        _sat = [s.strip() for s in _BS(html, "lxml").get_text("\n").split("\n") if s.strip()]
-        _ornek = []
-        for _i, _s in enumerate(_sat):
-            if _re.search(r"Koşu|KOŞU|koşu", _s) and len(_ornek) < 8:
-                _ornek.append(" || ".join(_sat[max(0, _i - 2):_i + 4])[:300])
-        rapor.setdefault("metin", {})[h] = _ornek
         rapor["detay"][h] = {"program_html": len(html), "program_at": len(p), "saatler": O.kosu_saatleri(html),
                              "bilgi": list(O.kosu_bilgileri(html).items())[:2]}
         dun = t - datetime.timedelta(days=1)
