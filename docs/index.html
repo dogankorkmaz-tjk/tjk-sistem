@@ -124,6 +124,7 @@ select,#kFiyat{font:600 14.5px var(--f-body);padding:9px 10px;border:1px solid v
 .stat b{font:700 24px/1.1 var(--f-display);letter-spacing:-.02em}
 .stat span{font-size:12.5px;color:var(--muted)}
 .verdict{padding:14px 16px;border-left:4px solid var(--muted);background:var(--surface);border-radius:12px;font-size:14px}
+td.good{color:var(--good);font-weight:600}
 .verdict.good{border-left-color:var(--good)} .verdict.bad{border-left-color:var(--bad)}
 table.t{width:100%;border-collapse:collapse;font-size:13.5px}
 table.t th{font:600 12px var(--f-body);color:var(--muted);text-align:left;padding:10px 14px;background:var(--soft)}
@@ -490,6 +491,12 @@ async function skorYukle(){
   if(S.kurallar) s+=`<h2>Dondurulmuş kurallar</h2><div class="card scroll"><table class="t"><thead><tr><th>Kural</th><th>n</th><th>Gerçek / beklenen</th><th>z</th><th>Beklenti</th></tr></thead><tbody>${S.kurallar.map(r=>`<tr><td>${esc(r.ad)}</td><td class="n">${r.n}</td><td class="n">${r.n?r.gercek+' / '+r.beklenen.toFixed(1).replace('.',','):'–'}</td><td class="n">${r.z!=null?sp(r.z,2):'–'}</td><td>${esc(r.beklenti)}</td></tr>`).join('')}</tbody></table></div>
   <div class="note">Kuralın gerçek bir etki sayılması için birkaç yüz örnekte z değerinin 2'yi geçmesi gerekir.</div>`;
   if(S.hipodrom) s+=`<h2>Hipodroma göre</h2><div class="card scroll"><table class="t"><thead><tr><th>Hipodrom</th><th>Koşu</th><th>Ortalama fark</th></tr></thead><tbody>${S.hipodrom.map(r=>`<tr><td>${esc(r.ad)}</td><td class="n">${r.n}</td><td class="n">${sp(r.fark)}</td></tr>`).join('')}</tbody></table></div>`;
+  if(S.kalibrasyon) s+=`<h2>Kalibrasyon karnesi</h2><div class="card scroll"><table class="t"><thead><tr><th>Model %</th><th>At</th><th>Model</th><th>Piyasa</th><th>Gerçek</th></tr></thead><tbody>${S.kalibrasyon.map(r=>`<tr><td>${r.aralik}</td><td class="n">${r.n}</td><td class="n">%${pct(r.model)}</td><td class="n">%${pct(r.piyasa)}</td><td class="n"><b>%${pct(r.gercek)}</b></td></tr>`).join('')}</tbody></table></div>
+  <div class="note">Model "%30" dediği atlar gerçekten yaklaşık %30 kazanıyorsa kalibre demektir. Küçük örnekte sapmalar gürültüdür.</div>`;
+  if(S.sapma) s+=`<h2>Büyük sapma alarmı</h2><div class="card scroll"><table class="t"><thead><tr><th>Grup</th><th>At</th><th>Gerçek</th><th>Model bekl.</th><th>Piyasa bekl.</th></tr></thead><tbody>${S.sapma.map(r=>`<tr><td>${esc(r.ad)}</td><td class="n">${r.n}</td><td class="n">${r.gercek}</td><td class="n">${r.model.toFixed(1).replace('.',',')}</td><td class="n">${r.piyasa.toFixed(1).replace('.',',')}</td></tr>`).join('')}</tbody></table></div>
+  <div class="note">Model ile piyasanın en çok ayrıştığı atlar. Gerçek sayı hangi beklentiye daha yakınsa o taraf haklıdır.</div>`;
+  if(S.gunluk&&S.gunluk.length) s+=`<h2>Günlük log-loss</h2><div class="card scroll"><table class="t"><thead><tr><th>Gün</th><th>Koşu</th><th>Model</th><th>Piyasa</th></tr></thead><tbody>${S.gunluk.slice().reverse().map(r=>`<tr><td>${r.t.slice(8)}.${r.t.slice(5,7)}</td><td class="n">${r.n}</td><td class="n${r.ll_model<r.ll_piyasa?' good':''}">${r.ll_model.toFixed(3).replace('.',',')}</td><td class="n">${r.ll_piyasa.toFixed(3).replace('.',',')}</td></tr>`).join('')}</tbody></table></div>
+  <div class="note">Düşük log-loss daha iyi. Modelin kazandığı günler yeşil; tek gün gürültüdür.</div>`;
   s+=`<div class="note">Model ${esc(S.freeze)} tarihinde donduruldu; bu sayfadaki her koşu modelin hiç görmediği veridir. Son hesap: ${esc(S.guncelleme)}.</div>`;
   el.innerHTML=s;
 }

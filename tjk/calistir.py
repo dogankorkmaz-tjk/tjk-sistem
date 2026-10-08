@@ -308,6 +308,31 @@ def gecmis(bas, bit):
     print("geçmiş gün yazıldı:", n)
 
 
+def skor_ek(c, kz):
+    """Kalibrasyon, günlük log-loss ve sapma grupları (c: model olasılıklı satırlar, kz: kazananlar)."""
+    ek = {}
+    kal = []
+    for lo, hi in ((0, .03), (.03, .06), (.06, .10), (.10, .15), (.15, .22), (.22, .35), (.35, 1.01)):
+        x = c[(c.p_model >= lo) & (c.p_model < hi)]
+        if len(x):
+            kal.append({"aralik": f"{int(lo*100)}–{min(100,int(round(hi*100)))}", "n": int(len(x)),
+                        "model": float(x.p_model.mean()), "piyasa": float(x.p_piyasa.mean()), "gercek": float(x.kazandi.mean())})
+    ek["kalibrasyon"] = kal
+    gun = []
+    for t, x in kz.groupby("tarih"):
+        gun.append({"t": t, "n": int(len(x)), "ll_model": float(-np.log(x.p_model).mean()), "ll_piyasa": float(-np.log(x.p_piyasa).mean())})
+    ek["gunluk"] = gun[-30:]
+    r = c.p_model / c.p_piyasa
+    grp = []
+    for ad, m in (("Model piyasadan çok yüksek (≥1,5×)", (r >= 1.5) & (c.p_model >= .05)),
+                  ("Model piyasadan çok düşük (≤0,67×)", (r <= 0.67) & (c.p_piyasa >= .05))):
+        x = c[m]
+        grp.append({"ad": ad, "n": int(len(x)), "gercek": int(x.kazandi.sum()) if len(x) else 0,
+                    "model": float(x.p_model.sum()) if len(x) else 0.0, "piyasa": float(x.p_piyasa.sum()) if len(x) else 0.0})
+    ek["sapma"] = grp
+    return ek
+
+
 def skor():
     M = yukle_model()
     freeze = M.get("freeze", "2026-10-08")
@@ -354,6 +379,7 @@ def skor():
     for h, x in kz.assign(f=fark).groupby("hipodrom"):
         hp.append({"h": h, "ad": O.AD.get(h, h), "n": int(len(x)), "fark": float(x.f.mean())})
     out["hipodrom"] = sorted(hp, key=lambda r: -r["n"])
+    out.update(skor_ek(c, kz))
     yaz_json(os.path.join(SITE, "skor.json"), out)
     print("skor:", {k: out[k] for k in ("kosu", "fark", "fark_se")})
 
