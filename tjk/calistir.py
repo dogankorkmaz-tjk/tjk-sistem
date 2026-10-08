@@ -224,6 +224,39 @@ def gece(bugun):
     skor()
 
 
+# ------------------------------------------------------------------ geçmiş günleri siteye aktar
+def gecmis(bas, bit):
+    """data/ CSV'lerinden, bas..bit arası (dahil) her gün için docs/data/gun/<gün>.json üretir."""
+    M = yukle_model()
+    d = hazirla(oku("temiz"), oku("program"), M)
+    d = d[d.temiz & (d.tarih >= bas.isoformat()) & (d.tarih <= bit.isoformat())]
+    w0 = float(M["w"][0])
+    n = 0
+    for tarih, gd in d.groupby("tarih"):
+        obj = {"tarih": tarih, "model": M.get("surum", "v1"), "w0": w0, "gecmis": True,
+               "guncelleme": "arşiv", "hipodromlar": []}
+        for h in [x for x in O.TRH if x in set(gd.hipodrom)]:
+            kos = []
+            for kn, kg in gd[gd.hipodrom == h].groupby("kosu"):
+                kg = kg[~kg.kosmadi.astype(bool)]
+                if kg.empty:
+                    continue
+                atlar = [{"no": int(r["no"]), "at": r["at"], "jokey": r["jokey"],
+                          "apr": bool(r["apranti"]), "st": bos_sayi(float(r["st"])) if pd.notna(r["st"]) else None,
+                          "z": round(float(r["z"]), 4)} for _, r in kg.iterrows()]
+                sonuc = None
+                k2 = kg[kg.ganyan.notna() & (kg.ganyan > 0)].copy()
+                if len(k2) and k2.sira.notna().sum():
+                    k2["p_model"] = model_olasilik(k2.p_piyasa.values, k2.z.values, w0)
+                    sonuc = {str(int(r["no"])): {"sira": None if pd.isna(r["sira"]) else int(r["sira"]),
+                             "g": float(r["ganyan"]), "pp": round(float(r["p_piyasa"]), 5),
+                             "pm": round(float(r["p_model"]), 5)} for _, r in k2.iterrows()}
+                kos.append({"kosu": int(kn), "saat": None, "bilgi": None, "atlar": atlar, "sonuc": sonuc})
+            obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
+        yaz_json(gun_yolu(datetime.date.fromisoformat(tarih)), obj); n += 1
+    print("geçmiş gün yazıldı:", n)
+
+
 def skor():
     M = yukle_model()
     freeze = M.get("freeze", "2026-10-08")
@@ -309,6 +342,9 @@ def main():
         canli(bugun)
     elif mod == "gece":
         gece(bugun)
+    elif mod == "gecmis":
+        bas = datetime.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else bugun - datetime.timedelta(days=45)
+        gecmis(bas, bugun - datetime.timedelta(days=1))
     elif mod == "skor":
         skor()
     elif mod == "dene":

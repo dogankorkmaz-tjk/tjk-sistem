@@ -190,7 +190,7 @@ async function gunYukle(t){
   try{
     VERI = t ? await getJSON('data/gun/'+t+'.json') : await getJSON('data/bugun.json');
     GUN = VERI.tarih;
-    $('durum').textContent = VERI.hipodromlar.length ? `Son güncelleme ${VERI.guncelleme||'?'} · sistem 20 dakikada bir sonuçları ve AGF'yi yeniler` : 'Bu gün Türkiye\'de yarış yok.';
+    $('durum').textContent = VERI.gecmis ? 'Arşiv günü: kapanış ganyanları ve sonuçlar kayıtlı. Model puanı o günkü bilgiyle hesaplandı (2026-10-08 öncesi günler modelin eğitim verisidir, canlı test sayılmaz).' : VERI.hipodromlar.length ? `Son güncelleme ${VERI.guncelleme||'?'} · sistem 20 dakikada bir sonuçları ve AGF'yi yeniler` : 'Bu gün Türkiye\'de yarış yok.';
   }catch(e){
     if(t){ VERI={tarih:t,hipodromlar:[]}; GUN=t; $('durum').textContent='Bu güne ait kayıt yok.'; }
     else { $('durum').innerHTML='<span class="warn">Veri okunamadı. Sistem ilk çalışmasını yapmamış olabilir.</span>'; VERI={tarih:trBugun(),hipodromlar:[]}; GUN=VERI.tarih; }
