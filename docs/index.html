@@ -511,6 +511,7 @@ function dosyaAdi(metin){
   if(k&&/Kronometrik/i.test(metin)) return {kl:'tjk_kron',ad:`${k[3]}-${k[2]}-${k[1]}-${sadeHip(k[4])}.html`};
   const l=metin.replace(/^\uFEFF/,'').split(/\r?\n/)[0]||''; const p=l.split(';'); const d=l.match(/(\d{2})\/(\d{2})\/(\d{4})/);
   if(!p[0]||!d) return null;
+  if(/Antrenör Adı;St;AGF;H;Son 6/.test(metin)&&!/Jokey Adı/.test(metin)) return {kl:null,ad:'kayit'};
   const sonuc=/;Ganyan;Fark/.test(metin)||/GANYAN\(\d/.test(metin);
   return {kl:sonuc?'tjk_sonuc':'tjk_csv', ad:`${d[3]}-${d[2]}-${d[1]}-${sadeHip(p[0])}.csv`};
 }
@@ -529,6 +530,7 @@ async function yukle(){
   for(const f of fl){
     try{
       const t=await metinOku(f); const ad=dosyaAdi(t);
+      if(ad&&!ad.kl){ sat.push(`✗ ${esc(f.name)}: bu bir kayıt listesi (jokey ve kesin kadro yok), program değil; yüklemene gerek yok, Günlük Yarış Programı'nı yükle`); continue; }
       if(!ad){ sat.push(`✗ ${esc(f.name)}: tanınan bir TJK dosyası gibi görünmüyor`); continue; }
       const url=`https://api.github.com/repos/${GH}/contents/data/${ad.kl}/${ad.ad}`;
       const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
