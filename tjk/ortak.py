@@ -96,6 +96,42 @@ def parse_sonuc(html, tarih, hip):
     return satirlar
 
 
+def fark_boy(s):
+    """'1 1/2 Boy' -> 1.5, 'Burun' -> 0.05, 'Baş' -> 0.1, 'Boyun' -> 0.25; çözülemezse NaN."""
+    if s is None: return np.nan
+    t = str(s).strip().lower().replace("i̇", "i")
+    if not t or t in ("nan", "-", "—"): return np.nan
+    for ad, v in (("kısa baş", .08), ("kisa bas", .08), ("burun", .05), ("baş", .1), ("bas", .1), ("boyun", .25), ("uzak", 20.0)):
+        if t.startswith(ad): return v
+    if "yarım" in t or "yarim" in t: return .5
+    top, bulundu = 0.0, False
+    for m in re.finditer(r"(\d+)\s*/\s*(\d+)|(\d+(?:[.,]\d+)?)", t):
+        bulundu = True
+        top += int(m.group(1)) / int(m.group(2)) if m.group(1) else float(m.group(3).replace(",", "."))
+    return top if bulundu else np.nan
+
+
+def parse_fark(html, tarih, hip):
+    """Sonuç sayfasındaki 'Fark' sütunu (önündeki attan bitiş farkı)."""
+    try:
+        tablolar = pd.read_html(StringIO(html), thousands=None, converters={c: str for c in ["Sıra", "No", "Atın Adı", "Fark"]})
+    except ValueError:
+        return []
+    out, kosu_no = [], 0
+    for t in tablolar:
+        t.columns = [str(c).strip() for c in t.columns]
+        if "Atın Adı" not in t.columns:
+            continue
+        kosu_no += 1
+        if "Fark" not in t.columns:
+            continue
+        for _, r in t.iterrows():
+            f = str(r.get("Fark", "")).strip()
+            out.append({"tarih": tarih, "hipodrom": hip, "kosu": kosu_no, "no": pd.to_numeric(r.get("No"), errors="coerce"),
+                        "fark_txt": "" if f == "nan" else f, "fark_boy": fark_boy(f)})
+    return out
+
+
 # ---------- program sayfası ----------
 PK = ["N", "At İsmi", "Yaş", "Orijin (Baba - Anne)", "Kilo", "Jokey", "Sahip", "Antrenör",
       "St", "HK", "Son 6 Y.", "KGS", "S20"]

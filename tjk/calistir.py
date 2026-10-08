@@ -255,6 +255,8 @@ def gece(bugun):
             if not s:
                 continue
             yeni_s += s
+            fk = O.parse_fark(html, g.isoformat(), h)
+            if fk: ekle("fark", pd.DataFrame(fk), ["tarih", "hipodrom", "kosu", "no", "fark_txt", "fark_boy"])
             yeni_p += O.parse_prog(O.getir(O.prog_url(g, h)) or "", g.isoformat(), h)
             print(" ", g, h, len(s), "satır")
         # o günün sitedeki kaydına eksik sonuçları ekle
@@ -276,6 +278,29 @@ def gece(bugun):
 
 
 # ------------------------------------------------------------------ geçmiş günleri siteye aktar
+def farkgecmis(bas, bit):
+    """Geçmiş sonuç sayfalarından yalnızca bitiş farkını (data/fark) doldurur; zaten kayıtlı gün-hipodromları atlar."""
+    sn = oku("sonuclar")[["tarih", "hipodrom"]].drop_duplicates()
+    sn = sn[(sn.tarih >= bas.isoformat()) & (sn.tarih <= bit.isoformat())].sort_values(["tarih", "hipodrom"])
+    try:
+        f0 = oku("fark")[["tarih", "hipodrom"]].drop_duplicates(); var = set(zip(f0.tarih, f0.hipodrom))
+    except Exception:
+        var = set()
+    n, toplu = 0, []
+    for t, h in zip(sn.tarih, sn.hipodrom):
+        if (t, h) in var: continue
+        html = ""
+        for u in O.sonuc_urls(datetime.date.fromisoformat(t), h):
+            html = O.getir(u)
+            if html: break
+        if html: toplu += O.parse_fark(html, t, h)
+        if len(toplu) >= 600:
+            ekle("fark", pd.DataFrame(toplu), ["tarih", "hipodrom", "kosu", "no", "fark_txt", "fark_boy"]); n += len(toplu); toplu = []; print(t, "kaydedildi", n, flush=True)
+    if toplu:
+        ekle("fark", pd.DataFrame(toplu), ["tarih", "hipodrom", "kosu", "no", "fark_txt", "fark_boy"]); n += len(toplu)
+    print("farkgecmis bitti, satır:", n)
+
+
 def gecmis(bas, bit):
     """data/ CSV'lerinden, bas..bit arası (dahil) her gün için docs/data/gun/<gün>.json üretir."""
     M = yukle_model()
@@ -412,6 +437,8 @@ def dene(t):
 
 def main():
     mod = sys.argv[1] if len(sys.argv) > 1 else "canli"
+    arg = []
+    if ":" in mod: mod, *arg = mod.split(":")
     simdi = O.tr_simdi(); bugun = simdi.date()
     if mod == "sabah":
         sabah(bugun)
@@ -448,6 +475,8 @@ def main():
             if len(rapor["sayfalar"]) >= 3: break
         yaz_json(os.path.join(SITE, "probe_sonuc.json"), rapor)
         print(json.dumps(rapor, ensure_ascii=False)[:3000])
+    elif mod == "farkgecmis":
+        farkgecmis(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
     elif mod == "skor":
         skor()
     elif mod == "dene":
