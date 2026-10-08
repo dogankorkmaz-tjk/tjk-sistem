@@ -387,6 +387,15 @@ function renderKombo(out){
     el.innerHTML=out?komboHtml(kombolar(out)[id],cur.k.atlar):'<div class="empty">Piyasa verisi gelince çıkar.</div>';});
 }
 
+// k ayaktan en az/tam n tanesini tutma olasılığı (bağımsız ayaklar)
+function tamDag(P){let d=[1];P.forEach(p=>{const y=new Array(d.length+1).fill(0);d.forEach((v,j)=>{y[j]+=v*(1-p);y[j+1]+=v*p});d=y});return d}
+function dagilim(SM,SP){
+  const n=SM.length; if(n<2) return '';
+  const a=tamDag(SM), b=tamDag(SP), r=[];
+  for(let k=n;k>=Math.max(1,n-2);k--) r.push(`<div><b>%${pct(a[k])}</b><span>${k}/${n} tutma (piyasa %${pct(b[k])})</span></div>`);
+  const oran=b[n]>0?a[n]/b[n]:0;
+  return `<div class="card stat">${r.join('')}<div><b>${oran.toFixed(2)}×</b><span>değer oranı (model/piyasa, tam tutma)</span></div></div>`;
+}
 // ---------- kupon ----------
 function renderKupon(){
   const h=hipBul(sel.hip); if(!h){$('kupon').innerHTML='';return}
@@ -397,7 +406,7 @@ function renderKupon(){
   const opt=v=>ks.map(k=>`<option value="${k}"${k===v?' selected':''}>${k}. koşu</option>`).join('');
   $('kBas').innerHTML=opt(KUP.bas); $('kSon').innerHTML=opt(KUP.son);
   $('kSur').checked=!!KUP.sur; if($('kFiyat')!==document.activeElement) $('kFiyat').value=KUP.fiyat||'';
-  let s='<div class="card">',combos=1,pm=1,pp=1,tam=true;
+  let s='<div class="card">',combos=1,pm=1,pp=1,tam=true; const SM=[],SP=[];
   h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{
     const out=hesapla(h,k); const kk=KUP.k[h.id+'|'+k.kosu]||2;
     if(!out){tam=false; s+=`<div class="leg"><div class="hd">${k.kosu}. koşu</div><div class="note">Bu koşuda henüz piyasa verisi yok.</div></div>`; return}
@@ -405,7 +414,7 @@ function renderKupon(){
     const pick=idx.slice(0,Math.min(kk,idx.length)), extra=[];
     if(KUP.sur){ const rest=idx.filter(i=>!pick.includes(i)&&out.map[i].pm>=0.03&&out.map[i].pm/out.map[i].pp>=1.10).sort((a,b)=>out.map[b].pm/out.map[b].pp-out.map[a].pm/out.map[a].pp); if(rest.length) extra.push(rest[0]); }
     const all=pick.concat(extra), sp=all.reduce((x,i)=>x+out.map[i].pm,0), spp=all.reduce((x,i)=>x+out.map[i].pp,0);
-    combos*=all.length; pm*=sp; pp*=spp;
+    combos*=all.length; pm*=sp; pp*=spp; SM.push(sp); SP.push(spp);
     const kaz=k.sonuc&&Object.entries(k.sonuc).find(([n,v])=>v.sira===1);
     const tuttu=kaz?all.some(i=>String(k.atlar[i].no)===kaz[0]):null;
     s+=`<div class="leg"><div class="hd"><span>${k.kosu}. koşu <span class="note">model ${pct(sp)}% · piyasa ${pct(spp)}%${kaz?` · kazanan ${kaz[0]} ${tuttu?'✓':'✗'}`:''}</span></span>
@@ -416,6 +425,7 @@ function renderKupon(){
   if(tam){
     const fm=parseFloat(String(KUP.fiyat||'').replace(',','.'));
     s+=`<div class="card stat"><div><b>${combos}</b><span>kombinasyon</span></div><div><b>%${pct(pm)}</b><span>modele göre tutma</span></div><div><b>%${pct(pp)}</b><span>piyasaya göre tutma</span></div><div><b>~${Math.max(1,Math.round(1/pm))}</b><span>kuponda 1 tutar (model)</span></div>${fm>0?`<div><b>${f2(combos*fm)} TL</b><span>toplam tutar</span></div>`:''}</div>
+    ${dagilim(SM,SP)}
     <div class="note">Ödeme havuza göre belirlenir, burada hesaplanmaz. Bu bir test aracıdır.</div>`;
   }
   $('kupon').innerHTML=s;
