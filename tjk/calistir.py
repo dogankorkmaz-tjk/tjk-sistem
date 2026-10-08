@@ -5,6 +5,7 @@ gece : dünün (ve eksik günlerin) sonuçlarını geçmişe ekler, canlı test 
 import os, sys, json, glob, datetime
 import numpy as np, pandas as pd
 from . import ortak as O
+from . import csvprog as C
 from .ozellik import hazirla, model_olasilik
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -98,6 +99,7 @@ def sabah(t):
                         "bilgi": programlar[h]["bilgi"].get(int(kn)), "atlar": atlar})
         obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
     agf_ekle(obj)
+    csv_uygula(obj)
     if os.path.exists(gun_yolu(t)):                       # gün içinde yeniden çalışırsa eldeki sonuçlar kalsın
         eski = json.load(open(gun_yolu(t), encoding="utf-8"))
         es = {(h["id"], k["kosu"]): k.get("sonuc") for h in eski["hipodromlar"] for k in h["kosular"]}
@@ -109,6 +111,26 @@ def sabah(t):
     yaz_json(os.path.join(SITE, "bugun.json"), obj)
     print("yazıldı:", {h["id"]: len(h["kosular"]) for h in obj["hipodromlar"]})
     return obj
+
+
+def csv_uygula(obj):
+    """data/tjk_csv/ içindeki o güne ait TJK CSV'lerinden saat, cins, mesafe, pist, ikramiyeyi koşulara işler ve eğitim verisi için biriktirir."""
+    veri = C.gunun(obj["tarih"])
+    n = 0
+    for h in obj["hipodromlar"]:
+        if h["id"] not in veri:
+            continue
+        kosular, atlar, ekur = veri[h["id"]]
+        for k in h["kosular"]:
+            b = kosular.get(k["kosu"])
+            if not b:
+                continue
+            k["saat"] = b["saat"]; k["bilgi"] = C.bilgi_metni(b)
+            k["mesafe"] = b["mesafe"]; k["pist"] = b["pist"]; k["cins"] = b["cins"]; k["ikramiye"] = b["ikramiye1"]
+            n += 1
+        C.kaydet(obj["tarih"], h["id"], kosular, atlar, VERI)
+    if n:
+        print("TJK CSV'den koşu bilgisi işlendi:", n, "koşu")
 
 
 def agf_ekle(obj):
@@ -182,6 +204,7 @@ def canli(t):
     son = max((k.get("saat") or "23:59") for h in obj["hipodromlar"] for k in h["kosular"])
     if O.tr_simdi().strftime("%H:%M") < son:
         agf_ekle(obj)
+    csv_uygula(obj)
     n = sonuclari_isle(obj, t)
     print("yeni sonuçlanan koşu:", n)
     yaz_json(yol, obj); yaz_json(os.path.join(SITE, "bugun.json"), obj)

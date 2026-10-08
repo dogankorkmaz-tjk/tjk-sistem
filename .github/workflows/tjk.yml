@@ -6,6 +6,8 @@ on:
     - cron: "15 6 * * *"         # 09:15 TR  sabah: bugünün programı + model + AGF
     - cron: "40 9 * * *"         # 12:40 TR  sabah tekrarı (son program/AGF)
     - cron: "*/20 10-21 * * *"   # 13:00-00:59 TR, 20 dakikada bir: AGF + biten koşuların sonuçları
+  push:
+    paths: ["data/tjk_csv/**"]   # CSV yüklenince koşu bilgisi hemen işlenir
   workflow_dispatch:
     inputs:
       mod:
@@ -35,7 +37,7 @@ jobs:
           case "${{ github.event.schedule }}" in
             "30 0 * * *") MOD=gece ;;
             "15 6 * * *"|"40 9 * * *") MOD=sabah ;;
-            "") MOD="${{ inputs.mod }}" ;;
+            "") if [ "${{ github.event_name }}" = "push" ]; then MOD=canli; else MOD="${{ inputs.mod }}"; fi ;;
             *) MOD=canli ;;
           esac
           echo "mod: $MOD"
