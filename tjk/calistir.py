@@ -479,6 +479,19 @@ def main():
         print(json.dumps(rapor, ensure_ascii=False)[:3000])
     elif mod == "farkgecmis":
         farkgecmis(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
+    elif mod == "muhtemelbak":
+        import re as _re
+        from bs4 import BeautifulSoup
+        ana = O.getir(O.BASE) or ""
+        linkler = sorted(set(_re.findall(r'href="([^"]*muhtemel[^"]*)"', ana, flags=_re.I)))
+        rapor = {"zaman": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "linkler": linkler, "sayfalar": []}
+        for l in linkler[:3]:
+            u = l if l.startswith("http") else O.BASE + (l if l.startswith("/") else "/" + l)
+            h = O.getir(u) or ""
+            satir = [x.strip() for x in BeautifulSoup(h, "html.parser").get_text("\n").splitlines() if x.strip()]
+            rapor["sayfalar"].append({"url": u, "uzunluk": len(h), "satir": satir[:120]})
+        yaz_json(os.path.join(SITE, "probe_muhtemel.json"), rapor)
+        print(json.dumps(rapor, ensure_ascii=False)[:2500])
     elif mod == "skor":
         skor()
     elif mod == "dene":
