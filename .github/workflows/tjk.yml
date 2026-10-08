@@ -15,7 +15,7 @@ on:
         default: "dene"
 
 concurrency:
-  group: tjk
+  group: tjk-${{ startsWith(inputs.mod, 'farkgecmis') && 'fark' || 'ana' }}
   cancel-in-progress: false
 
 permissions:
@@ -24,7 +24,7 @@ permissions:
 jobs:
   calis:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 200
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

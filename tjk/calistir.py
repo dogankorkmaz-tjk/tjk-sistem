@@ -286,9 +286,11 @@ def farkgecmis(bas, bit):
         f0 = oku("fark")[["tarih", "hipodrom"]].drop_duplicates(); var = set(zip(f0.tarih, f0.hipodrom))
     except Exception:
         var = set()
-    n, toplu = 0, []
+    import time
+    t0 = time.time(); n, toplu = 0, []
     for t, h in zip(sn.tarih, sn.hipodrom):
         if (t, h) in var: continue
+        if time.time() - t0 > 150 * 60: print("süre sınırı, kaldığı yerden yeniden çalıştırın"); break
         html = ""
         for u in O.sonuc_urls(datetime.date.fromisoformat(t), h):
             html = O.getir(u)
