@@ -345,6 +345,11 @@ def main():
     elif mod == "gecmis":
         bas = datetime.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else bugun - datetime.timedelta(days=45)
         gecmis(bas, bugun - datetime.timedelta(days=1))
+    elif mod == "robots":
+        import requests
+        r = requests.get("https://www.tjk.org/robots.txt", timeout=30, headers={"User-Agent": "tjk-sistem/1.0 (kisisel arastirma)"})
+        yaz_json(os.path.join(SITE, "robots_tjk.json"), {"durum": r.status_code, "metin": r.text[:6000]})
+        print(r.status_code); print(r.text[:3000])
     elif mod == "skor":
         skor()
     elif mod == "dene":
