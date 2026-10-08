@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1f5c45">
+<title>Ganyan Masası</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Barlow:wght@400;500&display=swap">
+<style>
+/* Düzen: tek sütun. Üstte gün ve sekmeler, hipodrom/koşu seçici; ortada koşu kartı; altta kupon. Skor sekmesi canlı testi gösterir. Çim yeşili tek vurgu. */
+:root{
+  --bg:#f1f3ed; --surface:#ffffff; --fg:#1b2420; --muted:#5b685f; --line:#d8ddd2;
+  --accent:#1f5c45; --accent-fg:#ffffff; --good:#0b7a3e; --good-bg:#e1f2e6; --hot:#a4480a; --hot-bg:#fbeadb; --bad:#a3302a; --bad-bg:#f8e3e1;
+  --f-display:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#111713; --surface:#1a221d; --fg:#e5ebe4; --muted:#93a198; --line:#2b362f;
+  --accent:#62c196; --accent-fg:#0c1a13; --good:#6fd596; --good-bg:#17301f; --hot:#f0a266; --hot-bg:#3a2713; --bad:#f08a82; --bad-bg:#3a1c1a; color-scheme:dark}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.4;padding-inline:16px;padding-block:calc(12px + env(safe-area-inset-top,0px)) calc(40px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+h1{font:700 26px/1 var(--f-display);letter-spacing:.01em;margin:0}
+h2{font:600 13px/1 var(--f-display);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:8px 12px;flex-wrap:wrap}
+.sub,.note{color:var(--muted);font-size:13px}
+.note{font-size:12px}
+.warn{background:var(--hot-bg);color:var(--hot);padding:8px 10px;border-radius:4px;font-size:13px}
+button{font:600 14px var(--f-display);letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:9px 12px;border-radius:4px;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tabs{display:flex;gap:6px}
+.tabs button[aria-selected="true"],.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.daynav{display:flex;gap:6px;align-items:center}
+.daynav button{padding:6px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{min-width:44px;padding:8px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1px}
+.chip small{font:500 11px var(--f-mono);text-transform:none;letter-spacing:0;opacity:.8}
+.chip.bitti{border-style:dashed}
+.sec{display:flex;flex-direction:column;gap:8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.kbas{padding:10px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--line)}
+.kbas b{font:700 18px var(--f-display)}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font:600 11px var(--f-display);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--line);color:var(--muted)}
+.pill.on{background:var(--good-bg);color:var(--good);border-color:transparent}
+.pill.hot{background:var(--hot-bg);color:var(--hot);border-color:transparent}
+.row{display:grid;grid-template-columns:26px minmax(0,1fr) 70px 52px 46px;gap:6px;align-items:center;padding:8px 10px;border-top:1px solid var(--line)}
+.row.head{font:600 11px var(--f-display);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding-block:7px;border-top:0}
+.no{font:600 15px var(--f-mono);color:var(--muted)}
+.nm{min-width:0}
+.nm b{display:block;font:600 15px var(--f-display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nm span{display:block;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.num{font:500 14px var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+input.oran{width:100%;font:500 15px var(--f-mono);text-align:right;padding:8px 6px;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:4px}
+input.oran::placeholder{color:var(--muted);opacity:.7}
+.sub2{grid-column:2 / -1;display:flex;gap:4px 12px;flex-wrap:wrap;font:400 12px var(--f-mono);color:var(--muted)}
+.tag{padding:1px 6px;border-radius:3px;font:600 11px var(--f-display);text-transform:uppercase;letter-spacing:.06em}
+.tag.ev{background:var(--good-bg);color:var(--good)}
+.tag.sur{background:var(--hot-bg);color:var(--hot)}
+.tag.dus{color:var(--bad);border:1px solid var(--line)}
+.tag.sira{background:var(--accent);color:var(--accent-fg)}
+.row.kazanan{background:var(--good-bg)}
+.rank{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:10px}
+.rk{display:flex;gap:6px;align-items:baseline;padding:4px 8px;border:1px solid var(--line);border-radius:4px;font:500 13px var(--f-mono)}
+.rk b{font:700 15px var(--f-display)}
+.rk.sur{border-color:var(--hot);color:var(--hot)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+details.kb{background:var(--surface);border:1px solid var(--line);border-radius:6px}
+details summary{cursor:pointer;font:600 13px var(--f-display);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:10px}
+.cr{display:grid;grid-template-columns:minmax(0,1fr) 54px 54px 48px;gap:6px;padding:7px 10px;border-top:1px solid var(--line);align-items:center;font-size:13px}
+.cr.hd{font:600 11px var(--f-display);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.cr b{font:600 14px var(--f-mono)} .cr small{color:var(--muted);font-size:12px;margin-left:6px}
+.num.hi{color:var(--hot);font-weight:600}
+.kf label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted)}
+.kf label.ck{flex-direction:row;align-items:center;gap:6px;color:var(--fg);font-size:14px;padding-bottom:9px}
+select,#kFiyat{font:500 14px var(--f-mono);padding:8px 6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:4px}
+#kFiyat{width:120px}
+.leg{padding:10px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.leg:first-child{border-top:0}
+.leg .hd{display:flex;justify-content:space-between;align-items:center;gap:8px;font:600 15px var(--f-display)}
+.leg .hd label{font:400 12px var(--f-body);color:var(--muted);display:flex;gap:6px;align-items:center}
+.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px 16px;padding:12px}
+.stat div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.stat b{font:600 20px var(--f-mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--muted)}
+.verdict{padding:12px;border-left:4px solid var(--muted);background:var(--surface);border-radius:4px;font-size:14px}
+.verdict.good{border-left-color:var(--good)} .verdict.bad{border-left-color:var(--bad)}
+table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t th{font:600 11px var(--f-display);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+table.t td{padding:7px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+table.t td.n{text-align:right;font-family:var(--f-mono)}
+.scroll{overflow-x:auto}
+.empty{padding:14px 10px;color:var(--muted);font-size:14px}
+svg text{fill:var(--muted);font:11px var(--f-mono)}
+@media (max-width:380px){.row{grid-template-columns:22px minmax(0,1fr) 62px 48px 42px;gap:4px;padding-inline:8px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>Ganyan Masası</h1>
+    <div class="daynav"><button id="gGeri" aria-label="Önceki gün">◀</button><span class="sub" id="gun"></span><button id="gIleri" aria-label="Sonraki gün">▶</button></div>
+  </div>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tabBugun" aria-selected="true">Yarışlar</button>
+    <button role="tab" id="tabSkor" aria-selected="false">Canlı test</button>
+  </div>
+  <div id="durum" class="note"></div>
+
+  <section id="bugun" class="sec">
+    <div class="chips" id="hipChips"></div>
+    <div class="chips" id="kosuChips"></div>
+    <div class="sec" id="kosuAlani"></div>
+    <div class="sec">
+      <h2>Kupon</h2>
+      <div class="actions kf">
+        <label>İlk ayak <select id="kBas"></select></label>
+        <label>Son ayak <select id="kSon"></select></label>
+        <label>Birim fiyat (TL) <input id="kFiyat" inputmode="decimal" placeholder="isteğe bağlı"></label>
+        <label class="ck"><input type="checkbox" id="kSur"> Sürpriz at ekle</label>
+      </div>
+      <div id="kupon"></div>
+    </div>
+    <div class="sec">
+      <h2>Günün özeti</h2>
+      <div id="ozet"></div>
+    </div>
+  </section>
+
+  <section id="skor" class="sec" hidden></section>
+</div>
+
+<script>
+// ---------- hesap çekirdeği ----------
+function piyasa(g){
+  const ham=g.map(x=>1/x); let toplam=ham.reduce((a,b)=>a+b,0); const grp=g.map(()=>-1);
+  if(toplam>1.5){
+    const uniq=[...new Set(g)].sort((a,b)=>a-b);
+    for(const o of uniq){
+      const idx=[]; g.forEach((x,i)=>{ if(x===o) idx.push(i); });
+      const n=idx.length; let r=0;
+      while(n-r>1 && toplam>1.5){ toplam-=1/o; r++; }
+      if(r){ idx.forEach(i=>{ ham[i]=(n-r)/n/o; grp[i]=o; }); }
+      if(toplam<=1.5) break;
+    }
+  }
+  const s=ham.reduce((a,b)=>a+b,0); const out=ham.map(x=>x/s); out.grp=grp; return out;
+}
+function modelP(pp,z,w0){
+  const s=pp.map((p,i)=>w0*Math.log(Math.max(p,1e-6))+z[i]); const m=Math.max(...s);
+  const e=s.map(x=>Math.exp(x-m)); const t=e.reduce((a,b)=>a+b,0); return e.map(x=>x/t);
+}
+function harville(p){
+  const n=p.length, k=Math.min(3,n); const top=Array.from({length:n},()=>[0,0,0]);
+  function rec(sira,kalan,prob){
+    if(sira===k) return;
+    let t=0; kalan.forEach(j=>t+=p[j]);
+    kalan.forEach(i=>{ const q=prob*p[i]/t; for(let r=sira;r<k;r++) top[i][r]+=q; rec(sira+1,kalan.filter(j=>j!==i),q); });
+  }
+  if(n<=20) rec(0,p.map((_,i)=>i),1);
+  else { const ord=p.map((v,i)=>i).sort((a,b)=>p[b]-p[a]); const ust=ord.slice(0,20); const h=harville(ust.map(i=>p[i]));
+    ord.forEach(i=>{ const j=ust.indexOf(i); top[i]= j>=0?[0,h[j][0],h[j][1]]:[0,Math.min(1,2*p[i]),Math.min(1,3*p[i])]; }); return top.map(a=>[a[1],a[2]]); }
+  return top.map(a=>[a[1], a[Math.min(2,k-1)]]);
+}
+// ---------- yardımcılar ----------
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function ld(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+const pct=x=>(x*100).toFixed(1).replace('.',',');
+const f2=x=>x.toFixed(2).replace('.',',');
+const parseOran=t=>{const v=parseFloat(String(t??'').replace(',','.'));return v>=1.01?v:NaN};
+const trBugun=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Istanbul'});
+const gunYaz=t=>{try{return new Date(t+'T12:00:00').toLocaleDateString('tr-TR',{day:'numeric',month:'long',weekday:'long'})}catch(e){return t}};
+
+let GUN=null, VERI=null, SKOR=null;
+let ODDS=ld('gm2_odds',{}), sel=ld('gm2_sel',{hip:null,kosu:null}), KUP=ld('gm2_kupon',{bas:null,son:null,k:{},sur:false,fiyat:''});
+let cur=null, curOut=null;
+
+async function getJSON(u){const r=await fetch(u+(u.includes('?')?'&':'?')+'v='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(r.status); return r.json();}
+
+// ---------- veri yükleme ----------
+async function gunYukle(t){
+  $('durum').textContent='Yükleniyor…';
+  try{
+    VERI = t ? await getJSON('data/gun/'+t+'.json') : await getJSON('data/bugun.json');
+    GUN = VERI.tarih;
+    $('durum').textContent = VERI.hipodromlar.length ? `Son güncelleme ${VERI.guncelleme||'?'} · sistem 20 dakikada bir sonuçları ve AGF'yi yeniler` : 'Bu gün Türkiye\'de yarış yok.';
+  }catch(e){
+    if(t){ VERI={tarih:t,hipodromlar:[]}; GUN=t; $('durum').textContent='Bu güne ait kayıt yok.'; }
+    else { $('durum').innerHTML='<span class="warn">Veri okunamadı. Sistem ilk çalışmasını yapmamış olabilir.</span>'; VERI={tarih:trBugun(),hipodromlar:[]}; GUN=VERI.tarih; }
+  }
+  $('gun').textContent=gunYaz(GUN);
+  $('gIleri').disabled = GUN>=trBugun();
+  renderSecim(); renderOzet();
+}
+function gunKaydir(n){ const d=new Date(GUN+'T12:00:00'); d.setDate(d.getDate()+n); const t=d.toISOString().slice(0,10); gunYukle(t===trBugun()?null:t); }
+$('gGeri').onclick=()=>gunKaydir(-1); $('gIleri').onclick=()=>gunKaydir(1);
+
+// ---------- seçim ----------
+const hipler=()=>VERI.hipodromlar;
+const hipBul=id=>hipler().find(h=>h.id===id);
+function renderSecim(){
+  const hs=hipler();
+  if(!hs.length){ $('hipChips').innerHTML=''; $('kosuChips').innerHTML=''; $('kosuAlani').innerHTML='<div class="card empty">Gösterilecek koşu yok.</div>'; $('kupon').innerHTML=''; return; }
+  if(!hipBul(sel.hip)) sel.hip=hs[0].id;
+  const h=hipBul(sel.hip);
+  if(!h.kosular.some(k=>k.kosu===sel.kosu)){
+    const simdi=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'});
+    const sira=h.kosular.find(k=>!k.sonuc && (!k.saat || k.saat>=simdi)) || h.kosular.find(k=>!k.sonuc) || h.kosular[0];
+    sel.kosu=sira.kosu;
+  }
+  $('hipChips').innerHTML=hs.map(x=>`<button class="chip" aria-pressed="${x.id===sel.hip}" data-h="${esc(x.id)}">${esc(x.ad)}<small>${x.kosular.filter(k=>k.sonuc).length}/${x.kosular.length}</small></button>`).join('');
+  $('kosuChips').innerHTML=h.kosular.map(k=>`<button class="chip${k.sonuc?' bitti':''}" aria-pressed="${k.kosu===sel.kosu}" data-k="${k.kosu}" title="${k.sonuc?'Sonuçlandı':''}">${k.kosu}<small>${esc(k.saat||'')}${k.sonuc?' ✓':''}</small></button>`).join('');
+  sv('gm2_sel',sel); renderKosu();
+}
+$('hipChips').onclick=e=>{const b=e.target.closest('button');if(!b)return;sel.hip=b.dataset.h;sel.kosu=null;renderSecim()};
+$('kosuChips').onclick=e=>{const b=e.target.closest('button');if(!b)return;sel.kosu=+b.dataset.k;renderSecim()};
+
+// ---------- bir koşunun hesabı ----------
+const okey=(h,k)=>GUN+'|'+h+'|'+k;
+function hesapla(h,k,kaynakZorla){
+  // kaynak önceliği: senin oranın > kapanış ganyanı (koşu bittiyse) > AGF
+  const atlar=k.atlar, o=ODDS[okey(h.id,k.kosu)]||{}, w0=VERI.w0??1;
+  const elle=atlar.map(a=>parseOran(o[a.no]));
+  const elleSay=elle.filter(x=>!isNaN(x)).length;
+  let kaynak=null, idx=[], g=[], pp=null;
+  if(kaynakZorla!=='agf' && elleSay>=2){ kaynak='elle'; atlar.forEach((a,i)=>{ if(!isNaN(elle[i])){idx.push(i);g.push(elle[i]);} }); pp=piyasa(g); }
+  else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
+  else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ idx.push(i); g.push(NaN); }); const ham=atlar.map(a=>Math.max(a.agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
+  if(!pp||idx.length<2) return null;
+  const z=idx.map(i=>atlar[i].z||0), pm=modelP(pp,z,w0), hm=harville(pm), hp=harville(pp);
+  const out={kaynak,map:{}};
+  idx.forEach((i,j)=>{
+    let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
+    out.map[i]={pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2p:hp[j][0],i3p:hp[j][1]};
+  });
+  return out;
+}
+const KAYNAK={elle:['Senin girdiğin oranlar','on'],kapanis:['Kapanış ganyanları','on'],agf:['AGF (altılı oynanma yüzdesi)','hot']};
+
+function renderKosu(){
+  const h=hipBul(sel.hip), k=h&&h.kosular.find(x=>x.kosu===sel.kosu); cur={h,k}; if(!k){$('kosuAlani').innerHTML='';return}
+  const o=ODDS[okey(h.id,k.kosu)]||{};
+  const bitti=!!k.sonuc;
+  let s=`<div class="card"><div class="kbas"><div><b>${esc(h.ad)} ${k.kosu}. koşu</b> <span class="sub">${esc(k.saat||'')}</span></div>
+    ${k.bilgi?`<div class="note">${esc(k.bilgi)}</div>`:''}
+    <div id="kaynak"></div></div>
+    <div class="rank" id="rank"></div>
+    <div class="row head"><span>No</span><span>At</span><span style="text-align:right">Ganyan</span><span style="text-align:right">Model</span><span style="text-align:right">EV</span></div>`;
+  k.atlar.forEach((a,i)=>{
+    const sn=bitti&&k.sonuc[a.no]; const ph=sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
+    s+=`<div class="row${sn&&sn.sira===1?' kazanan':''}" id="r${i}"><span class="no">${a.no}</span><div class="nm"><b>${esc(a.at)}</b><span>${esc(a.jokey||'')}${a.st?' · st '+a.st:''}</span></div>
+      <input class="oran" id="o${i}" data-i="${i}" inputmode="decimal" autocomplete="off" placeholder="${esc(ph)}" value="${esc(o[a.no]||'')}" aria-label="${esc(a.at)} ganyan">
+      <span class="num" id="m${i}">–</span><span class="num" id="e${i}">–</span><div class="sub2" id="s${i}"></div></div>`;
+  });
+  s+=`</div>
+  <div class="actions"><button id="oranSil">Girdiğim oranları sil</button></div>
+  <div class="note">Oranları boş bırakırsan sistem AGF'yi, koşu bitince kapanış ganyanlarını kullanır. Ekranda gördüğün güncel ganyanı yazarsan hesap ona göre yapılır. Ekürlü atlara ekranda yazan oranı aynen gir.</div>
+  <details class="kb"><summary>Sıralı ikili (1. ve 2. sırayla)</summary><div id="kb_ik"></div></details>
+  <details class="kb"><summary>İkili (ilk iki, sırasız)</summary><div id="kb_ik0"></div></details>
+  <details class="kb"><summary>Sıralı üçlü (1-2-3 sırayla)</summary><div id="kb_uc"></div></details>`;
+  $('kosuAlani').innerHTML=s;
+  $('kosuAlani').querySelectorAll('input.oran').forEach(inp=>inp.oninput=()=>{
+    const key=okey(h.id,k.kosu), m=ODDS[key]=ODDS[key]||{}; const no=k.atlar[+inp.dataset.i].no;
+    if(inp.value.trim()) m[no]=inp.value; else delete m[no];
+    if(!Object.keys(m).length) delete ODDS[key];
+    sv('gm2_odds',ODDS); hesapGoster();
+  });
+  $('oranSil').onclick=()=>{delete ODDS[okey(h.id,k.kosu)];sv('gm2_odds',ODDS);renderKosu()};
+  hesapGoster();
+}
+function hesapGoster(){
+  const {h,k}=cur; const out=hesapla(h,k); curOut=out;
+  $('kaynak').innerHTML=out?`<span class="pill ${KAYNAK[out.kaynak][1]}">Piyasa: ${KAYNAK[out.kaynak][0]}${out.kaynak==='agf'&&k.agf_saat?' · '+esc(k.agf_saat):''}</span>${out.kaynak==='agf'?' <span class="note">AGF ganyan oranı değildir; EV hesaplanmaz. Güncel ganyanı girersen EV çıkar.</span>':''}`:'<span class="pill">Piyasa verisi yok</span> <span class="note">Ganyanları girince model çalışır.</span>';
+  const sira=[];
+  k.atlar.forEach((a,i)=>{
+    const x=out&&out.map[i]; const sn=k.sonuc&&k.sonuc[a.no];
+    $('m'+i).textContent=x?pct(x.pm)+'%':'–';
+    const ev=$('e'+i); ev.textContent=x&&x.ev!=null?f2(x.ev):'–'; ev.style.color=x&&x.ev>=1?'var(--good)':'';
+    let t='';
+    if(sn&&sn.sira) t+=`<span class="tag sira">${sn.sira}.</span>`;
+    if(x){
+      sira.push(i);
+      const f3=x.i3m/x.i3p;
+      t+=`<span>piyasa ${pct(x.pp)}%</span><span>ilk2 ${pct(x.i2m)}%</span><span>ilk3 ${pct(x.i3m)}%</span>`;
+      if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
+      if(x.ekuri) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre</span>';
+      if(x.ev!=null&&x.ev>=1) t+='<span class="tag ev">EV 1 üstü</span>';
+      if(f3>=1.15) t+=`<span class="tag sur">ilk3 sürpriz +%${Math.round((f3-1)*100)}</span>`;
+      else if(f3<=0.85) t+=`<span class="tag dus">ilk3 −%${Math.round((1-f3)*100)}</span>`;
+    }
+    $('s'+i).innerHTML=t;
+  });
+  sira.sort((a,b)=>out.map[b].pm-out.map[a].pm);
+  $('rank').innerHTML=out?sira.map(i=>`<span class="rk"><b>${k.atlar[i].no}</b>${pct(out.map[i].pm)}%</span>`).join(''):'<span class="note">Model sıralaması piyasa verisi gelince çıkar.</span>';
+  renderKombo(out); renderKupon();
+}
+
+// ---------- kombinasyonlar ----------
+function kombolar(out){
+  const idx=Object.keys(out.map).map(Number); const P=i=>out.map[i].pm, Q=i=>out.map[i].pp;
+  const ik=[],ik0=new Map(),uc=[];
+  idx.forEach(i=>idx.forEach(j=>{ if(i===j)return;
+    const m=P(i)*P(j)/(1-P(i)), q=Q(i)*Q(j)/(1-Q(i)); ik.push({k:[i,j],m,q});
+    const key=Math.min(i,j)+'|'+Math.max(i,j); const e=ik0.get(key)||{k:[Math.min(i,j),Math.max(i,j)],m:0,q:0}; e.m+=m; e.q+=q; ik0.set(key,e);
+    idx.forEach(l=>{ if(l===i||l===j)return; uc.push({k:[i,j,l],m:m*P(l)/(1-P(i)-P(j)),q:q*Q(l)/(1-Q(i)-Q(j))}); }); }));
+  const srt=(x,n)=>x.sort((u,v)=>v.m-u.m).slice(0,n);
+  return {ik:srt(ik,8),ik0:srt([...ik0.values()],8),uc:srt(uc,10)};
+}
+function komboHtml(list,atlar){
+  let h='<div class="cr hd"><span>Kombinasyon</span><span style="text-align:right">Model</span><span style="text-align:right">Piyasa</span><span style="text-align:right">Fark</span></div>';
+  list.forEach(c=>{const f=c.m/c.q;
+    h+=`<div class="cr"><span><b>${c.k.map(i=>atlar[i].no).join('-')}</b><small>${esc(c.k.map(i=>String(atlar[i].at).split(' ')[0]).join(' · '))}</small></span>
+    <span class="num">${pct(c.m)}%</span><span class="num">${pct(c.q)}%</span><span class="num${f>=1.25?' hi':''}">${f>=1?'+':''}${Math.round((f-1)*100)}%</span></div>`});
+  return h;
+}
+function renderKombo(out){
+  ['ik','ik0','uc'].forEach(id=>{const el=$('kb_'+id); if(!el)return;
+    el.innerHTML=out?komboHtml(kombolar(out)[id],cur.k.atlar):'<div class="empty">Piyasa verisi gelince çıkar.</div>';});
+}
+
+// ---------- kupon ----------
+function renderKupon(){
+  const h=hipBul(sel.hip); if(!h){$('kupon').innerHTML='';return}
+  const ks=h.kosular.map(k=>k.kosu);
+  if(!ks.includes(KUP.bas)) KUP.bas=ks[Math.max(0,ks.length-6)];
+  if(!ks.includes(KUP.son)) KUP.son=ks[ks.length-1];
+  if(KUP.son<KUP.bas) KUP.son=KUP.bas;
+  const opt=v=>ks.map(k=>`<option value="${k}"${k===v?' selected':''}>${k}. koşu</option>`).join('');
+  $('kBas').innerHTML=opt(KUP.bas); $('kSon').innerHTML=opt(KUP.son);
+  $('kSur').checked=!!KUP.sur; if($('kFiyat')!==document.activeElement) $('kFiyat').value=KUP.fiyat||'';
+  let s='<div class="card">',combos=1,pm=1,pp=1,tam=true;
+  h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{
+    const out=hesapla(h,k); const kk=KUP.k[h.id+'|'+k.kosu]||2;
+    if(!out){tam=false; s+=`<div class="leg"><div class="hd">${k.kosu}. koşu</div><div class="note">Bu koşuda henüz piyasa verisi yok.</div></div>`; return}
+    const idx=Object.keys(out.map).map(Number).sort((a,b)=>out.map[b].pm-out.map[a].pm);
+    const pick=idx.slice(0,Math.min(kk,idx.length)), extra=[];
+    if(KUP.sur){ const rest=idx.filter(i=>!pick.includes(i)&&out.map[i].pm>=0.03&&out.map[i].pm/out.map[i].pp>=1.10).sort((a,b)=>out.map[b].pm/out.map[b].pp-out.map[a].pm/out.map[a].pp); if(rest.length) extra.push(rest[0]); }
+    const all=pick.concat(extra), sp=all.reduce((x,i)=>x+out.map[i].pm,0), spp=all.reduce((x,i)=>x+out.map[i].pp,0);
+    combos*=all.length; pm*=sp; pp*=spp;
+    const kaz=k.sonuc&&Object.entries(k.sonuc).find(([n,v])=>v.sira===1);
+    const tuttu=kaz?all.some(i=>String(k.atlar[i].no)===kaz[0]):null;
+    s+=`<div class="leg"><div class="hd"><span>${k.kosu}. koşu <span class="note">model ${pct(sp)}% · piyasa ${pct(spp)}%${kaz?` · kazanan ${kaz[0]} ${tuttu?'✓':'✗'}`:''}</span></span>
+      <label>çekirdek <select data-k="${k.kosu}">${[1,2,3,4,5,6].map(n=>`<option${n===kk?' selected':''}>${n}</option>`).join('')}</select></label></div>
+      <div class="chips">${all.map(i=>`<span class="rk${extra.includes(i)?' sur':''}"><b>${k.atlar[i].no}</b>${esc(k.atlar[i].at)} · ${pct(out.map[i].pm)}%${extra.includes(i)?' · sürpriz':''}</span>`).join('')}</div></div>`;
+  });
+  s+='</div>';
+  if(tam){
+    const fm=parseFloat(String(KUP.fiyat||'').replace(',','.'));
+    s+=`<div class="card stat"><div><b>${combos}</b><span>kombinasyon</span></div><div><b>%${pct(pm)}</b><span>modele göre tutma</span></div><div><b>%${pct(pp)}</b><span>piyasaya göre tutma</span></div><div><b>~${Math.max(1,Math.round(1/pm))}</b><span>kuponda 1 tutar (model)</span></div>${fm>0?`<div><b>${f2(combos*fm)} TL</b><span>toplam tutar</span></div>`:''}</div>
+    <div class="note">Ödeme havuza göre belirlenir, burada hesaplanmaz. Bu bir test aracıdır.</div>`;
+  }
+  $('kupon').innerHTML=s;
+  $('kupon').querySelectorAll('select').forEach(x=>x.onchange=()=>{KUP.k[h.id+'|'+x.dataset.k]=+x.value;sv('gm2_kupon',KUP);renderKupon()});
+}
+$('kBas').onchange=()=>{KUP.bas=+$('kBas').value;sv('gm2_kupon',KUP);renderKupon()};
+$('kSon').onchange=()=>{KUP.son=+$('kSon').value;sv('gm2_kupon',KUP);renderKupon()};
+$('kSur').onchange=()=>{KUP.sur=$('kSur').checked;sv('gm2_kupon',KUP);renderKupon()};
+$('kFiyat').oninput=()=>{KUP.fiyat=$('kFiyat').value;sv('gm2_kupon',KUP);renderKupon()};
+
+// ---------- günün özeti (kapanış ganyanına göre) ----------
+function renderOzet(){
+  const satir=[]; let fs=[];
+  hipler().forEach(h=>h.kosular.forEach(k=>{
+    if(!k.sonuc) return;
+    const kz=Object.entries(k.sonuc).find(([n,v])=>v.sira===1); if(!kz) return;
+    const v=kz[1]; const f=Math.log(v.pm/v.pp); fs.push(f);
+    const top=Object.entries(k.sonuc).sort((a,b)=>b[1].pm-a[1].pm)[0][0], fav=Object.entries(k.sonuc).sort((a,b)=>b[1].pp-a[1].pp)[0][0];
+    satir.push(`<tr><td>${esc(h.ad)} ${k.kosu}</td><td class="n">${kz[0]}</td><td class="n">${f2(v.g)}</td><td class="n">${pct(v.pm)}</td><td class="n">${pct(v.pp)}</td><td class="n" style="color:${f>0?'var(--good)':'var(--bad)'}">${f>0?'+':''}${f.toFixed(2).replace('.',',')}</td><td class="n">${top===kz[0]?'✓':''}</td><td class="n">${fav===kz[0]?'✓':''}</td></tr>`);
+  }));
+  if(!satir.length){ $('ozet').innerHTML='<div class="card empty">Koşular bittikçe burada modelin ve piyasanın kazanana verdiği olasılıklar listelenir.</div>'; return; }
+  const n=fs.length, m=fs.reduce((a,b)=>a+b,0)/n, se=n>2?Math.sqrt(fs.reduce((a,b)=>a+(b-m)**2,0)/(n-1)/n):null;
+  $('ozet').innerHTML=`<div class="card stat"><div><b>${n}</b><span>biten koşu</span></div><div><b>${m>=0?'+':''}${m.toFixed(3).replace('.',',')}${se?' ±'+se.toFixed(3).replace('.',','):''}</b><span>model − piyasa (artı: model iyi)</span></div></div>
+  <div class="card scroll"><table class="t"><thead><tr><th>Koşu</th><th>Kazanan</th><th>Ganyan</th><th>Model %</th><th>Piyasa %</th><th>Fark</th><th>Model 1.</th><th>Favori</th></tr></thead><tbody>${satir.join('')}</tbody></table></div>
+  <div class="note">Fark = ln(model olasılığı / piyasa olasılığı), kazanan at için. Tek gün gürültüdür; sonuç "Canlı test" sekmesinde birikir.</div>`;
+}
+
+// ---------- canlı test sekmesi ----------
+function sp(x,d=3){return (x>=0?'+':'')+x.toFixed(d).replace('.',',')}
+function seriSvg(seri){
+  if(!seri||seri.length<2) return '';
+  const W=640,H=160,p=34; const xs=seri.map((_,i)=>i), ys=seri.map(r=>r.kum);
+  const lo=Math.min(0,...ys), hi=Math.max(0,...ys), r=hi-lo||0.01;
+  const X=i=>p+i*(W-2*p)/(seri.length-1), Y=v=>H-20-(v-lo)/r*(H-40);
+  const d=seri.map((s,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(s.kum).toFixed(1)).join(' ');
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Kümülatif ortalama fark">
+    <line x1="${p}" x2="${W-p}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--line)" />
+    <path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2"/>
+    <circle cx="${X(seri.length-1)}" cy="${Y(ys[ys.length-1])}" r="4" fill="var(--accent)"/>
+    <text x="${p}" y="${H-4}">${esc(seri[0].t)}</text><text x="${W-p}" y="${H-4}" text-anchor="end">${esc(seri[seri.length-1].t)}</text>
+    <text x="4" y="${Y(0)+4}">0</text><text x="4" y="${Y(hi)+4}">${sp(hi,2)}</text></svg>`;
+}
+async function skorYukle(){
+  const el=$('skor');
+  try{ SKOR=await getJSON('data/skor.json'); }catch(e){ el.innerHTML='<div class="card empty">Skor henüz hesaplanmadı. İlk gece çalışmasından sonra burada görünür.</div>'; return; }
+  const S=SKOR;
+  if(!S.kosu){ el.innerHTML=`<div class="card empty">Model ${esc(S.freeze)} tarihinde donduruldu. Canlı dönemde henüz sonuçlanmış koşu yok.</div>`; return; }
+  const z=S.fark_se?S.fark/S.fark_se:0;
+  const v = Math.abs(z)<2 ? ['','Henüz fark yok: model ile piyasa arasındaki fark istatistiksel olarak sıfırdan ayırt edilemiyor.'] : (z>0?['good','Model, kazanana piyasadan anlamlı ölçüde daha yüksek olasılık veriyor (≈'+z.toFixed(1)+' standart hata). Bu, kazanç anlamına gelmez; ~%31 kesintiyi aşmak ayrı bir eşik.']:['bad','Model piyasadan anlamlı ölçüde kötü (≈'+z.toFixed(1)+' standart hata).']);
+  let s=`<div class="verdict ${v[0]}">${v[1]}</div>
+  <div class="card stat">
+    <div><b>${S.kosu}</b><span>koşu · ${S.gun} gün</span></div>
+    <div><b>${sp(S.fark)}</b><span>ortalama fark ±${(S.fark_se||0).toFixed(3).replace('.',',')}</span></div>
+    <div><b>${S.ll_model.toFixed(3).replace('.',',')}</b><span>model log-loss</span></div>
+    <div><b>${S.ll_piyasa.toFixed(3).replace('.',',')}</b><span>piyasa log-loss</span></div>
+    <div><b>%${pct(S.model_isabet)}</b><span>modelin 1. seçimi kazandı</span></div>
+    <div><b>%${pct(S.fav_isabet)}</b><span>favori kazandı</span></div>
+  </div>
+  <div class="card" style="padding:10px"><h2 style="margin-bottom:6px">Kümülatif ortalama fark</h2>${seriSvg(S.seri)}</div>`;
+  if(S.ev&&S.ev.length) s+=`<div class="card scroll"><table class="t"><thead><tr><th>EV eşiği</th><th>Bahis</th><th>Ortalama getiri</th></tr></thead><tbody>${S.ev.map(e=>`<tr><td>EV > ${String(e.esik).replace('.',',')}</td><td class="n">${e.n}</td><td class="n">${sp(e.roi,3)}${e.se?' ±'+e.se.toFixed(3).replace('.',','):''}</td></tr>`).join('')}</tbody></table></div>
+  <div class="note">1 TL'lik eşit bahislerin kapanış ganyanıyla sonucu. Kesinti yüzünden sıfırın altında olması beklenir.</div>`;
+  if(S.kurallar) s+=`<h2>Dondurulmuş kurallar</h2><div class="card scroll"><table class="t"><thead><tr><th>Kural</th><th>n</th><th>Gerçek / beklenen</th><th>z</th><th>Beklenti</th></tr></thead><tbody>${S.kurallar.map(r=>`<tr><td>${esc(r.ad)}</td><td class="n">${r.n}</td><td class="n">${r.n?r.gercek+' / '+r.beklenen.toFixed(1).replace('.',','):'–'}</td><td class="n">${r.z!=null?sp(r.z,2):'–'}</td><td>${esc(r.beklenti)}</td></tr>`).join('')}</tbody></table></div>
+  <div class="note">Kuralın gerçek bir etki sayılması için birkaç yüz örnekte z değerinin 2'yi geçmesi gerekir.</div>`;
+  if(S.hipodrom) s+=`<h2>Hipodroma göre</h2><div class="card scroll"><table class="t"><thead><tr><th>Hipodrom</th><th>Koşu</th><th>Ortalama fark</th></tr></thead><tbody>${S.hipodrom.map(r=>`<tr><td>${esc(r.ad)}</td><td class="n">${r.n}</td><td class="n">${sp(r.fark)}</td></tr>`).join('')}</tbody></table></div>`;
+  s+=`<div class="note">Model ${esc(S.freeze)} tarihinde donduruldu; bu sayfadaki her koşu modelin hiç görmediği veridir. Son hesap: ${esc(S.guncelleme)}.</div>`;
+  el.innerHTML=s;
+}
+function sekme(ad){
+  $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor');
+  $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor';
+  if(ad==='skor'&&!SKOR) skorYukle();
+}
+$('tabBugun').onclick=()=>sekme('bugun'); $('tabSkor').onclick=()=>sekme('skor');
+if(location.hash==='#skor') sekme('skor');
+
+gunYukle(null);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · sistem 20 dakikada bir sonuçları ve AGF'yi yeniler`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); } }).catch(()=>{}); } }, 5*60*1000);
+</script>
+</body>
+</html>
