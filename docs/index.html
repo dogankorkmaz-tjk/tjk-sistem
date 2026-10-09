@@ -155,6 +155,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
   <div id="durum" class="note"></div>
 
   <section id="bugun" class="sec">
+    <div class="sec" id="oynaKutu"></div>
     <div class="chips" id="hipChips"></div>
     <div class="chips" id="kosuChips"></div>
     <div class="sec" id="kosuAlani"></div>
@@ -700,6 +701,20 @@ async function kosmazGonder(){
   }catch(e){ out.innerHTML='✗ '+esc(String(e)); }
 }
 $('kmBtn').onclick=kosmazGonder;
+
+async function oynaOzet(){
+  const el=$('oynaKutu'); if(!el) return;
+  const L=[];
+  try{ const d=await getJSON('data/devir.json'); (d.devirler||[]).filter(r=>r.firsat).forEach(r=>{
+    const q=(r.kuponlar||[]).find(x=>x.butce===192)||(r.kuponlar||[])[0];
+    L.push(`<div><b>★ ${r.ad} 7'li ganyan (devir ${Math.round(r.devir).toLocaleString('tr-TR')} TL)</b> · ilk ayak ${r.ilk_saat||''}`+(q?`<br><span style="font-family:monospace">${q.ayaklar.map(x=>x.join(',')).join(' | ')}</span> · ${q.kombinasyon} kombinasyon`:'')+'</div>'); }); }catch(e){}
+  try{ const d=await getJSON('data/kupon.json'); (d.bugun||[]).forEach(c=>{ if(c.sonuc) return; c.kuponlar.filter(q=>q.beklenen_getiri_orani>=(c.esik||1.2)).forEach(q=>{
+    L.push(`<div><b>★ ${c.ad||c.hipodrom} ${c.altili}. altılı</b> (${c.son-5}–${c.son}. koşu, ilk ayak ${c.ilk_saat||''}) · Değer ~${q.butce}: ${q.kombinasyon} kombinasyon, ${(q.bedel||q.kombinasyon*1.25).toFixed(0)} TL<br><span style="font-family:monospace">${q.ayaklar.map(x=>x.join(',')).join(' | ')}</span></div>`); }); }); }catch(e){}
+  try{ const d=await getJSON('data/plase.json'); (d.bugun||[]).forEach(c=>{ if(c.sonuc||!(c.secimler||[]).length) return; c.secimler.forEach(q=>{
+    L.push(`<div><b>★ ${c.hipodrom} ${c.kosu}. koşu</b> (${c.saat||''}) · ${c.tur==='sib'?`SİB ilk ${q.k}`:'plase (ilk 2)'}: ${q.no} ${q.ad}`+(q.k?` @${q.oran} (EV ${q.ev})`:` (model %${(q.tm*100).toFixed(0)} / piyasa %${(q.tp*100).toFixed(0)})`)+'</div>'); }); }); }catch(e){}
+  el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Bunlar kağıt üstü deney önerileridir, kâr garantisi yoktur. Kaybetmeyi göze alabileceğin tutarla oyna.</div></div>':'<div class="card empty">Şu an sistemin önerdiği bahis yok. Bu normal; çoğu gün öneri çıkmaz.</div>');
+}
+oynaOzet();
 </script>
 </body>
 </html>
