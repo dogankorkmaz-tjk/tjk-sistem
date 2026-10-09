@@ -221,7 +221,7 @@ if __name__ == "__main__":
 # ------------------------------------------------------------------ 7'li ganyan (devir testi) kağıt üstü kayıt
 BIRIM_7G = 2.0                      # TJK/MBS birim fiyatı (Ocak 2026'dan beri); bayi levhasında yok ama 7'li ganyan satılıyor
 BUTCE7 = (250, 500)                 # en çok kombinasyon: 500 TL ve 1000 TL
-MOD7 = ("favori", "deger")
+MOD7 = ("agf", "favori", "deger")      # agf = modelsiz kontrol (kalabalığın seçimi)
 
 
 def _onceki_devir7(hip, tarih):
@@ -276,13 +276,7 @@ def guncelle7(obj, zorla=False):
                 dv = _onceki_devir7(h["id"], tarih)
                 c = {"hipodrom": h["id"], "ad": h.get("ad"), "son": son, "ilk_saat": ilk.get("saat"), "uretim": simdi,
                      "devir": dv, "dondu": False, "kuponlar": []}
-                for mod in MOD7:
-                    for B in BUTCE7:
-                        s = kur(ay, B, mod); o = ozet(ay, s)
-                        c["kuponlar"].append({"mod": mod, "butce": B, "birim": BIRIM_7G, "bedel": round(o["kombinasyon"] * BIRIM_7G, 2),
-                                              "ayaklar": [sorted(x) for x in s],
-                                              "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
-                                              **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
+                c["kuponlar"] = _kuponlar7(ay, ad)
                 kay[anahtar] = c
         elif c is not None and not c.get("dondu") and not zorla:
             # ilk ayak başlayana dek güncelle; başladıysa dondur
@@ -292,14 +286,7 @@ def guncelle7(obj, zorla=False):
                 r = _ayaklar_obj7(h, son, obj.get("w0", 1.0))
                 if r:
                     ay, ad = r
-                    c["uretim"] = simdi; c["kuponlar"] = []
-                    for mod in MOD7:
-                        for B in BUTCE7:
-                            s = kur(ay, B, mod); o = ozet(ay, s)
-                            c["kuponlar"].append({"mod": mod, "butce": B, "birim": BIRIM_7G, "bedel": round(o["kombinasyon"] * BIRIM_7G, 2),
-                                                  "ayaklar": [sorted(x) for x in s],
-                                                  "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
-                                                  **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
+                    c["uretim"] = simdi; c["kuponlar"] = _kuponlar7(ay, ad)
         # değerlendirme
         if c and "sonuc" not in c:
             kaz = []
@@ -328,6 +315,24 @@ def guncelle7(obj, zorla=False):
         os.makedirs(os.path.dirname(yol), exist_ok=True)
         json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     ozet_yaz7(tarih)
+
+
+def _kuponlar7(ay, ad):
+    """ay: [{no:(pm,pp)}]. 'agf' modu kontrol grubu: model yok, olasılık = AGF payı."""
+    ay_agf = [{no: (pp, pp) for no, (pm, pp) in a.items()} for a in ay]
+    out = []
+    for mod in MOD7:
+        for B in BUTCE7:
+            if mod == "agf":
+                s = kur(ay_agf, B, "favori")
+            else:
+                s = kur(ay, B, mod)
+            o = ozet(ay, s)
+            out.append({"mod": mod, "butce": B, "birim": BIRIM_7G, "bedel": round(o["kombinasyon"] * BIRIM_7G, 2),
+                        "ayaklar": [sorted(x) for x in s],
+                        "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
+                        **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
+    return out
 
 
 def _ayaklar_obj7(h, son, w0):
