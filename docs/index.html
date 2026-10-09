@@ -169,6 +169,10 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="kupon"></div>
     </div>
     <div class="sec">
+      <h2>Devir fırsatı (7'li ganyan)</h2>
+      <div id="otoDevir"><div class="card empty">Yükleniyor…</div></div>
+    </div>
+    <div class="sec">
       <h2>Otomatik altılı kuponları (kağıt üstü)</h2>
       <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
     </div>
@@ -645,6 +649,26 @@ async function otoPlaseYukle(){
   }catch(e){el.innerHTML='<div class="card empty">Takip verisi henüz yok.</div>'}
 }
 otoPlaseYukle();
+
+async function otoDevirYukle(){
+  const el=$('otoDevir'); if(!el) return;
+  try{
+    const d=await getJSON('data/devir.json'); let s='';
+    (d.devirler||[]).forEach(r=>{
+      const f=r.firsat?'<span style="color:#3ecf8e">★ FIRSAT</span>':(r.firsat_orta?'<span style="color:#e8b84a">orta</span>':'<span style="opacity:.6">zayıf</span>');
+      s+=`<div class="card"><b>${r.ad} 7'li ganyan</b> ${f} · devir <b>${Math.round(r.devir).toLocaleString('tr-TR')} TL</b> · ${r.ayaklar[0]}–${r.ayaklar[6]}. koşu · ilk ayak ${r.ilk_saat||''}`;
+      s+='<table style="width:100%;font-size:13px;margin-top:6px"><tr><th align=left>Havuz</th><th>Net havuz</th><th>Hepsini oynayanın geri dönüşü</th></tr>';
+      [['iyimser','Küçük'],['orta','Orta'],['kotumser','Büyük']].forEach(([k,ad])=>{const x=r.senaryolar[k];s+=`<tr><td>${ad}</td><td align=center>${x.net_havuz.toLocaleString('tr-TR')}</td><td align=center>${x.roi_sifir_beceri}</td></tr>`});
+      s+='</table>';
+      (r.kuponlar||[]).forEach(q=>{s+=`<div style="margin-top:8px"><b>~${q.butce}</b> · ${q.kombinasyon} kombinasyon · tutma %${(q.tutma_model*100).toFixed(1)} (AGF %${(q.tutma_agf*100).toFixed(1)})<br><span style="font-family:monospace">${q.ayaklar.map(x=>x.join(',')).join(' | ')}</span></div>`});
+      s+='<div style="font-size:12px;opacity:.7;margin-top:6px">Devir kesintiye tabi değil. 1,00 üstü = ortalamada kazandırır, ama tek kuponun tutma ihtimali düşük. Birim fiyatı fişten kontrol et.</div></div>';
+    });
+    const dig=Object.entries(d.tum_devirler||{}).filter(([h])=>!(d.devirler||[]).some(r=>r.hipodrom===h));
+    if(dig.length) s+='<div class="card" style="font-size:13px;opacity:.8">Bugün koşmayan hipodromlarda devir: '+dig.map(([h,v])=>`${h} ${Math.round(v.tutar).toLocaleString('tr-TR')} TL (${v.tarih})`).join(' · ')+'</div>';
+    el.innerHTML=s||'<div class="card empty">Bugün devirli 7\'li havuz yok.</div>';
+  }catch(e){el.innerHTML='<div class="card empty">Devir verisi henüz yok.</div>'}
+}
+otoDevirYukle();
 </script>
 </body>
 </html>

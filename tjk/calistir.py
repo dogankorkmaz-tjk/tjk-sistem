@@ -10,6 +10,7 @@ from . import sonuccsv as SC
 from .ozellik import hazirla, model_olasilik
 from . import kupon as KP
 from . import plase as PL
+from . import devir as DV
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data")
@@ -250,6 +251,10 @@ def canli(t):
         PL.guncelle(obj)
     except Exception as e:
         print("plase hatası:", repr(e))
+    try:
+        DV.guncelle(obj)
+    except Exception as e:
+        print("devir hatası:", repr(e))
     yaz_json(yol, obj); yaz_json(os.path.join(SITE, "bugun.json"), obj)
 
 
