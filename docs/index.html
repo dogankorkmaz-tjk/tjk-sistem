@@ -605,14 +605,14 @@ async function otoKuponYukle(){
     const d=await getJSON('data/kupon.json'); let s='';
     const ad={favori:'Favori',deger:'Değer'};
     if(d.toplam&&d.toplam.length){
-      s+='<div class="card"><b>Şimdiye kadar (biten altılılar)</b><table style="width:100%;font-size:13px"><tr><th align=left>Kupon</th><th>Altılı</th><th>İsabet</th><th>Geri dönüş</th><th>Modelin beklediği</th></tr>';
-      d.toplam.forEach(t=>{s+=`<tr><td>${ad[t.mod]} ~${t.butce}</td><td align=center>${t.altili}</td><td align=center>${t.isabet}</td><td align=center>${t.geri_donus}</td><td align=center>${t.model_beklenen}</td></tr>`});
+      s+='<div class="card"><b>Şimdiye kadar (biten altılılar)</b><table style="width:100%;font-size:13px"><tr><th align=left>Kupon</th><th>Altılı</th><th>Harcanan TL</th><th>İsabet</th><th>Geri dönüş</th><th>Modelin beklediği</th></tr>';
+      d.toplam.forEach(t=>{s+=`<tr><td>${ad[t.mod]} ~${t.butce}</td><td align=center>${t.altili}</td><td align=center>${t.harcama}</td><td align=center>${t.isabet}</td><td align=center>${t.geri_donus}</td><td align=center>${t.model_beklenen}</td></tr>`});
       s+='<div style="font-size:12px;opacity:.7;margin-top:6px">1,00 üstü = para kazandırdı. Karar için en az 30–40 altılı gerekir.</div></div>';
     }
     (d.bugun||[]).forEach(c=>{
       s+=`<div class="card"><b>${c.ad||c.hipodrom} ${c.altili}. altılı</b> <span style="opacity:.7">(${c.son-5}–${c.son}. koşu, ${c.dondu?'dondu':'güncelleniyor'}, ${c.uretim||''})</span>`;
       c.kuponlar.forEach(q=>{
-        s+=`<div style="margin-top:8px"><b>${ad[q.mod]} ~${q.butce}</b> · ${q.kombinasyon} kombinasyon · tutma %${(q.tutma_model*100).toFixed(1)} · beklenen ${q.beklenen_getiri_orani.toFixed(2)}${q.ayak_isabet!=null?` · <b>${q.ayak_isabet}/6 ayak${q.isabet?' ✔ '+q.kazanc:''}</b>`:''}<br><span style="font-family:monospace">${q.ayaklar.map(x=>x.join(',')).join(' | ')}</span></div>`;
+        s+=`<div style="margin-top:8px"><b>${ad[q.mod]} ~${q.butce}</b> · ${q.kombinasyon} kombinasyon · <b>${(q.bedel||q.kombinasyon*1.25).toFixed(2)} TL</b> · tutma %${(q.tutma_model*100).toFixed(1)} · beklenen ${q.beklenen_getiri_orani.toFixed(2)}${q.ayak_isabet!=null?` · <b>${q.ayak_isabet}/6 ayak${q.isabet?' ✔ '+q.kazanc:''}</b>`:''}<br><span style="font-family:monospace">${q.ayaklar.map(x=>x.join(',')).join(' | ')}</span></div>`;
       });
       s+='</div>';
     });
