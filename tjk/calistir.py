@@ -11,6 +11,7 @@ from .ozellik import hazirla, model_olasilik
 from . import kupon as KP
 from . import plase as PL
 from . import devir as DV
+from . import egzotik as EG
 from . import bildir as BL
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -334,6 +335,10 @@ def canli(t):
     except Exception as e:
         print("7'li kupon hatası:", repr(e))
     try:
+        EG.guncelle(obj)
+    except Exception as e:
+        print("egzotik hatası:", repr(e))
+    try:
         PL.guncelle(obj)
     except Exception as e:
         print("plase hatası:", repr(e))
@@ -384,6 +389,10 @@ def gece(bugun):
                 KP.guncelle7(obj)
             except Exception as e:
                 print("7'li kupon hatası:", repr(e))
+            try:
+                EG.guncelle(obj)
+            except Exception as e:
+                print("egzotik hatası:", repr(e))
             try:
                 PL.guncelle(obj)
             except Exception as e:
