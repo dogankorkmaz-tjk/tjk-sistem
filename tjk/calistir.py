@@ -12,6 +12,7 @@ from . import kupon as KP
 from . import plase as PL
 from . import devir as DV
 from . import egzotik as EG
+from . import golge as GL
 from . import bildir as BL
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -92,7 +93,15 @@ def sabah(t):
     temiz = temiz[temiz.tarih < tarih]
     d = hazirla(temiz, prog, M, yeni)
     bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
+    A = GL.yukle(); bz2 = {}
+    if A:
+        try:
+            dy = d[d.yeni].copy(); dy["z2"] = GL.z2(dy, A)
+            bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
+        except Exception as e:
+            print("aday model hatası:", repr(e)); A = None
     obj = {"tarih": tarih, "model": M.get("surum", "v1"), "w0": float(M["w"][0]),
+           **({"w0_aday": float(A["w"][0]), "aday_egitim_son": A["egitim_son_tarih"]} if A else {}),
            "guncelleme": O.tr_simdi().strftime("%H:%M"), "hipodromlar": []}
     for h in [x for x in O.TRH if x in programlar]:
         g = pr[pr.hipodrom == h]
@@ -100,7 +109,8 @@ def sabah(t):
         for kn, kg in g.groupby("kosu"):
             atlar = [{"no": int(r.no), "at": r.p_at, "jokey": r.p_jokey, "apr": bool(r.p_apranti),
                       "st": bos_sayi(float(r.st)) if pd.notna(r.st) else None,
-                      "z": round(float(bz.get((h, kn, int(r.no)), 0.0)), 4)} for r in kg.itertuples()]
+                      "z": round(float(bz.get((h, kn, int(r.no)), 0.0)), 4),
+                      **({"z2": round(float(bz2.get((h, kn, int(r.no)), 0.0)), 4)} if A else {})} for r in kg.itertuples()]
             kos.append({"kosu": int(kn), "saat": programlar[h]["saat"].get(int(kn)),
                         "bilgi": programlar[h]["bilgi"].get(int(kn)), "atlar": atlar})
         obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
@@ -302,9 +312,14 @@ def sonuclari_isle(obj, t, w0=None):
             z = {a["no"]: a["z"] for a in k["atlar"]}
             r["z"] = r.no.map(z).fillna(0.0)
             r["p_model"] = model_olasilik(r.p_piyasa.values, r.z.values, w0)
+            z2 = {a["no"]: a.get("z2") for a in k["atlar"]}
+            r["z2"] = r.no.map(z2)
+            if obj.get("w0_aday") is not None and r.z2.notna().all():
+                r["p_aday"] = model_olasilik(r.p_piyasa.values, r.z2.values, obj["w0_aday"])
             k["sonuc"] = {str(int(x.no)): {"sira": None if pd.isna(x.sira) else int(x.sira),
                                            "g": float(x.ganyan), "pp": round(float(x.p_piyasa), 5),
-                                           "pm": round(float(x.p_model), 5)} for x in r.itertuples()}
+                                           "pm": round(float(x.p_model), 5),
+                                           **({"pm2": round(float(x.p_aday), 5)} if "p_aday" in r.columns else {})} for x in r.itertuples()}
             yeni_sonuc += 1
     obj["guncelleme"] = simdi.strftime("%H:%M")
     return yeni_sonuc
@@ -407,6 +422,11 @@ def gece(bugun):
             ekle("program", npg, oku("program").columns)
         print("EKLENDİ: sonuç", len(ns), "program", len(npg))
     skor()
+    try:
+        GL.egit()                                   # aday model: dünün sonuna kadar yeniden eğit
+        print("gölge skor:", GL.skor())
+    except Exception as e:
+        print("gölge model hatası:", repr(e))
 
 
 # ------------------------------------------------------------------ geçmiş günleri siteye aktar
