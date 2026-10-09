@@ -510,7 +510,7 @@ async function skorYukle(){
   const el=$('skor');
   try{ SKOR=await getJSON('data/skor.json'); }catch(e){ el.innerHTML='<div class="card empty">Skor henüz hesaplanmadı. İlk gece çalışmasından sonra burada görünür.</div>'; return; }
   const S=SKOR;
-  if(!S.kosu){ el.innerHTML=`<div class="card empty">Model ${esc(S.freeze)} tarihinde donduruldu. Canlı dönemde henüz sonuçlanmış koşu yok.</div>`; return; }
+  if(!S.kosu){ el.innerHTML=`<div class="card empty">Bolton ${esc(S.freeze)} tarihinde donduruldu. Canlı dönemde henüz sonuçlanmış koşu yok.</div>`; return; }
   const z=S.fark_se?S.fark/S.fark_se:0;
   const v = Math.abs(z)<2 ? ['','Henüz fark yok: model ile piyasa arasındaki fark istatistiksel olarak sıfırdan ayırt edilemiyor.'] : (z>0?['good','Model, kazanana piyasadan anlamlı ölçüde daha yüksek olasılık veriyor (≈'+z.toFixed(1)+' standart hata). Bu, kazanç anlamına gelmez; ~%31 kesintiyi aşmak ayrı bir eşik.']:['bad','Model piyasadan anlamlı ölçüde kötü (≈'+z.toFixed(1)+' standart hata).']);
   let s=`<div class="verdict ${v[0]}">${v[1]}</div>
@@ -534,7 +534,17 @@ async function skorYukle(){
   <div class="note">Model ile piyasanın en çok ayrıştığı atlar. Gerçek sayı hangi beklentiye daha yakınsa o taraf haklıdır.</div>`;
   if(S.gunluk&&S.gunluk.length) s+=`<h2>Günlük log-loss</h2><div class="card scroll"><table class="t"><thead><tr><th>Gün</th><th>Koşu</th><th>Model</th><th>Piyasa</th></tr></thead><tbody>${S.gunluk.slice().reverse().map(r=>`<tr><td>${r.t.slice(8)}.${r.t.slice(5,7)}</td><td class="n">${r.n}</td><td class="n${r.ll_model<r.ll_piyasa?' good':''}">${r.ll_model.toFixed(3).replace('.',',')}</td><td class="n">${r.ll_piyasa.toFixed(3).replace('.',',')}</td></tr>`).join('')}</tbody></table></div>
   <div class="note">Düşük log-loss daha iyi. Modelin kazandığı günler yeşil; tek gün gürültüdür.</div>`;
-  s+=`<div class="note">Model ${esc(S.freeze)} tarihinde donduruldu; bu sayfadaki her koşu modelin hiç görmediği veridir. Son hesap: ${esc(S.guncelleme)}.</div>`;
+  let gl=null; try{ gl=await getJSON('data/golge.json'); }catch(e){}
+  if(gl){
+    const f=(x,se)=>x==null?'–':sp(x)+(se?' ±'+se.toFixed(3).replace('.',','):'');
+    const zf=gl.aday_eksi_v1_se?gl.aday_eksi_v1/gl.aday_eksi_v1_se:0;
+    s+=`<h2>Modeller: ${esc(gl.ad_v1)} ve ${esc(gl.ad_aday)}</h2><div class="card scroll"><table class="t"><thead><tr><th>Model</th><th>Piyasaya göre kazanç</th><th>Not</th></tr></thead><tbody>
+    <tr><td><b>${esc(gl.ad_v1)}</b></td><td class="n">${f(gl.v1_kazanc,gl.v1_se)}</td><td>donduruldu, kuponları bu üretir</td></tr>
+    <tr><td><b>${esc(gl.ad_aday)}</b></td><td class="n">${f(gl.aday_kazanc,gl.aday_se)}</td><td>her gece yeniden eğitilir, bahis oynamaz${gl.aday_egitim_son?' · son eğitim '+esc(gl.aday_egitim_son):''}</td></tr>
+    <tr><td>${esc(gl.ad_aday)} − ${esc(gl.ad_v1)}</td><td class="n">${f(gl.aday_eksi_v1,gl.aday_eksi_v1_se)}</td><td>${gl.kosu||0} koşu${gl.gun?' · '+gl.gun+' gün':''}</td></tr></tbody></table></div>
+    <div class="note">${gl.kosu?(Math.abs(zf)<2?'Henüz fark yok. İkisinin farkı sıfırdan ayırt edilemiyor; yüzlerce koşu gerekir.':(zf>0?esc(gl.ad_aday)+' anlamlı biçimde daha iyi.':esc(gl.ad_v1)+' anlamlı biçimde daha iyi.')):'İlk sonuçlanan koşular gelince dolacak.'} Kazanç = kazananın log-olasılığında piyasaya göre ortalama artış; büyük olan iyidir.</div>`;
+  }
+  s+=`<div class="note">Bolton (ana model) ${esc(S.freeze)} tarihinde donduruldu; bu sayfadaki her koşu modelin hiç görmediği veridir. Son hesap: ${esc(S.guncelleme)}.</div>`;
   el.innerHTML=s;
 }
 

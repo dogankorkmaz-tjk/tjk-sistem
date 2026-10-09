@@ -1,4 +1,4 @@
-"""Gölge (aday) model: model_v1.json dondurulmuş kalır, aday her gece yeni veriyle yeniden eğitilir ve canlıda paralel skorlanır.
+"""Gölge (aday) model "Jason" (dondurulmuş v1: "Bolton", Bolton ve Chapman 1986'nın çok terimli logit yarış modelinin anısına): model_v1.json dondurulmuş kalır, aday her gece yeni veriyle yeniden eğitilir ve canlıda paralel skorlanır.
 Bahis oynanmaz, kupon yapılmaz; yalnızca aynı koşularda v1 ve piyasayla karşılaştırılır (docs/data/golge.json).
 Aday, bir koşunun GÜNÜNDEN ÖNCEKİ günün sonuna kadar eğitilmiştir; tahmin sabah JSON'a yazılır, sonradan değişmez."""
 import os, json, glob
@@ -49,7 +49,7 @@ def egit(son=None):
     d = hazirla(_oku("temiz"), _oku("program"), M)
     tr = d[(d.tarih <= son) & d.kazandi.notna() & d.lp.notna()].copy()
     th, mu, sd, nk = _fit(tr, M["feat"], M.get("lam", 100.0))
-    A = {"surum": "aday", "egitim_son_tarih": son, "egitim_koşu": nk, "feat": M["feat"], "cins": M["cins"],
+    A = {"surum": "aday", "ad": "Jason", "egitim_son_tarih": son, "egitim_koşu": nk, "feat": M["feat"], "cins": M["cins"],
          "mu": {k: float(v) for k, v in mu.items()}, "sd": {k: float(v) for k, v in sd.items()}, "w": [float(x) for x in th], "lam": M.get("lam", 100.0)}
     json.dump(A, open(YOL, "w", encoding="utf-8"), ensure_ascii=False)
     print("aday model eğitildi:", son, "| koşu", nk, "| w0", round(th[0], 3))
@@ -77,7 +77,7 @@ def skor():
                     continue
                 v = kz[0]
                 L.append((o["tarih"], h["id"], k["kosu"], np.log(v["pp"]), np.log(v["pm"]), np.log(v["pm2"])))
-    out = {"guncelleme": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "kosu": len(L)}
+    out = {"guncelleme": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "kosu": len(L), "ad_v1": "Bolton", "ad_aday": "Jason"}
     A = yukle()
     out["aday_egitim_son"] = A["egitim_son_tarih"] if A else None
     if L:
