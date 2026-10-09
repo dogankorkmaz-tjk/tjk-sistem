@@ -193,6 +193,27 @@ def agf_arsivle(obj):
     return len(rows)
 
 
+def kosmaz_isle(obj):
+    """SİB program sayfası yapıştırmalarından (data/sib/<gün>-<hip>.csv, gerçek at numarası) koşmaz atları işaretler."""
+    n = 0
+    for h in obj["hipodromlar"]:
+        y = os.path.join(VERI, "sib", f"{obj['tarih']}-{h['id']}.csv")
+        if not os.path.exists(y):
+            continue
+        d = pd.read_csv(y)
+        if "kosmaz" not in d.columns:
+            continue
+        km = {(int(r.kosu), int(r.no)) for r in d[d.kosmaz == 1].itertuples()}
+        for k in h["kosular"]:
+            for a in k["atlar"]:
+                if (k["kosu"], a["no"]) in km:
+                    if not a.get("kosmaz"):
+                        n += 1
+                    a["kosmaz"] = True
+    if n:
+        print("koşmaz işaretlendi:", n)
+
+
 def sonuclari_isle(obj, t, w0=None):
     """Biten koşulara sonuç sırası, kapanış ganyanı, piyasa ve model olasılığı ekler."""
     w0 = w0 if w0 is not None else obj.get("w0", 1.0)
@@ -241,6 +262,7 @@ def canli(t):
     if O.tr_simdi().strftime("%H:%M") < son:
         agf_ekle(obj)
     csv_uygula(obj)
+    kosmaz_isle(obj)
     n = sonuclari_isle(obj, t)
     print("yeni sonuçlanan koşu:", n)
     try:

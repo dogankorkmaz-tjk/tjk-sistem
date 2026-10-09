@@ -65,7 +65,7 @@ def guncelle(obj):
         ay = []
         ok = True
         for kn in legs:
-            at = [a for a in k[kn]["atlar"] if a.get("agf")]
+            at = [a for a in k[kn]["atlar"] if a.get("agf") and not a.get("kosmaz")]
             if len(at) < 3:
                 ok = False; break
             tot = sum(a["agf"] for a in at)

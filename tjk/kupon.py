@@ -93,7 +93,7 @@ def _ayaklar_obj(h, son, w0):
     ay, ad = [], []
     for kn in range(son - 5, son + 1):
         x = k.get(kn)
-        at = [a for a in (x or {}).get("atlar", []) if a.get("agf")]
+        at = [a for a in (x or {}).get("atlar", []) if a.get("agf") and not a.get("kosmaz")]
         if not at:
             return None
         tot = sum(a["agf"] for a in at)

@@ -27,7 +27,7 @@ def _ad(x):
 
 def _piyasa_model(k, w0):
     """Koşunun atlarından (AGF'li) {no: (pp, pm, ad)}; yoksa None."""
-    at = [a for a in k.get("atlar", []) if a.get("agf")]
+    at = [a for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")]
     if len(at) < 3:
         return None
     tot = sum(a["agf"] for a in at)
