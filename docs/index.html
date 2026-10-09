@@ -206,6 +206,17 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <button id="sibBtn" class="primary">SİB gönder</button>
       <div id="sibSonuc" style="margin-top:12px;font-size:13px"></div>
     </div>
+    <div class="sec">
+      <h2>Koşmaz at bildir</h2>
+      <p class="note">Bir at koşmayacaksa hipodromu, koşu numarasını ve at numarasını yaz (birden fazla at için virgülle: 2,5). Model o atı hesaptan çıkarır, kuponlar yenilenir. Sadece bugünün tarihine kaydedilir.</p>
+      <div style="display:flex;gap:8px;margin:6px 0 12px">
+        <select id="kmHip" style="flex:2;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)"><option>Adana</option><option>Ankara</option><option>Antalya</option><option selected>Bursa</option><option>Diyarbakır</option><option>Elazığ</option><option>İstanbul</option><option>İzmir</option><option>Kocaeli</option><option>Şanlıurfa</option></select>
+        <input id="kmKosu" inputmode="numeric" placeholder="Koşu" style="flex:1;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)">
+        <input id="kmNo" inputmode="numeric" placeholder="At no" style="flex:1;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)">
+      </div>
+      <button id="kmBtn" class="primary">Koşmaz ekle</button>
+      <div id="kmSonuc" style="margin-top:12px;font-size:13px"></div>
+    </div>
   </section>
 </div>
 
@@ -669,6 +680,26 @@ async function otoDevirYukle(){
   }catch(e){el.innerHTML='<div class="card empty">Devir verisi henüz yok.</div>'}
 }
 otoDevirYukle();
+
+async function kosmazGonder(){
+  const tok=$('ghTok').value.trim(), out=$('kmSonuc');
+  if(!tok){ out.innerHTML='<span class="warn">Önce yukarıya GitHub anahtarını yaz.</span>'; return; }
+  const kosu=parseInt($('kmKosu').value,10), nolar=$('kmNo').value.split(/[,\s]+/).map(x=>parseInt(x,10)).filter(x=>x>0);
+  if(!(kosu>0)||!nolar.length){ out.innerHTML='<span class="warn">Koşu ve at numarasını yaz.</span>'; return; }
+  const tarih=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Istanbul'});
+  const hip=sadeHip($('kmHip').value);
+  const url=`https://api.github.com/repos/${GH}/contents/data/kosmaz/${tarih}.csv`;
+  const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+  out.textContent='Gönderiliyor…';
+  try{
+    let sha, mevcut='hipodrom,kosu,no\n'; const g=await fetch(url+'?ref=main',{headers:h});
+    if(g.ok){ const j=await g.json(); sha=j.sha; mevcut=decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))); if(!mevcut.endsWith('\n')) mevcut+='\n'; }
+    const yeni=mevcut+nolar.map(n=>`${hip},${kosu},${n}`).join('\n')+'\n';
+    const r=await fetch(url,{method:'PUT',headers:h,body:JSON.stringify({message:'Koşmaz '+hip+' '+kosu+' '+nolar.join(','),content:b64(yeni),branch:'main',sha})});
+    out.innerHTML=r.ok?`✓ ${esc($('kmHip').value)} ${kosu}. koşu, at ${nolar.join(', ')} koşmaz olarak kaydedildi. 1–2 dakikada kupon yenilenir.`:`✗ hata ${r.status} ${r.status===401||r.status===403||r.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`;
+  }catch(e){ out.innerHTML='✗ '+esc(String(e)); }
+}
+$('kmBtn').onclick=kosmazGonder;
 </script>
 </body>
 </html>

@@ -196,7 +196,18 @@ def agf_arsivle(obj):
 def kosmaz_isle(obj):
     """SİB program sayfası yapıştırmalarından (data/sib/<gün>-<hip>.csv, gerçek at numarası) koşmaz atları işaretler."""
     n = 0
+    elle = set()
+    ky = os.path.join(VERI, "kosmaz", obj["tarih"] + ".csv")
+    if os.path.exists(ky):
+        e = pd.read_csv(ky)
+        elle = {(str(r.hipodrom), int(r.kosu), int(r.no)) for r in e.itertuples()}
     for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            for a in k["atlar"]:
+                if (h["id"], k["kosu"], a["no"]) in elle:
+                    if not a.get("kosmaz"):
+                        n += 1
+                    a["kosmaz"] = True
         y = os.path.join(VERI, "sib", f"{obj['tarih']}-{h['id']}.csv")
         if not os.path.exists(y):
             continue

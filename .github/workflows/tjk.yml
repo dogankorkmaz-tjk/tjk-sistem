@@ -7,7 +7,7 @@ on:
     - cron: "40 9 * * *"         # 12:40 TR  sabah tekrarı (son program/AGF)
     - cron: "*/20 10-21 * * *"   # 13:00-00:59 TR, 20 dakikada bir: AGF + biten koşuların sonuçları
   push:
-    paths: ["data/tjk_csv/**", "data/tjk_sonuc/**", "data/tjk_kron/**"]   # CSV yüklenince koşu bilgisi hemen işlenir
+    paths: ["data/tjk_csv/**", "data/tjk_sonuc/**", "data/tjk_kron/**", "data/kosmaz/**"]   # CSV yüklenince koşu bilgisi hemen işlenir
   workflow_dispatch:
     inputs:
       mod:
