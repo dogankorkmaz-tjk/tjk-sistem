@@ -216,3 +216,157 @@ if __name__ == "__main__":
                         isabet += 1; kaz += tutar
                 if harc:
                     print(f"  B={B:4d} {mod:7s} harcama={harc:6d} isabet={isabet:2d}/{len(veri)} geri dönüş={kaz/harc:.2f}")
+
+
+# ------------------------------------------------------------------ 7'li ganyan (devir testi) kağıt üstü kayıt
+BIRIM_7G = 2.0                      # TJK/MBS birim fiyatı (Ocak 2026'dan beri); bayi levhasında yok ama 7'li ganyan satılıyor
+BUTCE7 = (250, 500)                 # en çok kombinasyon: 500 TL ve 1000 TL
+MOD7 = ("favori", "deger")
+
+
+def _onceki_devir7(hip, tarih):
+    """Aynı hipodromda 7'li ganyanın en son oynandığı oyun devrettiyse devreden tutar (TL), değilse None."""
+    parca = []
+    for y in glob.glob(os.path.join(VERI, "odeme", "*.csv.gz")):
+        try:
+            o = pd.read_csv(y)
+        except Exception:
+            continue
+        o = o[(o.hipodrom == hip) & o.tur.isin(["7'Lİ GANYAN", "7'Lİ GANYAN DEVİR"]) & (o.tarih < tarih)]
+        if len(o):
+            parca.append(o)
+    if not parca:
+        return None
+    o = pd.concat(parca).sort_values("tarih")
+    son = o[o.tarih == o.tarih.max()]
+    if (son.tur == "7'Lİ GANYAN DEVİR").any() and not (son.tur == "7'Lİ GANYAN").any():
+        return float(son[son.tur == "7'Lİ GANYAN DEVİR"].tutar.iloc[0])
+    return None
+
+
+def guncelle7(obj, zorla=False):
+    """Her hipodromun son 7 koşusu (7'li ganyan) için kuponlar; devir sonrası günler işaretlenir.
+    data/kupon7/<tarih>.json ve docs/data/kupon7.json yazar."""
+    tarih = obj["tarih"]
+    yol = os.path.join(VERI, "kupon7", tarih + ".json")
+    kay = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
+    simdi = None
+    try:
+        from . import ortak as O
+        simdi = O.tr_simdi().strftime("%H:%M")
+    except Exception:
+        pass
+    od = None
+    for h in obj["hipodromlar"]:
+        k = {x["kosu"]: x for x in h["kosular"]}
+        if len(k) < 7:
+            continue
+        son = max(k)
+        ilk = k.get(son - 6)
+        if ilk is None:
+            continue
+        anahtar = f"{h['id']}|{son}"
+        ilk_saat = ilk.get("saat") or "99:99"
+        basladi = any((k.get(kn) or {}).get("sonuc") for kn in range(son - 6, son + 1)) or (simdi is not None and ilk.get("saat") and simdi >= ilk_saat)
+        c = kay.get(anahtar)
+        if c is None and (zorla or not basladi):
+            r = _ayaklar_obj7(h, son, obj.get("w0", 1.0))
+            if r:
+                ay, ad = r
+                dv = _onceki_devir7(h["id"], tarih)
+                c = {"hipodrom": h["id"], "ad": h.get("ad"), "son": son, "ilk_saat": ilk.get("saat"), "uretim": simdi,
+                     "devir": dv, "dondu": False, "kuponlar": []}
+                for mod in MOD7:
+                    for B in BUTCE7:
+                        s = kur(ay, B, mod); o = ozet(ay, s)
+                        c["kuponlar"].append({"mod": mod, "butce": B, "birim": BIRIM_7G, "bedel": round(o["kombinasyon"] * BIRIM_7G, 2),
+                                              "ayaklar": [sorted(x) for x in s],
+                                              "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
+                                              **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
+                kay[anahtar] = c
+        elif c is not None and not c.get("dondu") and not zorla:
+            # ilk ayak başlayana dek güncelle; başladıysa dondur
+            if basladi:
+                c["dondu"] = True
+            else:
+                r = _ayaklar_obj7(h, son, obj.get("w0", 1.0))
+                if r:
+                    ay, ad = r
+                    c["uretim"] = simdi; c["kuponlar"] = []
+                    for mod in MOD7:
+                        for B in BUTCE7:
+                            s = kur(ay, B, mod); o = ozet(ay, s)
+                            c["kuponlar"].append({"mod": mod, "butce": B, "birim": BIRIM_7G, "bedel": round(o["kombinasyon"] * BIRIM_7G, 2),
+                                                  "ayaklar": [sorted(x) for x in s],
+                                                  "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
+                                                  **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
+        # değerlendirme
+        if c and "sonuc" not in c:
+            kaz = []
+            for kn in range(son - 6, son + 1):
+                s = (k.get(kn) or {}).get("sonuc")
+                if not s:
+                    break
+                kaz.append([int(no) for no, v in s.items() if v["sira"] == 1])
+            if len(kaz) == 7:
+                if od is None:
+                    try:
+                        od = pd.read_csv(os.path.join(VERI, "odeme", tarih[:7] + ".csv.gz"))
+                        od = od[(od.tarih == tarih) & od.tur.isin(["7'Lİ GANYAN", "7'Lİ GANYAN DEVİR"])]
+                    except Exception:
+                        od = pd.DataFrame()
+                x = od[(od.hipodrom == h["id"])] if len(od) else od
+                if len(x):                         # ödeme dosyası gelmeden değerlendirme yapma
+                    hit = x[x.tur == "7'Lİ GANYAN"]
+                    odeme = float(hit.tutar.max()) if len(hit) else 0.0
+                    c["kazananlar"] = kaz; c["odeme"] = odeme; c["tutan_var"] = bool(len(hit)); c["sonuc"] = True
+                    for q in c["kuponlar"]:
+                        ia = sum(1 for i in range(7) if set(kaz[i]) & set(q["ayaklar"][i]))
+                        q["ayak_isabet"] = ia; q["isabet"] = ia == 7
+                        q["kazanc"] = odeme if (q["isabet"] and c["tutan_var"]) else 0.0
+    if kay:
+        os.makedirs(os.path.dirname(yol), exist_ok=True)
+        json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    ozet_yaz7(tarih)
+
+
+def _ayaklar_obj7(h, son, w0):
+    """_ayaklar_obj'in 7 ayaklı hali: son-6 .. son. AGF eksikse None."""
+    k = {x["kosu"]: x for x in h["kosular"]}
+    ay, ad = [], []
+    for kn in range(son - 6, son + 1):
+        x = k.get(kn)
+        at = [a for a in (x or {}).get("atlar", []) if a.get("agf") and not a.get("kosmaz")]
+        if not at:
+            return None
+        tot = sum(a["agf"] for a in at)
+        pp = {a["no"]: a["agf"] / tot for a in at}
+        ham = {a["no"]: math.exp(w0 * math.log(max(pp[a["no"]], 1e-6)) + (a.get("z") or 0.0)) for a in at}
+        Z = sum(ham.values())
+        ay.append({no: (ham[no] / Z, pp[no]) for no in pp})
+        ad.append({a["no"]: a["at"] for a in at})
+    return ay, ad
+
+
+def ozet_yaz7(tarih):
+    top = {}
+    for y in sorted(glob.glob(os.path.join(VERI, "kupon7", "*.json"))):
+        for c in json.load(open(y, encoding="utf-8")).values():
+            if not c.get("sonuc"):
+                continue
+            grup = "devir sonrası" if c.get("devir") else "normal"
+            for q in c["kuponlar"]:
+                t = top.setdefault(f"{grup}-{q['mod']}-{q['butce']}", {"grup": grup, "mod": q["mod"], "butce": q["butce"], "oyun": 0,
+                                                                      "harcama": 0.0, "isabet": 0, "kazanc": 0.0, "beklenen": 0.0})
+                t["oyun"] += 1; t["harcama"] += q["bedel"]
+                t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
+                t["beklenen"] += q["beklenen_getiri_orani"] * q["bedel"]
+    for t in top.values():
+        t["geri_donus"] = round(t["kazanc"] / t["harcama"], 3) if t["harcama"] else None
+        t["model_beklenen"] = round(t["beklenen"] / t["harcama"], 3) if t["harcama"] else None
+        t["kazanc"] = round(t["kazanc"], 2); t["harcama"] = round(t["harcama"], 2); t.pop("beklenen")
+    yol = os.path.join(VERI, "kupon7", tarih + ".json")
+    bugun = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
+    os.makedirs(SITE, exist_ok=True)
+    json.dump({"tarih": tarih, "birim": BIRIM_7G, "bugun": list(bugun.values()), "toplam": list(top.values())},
+              open(os.path.join(SITE, "kupon7.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
