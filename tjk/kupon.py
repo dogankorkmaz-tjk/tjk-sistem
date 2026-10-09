@@ -76,6 +76,7 @@ def gecmis_ayaklar(tur="6'LI GANYAN"):
 # ------------------------------------------------------------------ kağıt üstü (paper trading) kayıt
 VERI = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
 SITE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs", "data")
+ESIK_ONERI = 1.20      # modele göre beklenen getiri bu orana ulaşmayan kupon "önerilmez" (kayıtta kalır)
 BIRIM_1TL = ("sanliurfa", "elazig", "diyarbakir")      # bu hipodromlarda 6'lı ganyan 1 TL, diğerlerinde 1,25 TL
 
 
@@ -130,7 +131,7 @@ def guncelle(obj):
                 if r:
                     ay, ad = r
                     c = {"hipodrom": h["id"], "ad": h.get("ad"), "altili": int(alt), "son": son, "ilk_saat": ilk_saat,
-                         "uretim": simdi, "dondu": False, "kuponlar": []}
+                         "uretim": simdi, "dondu": False, "esik": ESIK_ONERI, "kuponlar": []}
                     for mod, B in STRATEJILER:
                         s = kur(ay, B, mod); o = ozet(ay, s)
                         c["kuponlar"].append({"mod": mod, "butce": B, "birim": birim(h["id"]), "bedel": round(o["kombinasyon"] * birim(h["id"]), 2), "ayaklar": [sorted(x) for x in s],
@@ -181,11 +182,15 @@ def ozet_yaz(tarih):
             if not c.get("sonuc"):
                 continue
             for q in c["kuponlar"]:
-                t = top.setdefault(f"{q['mod']}-{q['butce']}", {"mod": q["mod"], "butce": q["butce"], "altili": 0,
-                                                              "harcama": 0, "isabet": 0, "kazanc": 0.0, "beklenen": 0.0})
-                t["altili"] += 1; t["harcama"] += q.get("bedel", q["kombinasyon"] * 1.25)
-                t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
-                t["beklenen"] += q["beklenen_getiri_orani"] * q.get("bedel", q["kombinasyon"] * 1.25)
+                for grup in ("hepsi", "onerilen"):
+                    if grup == "onerilen" and q["beklenen_getiri_orani"] < ESIK_ONERI:
+                        continue
+                    t = top.setdefault(f"{grup}-{q['mod']}-{q['butce']}", {"grup": grup, "mod": q["mod"], "butce": q["butce"], "altili": 0,
+                                                                          "harcama": 0, "isabet": 0, "kazanc": 0.0, "beklenen": 0.0})
+                    bed = q.get("bedel", q["kombinasyon"] * 1.25)
+                    t["altili"] += 1; t["harcama"] += bed
+                    t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
+                    t["beklenen"] += q["beklenen_getiri_orani"] * bed
     for t in top.values():
         t["geri_donus"] = round(t["kazanc"] / t["harcama"], 3) if t["harcama"] else None
         t["model_beklenen"] = round(t["beklenen"] / t["harcama"], 3) if t["harcama"] else None
