@@ -173,6 +173,10 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
+      <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
+      <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
+    </div>
+    <div class="sec">
       <h2>Günün özeti</h2>
       <div id="ozet"></div>
     </div>
@@ -616,6 +620,27 @@ async function otoKuponYukle(){
   }catch(e){el.innerHTML='<div class="card empty">Kupon verisi henüz yok.</div>'}
 }
 otoKuponYukle();
+
+async function otoPlaseYukle(){
+  const el=$('otoPlase'); if(!el) return;
+  try{
+    const d=await getJSON('data/plase.json'); let s='';
+    const ad={'pm-ilk2':'Pari-mutuel plase (ilk 2)','sib':'SİB ilk'};
+    if(d.toplam&&d.toplam.length){
+      s+='<div class="card"><b>Şimdiye kadar</b><table style="width:100%;font-size:13px"><tr><th align=left>Bahis</th><th>Adet</th><th>Girdi</th><th>Geri dönüş</th></tr>';
+      d.toplam.forEach(t=>{s+=`<tr><td>${t.tur==='sib'?'SİB ilk '+t.k:ad[t.tur]}</td><td align=center>${t.bahis}</td><td align=center>${t.isabet}</td><td align=center>${t.geri_donus}</td></tr>`});
+      s+='<div style="font-size:12px;opacity:.7;margin-top:6px">1,00 üstü = kazandırdı. Karar için en az ~300 bahis gerekir.</div></div>';
+    }
+    const gun=(d.bugun||[]).filter(c=>c.secimler&&c.secimler.length);
+    if(gun.length){
+      s+='<div class="card"><b>Bugünün seçimleri</b>';
+      gun.forEach(c=>{s+=`<div style="margin-top:6px"><b>${c.hipodrom} ${c.kosu}. koşu</b> (${c.saat||''}) · ${c.tur==='sib'?'SİB':'plase'}<br>`+c.secimler.map(q=>`${q.no} ${q.ad}`+(q.k?` ilk${q.k} @${q.oran} (EV ${q.ev})`:` (model %${(q.tm*100).toFixed(0)} / piyasa %${(q.tp*100).toFixed(0)})`)+(q.girdi!=null?(q.girdi?' ✔':' ✘'):'')).join('<br>')+'</div>'});
+      s+='</div>';
+    }
+    el.innerHTML=s||'<div class="card empty">Henüz seçim yok.</div>';
+  }catch(e){el.innerHTML='<div class="card empty">Takip verisi henüz yok.</div>'}
+}
+otoPlaseYukle();
 </script>
 </body>
 </html>

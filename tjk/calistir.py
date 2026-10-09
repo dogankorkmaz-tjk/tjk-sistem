@@ -9,6 +9,7 @@ from . import csvprog as C
 from . import sonuccsv as SC
 from .ozellik import hazirla, model_olasilik
 from . import kupon as KP
+from . import plase as PL
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data")
@@ -245,6 +246,10 @@ def canli(t):
         KP.guncelle(obj)
     except Exception as e:                       # kupon kaydı isteğe bağlı; ana işi durdurmasın
         print("kupon hatası:", repr(e))
+    try:
+        PL.guncelle(obj)
+    except Exception as e:
+        print("plase hatası:", repr(e))
     yaz_json(yol, obj); yaz_json(os.path.join(SITE, "bugun.json"), obj)
 
 
@@ -280,6 +285,10 @@ def gece(bugun):
                 KP.guncelle(obj)
             except Exception as e:
                 print("kupon hatası:", repr(e))
+            try:
+                PL.guncelle(obj)
+            except Exception as e:
+                print("plase hatası:", repr(e))
             print("  AGF arşivlendi:", g, agf_arsivle(obj), "satır")
     if yeni_s:
         ns, npg = pd.DataFrame(yeni_s), pd.DataFrame(yeni_p)
