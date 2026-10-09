@@ -8,6 +8,7 @@ from . import ortak as O
 from . import csvprog as C
 from . import sonuccsv as SC
 from .ozellik import hazirla, model_olasilik
+from . import kupon as KP
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data")
@@ -147,6 +148,11 @@ def agf_ekle(obj):
             continue
         atlar = {k["kosu"]: {a["no"] for a in k["atlar"]} for k in h["kosular"]}
         harita = O.agf_kosulara(agf[h["id"]], atlar)
+        h["altili"] = {}
+        for alt, ayaklar in agf[h["id"]].items():
+            m = O.agf_kosulara({alt: ayaklar}, atlar)
+            if m:
+                h["altili"][str(alt)] = max(m)       # altılının son koşusu
         for k in h["kosular"]:
             d = harita.get(k["kosu"])
             if not d:
@@ -235,6 +241,10 @@ def canli(t):
     csv_uygula(obj)
     n = sonuclari_isle(obj, t)
     print("yeni sonuçlanan koşu:", n)
+    try:
+        KP.guncelle(obj)
+    except Exception as e:                       # kupon kaydı isteğe bağlı; ana işi durdurmasın
+        print("kupon hatası:", repr(e))
     yaz_json(yol, obj); yaz_json(os.path.join(SITE, "bugun.json"), obj)
 
 
@@ -266,6 +276,10 @@ def gece(bugun):
             obj = json.load(open(yol, encoding="utf-8"))
             if sonuclari_isle(obj, g):
                 yaz_json(yol, obj)
+            try:
+                KP.guncelle(obj)
+            except Exception as e:
+                print("kupon hatası:", repr(e))
             print("  AGF arşivlendi:", g, agf_arsivle(obj), "satır")
     if yeni_s:
         ns, npg = pd.DataFrame(yeni_s), pd.DataFrame(yeni_p)
