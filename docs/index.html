@@ -185,6 +185,13 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <button id="yukleBtn" class="primary">Yükle</button>
       <div id="yukleSonuc" style="margin-top:12px;font-size:13px"></div>
     </div>
+    <div class="card" style="margin-top:12px">
+      <h2>Sabit oran yapıştır (SİB)</h2>
+      <p class="note">tjk.org'da "Sabit İhtimalli Yarış Programı" sayfasını aç, bir yere dokun, "Tümünü seç" ve "Kopyala" de, buraya yapıştır. Sistem tarihi, saati ve oranları kendisi okur. Oranlar gün içinde değiştiği için istediğin kadar kez, farklı saatlerde yapıştırabilirsin.</p>
+      <textarea id="sibMetin" rows="5" placeholder="Kopyaladığın sayfayı buraya yapıştır" style="width:100%;padding:9px;margin:6px 0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:13px var(--f-mono)"></textarea>
+      <button id="sibBtn" class="primary">SİB gönder</button>
+      <div id="sibSonuc" style="margin-top:12px;font-size:13px"></div>
+    </div>
   </section>
 </div>
 
@@ -542,6 +549,25 @@ async function yukle(){
   out.innerHTML=sat.join('<br>')+'<br><span class="sub">Sistem 1–2 dakikada işler; sonra sayfayı yenile.</span>';
 }
 $('yukleBtn').onclick=yukle;
+async function sibGonder(){
+  const tok=$('ghTok').value.trim(), t=$('sibMetin').value, out=$('sibSonuc');
+  if(!tok){ out.innerHTML='<span class="warn">Önce yukarıya GitHub anahtarını yaz.</span>'; return; }
+  const d=t.match(/(\d{2})\/(\d{2})\/(\d{4})\s+\S+\s*-\s*Sabit/), sg=t.match(/Son g[üu]ncelleme\s*:\s*(\d{1,2}):(\d{2})/i);
+  const hs=(t.match(/\n\d+\t[^\t\n]+\t\d+\t\d{1,2}[.:]\d{2}\t/g)||[]).length;
+  if(!d||!sg||!hs){ out.innerHTML='<span class="warn">Bu bir Sabit İhtimalli Yarış Programı sayfası gibi görünmüyor (tarih, saat ya da koşu bulunamadı). Sayfanın tamamını kopyaladığından emin ol.</span>'; return; }
+  try{ localStorage.setItem('gm2_gh',tok); }catch(e){}
+  const ad=`${d[3]}-${d[2]}-${d[1]}_${String(sg[1]).padStart(2,'0')}${sg[2]}.txt`;
+  const url=`https://api.github.com/repos/${GH}/contents/data/sib_ham/${ad}`;
+  const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+  out.textContent='Gönderiliyor…';
+  try{
+    let sha; const g=await fetch(url+'?ref=main',{headers:h}); if(g.ok) sha=(await g.json()).sha;
+    const r=await fetch(url,{method:'PUT',headers:h,body:JSON.stringify({message:'SİB '+ad,content:b64(t),branch:'main',sha})});
+    out.innerHTML=r.ok?`✓ ${esc(ad)} gönderildi (${hs} koşu bulundu). 1–2 dakikada işlenir.`:`✗ hata ${r.status} ${r.status===401||r.status===403||r.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`;
+    if(r.ok) $('sibMetin').value='';
+  }catch(e){ out.innerHTML='✗ '+esc(String(e)); }
+}
+$('sibBtn').onclick=sibGonder;
 function sekme(ad){
   $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor'); $('tabDosya').setAttribute('aria-selected',ad==='dosya');
   $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor'; $('dosya').hidden=ad!=='dosya';
