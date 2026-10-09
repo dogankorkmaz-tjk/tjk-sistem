@@ -194,6 +194,50 @@ def agf_arsivle(obj):
     return len(rows)
 
 
+def agf_zaman_yaz(obj):
+    """Her AGF okumasını data/agf_zaman/<gün>.csv.gz içine zaman damgasıyla ekler (yalnızca değeri değişen atlar).
+    Amaç: AGF yarışa yaklaştıkça nasıl hareket ediyor ve bu hareket bilgi taşıyor mu testi."""
+    saat = O.tr_simdi().strftime("%H:%M")
+    yol = os.path.join(VERI, "agf_zaman", obj["tarih"] + ".csv.gz")
+    eski = pd.read_csv(yol) if os.path.exists(yol) else pd.DataFrame(columns=["saat", "hipodrom", "kosu", "no", "agf"])
+    son = {}
+    for r in eski.itertuples():
+        son[(r.hipodrom, r.kosu, r.no)] = r.agf
+    rows = []
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            if k.get("sonuc"):
+                continue
+            for a in k["atlar"]:
+                v = a.get("agf")
+                if v is None or son.get((h["id"], k["kosu"], a["no"])) == v:
+                    continue
+                rows.append({"saat": saat, "hipodrom": h["id"], "kosu": k["kosu"], "no": a["no"], "agf": v})
+    if rows:
+        os.makedirs(os.path.dirname(yol), exist_ok=True)
+        pd.concat([eski, pd.DataFrame(rows)], ignore_index=True).to_csv(yol, index=False, compression="gzip")
+    return len(rows)
+
+
+def hizli(t):
+    """Yarış başlangıcına son 70 dakikada 5 dakikada bir AGF'yi okur, yalnızca data/agf_zaman'a yazar (gün JSON'una dokunmaz)."""
+    import copy
+    yol = gun_yolu(t)
+    if not os.path.exists(yol):
+        return
+    obj = json.load(open(yol, encoding="utf-8"))
+    simdi = O.tr_simdi(); dk = simdi.hour * 60 + simdi.minute
+    def mins(x):
+        try: return int(x[:2]) * 60 + int(x[3:5])
+        except Exception: return None
+    yakin = [mins(k.get("saat")) for h in obj["hipodromlar"] for k in h["kosular"] if not k.get("sonuc") and mins(k.get("saat")) is not None]
+    if not any(m - 70 <= dk <= m + 2 for m in yakin):
+        print("yarışa yakın pencere yok, atlandı"); return
+    c = copy.deepcopy(obj)
+    agf_ekle(c)
+    print("agf_zaman satırı:", agf_zaman_yaz(c))
+
+
 def kosmaz_isle(obj):
     """SİB program sayfası yapıştırmalarından (data/sib/<gün>-<hip>.csv, gerçek at numarası) koşmaz atları işaretler."""
     n = 0
@@ -273,6 +317,10 @@ def canli(t):
     son = max((k.get("saat") or "23:59") for h in obj["hipodromlar"] for k in h["kosular"])
     if O.tr_simdi().strftime("%H:%M") < son:
         agf_ekle(obj)
+        try:
+            agf_zaman_yaz(obj)
+        except Exception as e:
+            print("agf_zaman hatası:", repr(e))
     csv_uygula(obj)
     kosmaz_isle(obj)
     n = sonuclari_isle(obj, t)
@@ -519,6 +567,8 @@ def main():
     simdi = O.tr_simdi(); bugun = simdi.date()
     if mod == "sabah":
         sabah(bugun)
+    elif mod == "hizli":
+        hizli(bugun)
     elif mod == "canli":
         SC.isle()
         canli(bugun)
