@@ -195,10 +195,10 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
   <section id="dosya" class="sec" hidden>
     <div class="card">
       <h2>TJK program dosyası (CSV)</h2>
-      <p class="note">TJK'dan indirdiğin "Günlük Yarış Programı" CSV dosyasını seç, yükle. Sistem koşu saatini, mesafeyi, pisti ve cinsi otomatik işler. Bir dakika içinde sayfada görünür.</p>
+      <p class="note">TJK'dan indirdiğin "Günlük Yarış Programı" CSV dosyasını seç, yükle. Sistem koşu saatini, mesafeyi, pisti ve cinsi otomatik işler. Bir dakika içinde sayfada görünür. Birden çok dosyayı ya da bir .zip dosyasını da seçebilirsin; zip tarayıcıda açılıp içindekiler tek tek yüklenir.</p>
       <label class="sub" for="ghTok">GitHub anahtarı (yalnızca bu telefonda saklanır)</label>
       <input id="ghTok" type="password" autocomplete="off" style="width:100%;padding:9px;margin:6px 0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-mono)">
-      <input id="dosyaSec" type="file" multiple accept=".csv,.doc,.html,.htm,text/csv,text/plain,.txt,application/msword,text/html" style="width:100%;margin-bottom:12px">
+      <input id="dosyaSec" type="file" multiple accept=".zip,.csv,.doc,.html,.htm,application/zip,text/csv,text/plain,.txt,application/msword,text/html" style="width:100%;margin-bottom:12px">
       <button id="yukleBtn" class="primary">Yükle</button>
       <div id="yukleSonuc" style="margin-top:12px;font-size:13px"></div>
     </div>
@@ -574,7 +574,26 @@ async function yukle(){
   if(!fl.length){ out.textContent='Dosya seçilmedi.'; return; }
   try{ localStorage.setItem('gm2_gh',tok); }catch(e){}
   out.textContent='Yükleniyor…'; const sat=[];
+  if(fl.some(f=>/\.zip$/i.test(f.name))){
+    try{
+      if(!window.JSZip) await new Promise((ok,no)=>{ const sc=document.createElement('script'); sc.src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'; sc.onload=ok; sc.onerror=()=>no('zip kütüphanesi yüklenemedi'); document.head.appendChild(sc); });
+    }catch(e){ out.innerHTML='<span class="warn">'+esc(String(e))+'</span>'; return; }
+    const yeni=[];
+    for(const f of fl){
+      if(!/\.zip$/i.test(f.name)){ yeni.push(f); continue; }
+      try{
+        const z=await JSZip.loadAsync(await f.arrayBuffer());
+        for(const e of Object.values(z.files)){
+          if(e.dir||/(^|\/)(__MACOSX|\.)/.test(e.name)) continue;
+          yeni.push(new File([await e.async('arraybuffer')],e.name.split('/').pop()));
+        }
+      }catch(e){ sat.push(`✗ ${esc(f.name)}: zip açılamadı`); }
+    }
+    fl.length=0; fl.push(...yeni); out.textContent='Zip açıldı, '+fl.length+' dosya yükleniyor…';
+  }
+  let sayac=0;
   for(const f of fl){
+    if(fl.length>5) out.textContent='Yükleniyor… '+(++sayac)+'/'+fl.length;
     try{
       const t=await metinOku(f); const ad=dosyaAdi(t);
       if(ad&&!ad.kl){ sat.push(`✗ ${esc(f.name)}: bu bir kayıt listesi (jokey ve kesin kadro yok), program değil; yüklemene gerek yok, Günlük Yarış Programı'nı yükle`); continue; }
