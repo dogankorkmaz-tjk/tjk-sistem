@@ -182,6 +182,10 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
+      <h2>Egzotik bahisler: sıralı ikili, ikili, üçlü (kağıt üstü)</h2>
+      <div id="otoEgz"><div class="card empty">Yükleniyor…</div></div>
+    </div>
+    <div class="sec">
       <h2>Günün özeti</h2>
       <div id="ozet"></div>
     </div>
@@ -661,6 +665,34 @@ async function otoPlaseYukle(){
   }catch(e){el.innerHTML='<div class="card empty">Takip verisi henüz yok.</div>'}
 }
 otoPlaseYukle();
+
+async function otoEgzYukle(){
+  const el=$('otoEgz'); if(!el) return;
+  try{
+    const d=await getJSON('data/egzotik.json'); let s='';
+    const T={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü bahis'}, B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
+    s+='<div class="card"><b>Şimdiye kadar (sonuç dosyası yüklenen koşular)</b><table style="width:100%;font-size:13px"><tr><th align=left>Bahis</th><th>Koşu</th><th>Harcanan TL</th><th>Kazanç TL</th><th>İsabetli koşu</th><th>Geri dönüş</th></tr>';
+    (d.toplam||[]).forEach(t=>{s+=`<tr><td>${T[t.tur]}</td><td align=center>${t['koşu']}</td><td align=center>${t.harcama}</td><td align=center>${t.kazanc}</td><td align=center>${t.isabetli_kosu}</td><td align=center>${t.geri_donus==null?'–':t.geri_donus}</td></tr>`});
+    s+='</table><div style="font-size:12px;opacity:.7;margin-top:6px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026\'da donduruldu: model / AGF olasılığı ≥ '+(d.kural?d.kural.oran:1.15)+' ve yeterince olası kombinasyonlar. Geçmiş testte 0,91–0,99 çıktı, kâr kanıtı değil. Karar için en az ~300 koşu gerekir.</div></div>';
+    const gun=(d.bugun||[]);
+    if(gun.length){
+      s+=`<div class="card"><b>${d.tarih} seçimleri</b> <span style="opacity:.7">(sıralı ikili ve üçlüde sıra önemli: 5-7 = 5 birinci, 7 ikinci)</span>`;
+      gun.forEach(c=>{
+        s+=`<div style="margin-top:10px"><b>${c.hipodrom} ${c.kosu}. koşu</b> ${c.saat||''} <span style="opacity:.6">${c.dondu?'dondu':'güncelleniyor'}</span>`;
+        Object.keys(c.secim||{}).forEach(t=>{
+          const L=c.secim[t]; if(!L||!L.length) return;
+          const nolar=[...new Set(L.join('-').split('-'))].sort((a,b)=>a-b);
+          const r=c.sonuc&&c.sonuc[t];
+          s+=`<div style="margin-top:4px"><b>${T[t]}</b>: ${L.length} kombinasyon · ${(L.length*B[t]).toLocaleString('tr-TR')} TL`+(r?(r.isabet?` · <span style="color:#3ecf8e">tuttu +${r.kazanc} TL</span>`:' · <span style="opacity:.6">tutmadı</span>'):'')+`<br><span style="font-family:monospace">${L.join('  ')}</span><br><span style="font-size:12px;opacity:.7">${nolar.map(n=>n+' '+((c.atlar||{})[n]||'')).join(' · ')}</span></div>`;
+        });
+        s+='</div>';
+      });
+      s+='</div>';
+    }
+    el.innerHTML=s;
+  }catch(e){el.innerHTML='<div class="card empty">Egzotik takip verisi henüz yok (ilk koşulardan sonra oluşur).</div>'}
+}
+otoEgzYukle();
 
 async function otoDevirYukle(){
   const el=$('otoDevir'); if(!el) return;

@@ -84,7 +84,8 @@ def guncelle(obj):
             if c is None and not basladi:
                 s = _secim(k.get("atlar", []), obj.get("w0", 1.0))
                 if s is not None:
-                    kay[anahtar] = c = {"hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s}
+                    kay[anahtar] = c = {"hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s,
+                                        "ad": {str(a["no"]): a.get("at") for a in k.get("atlar", [])}}
             elif c is not None and not c.get("dondu"):
                 if basladi:
                     c["dondu"] = True
@@ -118,14 +119,18 @@ def guncelle(obj):
     ozet_yaz(tarih)
 
 
+def h_ad(c):
+    return c.get("hipodrom_ad") or c["hipodrom"]
+
+
 def ozet_yaz(tarih):
     top = {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
     gun = []
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
         for c in json.load(open(y, encoding="utf-8")).values():
             if os.path.basename(y)[:10] == tarih:
-                gun.append({"hipodrom": c["hipodrom"], "kosu": c["kosu"], "saat": c.get("saat"), "dondu": c.get("dondu"),
-                            "kombo": {t: len(v) for t, v in c["secim"].items()}, "sonuc": c.get("sonuc")})
+                gun.append({"hipodrom": c["hipodrom"], "kosu": c["kosu"], "atlar": c.get("ad", {}), "saat": c.get("saat"), "dondu": c.get("dondu"),
+                            "ad": h_ad(c), "secim": c["secim"], "kombo": {t: len(v) for t, v in c["secim"].items()}, "sonuc": c.get("sonuc")})
             for t, r in (c.get("sonuc") or {}).items():
                 a = top[t]; a["koşu"] += 1
                 if r["kombo"]:
