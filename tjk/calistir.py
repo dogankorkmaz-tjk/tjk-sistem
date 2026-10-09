@@ -220,7 +220,7 @@ def agf_zaman_yaz(obj):
 
 
 def hizli(t):
-    """Yarış başlangıcına son 70 dakikada 5 dakikada bir AGF'yi okur, yalnızca data/agf_zaman'a yazar (gün JSON'una dokunmaz)."""
+    """Yarış başlangıcına son 40 dakikada 5 dakikada bir AGF'yi okur, yalnızca data/agf_zaman'a yazar (gün JSON'una dokunmaz)."""
     import copy
     yol = gun_yolu(t)
     if not os.path.exists(yol):
@@ -231,7 +231,7 @@ def hizli(t):
         try: return int(x[:2]) * 60 + int(x[3:5])
         except Exception: return None
     yakin = [mins(k.get("saat")) for h in obj["hipodromlar"] for k in h["kosular"] if not k.get("sonuc") and mins(k.get("saat")) is not None]
-    if not any(m - 70 <= dk <= m + 2 for m in yakin):
+    if not any(m - 40 <= dk <= m + 2 for m in yakin):
         print("yarışa yakın pencere yok, atlandı"); return
     c = copy.deepcopy(obj)
     agf_ekle(c)

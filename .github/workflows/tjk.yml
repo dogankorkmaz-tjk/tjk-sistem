@@ -6,7 +6,7 @@ on:
     - cron: "15 6 * * *"         # 09:15 TR  sabah: bugünün programı + model + AGF
     - cron: "40 9 * * *"         # 12:40 TR  sabah tekrarı (son program/AGF)
     - cron: "*/20 10-21 * * *"   # 13:00-00:59 TR, 20 dakikada bir: AGF + biten koşuların sonuçları
-    - cron: "5,10,15,25,30,35,45,50,55 10-21 * * *"   # arada 5 dakikada bir: yalnızca yarışa son 70 dk içindeyse AGF anlık görüntüsü (hızlı mod)
+    - cron: "5,10,15,25,30,35,45,50,55 10-21 * * *"   # arada 5 dakikada bir: yalnızca yarışa son 40 dk içindeyse AGF anlık görüntüsü (hızlı mod)
   push:
     paths: ["data/tjk_csv/**", "data/tjk_sonuc/**", "data/tjk_kron/**", "data/kosmaz/**"]   # CSV yüklenince koşu bilgisi hemen işlenir
   workflow_dispatch:
