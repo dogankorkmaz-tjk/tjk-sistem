@@ -224,6 +224,21 @@ BUTCE7 = (250, 500)                 # en çok kombinasyon: 500 TL ve 1000 TL
 MOD7 = ("agf", "favori", "deger")      # agf = modelsiz kontrol (kalabalığın seçimi)
 
 
+# Hipodromun "taze para" medyanı (TL, 2023-2026 havuz verisi): devir büyüklüğünü buna oranlarız.
+TAZE7 = {"adana": 302e3, "ankara": 393e3, "bursa": 391e3, "elazig": 215e3, "istanbul": 436e3,
+         "izmir": 346e3, "kocaeli": 230e3, "sanliurfa": 147e3}
+TAZE7_GENEL = 346e3
+
+
+def oner7(hip, devir):
+    """Devir oranı b = devir / hipodromun medyan taze parası. Önerilen bütçe (kombinasyon): 0 = oynama.
+    Eşikler sezgisel (b<0.5 atla, 0.5-1.5 -> 250, >=1.5 -> 500); veri biriktikçe gözden geçirilecek."""
+    if not devir:
+        return None, 0
+    b = devir / TAZE7.get(hip, TAZE7_GENEL)
+    return round(b, 2), (0 if b < 0.5 else 250 if b < 1.5 else 500)
+
+
 def _onceki_devir7(hip, tarih):
     """Aynı hipodromda 7'li ganyanın en son oynandığı oyun devrettiyse devreden tutar (TL), değilse None."""
     parca = []
@@ -276,6 +291,7 @@ def guncelle7(obj, zorla=False):
                 dv = _onceki_devir7(h["id"], tarih)
                 c = {"hipodrom": h["id"], "ad": h.get("ad"), "son": son, "ilk_saat": ilk.get("saat"), "uretim": simdi,
                      "devir": dv, "dondu": False, "kuponlar": []}
+                c["devir_orani"], c["onerilen"] = oner7(h["id"], dv)
                 c["kuponlar"] = _kuponlar7(ay, ad)
                 kay[anahtar] = c
         elif c is not None and not c.get("dondu") and not zorla:
@@ -360,7 +376,14 @@ def ozet_yaz7(tarih):
             if not c.get("sonuc"):
                 continue
             grup = "devir sonrası" if c.get("devir") else "normal"
+            b, on = oner7(c.get("hipodrom"), c.get("devir"))
             for q in c["kuponlar"]:
+                if on and q["butce"] == on:
+                    t = top.setdefault(f"onerilen-{q['mod']}", {"grup": "önerilen (devir büyüklüğüne göre)", "mod": q["mod"], "butce": on,
+                                                               "oyun": 0, "harcama": 0.0, "isabet": 0, "kazanc": 0.0, "beklenen": 0.0})
+                    t["oyun"] += 1; t["harcama"] += q["bedel"]
+                    t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
+                    t["beklenen"] += q["beklenen_getiri_orani"] * q["bedel"]
                 t = top.setdefault(f"{grup}-{q['mod']}-{q['butce']}", {"grup": grup, "mod": q["mod"], "butce": q["butce"], "oyun": 0,
                                                                       "harcama": 0.0, "isabet": 0, "kazanc": 0.0, "beklenen": 0.0})
                 t["oyun"] += 1; t["harcama"] += q["bedel"]
