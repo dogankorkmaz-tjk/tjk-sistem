@@ -63,12 +63,14 @@ def oku_kron(yol):
         return None
     tarih = f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
     kosu, havuz = [], []
+    hv_ = re.search(r"Hava:\s*([^|]*)", t)
+    hava = hv_.group(1).strip() if hv_ else ""  # ör. "Açık Kum Pist: Normal Çim Pist: 3.3 (Normal) Durum: 21C,Açık,Nem%55"
     parcalar = re.split(r"\|(\d+)\. Koşu: ", t)
     for i in range(1, len(parcalar) - 1, 2):
         kn = int(parcalar[i]); g = parcalar[i + 1]
         s8 = re.search(r"Son 800 :\s*([\d.\-]*)", g); fk = re.search(r"Farklar : ([^|]*)", g)
         kosu.append({"tarih": tarih, "hipodrom": hip, "kosu": kn, "son800": (s8.group(1) if s8 else "") or "",
-                     "farklar": (fk.group(1).strip() if fk else "")})
+                     "farklar": (fk.group(1).strip() if fk else ""), "hava_pist": hava})
     dz = re.search(r"Dağıtılacak Tutarlar:(.*)$", t)
     if dz:
         for x in re.finditer(r"\|?\s*((?:\d+\.\s*)?[^|:]+?)\s*:\s*([\d.]+,\d+)\s*TL", dz.group(1)):
