@@ -18,6 +18,33 @@ DEVIR = re.compile(r"((?:\d+\.\s*)?[A-Za-zÇĞİÖŞÜçğıöşü0-9' ]+?)\(([\
 ODEME = re.compile(r"((?:\d+\.\s*)?[A-Za-zÇĞİÖŞÜçğıöşü0-9' ]+?)\(([\d/,.]+)\)\s*:\s*([\d.]+,\d+)\s*TL")
 
 
+KOD = {"SK", "KG", "DB", "K", "SKG", "GKR", "SGKR", "OF", "ÖG", "YP"}
+_PROG = {}
+
+
+def _norm(a):
+    a = re.sub(r"[^A-ZÇĞİÖŞÜ0-9]", "", a.upper().replace("İ", "I").replace("I", "I"))
+    return a.replace("Ç", "C").replace("Ğ", "G").replace("Ö", "O").replace("Ş", "S").replace("Ü", "U")
+
+
+def _ad_kod(ad):
+    t = ad.replace("(Koşmaz)", "").split(); k = []
+    while t and t[-1] in KOD:
+        k.append(t.pop())
+    return " ".join(t), " ".join(sorted(k))
+
+
+def _prog_no(tarih, hip, kosu, ad):
+    """Sonuç CSV'sindeki ilk sütun BİTİŞ SIRASIDIR (program numarası değil). At adından program numarasını bulur."""
+    ay = tarih[:7]
+    if ay not in _PROG:
+        yol = os.path.join(KOK, "program", ay + ".csv.gz")
+        _PROG[ay] = pd.read_csv(yol) if os.path.exists(yol) else pd.DataFrame(columns=["tarih", "hipodrom", "kosu", "no", "p_at"])
+    p = _PROG[ay]; p = p[(p.tarih == tarih) & (p.hipodrom == hip) & (p.kosu == kosu)]
+    h = {_norm(str(r.p_at)): int(r.no) for r in p.itertuples()}
+    return h.get(_norm(ad))
+
+
 def oku_sonuc_csv(yol):
     metin = open(yol, encoding="utf-8-sig").read().replace("\r", "")
     sat = metin.split("\n")
@@ -35,7 +62,11 @@ def oku_sonuc_csv(yol):
             if len(f) >= 15:
                 a = re.match(r"%([\d.]+)\((\d+)\)", f[10].strip())
                 fk = f[14].strip().replace("  ", " ")
-                zengin.append({"tarih": tarih, "hipodrom": hip, "kosu": kn, "no": int(f[0]),
+                adx, kod = _ad_kod(f[1].strip())
+                pno = _prog_no(tarih, hip, kn, adx)
+                if pno is None:
+                    continue                                  # program numarası bulunamayan at atlanır (yanlış eşleşmeyi önle)
+                zengin.append({"tarih": tarih, "hipodrom": hip, "kosu": kn, "no": pno, "sira": int(f[0]), "ad": adx, "kod": kod,
                                "agf_son": float(a.group(1)) if a else np.nan, "agf_sira": int(a.group(2)) if a else np.nan,
                                "h": int(f[11]) if f[11].strip().isdigit() else np.nan, "fark_txt": fk, "fark_boy": O.fark_boy(fk)})
             continue
