@@ -20,3 +20,7 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - tjk/havuz_canli.py: devirli havuz kaydi + EV tablosu (python -m tjk.havuz_canli ev 276534). 276.534 TL devirde medyan satisla EV~1,5, %25-%75 araligi 1,2-1,9, %90 1,08.
 - (21:50) jokey-at uyumu: cift artigi +0,0002 ± 0,0002; jokey degisimi 0,0000; jokey yukselisi +0,00001; birlikte kosu sayisi -0,00014 ± 0,00007; hepsi +0,00009 ± 0,0003 -> anlamsiz.
 - (22:30) Yapisal havuz: model-secimli siralı ikili/ikili/uclu kombinasyonlar ~basa bas (0,94-1,14, CI 1'i iceriyor), rastgele tabana (~0,75) gore +20-25 puan. Edge kaniti yok; ileriye donuk kagit test tjk/egzotik.py'de. Sonraki: kagit testin gunluk sonucunu izle, birim rejimi (uclu 2025 vs 2026) ayri analiz.
+- (23:00) Ikinci/ucuncu sira hedefi (walk-forward, 11.963 kosu): ozellikler 2. sirada +0,0269, 3. sirada +0,0397 nat/kosu katki (kazanma hedefinde +0,011); ogrenilen ussel agirlik 0,69 (2.) ve 0,50 (3.) vs sabit Harville 0,87/0,735. Ilk uc icin ayri hedef gerekli.
+- (23:00) Mesafe/pist/gun varyanti duzeltmeli gercek hiz puani (sp1,sp3,spmax5,spsd5,spn): kazanma -0,0002±0,0004, 2. sira +0,0001±0,0006, 3. sira -0,0003±0,0004 -> katki yok.
+- (23:00) Esik taramasi (ilk yari sec / ikinci yari sina): ayar secimi tasinmiyor (uclu korelasyon -0,35); kural degismiyor, kagit test devam.
+- Kosu seyri/anlatim: tjk.org'da komiser raporu var (cikan at, jokey/antrenor/seyis degisikligi, ek rapor), at bazli seyir yok; haber sitelerinde sadece sonuc ozetleri.
