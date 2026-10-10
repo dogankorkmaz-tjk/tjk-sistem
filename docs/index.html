@@ -43,7 +43,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .daynav button{border:0;background:transparent;padding:4px 10px;font-size:22px;line-height:1;border-radius:999px}
 .daynav .sub{color:var(--fg);font-weight:600;font-size:13.5px;min-width:92px;text-align:center;white-space:nowrap;font-size:13px}
 /* alt sekme çubuğu */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
   padding:8px max(16px,calc((100vw - 680px)/2)) calc(8px + env(safe-area-inset-bottom,0px));
   background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
 .tabs button{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:transparent;color:var(--muted);padding:4px 0;font:600 11.5px var(--f-body)}
@@ -149,6 +149,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
   </div>
   <div class="tabs" role="tablist">
     <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 9v4l2.5 2M9.5 3h5"/></svg>Yarışlar</button>
+    <button role="tab" id="tabEgz" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/></svg>Egzotik</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Canlı test</button>
     <button role="tab" id="tabDosya" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 15v3a2 2 0 002 2h10a2 2 0 002-2v-3"/></svg>Dosya yükle</button>
   </div>
@@ -182,10 +183,6 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
-      <h2>Egzotik bahisler: sıralı ikili, ikili, üçlü (kağıt üstü)</h2>
-      <div id="otoEgz"><div class="card empty">Yükleniyor…</div></div>
-    </div>
-    <div class="sec">
       <h2>Son dakika oranları: kaydettiklerinin sonucu</h2>
       <div id="otoCanli"><div class="card empty">Yükleniyor…</div></div>
     </div>
@@ -195,6 +192,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
     </div>
   </section>
 
+  <section id="egz" class="sec" hidden><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="skor" class="sec" hidden></section>
   <section id="dosya" class="sec" hidden>
     <div class="card">
@@ -298,7 +296,7 @@ async function gunYukle(t){
   }
   $('gun').textContent=gunYaz(GUN);
   $('gIleri').disabled = GUN>=trBugun();
-  renderSecim(); renderOzet();
+  renderSecim(); renderOzet(); egzCiz();
 }
 function gunKaydir(n){ const d=new Date(GUN+'T12:00:00'); d.setDate(d.getDate()+n); const t=d.toISOString().slice(0,10); gunYukle(t===trBugun()?null:t); }
 $('gGeri').onclick=()=>gunKaydir(-1); $('gIleri').onclick=()=>gunKaydir(1);
@@ -660,11 +658,12 @@ async function sibGonder(){
 $('sibBtn').onclick=sibGonder;
 $('sibDosya').onchange=async e=>{ const f=e.target.files[0]; if(f){ $('sibMetin').value=await f.text(); $('sibSonuc').textContent='Dosya okundu ('+Math.round(f.size/1024)+' KB). Şimdi "SİB gönder"e bas.'; } };
 function sekme(ad){
-  $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor'); $('tabDosya').setAttribute('aria-selected',ad==='dosya');
-  $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor'; $('dosya').hidden=ad!=='dosya';
+  $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor'); $('tabDosya').setAttribute('aria-selected',ad==='dosya'); $('tabEgz').setAttribute('aria-selected',ad==='egz');
+  $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor'; $('dosya').hidden=ad!=='dosya'; $('egz').hidden=ad!=='egz';
+  if(ad==='egz') egzYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
 }
-$('tabBugun').onclick=()=>sekme('bugun'); $('tabSkor').onclick=()=>sekme('skor'); $('tabDosya').onclick=()=>sekme('dosya');
+$('tabBugun').onclick=()=>sekme('bugun'); $('tabSkor').onclick=()=>sekme('skor'); $('tabDosya').onclick=()=>sekme('dosya'); $('tabEgz').onclick=()=>sekme('egz');
 if(location.hash==='#skor') sekme('skor');
 
 gunYukle(null);
@@ -746,39 +745,50 @@ async function otoPlaseYukle(){
 }
 otoPlaseYukle();
 
-async function otoEgzYukle(){
-  const el=$('otoEgz'); if(!el) return;
-  try{
-    const d=await getJSON('data/egzotik.json'); let s='';
-    const T={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü bahis'}, B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
-    [['Bolton (ana model)',d.toplam],['Jason (gölge model, aynı kural, ayrı sayaç)',d.toplam_jason]].forEach(([ad,tp],ix)=>{
-      if(!tp) return;
-      s+=`<div class="card"><b>${ad}: şimdiye kadar (sonuç dosyası yüklenen koşular)</b><table style="width:100%;font-size:13px"><tr><th align=left>Bahis</th><th>Koşu</th><th>Harcanan TL</th><th>Kazanç TL</th><th>İsabetli koşu</th><th>Geri dönüş</th></tr>`;
-      tp.forEach(t=>{s+=`<tr><td>${T[t.tur]}</td><td align=center>${t['koşu']}</td><td align=center>${t.harcama}</td><td align=center>${t.kazanc}</td><td align=center>${t.isabetli_kosu}</td><td align=center>${t.geri_donus==null?'–':t.geri_donus}</td></tr>`});
-      s+='</table>';
-      if(ix===0) s+='<div style="font-size:12px;opacity:.7;margin-top:6px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026\'da donduruldu: model / AGF olasılığı ≥ '+(d.kural?d.kural.oran:1.15)+' ve yeterince olası kombinasyonlar. Geçmiş testte 0,91–1,12 arası çıktı (dönemlere göre), kâr kanıtı değil. Karar için en az ~300 koşu gerekir.</div>';
-      else s+='<div style="font-size:12px;opacity:.7;margin-top:6px">Jason yalnızca karşılaştırma içindir, bahis oynanmaz. Aynı kural, aynı eşikler; fark yalnızca modeldeki ek özelliklerden (jokey artığı, mesafe uyumu) gelir.</div>';
-      s+='</div>';
-    });
-    const gun=(d.bugun||[]);
-    if(gun.length){
-      s+=`<div class="card"><b>${d.tarih} seçimleri</b> <span style="opacity:.7">(sıralı ikili ve üçlüde sıra önemli: 5-7 = 5 birinci, 7 ikinci)</span>`;
-      gun.forEach(c=>{
-        s+=`<div style="margin-top:10px"><b>${c.hipodrom} ${c.kosu}. koşu</b> ${c.saat||''} <span style="opacity:.6">${c.dondu?'dondu':'güncelleniyor'}</span>`;
-        Object.keys(c.secim||{}).forEach(t=>{
-          const L=c.secim[t]; if(!L||!L.length) return;
-          const nolar=[...new Set(L.join('-').split('-'))].sort((a,b)=>a-b);
-          const r=c.sonuc&&c.sonuc[t];
-          s+=`<div style="margin-top:4px"><b>${T[t]}</b>: ${L.length} kombinasyon · ${(L.length*B[t]).toLocaleString('tr-TR')} TL`+(r?(r.isabet?` · <span style="color:#3ecf8e">tuttu +${r.kazanc} TL</span>`:' · <span style="opacity:.6">tutmadı</span>'):'')+`<br><span style="font-family:monospace">${L.join('  ')}</span><br><span style="font-size:12px;opacity:.7">${nolar.map(n=>n+' '+((c.atlar||{})[n]||'')).join(' · ')}</span></div>`;
-        });
-        s+='</div>';
-      });
-      s+='</div>';
-    }
-    el.innerHTML=s;
-  }catch(e){el.innerHTML='<div class="card empty">Egzotik takip verisi henüz yok (ilk koşulardan sonra oluşur).</div>'}
+let EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ');
+const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
+async function egzYukle(){
+  try{ EGZ=await getJSON('data/egzotik.json'); }catch(e){ EGZ=null; }
+  egzCiz();
 }
-otoEgzYukle();
+function egzIlkAyak(){ const k=new Set(); ((VERI&&VERI.hipodromlar)||[]).forEach(h=>Object.values(h.altili||{}).forEach(v=>k.add(h.id+'|'+(v-5)))); return k; }
+function egzKart(c,durum,r){
+  const L=c.secim[EGT]; const nolar=[...new Set(L.join('-').split('-'))].sort((a,b)=>a-b);
+  const pill=durum==='oyna'?'<span class="pill on">Oyna</span>':durum==='kapali'?'<span class="pill hot">Üçlü kapalı: altılı 1. ayak</span>':'<span class="pill">Başladı</span>';
+  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px${durum==='kapali'?';opacity:.6':''}"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><b>${esc(c.ad)} ${c.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(c.saat||'')}</span></b>${pill}</div>`;
+  if(durum!=='kapali'){
+    s+=`<div style="display:flex;gap:6px;flex-wrap:wrap">${L.map(x=>`<span style="font:600 14px var(--f-mono,monospace);border:1px solid var(--line);border-radius:8px;padding:3px 8px">${esc(x)}</span>`).join('')}</div>`;
+    s+=`<div class="sub">${L.length} kombinasyon · ${(L.length*EGT_B[EGT]).toLocaleString('tr-TR')} TL</div>`;
+    s+=`<div class="sub">${nolar.map(n=>n+' '+esc((c.atlar||{})[n]||'')).join(' · ')}</div>`;
+    if(r) s+=r.isabet?`<div style="color:var(--good);font-weight:600">Tuttu: +${r.kazanc} TL</div>`:'<div class="sub">Tutmadı</div>';
+  }
+  return s+'</div>';
+}
+function egzCiz(){
+  const el=$('egzIc'); if(!el) return;
+  if(!EGZ){ el.innerHTML='<div class="card empty">Egzotik seçim verisi henüz yok. İlk koşulardan önce oluşur.</div>'; return; }
+  const d=EGZ, ilk=egzIlkAyak(); const eski=d.tarih!==GUN;
+  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>Nasıl okunur</b>
+    <div class="sub">1) Model, piyasanın düşük fiyatladığını düşündüğü kombinasyonları seçer. Hepsini birlikte almak gerekir.</div>
+    <div class="sub">2) Geçmişte bu seçim yatırılan paranın yaklaşık %90–110'unu geri verdi. Rastgele alım %75 verir. Kâr kanıtı yok.</div>
+    <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
+  s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
+  if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
+  const hepsi=(d.bugun||[]).filter(c=>c.secim&&c.secim[EGT]&&c.secim[EGT].length);
+  const oy=[],kap=[],bit=[];
+  hepsi.forEach(c=>{
+    const kapali=EGT==='ÜÇLÜ BAHİS'&&ilk.has(c.hipodrom+'|'+c.kosu);
+    if(c.sonuc||c.dondu) bit.push(c); else if(kapali) kap.push(c); else oy.push(c);
+  });
+  s+=`<h2 style="margin-top:8px">Sıradaki koşular</h2>`+(oy.length?oy.map(c=>egzKart(c,'oyna',null)).join(''):'<div class="card empty">Şu an oynanabilir seçim yok.</div>');
+  if(kap.length) s+=`<h2>Bu bahis kapalı</h2>`+kap.map(c=>egzKart(c,'kapali',null)).join('');
+  if(bit.length) s+=`<details class="kb"><summary>Başlayan ve biten koşular (${bit.length})</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${bit.map(c=>egzKart(c,'bitti',c.sonuc&&c.sonuc[EGT])).join('')}</div></details>`;
+  const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
+  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için en az ~300 koşu gerekir.</div></div></details>`;
+  el.innerHTML=s;
+  el.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();});
+}
+egzYukle();
 
 async function otoDevirYukle(){
   const el=$('otoDevir'); if(!el) return;
