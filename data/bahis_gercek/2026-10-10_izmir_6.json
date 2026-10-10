@@ -1,15 +1,19 @@
 {
-  "tarih": "2026-10-10",
-  "hipodrom": "izmir",
-  "kosu": 6,
-  "tur": "GANYAN_SIB",
-  "secim": [1],
-  "at": "RISING GLORY",
-  "oran": 14.00,
-  "bahis_tl": 50,
-  "saat": "19:12",
-  "kupon_no": "3402-70650-26700",
-  "durum": "acik",
-  "kaynak": "Bolton (EV testi)",
-  "not": "Erken okuma (19 dk once): SIB 10.00 gorulmustu, alis aninda 14.00 kilitlendi. Bolton %19.7 x 14.00 = EV ~2.76; muhtemel 3.95. 'Erken SIB gecikmesi' hipotezinin testi; onceki benzer sinyaller (Ankara K8 #4, Izmir K5 #9) kaybetti. Tek ornek bir sey kanitlamaz. Kazanc brut 700 TL."
+ "tarih": "2026-10-10",
+ "hipodrom": "izmir",
+ "kosu": 6,
+ "tur": "GANYAN_SIB",
+ "secim": [
+  1
+ ],
+ "at": "RISING GLORY",
+ "oran": 14.0,
+ "bahis_tl": 50,
+ "saat": "19:12",
+ "kupon_no": "3402-70650-26700",
+ "durum": "kaybetti",
+ "kaynak": "Bolton (EV testi)",
+ "not": "Erken okuma (19 dk once): SIB 10.00 gorulmustu, alis aninda 14.00 kilitlendi. Bolton %19.7 x 14.00 = EV ~2.76; muhtemel 3.95. 'Erken SIB gecikmesi' hipotezinin testi; onceki benzer sinyaller (Ankara K8 #4, Izmir K5 #9) kaybetti. Tek ornek bir sey kanitlamaz. Kazanc brut 700 TL.",
+ "sonuc": "gayriresmi 5-3-2-1-4; #1 4. geldi",
+ "net_tl": -50
 }
