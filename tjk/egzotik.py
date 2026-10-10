@@ -41,7 +41,7 @@ def _secim(atlar, w0, zk="z", lp2=0.0):
     pk = {a["no"]: a["agf"] / tot for a in at}
     ham = {a["no"]: math.exp(w0 * math.log(max(pk[a["no"]], 1e-6)) + lp2 * math.log(max(pk[a["no"]], 1e-6)) ** 2 + (a.get(zk) or 0.0)) for a in at}
     Z = sum(ham.values()); pm = {n: v / Z for n, v in ham.items()}
-    out = {}
+    out = {}; oran = {}
     for tur, k in K.items():
         A, B = _kombolar(pk, k), _kombolar(pm, k)
         if tur == "İKİLİ":
@@ -53,6 +53,8 @@ def _secim(atlar, w0, zk="z", lp2=0.0):
             A, B = A2, B2
         sec = [c for c in A if A[c] >= ESIK[tur] and B[c] / A[c] >= ORAN]
         out[tur] = ["-".join(str(int(n)) for n in c) for c in sorted(sec)]
+        oran[tur] = {"-".join(str(int(n)) for n in c): [round(B[c] / A[c], 2), round(B[c], 4)] for c in sorted(sec)}   # [model/piyasa oranı, model olasılığı]
+    out["_oran"] = oran
     return out
 
 
@@ -88,7 +90,8 @@ def guncelle(obj):
                 if c is None and not basladi:
                     s = _secim(k.get("atlar", []), w0, zk, lp2)
                     if s is not None:
-                        kay[anahtar] = c = {"model": ad_m, "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s,
+                        ora = s.pop("_oran", None)
+                        kay[anahtar] = c = {"model": ad_m, "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s, "oran": ora,
                                             "ad": {str(a["no"]): a.get("at") for a in k.get("atlar", [])}}
                 elif c is not None and not c.get("dondu"):
                     if basladi:
@@ -96,6 +99,7 @@ def guncelle(obj):
                     else:
                         s = _secim(k.get("atlar", []), w0, zk, lp2)
                         if s is not None:
+                            c["oran"] = s.pop("_oran", None)
                             c["secim"] = s; c["uretim"] = simdi
                 # değerlendirme
                 if c and "sonuc" not in c and k.get("sonuc") and c.get("dondu", True):
@@ -137,7 +141,7 @@ def ozet_yaz(tarih):
             m = c.get("model", "Bolton")
             if os.path.basename(y)[:10] == tarih and m == "Bolton":
                 gun.append({"hipodrom": c["hipodrom"], "kosu": c["kosu"], "atlar": c.get("ad", {}), "saat": c.get("saat"), "dondu": c.get("dondu"),
-                            "ad": h_ad(c), "secim": c["secim"], "kombo": {t: len(v) for t, v in c["secim"].items()}, "sonuc": c.get("sonuc")})
+                            "ad": h_ad(c), "secim": c["secim"], "oran": c.get("oran"), "kombo": {t: len(v) for t, v in c["secim"].items()}, "sonuc": c.get("sonuc")})
             for t, r in (c.get("sonuc") or {}).items():
                 a = tops[m][t]; a["koşu"] += 1
                 if r["kombo"]:

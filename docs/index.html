@@ -757,7 +757,8 @@ function egzKart(c,durum,r){
   const pill=durum==='oyna'?'<span class="pill on">Oyna</span>':durum==='kapali'?'<span class="pill hot">Üçlü kapalı: altılı 1. ayak</span>':'<span class="pill">Başladı</span>';
   let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px${durum==='kapali'?';opacity:.6':''}"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><b>${esc(c.ad)} ${c.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(c.saat||'')}</span></b>${pill}</div>`;
   if(durum!=='kapali'){
-    s+=`<div style="display:flex;gap:6px;flex-wrap:wrap">${L.map(x=>`<span style="font:600 14px var(--f-mono,monospace);border:1px solid var(--line);border-radius:8px;padding:3px 8px">${esc(x)}</span>`).join('')}</div>`;
+    const OR=(c.oran&&c.oran[EGT])||{}; const LS=L.slice().sort((a,b)=>((OR[b]||[0])[0])-((OR[a]||[0])[0]));
+    s+=`<div style="display:flex;gap:6px;flex-wrap:wrap">${LS.map(x=>{const q=OR[x];return `<span style="border:1px solid var(--line);border-radius:8px;padding:3px 8px;display:flex;flex-direction:column;align-items:center;line-height:1.2"><span style="font:600 14px var(--f-mono,monospace)">${esc(x)}</span>`+(q?`<small style="font-size:11px;color:var(--muted)">×${f2(q[0])} · %${pct(q[1])}</small>`:'')+`</span>`}).join('')}</div>`;
     s+=`<div class="sub">${L.length} kombinasyon · ${(L.length*EGT_B[EGT]).toLocaleString('tr-TR')} TL</div>`;
     s+=`<div class="sub">${nolar.map(n=>n+' '+esc((c.atlar||{})[n]||'')).join(' · ')}</div>`;
     if(r) s+=r.isabet?`<div style="color:var(--good);font-weight:600">Tuttu: +${r.kazanc} TL</div>`:'<div class="sub">Tutmadı</div>';
@@ -771,6 +772,7 @@ function egzCiz(){
   let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>Nasıl okunur</b>
     <div class="sub">1) Model, piyasanın düşük fiyatladığını düşündüğü kombinasyonları seçer. Hepsini birlikte almak gerekir.</div>
     <div class="sub">2) Geçmişte bu seçim yatırılan paranın yaklaşık %90–110'unu geri verdi. Rastgele alım %75 verir. Kâr kanıtı yok.</div>
+    <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmişte ×1,15–1,3 ile ×1,3 üzeri arasında net fark çıkmadı.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
