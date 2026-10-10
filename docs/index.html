@@ -591,13 +591,19 @@ async function yukle(){
     }
     fl.length=0; fl.push(...yeni); out.textContent='Zip açıldı, '+fl.length+' dosya yükleniyor…';
   }
-  let sayac=0;
+  let sayac=0, var_=new Set();
+  try{
+    const tr=await fetch(`https://api.github.com/repos/${GH}/git/trees/main?recursive=1`,{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'}});
+    if(tr.ok){ for(const x of (await tr.json()).tree||[]) if(/^data\/tjk_(csv|sonuc|kron)\//.test(x.path)) var_.add(x.path); }
+  }catch(e){}
+  let atla=0;
   for(const f of fl){
-    if(fl.length>5) out.textContent='Yükleniyor… '+(++sayac)+'/'+fl.length;
+    if(fl.length>5) out.textContent='Yükleniyor… '+(++sayac)+'/'+fl.length+(atla?` (${atla} zaten vardı, atlandı)`:'');
     try{
       const t=await metinOku(f); const ad=dosyaAdi(t);
       if(ad&&!ad.kl){ sat.push(`✗ ${esc(f.name)}: bu bir kayıt listesi (jokey ve kesin kadro yok), program değil; yüklemene gerek yok, Günlük Yarış Programı'nı yükle`); continue; }
       if(!ad){ sat.push(`✗ ${esc(f.name)}: tanınan bir TJK dosyası gibi görünmüyor`); continue; }
+      if(var_.has(`data/${ad.kl}/${ad.ad}`)){ atla++; continue; }
       const url=`https://api.github.com/repos/${GH}/contents/data/${ad.kl}/${ad.ad}`;
       const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
       let sha; const g=await fetch(url+'?ref=main',{headers:h}); if(g.ok) sha=(await g.json()).sha;
@@ -605,7 +611,7 @@ async function yukle(){
       sat.push(r.ok?`✓ ${esc(ad.ad)} yüklendi (${{tjk_csv:'program',tjk_sonuc:'sonuç',tjk_kron:'kronometrik'}[ad.kl]})`:`✗ ${esc(ad.ad)}: hata ${r.status} ${r.status===401||r.status===403||r.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`);
     }catch(e){ sat.push(`✗ ${esc(f.name)}: ${esc(String(e))}`); }
   }
-  out.innerHTML=sat.join('<br>')+'<br><span class="sub">Sistem 1–2 dakikada işler; sonra sayfayı yenile.</span>';
+  out.innerHTML=(atla?`<span class="sub">${atla} dosya zaten yüklüydü, atlandı.</span><br>`:'')+sat.join('<br>')+'<br><span class="sub">Bitti. Sistem 1–2 dakikada işler; sonra sayfayı yenile.</span>';
 }
 $('yukleBtn').onclick=yukle;
 async function sibGonder(){
