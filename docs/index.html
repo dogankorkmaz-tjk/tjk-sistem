@@ -349,11 +349,11 @@ function hesapla(h,k,kaynakZorla){
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
   else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ idx.push(i); g.push(NaN); }); const ham=atlar.map(a=>Math.max(a.agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
   if(!pp||idx.length<2) return null;
-  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hm=harville(pm,G_MODEL), hp=harville(pp,G_PIYASA);
+  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
-    out.map[i]={pj:pj?pj[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2p:hp[j][0],i3p:hp[j][1]};
+    out.map[i]={pj:pj?pj[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
   });
   return out;
 }
@@ -368,7 +368,7 @@ function renderKosu(){
     <div id="kaynak"></div></div>
     ${bitti?'<div class="card" style="padding:10px 14px;font-size:14px"><b>Sonuç:</b> '+k.atlar.filter(a=>k.sonuc[a.no]&&k.sonuc[a.no].sira<=4).sort((x,y)=>k.sonuc[x.no].sira-k.sonuc[y.no].sira).map(a=>`${k.sonuc[a.no].sira}. <b>${a.no}</b> ${esc(a.at)}`).join(' · ')+'</div>':''}
     <div class="rank" id="rank"></div>
-    <div class="row head"><span>No</span><span>At</span><span style="text-align:right">Ganyan</span><span style="text-align:right">Model</span><span style="text-align:right">EV</span></div>`;
+    <div class="row head"><span>No</span><span>At</span><span style="text-align:right">Ganyan</span><span style="text-align:right">Bolton</span><span style="text-align:right">EV</span></div>`;
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
     s+=`<div class="row${sn&&sn.sira===1?' kazanan':sn&&sn.sira===2?' ikinci':sn&&sn.sira===3?' ucuncu':''}" id="r${i}"><span class="no c${(a.no-1)%16+1}">${a.no}</span><div class="nm"><b>${esc(a.at)}</b><span>${esc(a.jokey||'')}${a.st?' · st '+a.st:''}</span></div>
@@ -412,8 +412,9 @@ function hesapGoster(){
     if(x){
       sira.push(i);
       const f3=x.i3m/x.i3p;
+      t+=`<span>Bolton ${pct(x.pm)}%${x.ev!=null?' · EV '+f2(x.ev):''}</span>`;
       if(x.pj!=null) t+=`<span>Jason ${pct(x.pj)}%${x.ejv!=null?' · EV '+f2(x.ejv):''}</span>`;
-      t+=`<span>piyasa ${pct(x.pp)}%</span><span>ilk2 ${pct(x.i2m)}%</span><span>ilk3 ${pct(x.i3m)}%</span>`;
+      t+=`<span>piyasa ${pct(x.pp)}%</span><span>ilk2 B ${pct(x.i2m)}%${x.i2j!=null?' · J '+pct(x.i2j)+'%':''}</span><span>ilk3 B ${pct(x.i3m)}%${x.i3j!=null?' · J '+pct(x.i3j)+'%':''}</span>`;
       if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
       if(x.ekuri) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre</span>';
       if(x.ev!=null&&x.ev>=1) t+='<span class="tag ev">EV 1 üstü</span>';
