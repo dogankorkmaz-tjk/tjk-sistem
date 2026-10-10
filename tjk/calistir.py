@@ -441,6 +441,11 @@ def gece(bugun):
         print("gölge skor:", GL.skor())
     except Exception as e:
         print("gölge model hatası:", repr(e))
+    try:
+        from . import walkforward as WF            # Bolton/Jason ozellikleri vs piyasa: ceyreklik walk-forward (sonuc docs/data/walkforward.json)
+        WF.main()
+    except Exception as e:
+        print("walk-forward hatası:", repr(e))
 
 
 # ------------------------------------------------------------------ geçmiş günleri siteye aktar

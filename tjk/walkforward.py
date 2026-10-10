@@ -70,7 +70,10 @@ def main():
         out["toplam"][ad]["ev_roi"] = roi
     yol = os.path.join(KOK, "data", "analiz", "walkforward.json")
     os.makedirs(os.path.dirname(yol), exist_ok=True)
+    out["guncelleme"] = O.tr_simdi().strftime("%Y-%m-%d %H:%M")
     json.dump(out, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    site = os.path.join(KOK, "docs", "data", "walkforward.json")
+    json.dump(out, open(site, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     print(json.dumps(out["toplam"], ensure_ascii=False, indent=1))
 
 

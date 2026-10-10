@@ -15,3 +15,6 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - zengin boy farki ozellikleri: fark -0,00005 ± 0,0005 (katki yok)
 - ekipman kodlari + degisimleri: fark -0,0027 ± 0,0008 (ZARAR, asiri uyum)
 - lam taramasi (2025Q1+): 10:0,01725 30:0,01723 100:0,01709 300:0,01664 1000:0,01534 -> lam=100 yeterli, ayar kazanci yok (<0,0002)
+- (21:30) antrenor/sahip/baba/jokey-antrenor/jokey-hipodrom artik ozellikleri: +0,0001..+0,00015 (SE 0,0001-0,0002) -> anlamsiz. hipodrom/alan buyuklugu/mesafe/apranti x piyasa etkilesimleri: +0,00013 ± 0,00024 -> anlamsiz. Hepsi birlikte +0,00022 ± 0,00032. SONUC: eldeki veriyle Jason tavana yakin; yeni BILGI kaynagi (idman gecmisi) gerek.
+- walk-forward artik gece job'unda (tjk/calistir.py gece) calisir, docs/data/walkforward.json uretir.
+- tjk/havuz_canli.py: devirli havuz kaydi + EV tablosu (python -m tjk.havuz_canli ev 276534). 276.534 TL devirde medyan satisla EV~1,5, %25-%75 araligi 1,2-1,9, %90 1,08.

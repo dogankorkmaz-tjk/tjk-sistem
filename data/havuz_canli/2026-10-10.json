@@ -1,0 +1,42 @@
+[
+ {
+  "hipodrom": "izmir",
+  "kosu": 5,
+  "tur": "sirali5",
+  "tutar": 0.0,
+  "devir": 276534.38,
+  "not": "K5 sirali 5li bilen cikmadi, devir K8e"
+ },
+ {
+  "hipodrom": "izmir",
+  "kosu": 8,
+  "tur": "sirali5",
+  "tutar": 28401.5,
+  "devir": 276534.38,
+  "not": "K8 sirali 5li 8/5/13/10/9 odeme 28.401,50 TL/birim; devir tuketildi; satis bilinmiyor"
+ },
+ {
+  "hipodrom": "izmir",
+  "kosu": 8,
+  "tur": "7li",
+  "tutar": 0.0,
+  "devir": 190426.88,
+  "not": "7li ganyan bilen cikmadi, devir sonraki 7liye"
+ },
+ {
+  "hipodrom": "izmir",
+  "kosu": 6,
+  "tur": "6li_1",
+  "tutar": 9063419.0,
+  "devir": null,
+  "not": "ekran: 1. 6li dagitilacak tutar"
+ },
+ {
+  "hipodrom": "izmir",
+  "kosu": 6,
+  "tur": "6li_2",
+  "tutar": 16983426.0,
+  "devir": null,
+  "not": "ekran: 2. 6li dagitilacak tutar"
+ }
+]
