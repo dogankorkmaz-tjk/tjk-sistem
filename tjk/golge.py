@@ -8,7 +8,7 @@ from . import ortak as O
 from .ozellik import hazirla
 from . import mesafe as MS
 
-EK = ["f_dp150_m", "f_jgen100"]   # Jason'un Bolton'dan fazladan kullandığı özellikler (mesafe uyumu, jokey artığı)
+EK = ["f_dp150_m", "f_jgen100", "f_fig3"]   # Jason'un Bolton'dan fazladan kullandığı özellikler (mesafe uyumu, jokey artığı)
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data")

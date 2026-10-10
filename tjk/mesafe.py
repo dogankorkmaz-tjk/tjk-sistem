@@ -74,6 +74,19 @@ def _onceki_ort(d, anahtar, deger, K):
     return d[[anahtar, "tarih"]].merge(g[[anahtar, "tarih", "f"]], on=[anahtar, "tarih"], how="left").f.fillna(0).values
 
 
+def _figur3(d):
+    """rel_sure'den aynı gün-hipodrom-pistteki ortalama (kendisi hariç) çıkarılır = pist/gün varyantına göre düzeltilmiş figür;
+    at için KESİNLİKLE önceki son 3 koşunun ortalaması, [-3,3] kırpılmış, yoksa 0."""
+    r = d.rel_sure.astype(float)
+    k = d.tarih.astype(str) + "|" + d.hipodrom.astype(str) + "|" + d.pist.astype(str)
+    sm = r.groupby(k).transform("sum"); sc = r.groupby(k).transform("count")
+    fig = r - (sm - r.fillna(0)) / (sc - r.notna()).clip(lower=1)
+    t = pd.DataFrame({"at": d["at"].values, "tarih": d.tarih.values, "h": d.hipodrom.values, "k": d.kosu.values, "fig": fig.values}, index=d.index)
+    t = t.sort_values(["at", "tarih", "h", "k"], kind="stable")
+    f = t.groupby("at").fig.transform(lambda x: x.shift(1).rolling(3, min_periods=1).mean()).fillna(0).clip(-3, 3)
+    return f.reindex(d.index).values
+
+
 def ekle(d, bugun=None):
     """d: ozellik.hazirla çıktısı. 'f_dp150_m' sütunu eklenir. bugun: {(hipodrom, kosu): (mesafe, pist)} - sonucu bilinmeyen bugünkü koşular."""
     d = d.copy()
@@ -105,4 +118,5 @@ def ekle(d, bugun=None):
             f[ix[j]] = (w * rr[:j][ok]).sum() / (w.sum() + ONSEL)
     d["f_dp150_m"] = f
     d["f_jgen100"] = _onceki_ort(d, "jokey", "_res", 100.0)       # jokeyin binişlerinin piyasa beklentisine göre ortalama bitiş artığı
+    d["f_fig3"] = _figur3(d)                                      # hız figürü: son 3 koşunun gün/pist farkına göre düzeltilmiş göreli süresi
     return d.drop(columns=["_res"])
