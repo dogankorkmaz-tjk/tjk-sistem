@@ -54,5 +54,7 @@ jobs:
           git add -A data docs
           if git diff --cached --quiet; then echo "değişiklik yok"; exit 0; fi
           git commit -m "veri $(date -u '+%Y-%m-%d %H:%M') UTC"
-          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
+          # çakışma sürerse (aynı anda iki çalışma): bot dosyaları sonraki çalışmada yeniden üretildiğinden bu çalışmanın sürümü esas alınır
+          git pull --rebase -X theirs && git push && exit 0
           exit 1
