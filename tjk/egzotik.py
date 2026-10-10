@@ -32,14 +32,14 @@ def _kombolar(p, k):
     return out
 
 
-def _secim(atlar, w0):
-    """atlar: koşu atları (agf, z). Her tür için seçilen kombinasyonlar: {tur: ["a-b", ...]}"""
+def _secim(atlar, w0, zk="z"):
+    """atlar: koşu atları (agf, z). Her tür için seçilen kombinasyonlar: {tur: ["a-b", ...]}. zk: form puanı alanı (Bolton "z", Jason "z2")."""
     at = [a for a in atlar if a.get("agf") and not a.get("kosmaz")]
-    if len(at) < 5:
+    if len(at) < 5 or (zk != "z" and any(a.get(zk) is None for a in at)):
         return None
     tot = sum(a["agf"] for a in at)
     pk = {a["no"]: a["agf"] / tot for a in at}
-    ham = {a["no"]: math.exp(w0 * math.log(max(pk[a["no"]], 1e-6)) + (a.get("z") or 0.0)) for a in at}
+    ham = {a["no"]: math.exp(w0 * math.log(max(pk[a["no"]], 1e-6)) + (a.get(zk) or 0.0)) for a in at}
     Z = sum(ham.values()); pm = {n: v / Z for n, v in ham.items()}
     out = {}
     for tur, k in K.items():
@@ -76,43 +76,47 @@ def guncelle(obj):
     except Exception:
         pass
     od = None
+    modeller = [("", "z", obj.get("w0", 1.0), "Bolton")]
+    if obj.get("w0_aday") is not None:
+        modeller.append(("J|", "z2", obj["w0_aday"], "Jason"))      # Jason: aynı kural, ayrı sayaç (gölge kâğıt testi)
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
-            anahtar = f"{h['id']}|{k['kosu']}"
-            c = kay.get(anahtar)
             basladi = bool(k.get("sonuc")) or (simdi is not None and k.get("saat") and simdi >= k["saat"] and obj.get("gecmis") is not True)
-            if c is None and not basladi:
-                s = _secim(k.get("atlar", []), obj.get("w0", 1.0))
-                if s is not None:
-                    kay[anahtar] = c = {"hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s,
-                                        "ad": {str(a["no"]): a.get("at") for a in k.get("atlar", [])}}
-            elif c is not None and not c.get("dondu"):
-                if basladi:
-                    c["dondu"] = True
-                else:
-                    s = _secim(k.get("atlar", []), obj.get("w0", 1.0))
+            for onek, zk, w0, ad_m in modeller:
+                anahtar = f"{onek}{h['id']}|{k['kosu']}"
+                c = kay.get(anahtar)
+                if c is None and not basladi:
+                    s = _secim(k.get("atlar", []), w0, zk)
                     if s is not None:
-                        c["secim"] = s; c["uretim"] = simdi
-            # değerlendirme
-            if c and "sonuc" not in c and k.get("sonuc") and c.get("dondu", True):
-                if od is None:
-                    od = _odeme_oku(tarih)
-                x = od[(od.hipodrom == h["id"]) & (od.kosu == k["kosu"])] if len(od) else od
-                if len(x):
-                    res = {}
-                    for tur in K:
-                        r = x[x.tur == tur]
-                        if not len(r):
-                            continue                                  # bu koşuda bu bahis türü oynanmamış
-                        sec = set(c["secim"].get(tur, []))
-                        kaz = 0.0; isabet = False
-                        for q in r.itertuples():
-                            kk = [int(z) for z in str(q.kombo).split("/")]
-                            key = "-".join(str(n) for n in (sorted(kk) if tur == "İKİLİ" else kk))
-                            if key in sec:
-                                kaz += float(q.tutar); isabet = True
-                        res[tur] = {"kombo": len(sec), "bedel": round(len(sec) * BIRIM[tur], 2), "kazanc": round(kaz, 2), "isabet": isabet}
-                    c["sonuc"] = res
+                        kay[anahtar] = c = {"model": ad_m, "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s,
+                                            "ad": {str(a["no"]): a.get("at") for a in k.get("atlar", [])}}
+                elif c is not None and not c.get("dondu"):
+                    if basladi:
+                        c["dondu"] = True
+                    else:
+                        s = _secim(k.get("atlar", []), w0, zk)
+                        if s is not None:
+                            c["secim"] = s; c["uretim"] = simdi
+                # değerlendirme
+                if c and "sonuc" not in c and k.get("sonuc") and c.get("dondu", True):
+                    if od is None:
+                        od = _odeme_oku(tarih)
+                    x = od[(od.hipodrom == h["id"]) & (od.kosu == k["kosu"])] if len(od) else od
+                    if len(x):
+                        res = {}
+                        for tur in K:
+                            r = x[x.tur == tur]
+                            if not len(r):
+                                continue                                  # bu koşuda bu bahis türü oynanmamış
+                            sec = set(c["secim"].get(tur, []))
+                            kaz = 0.0; isabet = False
+                            for q in r.itertuples():
+                                kk = [int(z) for z in str(q.kombo).split("/")]
+                                key = "-".join(str(n) for n in (sorted(kk) if tur == "İKİLİ" else kk))
+                                if key in sec:
+                                    kaz += float(q.tutar); isabet = True
+                            res[tur] = {"kombo": len(sec), "bedel": round(len(sec) * BIRIM[tur], 2), "kazanc": round(kaz, 2), "isabet": isabet}
+                        c["sonuc"] = res
     if kay:
         os.makedirs(os.path.dirname(yol), exist_ok=True)
         json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
@@ -124,22 +128,26 @@ def h_ad(c):
 
 
 def ozet_yaz(tarih):
-    top = {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
+    def bos():
+        return {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
+    tops = {"Bolton": bos(), "Jason": bos()}
     gun = []
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
         for c in json.load(open(y, encoding="utf-8")).values():
-            if os.path.basename(y)[:10] == tarih:
+            m = c.get("model", "Bolton")
+            if os.path.basename(y)[:10] == tarih and m == "Bolton":
                 gun.append({"hipodrom": c["hipodrom"], "kosu": c["kosu"], "atlar": c.get("ad", {}), "saat": c.get("saat"), "dondu": c.get("dondu"),
                             "ad": h_ad(c), "secim": c["secim"], "kombo": {t: len(v) for t, v in c["secim"].items()}, "sonuc": c.get("sonuc")})
             for t, r in (c.get("sonuc") or {}).items():
-                a = top[t]; a["koşu"] += 1
+                a = tops[m][t]; a["koşu"] += 1
                 if r["kombo"]:
                     a["kosuda_secim"] += 1
                 a["harcama"] += r["bedel"]; a["kazanc"] += r["kazanc"]; a["isabetli_kosu"] += int(r["isabet"])
-    for a in top.values():
-        a["geri_donus"] = round(a["kazanc"] / a["harcama"], 3) if a["harcama"] else None
-        a["harcama"] = round(a["harcama"], 2); a["kazanc"] = round(a["kazanc"], 2)
+    for top in tops.values():
+        for a in top.values():
+            a["geri_donus"] = round(a["kazanc"] / a["harcama"], 3) if a["harcama"] else None
+            a["harcama"] = round(a["harcama"], 2); a["kazanc"] = round(a["kazanc"], 2)
     os.makedirs(SITE, exist_ok=True)
     json.dump({"tarih": tarih, "kural": {"gama": GAMA, "delta": DELTA, "oran": ORAN, "esik": ESIK, "birim": BIRIM},
-               "bugun": gun, "toplam": list(top.values())},
+               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values())},
               open(os.path.join(SITE, "egzotik.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))

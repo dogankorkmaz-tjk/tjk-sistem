@@ -706,9 +706,15 @@ async function otoEgzYukle(){
   try{
     const d=await getJSON('data/egzotik.json'); let s='';
     const T={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü bahis'}, B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
-    s+='<div class="card"><b>Şimdiye kadar (sonuç dosyası yüklenen koşular)</b><table style="width:100%;font-size:13px"><tr><th align=left>Bahis</th><th>Koşu</th><th>Harcanan TL</th><th>Kazanç TL</th><th>İsabetli koşu</th><th>Geri dönüş</th></tr>';
-    (d.toplam||[]).forEach(t=>{s+=`<tr><td>${T[t.tur]}</td><td align=center>${t['koşu']}</td><td align=center>${t.harcama}</td><td align=center>${t.kazanc}</td><td align=center>${t.isabetli_kosu}</td><td align=center>${t.geri_donus==null?'–':t.geri_donus}</td></tr>`});
-    s+='</table><div style="font-size:12px;opacity:.7;margin-top:6px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026\'da donduruldu: model / AGF olasılığı ≥ '+(d.kural?d.kural.oran:1.15)+' ve yeterince olası kombinasyonlar. Geçmiş testte 0,91–0,99 çıktı, kâr kanıtı değil. Karar için en az ~300 koşu gerekir.</div></div>';
+    [['Bolton (ana model)',d.toplam],['Jason (gölge model, aynı kural, ayrı sayaç)',d.toplam_jason]].forEach(([ad,tp],ix)=>{
+      if(!tp) return;
+      s+=`<div class="card"><b>${ad}: şimdiye kadar (sonuç dosyası yüklenen koşular)</b><table style="width:100%;font-size:13px"><tr><th align=left>Bahis</th><th>Koşu</th><th>Harcanan TL</th><th>Kazanç TL</th><th>İsabetli koşu</th><th>Geri dönüş</th></tr>`;
+      tp.forEach(t=>{s+=`<tr><td>${T[t.tur]}</td><td align=center>${t['koşu']}</td><td align=center>${t.harcama}</td><td align=center>${t.kazanc}</td><td align=center>${t.isabetli_kosu}</td><td align=center>${t.geri_donus==null?'–':t.geri_donus}</td></tr>`});
+      s+='</table>';
+      if(ix===0) s+='<div style="font-size:12px;opacity:.7;margin-top:6px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026\'da donduruldu: model / AGF olasılığı ≥ '+(d.kural?d.kural.oran:1.15)+' ve yeterince olası kombinasyonlar. Geçmiş testte 0,91–1,12 arası çıktı (dönemlere göre), kâr kanıtı değil. Karar için en az ~300 koşu gerekir.</div>';
+      else s+='<div style="font-size:12px;opacity:.7;margin-top:6px">Jason yalnızca karşılaştırma içindir, bahis oynanmaz. Aynı kural, aynı eşikler; fark yalnızca modeldeki ek özelliklerden (jokey artığı, mesafe uyumu) gelir.</div>';
+      s+='</div>';
+    });
     const gun=(d.bugun||[]);
     if(gun.length){
       s+=`<div class="card"><b>${d.tarih} seçimleri</b> <span style="opacity:.7">(sıralı ikili ve üçlüde sıra önemli: 5-7 = 5 birinci, 7 ikinci)</span>`;
