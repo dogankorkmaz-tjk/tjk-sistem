@@ -101,6 +101,20 @@
     9
    ],
    "not": "resmi; ucluden 8/2/9. Bahis oynanmadi. Kagit ustu: #8 EV~1.15 (muhtemel 10.15, SIB 16) KAZANDI, #6 EV~1.75 kaybetti."
+  },
+  "8": {
+   "sira": [
+    8,
+    5,
+    13,
+    10,
+    9
+   ],
+   "durum": "kesin sonuc (YouTube yayin 20:42), resmi odeme bekleniyor",
+   "kazanan_no": 8,
+   "sure": "2:32.32",
+   "farklar": "3 boy, 2 boy, 1/2 boy, 2,5 boy",
+   "not": "kosmaz 1 ve 2. Izmir 6li ganyan K3-K8 kuponu K4te olmustu (K8 ayagi 7,8,10 icinde 8 tutardi)."
   }
  },
  "havuz_notlari": "[{'saat': '18:30', 'not': \"İzmir 2. 6'lı ganyan havuzu 16.983.426 TL (TayTV yayın grafiği), 1. ayak kazananı 6 ganyan 7,45\"}] | K5 sirali 5li (7/8/1/13/6) bilen cikmadi, 276.534,38 TL K8e devretti. 1. altili K1-K6 (9/1/6/12/7/5) 22.658,50 TL."
