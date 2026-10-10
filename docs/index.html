@@ -334,11 +334,11 @@ function hesapla(h,k,kaynakZorla){
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
   else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ idx.push(i); g.push(NaN); }); const ham=atlar.map(a=>Math.max(a.agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
   if(!pp||idx.length<2) return null;
-  const z=idx.map(i=>atlar[i].z||0), pm=modelP(pp,z,w0), hm=harville(pm,G_MODEL), hp=harville(pp,G_PIYASA);
+  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday):null, pm=modelP(pp,z,w0), hm=harville(pm,G_MODEL), hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
-    out.map[i]={pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2p:hp[j][0],i3p:hp[j][1]};
+    out.map[i]={pj:pj?pj[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2p:hp[j][0],i3p:hp[j][1]};
   });
   return out;
 }
@@ -396,6 +396,7 @@ function hesapGoster(){
     if(x){
       sira.push(i);
       const f3=x.i3m/x.i3p;
+      if(x.pj!=null) t+=`<span>Jason ${pct(x.pj)}%${x.ejv!=null?' · EV '+f2(x.ejv):''}</span>`;
       t+=`<span>piyasa ${pct(x.pp)}%</span><span>ilk2 ${pct(x.i2m)}%</span><span>ilk3 ${pct(x.i3m)}%</span>`;
       if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
       if(x.ekuri) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre</span>';
@@ -711,9 +712,12 @@ async function otoCanliYukle(){
   const el=$('otoCanli'); if(!el) return;
   try{
     const d=await getJSON('data/canli.json');
-    let s=`<div class="card"><div class="note">${d.kosu} koşu kaydedildi, ${d.biten_kosu} tanesi sonuçlandı. Ganyan, kendi girdiğin oranla EV (model olasılığı × oran) eşiğini geçen atlara 1 birim oynansaydı:</div><table style="width:100%;margin-top:8px;font-size:13px"><tr><th align=left>EV eşiği</th><th>Bahis</th><th>İsabet</th><th>Getiri (girilen)</th><th>Getiri (kapanış)</th></tr>`;
-    d.tablo.forEach(t=>{s+=`<tr><td>≥ ${f2(t.esik)}</td><td align=center>${t.bahis}</td><td align=center>${t.isabet}</td><td align=center>${t.getiri_girilen==null?'–':f2(t.getiri_girilen)}</td><td align=center>${t.getiri_kapanis==null?'–':f2(t.getiri_kapanis)}</td></tr>`});
-    s+=`</table><div class="note" style="margin-top:8px">Karşılaştırma için kaydedilen tüm atlara oynansaydı getiri: ${d.tum_atlar_getiri_kapanis==null?'–':f2(d.tum_atlar_getiri_kapanis)} (beklenen yaklaşık 0,63). 1,00 üstü = kazandırdı. Karar için yüzlerce bahis gerekir; az sayıda koşuya bakıp sonuç çıkarma.</div></div>`;
+    let s=`<div class="card"><div class="note">${d.kosu} koşu kaydedildi, ${d.biten_kosu} tanesi sonuçlandı. EV (model olasılığı × senin girdiğin oran) eşiğini geçen atlara 1 birim oynansaydı:</div>`;
+    [['Bolton',d.tablo],['Jason',d.tablo_jason]].forEach(([ad,tb])=>{ if(!tb) return;
+      s+=`<table style="width:100%;margin-top:8px;font-size:13px"><tr><th align=left>${ad}: EV</th><th>Bahis</th><th>İsabet</th><th>Getiri (girilen)</th><th>Getiri (kapanış)</th></tr>`;
+      tb.forEach(t=>{s+=`<tr><td>≥ ${f2(t.esik)}</td><td align=center>${t.bahis}</td><td align=center>${t.isabet}</td><td align=center>${t.getiri_girilen==null?'–':f2(t.getiri_girilen)}</td><td align=center>${t.getiri_kapanis==null?'–':f2(t.getiri_kapanis)}</td></tr>`});
+      s+='</table>'; });
+    s+=`<div class="note" style="margin-top:8px">Karşılaştırma için kaydedilen tüm atlara oynansaydı getiri: ${d.tum_atlar_getiri_kapanis==null?'–':f2(d.tum_atlar_getiri_kapanis)} (beklenen yaklaşık 0,63). 1,00 üstü = kazandırdı. Karar için yüzlerce bahis gerekir; az sayıda koşuya bakıp sonuç çıkarma.</div></div>`;
     el.innerHTML=s;
   }catch(e){ el.innerHTML='<div class="card empty">Henüz kaydedilmiş oran yok. Bir koşuda oranları girip "Bu oranları kaydet"e bas.</div>'; }
 }

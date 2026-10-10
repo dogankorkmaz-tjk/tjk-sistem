@@ -52,24 +52,29 @@ def ozet():
         ham = np.array([1.0 / oran[str(a["no"])] for a in atlar]); pp = ham / ham.sum()
         s = g.get("w0", 1.0) * np.log(np.maximum(pp, 1e-6)) + np.array([a.get("z", 0.0) or 0.0 for a in atlar])
         e = np.exp(s - s.max()); pm = e / e.sum()
+        pj = None
+        if g.get("w0_aday") is not None and all(a.get("z2") is not None for a in atlar):
+            sj = g["w0_aday"] * np.log(np.maximum(pp, 1e-6)) + np.array([a["z2"] for a in atlar])
+            ej = np.exp(sj - sj.max()); pj = ej / ej.sum()
         sn = k.get("sonuc")
-        for a, p1, p2 in zip(atlar, pp, pm):
+        for ix, (a, p1, p2) in enumerate(zip(atlar, pp, pm)):
             o = oran[str(a["no"])]; x = (sn or {}).get(str(a["no"]))
             satirlar.append({"tarih": t, "hipodrom": hip, "kosu": kosu, "no": a["no"], "at": a["at"], "saat": r.get("saat"), "oran": o,
-                             "pp": float(p1), "pm": float(p2), "ev": float(p2 * o), "bitti": bool(sn),
+                             "pp": float(p1), "pm": float(p2), "ev": float(p2 * o), "evj": float(pj[ix] * o) if pj is not None else None, "bitti": bool(sn),
                              "kazandi": (x or {}).get("sira") == 1 if sn else None, "kapanis": (x or {}).get("g") if sn else None})
     bitmis = [x for x in satirlar if x["bitti"] and x["kapanis"]]
-    tablo = []
-    for esik in ESIKLER:
-        sec = [x for x in bitmis if x["ev"] >= esik]
+    tablo = []; tablo_j = []
+    for anahtar, hedef in (("ev", tablo), ("evj", tablo_j)):
+      for esik in ESIKLER:
+        sec = [x for x in bitmis if x.get(anahtar) is not None and x[anahtar] >= esik]
         n = len(sec)
-        tablo.append({"esik": esik, "bahis": n, "isabet": sum(1 for x in sec if x["kazandi"]),
+        hedef.append({"esik": esik, "bahis": n, "isabet": sum(1 for x in sec if x["kazandi"]),
                       "getiri_girilen": round(sum(x["oran"] for x in sec if x["kazandi"]) / n, 3) if n else None,
                       "getiri_kapanis": round(sum(x["kapanis"] for x in sec if x["kazandi"]) / n, 3) if n else None})
     tum = len(bitmis)
     out = {"kosu": len({(x["tarih"], x["hipodrom"], x["kosu"]) for x in satirlar}), "biten_kosu": len({(x["tarih"], x["hipodrom"], x["kosu"]) for x in bitmis}),
            "tum_atlar_getiri_kapanis": round(sum(x["kapanis"] for x in bitmis if x["kazandi"]) / tum, 3) if tum else None,
-           "tablo": tablo, "son": [x for x in satirlar if x["ev"] >= 1.0][-30:]}
+           "tablo": tablo, "tablo_jason": tablo_j, "son": [x for x in satirlar if x["ev"] >= 1.0][-30:]}
     os.makedirs(SITE, exist_ok=True)
     json.dump(out, open(os.path.join(SITE, "canli.json"), "w", encoding="utf-8"), ensure_ascii=False)
     return out
