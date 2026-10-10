@@ -10,3 +10,8 @@ Siralama:
 7. **Chapman:** adi bos. Ancak kalabalik/havuz carpikligi modelinde gercek (birim duzeltmeli) sinyal cikarsa verilir.
 8. **SIB gecikme hipotezi:** otomatik snapshot (sib_snap) ile yuzlerce kosuda "T-10 SIB vs final muhtemel" olcumu.
 Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge iddiasi yok.
+
+## Deney kayitlari (walk-forward, Jason baz = +0,0177 nat/kosu, 2025Q3-2026Q4)
+- zengin boy farki ozellikleri: fark -0,00005 ± 0,0005 (katki yok)
+- ekipman kodlari + degisimleri: fark -0,0027 ± 0,0008 (ZARAR, asiri uyum)
+- lam taramasi (2025Q1+): 10:0,01725 30:0,01723 100:0,01709 300:0,01664 1000:0,01534 -> lam=100 yeterli, ayar kazanci yok (<0,0002)
