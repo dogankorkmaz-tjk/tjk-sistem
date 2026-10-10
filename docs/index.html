@@ -1039,10 +1039,25 @@ function ganyanOneri(){
   }));
   return R;
 }
+function tuyolar(){
+  const R=[]; if(!VERI||GUN!==trBugun()||VERI.w0_aday==null) return R;
+  (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
+    if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
+    k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||x.pj==null||!(x.pp>0)) return;
+      const r=x.pj/x.pp; if(x.pj<0.06||r<1.30) return;
+      const c=[`Jason %${pct(x.pj)} veriyor, piyasa %${pct(x.pp)} (${f2(r)} kat)`];
+      c.push(x.pm/x.pp>=1.25?'Bolton da aynı yönde':'sadece Jason görüyor, Bolton piyasayla hemfikir');
+      if(a.agf0>0&&a.agf>0){ const d=a.agf/a.agf0; if(d>=1.15) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, para geliyor`); else if(d<=0.85) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, piyasa soğudu`); }
+      if(a.jokey) c.push('jokey '+esc(a.jokey)+(a.apr?' (apranti)':''));
+      R.push({s:r*Math.min(1,x.pj/0.15),h:`<div><b>${esc(h.ad)} ${k.kosu}. koşu, ${a.no} numaralı ${esc(a.at)}</b> (${esc(k.saat||'')})<div class="sub">${c.join(' · ')}</div></div>`});
+    });
+  }));
+  return R.sort((u,v)=>v.s-u.s).slice(0,6).map(x=>x.h);
+}
 let OYNA_L=[], oynaT=null;
 function oynaCiz(){
   const el=$('oynaKutu'); if(!el) return; const G=ganyanOneri(), L=G.concat(OYNA_L);
-  el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Bunlar kağıt üstü deney önerileridir, kâr garantisi yoktur. Kaybetmeyi göze alabileceğin tutarla oyna.</div></div>':'<div class="card empty">Şu an sistemin önerdiği bahis yok. Bu normal; çoğu gün öneri çıkmaz.</div>');
+  el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Bunlar kağıt üstü deney önerileridir, kâr garantisi yoktur. Kaybetmeyi göze alabileceğin tutarla oyna.</div></div>':'<div class="card empty">Şu an sistemin önerdiği bahis yok. Bu normal; çoğu gün öneri çıkmaz.</div>')+(()=>{const T=tuyolar(); return '<h2>Jason\'ın tüyoları: bunlara dikkat</h2>'+(T.length?'<div class="card">'+T.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Jason\'ın piyasadan belirgin yüksek gördüğü atlar. Yorumlar otomatik, sayılardan çıkar. Tüyo bahis önerisi değil, bakılacak at demek; oynamadan önce Bolton/Jason sekmesindeki min ganyana bak.</div></div>':'<div class="card empty">Jason şu an piyasanın gözden kaçırdığı belirgin bir at görmüyor.</div>');})();
 }
 oynaOzet();
 </script>
