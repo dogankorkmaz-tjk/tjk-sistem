@@ -897,7 +897,7 @@ const OYT=['Ganyan','Plase','Sıralı ikili','İkili','Üçlü','Tabela','Sıral
 const ghTok=()=>($('ghTok').value||'').trim()||(()=>{try{return localStorage.getItem('gm2_gh')||''}catch(e){return ''}})();
 async function oyYukle(){
   try{ const d=await getJSON('data/oynadim/'+GUN+'.json'); OY={tarih:GUN,liste:d.liste||[]}; }catch(e){ OY={tarih:GUN,liste:[]}; }
-  oyCiz();
+  oyCiz(); ozYukle();
 }
 async function oyYaz(mut){
   const tok=ghTok(); if(!tok) throw new Error('Önce Dosya sekmesine GitHub anahtarını yaz');
@@ -912,13 +912,28 @@ async function oyYaz(mut){
   }
   throw new Error('çakışma, tekrar dene');
 }
+let OZ=null, KP=null;
+async function ozYukle(){ try{ OZ=await getJSON('data/oynadim_ozet.json?'+Date.now()); }catch(e){ OZ=null; } try{ KP=await getJSON('data/kupon.json'); }catch(e){ KP=null; } oyCiz(); }
+function gunOzetHtml(L){
+  let s='<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>Gün özeti</b>';
+  let top=0,odm=0,bil=0; const K={};
+  L.forEach(b=>{ const t=+b.tutar||0; top+=t; const k=K[b.kaynak||'?']=K[b.kaynak||'?']||{t:0,o:0,bt:0,n:0}; k.n++; k.t+=t; if(b.odeme!=null&&b.odeme!==''){ odm+=+b.odeme; bil+=t; k.o+=+b.odeme; k.bt+=t; } });
+  s+=`<div class="sub">Gerçek: ${f2(top)} TL oynadın, sonuçlananlarda net <b style="color:${odm-bil>=0?'var(--good)':'var(--hot)'}">${odm-bil>=0?'+':''}${f2(odm-bil)} TL</b>.</div>`;
+  const ks=Object.entries(K); if(ks.length) s+='<div class="sub">Kaynağa göre: '+ks.map(([a,k])=>`${esc(a)} ${k.n} bahis, ${k.bt?((k.o-k.bt>=0?'+':'')+f2(k.o-k.bt)+' TL'):'sonuç yok'}`).join(' · ')+'</div>';
+  const kb=((KP&&KP.bugun)||[]).filter(c=>c.sonuc); let h=0,kz=0,n=0;
+  kb.forEach(c=>c.kuponlar.filter(q=>q.beklenen_getiri_orani>=(c.esik||1.2)).forEach(q=>{ h+=q.bedel||0; kz+=q.kazanc||0; n++; }));
+  s+=`<div class="sub">Kâğıt üstü önerilen altılılar (biten): ${n} kupon, ${f2(h)} TL harcama, ${f2(kz)} TL geri dönüş.</div>`;
+  if(OZ&&OZ.sabit_tjk&&OZ.sabit_tjk.n){ const z=OZ.sabit_tjk; s+=`<div class="sub">Sabit / TJK ganyan (${z.n} kayıt): sabit ortalama TJK'nın <b>%${Math.round((z.ort_oran-1)*1000)/10>=0?'+':''}${String(Math.round((z.ort_oran-1)*1000)/10).replace('.',',')}</b> farkında, ${z.sabit_yuksek} kayıtta sabit daha yüksek.</div>`; }
+  else s+='<div class="sub">Sabit / TJK karşılaştırması: henüz kayıt yok (bahis eklerken iki oranı da yaz).</div>';
+  return s+'</div>';
+}
 function oyCiz(){
   const el=$('oyBox'); if(!el) return; const L=OY.liste||[];
   const hs=(VERI&&VERI.hipodromlar)||[]; const hsec=(sel&&sel.hip)||(hs[0]&&hs[0].id); const hh=hs.find(x=>x.id===hsec)||hs[0];
   const kn=hh?hh.kosular.map(k=>k.kosu):[]; const ksec=(sel&&sel.kosu)||kn[0];
   let top=0, odm=0, bil=0, bek=0; L.forEach(b=>{ top+=+b.tutar||0; if(b.odeme!=null&&b.odeme!==''){ odm+=+b.odeme; bil+=+b.tutar||0; } else bek++; });
   const net=odm-bil;
-  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Yeni bahis ekle</b>
+  let s=gunOzetHtml(L)+`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Yeni bahis ekle</b>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
       <label class="sub">Hipodrom<select id="oyHip" style="width:100%;padding:8px">${hs.map(x=>`<option value="${esc(x.id)}"${x.id===(hh&&hh.id)?' selected':''}>${esc(x.ad)}</option>`).join('')}</select></label>
       <label class="sub">Koşu<select id="oyKosu" style="width:100%;padding:8px">${kn.map(n=>`<option${n===ksec?' selected':''}>${n}</option>`).join('')}</select></label>

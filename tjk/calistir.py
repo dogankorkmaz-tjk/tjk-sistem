@@ -681,6 +681,11 @@ def main():
             CN.ozet()
         except Exception as ex:
             print("canli oran özeti atlandı:", ex)
+        try:
+            from . import oynadim as OD
+            OD.yaz()
+        except Exception as ex:
+            print("oynadim özeti atlandı:", ex)
 
 
 if __name__ == "__main__":
