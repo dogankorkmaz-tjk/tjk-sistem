@@ -11,7 +11,9 @@
    ],
    "not": "gayriresmi, TayTV 18:04; resmi ve ödeme bekleniyor. Kazanan 6 muhtemel 8.50 idi.",
    "ganyan": 7.45,
-   "resmi": true
+   "resmi": true,
+   "resmi_odemeler": "GANYAN(6) :7,45 TL, İKİLİ(5/6) :36,10 TL, SIRALI İKİLİ(6/5) :79,55 TL, 2. ÇİFTE(1/6) :24,20 TL",
+   "kazanan_no": 6
   },
   "4": {
    "sira": [
@@ -28,7 +30,10 @@
    "besli": 2173.56,
    "tabela": 320.47,
    "tabela_sirasiz": 10.42,
-   "resmi": "ödeme satırı 19:10 ekranından, K4 satırı"
+   "resmi": true,
+   "resmi_odemeler": "GANYAN(12) :2,75 TL, 1. 3'LÜ GANYAN(1/6/12) :133,00 TL, İKİLİ(2/12) :9,25 TL, SIRALI İKİLİ(12/2) :15,15 TL, PLASE(12) :2,50 TL, PLASE(2) :1,60 TL, PLASE İKİLİ(1/12) :3,90 TL, PLASE İKİLİ(1/2) :5,10 TL, PLASE İKİLİ(2/12) :5,10 TL, SIRALI 5 Lİ BAHİS(12/2/1/6/5) :2.173,56 TL, TABELA BAHİS(12/2/1/6) :320,47 TL, TABELA BAHİS SIRASIZ(12/2/1/6) :10,42 TL, 3. ÇİFTE(6/12) :43,70 TL",
+   "kazanan_no": 12,
+   "ganyan": 2.75
   },
   "1": {
    "sira": [
@@ -39,7 +44,10 @@
    ],
    "ganyan": 7.0,
    "ikili": 36.65,
-   "not": "resmi, makine ekranı 18:19 (kırpık); kombine sıralı ikili 2-6-7-9 tutmadı"
+   "not": "resmi, makine ekranı 18:19 (kırpık); kombine sıralı ikili 2-6-7-9 tutmadı",
+   "resmi_odemeler": "GANYAN(9) :7,00 TL, İKİLİ(4/9) :36,65 TL, SIRALI İKİLİ(9/4) :65,50 TL",
+   "resmi": true,
+   "kazanan_no": 9
   },
   "2": {
    "sira": [
@@ -49,7 +57,10 @@
     3
    ],
    "ganyan": 1.7,
-   "not": "resmi, makine ekranı 18:19"
+   "not": "resmi, makine ekranı 18:19",
+   "resmi_odemeler": "GANYAN(1) :1,70 TL, SIRALI İKİLİ(1/4) :3,75 TL, 1. ÇİFTE(9/1) :19,90 TL",
+   "resmi": true,
+   "kazanan_no": 1
   },
   "5": {
    "sira": [
@@ -59,7 +70,11 @@
     13,
     6
    ],
-   "not": "gayriresmi, TayTV 19:05; resmi ve ödeme bekleniyor. Favori 2 (muhtemel 2.30) ilk 5'e giremedi; 9 de girmedi."
+   "not": "gayriresmi, TayTV 19:05; resmi ve ödeme bekleniyor. Favori 2 (muhtemel 2.30) ilk 5'e giremedi; 9 de girmedi.",
+   "resmi_odemeler": "GANYAN(7) :7,35 TL, İKİLİ(7/8) :29,60 TL, SIRALI İKİLİ(7/8) :56,90 TL, PLASE(7) :5,50 TL, PLASE(8) :3,00 TL, PLASE İKİLİ(1/7) :18,20 TL, PLASE İKİLİ(1/8) :16,00 TL, PLASE İKİLİ(7/8) :15,60 TL, SIRALI 5 Lİ BAHİS(7/8/1/13/6) :Bilen çıkmamıştır, 276,534.38 TL devretmiştir., TABELA BAHİS(7/8/1/13) :5.126,85 TL, TABELA BAHİS SIRASIZ(7/8/1/13) :205,80 TL, 4. ÇİFTE(12/7) :29,65 TL",
+   "resmi": true,
+   "kazanan_no": 7,
+   "ganyan": 7.35
   },
   "6": {
    "sonuc": [
@@ -69,13 +84,24 @@
     1,
     4
    ],
-   "durum": "gayriresmi"
+   "durum": "gayriresmi",
+   "resmi_odemeler": "GANYAN(5) :2,40 TL, 1. 6'LI GANYAN(9/1/6/12/7/5) :22.658,50 TL, SIRALI İKİLİ(5/3) :5,45 TL, 5. ÇİFTE(7/5) :19,15 TL",
+   "resmi": true,
+   "kazanan_no": 5,
+   "ganyan": 2.4
+  },
+  "7": {
+   "resmi_odemeler": "GANYAN(8) :12,00 TL, İKİLİ(2/8) :50,00 TL, SIRALI İKİLİ(8/2) :142,85 TL, ÜÇLÜ BAHİS(8/2/9) :1.387,70 TL, PLASE(2) :6,90 TL, PLASE(8) :9,70 TL, 6. ÇİFTE(5/8) :45,65 TL",
+   "resmi": true,
+   "kazanan_no": 8,
+   "ganyan": 12.0,
+   "sira": [
+    8,
+    2,
+    9
+   ],
+   "not": "resmi; ucluden 8/2/9. Bahis oynanmadi. Kagit ustu: #8 EV~1.15 (muhtemel 10.15, SIB 16) KAZANDI, #6 EV~1.75 kaybetti."
   }
  },
- "havuz_notlari": [
-  {
-   "saat": "18:30",
-   "not": "İzmir 2. 6'lı ganyan havuzu 16.983.426 TL (TayTV yayın grafiği), 1. ayak kazananı 6 ganyan 7,45"
-  }
- ]
+ "havuz_notlari": "[{'saat': '18:30', 'not': \"İzmir 2. 6'lı ganyan havuzu 16.983.426 TL (TayTV yayın grafiği), 1. ayak kazananı 6 ganyan 7,45\"}] | K5 sirali 5li (7/8/1/13/6) bilen cikmadi, 276.534,38 TL K8e devretti. 1. altili K1-K6 (9/1/6/12/7/5) 22.658,50 TL."
 }
