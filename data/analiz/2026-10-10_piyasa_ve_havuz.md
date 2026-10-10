@@ -29,3 +29,10 @@ Uclu -7% (SE 4,4) AMA: 2025 -45%, 2026 +21%; ust %1 odeme cikarilinca -22%; 110 
 - Duzeltilmis uclu: 1,46/2 = 0,73 = 1 - kesinti. Edge YOK. Chapman adi bos kalir.
 - Onceki "tum kombinasyonlari al" tablosundaki 2026 agirlikli uclu/tabela/besli ROI'lari birime bolunmeli (bu duzeltmeden once kayitli rakamlar yanlis okunmamali).
 - Walk-forward (tjk/walkforward.py, 14.636 kosu, 2024Q2-2026Q4): Bolton +0,0111 nat/kosu (SE 0,0012), Jason +0,0152 (SE 0,0013) piyasaya karsi; EV>1,1 ROI Bolton -%20 (n=113), Jason +%17±19 (n=306).
+
+## 6. Yapisal havuz: model-secimli egzotik kombinasyonlar (22:30, mevcut egz6/egz7 ciktilari, birim duzeltmeli: uclu /2)
+Kural: model olasiligi / AGF olasiligi >= 1,15 olan kombinasyonlari "al"; egitim < test donemi (walk-forward), ~125-136 gun (Haz-Eki 2026).
+- Siralı ikili: secili getiri Jason 0,998 [0,90-1,11], Bolton 0,98 [0,87-1,09]; secilmeyen/rastgele taban ~0,75. Yani modelin kombinasyon secimi ~+23 puan getiriyor ama basa basin (1,0) USTUNE cikmiyor.
+- Ikili: Jason 0,937, Bolton 0,999; taban ~0,73.
+- Uclu (birim 2 TL): Jason 1,038 [0,89-1,19], Bolton 1,141 [0,98-1,32]; ancak ayni kural 2025 baslangicindan egitilen (eski rejim) kosuda 0,45-0,49, yani birim rejimi sonuca hakim; guvenilmez.
+- Yorum: kesinti kombinasyon havuzlarinda ~%25-27; model secimi bunun ~%90'ini geri aliyor ama net pozitif edge kanitlanmadi (CI 1'i iceriyor). Kağit test (tjk/egzotik.py, kurallar 10 Ekim'de donduruldu) ileriye donuk dogrulamayi yapacak.

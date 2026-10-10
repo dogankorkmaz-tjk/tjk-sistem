@@ -19,3 +19,4 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - walk-forward artik gece job'unda (tjk/calistir.py gece) calisir, docs/data/walkforward.json uretir.
 - tjk/havuz_canli.py: devirli havuz kaydi + EV tablosu (python -m tjk.havuz_canli ev 276534). 276.534 TL devirde medyan satisla EV~1,5, %25-%75 araligi 1,2-1,9, %90 1,08.
 - (21:50) jokey-at uyumu: cift artigi +0,0002 ± 0,0002; jokey degisimi 0,0000; jokey yukselisi +0,00001; birlikte kosu sayisi -0,00014 ± 0,00007; hepsi +0,00009 ± 0,0003 -> anlamsiz.
+- (22:30) Yapisal havuz: model-secimli siralı ikili/ikili/uclu kombinasyonlar ~basa bas (0,94-1,14, CI 1'i iceriyor), rastgele tabana (~0,75) gore +20-25 puan. Edge kaniti yok; ileriye donuk kagit test tjk/egzotik.py'de. Sonraki: kagit testin gunluk sonucunu izle, birim rejimi (uclu 2025 vs 2026) ayri analiz.
