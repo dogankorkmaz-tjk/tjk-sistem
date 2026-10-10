@@ -853,7 +853,7 @@ function modelCiz(m){
       c+='<div style="display:flex;flex-direction:column;gap:5px">';
       idx.slice(0,5).forEach((i,r)=>{
         const a=k.atlar[i], x=out.map[i], p=P(x), ev=E(x), oy=ev!=null&&ev>=1.10&&out.kaynak!=='agf'&&!k.sonuc; if(oy) yildiz++;
-        c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':ev!=null&&!k.sonuc?` <small class="sub">EV ${f2(ev)}</small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
+        c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':''}${!k.sonuc&&p>0?` <small class="sub">min ganyan ${f2(1.10/p)}</small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
       });
       c+='</div>';
       const e=eg[h.id+'|'+k.kosu];
@@ -872,7 +872,7 @@ function modelCiz(m){
     govde+=(ac.length?ac.join(''):'<div class="card empty">Bu hipodromda bekleyen koşu kalmadı.</div>')+(bit.length?`<details class="kb"><summary>Biten koşular (${bit.length})</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${bit.join('')}</div></details>`:'');
   });
   const bas=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>${m} ne diyor?</b>
-    <div class="sub">Her koşuda ${m}'ın en güçlü 5 atı, kazanma olasılığı ve piyasanın payı. ★ = ganyan oranı girildiğinde beklenen getirisi (EV) 1,10 üstü olan at. AGF'den EV hesaplanmaz, o yüzden ★ için güncel ganyanı Koşu sekmesine girmen gerekir.</div>
+    <div class="sub">Her koşuda ${m}'ın en güçlü 5 atı, kazanma olasılığı ve piyasanın payı. <b>min ganyan</b> = makinede/ekranda görünen ganyan bu sayıya eşit ya da üstündeyse bu at modele göre değerli (EV ≥ 1,10), altındaysa geç. Ganyan yazmana gerek yok. ★ sadece Koşu sekmesine ganyan girdiysen çıkar.</div>
     <div class="sub">Altında ${m}'ın egzotik seçimleri: ×1,32 modelin kombinasyona piyasadan %32 fazla şans vermesi demektir. Kâğıt üstü test, kâr kanıtı yok.</div>
     <div class="sub"><b>${yildiz}</b> ★ bahis şu an.</div></div>`;
   el.innerHTML=bas+govde;
@@ -912,6 +912,8 @@ function oyCiz(){
       <label class="sub">Koşu<select id="oyKosu" style="width:100%;padding:8px">${kn.map(n=>`<option${n===ksec?' selected':''}>${n}</option>`).join('')}</select></label>
       <label class="sub">Bahis türü<select id="oyTur" style="width:100%;padding:8px">${OYT.map(t=>`<option>${esc(t)}</option>`).join('')}</select></label>
       <label class="sub">Tutar (TL)<input id="oyTutar" inputmode="decimal" placeholder="örn 100" style="width:100%;padding:8px"></label>
+      <label class="sub">Sabit oran (ganyansa)<input id="oySabit" inputmode="decimal" placeholder="örn 4,50" style="width:100%;padding:8px"></label>
+      <label class="sub">TJK ganyan (o an)<input id="oyTjk" inputmode="decimal" placeholder="örn 4,20" style="width:100%;padding:8px"></label>
     </div>
     <label class="sub">Seçim (ne oynadın?)<input id="oySecim" placeholder="örn: 3 @4,2   veya   3-5, 3-6   veya   kupon" style="width:100%;padding:8px"></label>
     <label class="sub">Hangi öneriden? <select id="oyKaynak" style="width:100%;padding:8px"><option>Kendi kararım</option><option>Bolton önerisi</option><option>Jason önerisi</option><option>İki model birlikte</option><option>Altılı/7'li önerisi</option><option>Egzotik seçimi</option></select></label>
@@ -920,7 +922,7 @@ function oyCiz(){
     s+=`<div class="card stat"><div><b>${f2(top)}</b><span>oynanan TL</span></div><div><b>${f2(odm)}</b><span>ödeme (girilenler)</span></div><div><b style="color:${net>=0?'var(--good)':'var(--hot)'}">${net>=0?'+':''}${f2(net)}</b><span>net (sonuçlananlar)</span></div><div><b>${bek}</b><span>sonucu girilmemiş</span></div></div>`;
     s+='<div class="card" style="padding:6px 14px">'+L.map(b=>`<div style="padding:10px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px">
       <div><b>${esc(b.hipodrom_ad||b.hipodrom)} ${esc(b.kosu)}. koşu</b> · ${esc(b.tur)} · <b>${f2(+b.tutar||0)} TL</b> <span class="sub">${esc(b.saat||'')}</span></div>
-      <div class="sub">${esc(b.secim||'')} · ${esc(b.kaynak||'')}</div>
+      <div class="sub">${esc(b.secim||'')} · ${esc(b.kaynak||'')}${b.sabit?' · sabit '+b.sabit:''}${b.tjk?' · TJK '+b.tjk:''}</div>
       <div style="display:flex;gap:6px;align-items:center"><input data-oid="${b.id}" class="oyOdeme" inputmode="decimal" placeholder="Ödeme TL (kaybettiysen 0)" value="${b.odeme!=null?esc(String(b.odeme)):''}" style="flex:1;padding:8px"><button data-ok="${b.id}">Kaydet</button><button data-osil="${b.id}" aria-label="Sil">✕</button></div></div>`).join('')+'</div>';
   } else s+='<div class="card empty">Bugün için kayıt yok.</div>';
   s+='<div class="note">Bu kayıt GitHub\'a yazılır, kâğıt testiyle gerçeği karşılaştırmak için kullanılır. Başkasına görünmez ama depo erişimi olan herkes görebilir.</div>';
@@ -930,7 +932,7 @@ function oyCiz(){
   $('oyEkle').onclick=async()=>{
     const tutar=parseFloat(String($('oyTutar').value).replace(',','.')); if(!(tutar>0)){ msj('Tutarı yaz.'); return; }
     const hip=hs.find(x=>x.id===$('oyHip').value);
-    const b={id:Date.now(),hipodrom:$('oyHip').value,hipodrom_ad:hip?hip.ad:'',kosu:+$('oyKosu').value,tur:$('oyTur').value,tutar,secim:$('oySecim').value.trim(),kaynak:$('oyKaynak').value,saat:new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'})};
+    const b={id:Date.now(),hipodrom:$('oyHip').value,hipodrom_ad:hip?hip.ad:'',kosu:+$('oyKosu').value,tur:$('oyTur').value,tutar,secim:$('oySecim').value.trim(),sabit:parseFloat(String($('oySabit').value).replace(',','.'))||null,tjk:parseFloat(String($('oyTjk').value).replace(',','.'))||null,kaynak:$('oyKaynak').value,saat:new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'})};
     msj('Kaydediliyor…'); try{ await oyYaz(d=>{ d.liste=(d.liste||[]).concat([b]); }); oyCiz(); }catch(e){ msj('✗ '+e.message); }
   };
   el.querySelectorAll('button[data-ok]').forEach(x=>x.onclick=async()=>{
@@ -998,7 +1000,12 @@ async function oynaOzet(){
 function ganyanOneri(){
   const R=[]; if(!VERI||GUN!==trBugun()) return R;
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
-    if(k.sonuc) return; const out=hesapla(h,k); if(!out||out.kaynak!=='elle') return;
+    if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
+    if(out.kaynak!=='elle'){
+      k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||!(x.pp>0)||!(x.pm>0)) return;
+        const pj=x.pj!=null?x.pj:x.pm, pmin=Math.min(x.pm,pj); if(pmin/x.pp<1.30) return;
+        R.push(`<div><b>Aday: ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> · ekranda ganyan <b>≥ ${f2(1.10/pmin)}</b> ise oyna, altındaysa geç <span class="sub">(Bolton %${pct(x.pm)} · ${x.pj!=null?'Jason %'+pct(x.pj):'Jason yok'} · piyasa %${pct(x.pp)})</span></div>`); });
+      return; }
     k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||x.ev==null||x.ev<1.10) return;
       const j=x.ejv; if(j!=null&&j<1.10) return;
       R.push(`<div><b>★ ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> @${esc(String(((ODDS[okey(h.id,k.kosu)]||{})[a.no])||'').replace('.',','))} · Bolton EV ${f2(x.ev)}${j!=null?' · Jason EV '+f2(j):' · <span class="sub">Jason verisi yok</span>'}</div>`); });
