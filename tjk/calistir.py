@@ -169,6 +169,12 @@ def agf_ekle(obj):
             m = O.agf_kosulara({alt: ayaklar}, atlar)
             if m:
                 h["altili"][str(alt)] = max(m)       # altılının son koşusu
+                for kk in h["kosular"]:              # iki altılıda da olan koşular için her tablonun değeri ayrı saklanır (agf = sonuncusu)
+                    dd = m.get(kk["kosu"])
+                    if dd:
+                        for a in kk["atlar"]:
+                            if dd.get(a["no"]) is not None:
+                                a["agf_a" + str(alt)] = dd[a["no"]]
         for k in h["kosular"]:
             d = harita.get(k["kosu"])
             if not d:
