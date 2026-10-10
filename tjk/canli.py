@@ -54,7 +54,7 @@ def ozet():
         e = np.exp(s - s.max()); pm = e / e.sum()
         pj = None
         if g.get("w0_aday") is not None and all(a.get("z2") is not None for a in atlar):
-            sj = g["w0_aday"] * np.log(np.maximum(pp, 1e-6)) + np.array([a["z2"] for a in atlar])
+            sj = g["w0_aday"] * np.log(np.maximum(pp, 1e-6)) + g.get("lp2_aday", 0.0) * np.log(np.maximum(pp, 1e-6)) ** 2 + np.array([a["z2"] for a in atlar])
             ej = np.exp(sj - sj.max()); pj = ej / ej.sum()
         sn = k.get("sonuc")
         for ix, (a, p1, p2) in enumerate(zip(atlar, pp, pm)):

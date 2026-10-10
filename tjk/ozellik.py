@@ -107,7 +107,8 @@ def hazirla(temiz, prog, model, yeni=None):
     return d
 
 
-def model_olasilik(p_piyasa, z, w0):
-    s = w0 * np.log(np.asarray(p_piyasa, float)) + np.asarray(z, float)
+def model_olasilik(p_piyasa, z, w0, lp2=0.0):
+    lp = np.log(np.asarray(p_piyasa, float))
+    s = w0 * lp + lp2 * lp ** 2 + np.asarray(z, float)
     e = np.exp(s - s.max())
     return e / e.sum()

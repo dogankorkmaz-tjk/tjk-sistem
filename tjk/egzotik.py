@@ -32,14 +32,14 @@ def _kombolar(p, k):
     return out
 
 
-def _secim(atlar, w0, zk="z"):
+def _secim(atlar, w0, zk="z", lp2=0.0):
     """atlar: koşu atları (agf, z). Her tür için seçilen kombinasyonlar: {tur: ["a-b", ...]}. zk: form puanı alanı (Bolton "z", Jason "z2")."""
     at = [a for a in atlar if a.get("agf") and not a.get("kosmaz")]
     if len(at) < 5 or (zk != "z" and any(a.get(zk) is None for a in at)):
         return None
     tot = sum(a["agf"] for a in at)
     pk = {a["no"]: a["agf"] / tot for a in at}
-    ham = {a["no"]: math.exp(w0 * math.log(max(pk[a["no"]], 1e-6)) + (a.get(zk) or 0.0)) for a in at}
+    ham = {a["no"]: math.exp(w0 * math.log(max(pk[a["no"]], 1e-6)) + lp2 * math.log(max(pk[a["no"]], 1e-6)) ** 2 + (a.get(zk) or 0.0)) for a in at}
     Z = sum(ham.values()); pm = {n: v / Z for n, v in ham.items()}
     out = {}
     for tur, k in K.items():
@@ -76,17 +76,17 @@ def guncelle(obj):
     except Exception:
         pass
     od = None
-    modeller = [("", "z", obj.get("w0", 1.0), "Bolton")]
+    modeller = [("", "z", obj.get("w0", 1.0), "Bolton", 0.0)]
     if obj.get("w0_aday") is not None:
-        modeller.append(("J|", "z2", obj["w0_aday"], "Jason"))      # Jason: aynı kural, ayrı sayaç (gölge kâğıt testi)
+        modeller.append(("J|", "z2", obj["w0_aday"], "Jason", obj.get("lp2_aday", 0.0)))      # Jason: aynı kural, ayrı sayaç (gölge kâğıt testi)
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             basladi = bool(k.get("sonuc")) or (simdi is not None and k.get("saat") and simdi >= k["saat"] and obj.get("gecmis") is not True)
-            for onek, zk, w0, ad_m in modeller:
+            for onek, zk, w0, ad_m, lp2 in modeller:
                 anahtar = f"{onek}{h['id']}|{k['kosu']}"
                 c = kay.get(anahtar)
                 if c is None and not basladi:
-                    s = _secim(k.get("atlar", []), w0, zk)
+                    s = _secim(k.get("atlar", []), w0, zk, lp2)
                     if s is not None:
                         kay[anahtar] = c = {"model": ad_m, "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s,
                                             "ad": {str(a["no"]): a.get("at") for a in k.get("atlar", [])}}
@@ -94,7 +94,7 @@ def guncelle(obj):
                     if basladi:
                         c["dondu"] = True
                     else:
-                        s = _secim(k.get("atlar", []), w0, zk)
+                        s = _secim(k.get("atlar", []), w0, zk, lp2)
                         if s is not None:
                             c["secim"] = s; c["uretim"] = simdi
                 # değerlendirme

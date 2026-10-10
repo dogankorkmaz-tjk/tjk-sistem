@@ -245,8 +245,8 @@ function piyasa(g){
   }
   const s=ham.reduce((a,b)=>a+b,0); const out=ham.map(x=>x/s); out.grp=grp; return out;
 }
-function modelP(pp,z,w0){
-  const s=pp.map((p,i)=>w0*Math.log(Math.max(p,1e-6))+z[i]); const m=Math.max(...s);
+function modelP(pp,z,w0,lp2){
+  const s=pp.map((p,i)=>{const l=Math.log(Math.max(p,1e-6)); return w0*l+(lp2||0)*l*l+z[i];}); const m=Math.max(...s);
   const e=s.map(x=>Math.exp(x-m)); const t=e.reduce((a,b)=>a+b,0); return e.map(x=>x/t);
 }
 // Harville'in kalibre edilmiş hâli: 2023-2025, 20 bin koşuda ikinci/üçüncü sıra için üstel ağırlık (γ<1) bulundu.
@@ -334,7 +334,7 @@ function hesapla(h,k,kaynakZorla){
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
   else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ idx.push(i); g.push(NaN); }); const ham=atlar.map(a=>Math.max(a.agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
   if(!pp||idx.length<2) return null;
-  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday):null, pm=modelP(pp,z,w0), hm=harville(pm,G_MODEL), hp=harville(pp,G_PIYASA);
+  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hm=harville(pm,G_MODEL), hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }

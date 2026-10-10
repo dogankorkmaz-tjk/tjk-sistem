@@ -103,7 +103,7 @@ def sabah(t):
         except Exception as e:
             print("aday model hatası:", repr(e)); A = None
     obj = {"tarih": tarih, "model": M.get("surum", "v1"), "w0": float(M["w"][0]),
-           **({"w0_aday": float(A["w"][0]), "aday_egitim_son": A["egitim_son_tarih"]} if A else {}),
+           **({"w0_aday": float(A["w"][0]), "lp2_aday": float(A.get("lp2_a", 0.0)), "aday_egitim_son": A["egitim_son_tarih"]} if A else {}),
            "guncelleme": O.tr_simdi().strftime("%H:%M"), "hipodromlar": []}
     for h in [x for x in O.TRH if x in programlar]:
         g = pr[pr.hipodrom == h]
@@ -323,7 +323,7 @@ def sonuclari_isle(obj, t, w0=None):
             z2 = {a["no"]: a.get("z2") for a in k["atlar"]}
             r["z2"] = r.no.map(z2)
             if obj.get("w0_aday") is not None and r.z2.notna().all():
-                r["p_aday"] = model_olasilik(r.p_piyasa.values, r.z2.values, obj["w0_aday"])
+                r["p_aday"] = model_olasilik(r.p_piyasa.values, r.z2.values, obj["w0_aday"], obj.get("lp2_aday", 0.0))
             k["sonuc"] = {str(int(x.no)): {"sira": None if pd.isna(x.sira) else int(x.sira),
                                            "g": float(x.ganyan), "pp": round(float(x.p_piyasa), 5),
                                            "pm": round(float(x.p_model), 5),

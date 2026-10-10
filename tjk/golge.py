@@ -8,7 +8,8 @@ from . import ortak as O
 from .ozellik import hazirla
 from . import mesafe as MS
 
-EK = ["f_dp150_m", "f_jgen100", "f_fig3"]   # Jason'un Bolton'dan fazladan kullandığı özellikler (mesafe uyumu, jokey artığı)
+EK = ["f_dp150_m", "f_jgen100", "f_fig3"]
+LPEK = ["f_lp2"]   # piyasaya bağlı terim: form puanına (z2) girmez, s = w0·lp + lp2_a·lp² + z2 olarak ayrı uygulanır   # Jason'un Bolton'dan fazladan kullandığı özellikler (mesafe uyumu, jokey artığı)
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data")
@@ -50,11 +51,13 @@ def egit(son=None):
     M = yukle_model()
     son = son or (O.tr_simdi().date() - pd.Timedelta(days=1).to_pytimedelta()).isoformat()
     d = MS.ekle(hazirla(_oku("temiz"), _oku("program"), M))
-    feat = M["feat"] + EK
+    d["f_lp2"] = np.log(d.p_piyasa.clip(lower=1e-6)) ** 2          # piyasa olasılığının log-karesi: favori/uzun şanslı eğriliği
+    feat = M["feat"] + EK + LPEK
     tr = d[(d.tarih <= son) & d.kazandi.notna() & d.lp.notna()].copy()
     th, mu, sd, nk = _fit(tr, feat, M.get("lam", 100.0))
     A = {"surum": "aday", "ad": "Jason", "egitim_son_tarih": son, "egitim_koşu": nk, "feat": feat, "cins": M["cins"],
-         "mu": {k: float(v) for k, v in mu.items()}, "sd": {k: float(v) for k, v in sd.items()}, "w": [float(x) for x in th], "lam": M.get("lam", 100.0)}
+         "mu": {k: float(v) for k, v in mu.items()}, "sd": {k: float(v) for k, v in sd.items()}, "w": [float(x) for x in th], "lam": M.get("lam", 100.0),
+         "lp2_a": float(th[1 + feat.index("f_lp2")] / sd["f_lp2"])}
     json.dump(A, open(YOL, "w", encoding="utf-8"), ensure_ascii=False)
     print("aday model eğitildi:", son, "| koşu", nk, "| w0", round(th[0], 3))
     return A
@@ -62,8 +65,8 @@ def egit(son=None):
 
 def z2(d, A):
     """hazirla çıktısındaki satırlar için aday modelin form puanı."""
-    feat = A["feat"]; mu, sd = pd.Series(A["mu"]), pd.Series(A["sd"]); w = np.array(A["w"])
-    return ((d[feat] - mu[feat]) / sd[feat]).values @ w[1:]
+    feat = [f for f in A["feat"] if f not in LPEK]; mu, sd = pd.Series(A["mu"]), pd.Series(A["sd"]); w = np.array(A["w"])
+    return ((d[feat] - mu[feat]) / sd[feat]).values @ w[1:1 + len(feat)]
 
 
 def skor():
