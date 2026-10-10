@@ -209,8 +209,10 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
     <div class="card" style="margin-top:12px">
       <h2>Sabit oran yapıştır (SİB)</h2>
       <p class="note">tjk.org'da "Sabit İhtimalli Yarış Programı" sayfasını aç, bir yere dokun, "Tümünü seç" ve "Kopyala" de, buraya yapıştır. Sistem tarihi, saati ve oranları kendisi okur. Oranlar gün içinde değiştiği için istediğin kadar kez, farklı saatlerde yapıştırabilirsin.</p>
-      <label class="sub" for="sibHip">Hipodrom (yalnızca "Sabit İhtimalli Oyunlar" sayfası için; program sayfasında otomatik)</label>
-      <select id="sibHip" style="width:100%;padding:9px;margin:6px 0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)"><option>Adana</option><option>Ankara</option><option>Antalya</option><option selected>Bursa</option><option>Diyarbakır</option><option>Elazığ</option><option>İstanbul</option><option>İzmir</option><option>Kocaeli</option><option>Şanlıurfa</option></select>
+      <details style="margin:6px 0 12px"><summary class="sub" style="cursor:pointer">Sadece tek bir koşunun sayfasını mı yapıştırıyorsun? Hipodromu burada seç (tüm günün sayfası için gerekmez)</summary><label class="sub" for="sibHip">Hipodrom</label>
+      <select id="sibHip" style="width:100%;padding:9px;margin:6px 0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)"><option>Adana</option><option>Ankara</option><option>Antalya</option><option selected>Bursa</option><option>Diyarbakır</option><option>Elazığ</option><option>İstanbul</option><option>İzmir</option><option>Kocaeli</option><option>Şanlıurfa</option></select></details>
+      <label class="sub" for="sibDosya">ya da kaydettiğin .txt dosyasını seç</label>
+      <input id="sibDosya" type="file" accept=".txt,text/plain" style="width:100%;margin:6px 0 12px">
       <textarea id="sibMetin" rows="5" placeholder="Kopyaladığın sayfayı buraya yapıştır" style="width:100%;padding:9px;margin:6px 0 12px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:13px var(--f-mono)"></textarea>
       <button id="sibBtn" class="primary">SİB gönder</button>
       <div id="sibSonuc" style="margin-top:12px;font-size:13px"></div>
@@ -656,6 +658,7 @@ async function sibGonder(){
   }catch(e){ out.innerHTML='✗ '+esc(String(e)); }
 }
 $('sibBtn').onclick=sibGonder;
+$('sibDosya').onchange=async e=>{ const f=e.target.files[0]; if(f){ $('sibMetin').value=await f.text(); $('sibSonuc').textContent='Dosya okundu ('+Math.round(f.size/1024)+' KB). Şimdi "SİB gönder"e bas.'; } };
 function sekme(ad){
   $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor'); $('tabDosya').setAttribute('aria-selected',ad==='dosya');
   $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor'; $('dosya').hidden=ad!=='dosya';
