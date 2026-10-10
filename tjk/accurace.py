@@ -84,9 +84,13 @@ def _numara(im, y0, y1):
 
 
 def oku(pdf):
-    with tempfile.TemporaryDirectory() as k:
-        subprocess.run(["pdftoppm", "-r", "200", "-png", pdf, os.path.join(k, "p")], check=True)
-        im = Image.open([os.path.join(k, f) for f in sorted(os.listdir(k))][0])
+    if pdf.lower().endswith(".png"):
+        im = Image.open(pdf).convert("RGB")
+        im = im.resize((1812, int(im.size[1] * 1812 / im.size[0]))) if im.size[0] != 1812 else im
+    else:
+        with tempfile.TemporaryDirectory() as k:
+            subprocess.run(["pdftoppm", "-r", "200", "-png", pdf, os.path.join(k, "p")], check=True)
+            im = Image.open([os.path.join(k, f) for f in sorted(os.listdir(k))][0]).convert("RGB")
     s = im.size[0] / 906
     rows = _satirlar(im)
     ust = _ocr(im.crop((0, int(150 * s), im.size[0], int(240 * s))), 6)

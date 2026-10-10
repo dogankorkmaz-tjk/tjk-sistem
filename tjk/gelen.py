@@ -58,6 +58,21 @@ def pdf_isle(yol, cikis):
     return f"PDF {ad}: {len(c['atlar'])} at"
 
 
+def png_isle(yol):
+    from tjk import accurace
+    m = re.match(r"(\d{4})-(\d{2})-(\d{2})_([a-z\-]+)_(\d+)\.png$", os.path.basename(yol).lower())
+    if not m:
+        return f"PNG adı anlaşılmadı: {os.path.basename(yol)}"
+    tarih, hip, kosu = f"{m[1]}-{m[2]}-{m[3]}", m[4], int(m[5])
+    c = accurace.oku(yol)
+    for r in c["atlar"]:
+        r.pop("ham", None)
+    c.update(tarih=tarih, hipodrom=hip, kosu=kosu)
+    os.makedirs(os.path.join(KOK, "data", "accurace"), exist_ok=True)
+    json.dump(c, open(os.path.join(KOK, "data", "accurace", f"{tarih}_{hip}_{kosu}.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    return f"Accurace {tarih}_{hip}_{kosu}: {len(c['atlar'])} at"
+
+
 def video_isle(yol, hip_arg):
     from tjk import video_seyir
     m = re.match(r"(\d{2})(\d{2})(\d{2})(\d)(\d{1,2})\.mp4$", os.path.basename(yol).lower())
@@ -84,6 +99,11 @@ if __name__ == "__main__":
         if f.lower().endswith(".pdf"):
             try:
                 print(pdf_isle(f, None), flush=True)
+            except Exception as e:
+                print("HATA", os.path.basename(f), e, flush=True)
+        elif f.lower().endswith(".png"):
+            try:
+                print(png_isle(f), flush=True)
             except Exception as e:
                 print("HATA", os.path.basename(f), e, flush=True)
         elif f.lower().endswith(".mp4"):
