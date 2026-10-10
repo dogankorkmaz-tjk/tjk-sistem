@@ -151,8 +151,8 @@ def ozet_yaz(tarih):
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
         for c in json.load(open(y, encoding="utf-8")).values():
             m = c.get("model", "Bolton")
-            if os.path.basename(y)[:10] == tarih and m == "Bolton":
-                gun.append({"hipodrom": c["hipodrom"], "kosu": c["kosu"], "atlar": c.get("ad", {}), "saat": c.get("saat"), "dondu": c.get("dondu"),
+            if os.path.basename(y)[:10] == tarih:
+                gun.append({"model": m, "hipodrom": c["hipodrom"], "kosu": c["kosu"], "atlar": c.get("ad", {}), "saat": c.get("saat"), "dondu": c.get("dondu"),
                             "ad": h_ad(c), "secim": c["secim"], "oran": c.get("oran"), "kombo": {t: len(v) for t, v in c["secim"].items()}, "sonuc": c.get("sonuc")})
             for t, r in (c.get("sonuc") or {}).items():
                 a = tops[m][t]; a["koşu"] += 1

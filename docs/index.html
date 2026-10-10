@@ -43,11 +43,11 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .daynav button{border:0;background:transparent;padding:4px 10px;font-size:22px;line-height:1;border-radius:999px}
 .daynav .sub{color:var(--fg);font-weight:600;font-size:13.5px;min-width:92px;text-align:center;white-space:nowrap;font-size:13px}
 /* alt sekme çubuğu */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(7,1fr);gap:2px;
   padding:8px max(16px,calc((100vw - 680px)/2)) calc(8px + env(safe-area-inset-bottom,0px));
   background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
-.tabs button{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:transparent;color:var(--muted);padding:4px 0;font:600 11.5px var(--f-body)}
-.tabs button svg{width:46px;height:30px;padding:4px 11px;border-radius:999px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:background .2s}
+.tabs button{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:transparent;color:var(--muted);padding:4px 0;font:600 10.5px var(--f-body);min-width:0}
+.tabs button svg{width:38px;height:28px;padding:4px 9px;border-radius:999px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:background .2s}
 .tabs button[aria-selected="true"]{color:var(--accent)}
 .tabs button[aria-selected="true"] svg{background:var(--accent-soft)}
 /* seçici şeritler */
@@ -148,15 +148,28 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
     <div class="daynav"><button id="gGeri" aria-label="Önceki gün">‹</button><span class="sub" id="gun"></span><button id="gIleri" aria-label="Sonraki gün">›</button></div>
   </div>
   <div class="tabs" role="tablist">
-    <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 9v4l2.5 2M9.5 3h5"/></svg>Yarışlar</button>
+    <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Öneri</button>
+    <button role="tab" id="tabBolton" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V9m7 11V4m7 16v-7"/></svg>Bolton</button>
+    <button role="tab" id="tabJason" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V13m7 7V8m7 12V5"/></svg>Jason</button>
     <button role="tab" id="tabEgz" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/></svg>Egzotik</button>
-    <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Canlı test</button>
-    <button role="tab" id="tabDosya" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 15v3a2 2 0 002 2h10a2 2 0 002-2v-3"/></svg>Dosya yükle</button>
+    <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
+    <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
+    <button role="tab" id="tabDosya" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 15v3a2 2 0 002 2h10a2 2 0 002-2v-3"/></svg>Dosya</button>
   </div>
   <div id="durum" class="note"></div>
 
   <section id="bugun" class="sec">
     <div class="sec" id="oynaKutu"></div>
+    <div class="sec">
+      <h2>Devir fırsatı (7'li ganyan)</h2>
+      <div id="otoDevir"><div class="card empty">Yükleniyor…</div></div>
+    </div>
+    <div class="sec">
+      <h2>Otomatik altılı kuponları (kağıt üstü)</h2>
+      <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
+    </div>
+  </section>
+  <section id="kosu" class="sec" hidden>
     <div class="chips" id="hipChips"></div>
     <div class="chips" id="kosuChips"></div>
     <div class="sec" id="kosuAlani"></div>
@@ -166,31 +179,25 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
         <label>İlk ayak <select id="kBas"></select></label>
         <label>Son ayak <select id="kSon"></select></label>
         <label>Birim fiyat (TL) <input id="kFiyat" inputmode="decimal" placeholder="isteğe bağlı"></label>
-        <label class="ck"><input type="checkbox" id="kSur"> Sürpriz at ekle</label>
+        <label class="ck"><input type="checkbox" id="kSur"> Sürpriz at ekle (Jason seçer)</label>
       </div>
       <div id="kupon"></div>
-    </div>
-    <div class="sec">
-      <h2>Devir fırsatı (7'li ganyan)</h2>
-      <div id="otoDevir"><div class="card empty">Yükleniyor…</div></div>
-    </div>
-    <div class="sec">
-      <h2>Otomatik altılı kuponları (kağıt üstü)</h2>
-      <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
-    </div>
-    <div class="sec">
-      <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
-      <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
       <h2>Son dakika oranları: kaydettiklerinin sonucu</h2>
       <div id="otoCanli"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
+      <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
+      <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
+    </div>
+    <div class="sec">
       <h2>Günün özeti</h2>
       <div id="ozet"></div>
     </div>
   </section>
+  <section id="bolton" class="sec" hidden><div id="bolIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="jason" class="sec" hidden><div id="jasIc"><div class="card empty">Yükleniyor…</div></div></section>
 
   <section id="egz" class="sec" hidden><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="skor" class="sec" hidden></section>
@@ -296,7 +303,7 @@ async function gunYukle(t){
   }
   $('gun').textContent=gunYaz(GUN);
   $('gIleri').disabled = GUN>=trBugun();
-  renderSecim(); renderOzet(); egzCiz();
+  renderSecim(); renderOzet(); egzCiz(); tumModel();
 }
 function gunKaydir(n){ const d=new Date(GUN+'T12:00:00'); d.setDate(d.getDate()+n); const t=d.toISOString().slice(0,10); gunYukle(t===trBugun()?null:t); }
 $('gGeri').onclick=()=>gunKaydir(-1); $('gIleri').onclick=()=>gunKaydir(1);
@@ -463,14 +470,15 @@ function renderKupon(){
     if(!out){tam=false; s+=`<div class="leg"><div class="hd">${k.kosu}. koşu</div><div class="note">Bu koşuda henüz piyasa verisi yok.</div></div>`; return}
     const idx=Object.keys(out.map).map(Number).sort((a,b)=>out.map[b].pm-out.map[a].pm);
     const pick=idx.slice(0,Math.min(kk,idx.length)), extra=[];
-    if(KUP.sur){ const rest=idx.filter(i=>!pick.includes(i)&&out.map[i].pm>=0.03&&out.map[i].pm/out.map[i].pp>=1.10).sort((a,b)=>out.map[b].pm/out.map[b].pp-out.map[a].pm/out.map[a].pp); if(rest.length) extra.push(rest[0]); }
-    const all=pick.concat(extra), sp=all.reduce((x,i)=>x+out.map[i].pm,0), spp=all.reduce((x,i)=>x+out.map[i].pp,0);
+    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pm;              // sürprizi Jason seçer (Jason verisi yoksa Bolton)
+    if(KUP.sur){ const rest=idx.filter(i=>!pick.includes(i)&&J(i)>=0.03&&J(i)/out.map[i].pp>=1.10).sort((a,b)=>J(b)/out.map[b].pp-J(a)/out.map[a].pp); if(rest.length) extra.push(rest[0]); }
+    const all=pick.concat(extra), sp=all.reduce((x,i)=>x+(extra.includes(i)?J(i):out.map[i].pm),0), spp=all.reduce((x,i)=>x+out.map[i].pp,0);
     combos*=all.length; pm*=sp; pp*=spp; SM.push(sp); SP.push(spp);
     const kaz=k.sonuc&&Object.entries(k.sonuc).find(([n,v])=>v.sira===1);
     const tuttu=kaz?all.some(i=>String(k.atlar[i].no)===kaz[0]):null;
     s+=`<div class="leg"><div class="hd"><span>${k.kosu}. koşu <span class="note">model ${pct(sp)}% · piyasa ${pct(spp)}%${kaz?` · kazanan ${kaz[0]} ${tuttu?'✓':'✗'}`:''}</span></span>
       <label>çekirdek <select data-k="${k.kosu}">${[1,2,3,4,5,6].map(n=>`<option${n===kk?' selected':''}>${n}</option>`).join('')}</select></label></div>
-      <div class="chips">${all.map(i=>`<span class="rk${extra.includes(i)?' sur':''}"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${esc(k.atlar[i].at)} · ${pct(out.map[i].pm)}%${extra.includes(i)?' · sürpriz':''}</span>`).join('')}</div></div>`;
+      <div class="chips">${all.map(i=>`<span class="rk${extra.includes(i)?' sur':''}"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${esc(k.atlar[i].at)} · ${pct(extra.includes(i)?J(i):out.map[i].pm)}%${extra.includes(i)?' · sürpriz (Jason)':''}</span>`).join('')}</div></div>`;
   });
   s+='</div>';
   if(tam){
@@ -679,17 +687,19 @@ async function sibGonder(){
 }
 $('sibBtn').onclick=sibGonder;
 $('sibDosya').onchange=async e=>{ const f=e.target.files[0]; if(f){ $('sibMetin').value=await f.text(); $('sibSonuc').textContent='Dosya okundu ('+Math.round(f.size/1024)+' KB). Şimdi "SİB gönder"e bas.'; } };
+const TABS={bugun:'tabBugun',bolton:'tabBolton',jason:'tabJason',egz:'tabEgz',kosu:'tabKosu',skor:'tabSkor',dosya:'tabDosya'};
 function sekme(ad){
-  $('tabBugun').setAttribute('aria-selected',ad==='bugun'); $('tabSkor').setAttribute('aria-selected',ad==='skor'); $('tabDosya').setAttribute('aria-selected',ad==='dosya'); $('tabEgz').setAttribute('aria-selected',ad==='egz');
-  $('bugun').hidden=ad!=='bugun'; $('skor').hidden=ad!=='skor'; $('dosya').hidden=ad!=='dosya'; $('egz').hidden=ad!=='egz';
+  Object.keys(TABS).forEach(k=>{ $(TABS[k]).setAttribute('aria-selected',k===ad); $(k).hidden=k!==ad; });
   if(ad==='egz') egzYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
+  if(ad==='bolton'||ad==='jason') (EGZ?Promise.resolve():egzYukle()).then(tumModel);
+  try{ window.scrollTo(0,0); }catch(e){}
 }
-$('tabBugun').onclick=()=>sekme('bugun'); $('tabSkor').onclick=()=>sekme('skor'); $('tabDosya').onclick=()=>sekme('dosya'); $('tabEgz').onclick=()=>sekme('egz');
-if(location.hash==='#skor') sekme('skor');
+Object.keys(TABS).forEach(k=>{ $(TABS[k]).onclick=()=>sekme(k); });
+{ const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
@@ -767,11 +777,11 @@ async function otoPlaseYukle(){
 }
 otoPlaseYukle();
 
-let EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ');
+let EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
 async function egzYukle(){
   try{ EGZ=await getJSON('data/egzotik.json'); }catch(e){ EGZ=null; }
-  egzCiz();
+  egzCiz(); tumModel();
 }
 function egzIlkAyak(){ const k=new Set(); ((VERI&&VERI.hipodromlar)||[]).forEach(h=>Object.values(h.altili||{}).forEach(v=>k.add(h.id+'|'+(v-5)))); return k; }
 function egzKart(c,durum,r){
@@ -796,9 +806,10 @@ function egzCiz(){
     <div class="sub">2) Geçmişte bu seçim yatırılan paranın yaklaşık %90–110'unu geri verdi. Rastgele alım %75 verir. Kâr kanıtı yok.</div>
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmişte ×1,15–1,3 ile ×1,3 üzeri arasında net fark çıkmadı.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
+  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason'].map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
-  const hepsi=(d.bugun||[]).filter(c=>c.secim&&c.secim[EGT]&&c.secim[EGT].length);
+  const hepsi=(d.bugun||[]).filter(c=>(c.model||'Bolton')===EGM&&c.secim&&c.secim[EGT]&&c.secim[EGT].length);
   const oy=[],kap=[],bit=[];
   hepsi.forEach(c=>{
     const kapali=EGT==='ÜÇLÜ BAHİS'&&ilk.has(c.hipodrom+'|'+c.kosu);
@@ -810,9 +821,56 @@ function egzCiz(){
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
   s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için en az ~300 koşu gerekir.</div></div></details>`;
   el.innerHTML=s;
-  el.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();});
+  el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
+  el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});
 }
 egzYukle();
+
+
+// ---------- Bolton / Jason sekmeleri ----------
+function tumModel(){ try{ modelCiz('Bolton'); modelCiz('Jason'); }catch(e){ console.error(e); } }
+function modelCiz(m){
+  const el=$(m==='Bolton'?'bolIc':'jasIc'); if(!el) return;
+  if(!VERI||!VERI.hipodromlar||!VERI.hipodromlar.length){ el.innerHTML='<div class="card empty">Gösterilecek koşu yok.</div>'; return; }
+  if(m==='Jason'&&VERI.w0_aday==null){ el.innerHTML='<div class="card empty">Bu gün için Jason verisi yok.</div>'; return; }
+  const eg={}; ((EGZ&&EGZ.tarih===GUN&&EGZ.bugun)||[]).filter(c=>(c.model||'Bolton')===m).forEach(c=>{eg[c.hipodrom+'|'+c.kosu]=c;});
+  const ilk=egzIlkAyak(); let yildiz=0, govde='';
+  VERI.hipodromlar.forEach(h=>{
+    govde+=`<h2>${esc(h.ad)}</h2>`;
+    h.kosular.forEach(k=>{
+      const out=hesapla(h,k);
+      let c=`<div class="card" style="padding:12px 14px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${k.kosu}. koşu</b><span class="sub">${esc(k.saat||'')}${k.sonuc?' · bitti':''}</span></div>`;
+      if(!out){ govde+=c+'<div class="sub">Piyasa verisi yok.</div></div>'; return; }
+      const P=x=>m==='Bolton'?x.pm:x.pj, E=x=>m==='Bolton'?x.ev:x.ejv;
+      const idx=Object.keys(out.map).map(Number).filter(i=>P(out.map[i])!=null).sort((a,b)=>P(out.map[b])-P(out.map[a]));
+      if(!idx.length){ govde+=c+'<div class="sub">Bu koşuda model verisi yok.</div></div>'; return; }
+      const kaz=k.sonuc&&Object.entries(k.sonuc).find(([n,v])=>v.sira===1);
+      c+='<div style="display:flex;flex-direction:column;gap:5px">';
+      idx.slice(0,5).forEach((i,r)=>{
+        const a=k.atlar[i], x=out.map[i], p=P(x), ev=E(x), oy=ev!=null&&ev>=1.10&&out.kaynak!=='agf'&&!k.sonuc; if(oy) yildiz++;
+        c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':ev!=null&&!k.sonuc?` <small class="sub">EV ${f2(ev)}</small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
+      });
+      c+='</div>';
+      const e=eg[h.id+'|'+k.kosu];
+      if(e&&e.secim){
+        const satir=Object.keys(EGT_AD).map(t=>{
+          const L=e.secim[t]||[]; if(!L.length) return '';
+          if(t==='ÜÇLÜ BAHİS'&&ilk.has(h.id+'|'+k.kosu)) return `<div class="sub">${EGT_AD[t]}: bu koşuda kapalı (altılı 1. ayak)</div>`;
+          const OR=(e.oran&&e.oran[t])||{}; const LS=L.slice().sort((a,b)=>((OR[b]||[0])[0])-((OR[a]||[0])[0])).slice(0,4);
+          const r=e.sonuc&&e.sonuc[t];
+          return `<div class="sub"><b>${EGT_AD[t]}</b> · ${L.length} komb. · ${LS.map(x=>x+(OR[x]?' ×'+String(OR[x][0]).replace('.',','):'')).join(' · ')}${r?(r.isabet?' <span style="color:var(--good)">✓ tuttu</span>':' ✗'):''}</div>`;
+        }).join('');
+        if(satir) c+=`<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:3px">${satir}</div>`;
+      }
+      govde+=c+'</div>';
+    });
+  });
+  const bas=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>${m} ne diyor?</b>
+    <div class="sub">Her koşuda ${m}'ın en güçlü 5 atı, kazanma olasılığı ve piyasanın payı. ★ = ganyan oranı girildiğinde beklenen getirisi (EV) 1,10 üstü olan at. AGF'den EV hesaplanmaz, o yüzden ★ için güncel ganyanı Koşu sekmesine girmen gerekir.</div>
+    <div class="sub">Altında ${m}'ın egzotik seçimleri: ×1,32 modelin kombinasyona piyasadan %32 fazla şans vermesi demektir. Kâğıt üstü test, kâr kanıtı yok.</div>
+    <div class="sub"><b>${yildiz}</b> ★ bahis şu an.</div></div>`;
+  el.innerHTML=bas+govde;
+}
 
 async function otoDevirYukle(){
   const el=$('otoDevir'); if(!el) return;
