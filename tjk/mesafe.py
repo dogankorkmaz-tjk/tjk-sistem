@@ -65,6 +65,15 @@ def bilgiden(bilgi):
     return (int(m.group(1)), m.group(2)) if m else None
 
 
+def _onceki_ort(d, anahtar, deger, K):
+    """anahtar grubunda KESİNLİKLE önceki günlerin ortalama değeri, K ağırlıklı önselle 0'a çekilmiş."""
+    g = d.groupby([anahtar, "tarih"]).agg(n=(deger, "size"), s=(deger, "sum")).reset_index().sort_values("tarih")
+    g["cn"] = g.groupby(anahtar).n.cumsum() - g.n
+    g["cs"] = g.groupby(anahtar).s.cumsum() - g.s
+    g["f"] = g.cs / (g.cn + K)
+    return d[[anahtar, "tarih"]].merge(g[[anahtar, "tarih", "f"]], on=[anahtar, "tarih"], how="left").f.fillna(0).values
+
+
 def ekle(d, bugun=None):
     """d: ozellik.hazirla çıktısı. 'f_dp150_m' sütunu eklenir. bugun: {(hipodrom, kosu): (mesafe, pist)} - sonucu bilinmeyen bugünkü koşular."""
     d = d.copy()
@@ -95,4 +104,5 @@ def ekle(d, bugun=None):
             w = np.exp(-np.abs(m[:j][ok] - m[j]) / BANT)
             f[ix[j]] = (w * rr[:j][ok]).sum() / (w.sum() + ONSEL)
     d["f_dp150_m"] = f
+    d["f_jgen100"] = _onceki_ort(d, "jokey", "_res", 100.0)       # jokeyin binişlerinin piyasa beklentisine göre ortalama bitiş artığı
     return d.drop(columns=["_res"])
