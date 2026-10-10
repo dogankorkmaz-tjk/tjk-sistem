@@ -995,9 +995,11 @@ async function otoDevirYukle(){
       s+='<div style="font-size:12px;opacity:.7;margin-top:6px">Devir kesintiye tabi değil. 1,00 üstü = ortalamada kazandırır, ama tek kuponun tutma ihtimali düşük. Birim fiyatı fişten kontrol et.</div></div>';
     });
     const dig=Object.entries(d.tum_devirler||{}).filter(([h])=>!(d.devirler||[]).some(r=>r.hipodrom===h));
+    const sec=el.parentElement; if(sec) sec.hidden=!(d.devirler||[]).length;
+    if(!(d.devirler||[]).length) return;
     if(dig.length) s+='<div class="card" style="font-size:13px;opacity:.8">Bugün koşmayan hipodromlarda devir: '+dig.map(([h,v])=>`${h} ${Math.round(v.tutar).toLocaleString('tr-TR')} TL (${v.tarih})`).join(' · ')+'</div>';
     el.innerHTML=s||'<div class="card empty">Bugün devirli 7\'li havuz yok.</div>';
-  }catch(e){el.innerHTML='<div class="card empty">Devir verisi henüz yok.</div>'}
+  }catch(e){ if(el.parentElement) el.parentElement.hidden=true; }
 }
 otoDevirYukle();
 
