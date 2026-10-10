@@ -865,7 +865,7 @@ function modelCiz(m){
       c+='<div style="display:flex;flex-direction:column;gap:5px">';
       idx.slice(0,5).forEach((i,r)=>{
         const a=k.atlar[i], x=out.map[i], p=P(x), ev=E(x), oy=ev!=null&&ev>=1.10&&out.kaynak!=='agf'&&!k.sonuc; if(oy) yildiz++;
-        c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':''}${!k.sonuc&&p>0?` <small class="sub">min ganyan ${f2(1.10/p)}</small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
+        c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':''}${!k.sonuc&&p>0?`<small class="sub" style="display:block">min ganyan <b>${f2(1.10/p)}</b></small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
       });
       c+='</div>';
       const e=eg[h.id+'|'+k.kosu];
