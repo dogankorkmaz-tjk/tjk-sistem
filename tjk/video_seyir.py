@@ -1,6 +1,6 @@
 """TJK yayın videosunun alt şeridinden at bazında koşu seyri (sıra zaman serisi) çıkarır.
 
-Kullanım:  python3 -m tjk.video_seyir <video.mp4> <at_sayisi> [tarih hipodrom kosu]
+Kullanım:  python3 -m tjk.video_seyir <video.mp4> <at_sayisi veya 1,2,4,5,...> [tarih hipodrom kosu]
 Çıktı: data/video_seyir/<tarih>_<hipodrom>_<kosu>.json (verilmezse video adıyla)
 
 Yöntem: şerit (1920x1080 karede x140..1480, y840..920) her saniye kırpılır; her kutunun renginden at numarası bulunur.
@@ -17,7 +17,7 @@ SOL0, ARALIK = 348, 124.5            # ilk kutunun sol kenarı ve kutular arası
 
 
 def _kareler(video, klasor, fps=2):
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},crop=1340:80:140:840",
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},crop=1640:80:140:840",
                     os.path.join(klasor, "k_%04d.png")], check=True)
     return sorted(glob.glob(os.path.join(klasor, "k_*.png")))
 
@@ -76,6 +76,8 @@ def _mesafe(im):
 
 
 def isle(video, n, ad=None, fps=2):
+    numaralar = list(n) if isinstance(n, (list, tuple)) else list(range(1, n + 1))   # koşmayan at varsa numaralar 1..N olmaz
+    n = len(numaralar)
     with tempfile.TemporaryDirectory() as k:
         fr = _kareler(video, k, fps)
         palet, ayrim = _palet(fr, n)
@@ -83,9 +85,10 @@ def isle(video, n, ad=None, fps=2):
         for i, f in enumerate(fr):
             im = Image.open(f)
             s = _sira(im, palet, n)
+            s = [numaralar[x - 1] for x in s] if s else None
             zaman.append({"t": round(i / fps, 1), "sira": s, "mesafe": _mesafe(im) if s else None})
     gecerli = [z for z in zaman if z["sira"]]
-    kapi = list(range(1, n + 1))                                  # koşu öncesi şerit 1..N sırasıyla durur: o kareleri at
+    kapi = numaralar                                  # koşu öncesi şerit 1..N sırasıyla durur: o kareleri at
     while gecerli and gecerli[0]["sira"] == kapi:
         gecerli.pop(0)
     # mesafe: azalan ve makul değerleri tut
@@ -96,8 +99,8 @@ def isle(video, n, ad=None, fps=2):
             z["mesafe"] = None
         elif m is not None:
             son = m
-    ozet = _ozet(gecerli, n)
-    cikti = {"video": os.path.basename(video), "at_sayisi": n, "palet_ayrimi": round(float(ayrim), 1),
+    ozet = _ozet(gecerli, numaralar)
+    cikti = {"video": os.path.basename(video), "at_sayisi": n, "numaralar": numaralar, "palet_ayrimi": round(float(ayrim), 1),
              "kare": len(zaman), "gecerli_kare": len(gecerli), "ozet": ozet, "zaman": zaman}
     yol = os.path.join(KOK, "data", "video_seyir", (ad or os.path.splitext(os.path.basename(video))[0]) + ".json")
     os.makedirs(os.path.dirname(yol), exist_ok=True)
@@ -105,14 +108,14 @@ def isle(video, n, ad=None, fps=2):
     return cikti
 
 
-def _ozet(gecerli, n):
+def _ozet(gecerli, numaralar):
     """Her at için: erken/orta/geç sıra (geçerli kare zaman dilimlerinin ortalaması), son sıra, yer kazancı."""
     if len(gecerli) < 6:
         return {}
     L = len(gecerli)
     dilim = {"erken": gecerli[:L // 3], "orta": gecerli[L // 3: 2 * L // 3], "gec": gecerli[2 * L // 3:]}
     o = {}
-    for at in range(1, n + 1):
+    for at in numaralar:
         d = {}
         for ad, kareler in dilim.items():
             d[ad] = round(float(np.mean([z["sira"].index(at) + 1 for z in kareler])), 2)
@@ -127,7 +130,8 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         sys.exit(__doc__)
     ad = "_".join(sys.argv[3:6]) if len(sys.argv) >= 6 else None
-    c = isle(sys.argv[1], int(sys.argv[2]), ad)
+    a2 = sys.argv[2]
+    c = isle(sys.argv[1], [int(x) for x in a2.split(',')] if ',' in a2 else int(a2), ad)
     print("geçerli kare", c["gecerli_kare"], "/", c["kare"])
     for at, d in c["ozet"].items():
         print(at, d)
