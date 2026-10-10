@@ -81,6 +81,12 @@ def sabah(t):
         satirlar += p
     if not satirlar:
         print("bugün Türkiye'de yarış yok ya da program okunamadı")
+        if os.path.exists(gun_yolu(t)):                    # kaynak geçici olarak okunamadıysa eldeki iyi programı SİLME
+            eski = json.load(open(gun_yolu(t), encoding="utf-8"))
+            if eski.get("hipodromlar"):
+                print("eldeki program korundu:", [h["id"] for h in eski["hipodromlar"]])
+                yaz_json(os.path.join(SITE, "bugun.json"), eski)
+                return eski
         obj = {"tarih": tarih, "guncelleme": O.tr_simdi().strftime("%H:%M"), "hipodromlar": []}
         yaz_json(gun_yolu(t), obj); yaz_json(os.path.join(SITE, "bugun.json"), obj)
         return obj
