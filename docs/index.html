@@ -722,7 +722,7 @@ async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
   try{
     const d=await getJSON('data/kupon.json'); let s='';
-    const ad={favori:'Favori',deger:'Değer'};
+    const ad={favori:'Bolton favori',deger:'Bolton değer',j_favori:'Jason favori',j_deger:'Jason değer'};
     if(d.toplam&&d.toplam.length){
       [['onerilen','Sistemin önerdiği kuponlar (beklenen getiri ≥ 1,20)'],['hepsi','Hepsini oynasaydık']].forEach(([g,bas])=>{
         const L=d.toplam.filter(t=>(t.grup||'hepsi')===g); if(!L.length) return;

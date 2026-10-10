@@ -87,7 +87,7 @@ def birim(hip):
 STRATEJILER = [("favori", 48), ("deger", 48), ("favori", 192), ("deger", 192)]
 
 
-def _ayaklar_obj(h, son, w0):
+def _ayaklar_obj(h, son, w0, jason=None):
     """Bir hipodromun altılısı (son koşu = son) için [{no: (pm, pa)}] ve at adları; AGF eksikse None."""
     k = {x["kosu"]: x for x in h["kosular"]}
     ay, ad = [], []
@@ -98,7 +98,12 @@ def _ayaklar_obj(h, son, w0):
             return None
         tot = sum(a["agf"] for a in at)
         pp = {a["no"]: a["agf"] / tot for a in at}
-        ham = {a["no"]: math.exp(w0 * math.log(max(pp[a["no"]], 1e-6)) + (a.get("z") or 0.0)) for a in at}
+        if jason is not None:       # jason = (w0_aday, lp2_aday); tüm atlarda z2 yoksa None döner
+            if any(a.get("z2") is None for a in at):
+                return None
+            ham = {a["no"]: math.exp(jason[0] * math.log(max(pp[a["no"]], 1e-6)) + jason[1] * math.log(max(pp[a["no"]], 1e-6)) ** 2 + a["z2"]) for a in at}
+        else:
+            ham = {a["no"]: math.exp(w0 * math.log(max(pp[a["no"]], 1e-6)) + (a.get("z") or 0.0)) for a in at}
         Z = sum(ham.values())
         ay.append({no: (ham[no] / Z, pp[no]) for no in pp})
         ad.append({a["no"]: a["at"] for a in at})
@@ -138,6 +143,16 @@ def guncelle(obj):
                                               "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
                                               **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
                     kay[anahtar] = c
+            # Jason kolu (gölge, kağıt üstü): Bolton kuponlarına dokunmadan j_favori / j_deger eklenir
+            if c and not c.get("dondu") and obj.get("w0_aday") is not None and not any(q["mod"].startswith("j_") for q in c["kuponlar"]):
+                rj = _ayaklar_obj(h, son, obj.get("w0", 1.0), (obj["w0_aday"], obj.get("lp2_aday", 0.0)))
+                if rj:
+                    ayj, adj = rj
+                    for mod, B in STRATEJILER:
+                        s = kur(ayj, B, mod); o = ozet(ayj, s)
+                        c["kuponlar"].append({"mod": "j_" + mod, "butce": B, "birim": birim(h["id"]), "bedel": round(o["kombinasyon"] * birim(h["id"]), 2), "ayaklar": [sorted(x) for x in s],
+                                              "isimler": [{str(no): adj[i][no] for no in sorted(x)} for i, x in enumerate(s)],
+                                              **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
             if c and not c.get("dondu") and simdi and simdi >= ilk_saat:
                 c["dondu"] = True
             # değerlendirme
@@ -362,7 +377,12 @@ def _ayaklar_obj7(h, son, w0):
             return None
         tot = sum(a["agf"] for a in at)
         pp = {a["no"]: a["agf"] / tot for a in at}
-        ham = {a["no"]: math.exp(w0 * math.log(max(pp[a["no"]], 1e-6)) + (a.get("z") or 0.0)) for a in at}
+        if jason is not None:       # jason = (w0_aday, lp2_aday); tüm atlarda z2 yoksa None döner
+            if any(a.get("z2") is None for a in at):
+                return None
+            ham = {a["no"]: math.exp(jason[0] * math.log(max(pp[a["no"]], 1e-6)) + jason[1] * math.log(max(pp[a["no"]], 1e-6)) ** 2 + a["z2"]) for a in at}
+        else:
+            ham = {a["no"]: math.exp(w0 * math.log(max(pp[a["no"]], 1e-6)) + (a.get("z") or 0.0)) for a in at}
         Z = sum(ham.values())
         ay.append({no: (ham[no] / Z, pp[no]) for no in pp})
         ad.append({a["no"]: a["at"] for a in at})
