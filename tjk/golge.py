@@ -6,6 +6,9 @@ import numpy as np, pandas as pd
 from scipy.optimize import minimize
 from . import ortak as O
 from .ozellik import hazirla
+from . import mesafe as MS
+
+EK = ["f_dp150_m"]            # Jason'un Bolton'dan fazladan kullandığı özellikler (mesafe uyumu)
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data")
@@ -46,10 +49,11 @@ def egit(son=None):
     from .calistir import yukle_model
     M = yukle_model()
     son = son or (O.tr_simdi().date() - pd.Timedelta(days=1).to_pytimedelta()).isoformat()
-    d = hazirla(_oku("temiz"), _oku("program"), M)
+    d = MS.ekle(hazirla(_oku("temiz"), _oku("program"), M))
+    feat = M["feat"] + EK
     tr = d[(d.tarih <= son) & d.kazandi.notna() & d.lp.notna()].copy()
-    th, mu, sd, nk = _fit(tr, M["feat"], M.get("lam", 100.0))
-    A = {"surum": "aday", "ad": "Jason", "egitim_son_tarih": son, "egitim_koşu": nk, "feat": M["feat"], "cins": M["cins"],
+    th, mu, sd, nk = _fit(tr, feat, M.get("lam", 100.0))
+    A = {"surum": "aday", "ad": "Jason", "egitim_son_tarih": son, "egitim_koşu": nk, "feat": feat, "cins": M["cins"],
          "mu": {k: float(v) for k, v in mu.items()}, "sd": {k: float(v) for k, v in sd.items()}, "w": [float(x) for x in th], "lam": M.get("lam", 100.0)}
     json.dump(A, open(YOL, "w", encoding="utf-8"), ensure_ascii=False)
     print("aday model eğitildi:", son, "| koşu", nk, "| w0", round(th[0], 3))

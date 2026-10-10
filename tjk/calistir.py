@@ -96,7 +96,9 @@ def sabah(t):
     A = GL.yukle(); bz2 = {}
     if A:
         try:
-            dy = d[d.yeni].copy(); dy["z2"] = GL.z2(dy, A)
+            bugun_m = {(h, int(kn)): GL.MS.bilgiden(b_) for h in programlar for kn, b_ in programlar[h]["bilgi"].items() if GL.MS.bilgiden(b_)}
+            d2 = GL.MS.ekle(d, bugun_m) if "f_dp150_m" in A["feat"] else d
+            dy = d2[d2.yeni].copy(); dy["z2"] = GL.z2(dy, A)
             bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
         except Exception as e:
             print("aday model hatası:", repr(e)); A = None
