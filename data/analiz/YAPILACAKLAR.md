@@ -26,3 +26,10 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Kosu seyri/anlatim: tjk.org'da komiser raporu var (cikan at, jokey/antrenor/seyis degisikligi, ek rapor), at bazli seyir yok; haber sitelerinde sadece sonuc ozetleri.
 - (23:25) DUZELTME: ilk uc icin 'ozellik katkisi' +0,0269/+0,0397 yanlis hesaplanmisti (ozellikli modelin w0'i ozelliksiz kullanildi). Dogru: piyasa-tek (w0 yeniden ogrenilmis) ustune ozellikler 2. sirada +0,0158 ± 0,0017, 3. sirada +0,0222 ± 0,0020 (kazanma +0,0073 ± 0,0015). Gruplar (2./3.): gecmis_sonuc +0,0115/+0,0129, dinlenme +0,0035/+0,0078 (kazanmada 0), kilo_yas_hnd +0,0012/+0,0024, start +0,0004/+0,0016, jokey ~0, tur_mesafe ~0, t2_t3 ~0.
 - (23:25) Video seyir: tjk/video_seyir.py (yayin seridinden at bazinda sira zaman serisi). Ankara 5. kosu ornegi dogrulandi (kazanan/ikinci uyumlu, 5 numara onde gidip coktu, 7 oncu yorulup 4. oldu, 8 kapanisci). Video elle indirilip yuklenir; otomatik indirme yok.
+
+## 11 Ekim 2026 (gece) - ikramiye ve egzotik uzman
+- Uzman ilk-3 modeli (2./3. aşama modelleri + dinlenme/istikrar) vs mevcut Harville kuralı: olasılık +0,026 nat/koşu (üçlü), ama seçilen kombinasyon geri dönüşü iyileşmedi (0,79 vs 0,80; sıralı ikili 0,90 vs 0,99). Kâğıt testini bölmedik; kural donuk.
+- Birinci ikramiye (tjk_sonuc, 2025-01-01'den, 4.526 koşu): favori güvenilirliği hafif artıyor ama piyasa fiyatlıyor. Kazanan modele ikramiye özelliği (düzey x piyasa payı, at bazlı sınıf değişimi) walk-forward: -0,0002..-0,0005 nat/koşu, katkı yok.
+- Egzotik kağıt testi artık ikramiye üçte birlerine göre de izleniyor (düşük <395 bin, orta, yüksek >545 bin). Yalnızca izleme; kural/eşik değişmez. 2026'da yüksek ikramiyede işaret olumlu (üçlü 1,33), 2025'te tutmadı: 300 koşu dolunca bak.
+- Accurace: PDF'ler ganyan masasından yükleniyor (tarayıcıda resme çevrilir, data/accurace_ham -> data/accurace). Numara OCR düzeltmesi (bitiş sırasından doldurma) yapılacak. Hedef: İstanbul son ~45 yarış günü (~400 koşu), önce son 10 gün.
+- Video: Release ile yükleme (etiket "gelen..."), tjk.gelen işler. Ankara 1-4,6-10 yeniden çalıştırılacak (koşan at numaraları temiz/kosu_at'tan).

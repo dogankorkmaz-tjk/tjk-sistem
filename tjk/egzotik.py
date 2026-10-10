@@ -16,7 +16,16 @@ GAMA, DELTA = 0.867, 0.735                      # 20.649 koşudan kestirilen Har
 ORAN = 1.15                                     # model olasılığı / AGF olasılığı en az bu kadar
 ESIK = {"SIRALI İKİLİ": 0.00306, "İKİLİ": 0.00596, "ÜÇLÜ BAHİS": 0.00141}   # AGF tabanlı kombinasyon olasılığı alt sınırı
 BIRIM = {"SIRALI İKİLİ": 1.0, "İKİLİ": 1.0, "ÜÇLÜ BAHİS": 2.0}
+IK_KES = (395000, 545000)                       # birinci ikramiye üçte birleri (2025-26 koşularından); yalnızca İZLEME bölünmesi, kural değil
 K = {"SIRALI İKİLİ": 2, "İKİLİ": 2, "ÜÇLÜ BAHİS": 3}
+
+
+def ik_dilim(ik):
+    try:
+        ik = float(ik)
+    except (TypeError, ValueError):
+        return None
+    return "düşük" if ik < IK_KES[0] else ("orta" if ik <= IK_KES[1] else "yüksek")
 
 
 def _kombolar(p, k):
@@ -101,6 +110,8 @@ def guncelle(obj):
                         if s is not None:
                             c["oran"] = s.pop("_oran", None)
                             c["secim"] = s; c["uretim"] = simdi
+                if c is not None and c.get("ik") is None and k.get("ikramiye"):
+                    c["ik"] = k.get("ikramiye")                                   # ikramiye bölünmesi için (yalnızca izleme)
                 # değerlendirme
                 if c and "sonuc" not in c and k.get("sonuc") and c.get("dondu", True):
                     if od is None:
@@ -135,6 +146,7 @@ def ozet_yaz(tarih):
     def bos():
         return {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
     tops = {"Bolton": bos(), "Jason": bos()}
+    ikd = {d: bos() for d in ("düşük", "orta", "yüksek")}
     gun = []
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
         for c in json.load(open(y, encoding="utf-8")).values():
@@ -147,11 +159,16 @@ def ozet_yaz(tarih):
                 if r["kombo"]:
                     a["kosuda_secim"] += 1
                 a["harcama"] += r["bedel"]; a["kazanc"] += r["kazanc"]; a["isabetli_kosu"] += int(r["isabet"])
-    for top in tops.values():
+                d_ = ik_dilim(c.get("ik")) if m == "Bolton" else None
+                if d_:
+                    b_ = ikd[d_][t]; b_["koşu"] += 1; b_["harcama"] += r["bedel"]; b_["kazanc"] += r["kazanc"]; b_["isabetli_kosu"] += int(r["isabet"])
+                    b_["kosuda_secim"] += int(bool(r["kombo"]))
+    for top in list(tops.values()) + list(ikd.values()):
         for a in top.values():
             a["geri_donus"] = round(a["kazanc"] / a["harcama"], 3) if a["harcama"] else None
             a["harcama"] = round(a["harcama"], 2); a["kazanc"] = round(a["kazanc"], 2)
     os.makedirs(SITE, exist_ok=True)
     json.dump({"tarih": tarih, "kural": {"gama": GAMA, "delta": DELTA, "oran": ORAN, "esik": ESIK, "birim": BIRIM},
-               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values())},
+               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()),
+               "toplam_ikramiye": {d: list(v.values()) for d, v in ikd.items()}, "ikramiye_kesim": list(IK_KES)},
               open(os.path.join(SITE, "egzotik.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
