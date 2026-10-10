@@ -189,6 +189,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
     </div>
     <div class="sec">
       <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
+      <h2>Jason'ın tüyoları (kağıt üstü takip)</h2><div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
       <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
@@ -773,6 +774,12 @@ async function otoCanliYukle(){
   }catch(e){ el.innerHTML='<div class="card empty">Henüz kaydedilmiş oran yok. Bir koşuda oranları girip "Bu oranları kaydet"e bas.</div>'; }
 }
 otoCanliYukle();
+async function otoTuyoYukle(){
+  const el=$('otoTuyo'); if(!el) return;
+  try{ const d=await getJSON('data/tuyo.json?'+Date.now()); const t=d.toplam||{n:0}; let h='<div class="card"><b>Şimdiye kadar</b><div class="sub">'+(t.n?`${t.n} tüyo sonuçlandı: <b>${t.kazanan}</b> kazandı, <b>${t.ilk3}</b> ilk üçe girdi. Her ata 1 TL ganyan oynansaydı geri dönüş <b>${String(t.geri_donus).replace('.',',')}</b> (1,00 üstü = kazandırdı).`:'Henüz sonuçlanan tüyo yok.')+'</div><div class="sub">Tüyolar ilk görüldüğünde dondurulur, sonradan değişmez. Karar için en az ~300 tüyo gerekir.</div></div>';
+    const g=(d.bugun||[]); if(g.length) h+='<div class="card"><b>Bugünün tüyoları</b>'+g.map(c=>`<div class="sub" style="margin-top:6px"><b>${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu</b> · ${c.no} ${esc(c.at)} · Jason %${pct(c.pj)} / piyasa %${pct(c.pp)}${c.sira!=null?` · <b>${c.sira}. oldu</b>${c.sira===1&&c.g?' (ganyan '+String(c.g).replace('.',',')+')':''}`:''}</div>`).join('')+'</div>';
+    el.innerHTML=h; }catch(e){ el.innerHTML='<div class="card empty">Henüz tüyo kaydı yok.</div>'; }
+}
 async function otoPlaseYukle(){
   const el=$('otoPlase'); if(!el) return;
   try{
@@ -793,6 +800,7 @@ async function otoPlaseYukle(){
   }catch(e){el.innerHTML='<div class="card empty">Takip verisi henüz yok.</div>'}
 }
 otoPlaseYukle();
+otoTuyoYukle();
 
 let EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
