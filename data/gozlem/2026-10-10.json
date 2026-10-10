@@ -1,3 +1,26 @@
 [
- {"tarih":"2026-10-10","hipodrom":"ankara","kosu":1,"at_no":8,"not":"Uzun süre lider gitti, 5. bitirdi (kesin sonuç 6-2-1-4-8). Kullanıcı ilk yorumu: umut verici performans.","kaynak":"kullanici"}
+ {
+  "tarih": "2026-10-10",
+  "hipodrom": "ankara",
+  "kosu": 1,
+  "at_no": 8,
+  "not": "Uzun süre lider gitti, 5. bitirdi (kesin sonuç 6-2-1-4-8). Kullanıcı ilk yorumu: umut verici performans.",
+  "kaynak": "kullanici"
+ },
+ {
+  "tarih": "2026-10-10",
+  "hipodrom": "ankara",
+  "kosu": 6,
+  "at_no": 5,
+  "not": "Uzun süre 2. gitti, son düzlükte az farkla 4.'lüğe düştü (Secret Royal).",
+  "kaynak": "kullanici"
+ },
+ {
+  "tarih": "2026-10-10",
+  "hipodrom": "ankara",
+  "kosu": 6,
+  "at_no": 1,
+  "not": "Percy Jackson (jokey Vedat): geriden gelip kazandı, en yakın rakibine 6-7 boy fark attı, yarışı domine etti. Son dakika parası (3.85->1.50) doğru çıktı.",
+  "kaynak": "kullanici"
+ }
 ]
