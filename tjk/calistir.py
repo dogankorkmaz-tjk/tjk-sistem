@@ -658,6 +658,12 @@ def main():
         gece(bugun); sabah(bugun); canli(bugun)
     else:
         raise SystemExit("bilinmeyen mod: " + mod)
+    if mod in ("canli", "gece", "hepsi"):
+        try:
+            from . import canli as CN
+            CN.ozet()
+        except Exception as ex:
+            print("canli oran özeti atlandı:", ex)
 
 
 if __name__ == "__main__":

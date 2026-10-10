@@ -186,6 +186,10 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="otoEgz"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
+      <h2>Son dakika oranları: kaydettiklerinin sonucu</h2>
+      <div id="otoCanli"><div class="card empty">Yükleniyor…</div></div>
+    </div>
+    <div class="sec">
       <h2>Günün özeti</h2>
       <div id="ozet"></div>
     </div>
@@ -356,6 +360,9 @@ function renderKosu(){
       <span class="num" id="m${i}">–</span><span class="num" id="e${i}">–</span><div class="sub2" id="s${i}"></div></div>`;
   });
   s+=`</div>
+  <div class="card" style="margin-top:10px"><label class="sub" for="hizliOran">Hızlı giriş: ekrandaki ganyanları at numarası sırasıyla boşlukla yaz (1. at, 2. at, ...). Yarışmayan atı 0 yaz.</label>
+    <input id="hizliOran" inputmode="decimal" autocomplete="off" placeholder="örn: 3,5 4 12 2,8 0 25" style="width:100%;padding:9px;margin:6px 0 8px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:15px var(--f-mono)">
+    <button id="oranKaydet" class="primary">Bu oranları kaydet (sonradan sonuçla karşılaştırılır)</button><div id="kaydetSonuc" style="margin-top:8px;font-size:13px"></div></div>
   <div class="actions"><button id="oranSil">Girdiğim oranları sil</button></div>
   <div class="note">Oranları boş bırakırsan sistem AGF'yi, koşu bitince kapanış ganyanlarını kullanır. Ekranda gördüğün güncel ganyanı yazarsan hesap ona göre yapılır. Ekürlü atlara ekranda yazan oranı aynen gir.</div>
   <details class="kb"><summary>Sıralı ikili (1. ve 2. sırayla)</summary><div id="kb_ik"></div></details>
@@ -369,6 +376,11 @@ function renderKosu(){
     sv('gm2_odds',ODDS); hesapGoster();
   });
   $('oranSil').onclick=()=>{delete ODDS[okey(h.id,k.kosu)];sv('gm2_odds',ODDS);renderKosu()};
+  $('hizliOran').onchange=()=>{
+    const v=$('hizliOran').value.trim().split(/[\s;]+/).filter(Boolean); const key=okey(h.id,k.kosu), m={};
+    v.forEach((x,i)=>{ const a=k.atlar[i]; if(a&&parseOran(x)>=1.01) m[a.no]=x; });
+    if(Object.keys(m).length){ ODDS[key]=m; sv('gm2_odds',ODDS); renderKosu(); } };
+  $('oranKaydet').onclick=()=>canliKaydet(h,k);
   hesapGoster();
 }
 function hesapGoster(){
@@ -680,6 +692,32 @@ async function otoKuponYukle(){
 }
 otoKuponYukle();
 
+async function canliKaydet(h,k){
+  const out=$('kaydetSonuc'), o=ODDS[okey(h.id,k.kosu)]||{}, tok=($('ghTok').value||'').trim()||(()=>{try{return localStorage.getItem('gm2_gh')||''}catch(e){return ''}})();
+  if(Object.keys(o).length<2){ out.innerHTML='<span class="warn">En az iki atın oranını gir.</span>'; return; }
+  if(!tok){ out.innerHTML='<span class="warn">Önce "Dosya yükle" sekmesine GitHub anahtarını yaz (bir kere).</span>'; return; }
+  const sa=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'}), hhmm=sa.replace(':','');
+  const ad=`${GUN}_${h.id}_${k.kosu}_${hhmm}.json`, url=`https://api.github.com/repos/${GH}/contents/data/canli_oran/${ad}`;
+  const hd={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+  out.textContent='Kaydediliyor…';
+  try{
+    let sha; const g=await fetch(url+'?ref=main',{headers:hd}); if(g.ok) sha=(await g.json()).sha;
+    const gv=JSON.stringify({tarih:GUN,hipodrom:h.id,kosu:k.kosu,saat:sa,oranlar:o});
+    const r=await fetch(url,{method:'PUT',headers:hd,body:JSON.stringify({message:'canlı oran '+ad,content:b64(gv),branch:'main',sha})});
+    out.innerHTML=r.ok?`✓ Kaydedildi (${esc(sa)}). Koşu bitince sonuç Skor sekmesinde karşılaştırılır.`:`✗ hata ${r.status} ${[401,403,404].includes(r.status)?'(anahtar geçersiz ya da yetkisiz)':''}`;
+  }catch(e){ out.innerHTML='✗ '+esc(String(e)); }
+}
+async function otoCanliYukle(){
+  const el=$('otoCanli'); if(!el) return;
+  try{
+    const d=await getJSON('data/canli.json');
+    let s=`<div class="card"><div class="note">${d.kosu} koşu kaydedildi, ${d.biten_kosu} tanesi sonuçlandı. Ganyan, kendi girdiğin oranla EV (model olasılığı × oran) eşiğini geçen atlara 1 birim oynansaydı:</div><table style="width:100%;margin-top:8px;font-size:13px"><tr><th align=left>EV eşiği</th><th>Bahis</th><th>İsabet</th><th>Getiri (girilen)</th><th>Getiri (kapanış)</th></tr>`;
+    d.tablo.forEach(t=>{s+=`<tr><td>≥ ${f2(t.esik)}</td><td align=center>${t.bahis}</td><td align=center>${t.isabet}</td><td align=center>${t.getiri_girilen==null?'–':f2(t.getiri_girilen)}</td><td align=center>${t.getiri_kapanis==null?'–':f2(t.getiri_kapanis)}</td></tr>`});
+    s+=`</table><div class="note" style="margin-top:8px">Karşılaştırma için kaydedilen tüm atlara oynansaydı getiri: ${d.tum_atlar_getiri_kapanis==null?'–':f2(d.tum_atlar_getiri_kapanis)} (beklenen yaklaşık 0,63). 1,00 üstü = kazandırdı. Karar için yüzlerce bahis gerekir; az sayıda koşuya bakıp sonuç çıkarma.</div></div>`;
+    el.innerHTML=s;
+  }catch(e){ el.innerHTML='<div class="card empty">Henüz kaydedilmiş oran yok. Bir koşuda oranları girip "Bu oranları kaydet"e bas.</div>'; }
+}
+otoCanliYukle();
 async function otoPlaseYukle(){
   const el=$('otoPlase'); if(!el) return;
   try{
