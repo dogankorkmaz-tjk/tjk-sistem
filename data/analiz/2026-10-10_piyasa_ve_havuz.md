@@ -22,3 +22,10 @@ Uclu -7% (SE 4,4) AMA: 2025 -45%, 2026 +21%; ust %1 odeme cikarilinca -22%; 110 
 - 2026'da orta olasilikli ucluleri (q 3e-3..1e-1) "hepsini al" ROI +%31, bootstrap CI95 [+23, +39], ilk 3 odeme cikarilinca ayni. Hit ratio ~1 (q kalibre).
 - Fark ~x1,9-2: SUPHE = 2026'da ucluye birim bahis 0,50 TL'ye indi ama odeme 1 TL icin yaziliyor olabilir (siralı ikilide yok). DOGRULANMADI. Dogrulama: makinede 1 uclu kombinasyon kac TL, odeme tablosundaki tutar kac TL'lik bahis icin?
 - Dogrulanirsa edge degil, birim artefakti. Dogrulanmazsa (birim 1 TL) -> "Chapman" adayi: uclu havuzunda kalabalik modeli.
+
+## 5. SONUC (21:00): uclu "edge" = BIRIM FIYAT ARTEFAKTI
+- TJK: uclu birim fiyat 2 TL, tabela 1,50 TL, sirali besli 1,25 TL (min kupon 20 TL). Odeme tablosu BIRIM bahis icin yaziliyor.
+- 2026 odeme/adil oran 2025'e gore: uclu x1,76 (0,83 -> 1,46), tabela x1,7, besli x1,5. Siralı ikili degismedi. Birim fiyat artisiyla uyumlu.
+- Duzeltilmis uclu: 1,46/2 = 0,73 = 1 - kesinti. Edge YOK. Chapman adi bos kalir.
+- Onceki "tum kombinasyonlari al" tablosundaki 2026 agirlikli uclu/tabela/besli ROI'lari birime bolunmeli (bu duzeltmeden once kayitli rakamlar yanlis okunmamali).
+- Walk-forward (tjk/walkforward.py, 14.636 kosu, 2024Q2-2026Q4): Bolton +0,0111 nat/kosu (SE 0,0012), Jason +0,0152 (SE 0,0013) piyasaya karsi; EV>1,1 ROI Bolton -%20 (n=113), Jason +%17±19 (n=306).
