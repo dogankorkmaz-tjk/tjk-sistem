@@ -18,3 +18,4 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - (21:30) antrenor/sahip/baba/jokey-antrenor/jokey-hipodrom artik ozellikleri: +0,0001..+0,00015 (SE 0,0001-0,0002) -> anlamsiz. hipodrom/alan buyuklugu/mesafe/apranti x piyasa etkilesimleri: +0,00013 ± 0,00024 -> anlamsiz. Hepsi birlikte +0,00022 ± 0,00032. SONUC: eldeki veriyle Jason tavana yakin; yeni BILGI kaynagi (idman gecmisi) gerek.
 - walk-forward artik gece job'unda (tjk/calistir.py gece) calisir, docs/data/walkforward.json uretir.
 - tjk/havuz_canli.py: devirli havuz kaydi + EV tablosu (python -m tjk.havuz_canli ev 276534). 276.534 TL devirde medyan satisla EV~1,5, %25-%75 araligi 1,2-1,9, %90 1,08.
+- (21:50) jokey-at uyumu: cift artigi +0,0002 ± 0,0002; jokey degisimi 0,0000; jokey yukselisi +0,00001; birlikte kosu sayisi -0,00014 ± 0,00007; hepsi +0,00009 ± 0,0003 -> anlamsiz.
