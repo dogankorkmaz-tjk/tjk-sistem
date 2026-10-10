@@ -1,1 +1,185 @@
-{"tarih": "2026-10-10", "hipodrom": "ankara", "kaynak": "makine ekranı fotoğrafı 14:28", "kosular": {"1": {"sira": [6, 2, 1, 4], "ganyan": 2.95}, "2": {"sira": [8, 3, 4, 2], "ganyan": 16.75, "plase": [6.5, 26.7], "ikili": 84.8, "sirali_ikili": 225.85, "cifte": 82.45, "uclu": 2452.3}, "3": {"sira": [9, 8, 1, 6], "ganyan": 7.55, "plase": [15.5, 3.2], "ikili": 153.9, "sirali_ikili": 228.6, "cifte": 132.25, "uclu": 3724.6}, "4": {"sira": [4, 6, 3, 5, 1], "sirali_ikili": 26.85, "cifte": 54.0, "uclu": 316.8, "not": "ganyan ve ikili ödemesi ekranda kırpık"}, "5": {"sira": [6, 4, 8, 7, 2], "kesin": true, "muddet": "1:46.39", "farklar_boy": [1.5, 1.5, 2.0, 1.5], "not": "Farklar sırayla 1-2, 2-3, 3-4, 4-5 arası (yayın: 1,5 - 1,5 - 2 - 1,5 boy). Ara zamanlar 1400m 1:32.30, 1200m 1:19.25."}, "6": {"sira": [1, 6, 2, 5, 3], "kesin": true, "muddet": "2:14.65", "not": "Kullanıcı teyidi: 1 numara 14 boy farkla kazandı. Farklar: 14 boy, 1,5 boy, boyun, 3 boy. Ara zaman 1800m 1:53.95, 1600m 1:41.35.", "farklar_boy": [14.0, 1.5, 0.1, 3.0]}, "7": {"sira": [1, 4, 5, 2, 3], "not": "gayriresmi, TayTV 16:04; resmi ve ödeme bekleniyor"}, "8": {"sira": [5, 3, 4, 6, 2], "not": "gayriresmi, TayTV 16:35 photo-finish; resmi ve ödeme bekleniyor"}, "10": {"sira": [3, 6, 2, 4, 5], "not": "gayriresmi, TayTV 17:36; resmi ve ödeme bekleniyor"}}, "not": "Foto okunuşu; resmi veriyle sabah işi doğrulanacak. 1. 6'lı havuz 14:28'de 11.510.021 TL dağıtılacak tutar olarak görünüyor.", "havuz_zaman": [{"saat": "15:07", "altili2_tl": 20494844, "not": "TayTV: 2. 6'lı ganyanda dağıtılacak tutar"}], "cikan_atlar": {"10": [7, 8, 9, 10], "not": "10. koşuda 7 Oba Güzeli, 8 Okaygün, 9 Parlak Elmas, 10 Trian Kosmay koşmayacak (kullanıcı teyidi)"}}
+{
+ "tarih": "2026-10-10",
+ "hipodrom": "ankara",
+ "kaynak": "makine ekranı fotoğrafı 14:28",
+ "kosular": {
+  "1": {
+   "sira": [
+    6,
+    2,
+    1,
+    4
+   ],
+   "ganyan": 2.95,
+   "resmi_odemeler": "GANYAN(6) :2,95 TL, İKİLİ(2/6) :3,15 TL, SIRALI İKİLİ(6/2) :7,50 TL",
+   "resmi": true,
+   "kazanan_no": 6
+  },
+  "2": {
+   "sira": [
+    8,
+    3,
+    4,
+    2
+   ],
+   "ganyan": 16.75,
+   "plase": [
+    6.5,
+    26.7
+   ],
+   "ikili": 84.8,
+   "sirali_ikili": 225.85,
+   "cifte": 82.45,
+   "uclu": 2452.3,
+   "resmi_odemeler": "GANYAN(8) :16,75 TL, İKİLİ(3/8) :84,80 TL, SIRALI İKİLİ(8/3) :225,85 TL, ÜÇLÜ BAHİS(8/3/4) :2.452,30 TL, PLASE(3) :6,50 TL, PLASE(8) :26,70 TL, PLASE İKİLİ(3/4) :9,10 TL, PLASE İKİLİ(3/8) :40,90 TL, PLASE İKİLİ(4/8) :16,50 TL, 1. ÇİFTE(6/8) :82,45 TL",
+   "resmi": true,
+   "kazanan_no": 8
+  },
+  "3": {
+   "sira": [
+    9,
+    8,
+    1,
+    6
+   ],
+   "ganyan": 7.55,
+   "plase": [
+    15.5,
+    3.2
+   ],
+   "ikili": 153.9,
+   "sirali_ikili": 228.6,
+   "cifte": 132.25,
+   "uclu": 3724.6,
+   "resmi_odemeler": "GANYAN(9) :7,55 TL, İKİLİ(8/9) :153,90 TL, SIRALI İKİLİ(9/8) :228,60 TL, ÜÇLÜ BAHİS(9/8/1) :3.724,60 TL, PLASE(8) :15,50 TL, PLASE(9) :3,20 TL, 2. ÇİFTE(8/9) :132,25 TL",
+   "resmi": true,
+   "kazanan_no": 9
+  },
+  "4": {
+   "sira": [
+    4,
+    6,
+    3,
+    5,
+    1
+   ],
+   "sirali_ikili": 26.85,
+   "cifte": 54.0,
+   "uclu": 316.8,
+   "not": "ganyan ve ikili ödemesi ekranda kırpık",
+   "resmi_odemeler": "GANYAN(4) :5,05 TL, İKİLİ(4/6) :9,25 TL, SIRALI İKİLİ(4/6) :26,85 TL, ÜÇLÜ BAHİS(4/6/3) :316,80 TL, PLASE(4) :3,00 TL, PLASE(6) :1,60 TL, PLASE İKİLİ(3/4) :23,00 TL, PLASE İKİLİ(3/6) :13,90 TL, PLASE İKİLİ(4/6) :8,20 TL, 3. ÇİFTE(9/4) :54,00 TL",
+   "resmi": true,
+   "ganyan": 5.05,
+   "kazanan_no": 4
+  },
+  "5": {
+   "sira": [
+    6,
+    4,
+    8,
+    7,
+    2
+   ],
+   "kesin": true,
+   "muddet": "1:46.39",
+   "farklar_boy": [
+    1.5,
+    1.5,
+    2.0,
+    1.5
+   ],
+   "not": "Farklar sırayla 1-2, 2-3, 3-4, 4-5 arası (yayın: 1,5 - 1,5 - 2 - 1,5 boy). Ara zamanlar 1400m 1:32.30, 1200m 1:19.25.",
+   "resmi_odemeler": "GANYAN(6) :2,45 TL, İKİLİ(4/6) :18,20 TL, SIRALI İKİLİ(6/4) :33,30 TL, 4. ÇİFTE(4/6) :21,60 TL",
+   "resmi": true,
+   "ganyan": 2.45,
+   "kazanan_no": 6
+  },
+  "6": {
+   "sira": [
+    1,
+    6,
+    2,
+    5,
+    3
+   ],
+   "kesin": true,
+   "muddet": "2:14.65",
+   "not": "Kullanıcı teyidi: 1 numara 14 boy farkla kazandı. Farklar: 14 boy, 1,5 boy, boyun, 3 boy. Ara zaman 1800m 1:53.95, 1600m 1:41.35.",
+   "farklar_boy": [
+    14.0,
+    1.5,
+    0.1,
+    3.0
+   ],
+   "resmi_odemeler": "GANYAN(1) :1,60 TL, 1. 6'LI GANYAN(6/8/9/4,7/6/1) :44.440,18 TL, 1. 5'Lİ GANYAN(8/9/4,7/6/1) :12.016,42 TL, 1. 4'LÜ GANYAN(9/4,7/6/1) :762,91 TL, 1. 3'LÜ GANYAN(4,7/6/1) :91,30 TL, İKİLİ(1/6) :7,10 TL, SIRALI İKİLİ(1/6) :16,75 TL, ÜÇLÜ BAHİS(1/6/2) :123,40 TL, 5. ÇİFTE(6/1) :10,15 TL",
+   "resmi": true,
+   "ganyan": 1.6,
+   "kazanan_no": 1
+  },
+  "7": {
+   "sira": [
+    1,
+    4,
+    5,
+    2,
+    3
+   ],
+   "not": "gayriresmi, TayTV 16:04; resmi ve ödeme bekleniyor",
+   "resmi_odemeler": "GANYAN(1) :4,30 TL, SIRALI İKİLİ(1/4) :17,00 TL, 6. ÇİFTE(1/1) :9,90 TL",
+   "resmi": true,
+   "ganyan": 4.3,
+   "kazanan_no": 1
+  },
+  "8": {
+   "sira": [
+    5,
+    3,
+    4,
+    6,
+    2
+   ],
+   "not": "gayriresmi, TayTV 16:35 photo-finish; resmi ve ödeme bekleniyor",
+   "resmi_odemeler": "GANYAN(5) :2,35 TL, SIRALI İKİLİ(5/3) :10,90 TL, 7. ÇİFTE(1/5) :14,65 TL",
+   "resmi": true,
+   "ganyan": 2.35,
+   "kazanan_no": 5
+  },
+  "10": {
+   "sira": [
+    3,
+    6,
+    2,
+    4,
+    5
+   ],
+   "not": "gayriresmi, TayTV 17:36; resmi ve ödeme bekleniyor",
+   "resmi_odemeler": "GANYAN(3) :3,20 TL, 7'Lİ PLASE(4,6,7/4,6/1,6/1,4/3,5/2,3,6,8/1,3,6,7,8,9,10) :206,10 TL, 2. 6'LI GANYAN(6/1/1/5/6/1,3,7,8,9,10) :1.533,00 TL, 2. 5'Lİ GANYAN(1/1/5/6/1,3,7,8,9,10) :580,20 TL, 2. 4'LÜ GANYAN(1/5/6/1,3,7,8,9,10) :205,80 TL, 2. 3'LÜ GANYAN(5/6/1,3,7,8,9,10) :25,90 TL, İKİLİ(3/6) :8,10 TL, SIRALI İKİLİ(3/6) :16,05 TL, ÜÇLÜ BAHİS(3/6/2) :154,50 TL Çıkan 1 Atla: 16,20 TL, PLASE(3) :3,00 TL, PLASE(6) :2,65 TL, PLASE İKİLİ(2/3) :3,40 TL, PLASE İKİLİ(2/6) :7,90 TL, PLASE İKİLİ(3/6) :7,10 TL, 9. ÇİFTE(6/3) :7,80 TL, 7'Lİ GANYAN(4,7/6/1/1/5/6/1,3,7,8,9,10) :9.987,30 TL",
+   "resmi": true,
+   "ganyan": 3.2,
+   "kazanan_no": 3
+  },
+  "9": {
+   "resmi_odemeler": "GANYAN(6) :2,30 TL, İKİLİ(6/8) :5,30 TL, SIRALI İKİLİ(6/8) :8,90 TL, ÜÇLÜ BAHİS(6/8/5) :47,40 TL, PLASE(6) :1,30 TL, PLASE(8) :2,75 TL, 8. ÇİFTE(5/6) :8,20 TL",
+   "resmi": true,
+   "ganyan": 2.3,
+   "kazanan_no": 6
+  }
+ },
+ "not": "Foto okunuşu; resmi veriyle sabah işi doğrulanacak. 1. 6'lı havuz 14:28'de 11.510.021 TL dağıtılacak tutar olarak görünüyor.",
+ "havuz_zaman": [
+  {
+   "saat": "15:07",
+   "altili2_tl": 20494844,
+   "not": "TayTV: 2. 6'lı ganyanda dağıtılacak tutar"
+  }
+ ],
+ "cikan_atlar": {
+  "10": [
+   7,
+   8,
+   9,
+   10
+  ],
+  "not": "10. koşuda 7 Oba Güzeli, 8 Okaygün, 9 Parlak Elmas, 10 Trian Kosmay koşmayacak (kullanıcı teyidi)"
+ }
+}
