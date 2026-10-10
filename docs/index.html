@@ -97,6 +97,8 @@ input.oran:focus{background:var(--surface);border-color:var(--accent)}
 .tag.dus{color:var(--bad);border:1px solid var(--line)}
 .tag.sira{background:var(--accent);color:var(--accent-fg)}
 .row.kazanan{background:var(--good-bg);box-shadow:inset 4px 0 0 var(--good)}
+.row.ikinci{background:rgba(160,170,185,.12);box-shadow:inset 4px 0 0 #a9b3c1}
+.row.ucuncu{background:rgba(205,140,70,.12);box-shadow:inset 4px 0 0 #cd8c46}
 .rank{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;align-items:center;padding:2px 16px 14px}.rank::-webkit-scrollbar{display:none}.rk{flex:0 0 auto}
 .rk{display:flex;gap:7px;align-items:center;padding:3px 10px 3px 3px;border:1px solid var(--line);border-radius:999px;font:600 13px var(--f-body)}
 .rk b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:700 12.5px var(--f-display);color:#fff;background:#8d949a;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
@@ -364,11 +366,12 @@ function renderKosu(){
   let s=`<div class="card"><div class="kbas"><div><b>${esc(h.ad)} ${k.kosu}. koşu</b> <span class="sub">${esc(k.saat||'')}</span></div>
     ${k.bilgi?`<div class="note">${esc(k.bilgi)}</div>`:''}
     <div id="kaynak"></div></div>
+    ${bitti?'<div class="card" style="padding:10px 14px;font-size:14px"><b>Sonuç:</b> '+k.atlar.filter(a=>k.sonuc[a.no]&&k.sonuc[a.no].sira<=4).sort((x,y)=>k.sonuc[x.no].sira-k.sonuc[y.no].sira).map(a=>`${k.sonuc[a.no].sira}. <b>${a.no}</b> ${esc(a.at)}`).join(' · ')+'</div>':''}
     <div class="rank" id="rank"></div>
     <div class="row head"><span>No</span><span>At</span><span style="text-align:right">Ganyan</span><span style="text-align:right">Model</span><span style="text-align:right">EV</span></div>`;
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
-    s+=`<div class="row${sn&&sn.sira===1?' kazanan':''}" id="r${i}"><span class="no c${(a.no-1)%16+1}">${a.no}</span><div class="nm"><b>${esc(a.at)}</b><span>${esc(a.jokey||'')}${a.st?' · st '+a.st:''}</span></div>
+    s+=`<div class="row${sn&&sn.sira===1?' kazanan':sn&&sn.sira===2?' ikinci':sn&&sn.sira===3?' ucuncu':''}" id="r${i}"><span class="no c${(a.no-1)%16+1}">${a.no}</span><div class="nm"><b>${esc(a.at)}</b><span>${esc(a.jokey||'')}${a.st?' · st '+a.st:''}</span></div>
       <input class="oran" id="o${i}" data-i="${i}" inputmode="decimal" autocomplete="off" placeholder="${esc(ph)}" value="${esc(o[a.no]||'')}" aria-label="${esc(a.at)} ganyan">
       <span class="num" id="m${i}">–</span><span class="num" id="e${i}">–</span><div class="sub2" id="s${i}"></div></div>`;
   });
