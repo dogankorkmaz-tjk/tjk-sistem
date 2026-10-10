@@ -37,7 +37,7 @@ jobs:
           git rm -q data/accurace_ham/*.png
           git config user.name "tjk-bot"
           git config user.email "tjk-bot@users.noreply.github.com"
-          git add -A data
+          git add -A data docs/data
           git commit -m "Accurace koşuları işlendi ($(grep -c . /tmp/acc_log.txt) satır)"
           for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
           exit 1

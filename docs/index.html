@@ -214,6 +214,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <input id="dosyaSec" type="file" multiple accept=".zip,.pdf,.csv,.doc,.html,.htm,application/zip,text/csv,text/plain,.txt,application/msword,text/html" style="width:100%;margin-bottom:12px">
       <button id="yukleBtn" class="primary">Yükle</button>
       <div id="yukleSonuc" style="margin-top:12px;font-size:13px"></div>
+      <div id="accDurum" style="margin-top:16px;font-size:13px"></div>
     </div>
     <div class="card" style="margin-top:12px">
       <h2>Sabit oran yapıştır (SİB)</h2>
@@ -692,8 +693,19 @@ async function sibGonder(){
 }
 $('sibBtn').onclick=sibGonder;
 $('sibDosya').onchange=async e=>{ const f=e.target.files[0]; if(f){ $('sibMetin').value=await f.text(); $('sibSonuc').textContent='Dosya okundu ('+Math.round(f.size/1024)+' KB). Şimdi "SİB gönder"e bas.'; } };
+
+async function accDurum(){
+  const el=$('accDurum'); if(!el) return;
+  try{ const d=await getJSON('data/accurace_ozet.json?'+Date.now());
+    const G=Object.keys(d.gunler).sort().reverse(); let h='<b>Accurace yüklenenler</b> <span class="sub">('+d.toplam+' koşu, güncelleme '+esc(d.uretim)+')</span>';
+    if(!G.length){ el.innerHTML=h+'<div class="sub">Henüz yok.</div>'; return; }
+    h+=G.slice(0,40).map(t=>'<div style="margin-top:6px"><b>'+esc(t)+'</b> '+Object.entries(d.gunler[t]).map(([hp,v])=>esc(hp)+': '+v.kosu.length+' koşu'+(v.sorunlu.length?' <span style="color:var(--hot)" title="'+esc(v.sorunlu.map(x=>x.kosu+'. koşu: '+x.sorun).join(' | '))+'">⚠ '+v.sorunlu.length+' sorunlu ('+v.sorunlu.map(x=>x.kosu).join(',')+')</span>':' ✓')).join(' · ')+'</div>').join('');
+    h+='<div class="sub" style="margin-top:8px">⚠ = at sayısı ya da numara eksik/yinelenen. Sorunlu koşular testte kullanılmaz; sayısı azsa önemli değil.</div>';
+    el.innerHTML=h;
+  }catch(e){ el.innerHTML='<div class="sub">Accurace durumu henüz oluşmadı.</div>'; }
+}
 const TABS={bugun:'tabBugun',bolton:'tabBolton',jason:'tabJason',egz:'tabEgz',kosu:'tabKosu',skor:'tabSkor',dosya:'tabDosya'};
-function sekme(ad){
+function sekme(ad){if(arguments[0]==='dosya') accDurum();
   Object.keys(TABS).forEach(k=>{ $(TABS[k]).setAttribute('aria-selected',k===ad); $(k).hidden=k!==ad; });
   if(ad==='egz') egzYukle();
   if(ad==='skor'&&!SKOR) skorYukle();

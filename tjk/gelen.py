@@ -42,6 +42,51 @@ def _atlar(tarih, hip, kosu):
     return None
 
 
+def ozet_yaz():
+    """data/accurace/*.json: tek eksik at numarasini doldur, durum ozetini docs/data/accurace_ozet.json'a yaz."""
+    gun = {}
+    for f in sorted(glob.glob(os.path.join(KOK, "data", "accurace", "*.json"))):
+        ad = os.path.basename(f)[:-5]
+        m = re.match(r"(\d{4}-\d\d-\d\d)_(.+)_(\d+)$", ad)
+        if not m:
+            continue
+        t, hip, k = m.group(1), m.group(2), int(m.group(3))
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        atlar = d.get("atlar", [])
+        bek = _atlar(t, hip, k)
+        nolar = [a.get("no") for a in atlar]
+        if bek and nolar.count(None) == 1:
+            eksik = [n for n in bek if n not in nolar]
+            if len(eksik) == 1:
+                atlar[nolar.index(None)]["no"] = eksik[0]
+                nolar = [a.get("no") for a in atlar]
+                json.dump(d, open(f, "w", encoding="utf-8"), ensure_ascii=False)
+        dolu = [n for n in nolar if n is not None]
+        sorun = []
+        if bek is None:
+            sorun.append("starter listesi yok")
+        else:
+            if len(atlar) != len(bek):
+                sorun.append("at sayisi %d / beklenen %d" % (len(atlar), len(bek)))
+            if len(set(dolu)) != len(dolu):
+                sorun.append("tekrar eden numara")
+            if None in nolar:
+                sorun.append("okunamayan numara")
+        g = gun.setdefault(t, {}).setdefault(hip, {"kosu": [], "sorunlu": []})
+        g["kosu"].append(k)
+        if sorun:
+            g["sorunlu"].append({"kosu": k, "sorun": "; ".join(sorun)})
+    cikis = {"uretim": pd.Timestamp.now(tz="Europe/Istanbul").strftime("%Y-%m-%d %H:%M"),
+             "toplam": sum(len(h["kosu"]) for g in gun.values() for h in g.values()),
+             "gunler": {t: {h: {"kosu": sorted(v["kosu"]), "sorunlu": v["sorunlu"]} for h, v in g.items()} for t, g in gun.items()}}
+    os.makedirs(os.path.join(KOK, "docs", "data"), exist_ok=True)
+    json.dump(cikis, open(os.path.join(KOK, "docs", "data", "accurace_ozet.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    return cikis["toplam"]
+
+
 def pdf_isle(yol, cikis):
     from tjk import accurace
     m = re.search(r"(\d{4})-(\d{2})-(\d{2})-([a-z\-]+?)-(\d+)\.pdf$", os.path.basename(yol).lower())
@@ -111,3 +156,4 @@ if __name__ == "__main__":
                 print(video_isle(f, hip), flush=True)
             except Exception as e:
                 print("HATA", os.path.basename(f), e, flush=True)
+    print('ozet: %d kosu' % ozet_yaz(), flush=True)
