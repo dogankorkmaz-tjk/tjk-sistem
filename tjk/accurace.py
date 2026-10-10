@@ -73,7 +73,10 @@ def _numara(im, y0, y1):
     s = im.size[0] / 906
     c = im.crop((int(15 * s), y0, int(58 * s), y1)).convert("RGB")
     a = np.array(c).astype(int)
-    beyaz = (a.min(2) > 215)
+    h, w = a.shape[:2]
+    yy, xx = np.mgrid[:h, :w]
+    ic = (yy - h / 2) ** 2 + (xx - w / 2) ** 2 < (0.40 * min(h, w)) ** 2     # sadece daire içi (köşelerdeki açık zemin harf sanılmasın)
+    beyaz = (a.min(2) > 215) & ic
     g = Image.fromarray(np.where(beyaz, 0, 255).astype("uint8")).resize((c.size[0] * 3, c.size[1] * 3))
     g = Image.fromarray(np.pad(np.array(g), 30, constant_values=255))
     m = re.search(r"\d{1,2}", _ocr(g, 7, "0123456789"))
