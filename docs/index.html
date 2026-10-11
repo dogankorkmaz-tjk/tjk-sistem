@@ -876,6 +876,24 @@ function egzKart(c,durum,r){
   }
   return s+'</div>';
 }
+function besliEgz(m){
+  if(!VERI||GUN!==trBugun()) return '';
+  const R=[];
+  (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
+    if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
+    const idx=Object.keys(out.map).map(Number); if(idx.length<5) return;
+    const P=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj); if(P.some(v=>v==null)) return;
+    const pp=idx.map(i=>out.map[i].pp);
+    const ppW=G5_P.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G5_P.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
+    const sat=[48,96].map(B=>{ const r=besliKupon(P,B,G5_M); if(!r) return null;
+      const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
+      return {B,r,prP,oran,h:`<div class="sub"><b>~${B}</b> · ${r.n} komb. · <b>${f2(r.n*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br><span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
+    if(!sat.length) return;
+    const yildiz=sat.some(x=>x.oran>=1.15);
+    R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${yildiz?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${sat.map(x=>x.h).join('')}</div>`});
+  }));
+  return `<h2 style="margin-top:14px">Sıralı 5'li (kombine, ${m})</h2><div class="sub">Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır, birim 1,25 TL. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü; sonuçlar Test sekmesinde ölçülüyor. Kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
+}
 function egzCiz(){
   const el=$('egzIc'); if(!el) return;
   if(!EGZ){ el.innerHTML='<div class="card empty">Egzotik seçim verisi henüz yok. İlk koşulardan önce oluşur.</div>'; return; }
@@ -899,6 +917,7 @@ function egzCiz(){
   if(bit.length) s+=`<details class="kb"><summary>Başlayan ve biten koşular (${bit.length})</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${bit.map(c=>egzKart(c,'bitti',c.sonuc&&c.sonuc[EGT])).join('')}</div></details>`;
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
   s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için en az ~300 koşu gerekir.</div></div></details>`;
+  try{ s+=besliEgz(EGM); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
   el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});
