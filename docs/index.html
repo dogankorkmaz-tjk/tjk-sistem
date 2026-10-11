@@ -924,6 +924,8 @@ async function oyYaz(mut){
   }
   throw new Error('çakışma, tekrar dene');
 }
+let KASA=(()=>{try{return parseFloat(localStorage.getItem('gm2_kasa'))||0}catch(e){return 0}})();
+function kellyTL(p){ const g0=1.10/p; if(!(g0>1.0001)) return null; const f=Math.min(0.02,0.25*0.10/(g0-1)); return {f, tl:KASA>0?Math.max(1,Math.round(KASA*f)):null}; }
 let OZ=null, KP=null;
 async function ozYukle(){ try{ OZ=await getJSON('data/oynadim_ozet.json?'+Date.now()); }catch(e){ OZ=null; } try{ KP=await getJSON('data/kupon.json'); }catch(e){ KP=null; } oyCiz(); }
 function gunOzetHtml(L){
@@ -946,6 +948,7 @@ function oyCiz(){
   let top=0, odm=0, bil=0, bek=0; L.forEach(b=>{ top+=+b.tutar||0; if(b.odeme!=null&&b.odeme!==''){ odm+=+b.odeme; bil+=+b.tutar||0; } else bek++; });
   const net=odm-bil;
   let s=gunOzetHtml(L)+`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Yeni bahis ekle</b>
+    <label class="sub">Kasa (TL, tutar önerisi için)<input id="oyKasa" inputmode="decimal" value="${KASA||''}" placeholder="örn 5000" style="width:100%;padding:8px"></label>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
       <label class="sub">Hipodrom<select id="oyHip" style="width:100%;padding:8px">${hs.map(x=>`<option value="${esc(x.id)}"${x.id===(hh&&hh.id)?' selected':''}>${esc(x.ad)}</option>`).join('')}</select></label>
       <label class="sub">Koşu<select id="oyKosu" style="width:100%;padding:8px">${kn.map(n=>`<option${n===ksec?' selected':''}>${n}</option>`).join('')}</select></label>
@@ -967,6 +970,7 @@ function oyCiz(){
   s+='<div class="note">Bu kayıt GitHub\'a yazılır, kâğıt testiyle gerçeği karşılaştırmak için kullanılır. Başkasına görünmez ama depo erişimi olan herkes görebilir.</div>';
   el.innerHTML=s;
   const msj=t=>{ $('oyMsj').textContent=t; };
+  if($('oyKasa')) $('oyKasa').onchange=()=>{ KASA=parseFloat(String($('oyKasa').value).replace(',','.'))||0; try{localStorage.setItem('gm2_kasa',String(KASA))}catch(e){} oynaCiz(); };
   if($('oyHip')) $('oyHip').onchange=()=>{ sel.hip=$('oyHip').value; sv('gm2_sel',sel); oyCiz(); };
   $('oyEkle').onclick=async()=>{
     const tutar=parseFloat(String($('oyTutar').value).replace(',','.')); if(!(tutar>0)){ msj('Tutarı yaz.'); return; }
@@ -1045,7 +1049,8 @@ function ganyanOneri(){
     if(out.kaynak!=='elle'){
       k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||!(x.pp>0)||!(x.pm>0)) return;
         const pj=x.pj!=null?x.pj:x.pm, pmin=Math.min(x.pm,pj); if(pmin/x.pp<1.30) return;
-        R.push(`<div><b>Aday: ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> · ekranda ganyan <b>≥ ${f2(1.10/pmin)}</b> ise oyna, altındaysa geç <span class="sub">(Bolton %${pct(x.pm)} · ${x.pj!=null?'Jason %'+pct(x.pj):'Jason yok'} · piyasa %${pct(x.pp)})</span></div>`); });
+        const ky=kellyTL(pmin);
+        R.push(`<div><b>Aday: ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> · ekranda ganyan <b>≥ ${f2(1.10/pmin)}</b> ise oyna, altındaysa geç${ky?(ky.tl?` · önerilen tutar ≈ <b>${ky.tl} TL</b> (kasanın %${String(Math.round(ky.f*1000)/10).replace('.',',')}, çeyrek Kelly)`:` · kasanı Test/Koşu sekmesindeki Oynadıklarım'dan girersen tutar önerisi çıkar`):''} <span class="sub">(Bolton %${pct(x.pm)} · ${x.pj!=null?'Jason %'+pct(x.pj):'Jason yok'} · piyasa %${pct(x.pp)})</span></div>`); });
       return; }
     k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||x.ev==null||x.ev<1.10) return;
       const j=x.ejv; if(j!=null&&j<1.10) return;

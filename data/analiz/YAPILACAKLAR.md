@@ -35,3 +35,8 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Video: Release ile yükleme (etiket "gelen..."), tjk.gelen işler. Ankara 1-4,6-10 yeniden çalıştırılacak (koşan at numaraları temiz/kosu_at'tan).
 - Jokey ve ilk-3 (walk-forward, ~12 bin yarış): jokey özellikleri çıkarılınca 1./2./3. sıra -0,0003/-0,0006/-0,0022 nat/yarış (3. sıra için jokey daha önemli); jokeyin son 150 ata ilk-3 oranı eklenince +0,0022/+0,0014/+0,0019. Küçük ama güvenilir; Chapman adayı uzman modelin parçası olabilir, tek başına değil.
 - Özellik budama (ilk-3, seçim 2024Q2-2025Q4, sınav 2026): 2. sıra 34->13 özellik -0,0071±0,0017 (kötü), 3. sıra 34->22 +0,0004±0,0004 (fark yok). Budama yarar sağlamıyor; kazanç yeni bilgiden (Accurace) beklenmeli.
+
+## 2026-10-11 Benter karşılaştırması (Δρ²)
+- Walk-forward (14.636 koşu, 2024Q2–2026Q3): Bolton +0,0111 nat/koşu, Jason +0,0152 nat/koşu (piyasaya göre).
+- Δρ² = kazanç / ort. ln(N) (N≈9,5 at, ln N≈2,206): Bolton 0,0050, Jason 0,0069. Benter (Hong Kong) 0,0178 → "anlamlı kâr potansiyeli". Bizim kesinti %27, onunki %17–19.
+- Kelly: çeyrek Kelly, tavan kasanın %2'si; Oynadıklarım'dan kasa girilir (localStorage gm2_kasa).
