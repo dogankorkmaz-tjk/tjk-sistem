@@ -11,6 +11,7 @@ from .ozellik import hazirla, model_olasilik
 from . import kupon as KP
 from . import plase as PL
 from . import tuyo as TY
+from . import besli as BS
 from . import devir as DV
 from . import egzotik as EG
 from . import golge as GL
@@ -377,6 +378,10 @@ def canli(t):
     except Exception as e:
         print("tuyo hatası:", repr(e))
     try:
+        BS.guncelle(obj)
+    except Exception as e:
+        print("besli hatası:", repr(e))
+    try:
         DV.guncelle(obj)
     except Exception as e:
         print("devir hatası:", repr(e))
@@ -435,6 +440,10 @@ def gece(bugun):
                 TY.guncelle(obj)
             except Exception as e:
                 print("tuyo hatası:", repr(e))
+            try:
+                BS.guncelle(obj)
+            except Exception as e:
+                print("besli hatası:", repr(e))
             print("  AGF arşivlendi:", g, agf_arsivle(obj), "satır")
     if yeni_s:
         ns, npg = pd.DataFrame(yeni_s), pd.DataFrame(yeni_p)

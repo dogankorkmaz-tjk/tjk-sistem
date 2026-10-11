@@ -190,6 +190,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div class="sub" style="padding:0 12px 8px">Sistemin her gün otomatik kurduğu altılı kuponlar ve toplam sonuçları. Amaç: kuponların uzun vadede kazandırıp kazandırmadığını ölçmek. Oynanmaya değer olanlar zaten yukarıdaki "oyna" listesinde ★ ile çıkar.</div>
       <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
     </div>
+      <h2>Sıralı 5'li kombine kupon (kağıt üstü)</h2><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div>
       <h2>Jason'ın tüyoları (kağıt üstü takip)</h2><div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
       <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
       <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
@@ -769,7 +770,7 @@ Object.keys(TABS).forEach(k=>{ $(TABS[k]).onclick=()=>sekme(k); });
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
@@ -853,6 +854,7 @@ async function otoPlaseYukle(){
 }
 otoPlaseYukle();
 otoTuyoYukle();
+besliYukle();
 
 let EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
@@ -1107,6 +1109,25 @@ function ganyanOneri(){
   }));
   return R;
 }
+let BS=null;
+async function besliYukle(){ try{ BS=await getJSON('data/besli.json?'+Date.now()); }catch(e){ BS=null; } try{ oynaCiz(); }catch(e){} try{ besliTest(); }catch(e){} }
+function besliOneri(){
+  const R=[]; if(!BS||!BS.bugun||BS.tarih!==trBugun()||!VERI) return R;
+  BS.bugun.forEach(c=>{
+    const h=(VERI.hipodromlar||[]).find(x=>x.id===c.hipodrom); const k=h&&h.kosular.find(x=>x.kosu===c.kosu); if(!k||k.sonuc||c.sonuc) return;
+    const q=(c.kuponlar||[]).filter(x=>x.oran>=(BS.esik||1.15)).sort((a,b)=>b.oran-a.oran)[0]; if(!q) return;
+    R.push({t:c.saat||'',h:`<div><b>★ ${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu sıralı 5'li</b> (${esc(c.saat||'')}) · ${q.model} ~${q.butce}: ${q.kombinasyon} komb., <b>${f2(q.bedel)} TL</b> · tutma %${(q.tutma_model*100).toFixed(2).replace('.',',')} (piyasa %${(q.tutma_piyasa*100).toFixed(2).replace('.',',')}, ×${f2(q.oran)})<br><span style="font-family:monospace">${q.ayaklar.map(x=>x.join(',')).join(' | ')}</span></div>`});
+  });
+  return R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h);
+}
+function besliTest(){
+  const el=$('otoBesli'); if(!el) return;
+  if(!BS){ el.innerHTML='<div class="card empty">Henüz sıralı 5\'li kaydı yok.</div>'; return; }
+  const T=BS.toplam||[]; let h='';
+  if(T.length){ h+='<div class="card scroll"><b>Şimdiye kadar</b><table class="t"><thead><tr><th>Kupon</th><th>Koşu</th><th>Harcama</th><th>İsabet</th><th>Geri dönüş</th></tr></thead><tbody>'+T.sort((a,b)=>(a.grup<b.grup?1:-1)||(a.model<b.model?-1:1)||a.butce-b.butce).map(t=>`<tr><td>${t.grup==='onerilen'?'★ ':''}${t.model} ~${t.butce}</td><td class="n">${t.kosu}</td><td class="n">${f2(t.harcama)}</td><td class="n">${t.isabet}</td><td class="n">${t.geri_donus==null?'–':String(t.geri_donus).replace('.',',')}</td></tr>`).join('')+'</tbody></table><div class="sub">★ = önerilen kuponlar (model/piyasa tutma oranı ≥ '+String(BS.esik).replace('.',',')+'). 1,00 üstü = kazandırdı. Karar için en az birkaç yüz koşu gerekir. Devir bilgisi kullanılmaz.</div></div>'; }
+  else h+='<div class="card"><div class="sub">Henüz sonuçlanan kupon yok; kuponlar yarıştan önce dondurulur, sonuç ve ödeme gelince burada birikir.</div></div>';
+  el.innerHTML=h;
+}
 function tuyolar(){
   const R=[]; if(!VERI||GUN!==trBugun()||VERI.w0_aday==null) return R;
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
@@ -1124,7 +1145,7 @@ function tuyolar(){
 }
 let OYNA_L=[], oynaT=null;
 function oynaCiz(){
-  const el=$('oynaKutu'); if(!el) return; const G=ganyanOneri(), L=G.concat(OYNA_L);
+  const el=$('oynaKutu'); if(!el) return; const G=ganyanOneri().concat(besliOneri()), L=G.concat(OYNA_L);
   el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Bunlar kağıt üstü deney önerileridir, kâr garantisi yoktur. Kaybetmeyi göze alabileceğin tutarla oyna.</div></div>':'<div class="card empty">Şu an sistemin önerdiği bahis yok. Bu normal; çoğu gün öneri çıkmaz.</div>')+(()=>{const T=tuyolar(); return '<h2>Jason\'ın tüyoları: bunlara dikkat</h2>'+(T.length?'<div class="card">'+T.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Jason\'ın piyasadan belirgin yüksek gördüğü atlar. Yorumlar otomatik, sayılardan çıkar. Tüyo bahis önerisi değil, bakılacak at demek; oynamadan önce Bolton/Jason sekmesindeki min ganyana bak.</div></div>':'<div class="card empty">Jason şu an piyasanın gözden kaçırdığı belirgin bir at görmüyor.</div>');})();
 }
 oynaOzet();
