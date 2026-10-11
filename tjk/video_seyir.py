@@ -49,8 +49,15 @@ def _palet(kareler, n):
     return best[1], best[0]
 
 
+def _global_palet():
+    """11+ numaralı atların sabit yayın renkleri (tjk/video_palet.json; 15 ve 17 henüz bilinmiyor)."""
+    y = os.path.join(os.path.dirname(os.path.abspath(__file__)), "video_palet.json")
+    return {int(k): np.array(v) for k, v in json.load(open(y)).items()} if os.path.exists(y) else {}
+
+
 def _sira(im, palet, n, esik=0.9):
-    """Kutu-at atamasını Macar yöntemiyle çöz (her numara bir kez): bulanık kareleri de kurtarır."""
+    """Kutu-at atamasını Macar yöntemiyle çöz (her numara bir kez). palet: (M,3), M>=n olabilir (şeritte görünmeyen atlar).
+    Dönen: palet satır indeksleri (0..M-1), kutu sırasıyla."""
     from scipy.optimize import linear_sum_assignment
     r = _renkler(im, n)
     dist = np.linalg.norm(r[:, None, :] - palet[None, :, :], axis=2)
@@ -84,11 +91,16 @@ def isle(video, n, ad=None, fps=2):
     with tempfile.TemporaryDirectory() as k:
         fr = _kareler(video, k, fps)
         palet, ayrim = _palet(fr, kutu)
+        G = _global_palet()
+        ek = [(a, G[a]) for a in tum[kutu:] if a in G]          # ilk 10 dışındaki, rengi bilinen atlar
+        if ek:
+            palet = np.vstack([palet] + [c[None, :] for _, c in ek])
+        pal_num = numaralar + [a for a, _ in ek]
         zaman = []
         for i, f in enumerate(fr):
             im = Image.open(f)
-            s = _sira(im, palet, kutu)
-            s = [numaralar[x - 1] for x in s] if s else None
+            s = _sira(im, palet, kutu, esik=0.9 if len(pal_num) == n else 0.5)
+            s = [pal_num[x - 1] for x in s] if s else None
             zaman.append({"t": round(i / fps, 1), "sira": s, "mesafe": _mesafe(im) if s else None})
     gecerli = [z for z in zaman if z["sira"]]
     kapi = numaralar                                  # koşu öncesi şerit 1..N sırasıyla durur: o kareleri at
