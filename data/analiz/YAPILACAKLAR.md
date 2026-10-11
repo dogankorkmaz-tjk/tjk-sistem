@@ -45,3 +45,8 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Jason'da zaten f_fig3 (gün/pist varyantına göre düzeltilmiş göreli süre, son 3) ve f_dp150_m (mesafe uyumu) var.
 - Eklenen: mutlak figür (derece / (hip, mesafe, pist) ölçütü), son koşu, son 5 ort., son 5 en iyi. Kapsam %59.
 - Sonuç (2025Q3–2026Q4, 8.115 koşu): fark −0,00004 ± 0,0003 nat/koşu → ek bilgi yok. Yapılmaz.
+
+## 2026-10-11 gece - video (Adana + İstanbul, 18 koşu)
+- Yayın şeridi yalnızca ilk 10 sırayı gösterir. tjk/video_seyir.py artık kutu=min(at,10) ile çalışır, ama 11+ atlı koşularda palet yalnızca ilk 10 numaranın rengini öğrenir; 11+ atların renkleri bilinmediği için sıralama bozuluyor. Gözlenen: 11 = koyu yeşil, 13 = açık ten rengi; 12, 14-17 bilinmiyor. Çözüm: sabit TJK paleti (1-17) + dikdörtgen eşleştirme (kutu x numara), kutudaki rakam OCR ile doğrulama.
+- Son geçerli kare her zaman bitiş değil (video sonunda şerit kayboluyor); doğrulama ρ (data/video_seyir/*.json: dogrulama_rho, guvenilir) ancak ≤10 atlı koşularda anlamlı. 11 Ekim: 18 videodan 8'i güvenilir sayıldı.
+- İstanbul 9 (Çelik Abi 13): 1193 m kala şeritte yok (ilk 10 dışı), 721 m kala 10., 355 m kala 7., 2. bitirdi = geriden kapanış.

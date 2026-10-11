@@ -78,13 +78,16 @@ def _mesafe(im):
 def isle(video, n, ad=None, fps=2):
     numaralar = list(n) if isinstance(n, (list, tuple)) else list(range(1, n + 1))   # koşmayan at varsa numaralar 1..N olmaz
     n = len(numaralar)
+    tum = numaralar
+    kutu = min(n, 10)          # yayın şeridi yalnızca ilk 10 sırayı gösterir; 11+ atlı koşularda sonrası şeritte görünmez
+    numaralar = tum[:kutu]
     with tempfile.TemporaryDirectory() as k:
         fr = _kareler(video, k, fps)
-        palet, ayrim = _palet(fr, n)
+        palet, ayrim = _palet(fr, kutu)
         zaman = []
         for i, f in enumerate(fr):
             im = Image.open(f)
-            s = _sira(im, palet, n)
+            s = _sira(im, palet, kutu)
             s = [numaralar[x - 1] for x in s] if s else None
             zaman.append({"t": round(i / fps, 1), "sira": s, "mesafe": _mesafe(im) if s else None})
     gecerli = [z for z in zaman if z["sira"]]
@@ -99,8 +102,8 @@ def isle(video, n, ad=None, fps=2):
             z["mesafe"] = None
         elif m is not None:
             son = m
-    ozet = _ozet(gecerli, numaralar)
-    cikti = {"video": os.path.basename(video), "at_sayisi": n, "numaralar": numaralar, "palet_ayrimi": round(float(ayrim), 1),
+    ozet = _ozet(gecerli, tum, numaralar)
+    cikti = {"video": os.path.basename(video), "at_sayisi": n, "kutu": kutu, "numaralar": tum, "palet_ayrimi": round(float(ayrim), 1),
              "kare": len(zaman), "gecerli_kare": len(gecerli), "ozet": ozet, "zaman": zaman}
     yol = os.path.join(KOK, "data", "video_seyir", (ad or os.path.splitext(os.path.basename(video))[0]) + ".json")
     os.makedirs(os.path.dirname(yol), exist_ok=True)
@@ -108,18 +111,24 @@ def isle(video, n, ad=None, fps=2):
     return cikti
 
 
-def _ozet(gecerli, numaralar):
+def _ozet(gecerli, numaralar, gorunen=None):
     """Her at için: erken/orta/geç sıra (geçerli kare zaman dilimlerinin ortalaması), son sıra, yer kazancı."""
     if len(gecerli) < 6:
         return {}
     L = len(gecerli)
     dilim = {"erken": gecerli[:L // 3], "orta": gecerli[L // 3: 2 * L // 3], "gec": gecerli[2 * L // 3:]}
     o = {}
+    gorunen = gorunen or numaralar
+    k = len(gorunen); n = len(numaralar)
+    arka = (k + 1 + n) / 2.0          # ilk 10'da olmayan atın sırası bilinmez; arka grubun ortası
+
+    def yer(z, at):
+        return z["sira"].index(at) + 1 if at in z["sira"] else arka
     for at in numaralar:
         d = {}
         for ad, kareler in dilim.items():
-            d[ad] = round(float(np.mean([z["sira"].index(at) + 1 for z in kareler])), 2)
-        d["son"] = gecerli[-1]["sira"].index(at) + 1
+            d[ad] = round(float(np.mean([yer(z, at) for z in kareler])), 2)
+        d["son"] = round(yer(gecerli[-1], at), 1)
         d["kazanc_gec"] = round(d["orta"] - d["gec"], 2)           # + = geride gelip öne çıkıyor (kapanışçı)
         d["kayip_gec"] = round(d["gec"] - d["erken"], 2)            # + = öndeyken geriye düşmüş
         o[str(at)] = d
