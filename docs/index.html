@@ -260,6 +260,52 @@ function piyasa(g){
   }
   const s=ham.reduce((a,b)=>a+b,0); const out=ham.map(x=>x/s); out.grp=grp; return out;
 }
+
+// ---- sıralı 5'li kombine kupon (kağıt üstü): her sıraya birden fazla at, tutma olasılığını azami yapacak şekilde açgözlü seçim ----
+const G5_M=[1,0.80,0.69,0.69,0.69], G5_P=[1,0.87,0.74,0.74,0.74];
+function besliProb(W,T,sets){
+  let top=0; const kul=[]; 
+  (function rec(k,pr){
+    if(k===5){ top+=pr; return; }
+    for(const h of sets[k]){ if(kul.indexOf(h)>=0) continue;
+      let den=T[k]; for(let u=0;u<kul.length;u++) den-=W[k][kul[u]];
+      if(den<=1e-12) continue;
+      kul.push(h); rec(k+1,pr*W[k][h]/den); kul.pop(); }
+  })(0,1);
+  return top;
+}
+function besliKupon(p,B,G){
+  const n=p.length; if(n<5) return null;
+  const W=G.map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
+  const ord=p.map((v,i)=>i).sort((a,b)=>p[b]-p[a]); const aday=ord.slice(0,Math.min(n,9));
+  const sets=[0,1,2,3,4].map(k=>[ord[k]]); let cur=besliProb(W,T,sets);
+  for(let it=0;it<60;it++){
+    const nn=sets.reduce((a,x)=>a*x.length,1); let best=null,bg=0;
+    for(let k=0;k<5;k++){
+      if(nn/sets[k].length*(sets[k].length+1)>B) continue;
+      for(const h of aday){ if(sets[k].indexOf(h)>=0) continue;
+        sets[k].push(h); const pr=besliProb(W,T,sets); sets[k].pop();
+        const g=Math.log(pr/cur)/Math.log((sets[k].length+1)/sets[k].length);
+        if(g>bg){ bg=g; best=[k,h,pr]; } }
+    }
+    if(!best) break; sets[best[0]].push(best[1]); cur=best[2];
+  }
+  return {sets,n:sets.reduce((a,x)=>a*x.length,1),pr:cur,W,T};
+}
+function besliHtml(h,k,out){
+  const idx=Object.keys(out.map).map(Number); if(idx.length<5) return '';
+  const no=i=>k.atlar[i].no;
+  const pm=idx.map(i=>out.map[i].pm), pp=idx.map(i=>out.map[i].pp), pj=out.map[idx[0]].pj!=null?idx.map(i=>out.map[i].pj):null;
+  const ort=pj?pm.map((v,i)=>(v+pj[i])/2):null;
+  const L=[['Bolton',pm],pj?['Jason',pj]:null,ort?['Ortak (iki modelin ortalaması)',ort]:null].filter(Boolean);
+  let s='<details class="kb"><summary>Sıralı 5\'li kombine kupon (kağıt üstü)</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:10px">';
+  s+='<div class="sub">Her sıra için birden fazla at seçilir; tüm kombinasyonlar birlikte oynanır. Birim 1,25 TL. Tutma = modelin bu kuponun tutma olasılığı, piyasa = AGF\'ye göre aynı kuponun olasılığı. Devir yoksa kesinti yüzünden beklenen getiri düşüktür.</div>';
+  L.forEach(([ad,P])=>{ [48,96].forEach(B=>{
+    const r=besliKupon(P,B,G5_M); if(!r) return;
+    const prP=besliProb(G5_P.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))),G5_P.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0)),r.sets);
+    s+=`<div><b>${ad} ~${B}</b> · ${r.n} komb. · <b>${f2(r.n*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(r.pr/Math.max(prP,1e-9))})<br><span style="font-family:monospace">${r.sets.map(x=>x.map(i=>no(idx[i])).join(',')).join(' | ')}</span></div>`; }); });
+  return s+'</div></details>';
+}
 function modelP(pp,z,w0,lp2){
   const s=pp.map((p,i)=>{const l=Math.log(Math.max(p,1e-6)); return w0*l+(lp2||0)*l*l+z[i];}); const m=Math.max(...s);
   const e=s.map(x=>Math.exp(x-m)); const t=e.reduce((a,b)=>a+b,0); return e.map(x=>x/t);
@@ -368,6 +414,7 @@ function renderKosu(){
     <div id="kaynak"></div></div>
     ${bitti?'<div class="card" style="padding:10px 14px;font-size:14px"><b>Sonuç:</b> '+k.atlar.filter(a=>k.sonuc[a.no]&&k.sonuc[a.no].sira<=4).sort((x,y)=>k.sonuc[x.no].sira-k.sonuc[y.no].sira).map(a=>`${k.sonuc[a.no].sira}. <b>${a.no}</b> ${esc(a.at)}`).join(' · ')+'</div>':''}
     <div class="rank" id="rank"></div>
+    <div id="b5"></div>
     <div class="row head"><span>No</span><span>At</span><span style="text-align:right">Ganyan</span><span style="text-align:right">Bolton</span><span style="text-align:right">EV</span></div>`;
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
@@ -401,6 +448,7 @@ function renderKosu(){
 }
 function hesapGoster(){
   const {h,k}=cur; const out=hesapla(h,k); curOut=out;
+  { const bx=$('b5'); if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==h.id+'|'+k.kosu){ bx.dataset.k=h.id+'|'+k.kosu; try{ bx.innerHTML=out&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
   $('kaynak').innerHTML=out?`<span class="pill ${KAYNAK[out.kaynak][1]}">Piyasa: ${KAYNAK[out.kaynak][0]}${out.kaynak==='agf'&&k.agf_saat?' · '+esc(k.agf_saat):''}</span>${out.kaynak==='agf'?' <span class="note">AGF ganyan oranı değildir; EV hesaplanmaz. Güncel ganyanı girersen EV çıkar.</span>':''}`:'<span class="pill">Piyasa verisi yok</span> <span class="note">Ganyanları girince model çalışır.</span>';
   const sira=[];
   k.atlar.forEach((a,i)=>{
