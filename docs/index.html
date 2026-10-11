@@ -865,7 +865,7 @@ function modelCiz(m){
   const eg={}; ((EGZ&&EGZ.tarih===GUN&&EGZ.bugun)||[]).filter(c=>(c.model||'Bolton')===m).forEach(c=>{eg[c.hipodrom+'|'+c.kosu]=c;});
   const ilk=egzIlkAyak(); let yildiz=0, govde='';
   VERI.hipodromlar.forEach(h=>{
-    govde+=`<h2>${esc(h.ad)}</h2>`; const ac=[], bit=[];
+    govde+=`<h2 id="hz_${m}_${esc(h.id)}">${esc(h.ad)}</h2>`; const ac=[], bit=[];
     h.kosular.forEach(k=>{
       const out=hesapla(h,k);
       let c=`<div class="card" style="padding:12px 14px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${k.kosu}. koşu</b><span class="sub">${esc(k.saat||'')}${k.sonuc?' · bitti':''}</span></div>`;
@@ -899,7 +899,8 @@ function modelCiz(m){
     <div class="sub">Her koşuda ${m}'ın en güçlü 5 atı, kazanma olasılığı ve piyasanın payı. <b>min ganyan</b> = makinede/ekranda görünen ganyan bu sayıya eşit ya da üstündeyse bu at modele göre değerli (EV ≥ 1,10), altındaysa geç. Ganyan yazmana gerek yok. ★ sadece Koşu sekmesine ganyan girdiysen çıkar.</div>
     <div class="sub">Altında ${m}'ın egzotik seçimleri: ×1,32 modelin kombinasyona piyasadan %32 fazla şans vermesi demektir. Kâğıt üstü test, kâr kanıtı yok.</div>
     <div class="sub"><b>${yildiz}</b> ★ bahis şu an.</div></div>`;
-  el.innerHTML=bas+govde;
+  const chips='<div class="chips" style="margin-bottom:4px">'+VERI.hipodromlar.map(h=>`<button class="chip" onclick="(document.getElementById('hz_${m}_${esc(h.id)}')||{scrollIntoView(){}}).scrollIntoView({behavior:'smooth',block:'start'})">${esc(h.ad)} · ${h.kosular.length} koşu</button>`).join('')+'</div>';
+  el.innerHTML=bas+chips+govde;
 }
 
 
