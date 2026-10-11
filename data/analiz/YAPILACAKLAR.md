@@ -40,3 +40,8 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Walk-forward (14.636 koşu, 2024Q2–2026Q3): Bolton +0,0111 nat/koşu, Jason +0,0152 nat/koşu (piyasaya göre).
 - Δρ² = kazanç / ort. ln(N) (N≈9,5 at, ln N≈2,206): Bolton 0,0050, Jason 0,0069. Benter (Hong Kong) 0,0178 → "anlamlı kâr potansiyeli". Bizim kesinti %27, onunki %17–19.
 - Kelly: çeyrek Kelly, tavan kasanın %2'si; Oynadıklarım'dan kasa girilir (localStorage gm2_kasa).
+
+## 2026-10-11 Hız figürü deneyi (tjk/deney_hiz.py)
+- Jason'da zaten f_fig3 (gün/pist varyantına göre düzeltilmiş göreli süre, son 3) ve f_dp150_m (mesafe uyumu) var.
+- Eklenen: mutlak figür (derece / (hip, mesafe, pist) ölçütü), son koşu, son 5 ort., son 5 en iyi. Kapsam %59.
+- Sonuç (2025Q3–2026Q4, 8.115 koşu): fark −0,00004 ± 0,0003 nat/koşu → ek bilgi yok. Yapılmaz.
