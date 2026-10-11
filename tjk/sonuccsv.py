@@ -85,7 +85,11 @@ def oku_sonuc_csv(yol):
 
 
 def oku_kron(yol):
-    b = open(yol, encoding="utf-8").read()
+    ham = open(yol, "rb").read()
+    try:
+        b = ham.decode("utf-8")
+    except UnicodeDecodeError:
+        b = ham.decode("cp1254", errors="replace")      # Word'den kaydedilen .doc (Windows-1254)
     t = re.sub(r"<style.*?</style>", "", b, flags=re.S); t = re.sub(r"<[^>]+>", "|", t); t = _html.unescape(t)
     t = re.sub(r"\|\s*(\|\s*)+", "|", t); t = re.sub(r"[ \t\r\n]+", " ", t)
     m = re.search(r"(\d{2})/(\d{2})/(\d{4})\s+(\S+)\s+Ko", t)
