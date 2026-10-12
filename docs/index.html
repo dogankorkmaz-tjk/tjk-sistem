@@ -936,7 +936,7 @@ function egzKart(c,durum,r){
     s+=`<div class="sub">${nolar.map(n=>{ const p=ph[n]; return n+' '+esc((c.atlar||{})[n]||'')+(p==null?'':p<ESK?` <small style="color:var(--hot)">(değer atı · ilk ${KK} %${Math.round(p*100)})</small>`:` <small>(ilk ${KK} %${Math.round(p*100)})</small>`); }).join(' · ')}</div><div class="sub"><small>Değer atı = piyasanın düşük fiyatladığı, ilk ${KK}'e girme şansı düşük ama girerse ödemeyi büyüten at. Aşağıdaki sırasız kutuya girmemesi bu yüzden normal.</small></div>`;
     if(r) s+=r.isabet?`<div style="color:var(--good);font-weight:600">Tuttu: +${r.kazanc} TL</div>`:'<div class="sub">Tutmadı</div>';
   }
-  try{ const hh=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk=hh&&hh.kosular.find(x=>x.kosu===c.kosu); if(kk) s+=sirasizHtml(hh,kk,EGM); }catch(e){ console.error(e); }
+  try{ const hh=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk=hh&&hh.kosular.find(x=>x.kosu===c.kosu); if(kk) s+=sirasizHtml(hh,kk,EGM.indexOf('Jason')===0?'Jason':EGM); }catch(e){ console.error(e); }
   return s+'</div>';
 }
 function kombSay(sets){ let c=0; const kul=[]; (function rec(k){ if(k===sets.length){ c++; return; } for(const h of sets[k]){ if(kul.indexOf(h)>=0) continue; kul.push(h); rec(k+1); kul.pop(); } })(0); return c; }
@@ -993,7 +993,7 @@ function egzCiz(){
     <div class="sub">2) Geçmişte bu seçim yatırılan paranın yaklaşık %90–110'unu geri verdi. Rastgele alım %75 verir. Kâr kanıtı yok.</div>
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmişte ×1,15–1,3 ile ×1,3 üzeri arasında net fark çıkmadı.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
-  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason'].map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
+  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
   const hepsi=(d.bugun||[]).filter(c=>(c.model||'Bolton')===EGM&&c.secim&&c.secim[EGT]&&c.secim[EGT].length);
@@ -1007,8 +1007,8 @@ function egzCiz(){
   if(bit.length) s+=`<details class="kb"><summary>Başlayan ve biten koşular (${bit.length})</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${bit.map(c=>egzKart(c,'bitti',c.sonuc&&c.sonuc[EGT])).join('')}</div></details>`;
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
   s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için en az ~300 koşu gerekir.</div></div></details>`;
-  try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(EGM,2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(EGM,3); }catch(e){ console.error(e); }
-  try{ s+=besliEgz(EGM); }catch(e){ console.error(e); }
+  try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,3); }catch(e){ console.error(e); }
+  try{ s+=besliEgz(EGM.indexOf('Jason')===0?'Jason':EGM); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
   el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});
