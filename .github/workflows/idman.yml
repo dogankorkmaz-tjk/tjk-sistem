@@ -1,0 +1,41 @@
+name: idman
+
+on:
+  push:
+    paths: ["data/idman_ham/**"]
+  workflow_dispatch:
+
+concurrency:
+  group: tjk-ana
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  isle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Var mı?
+        id: v
+        run: |
+          if ls data/idman_ham/*.pdf >/dev/null 2>&1; then echo "var=1" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.v.outputs.var == '1'
+        run: |
+          pip install -q pandas pdfplumber
+          python -m tjk.idman data/idman_ham/*.pdf | tee /tmp/idman_log.txt
+      - if: steps.v.outputs.var == '1'
+        name: Kaydet
+        run: |
+          git rm -q data/idman_ham/*.pdf
+          git config user.name "tjk-bot"
+          git config user.email "tjk-bot@users.noreply.github.com"
+          git add -A data
+          git commit -m "İdman PDF işlendi ($(head -1 /tmp/idman_log.txt))"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1

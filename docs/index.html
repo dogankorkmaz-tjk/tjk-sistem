@@ -698,6 +698,13 @@ async function yukle(){
   for(const f of fl){
     if(fl.length>5) out.textContent='Yükleniyor… '+(++sayac)+'/'+fl.length+(atla?` (${atla} zaten vardı, atlandı)`:'');
     try{
+      if(/idman\s*istatistik/.test(f.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase())&&/\.pdf$/i.test(f.name)){
+        const by=new Uint8Array(await f.arrayBuffer()); let bs=''; for(let i=0;i<by.length;i+=8192) bs+=String.fromCharCode.apply(null,by.subarray(i,i+8192));
+        const d=new Date(), z=n=>String(n).padStart(2,'0'), ad=`idman_${d.getFullYear()}${z(d.getMonth()+1)}${z(d.getDate())}_${z(d.getHours())}${z(d.getMinutes())}${z(d.getSeconds())}_${sayac}${by.length}.pdf`;
+        const ur=`https://api.github.com/repos/${GH}/contents/data/idman_ham/${ad}`, ih={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+        const ir=await fetch(ur,{method:'PUT',headers:ih,body:JSON.stringify({message:'İdman PDF '+ad,content:btoa(bs),branch:'main'})});
+        sat.push(ir.ok?`✓ ${esc(f.name)} yüklendi (idman, 1–2 dakikada işlenir)`:`✗ ${esc(f.name)}: hata ${ir.status} ${ir.status===401||ir.status===403||ir.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`); continue;
+      }
       const pm=f.name.toLowerCase().match(/(\d{4})-(\d{2})-(\d{2})-([a-z\-]+?)-(\d+)\.pdf$/);
       if(pm){
         const pad=`${pm[1]}-${pm[2]}-${pm[3]}_${pm[4]}_${pm[5]}.png`, purl=`https://api.github.com/repos/${GH}/contents/data/accurace_ham/${pad}`;
