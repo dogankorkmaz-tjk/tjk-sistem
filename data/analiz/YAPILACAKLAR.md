@@ -83,3 +83,9 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Öne çıkan: ikili, oran ≥1,25 ve piyasa olasılığı ≥%1: ROI 1,04 (aralık 0,93–1,14, 452 isabet), iki yarıda 1,05 / 1,02. 15 hücrelik ızgaradan sonradan seçildi, çoklu test riski var. Üçlüde olasılık bölgesi kısıtı yardım etmedi.
 - Bu kural kağıt üstü takibe eklendi (Test sekmesi: "İkili ≥ 1,25× · piyasa ≥ %1").
 - Not: Bolton zaten Benter'in ikinci aşaması (w0·log(piyasa) + model skoru), ayrı bir "Benter karışımı" eklemeye gerek yok.
+
+## Bağımsız dönem testi: Jason ≤2024 ile eğitildi, kural sabit, 2025 Oca–May (12 Eki 2026)
+- Ödeme verisi 2025'te yalnızca Oca–May var (ikili 1.546, üçlü 914 koşu); Haz–Ara 2025 ödemesi yok.
+- İkili, kural (oran ≥1,25 ve piyasa ≥%1): ROI 1,148 (%90 aralık 1,00–1,31, 228 isabet; Jason beklenen 204, piyasa beklenen 148). 2026'daki 1,04 ile aynı yönde. Oran ≥1,25 kısıtsız: 1,17. Oran <1 grubu 0,64.
+- Üçlü (2025 birimi 1 TL varsayımıyla düzeltilince): oran ≥1,25: ~0,88, ≥1,5: ~1,02 (aralık geniş). Birim 2 TL varsayımıyla yarısı.
+- Çıktı: data/analiz/deger_secimi_2025.csv
