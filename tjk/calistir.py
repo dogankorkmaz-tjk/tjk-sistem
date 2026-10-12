@@ -17,6 +17,7 @@ from . import kombine as KB
 from . import uyandir as UY
 from . import devir as DV
 from . import egzotik as EG
+from . import uc_at as UA
 from . import golge as GL
 from . import bildir as BL
 
@@ -373,6 +374,10 @@ def canli(t):
     except Exception as e:
         print("egzotik hatası:", repr(e))
     try:
+        UA.guncelle(obj)
+    except Exception as e:
+        print("3 atlı ikili hatası:", repr(e))
+    try:
         PL.guncelle(obj)
     except Exception as e:
         print("plase hatası:", repr(e))
@@ -447,6 +452,10 @@ def gece(bugun):
                 EG.guncelle(obj)
             except Exception as e:
                 print("egzotik hatası:", repr(e))
+            try:
+                UA.guncelle(obj)
+            except Exception as e:
+                print("3 atlı ikili hatası:", repr(e))
             try:
                 PL.guncelle(obj)
             except Exception as e:

@@ -872,10 +872,11 @@ otoPlaseYukle();
 otoTuyoYukle();
 besliYukle();
 
-let EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
+let UC3=null, EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
 async function egzYukle(){
   try{ EGZ=await getJSON('data/egzotik.json'); }catch(e){ EGZ=null; }
+  try{ UC3=await getJSON('data/uc_at.json'); }catch(e){ UC3=null; }
   egzCiz(); tumModel();
 }
 function egzIlkAyak(){ const k=new Set(); ((VERI&&VERI.hipodromlar)||[]).forEach(h=>Object.values(h.altili||{}).forEach(v=>k.add(h.id+'|'+(v-5)))); return k; }
@@ -984,6 +985,25 @@ function besliEgz(m){
   }));
   return `<h2 style="margin-top:14px">Sıralı 5'li (kombine, ${m})</h2><div class="sub">Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır, birim 1,25 TL. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü; sonuçlar Test sekmesinde ölçülüyor. Kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
 }
+function uc3Html(){
+  if(!UC3) return '';
+  const f=x=>x==null?'–':String(x).replace('.',','), T=UC3.toplam||{};
+  let h='<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sürpriz + 2 favori (3 atlı kombine ikili)</b>'
+   +'<div class="sub">Jason\'ın en yüksek olasılık verdiği 2 at + piyasanın düşük fiyatladığını düşündüğü 1 sürpriz at (ganyan ≈10 ve üstü, Jason/piyasa ≥ '+f(UC3.kural&&UC3.kural.oran)+'). Makinede <b>kombine ikili</b>: üç at, üç çift, <b>3 TL</b>. Sıra önemli değil. Ön-kayıtlı kâğıt test (12 Ekim 2026), kâr kanıtı yok.</div>'
+   +'<div class="sub">Geriye dönük (walk-forward): 297 kupon, geri dönüş 1,20 (aralık 0,79–1,67); en büyük 3 ödeme çıkarılınca 0,94. Fikir bu geriye dönük sonuçlar görüldükten sonra ortaya çıktı ve örnek küçük; bu yüzden asıl sınav ileri test.</div>'
+   +'<div class="sub"><b>Canlı takip:</b> '+(T.kupon||0)+' kupon · '+(T.isabet||0)+' isabet · harcama '+f(T.harcama||0)+' TL · kazanç '+f(T.kazanc||0)+' TL · geri dönüş <b>'+f(T.geri_donus)+'</b></div></div>';
+  const B=(UC3.bugun||[]).slice().sort((a,b)=>((a.saat||'99')+a.hipodrom+String(100+a.kosu))<((b.saat||'99')+b.hipodrom+String(100+b.kosu))?-1:1);
+  if(!B.length) h+='<div class="card empty">Bugün bu kurala uyan kupon yok ya da henüz oluşmadı.</div>';
+  B.forEach(c=>{
+    const r=c.sonuc, ad=n=>(c.ad&&c.ad[String(n)])||'', A=c.secim.at, hid=c.hipodrom;
+    h+='<div class="card" style="padding:12px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><b>'+esc(hid)+' '+c.kosu+'. koşu'+(c.saat?' · '+esc(c.saat):'')+'</b>'
+     +(r?(r.isabet?'<span style="color:var(--good);font-weight:600">Tuttu +'+f(r.kazanc)+' TL</span>':'<span class="sub">Tutmadı</span>'):(c.dondu?'<span class="sub">Başladı</span>':'<span class="sub">Oynanabilir</span>'))+'</div>'
+     +'<div class="sub"><b>Kombine ikili: '+A.join(' - ')+'</b> · 3 TL</div>'
+     +'<div class="sub">2 favori: '+A[0]+' '+esc(ad(A[0]))+' · '+A[1]+' '+esc(ad(A[1]))+'<br>Sürpriz: <b>'+A[2]+' '+esc(ad(A[2]))+'</b> (×'+f(c.secim.oran_s)+' · piyasa %'+f(Math.round(c.secim.pk_s*1000)/10)+')</div>'
+     +(c.saat_var===false?'<div class="sub" style="opacity:.7">Yarış saati bilinmiyor, başlamadan önce makinede kontrol et.</div>':'')+'</div>';
+  });
+  return h;
+}
 function egzCiz(){
   const el=$('egzIc'); if(!el) return;
   if(!EGZ){ el.innerHTML='<div class="card empty">Egzotik seçim verisi henüz yok. İlk koşulardan önce oluşur.</div>'; return; }
@@ -993,6 +1013,7 @@ function egzCiz(){
     <div class="sub">2) Geçmişte bu seçim yatırılan paranın yaklaşık %90–110'unu geri verdi. Rastgele alım %75 verir. Kâr kanıtı yok.</div>
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
+  try{ s+=uc3Html(); }catch(e){ console.error(e); }
   s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
