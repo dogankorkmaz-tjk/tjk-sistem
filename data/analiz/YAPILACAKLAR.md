@@ -89,3 +89,9 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - İkili, kural (oran ≥1,25 ve piyasa ≥%1): ROI 1,148 (%90 aralık 1,00–1,31, 228 isabet; Jason beklenen 204, piyasa beklenen 148). 2026'daki 1,04 ile aynı yönde. Oran ≥1,25 kısıtsız: 1,17. Oran <1 grubu 0,64.
 - Üçlü (2025 birimi 1 TL varsayımıyla düzeltilince): oran ≥1,25: ~0,88, ≥1,5: ~1,02 (aralık geniş). Birim 2 TL varsayımıyla yarısı.
 - Çıktı: data/analiz/deger_secimi_2025.csv
+
+## Sıralı ikili değer testi (12 Eki 2026) — tjk/deney_sirali_ikili.py
+- Sıralı çift olasılığı: Jason PL (a_i · b_j/(B−b_i)) / piyasa PL; ödeme 'SIRALI İKİLİ', bilet başına 1 birim.
+- 2026 (Jason ≤2025, 3.437 koşu): oran ≥1,1: ROI 1,007 (0,94–1,08, 1.381 isabet); ≥1,25: 0,925; ≥1,5: 1,073 (93 isabet). Jason'ın en yüksek ihtimalli çifti: 0,76.
+- 2025 Oca–May (Jason ≤2024, 1.680 koşu): oran ≥1,1: 0,946; ≥1,25: 1,163 (0,99–1,36); ≥1,5: 1,474 (54 isabet).
+- Sonuç: yön pozitif ama dönemler arası tutarsız (2026'da en iyi eşik 1,1, 2025'te 1,25–1,5), güven aralıkları 1'i kapsıyor. İkili (sırasız) kuralından daha iyi değil. Canlı takip: Test sekmesindeki sıralı ikili/üçlü kombine kuponlar.
