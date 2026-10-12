@@ -1233,7 +1233,7 @@ function ganyanOneri(){
       k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||!(x.pp>0)||!(x.pm>0)) return;
         const pj=x.pj!=null?x.pj:x.pm, pmin=Math.min(x.pm,pj); if(pmin/x.pp<1.30) return;
         const ky=kellyTL(pmin);
-        R.push(`<div><b>Aday: ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> · ekranda ganyan <b>≥ ${f2(1.10/pmin)}</b> ise oyna, altındaysa geç${ky?(ky.tl?` · önerilen tutar ≈ <b>${ky.tl} TL</b> (kasanın %${String(Math.round(ky.f*1000)/10).replace('.',',')}, çeyrek Kelly)`:` · kasanı Test/Koşu sekmesindeki Oynadıklarım'dan girersen tutar önerisi çıkar`):''} <span class="sub">(Bolton %${pct(x.pm)} · ${x.pj!=null?'Jason %'+pct(x.pj):'Jason yok'} · piyasa %${pct(x.pp)})</span></div>`); });
+        R.push(`<div><b>Aday: ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> · ekranda ganyan <b>≥ ${f2(1.10/pmin)}</b> ise oyna, altındaysa geç · <span class="sub">tutar önerisi kapalı: avantaj kanıtlanmadı, küçük ve sabit bir tutar kullan</span> <span class="sub">(Bolton %${pct(x.pm)} · ${x.pj!=null?'Jason %'+pct(x.pj):'Jason yok'} · piyasa %${pct(x.pp)})</span></div>`); });
       return; }
     k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||x.ev==null||x.ev<1.10) return;
       const j=x.ejv; if(j!=null&&j<1.10) return;
