@@ -28,6 +28,12 @@ Durum: BİRİNCİL = sonuçtan önce yazıldı (ön-kayıt) · KEŞİF = sonuca 
 - KEŞİF (üç bölünme önceden yazıldı: hipodrom, koşu cinsi, alan büyüklüğü; başka bölünme denenmedi). Jason walk-forward nats kazancı, 10.493 yarış, genel +0,0171.
 - Sonuç: 18 dilimin hiçbirinde fark anlamlı değil (Benjamini–Hochberg q ≥ 0,93). Avantaj bir hipodroma/cinse/alan büyüklüğüne yığılmış değil; odaklanılacak yer yok.
 
+## Eklenen deney: kesinti neden değişiyor (12 Ekim 2026)
+- KEŞİF. Doğrudan ölçüm yapılamadı: elimizde yarış başına havuz büyüklüğü yok (yalnız altılı/üçlü gibi havuzlar). Dolaylı ölçü (ganyan ödemesi × kazananın AGF payı) ay ay 0,59–0,73 arasında oynuyor; bu, kesinti değil AGF'nin ganyan havuzundan farkını da içeriyor, ayrıştırılamaz. Sonuç: "kesinti değişiyor" iddiası kanıtlanamadı, kullanılmayacak.
+
+## Eklenen deney: kapanış çizgisi değeri (CLV), ilk bakış
+- KEŞİF, çok küçük örnek: 10–12 Ekim, 57 koşu, 578 at. İlk AGF anlık görüntüsüne göre Jason'un %25+ fazla gördüğü 34 atta AGF kapanışa kadar ortalama +%15,8 yükseldi (bootstrap %95: +%2,8 / +%27,2); tüm atlarda ortalama −%2,2. Koşu içi korelasyon +0,13 (se 0,06). Yön olumlu ama örnek küçük, "ilk" görüntü sabah erken, "son" görüntü gerçek kapanış değil. Veri biriktikçe (≥500 koşu) yeniden bakılacak.
+
 ## Kontrol tarihleri
 - **1 Kasım 2026**: ilk bakış (≈300 egzotik koşu). Yalnızca "kural çöküyor mu?" sorusu. Karar yok: bu hacimde aralık yaklaşık ±0,15.
 - **1 Ocak 2027**: asıl değerlendirme (≈1.000+ koşu). Ana kural ve iki varyant yan yana, yarış günü bazında bootstrap %95 aralık; alt sınır 1,0'ı geçerse "kanıt", geçmezse "kanıt yok".
