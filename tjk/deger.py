@@ -117,6 +117,8 @@ def ozet_yaz(tarih):
             for tur in ("ikili", "uclu"):
                 bl = sorted(c["bilet"][tur], key=lambda b: -b[1])
                 d[tur] = {"say125": len(bl), "say15": sum(1 for b in bl if b[1] >= 1.5), "ilk": [[b[0], b[1]] for b in bl[:5]]}
+            pk, pmin = EK_KURAL["ikili"][0]
+            d["ikili"]["kural"] = [[b[0], b[1]] for b in sorted(c["bilet"]["ikili"], key=lambda b: -b[1]) if b[1] >= pk and b[2] / max(b[1], 1e-9) >= pmin]
             bugun.append(d)
     os.makedirs(SITE, exist_ok=True)
     json.dump({"tarih": tarih, "esikler": list(ESIKLER), "bugun": bugun, "toplam": list(top.values())},
