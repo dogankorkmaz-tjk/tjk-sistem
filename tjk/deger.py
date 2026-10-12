@@ -74,6 +74,9 @@ def guncelle(obj, simdi=None):
                                 o_ = q / max(pq[key], 1e-12)
                                 if o_ >= ESIKLER[0]: c["bilet"]["uclu"].append([[no[i] for i in key], round(o_, 3), round(q, 6)])
                         kay[anahtar] = c
+            if c and "sira2" not in c and k.get("sonuc"):
+                sr = sorted((v["sira"], no) for no, v in k["sonuc"].items() if v.get("sira"))
+                if len(sr) >= 2: c["sira2"] = [int(sr[0][1]), int(sr[1][1])]
             if c and "sonuc" not in c and k.get("sonuc"):
                 if od is None: od = _odeme(tarih)
                 o = od[(od.hipodrom == h["id"]) & (od.kosu == k["kosu"])] if len(od) else od
@@ -120,6 +123,8 @@ def ozet_yaz(tarih):
             pk, pmin = EK_KURAL["ikili"][0]
             kb = [b for b in sorted(c["bilet"]["ikili"], key=lambda b: -b[1]) if b[1] >= pk and b[2] / max(b[1], 1e-9) >= pmin]
             d["ikili"]["kural"] = [[b[0], b[1], round(b[2], 5)] for b in kb]
+            if not c.get("sonuc") and c.get("sira2"):
+                d["ikili"]["kural_sonuc"] = {"isabet": [sorted(x[0]) == sorted(c["sira2"]) for x in kb], "kazanc": None, "kazanan": c["sira2"], "odeme_bekleniyor": True}
             if c.get("sonuc") and c.get("odeme", {}).get("ikili"):
                 z = [_kazanc(c, "ikili", b[0]) for b in kb]
                 d["ikili"]["kural_sonuc"] = {"isabet": [bool(v > 0) for v in z], "kazanc": round(sum(z), 2), "kazanan": c["odeme"]["ikili"][0][0]}
