@@ -39,6 +39,11 @@ Durum: BİRİNCİL = sonuçtan önce yazıldı (ön-kayıt) · KEŞİF = sonuca 
 - Devir sonrası ödeme ortalaması 117.660 TL, devirsiz 57.539 TL (≈2 kat). Devir tutarıyla ödeme arasındaki korelasyon 0,13; ödemenin devire oranı medyan 0,17. Devir sonraki yarışın havuzuna tam eklenseydi ödeme devirle birlikte artmalıydı.
 - Sonuç: devrin nereye, hangi kurala göre aktığı verimizle doğrulanamıyor. Güvenilmeyen bir "fırsat" etiketi koymamak için hesaplayıcı eklenmedi. Gerekli bilgi: makine/TJK ekranında devirli günün beşli havuzunda "devir" satırı.
 
+## Eklenen deney: kapı yanlılığı ("fazla mesafe" vekili), 12 Ekim 2026
+- KEŞİF. Accurace verisi yerine eldeki veriyle: (hipodrom, mesafe, pist, kapı grubu iç/orta/dış) için ÖNCEKİ günlerin ortalama bitiş artığı, 30 ağırlıklı önselle, Jason'a tek ek özellik. Parametreler tek seferde, bakmadan seçildi; ayarlama yapılmadı. Walk-forward, 2024Q2–2026Q4, 14.697 koşu.
+- Sonuç: Jason +0,0153 → +0,0177 nats/koşu; fark +0,0024 (se 0,0006; gün bazında se 0,0010). Gerçek ama küçük. Daha önce koyduğumuz benimseme eşiği +0,005'in altında.
+- Karar: Jason'a eklenmedi. Betik: data/analiz/kapi_yanlilik_testi.py.
+
 ## Kontrol tarihleri
 - **1 Kasım 2026**: ilk bakış (≈300 egzotik koşu). Yalnızca "kural çöküyor mu?" sorusu. Karar yok: bu hacimde aralık yaklaşık ±0,15.
 - **1 Ocak 2027**: asıl değerlendirme (≈1.000+ koşu). Ana kural ve iki varyant yan yana, yarış günü bazında bootstrap %95 aralık; alt sınır 1,0'ı geçerse "kanıt", geçmezse "kanıt yok".
