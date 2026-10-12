@@ -1,0 +1,56 @@
+{
+ "koşu": 3807,
+ "oran": 1.15,
+ "Jason": {
+  "SIRALI İKİLİ": {
+   "koşu": 3744,
+   "kombo": 44671,
+   "harcama": 44671.0,
+   "kazanc": 43028.9,
+   "isabet": 1105,
+   "geri_donus": 0.963
+  },
+  "İKİLİ": {
+   "koşu": 3253,
+   "kombo": 21226,
+   "harcama": 21226.0,
+   "kazanc": 20701.8,
+   "isabet": 947,
+   "geri_donus": 0.975
+  },
+  "ÜÇLÜ BAHİS": {
+   "koşu": 1835,
+   "kombo": 72601,
+   "harcama": 145202.0,
+   "kazanc": 138010.5,
+   "isabet": 552,
+   "geri_donus": 0.95
+  }
+ },
+ "Uzman": {
+  "SIRALI İKİLİ": {
+   "koşu": 3798,
+   "kombo": 55103,
+   "harcama": 55103.0,
+   "kazanc": 54165.4,
+   "isabet": 1295,
+   "geri_donus": 0.983
+  },
+  "İKİLİ": {
+   "koşu": 3310,
+   "kombo": 26416,
+   "harcama": 26416.0,
+   "kazanc": 25702.0,
+   "isabet": 1104,
+   "geri_donus": 0.973
+  },
+  "ÜÇLÜ BAHİS": {
+   "koşu": 1838,
+   "kombo": 88987,
+   "harcama": 177974.0,
+   "kazanc": 161655.0,
+   "isabet": 629,
+   "geri_donus": 0.908
+  }
+ }
+}

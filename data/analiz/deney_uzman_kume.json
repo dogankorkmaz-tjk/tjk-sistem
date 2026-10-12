@@ -1,0 +1,53 @@
+{
+ "2": {
+  "Piyasa": {
+   "koşu": 1500,
+   "ort_isabet": 0.922,
+   "tam_oran": 0.165
+  },
+  "Jason": {
+   "koşu": 1500,
+   "ort_isabet": 0.935,
+   "tam_oran": 0.175
+  },
+  "Uzman": {
+   "koşu": 1500,
+   "ort_isabet": 0.933,
+   "tam_oran": 0.171
+  }
+ },
+ "3": {
+  "Piyasa": {
+   "koşu": 1500,
+   "ort_isabet": 1.678,
+   "tam_oran": 0.111
+  },
+  "Jason": {
+   "koşu": 1500,
+   "ort_isabet": 1.689,
+   "tam_oran": 0.123
+  },
+  "Uzman": {
+   "koşu": 1500,
+   "ort_isabet": 1.677,
+   "tam_oran": 0.105
+  }
+ },
+ "5": {
+  "Piyasa": {
+   "koşu": 1500,
+   "ort_isabet": 3.492,
+   "tam_oran": 0.121
+  },
+  "Jason": {
+   "koşu": 1500,
+   "ort_isabet": 3.511,
+   "tam_oran": 0.123
+  },
+  "Uzman": {
+   "koşu": 1500,
+   "ort_isabet": 3.507,
+   "tam_oran": 0.125
+  }
+ }
+}

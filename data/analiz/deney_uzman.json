@@ -1,0 +1,87 @@
+{
+ "1": {
+  "koşu": 4809,
+  "jason_us": {
+   "kazanc": 0.021,
+   "se": 0.0022
+  },
+  "uzman": {
+   "kazanc": 0.021,
+   "se": 0.0022
+  },
+  "uzman_eksi_jason": {
+   "kazanc": 0.0,
+   "se": 0.0
+  },
+  "w0": 0.768,
+  "egitim_koşu": 15989
+ },
+ "2": {
+  "koşu": 4804,
+  "jason_us": {
+   "kazanc": 0.0178,
+   "se": 0.0018
+  },
+  "uzman": {
+   "kazanc": 0.0236,
+   "se": 0.0028
+  },
+  "uzman_eksi_jason": {
+   "kazanc": 0.0058,
+   "se": 0.0017
+  },
+  "w0": 0.362,
+  "egitim_koşu": 15966
+ },
+ "3": {
+  "koşu": 4793,
+  "jason_us": {
+   "kazanc": 0.0172,
+   "se": 0.0015
+  },
+  "uzman": {
+   "kazanc": 0.0346,
+   "se": 0.0033
+  },
+  "uzman_eksi_jason": {
+   "kazanc": 0.0174,
+   "se": 0.0025
+  },
+  "w0": 0.163,
+  "egitim_koşu": 15945
+ },
+ "4": {
+  "koşu": 4778,
+  "jason_us": {
+   "kazanc": 0.0123,
+   "se": 0.0016
+  },
+  "uzman": {
+   "kazanc": 0.0342,
+   "se": 0.0039
+  },
+  "uzman_eksi_jason": {
+   "kazanc": 0.0219,
+   "se": 0.0034
+  },
+  "w0": -0.047,
+  "egitim_koşu": 15911
+ },
+ "5": {
+  "koşu": 4731,
+  "jason_us": {
+   "kazanc": 0.0073,
+   "se": 0.0016
+  },
+  "uzman": {
+   "kazanc": 0.031,
+   "se": 0.0041
+  },
+  "uzman_eksi_jason": {
+   "kazanc": 0.0237,
+   "se": 0.0037
+  },
+  "w0": -0.066,
+  "egitim_koşu": 15691
+ }
+}

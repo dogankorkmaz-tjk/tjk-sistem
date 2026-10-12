@@ -51,3 +51,10 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Son geçerli kare her zaman bitiş değil (video sonunda şerit kayboluyor); doğrulama ρ (data/video_seyir/*.json: dogrulama_rho, guvenilir) ancak ≤10 atlı koşularda anlamlı. 11 Ekim: 18 videodan 8'i güvenilir sayıldı.
 - İstanbul 9 (Çelik Abi 13): 1193 m kala şeritte yok (ilk 10 dışı), 721 m kala 10., 355 m kala 7., 2. bitirdi = geriden kapanış.
 - (00:45) Video paleti 11-14,16 eklendi: güvenilir koşu 6/18 -> 11/18 (ρ≥0,7, son geçerli kare vs gerçek sıra). Hâlâ sorunlu: 13 atlı Adana 1, 6, 9 ve İstanbul 9 (ρ<0,6); 10 atlı İstanbul 4; ayrıca İstanbul 2 ve 7. 15 ve 17 rengi bilinmiyor. Olası neden: koyu renkler (5 siyah, 8 kahve, 11 koyu yeşil) karışıyor; kutudaki rakamı OCR ile doğrulamak gerekir.
+
+## 2026-10-12 Uzman (aşamalı) model testi - tjk/deney_uzman.py
+- Eğitim <= 2025-12-31, sınav 2026 (≈4.800 koşu). Her aşama (1..5. sıra) için ayrı koşullu logit; Jason özellikleriyle. Taban: piyasa lp'sinin Harville üstelleri.
+- Aşama başına koşullu log-olasılık kazancı (nat/koşu, piyasa tabanına göre): Jason+üstel 2./3./4./5.: 0,0178/0,0172/0,0123/0,0073; Uzman: 0,0236/0,0346/0,0342/0,0310. Uzman-Jason: +0,0058 (SE 0,0017) / +0,0174 (0,0025) / +0,0219 (0,0034) / +0,0237 (0,0037). 4. ve 5. aşamada w0 negatif: piyasa fiyatı geride bitişler için neredeyse bilgisiz.
+- Küme seçimi (1.500 koşu, örnekleme): ilk 2/3/5 ortalama isabet Piyasa 0,922/1,678/3,492; Jason 0,935/1,689/3,511; Uzman 0,933/1,677/3,507 -> fark yok.
+- Egzotik geri dönüş (3.807 koşu, kural: model/piyasa kombinasyon olasılığı >= 1,15 ve piyasa olasılığı >= donuk eşik; tutar = ödeme CSV'si): sıralı ikili Jason 0,963 / Uzman 0,983; ikili 0,975 / 0,973; üçlü 0,950 / 0,908. Hepsi 1,00 altında, fark gürültü içinde (ağır kuyruklu ödemeler).
+- Sonuç: olasılık tahmini iyileşiyor, bahis getirisi iyileşmiyor. Gölge model olarak canlıya bağlanmadı. Sonraki adım: yeni bilgi (video kapanış gücü, Accurace) aşama modellerine eklenip aynı testle ölçülmeli.
