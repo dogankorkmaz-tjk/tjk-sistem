@@ -30,7 +30,47 @@ def _koşular():
     return R
 
 
+G_M = [1, 0.80, 0.69, 0.69, 0.69]
+G_P = [1, 0.87, 0.74, 0.74, 0.74]
+
+
+def _ustk(p, G, N=1000, seed=7):
+    """Plackett-Luce (konuma göre üstel ağırlık) örneklemesiyle her atın ilk-2/3/5'e girme olasılığı."""
+    rng = np.random.default_rng(seed); n = len(p); p = np.maximum(np.asarray(p, float), 1e-9)
+    cnt = np.zeros((3, n)); Ks = (2, 3, 5)
+    for _ in range(N):
+        kal = list(range(n))
+        for pos in range(5):
+            w = p[kal] ** G[pos]; j = rng.choice(len(kal), p=w / w.sum()); a = kal.pop(j)
+            for q, k in enumerate(Ks):
+                if pos < k: cnt[q, a] += 1
+    return cnt / N
+
+
+def sirasiz():
+    """Sırasız ilk-2/3/5 seçimlerinin isabeti: model (Bolton/Jason) ve piyasa için seçilen K atın gerçekte ilk-K'ya girme sayısı."""
+    R = _koşular(); out = {"koşu": len(R), "k": {}}
+    acc = {m: {k: {"hit": 0, "n": 0, "bek": 0.0, "tam": 0} for k in (2, 3, 5)} for m in ("Bolton", "Jason", "Piyasa")}
+    for _, w, s in R:
+        nos = list(s.keys()); n = len(nos)
+        if n < 6:
+            continue
+        sira = {no: s[no]["sira"] for no in nos}
+        for m, key, G in (("Bolton", "pm", G_M), ("Jason", "pm2", G_M), ("Piyasa", "pp", G_P)):
+            c = _ustk([s[no][key] for no in nos], G)
+            for q, k in enumerate((2, 3, 5)):
+                sec = np.argsort(-c[q])[:k]
+                hit = sum(1 for i in sec if sira[nos[i]] and sira[nos[i]] <= k)
+                a = acc[m][k]; a["hit"] += hit; a["n"] += 1; a["bek"] += float(c[q][sec].sum()); a["tam"] += int(hit == k)
+    for k in (2, 3, 5):
+        out["k"][str(k)] = {m: {"koşu": acc[m][k]["n"], "isabet": acc[m][k]["hit"], "beklenen": round(acc[m][k]["bek"], 1),
+                                "tam": acc[m][k]["tam"]} for m in acc}
+    json.dump(out, open(os.path.join(SITE, "sirasiz.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    return out
+
+
 def hesapla():
+    sirasiz()
     R = _koşular()
     out = {"koşu": len(R), "gun": sorted({r[0] for r in R}), "uzun_esik": UZUN, "model": {}}
     for ad, key in (("Bolton", "pm"), ("Jason", "pm2")):
