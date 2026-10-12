@@ -192,6 +192,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
     </div>
       <h2>Sırasız ilk 2 / 3 / 5 isabeti</h2><div id="otoSirasiz"><div class="card empty">Yükleniyor…</div></div>
+      <h2>Ek atlı sırasız küme (canlı test)</h2><div id="otoGenis"><div class="card empty">Yükleniyor…</div></div>
       <h2>Uyandırma ölçümü (uzun ganyanlı atlar)</h2><div id="otoUyan"><div class="card empty">Yükleniyor…</div></div>
       <h2>Değer filtresi: ikili / üçlü (kağıt üstü)</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div>
       <h2>Sıralı ikili / üçlü kombine kupon (kağıt üstü)</h2><div id="otoKomb"><div class="card empty">Yükleniyor…</div></div>
@@ -782,7 +783,7 @@ Object.keys(TABS).forEach(k=>{ $(TABS[k]).onclick=()=>sekme(k); });
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
@@ -1209,6 +1210,22 @@ function ganyanOneri(){
   }));
   return R;
 }
+let SGN=null;
+async function genisYukle(){ try{ SGN=await getJSON('data/sirasiz_genis.json?'+Date.now()); }catch(e){ SGN=null; } try{ genisCiz(); }catch(e){} }
+function genisCiz(){
+  const el=$('otoGenis'); if(!el) return;
+  if(!SGN||!SGN.k){ el.innerHTML='<div class="card empty">Henüz ölçüm yok.</div>'; return; }
+  const f=x=>x==null?'–':String(x).replace('.',',');
+  const AD={siki:'Sıkı',genis:'Geniş'};
+  const ay=v=>Object.entries(SGN.ayar[v]).map(([k,a])=>`ilk ${k}: ≥%${Math.round(a.esik*100)}, en çok ${a.maks} at`).join(' · ');
+  let h='<div class="card scroll"><b>Ek atlı kümede gerçek ilk K\'nın hepsi içeride mi?</b><div class="sub">'+SGN.koşu+' biten koşu (6+ atlı). Tam = gerçek ilk K\'nın tamamı seçilen atların içindeydi. Beklenen = modelin kendi ihtimaline göre kaç koşuda tam olması gerekirdi. Küme büyüdükçe tam artar ama kombinasyon da artar.<br><b>Sıkı</b> (sitedeki şimdiki ayar): '+ay('siki')+'<br><b>Geniş</b> (ilk deneme): '+ay('genis')+'</div><table class="t"><thead><tr><th>Ayar · grup · kaynak</th><th class="n">Ort. at</th><th class="n">Ort. komb.</th><th class="n">Tam</th><th class="n">Beklenen</th></tr></thead><tbody>';
+  ['siki','genis'].forEach(v=>['2','3','5'].forEach(k=>{ const d=SGN.k[v]&&SGN.k[v][k]; if(!d) return; ['Bolton','Jason','Piyasa'].forEach(m=>{ const x=d[m]; h+=`<tr><td>${AD[v]} · ilk ${k} · ${m}</td><td class="n">${f(x.ort_at)}</td><td class="n">${f(x.ort_komb)}</td><td class="n">${x.tam}/${x.koşu}</td><td class="n">${f(x.beklenen_tam)}</td></tr>`; }); }));
+  h+='</tbody></table>';
+  const S=(SGN.son||[]).slice().reverse().slice(0,8);
+  if(S.length) h+='<div class="sub" style="margin-top:8px"><b>Son koşular (Jason, geniş ayar):</b><br>'+S.map(r=>{ const j=k=>{ const x=r.k.genis[k]&&r.k.genis[k].Jason; return x?`${k}: <b>${x.set.join(',')}</b> ${x.tam?'✓':'✗'} (gerçek ${x.gercek.join(',')})`:''; }; return `${esc(r.hip||'')} ${r.kosu}. koşu · ${j('2')} · ${j('3')} · ${j('5')}`; }).join('<br>')+'</div>';
+  el.innerHTML=h+'</div>';
+}
+genisYukle();
 let SRS=null;
 async function sirasizYukle(){ try{ SRS=await getJSON('data/sirasiz.json?'+Date.now()); }catch(e){ SRS=null; } try{ sirasizCiz(); }catch(e){} }
 function sirasizCiz(){

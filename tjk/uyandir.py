@@ -12,7 +12,7 @@ UZUN = 10.0
 ESIKLER = (1.15, 1.30)
 
 
-def _koşular():
+def _koşular(meta=False):
     R = []
     for f in sorted(glob.glob(os.path.join(SITE, "gun", "*.json"))):
         try:
@@ -26,7 +26,7 @@ def _koşular():
                     continue
                 w = [n for n, v in s.items() if v.get("sira") == 1]
                 if len(w) == 1:
-                    R.append((d["tarih"], w[0], s))
+                    R.append((d["tarih"], w[0], s, h.get("id"), k.get("kosu")) if meta else (d["tarih"], w[0], s))
     return R
 
 
@@ -69,8 +69,58 @@ def sirasiz():
     return out
 
 
+AYAR = {2: (0.30, 4), 3: (0.50, 4), 5: (0.35, 7)}     # "sıkı": site ile aynı (ROI taramasına göre)
+AYAR_GENIS = {2: (0.20, 5), 3: (0.25, 5), 5: (0.35, 7)}  # "geniş": ilk deneydeki gevşek eşikler
+VARYANT = {"siki": AYAR, "genis": AYAR_GENIS}
+
+
+def _ornekle(p, G, N=1000, seed=7):
+    rng = np.random.default_rng(seed); n = len(p); p = np.maximum(np.asarray(p, float), 1e-9)
+    S = np.zeros((N, 5), int)
+    for t in range(N):
+        kal = list(range(n))
+        for pos in range(5):
+            w = p[kal] ** G[pos]; j = rng.choice(len(kal), p=w / w.sum()); S[t, pos] = kal.pop(j)
+    return S
+
+
+def genis():
+    """Ek atlı sırasız kümelerin canlı ölçümü (iki eşik takımı): gerçek ilk-K'nın tamamı kümenin içinde mi (tam kapsama), kümenin kendi beklentisi, ort. at ve kombinasyon."""
+    from math import comb
+    R = _koşular(meta=True)
+    out = {"koşu": 0, "ayar": {v: {str(k): {"esik": x[0], "maks": x[1]} for k, x in A.items()} for v, A in VARYANT.items()}, "k": {v: {} for v in VARYANT}, "son": []}
+    acc = {v: {k: {m: {"koşu": 0, "boy": 0, "komb": 0, "tam": 0, "bek": 0.0} for m in ("Bolton", "Jason", "Piyasa")} for k in (2, 3, 5)} for v in VARYANT}
+    son = []
+    for tarih, w, s, hid, kosu in R:
+        nos = list(s.keys()); n = len(nos)
+        if n < 6: continue
+        out["koşu"] += 1; sira = {no: s[no]["sira"] for no in nos}; kayit = {"gun": tarih, "hip": hid, "kosu": kosu, "k": {v: {} for v in VARYANT}}
+        for m, key, G in (("Bolton", "pm", G_M), ("Jason", "pm2", G_M), ("Piyasa", "pp", G_P)):
+            S = _ornekle([s[no][key] for no in nos], G)
+            for kk in (2, 3, 5):
+                say = np.bincount(S[:, :kk].ravel(), minlength=n) / len(S); o = np.argsort(-say)
+                gercek = {i for i in range(n) if sira[nos[i]] and sira[nos[i]] <= kk}
+                for v, A in VARYANT.items():
+                    ku = list(o[:kk]); esik, maks = A[kk]
+                    for i in o[kk:]:
+                        if len(ku) >= maks or say[i] < esik: break
+                        ku.append(i)
+                    tam = gercek <= set(ku); bek = float(np.mean([set(r[:kk]) <= set(ku) for r in S]))
+                    a = acc[v][kk][m]; a["koşu"] += 1; a["boy"] += len(ku); a["komb"] += comb(len(ku), kk); a["tam"] += int(tam); a["bek"] += bek
+                    kayit["k"][v].setdefault(str(kk), {})[m] = {"set": [nos[i] for i in ku], "gercek": sorted(nos[i] for i in gercek), "tam": bool(tam)}
+        son.append(kayit)
+    for v in VARYANT:
+        for kk in (2, 3, 5):
+            out["k"][v][str(kk)] = {m: {"koşu": a["koşu"], "ort_at": round(a["boy"] / a["koşu"], 2) if a["koşu"] else None, "ort_komb": round(a["komb"] / a["koşu"], 1) if a["koşu"] else None,
+                                        "tam": a["tam"], "beklenen_tam": round(a["bek"], 1)} for m, a in acc[v][kk].items()}
+    out["son"] = son[-12:]
+    json.dump(out, open(os.path.join(SITE, "sirasiz_genis.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    return out
+
+
 def hesapla():
     sirasiz()
+    genis()
     R = _koşular()
     out = {"koşu": len(R), "gun": sorted({r[0] for r in R}), "uzun_esik": UZUN, "model": {}}
     for ad, key in (("Bolton", "pm"), ("Jason", "pm2")):
