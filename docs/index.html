@@ -190,6 +190,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div class="sub" style="padding:0 12px 8px">Sistemin her gün otomatik kurduğu altılı kuponlar ve toplam sonuçları. Amaç: kuponların uzun vadede kazandırıp kazandırmadığını ölçmek. Oynanmaya değer olanlar zaten yukarıdaki "oyna" listesinde ★ ile çıkar.</div>
       <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
     </div>
+      <h2>Uyandırma ölçümü (uzun ganyanlı atlar)</h2><div id="otoUyan"><div class="card empty">Yükleniyor…</div></div>
       <h2>Sıralı 5'li kombine kupon (kağıt üstü)</h2><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div>
       <h2>Jason'ın tüyoları (kağıt üstü takip)</h2><div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
       <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
@@ -770,7 +771,7 @@ Object.keys(TABS).forEach(k=>{ $(TABS[k]).onclick=()=>sekme(k); });
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
@@ -1128,6 +1129,19 @@ function ganyanOneri(){
   }));
   return R;
 }
+let UYN=null;
+async function uyanYukle(){ try{ UYN=await getJSON('data/uyandir.json?'+Date.now()); }catch(e){ UYN=null; } try{ uyanCiz(); }catch(e){} }
+function uyanCiz(){
+  const el=$('otoUyan'); if(!el) return;
+  if(!UYN||!UYN.model){ el.innerHTML='<div class="card empty">Henüz ölçüm yok.</div>'; return; }
+  const f=x=>x==null?'–':String(x).replace('.',',');
+  let h='<div class="card scroll"><b>Model piyasanın gözden kaçırdığı atları işaretliyor mu?</b><div class="sub">'+UYN.koşu+' koşu, ganyanı ≥ '+UYN.uzun_esik+' olan atlar. Beklenen = piyasanın o atlara verdiği toplam kazanma şansı.</div><table class="t"><thead><tr><th>Model · eşik</th><th class="n">İşaretli at</th><th class="n">Kazanan</th><th class="n">Beklenen</th><th class="n">İlk 3</th><th class="n">1 TL geri dönüş</th></tr></thead><tbody>';
+  ['Bolton','Jason'].forEach(m=>{ const d=UYN.model[m]; if(!d) return; d.esik.forEach(e=>{ h+=`<tr><td>${m} ≥ ${f(e.esik)}×</td><td class="n">${e.at}</td><td class="n">${e.kazanan}</td><td class="n">${f(e.beklenen)}</td><td class="n">${e.ilk3}</td><td class="n">${f(e.geri_donus)}</td></tr>`; }); });
+  h+='</tbody></table>';
+  h+='<div class="sub" style="margin-top:8px">'+['Bolton','Jason'].map(m=>{ const d=UYN.model[m]; return d?`<b>${m}</b>: gerçek sürprizlerde (${d.surpriz} kazanan) model/piyasa ortalaması ${f(d.surpriz_oran_ort)}, tüm uzun atlarda ${f(d.uzun_oran_ort)}. Sürprizlerde daha yüksekse model "kokuyu alıyor" demektir.`:''; }).join('<br>')+'<br>Piyasa verisi kapanışa yakın ganyandır. Karar için birkaç yüz işaretli at gerekir.</div></div>';
+  el.innerHTML=h;
+}
+uyanYukle();
 let BS=null;
 async function besliYukle(){ try{ BS=await getJSON('data/besli.json?'+Date.now()); }catch(e){ BS=null; } try{ oynaCiz(); }catch(e){} try{ besliTest(); }catch(e){} }
 function besliOneri(){

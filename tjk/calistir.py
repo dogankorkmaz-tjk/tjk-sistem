@@ -12,6 +12,7 @@ from . import kupon as KP
 from . import plase as PL
 from . import tuyo as TY
 from . import besli as BS
+from . import uyandir as UY
 from . import devir as DV
 from . import egzotik as EG
 from . import golge as GL
@@ -381,6 +382,10 @@ def canli(t):
         BS.guncelle(obj)
     except Exception as e:
         print("besli hatası:", repr(e))
+    try:
+        UY.hesapla()
+    except Exception as e:
+        print("uyandır hatası:", repr(e))
     try:
         DV.guncelle(obj)
     except Exception as e:
