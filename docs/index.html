@@ -162,6 +162,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
 
   <section id="bugun" class="sec">
     <div class="sec" id="oynaKutu"></div>
+    <div class="sec" id="guvenKutu"></div>
     <div class="sec">
       <h2>Devir fırsatı (7'li ganyan)</h2>
       <div id="otoDevir"><div class="card empty">Yükleniyor…</div></div>
@@ -1142,6 +1143,24 @@ function uyanCiz(){
   el.innerHTML=h;
 }
 uyanYukle();
+const GUVEN_ESIK=0.30;
+function guvenCiz(){
+  const el=$('guvenKutu'); if(!el) return;
+  if(!VERI||!VERI.hipodromlar){ el.innerHTML=''; return; }
+  const L=[]; let n=0,kz=0,bek=0;
+  VERI.hipodromlar.forEach(h=>h.kosular.forEach(k=>{
+    const out=hesapla(h,k); if(!out) return;
+    k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x) return;
+      const pb=x.pm, pj=x.pj, mx=Math.max(pb||0,pj||0); if(mx<GUVEN_ESIK) return;
+      const bol=pb>=GUVEN_ESIK, jas=pj!=null&&pj>=GUVEN_ESIK;
+      const r=k.sonuc&&k.sonuc[String(a.no)]; const bitti=!!k.sonuc;
+      if(bitti){ n++; bek+=(pb!=null&&pj!=null)?(pb+pj)/2:mx; if(r&&r.sira===1) kz++; }
+      L.push({bitti,t:(k.saat||''),h:`<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-top:1px solid var(--line)"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:140px"><b>${esc(a.at)}</b><small class="sub" style="display:block">${esc(h.ad)} ${k.kosu}. koşu ${esc(k.saat||'')}${x.pp>0?' · piyasa %'+pct(x.pp):''}</small></span><span class="num">${bol?'Bolton %'+pct(pb):''}${bol&&jas?' · ':''}${jas?'Jason %'+pct(pj):''}${(!bol&&pb!=null)?'<small class="sub"> (Bolton %'+pct(pb)+')</small>':''}${(!jas&&pj!=null&&bol)?'<small class="sub"> (Jason %'+pct(pj)+')</small>':''}</span>${bitti?(r&&r.sira===1?' <span class="tag ev">kazandı</span>':` <span class="sub">${r&&r.sira?r.sira+'. oldu':'–'}</span>`):''}</div>`});
+    });
+  }));
+  L.sort((p,q)=>(p.bitti-q.bitti)||(p.t<q.t?-1:1));
+  el.innerHTML='<h2>Modellerin en çok güvendiği atlar</h2><div class="card">'+(L.length?L.map(x=>x.h).join(''):'<div class="sub">Bugün iki modelin de %'+Math.round(GUVEN_ESIK*100)+' üstü güvendiği at yok.</div>')+`<div class="sub" style="margin-top:8px">Bolton ya da Jason'un kazanma ihtimali %${Math.round(GUVEN_ESIK*100)} ve üstü verdiği atlar. Bugün biten: ${n} işaretli at, ${kz} kazandı${n?` (modellerin beklediği ≈ ${bek.toFixed(1).replace('.',',')})`:''}. Yüksek güven kazanacağı garanti etmez; 10 koşuda 3 kez yanılması normaldir.</div></div>`;
+}
 let BS=null;
 async function besliYukle(){ try{ BS=await getJSON('data/besli.json?'+Date.now()); }catch(e){ BS=null; } try{ oynaCiz(); }catch(e){} try{ besliTest(); }catch(e){} }
 function besliOneri(){
@@ -1177,7 +1196,7 @@ function tuyolar(){
   return R.sort((u,v)=>v.s-u.s).slice(0,6).map(x=>x.h);
 }
 let OYNA_L=[], oynaT=null;
-function oynaCiz(){
+function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
   const el=$('oynaKutu'); if(!el) return; const G=ganyanOneri().concat(besliOneri()), L=G.concat(OYNA_L);
   el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Bunlar kağıt üstü deney önerileridir, kâr garantisi yoktur. Kaybetmeyi göze alabileceğin tutarla oyna.</div></div>':'<div class="card empty">Şu an sistemin önerdiği bahis yok. Bu normal; çoğu gün öneri çıkmaz.</div>')+(()=>{const T=tuyolar(); return '<h2>Jason\'ın tüyoları: bunlara dikkat</h2>'+(T.length?'<div class="card">'+T.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Jason\'ın piyasadan belirgin yüksek gördüğü atlar. Yorumlar otomatik, sayılardan çıkar. Tüyo bahis önerisi değil, bakılacak at demek; oynamadan önce Bolton/Jason sekmesindeki min ganyana bak.</div></div>':'<div class="card empty">Jason şu an piyasanın gözden kaçırdığı belirgin bir at görmüyor.</div>');})();
 }
