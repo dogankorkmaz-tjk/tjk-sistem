@@ -43,7 +43,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .daynav button{border:0;background:transparent;padding:4px 10px;font-size:22px;line-height:1;border-radius:999px}
 .daynav .sub{color:var(--fg);font-weight:600;font-size:13.5px;min-width:92px;text-align:center;white-space:nowrap;font-size:13px}
 /* alt sekme çubuğu */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(7,1fr);gap:2px;
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(8,1fr);gap:2px;
   padding:8px max(16px,calc((100vw - 680px)/2)) calc(8px + env(safe-area-inset-bottom,0px));
   background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
 .tabs button{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:transparent;color:var(--muted);padding:4px 0;font:600 10.5px var(--f-body);min-width:0}
@@ -154,6 +154,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
     <button role="tab" id="tabBolton" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V9m7 11V4m7 16v-7"/></svg>Bolton</button>
     <button role="tab" id="tabJason" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V13m7 7V8m7 12V5"/></svg>Jason</button>
     <button role="tab" id="tabEgz" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/></svg>Egzotik</button>
+    <button role="tab" id="tabIkili" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14M17 5v14M7 12h10"/></svg>İkili</button>
     <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
     <button role="tab" id="tabDosya" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 15v3a2 2 0 002 2h10a2 2 0 002-2v-3"/></svg>Dosya</button>
@@ -214,6 +215,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
   <section id="jason" class="sec" hidden><div id="jasIc"><div class="card empty">Yükleniyor…</div></div></section>
 
   <section id="egz" class="sec" hidden><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="ikili" class="sec" hidden><div id="ikiIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="skor" class="sec" hidden></section>
   <section id="dosya" class="sec" hidden>
     <div class="card">
@@ -771,10 +773,11 @@ async function accDurum(){
     el.innerHTML=h;
   }catch(e){ el.innerHTML='<div class="sub">Accurace durumu henüz oluşmadı.</div>'; }
 }
-const TABS={bugun:'tabBugun',bolton:'tabBolton',jason:'tabJason',egz:'tabEgz',kosu:'tabKosu',skor:'tabSkor',dosya:'tabDosya'};
+const TABS={bugun:'tabBugun',bolton:'tabBolton',jason:'tabJason',egz:'tabEgz',ikili:'tabIkili',kosu:'tabKosu',skor:'tabSkor',dosya:'tabDosya'};
 function sekme(ad){if(arguments[0]==='dosya') accDurum();
   Object.keys(TABS).forEach(k=>{ $(TABS[k]).setAttribute('aria-selected',k===ad); $(k).hidden=k!==ad; });
   if(ad==='egz') egzYukle();
+  if(ad==='ikili') degerYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
   if(ad==='bolton'||ad==='jason') (EGZ?Promise.resolve():egzYukle()).then(tumModel);
   try{ window.scrollTo(0,0); }catch(e){}
@@ -1257,8 +1260,32 @@ function kombCiz(){
   el.innerHTML=h+'</div>';
 }
 kombYukle();
+function ikiliCiz(){
+  const el=$('ikiIc'); if(!el) return;
+  if(!DGR){ el.innerHTML='<div class="card empty">Henüz veri yok. Koşular başlamadan biletler oluşur.</div>'; return; }
+  const f=x=>x==null?'–':String(x).replace('.',',');
+  const T=(DGR.toplam||[]).find(t=>t.tur==='ikili'&&t.esik===1.25&&t.pm_min===0.01);
+  let s='<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>İkili seçimi (değer kuralı)</b>'
+   +'<div class="sub">Kural: Jason\'ın bir ikiliye verdiği ihtimal piyasanın ihtimalinin <b>en az 1,25 katı</b> ve piyasa ihtimali <b>en az %1</b> ise bilet işaretlenir. Bir koşunun işaretli ikilileri birlikte, bahis başına 1 TL oynanır.</div>'
+   +'<div class="sub">Geriye dönük test: 2026\'da geri dönüş 1,04 (aralık 0,93–1,14, 452 isabet), Jason\'ı 2024\'e kadar eğitip 2025 Oca–May\'da sınayınca 1,15 (aralık 1,00–1,31, 228 isabet). Kural sonradan seçildi, bu yüzden <b>kanıtlanmış değil</b>; canlı takip ve para yatırmama sürüyor.</div>'
+   +(T?`<div class="sub"><b>Canlı takip (yarıştan önce dondurulanlar):</b> ${T.kosu} koşu · ${T.bilet} bilet · ${T.isabet} isabet · harcama ${f(T.harcama)} TL · kazanç ${f(T.kazanc)} TL · geri dönüş <b>${f(T.geri_donus)}</b></div>`:'<div class="sub">Canlı takip: henüz biten ölçülmüş koşu yok.</div>')+'</div>';
+  const B=(DGR.bugun||[]).filter(k=>k.ikili&&(k.ikili.kural||[]).length).slice().sort((a,b)=>((a.saat||'99')+a.hipodrom+String(100+a.kosu))<((b.saat||'99')+b.hipodrom+String(100+b.kosu))?-1:1);
+  const gun=B.reduce((a,k)=>{ const r=k.ikili.kural_sonuc; return r?{h:a.h+k.ikili.kural.length,k:a.k+r.kazanc,n:a.n+1,i:a.i+r.isabet.filter(Boolean).length}:a; },{h:0,k:0,n:0,i:0});
+  if(gun.n) s+=`<div class="card" style="padding:12px 16px"><b>Bugün biten ${gun.n} koşu</b><div class="sub">${gun.h} bilet · ${gun.i} isabet · harcama ${gun.h} TL · kazanç ${f(Math.round(gun.k*100)/100)} TL</div></div>`;
+  if(!B.length) s+='<div class="card empty">Bugün bu kurala uyan ikili yok ya da biletler henüz oluşmadı.</div>';
+  const atad=(hid,kosu,no)=>{ try{ const hh=(VERI.hipodromlar||[]).find(x=>x.id===hid), kk=hh&&hh.kosular.find(x=>x.kosu===kosu), a=kk&&kk.atlar.find(z=>z.no===no); return a?a.at:''; }catch(e){ return ''; } };
+  B.forEach(k=>{
+    const L=k.ikili.kural, r=k.ikili.kural_sonuc, nolar=[...new Set(L.flatMap(b=>b[0]))].sort((a,b)=>a-b);
+    s+=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><b>${esc(k.ad||k.hipodrom)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat&&k.saat!=='99:99'?k.saat:'')}</span></b>${r?(r.isabet.some(Boolean)?'<span class="pill on">Tuttu +'+f(r.kazanc)+' TL</span>':'<span class="pill">Tutmadı</span>'):'<span class="pill on">Oyna</span>'}</div>`
+     +'<div style="display:flex;gap:6px;flex-wrap:wrap">'+L.map((b,i)=>{ const hit=r&&r.isabet[i], pm=b[2]/b[1]; return `<span style="border:1px solid ${hit?'var(--good)':'var(--line)'};border-radius:8px;padding:3px 8px;display:flex;flex-direction:column;align-items:center;line-height:1.2"><span style="font:600 14px var(--f-mono,monospace)">${b[0].join('-')}</span><span style="font-size:11px;color:var(--muted)">×${f(b[1])} · J %${f(Math.round(b[2]*1000)/10)} · P %${f(Math.round(pm*1000)/10)}</span></span>`; }).join('')+'</div>'
+     +`<div class="sub">${L.length} kombinasyon · ${L.length} TL${r?` · kazanan ikili: ${r.kazanan.join('-')}`:''}</div>`
+     +`<div class="sub">${nolar.map(n=>n+' '+esc(atad(k.hipodrom,k.kosu,n))).join(' · ')}</div></div>`;
+  });
+  s+='<div class="sub" style="margin:10px 2px">×: Jason ihtimali ÷ piyasa ihtimali · J: Jason\'ın o ikiliye verdiği ihtimal · P: piyasanın (AGF\'den) ihtimali. Yeşil çerçeve: tutan ikili. Kâğıt üstü takip, kâr kanıtı yok.</div>';
+  el.innerHTML=s;
+}
 let DGR=null;
-async function degerYukle(){ try{ DGR=await getJSON('data/deger.json?'+Date.now()); }catch(e){ DGR=null; } try{ degerCiz(); }catch(e){} }
+async function degerYukle(){ try{ DGR=await getJSON('data/deger.json?'+Date.now()); }catch(e){ DGR=null; } try{ degerCiz(); }catch(e){} try{ ikiliCiz(); }catch(e){ console.error(e); } }
 function degerCiz(){
   const el=$('otoDeger'); if(!el) return;
   if(!DGR){ el.innerHTML='<div class="card empty">Henüz ölçüm yok.</div>'; return; }
