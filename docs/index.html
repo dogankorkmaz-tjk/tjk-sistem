@@ -194,6 +194,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <h2>Sırasız ilk 2 / 3 / 5 isabeti</h2><div id="otoSirasiz"><div class="card empty">Yükleniyor…</div></div>
       <h2>Uyandırma ölçümü (uzun ganyanlı atlar)</h2><div id="otoUyan"><div class="card empty">Yükleniyor…</div></div>
       <h2>Değer filtresi: ikili / üçlü (kağıt üstü)</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div>
+      <h2>Sıralı ikili / üçlü kombine kupon (kağıt üstü)</h2><div id="otoKomb"><div class="card empty">Yükleniyor…</div></div>
       <h2>Sıralı 5'li kombine kupon (kağıt üstü)</h2><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div>
       <h2>Jason'ın tüyoları (kağıt üstü takip)</h2><div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
       <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
@@ -781,7 +782,7 @@ Object.keys(TABS).forEach(k=>{ $(TABS[k]).onclick=()=>sekme(k); });
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); degerYukle(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
@@ -1218,6 +1219,18 @@ function sirasizCiz(){
   el.innerHTML=h;
 }
 sirasizYukle();
+let KMB=null;
+async function kombYukle(){ try{ KMB=await getJSON('data/kombine.json?'+Date.now()); }catch(e){ KMB=null; } try{ kombCiz(); }catch(e){} }
+function kombCiz(){
+  const el=$('otoKomb'); if(!el) return;
+  if(!KMB){ el.innerHTML='<div class="card empty">Henüz ölçüm yok.</div>'; return; }
+  const f=x=>x==null?'–':String(x).replace('.',',');
+  const T=(KMB.toplam||[]).slice().sort((a,b)=>(a.tur+a.grup+a.model+String(1000+a.butce)<b.tur+b.grup+b.model+String(1000+b.butce))?-1:1);
+  let h='<div class="card scroll"><b>Egzotik sekmesindeki kombine kuponlar ölçülüyor</b><div class="sub">Kuponlar yarış başlamadan dondurulur, ödemeyle değerlendirilir. "Önerilen" = modelin tutma ihtimali piyasanınkinin ≥ '+f(KMB.esik)+' katı. Para yatırılmaz.</div>';
+  h+=T.length?'<table class="t"><thead><tr><th>Bahis · model · bütçe</th><th class="n">Koşu</th><th class="n">İsabet</th><th class="n">Harcama</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr></thead><tbody>'+T.map(t=>`<tr><td>${t.tur==='ÜÇLÜ BAHİS'?'Üçlü':'Sıralı ikili'} · ${t.model} ~${t.butce}${t.grup==='onerilen'?' ★':''}</td><td class="n">${t.kosu}</td><td class="n">${t.isabet}</td><td class="n">${f(t.harcama)}</td><td class="n">${f(t.kazanc)}</td><td class="n">${f(t.geri_donus)}</td></tr>`).join('')+'</tbody></table>':'<div class="sub">Henüz biten ölçülmüş koşu yok.</div>';
+  el.innerHTML=h+'</div>';
+}
+kombYukle();
 let DGR=null;
 async function degerYukle(){ try{ DGR=await getJSON('data/deger.json?'+Date.now()); }catch(e){ DGR=null; } try{ degerCiz(); }catch(e){} }
 function degerCiz(){

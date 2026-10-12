@@ -13,6 +13,7 @@ from . import plase as PL
 from . import tuyo as TY
 from . import besli as BS
 from . import deger as DG
+from . import kombine as KB
 from . import uyandir as UY
 from . import devir as DV
 from . import egzotik as EG
@@ -388,6 +389,10 @@ def canli(t):
     except Exception as e:
         print("değer hatası:", repr(e))
     try:
+        KB.guncelle(obj)
+    except Exception as e:
+        print("kombine hatası:", repr(e))
+    try:
         UY.hesapla()
     except Exception as e:
         print("uyandır hatası:", repr(e))
@@ -458,6 +463,10 @@ def gece(bugun):
                 DG.guncelle(obj)
             except Exception as e:
                 print("değer hatası:", repr(e))
+            try:
+                KB.guncelle(obj)
+            except Exception as e:
+                print("kombine hatası:", repr(e))
             print("  AGF arşivlendi:", g, agf_arsivle(obj), "satır")
     if yeni_s:
         ns, npg = pd.DataFrame(yeni_s), pd.DataFrame(yeni_p)
