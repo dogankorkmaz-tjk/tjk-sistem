@@ -197,3 +197,88 @@ def egzotik_geri_donus(bolum="2025-12-31", oran=1.15, maks_kosu=None):
         out[m] = {t: {**a, "geri_donus": round(a["kazanc"] / a["harcama"], 3) if a["harcama"] else None, "harcama": round(a["harcama"], 1), "kazanc": round(a["kazanc"], 1)} for t, a in acc[m].items()}
     print(json.dumps(out, ensure_ascii=False, indent=1), flush=True)
     return out
+
+
+AYAR = {2: (0.20, 5), 3: (0.25, 5), 5: (0.35, 7)}
+
+
+def _ornekle_hizli(S, N, rng):
+    """S: (5,n) aşama skorları. Vektörel örnekleme; (N,5) sıra matrisi döner."""
+    n = S.shape[1]; E = np.exp(S - S.max(axis=1, keepdims=True))
+    kal = np.ones((N, n), bool); sira = np.zeros((N, 5), int)
+    for pos in range(5):
+        w = np.where(kal, E[pos][None, :], 0.0); c = np.cumsum(w, axis=1)
+        r = rng.random(N)[:, None] * c[:, -1:]
+        j = (c < r).sum(axis=1).clip(0, n - 1)
+        sira[:, pos] = j; kal[np.arange(N), j] = False
+    return sira
+
+
+def _kume(sira, kk, genis):
+    N, n = sira.shape[0], None
+    return None
+
+
+def genis_deney(bolum="2025-12-31", N=400, maks_kosu=2500):
+    from math import comb
+    d, M = veri()
+    feat0 = list(M["feat"]); feat1 = feat0 + G.EK + G.LPEK
+    egit = d[d.tarih <= bolum]; sinav = d[(d.tarih > bolum) & d.sira.notna() & d.lp.notna()].copy()
+    th0, mu0, sd0, _ = G._fit(asama_verisi(egit, 1), feat0, M.get("lam", 100.0))
+    th1, mu1, sd1, _ = G._fit(asama_verisi(egit, 1), feat1, M.get("lam", 100.0))
+    uz = [G._fit(asama_verisi(egit, k), feat1, M.get("lam", 100.0)) for k in range(1, 6)]
+    sinav["sb"] = skorla(sinav, feat0, th0, mu0, sd0); sinav["sj"] = skorla(sinav, feat1, th1, mu1, sd1)
+    for k in range(5):
+        th, mu, sd = uz[k][:3]; sinav[f"su{k}"] = skorla(sinav, feat1, th, mu, sd)
+    import glob as gl
+    od = pd.concat([pd.read_csv(f) for f in sorted(gl.glob(os.path.join(KOK, "data", "odeme", "*.csv.gz")))], ignore_index=True)
+    od = od[od.tur.isin(["İKİLİ", "ÜÇLÜ BAHİS"]) & (od.tarih > bolum)]
+    ok = {(r.tarih, r.hipodrom, r.kosu, r.tur): (r.kombo.split("/"), float(r.tutar)) for r in od.itertuples()}
+    rng = np.random.default_rng(5)
+    gruplar = [(k_, g) for k_, g in sinav.groupby(O.K) if len(g) >= 6]
+    if maks_kosu and len(gruplar) > maks_kosu:
+        sec = rng.choice(len(gruplar), maks_kosu, replace=False); gruplar = [gruplar[i] for i in sec]
+    modeller = ("Piyasa", "Bolton", "Jason", "Uzman")
+    A = {m: {kk: {"koşu": 0, "boy": 0, "kap": 0, "komb": 0, "bazkap": 0} for kk in (2, 3, 5)} for m in modeller}
+    R = {m: {"İKİLİ": [0, 0.0, 0, 0], "ÜÇLÜ BAHİS": [0, 0.0, 0, 0]} for m in modeller}   # [bahis_koşu, harcama, kazanç(x1000 sabit değil), isabet]
+    kaz = {m: {"İKİLİ": 0.0, "ÜÇLÜ BAHİS": 0.0} for m in modeller}
+    for (tarih, hip, kosu), g in gruplar:
+        sira_g = g.sira.values.astype(int); no = g.no.astype(int).astype(str).values; n = len(g)
+        S = {"Piyasa": np.array([G_P[k] * g.lp.values for k in range(5)]),
+             "Bolton": np.array([G_M[k] * g.sb.values for k in range(5)]),
+             "Jason": np.array([G_M[k] * g.sj.values for k in range(5)]),
+             "Uzman": np.array([g[f"su{k}"].values for k in range(5)])}
+        for m in modeller:
+            sr = _ornekle_hizli(S[m], N, rng)
+            for kk in (2, 3, 5):
+                kimlik = sr[:, :kk]
+                sayi = np.zeros(n)
+                for pos in range(kk): sayi += np.bincount(kimlik[:, pos], minlength=n)
+                p = sayi / N; ord_ = np.argsort(-p); esik, maks = AYAR[kk]
+                kume = list(ord_[:kk])
+                for i in ord_[kk:]:
+                    if len(kume) >= maks or p[i] < esik: break
+                    kume.append(i)
+                ks = set(kume)
+                gercek = set(np.where(sira_g <= kk)[0])
+                a = A[m][kk]; a["koşu"] += 1; a["boy"] += len(kume); a["komb"] += comb(len(kume), kk)
+                a["kap"] += int(gercek <= ks); a["bazkap"] += int(gercek <= set(ord_[:kk]))
+                if kk == 2 and (tarih, hip, kosu, "İKİLİ") in ok:
+                    ps, tut = ok[(tarih, hip, kosu, "İKİLİ")]; r = R[m]["İKİLİ"]
+                    r[0] += 1; r[1] += comb(len(kume), 2) * 1.0
+                    if set(ps) <= {no[i] for i in kume}: kaz[m]["İKİLİ"] += tut; r[3] += 1
+                if kk == 3 and (tarih, hip, kosu, "ÜÇLÜ BAHİS") in ok:
+                    ps, tut = ok[(tarih, hip, kosu, "ÜÇLÜ BAHİS")]; r = R[m]["ÜÇLÜ BAHİS"]
+                    r[0] += 1; r[1] += comb(len(kume), 3) * 6 * 2.0
+                    if set(ps) <= {no[i] for i in kume}: kaz[m]["ÜÇLÜ BAHİS"] += tut; r[3] += 1
+    out = {"koşu": len(gruplar), "n_orn": N}
+    for m in modeller:
+        out[m] = {}
+        for kk in (2, 3, 5):
+            a = A[m][kk]
+            out[m][f"ilk{kk}"] = {"ort_boy": round(a["boy"] / a["koşu"], 2), "kapsama": round(a["kap"] / a["koşu"], 3), "temel_kapsama": round(a["bazkap"] / a["koşu"], 3), "ort_komb": round(a["komb"] / a["koşu"], 1)}
+        for t in ("İKİLİ", "ÜÇLÜ BAHİS"):
+            r = R[m][t]
+            out[m][t] = {"koşu": r[0], "harcama": round(r[1], 1), "kazanç": round(kaz[m][t], 1), "geri_donus": round(kaz[m][t] / r[1], 3) if r[1] else None, "isabet": r[3]}
+    print(json.dumps(out, ensure_ascii=False, indent=1), flush=True)
+    return out

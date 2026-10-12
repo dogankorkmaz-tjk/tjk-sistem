@@ -58,3 +58,6 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Küme seçimi (1.500 koşu, örnekleme): ilk 2/3/5 ortalama isabet Piyasa 0,922/1,678/3,492; Jason 0,935/1,689/3,511; Uzman 0,933/1,677/3,507 -> fark yok.
 - Egzotik geri dönüş (3.807 koşu, kural: model/piyasa kombinasyon olasılığı >= 1,15 ve piyasa olasılığı >= donuk eşik; tutar = ödeme CSV'si): sıralı ikili Jason 0,963 / Uzman 0,983; ikili 0,975 / 0,973; üçlü 0,950 / 0,908. Hepsi 1,00 altında, fark gürültü içinde (ağır kuyruklu ödemeler).
 - Sonuç: olasılık tahmini iyileşiyor, bahis getirisi iyileşmiyor. Gölge model olarak canlıya bağlanmadı. Sonraki adım: yeni bilgi (video kapanış gücü, Accurace) aşama modellerine eklenip aynı testle ölçülmeli.
+
+## 2026-10-12 Genişletilmiş sırasız küme testi (tjk/deney_uzman.py: genis_deney)
+- Kural (sitedeki gibi): ilk 2 temel 2 at + ek (≥%20, en çok 5); ilk 3 temel 3 + ek (≥%25, en çok 5); ilk 5 temel 5 + ek (≥%35, en çok 7). 2025 sonu eğitim, 2026'dan 2.000 koşu, 300 örnek/koşu. Ölçüler: kapsama (gerçek ilk-K tamamen küme içinde), ortalama kombinasyon, ikili (tüm çiftler) ve üçlü (tüm sıralamalar) geri dönüşü. Sonuç: data/analiz/deney_uzman_genis.json.

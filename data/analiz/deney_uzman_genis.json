@@ -1,0 +1,140 @@
+{
+ "koşu": 2000,
+ "n_orn": 300,
+ "Piyasa": {
+  "ilk2": {
+   "ort_boy": 3.68,
+   "kapsama": 0.459,
+   "temel_kapsama": 0.172,
+   "ort_komb": 5.3
+  },
+  "ilk3": {
+   "ort_boy": 4.6,
+   "kapsama": 0.376,
+   "temel_kapsama": 0.102,
+   "ort_komb": 7.8
+  },
+  "ilk5": {
+   "ort_boy": 6.39,
+   "kapsama": 0.415,
+   "temel_kapsama": 0.1,
+   "ort_komb": 13.1
+  },
+  "İKİLİ": {
+   "koşu": 1472,
+   "harcama": 7737.0,
+   "kazanç": 5727.1,
+   "geri_donus": 0.74,
+   "isabet": 674
+  },
+  "ÜÇLÜ BAHİS": {
+   "koşu": 812,
+   "harcama": 79764.0,
+   "kazanç": 54301.6,
+   "geri_donus": 0.681,
+   "isabet": 353
+  }
+ },
+ "Bolton": {
+  "ilk2": {
+   "ort_boy": 3.71,
+   "kapsama": 0.474,
+   "temel_kapsama": 0.18,
+   "ort_komb": 5.4
+  },
+  "ilk3": {
+   "ort_boy": 4.59,
+   "kapsama": 0.381,
+   "temel_kapsama": 0.11,
+   "ort_komb": 7.7
+  },
+  "ilk5": {
+   "ort_boy": 6.38,
+   "kapsama": 0.424,
+   "temel_kapsama": 0.104,
+   "ort_komb": 13.0
+  },
+  "İKİLİ": {
+   "koşu": 1472,
+   "harcama": 7904.0,
+   "kazanç": 6094.4,
+   "geri_donus": 0.771,
+   "isabet": 702
+  },
+  "ÜÇLÜ BAHİS": {
+   "koşu": 812,
+   "harcama": 79692.0,
+   "kazanç": 58748.7,
+   "geri_donus": 0.737,
+   "isabet": 357
+  }
+ },
+ "Jason": {
+  "ilk2": {
+   "ort_boy": 3.76,
+   "kapsama": 0.486,
+   "temel_kapsama": 0.177,
+   "ort_komb": 5.5
+  },
+  "ilk3": {
+   "ort_boy": 4.6,
+   "kapsama": 0.392,
+   "temel_kapsama": 0.11,
+   "ort_komb": 7.8
+  },
+  "ilk5": {
+   "ort_boy": 6.37,
+   "kapsama": 0.419,
+   "temel_kapsama": 0.108,
+   "ort_komb": 12.7
+  },
+  "İKİLİ": {
+   "koşu": 1472,
+   "harcama": 8138.0,
+   "kazanç": 6313.9,
+   "geri_donus": 0.776,
+   "isabet": 713
+  },
+  "ÜÇLÜ BAHİS": {
+   "koşu": 812,
+   "harcama": 78864.0,
+   "kazanç": 57517.6,
+   "geri_donus": 0.729,
+   "isabet": 363
+  }
+ },
+ "Uzman": {
+  "ilk2": {
+   "ort_boy": 3.83,
+   "kapsama": 0.492,
+   "temel_kapsama": 0.177,
+   "ort_komb": 5.8
+  },
+  "ilk3": {
+   "ort_boy": 4.68,
+   "kapsama": 0.393,
+   "temel_kapsama": 0.112,
+   "ort_komb": 8.2
+  },
+  "ilk5": {
+   "ort_boy": 6.47,
+   "kapsama": 0.441,
+   "temel_kapsama": 0.117,
+   "ort_komb": 14.0
+  },
+  "İKİLİ": {
+   "koşu": 1472,
+   "harcama": 8553.0,
+   "kazanç": 6742.3,
+   "geri_donus": 0.788,
+   "isabet": 734
+  },
+  "ÜÇLÜ BAHİS": {
+   "koşu": 812,
+   "harcama": 82716.0,
+   "kazanç": 60774.5,
+   "geri_donus": 0.735,
+   "isabet": 364
+  }
+ }
+}
