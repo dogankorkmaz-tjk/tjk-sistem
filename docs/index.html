@@ -956,6 +956,13 @@ function kombEgz(m,L){
   }));
   return `<h2 style="margin-top:14px">${ad} (kombine, ${m})</h2><div class="sub">Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır. Birim ${BIRIM} TL. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü, geçmiş ölçümü yok, kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
 }
+function tahOd(nv,prP,bedel){
+  // Tahmini ödeme (kazanırsa): 0,875 × geçerli komb. / piyasa tutma olasılığı. 169 geçmiş ödemeyle sınandı: gerçek/tahmin medyan 0,91, %10–%90 aralığı 0,32–2,39. Devir/havuz büyüklüğü hesaba katılmaz.
+  if(!(prP>0)||!nv) return '';
+  const base=0.875*nv/prP, kT=x=>x>=1e6?(x/1e6).toFixed(1).replace('.',',')+' milyon':x>=1000?Math.round(x/1000).toLocaleString('tr-TR')+' bin':Math.round(x);
+  const med=base*0.91, lo=base*0.32, hi=base*2.39, kat=med/bedel;
+  return `<span class="sub" style="display:block">Tutarsa tahmini ödeme ≈ <b>${kT(med)} TL</b> (olası aralık ${kT(lo)}–${kT(hi)}), bedelin ≈ ${kat>=10?Math.round(kat):kat.toFixed(1).replace('.',',')} katı. Kaba tahmin: piyasa olasılığından hesaplanır, havuz/devir bilinmez.</span>`;
+}
 function besliEgz(m){
   if(!VERI||GUN!==trBugun()) return '';
   const R=[];
@@ -967,7 +974,7 @@ function besliEgz(m){
     const ppW=G5_P.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G5_P.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
     const sat=[48,96].map(B=>{ const r=besliKupon(P,B,G5_M); if(!r) return null;
       const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
-      return {B,r,prP,oran,h:`<div class="sub"><b>~${B}</b> · ${r.n} komb. · <b>${f2(r.n*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br><span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
+      return {B,r,prP,oran,h:`<div class="sub"><b>~${B}</b> · ${r.n} komb. · <b>${f2(r.n*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br>${tahOd(kombSay(r.sets),prP,r.n*1.25)}<span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
     if(!sat.length) return;
     const yildiz=sat.some(x=>x.oran>=1.15);
     R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${yildiz?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${sat.map(x=>x.h).join('')}</div>`});
