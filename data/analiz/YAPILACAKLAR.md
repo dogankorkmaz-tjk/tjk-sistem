@@ -66,3 +66,8 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - İkili/üçlü: ilk2 %30/4 at, ilk3 %50/4 at canlıya alındı (`data/analiz/esik_tarama.csv`).
 - İlk 5: sırasız ödeme türü yok, sadece kapsama bakıldı; %35/7 kaldı.
 - Tabela sırasız (ilk 4), 678 koşu: geri dönüş 0,27–0,49 (her eşikte düşük; maliyet varsayımı kombinasyon başı 1 birim). Jason piyasadan iyi değil. Canlıya eklenmedi (`esik_tarama_tabela.csv`).
+
+## Değer seçimi (kombinasyon bazlı, 12 Eki 2026)
+- Kural: Jason'ın kombinasyon olasılığı / piyasa (PL) olasılığı ≥ r olanları oyna; set büyüdükçe otomatik sıkılaşır. `data/analiz/deger_secimi.csv`
+- 2026 tüm koşular: tüm kombinasyonlar ROI ~0,60; r≥1,25: ikili 0,94 / üçlü 1,00; r≥1,5: ikili 1,06 / üçlü 1,13 (yaklaşık 70–90 isabet; %90 güven aralığı 1'i kapsıyor).
+- Yapılacak: canlıda gölge olarak (para yatırmadan) izle, 500+ isabet birikince karar ver; piyasa PL olasılığı havuz olasılığı değil, gerçek ödeme oranıyla karşılaştırılabilir.
