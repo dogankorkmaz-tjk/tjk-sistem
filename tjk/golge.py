@@ -15,10 +15,31 @@ KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data")
 SITE = os.path.join(KOK, "docs", "data")
 YOL = os.path.join(VERI, "model_aday.json")
+YOL_K = os.path.join(VERI, "model_aday_k.json")
+KAPI = ["f_kapi"]   # Jason-K: Jason + kapı yanlılığı (12 Ekim 2026, ikinci gölge model; Jason değişmedi)
 
 
 def yukle():
     return json.load(open(YOL, encoding="utf-8")) if os.path.exists(YOL) else None
+
+
+def yukle_k():
+    return json.load(open(YOL_K, encoding="utf-8")) if os.path.exists(YOL_K) else None
+
+
+def kapi_ekle(d):
+    """f_kapi: (hipodrom, mesafe, pist, kapı grubu iç/orta/dış) için KESİNLİKLE önceki günlerin ortalama bitiş artığı (30 ağırlıklı önsel).
+    d: MS.ekle çıktısı (mesafe/pist dolu)."""
+    d = d.copy()
+    rk = d.groupby(["tarih", "hipodrom", "kosu"]).p_piyasa.rank(ascending=False, method="first")
+    res = (((rk - 1) / (d.n_at - 1).clip(lower=1)) - d.pct).clip(-1, 1); res[d.yeni.values] = np.nan
+    d["_res"] = res.values
+    rel = (d.st - 1) / (d.n_at - 1).clip(lower=1)
+    kg = np.where(d.st <= 3, "ic", np.where(rel > 0.66, "dis", "orta")).astype(object)
+    d["_anah"] = d.hipodrom.astype(str) + "|" + d.mesafe.astype(str) + "|" + d.pist.astype(str) + "|" + kg
+    d["f_kapi"] = MS._onceki_ort(d, "_anah", "_res", 30.0)
+    d.loc[d.mesafe.isna() | d.st.isna(), "f_kapi"] = 0.0
+    return d.drop(columns=["_res", "_anah"])
 
 
 def _oku(a):
@@ -63,6 +84,24 @@ def egit(son=None):
     return A
 
 
+def egit_k(son=None):
+    """Jason-K: Jason özellikleri + f_kapi; aynı eğitim kuralı, ayrı dosya (data/model_aday_k.json). Jason'a dokunmaz."""
+    from .calistir import yukle_model
+    M = yukle_model()
+    son = son or (O.tr_simdi().date() - pd.Timedelta(days=1).to_pytimedelta()).isoformat()
+    d = kapi_ekle(MS.ekle(hazirla(_oku("temiz"), _oku("program"), M)))
+    d["f_lp2"] = np.log(d.p_piyasa.clip(lower=1e-6)) ** 2
+    feat = M["feat"] + EK + LPEK + KAPI
+    tr = d[(d.tarih <= son) & d.kazandi.notna() & d.lp.notna()].copy()
+    th, mu, sd, nk = _fit(tr, feat, M.get("lam", 100.0))
+    A = {"surum": "aday_k", "ad": "Jason-K", "egitim_son_tarih": son, "egitim_koşu": nk, "feat": feat, "cins": M["cins"],
+         "mu": {k: float(v) for k, v in mu.items()}, "sd": {k: float(v) for k, v in sd.items()}, "w": [float(x) for x in th], "lam": M.get("lam", 100.0),
+         "lp2_a": float(th[1 + feat.index("f_lp2")] / sd["f_lp2"])}
+    json.dump(A, open(YOL_K, "w", encoding="utf-8"), ensure_ascii=False)
+    print("Jason-K eğitildi:", son, "| koşu", nk, "| w_kapi", round(th[1 + feat.index("f_kapi")], 4))
+    return A
+
+
 def z2(d, A):
     """hazirla çıktısındaki satırlar için aday modelin form puanı."""
     feat = [f for f in A["feat"] if f not in LPEK]; mu, sd = pd.Series(A["mu"]), pd.Series(A["sd"]); w = np.array(A["w"])
@@ -71,7 +110,7 @@ def z2(d, A):
 
 def skor():
     """Günlük JSON'lardaki sonuçlanmış koşularda piyasa / v1 / aday log-kaybı (yalnız üçü de varsa)."""
-    L = []
+    L = []; LK = []   # LK: Jason-K eksi Jason, kazanan log-olasılığı farkı
     for y in sorted(glob.glob(os.path.join(SITE, "gun", "*.json"))):
         o = json.load(open(y, encoding="utf-8"))
         for h in o["hipodromlar"]:
@@ -84,6 +123,8 @@ def skor():
                     continue
                 v = kz[0]
                 L.append((o["tarih"], h["id"], k["kosu"], np.log(v["pp"]), np.log(v["pm"]), np.log(v["pm2"])))
+                if "pm3" in v:
+                    LK.append(np.log(v["pm3"]) - np.log(v["pp"]) - (np.log(v["pm2"]) - np.log(v["pp"])))
     out = {"guncelleme": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "kosu": len(L), "ad_v1": "Bolton", "ad_aday": "Jason"}
     A = yukle()
     out["aday_egitim_son"] = A["egitim_son_tarih"] if A else None
@@ -93,6 +134,8 @@ def skor():
         se = lambda x: float(x.std(ddof=1) / np.sqrt(len(x))) if len(x) > 1 else None
         out.update({"v1_kazanc": float(d1.mean()), "v1_se": se(d1), "aday_kazanc": float(d2.mean()), "aday_se": se(d2),
                     "aday_eksi_v1": float(dd.mean()), "aday_eksi_v1_se": se(dd), "gun": len({x[0] for x in L})})
+    if LK:
+        x = np.array(LK); out.update({"k_eksi_jason": float(x.mean()), "k_eksi_jason_se": float(x.std(ddof=1) / np.sqrt(len(x))) if len(x) > 1 else None, "k_kosu": len(x)})
     os.makedirs(SITE, exist_ok=True)
     json.dump(out, open(os.path.join(SITE, "golge.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     return out
