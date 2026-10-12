@@ -896,7 +896,7 @@ function ustKTahmin(p,idx,K){
     const sira=[...Array(n).keys()].sort((a,b)=>cnt[q][b]-cnt[q][a]); const set=sira.slice(0,kk);
     for(const i of sira.slice(kk)){ if(set.length>=AYAR[kk].maks) break; if(cnt[q][i]/N>=AYAR[kk].esik) set.push(i); else break; }
     const S=new Set(set); let kap=0; ornek.forEach(o=>{ if(o.slice(0,kk).every(i=>S.has(i))) kap++; });
-    return {k:kk,tem:kk,set:set.map(i=>({i:idx[i],p:cnt[q][i]/N})),kap:kap/N,tum:idx.map((ix,j)=>({i:ix,p:cnt[q][j]/N}))};
+    return {k:kk,tem:kk,set:set.map(i=>({i:idx[i],p:cnt[q][i]/N})),kap:kap/N,maks:AYAR[kk].maks,tum:idx.map((ix,j)=>({i:ix,p:cnt[q][j]/N}))};
   });
 }
 function sirasizHtml(h,k,m){
@@ -911,8 +911,10 @@ function sirasizHtml(h,k,m){
     let sonuc='';
     if(gercek){ const ic=nos.filter(no=>{const g=gercek.find(z=>z.no===no); return g&&g.sira<=s.k;}).length; sonuc=` <span class="sub">· gerçekte ${ic}/${s.k} girdi</span>`; }
     const ek=s.set.length>s.tem;
+    const kullan=new Set(s.set.map(x=>x.i)); const aday=s.tum.filter(x=>!kullan.has(x.i)).sort((x,y)=>y.p-x.p).slice(0,Math.max(0,s.maks-s.set.length));
+    const adayH=aday.length?` <small style="opacity:.6">· seçilmeyen adaylar: ${aday.map(x=>`${k.atlar[x.i].no} %${Math.round(x.p*100)}`).join(' · ')}</small>`:'';
     const hucre=(x,r)=>`<span style="font-family:monospace${r>=s.tem?';opacity:.8;border-bottom:1px dotted var(--muted)':''}">${k.atlar[x.i].no}</span> <small>%${Math.round(x.p*100)}</small>`;
-    return `<div class="sub"><b>İlk ${s.k} (sırasız)</b>${ek?` <small>(${s.set.length} at)</small>`:''}: ${s.set.map((x,r)=>hucre(x,r)).join(' · ')}${ek?` <small>· ilk ${s.k}'in hepsi bu atların içinde olma şansı %${Math.round(s.kap*100)} · ${comb(s.set.length,s.k)} komb.</small>`:''}${sonuc}</div>`; }).join('')+'</div>';
+    return `<div class="sub"><b>İlk ${s.k} (sırasız)</b>${ek?` <small>(${s.set.length} at)</small>`:''}: ${s.set.map((x,r)=>hucre(x,r)).join(' · ')}${ek?` <small>· ilk ${s.k}'in hepsi bu atların içinde olma şansı %${Math.round(s.kap*100)} · ${comb(s.set.length,s.k)} komb.</small>`:''}${adayH}${sonuc}</div>`; }).join('')+'</div>';
 }
 function egzKart(c,durum,r){
   const L=c.secim[EGT]; const nolar=[...new Set(L.join('-').split('-'))].sort((a,b)=>a-b);
