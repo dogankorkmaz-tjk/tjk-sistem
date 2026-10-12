@@ -71,3 +71,9 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Kural: Jason'ın kombinasyon olasılığı / piyasa (PL) olasılığı ≥ r olanları oyna; set büyüdükçe otomatik sıkılaşır. `data/analiz/deger_secimi.csv`
 - 2026 tüm koşular: tüm kombinasyonlar ROI ~0,60; r≥1,25: ikili 0,94 / üçlü 1,00; r≥1,5: ikili 1,06 / üçlü 1,13 (yaklaşık 70–90 isabet; %90 güven aralığı 1'i kapsıyor).
 - Yapılacak: canlıda gölge olarak (para yatırmadan) izle, 500+ isabet birikince karar ver; piyasa PL olasılığı havuz olasılığı değil, gerçek ödeme oranıyla karşılaştırılabilir.
+
+## İdman verisi + Jason testi (12 Eki 2026)
+- Site artık idman PDF'ini kabul ediyor (data/idman_ham -> .github/workflows/idman.yml -> data/idman.csv.gz). Dosya adı "İdman İstatistikleri…pdf" olmalı.
+- Test (`tjk/deney_idman.py`): Jason skoruna ofset olarak idman özellikleri eklendi (son 30 gün idman sayısı, son idmandan gün, m400 göreli hız, en hızlı m400, Ç/HÇ oranı, idman yok). Eğitim 15 Ağu–20 Eyl (631 koşu), sınama 21 Eyl–12 Eki (356 koşu).
+- Sonuç: sınama kazancı ≈ 0 (ridge ile +0,0003 ± 0,0010; tek tek özelliklerde ≤0). Jason'ın piyasaya kazancı ~0,015/koşu, yani idman şu an bir şey eklemiyor.
+- Sınırlama: yarış atlarının sadece %15'inin son 30 günde idmanı dosyada; "idman yok" ile "PDF yüklenmedi"yi ayıramıyoruz. Her gün tüm hipodromların idman PDF'i yüklenirse 6–8 hafta sonra yeniden test et.
