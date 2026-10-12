@@ -867,19 +867,28 @@ async function egzYukle(){
 }
 function egzIlkAyak(){ const k=new Set(); ((VERI&&VERI.hipodromlar)||[]).forEach(h=>Object.values(h.altili||{}).forEach(v=>k.add(h.id+'|'+(v-5)))); return k; }
 function ustKTahmin(p,idx,K){
-  // Sıralı örnekleme (Plackett-Luce, konumlara göre üstel ağırlık) ile her atın ilk-K'ya girme olasılığı; sabit tohum = tekrarlanabilir
+  // Sıralı örnekleme (Plackett-Luce, konumlara göre üstel ağırlık); sabit tohum = tekrarlanabilir.
+  // Her K (2,3,5) için: atların ilk-K'ya girme olasılığı + örneklerin kendisi (kapsama hesabı için)
   const n=p.length; let sd=12345; const rnd=()=>{ sd=(sd*1664525+1013904223)>>>0; return sd/4294967296; };
-  const cnt=Array.from({length:3},()=>new Array(n).fill(0)), N=3000, Ks=[2,3,5];
+  const cnt=Array.from({length:3},()=>new Array(n).fill(0)), N=3000, Ks=[2,3,5], ornek=[];
   for(let it=0;it<N;it++){
-    const kal=[...Array(n).keys()];
+    const kal=[...Array(n).keys()], sira=[];
     for(let pos=0;pos<5&&kal.length;pos++){
       const g=G5_M[pos]; let tot=0; const w=kal.map(i=>{const v=Math.pow(Math.max(p[i],1e-9),g); tot+=v; return v;});
       let r=rnd()*tot, j=0; while(j<w.length-1&&r>=w[j]){ r-=w[j]; j++; }
-      const sec=kal.splice(j,1)[0];
+      const sec=kal.splice(j,1)[0]; sira.push(sec);
       Ks.forEach((kk,q)=>{ if(pos<kk) cnt[q][sec]++; });
     }
+    ornek.push(sira);
   }
-  return Ks.map((kk,q)=>{ const sira=[...Array(n).keys()].sort((a,b)=>cnt[q][b]-cnt[q][a]).slice(0,kk); return {k:kk,set:sira.map(i=>({i:idx[i],p:cnt[q][i]/N}))}; });
+  // küme genişletme: temel K at + eşik üstü ek atlar (K=2: ≥%20, en çok 5 · K=3: ≥%25, en çok 5 · K=5: sabit)
+  const AYAR={2:{esik:0.20,maks:5},3:{esik:0.25,maks:5},5:{esik:1,maks:5}};
+  return Ks.map((kk,q)=>{
+    const sira=[...Array(n).keys()].sort((a,b)=>cnt[q][b]-cnt[q][a]); const set=sira.slice(0,kk);
+    for(const i of sira.slice(kk)){ if(set.length>=AYAR[kk].maks) break; if(cnt[q][i]/N>=AYAR[kk].esik) set.push(i); else break; }
+    const S=new Set(set); let kap=0; ornek.forEach(o=>{ if(o.slice(0,kk).every(i=>S.has(i))) kap++; });
+    return {k:kk,tem:kk,set:set.map(i=>({i:idx[i],p:cnt[q][i]/N})),kap:kap/N};
+  });
 }
 function sirasizHtml(h,k,m){
   const out=hesapla(h,k); if(!out) return '';
@@ -887,11 +896,14 @@ function sirasizHtml(h,k,m){
   const p=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj);
   const S=ustKTahmin(p,idx,5);
   const gercek=k.sonuc?Object.entries(k.sonuc).filter(([n,v])=>v.sira).map(([n,v])=>({no:+n,sira:v.sira})):null;
+  const comb=(a,b)=>{ let r=1; for(let i=1;i<=b;i++) r=r*(a-b+i)/i; return Math.round(r); };
   return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:3px">'+S.map(s=>{
     const nos=s.set.map(x=>k.atlar[x.i].no);
     let sonuc='';
     if(gercek){ const ic=nos.filter(no=>{const g=gercek.find(z=>z.no===no); return g&&g.sira<=s.k;}).length; sonuc=` <span class="sub">· gerçekte ${ic}/${s.k} girdi</span>`; }
-    return `<div class="sub"><b>İlk ${s.k} (sırasız)</b>: ${s.set.map(x=>`<span style="font-family:monospace">${k.atlar[x.i].no}</span> <small>%${Math.round(x.p*100)}</small>`).join(' · ')}${sonuc}</div>`; }).join('')+'</div>';
+    const ek=s.set.length>s.tem;
+    const hucre=(x,r)=>`<span style="font-family:monospace${r>=s.tem?';opacity:.8;border-bottom:1px dotted var(--muted)':''}">${k.atlar[x.i].no}</span> <small>%${Math.round(x.p*100)}</small>`;
+    return `<div class="sub"><b>İlk ${s.k} (sırasız)</b>${ek?` <small>(${s.set.length} at)</small>`:''}: ${s.set.map((x,r)=>hucre(x,r)).join(' · ')}${ek?` <small>· ilk ${s.k}'in hepsi bu atların içinde olma şansı %${Math.round(s.kap*100)} · ${comb(s.set.length,s.k)} komb.</small>`:''}${sonuc}</div>`; }).join('')+'</div>';
 }
 function egzKart(c,durum,r){
   const L=c.secim[EGT]; const nolar=[...new Set(L.join('-').split('-'))].sort((a,b)=>a-b);
