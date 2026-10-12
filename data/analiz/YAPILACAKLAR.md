@@ -77,3 +77,9 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 - Test (`tjk/deney_idman.py`): Jason skoruna ofset olarak idman özellikleri eklendi (son 30 gün idman sayısı, son idmandan gün, m400 göreli hız, en hızlı m400, Ç/HÇ oranı, idman yok). Eğitim 15 Ağu–20 Eyl (631 koşu), sınama 21 Eyl–12 Eki (356 koşu).
 - Sonuç: sınama kazancı ≈ 0 (ridge ile +0,0003 ± 0,0010; tek tek özelliklerde ≤0). Jason'ın piyasaya kazancı ~0,015/koşu, yani idman şu an bir şey eklemiyor.
 - Sınırlama: yarış atlarının sadece %15'inin son 30 günde idmanı dosyada; "idman yok" ile "PDF yüklenmedi"yi ayıramıyoruz. Her gün tüm hipodromların idman PDF'i yüklenirse 6–8 hafta sonra yeniden test et.
+
+## Değer filtresi + olasılık bölgesi (12 Eki 2026)
+- `data/analiz/deger_olasilik_bolgesi.csv`: ikili/üçlü, piyasa olasılığı alt sınırı × Jason/piyasa oranı ızgarası (2026, bootstrap %90 aralığı, iki yarı).
+- Öne çıkan: ikili, oran ≥1,25 ve piyasa olasılığı ≥%1: ROI 1,04 (aralık 0,93–1,14, 452 isabet), iki yarıda 1,05 / 1,02. 15 hücrelik ızgaradan sonradan seçildi, çoklu test riski var. Üçlüde olasılık bölgesi kısıtı yardım etmedi.
+- Bu kural kağıt üstü takibe eklendi (Test sekmesi: "İkili ≥ 1,25× · piyasa ≥ %1").
+- Not: Bolton zaten Benter'in ikinci aşaması (w0·log(piyasa) + model skoru), ayrı bir "Benter karışımı" eklemeye gerek yok.

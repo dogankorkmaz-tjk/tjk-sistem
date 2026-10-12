@@ -9,6 +9,7 @@ KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI, SITE = os.path.join(KOK, "data", "deger"), os.path.join(KOK, "docs", "data")
 ESIKLER = (1.25, 1.5)
 BIRIM = {"ikili": 1.0, "uclu": 2.0}
+EK_KURAL = {"ikili": ((1.25, 0.01),)}   # 2026 geriye dönük testte öne çıkan (piyasa olasılığı >= %1 ve oran >= 1,25); ileriye dönük sınanıyor
 
 
 def _w(p, G):
@@ -99,9 +100,9 @@ def ozet_yaz(tarih):
             if not c.get("sonuc"): continue
             for tur in ("ikili", "uclu"):
                 if tur not in c.get("odeme", {}) or not c["odeme"][tur]: continue   # ödeme satırı yoksa ölçme dışı
-                for e in ESIKLER:
-                    t = top.setdefault(f"{tur}-{e}", {"tur": tur, "esik": e, "kosu": 0, "bilet": 0, "harcama": 0.0, "isabet": 0, "kazanc": 0.0})
-                    sec = [b for b in c["bilet"][tur] if b[1] >= e]
+                for e, pmmin in tuple((e, 0.0) for e in ESIKLER) + EK_KURAL.get(tur, ()):
+                    t = top.setdefault(f"{tur}-{e}-{pmmin}", {"tur": tur, "esik": e, "pm_min": pmmin, "kosu": 0, "bilet": 0, "harcama": 0.0, "isabet": 0, "kazanc": 0.0})
+                    sec = [b for b in c["bilet"][tur] if b[1] >= e and (b[2] / max(b[1], 1e-9)) >= pmmin]
                     t["kosu"] += 1; t["bilet"] += len(sec); t["harcama"] += len(sec) * BIRIM[tur]
                     for b, _, _ in sec:
                         z = _kazanc(c, tur, b)
