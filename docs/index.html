@@ -991,7 +991,7 @@ function egzCiz(){
   let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>Nasıl okunur</b>
     <div class="sub">1) Model, piyasanın düşük fiyatladığını düşündüğü kombinasyonları seçer. Hepsini birlikte almak gerekir.</div>
     <div class="sub">2) Geçmişte bu seçim yatırılan paranın yaklaşık %90–110'unu geri verdi. Rastgele alım %75 verir. Kâr kanıtı yok.</div>
-    <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmişte ×1,15–1,3 ile ×1,3 üzeri arasında net fark çıkmadı.</div>
+    <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
