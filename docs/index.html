@@ -882,7 +882,7 @@ function ustKTahmin(p,idx,K){
     ornek.push(sira);
   }
   // küme genişletme: temel K at + eşik üstü ek atlar (K=2: ≥%20, en çok 5 · K=3: ≥%25, en çok 5 · K=5: ≥%35, en çok 7)
-  const AYAR={2:{esik:0.20,maks:5},3:{esik:0.25,maks:5},5:{esik:0.35,maks:7}};
+  const AYAR={2:{esik:0.30,maks:4},3:{esik:0.50,maks:4},5:{esik:0.35,maks:7}};
   return Ks.map((kk,q)=>{
     const sira=[...Array(n).keys()].sort((a,b)=>cnt[q][b]-cnt[q][a]); const set=sira.slice(0,kk);
     for(const i of sira.slice(kk)){ if(set.length>=AYAR[kk].maks) break; if(cnt[q][i]/N>=AYAR[kk].esik) set.push(i); else break; }

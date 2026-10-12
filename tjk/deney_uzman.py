@@ -199,7 +199,7 @@ def egzotik_geri_donus(bolum="2025-12-31", oran=1.15, maks_kosu=None):
     return out
 
 
-AYAR = {2: (0.20, 5), 3: (0.25, 5), 5: (0.35, 7)}
+AYAR = {2: (0.30, 4), 3: (0.50, 4), 5: (0.35, 7)}
 
 
 def _ornekle_hizli(S, N, rng):
