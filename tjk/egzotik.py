@@ -16,6 +16,7 @@ GAMA, DELTA = 0.867, 0.735                      # 20.649 koşudan kestirilen Har
 ORAN = 1.15                                     # model olasılığı / AGF olasılığı en az bu kadar
 ESIK = {"SIRALI İKİLİ": 0.00306, "İKİLİ": 0.00596, "ÜÇLÜ BAHİS": 0.00141}   # AGF tabanlı kombinasyon olasılığı alt sınırı
 BIRIM = {"SIRALI İKİLİ": 1.0, "İKİLİ": 1.0, "ÜÇLÜ BAHİS": 2.0}
+VARYANT = {"Jason-1.25": 1.25, "Jason-1.50": 1.50}          # 12 Ekim 2026 ön-kayıt: sonuçlar görülmeden eklendi; ana kural (ORAN) dokunulmadı
 IK_KES = (395000, 545000)                       # birinci ikramiye üçte birleri (2025-26 koşularından); yalnızca İZLEME bölünmesi, kural değil
 K = {"SIRALI İKİLİ": 2, "İKİLİ": 2, "ÜÇLÜ BAHİS": 3}
 
@@ -41,7 +42,7 @@ def _kombolar(p, k):
     return out
 
 
-def _secim(atlar, w0, zk="z", lp2=0.0):
+def _secim(atlar, w0, zk="z", lp2=0.0, esik_oran=ORAN):
     """atlar: koşu atları (agf, z). Her tür için seçilen kombinasyonlar: {tur: ["a-b", ...]}. zk: form puanı alanı (Bolton "z", Jason "z2")."""
     at = [a for a in atlar if a.get("agf") and not a.get("kosmaz")]
     if len(at) < 5 or (zk != "z" and any(a.get(zk) is None for a in at)):
@@ -60,7 +61,7 @@ def _secim(atlar, w0, zk="z", lp2=0.0):
             for c, v in B.items():
                 B2[tuple(sorted(c))] = B2.get(tuple(sorted(c)), 0) + v
             A, B = A2, B2
-        sec = [c for c in A if A[c] >= ESIK[tur] and B[c] / A[c] >= ORAN]
+        sec = [c for c in A if A[c] >= ESIK[tur] and B[c] / A[c] >= esik_oran]
         out[tur] = ["-".join(str(int(n)) for n in c) for c in sorted(sec)]
         oran[tur] = {"-".join(str(int(n)) for n in c): [round(B[c] / A[c], 2), round(B[c], 4)] for c in sorted(sec)}   # [model/piyasa oranı, model olasılığı]
     out["_oran"] = oran
@@ -87,17 +88,19 @@ def guncelle(obj):
     except Exception:
         pass
     od = None
-    modeller = [("", "z", obj.get("w0", 1.0), "Bolton", 0.0)]
+    modeller = [("", "z", obj.get("w0", 1.0), "Bolton", 0.0, ORAN)]
     if obj.get("w0_aday") is not None:
-        modeller.append(("J|", "z2", obj["w0_aday"], "Jason", obj.get("lp2_aday", 0.0)))      # Jason: aynı kural, ayrı sayaç (gölge kâğıt testi)
+        modeller.append(("J|", "z2", obj["w0_aday"], "Jason", obj.get("lp2_aday", 0.0), ORAN))      # Jason: aynı kural, ayrı sayaç (gölge kâğıt testi)
+        for ad_v, o_v in VARYANT.items():                                                         # ön-kayıtlı varyantlar (12 Ekim 2026): yalnızca eşik farklı, ana kural değişmedi
+            modeller.append((ad_v.replace("Jason-", "J") .replace(".", "") + "|", "z2", obj["w0_aday"], ad_v, obj.get("lp2_aday", 0.0), o_v))
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             basladi = bool(k.get("sonuc")) or (simdi is not None and k.get("saat") and simdi >= k["saat"] and obj.get("gecmis") is not True)
-            for onek, zk, w0, ad_m, lp2 in modeller:
+            for onek, zk, w0, ad_m, lp2, or_m in modeller:
                 anahtar = f"{onek}{h['id']}|{k['kosu']}"
                 c = kay.get(anahtar)
                 if c is None and not basladi:
-                    s = _secim(k.get("atlar", []), w0, zk, lp2)
+                    s = _secim(k.get("atlar", []), w0, zk, lp2, or_m)
                     if s is not None:
                         ora = s.pop("_oran", None)
                         kay[anahtar] = c = {"model": ad_m, "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s, "oran": ora,
@@ -106,7 +109,7 @@ def guncelle(obj):
                     if basladi:
                         c["dondu"] = True
                     else:
-                        s = _secim(k.get("atlar", []), w0, zk, lp2)
+                        s = _secim(k.get("atlar", []), w0, zk, lp2, or_m)
                         if s is not None:
                             c["oran"] = s.pop("_oran", None)
                             c["secim"] = s; c["uretim"] = simdi
@@ -145,7 +148,7 @@ def h_ad(c):
 def ozet_yaz(tarih):
     def bos():
         return {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
-    tops = {"Bolton": bos(), "Jason": bos()}
+    tops = {"Bolton": bos(), "Jason": bos(), **{v: bos() for v in VARYANT}}
     ikd = {d: bos() for d in ("düşük", "orta", "yüksek")}
     gun = []
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
@@ -169,6 +172,6 @@ def ozet_yaz(tarih):
             a["harcama"] = round(a["harcama"], 2); a["kazanc"] = round(a["kazanc"], 2)
     os.makedirs(SITE, exist_ok=True)
     json.dump({"tarih": tarih, "kural": {"gama": GAMA, "delta": DELTA, "oran": ORAN, "esik": ESIK, "birim": BIRIM},
-               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()),
+               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
                "toplam_ikramiye": {d: list(v.values()) for d, v in ikd.items()}, "ikramiye_kesim": list(IK_KES)},
               open(os.path.join(SITE, "egzotik.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
