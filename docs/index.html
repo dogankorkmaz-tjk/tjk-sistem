@@ -865,6 +865,33 @@ async function egzYukle(){
   egzCiz(); tumModel();
 }
 function egzIlkAyak(){ const k=new Set(); ((VERI&&VERI.hipodromlar)||[]).forEach(h=>Object.values(h.altili||{}).forEach(v=>k.add(h.id+'|'+(v-5)))); return k; }
+function ustKTahmin(p,idx,K){
+  // Sıralı örnekleme (Plackett-Luce, konumlara göre üstel ağırlık) ile her atın ilk-K'ya girme olasılığı; sabit tohum = tekrarlanabilir
+  const n=p.length; let sd=12345; const rnd=()=>{ sd=(sd*1664525+1013904223)>>>0; return sd/4294967296; };
+  const cnt=Array.from({length:3},()=>new Array(n).fill(0)), N=3000, Ks=[2,3,5];
+  for(let it=0;it<N;it++){
+    const kal=[...Array(n).keys()];
+    for(let pos=0;pos<5&&kal.length;pos++){
+      const g=G5_M[pos]; let tot=0; const w=kal.map(i=>{const v=Math.pow(Math.max(p[i],1e-9),g); tot+=v; return v;});
+      let r=rnd()*tot, j=0; while(j<w.length-1&&r>=w[j]){ r-=w[j]; j++; }
+      const sec=kal.splice(j,1)[0];
+      Ks.forEach((kk,q)=>{ if(pos<kk) cnt[q][sec]++; });
+    }
+  }
+  return Ks.map((kk,q)=>{ const sira=[...Array(n).keys()].sort((a,b)=>cnt[q][b]-cnt[q][a]).slice(0,kk); return {k:kk,set:sira.map(i=>({i:idx[i],p:cnt[q][i]/N}))}; });
+}
+function sirasizHtml(h,k,m){
+  const out=hesapla(h,k); if(!out) return '';
+  const idx=Object.keys(out.map).map(Number).filter(i=>(m==='Bolton'?out.map[i].pm:out.map[i].pj)!=null); if(idx.length<5) return '';
+  const p=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj);
+  const S=ustKTahmin(p,idx,5);
+  const gercek=k.sonuc?Object.entries(k.sonuc).filter(([n,v])=>v.sira).map(([n,v])=>({no:+n,sira:v.sira})):null;
+  return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:3px">'+S.map(s=>{
+    const nos=s.set.map(x=>k.atlar[x.i].no);
+    let sonuc='';
+    if(gercek){ const ic=nos.filter(no=>{const g=gercek.find(z=>z.no===no); return g&&g.sira<=s.k;}).length; sonuc=` <span class="sub">· gerçekte ${ic}/${s.k} girdi</span>`; }
+    return `<div class="sub"><b>İlk ${s.k} (sırasız)</b>: ${s.set.map(x=>`<span style="font-family:monospace">${k.atlar[x.i].no}</span> <small>%${Math.round(x.p*100)}</small>`).join(' · ')}${sonuc}</div>`; }).join('')+'</div>';
+}
 function egzKart(c,durum,r){
   const L=c.secim[EGT]; const nolar=[...new Set(L.join('-').split('-'))].sort((a,b)=>a-b);
   const pill=durum==='oyna'?'<span class="pill on">Oyna</span>':durum==='kapali'?'<span class="pill hot">Üçlü kapalı: altılı 1. ayak</span>':'<span class="pill">Başladı</span>';
@@ -876,6 +903,7 @@ function egzKart(c,durum,r){
     s+=`<div class="sub">${nolar.map(n=>n+' '+esc((c.atlar||{})[n]||'')).join(' · ')}</div>`;
     if(r) s+=r.isabet?`<div style="color:var(--good);font-weight:600">Tuttu: +${r.kazanc} TL</div>`:'<div class="sub">Tutmadı</div>';
   }
+  try{ const hh=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk=hh&&hh.kosular.find(x=>x.kosu===c.kosu); if(kk) s+=sirasizHtml(hh,kk,EGM); }catch(e){ console.error(e); }
   return s+'</div>';
 }
 function besliEgz(m){
@@ -951,6 +979,7 @@ function modelCiz(m){
         c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':''}${!k.sonuc&&p>0?`<small class="sub" style="display:block">min ganyan <b>${f2(1.10/p)}</b></small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
       });
       c+='</div>';
+      try{ c+=sirasizHtml(h,k,m); }catch(e2){ console.error(e2); }
       const e=eg[h.id+'|'+k.kosu];
       if(e&&e.secim){
         const satir=Object.keys(EGT_AD).map(t=>{
