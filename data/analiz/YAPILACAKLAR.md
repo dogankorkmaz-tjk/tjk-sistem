@@ -61,3 +61,8 @@ Kural: once olc, sonra para; yuzlerce bahis + dondurulmus holdout olmadan edge i
 
 ## 2026-10-12 Genişletilmiş sırasız küme testi (tjk/deney_uzman.py: genis_deney)
 - Kural (sitedeki gibi): ilk 2 temel 2 at + ek (≥%20, en çok 5); ilk 3 temel 3 + ek (≥%25, en çok 5); ilk 5 temel 5 + ek (≥%35, en çok 7). 2025 sonu eğitim, 2026'dan 2.000 koşu, 300 örnek/koşu. Ölçüler: kapsama (gerçek ilk-K tamamen küme içinde), ortalama kombinasyon, ikili (tüm çiftler) ve üçlü (tüm sıralamalar) geri dönüşü. Sonuç: data/analiz/deney_uzman_genis.json.
+
+## Eşik taraması (12 Eki 2026)
+- İkili/üçlü: ilk2 %30/4 at, ilk3 %50/4 at canlıya alındı (`data/analiz/esik_tarama.csv`).
+- İlk 5: sırasız ödeme türü yok, sadece kapsama bakıldı; %35/7 kaldı.
+- Tabela sırasız (ilk 4), 678 koşu: geri dönüş 0,27–0,49 (her eşikte düşük; maliyet varsayımı kombinasyon başı 1 birim). Jason piyasadan iyi değil. Canlıya eklenmedi (`esik_tarama_tabela.csv`).
