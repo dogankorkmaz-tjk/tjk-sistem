@@ -895,7 +895,7 @@ function ustKTahmin(p,idx,K){
     const sira=[...Array(n).keys()].sort((a,b)=>cnt[q][b]-cnt[q][a]); const set=sira.slice(0,kk);
     for(const i of sira.slice(kk)){ if(set.length>=AYAR[kk].maks) break; if(cnt[q][i]/N>=AYAR[kk].esik) set.push(i); else break; }
     const S=new Set(set); let kap=0; ornek.forEach(o=>{ if(o.slice(0,kk).every(i=>S.has(i))) kap++; });
-    return {k:kk,tem:kk,set:set.map(i=>({i:idx[i],p:cnt[q][i]/N})),kap:kap/N};
+    return {k:kk,tem:kk,set:set.map(i=>({i:idx[i],p:cnt[q][i]/N})),kap:kap/N,tum:idx.map((ix,j)=>({i:ix,p:cnt[q][j]/N}))};
   });
 }
 function sirasizHtml(h,k,m){
@@ -921,7 +921,12 @@ function egzKart(c,durum,r){
     const OR=(c.oran&&c.oran[EGT])||{}; const LS=L.slice().sort((a,b)=>((OR[b]||[0])[0])-((OR[a]||[0])[0]));
     s+=`<div style="display:flex;gap:6px;flex-wrap:wrap">${LS.map(x=>{const q=OR[x];return `<span style="border:1px solid var(--line);border-radius:8px;padding:3px 8px;display:flex;flex-direction:column;align-items:center;line-height:1.2"><span style="font:600 14px var(--f-mono,monospace)">${esc(x)}</span>`+(q?`<small style="font-size:11px;color:var(--muted)">×${f2(q[0])} · %${pct(q[1])}</small>`:'')+`</span>`}).join('')}</div>`;
     s+=`<div class="sub">${L.length} kombinasyon · ${(L.length*EGT_B[EGT]).toLocaleString('tr-TR')} TL</div>`;
-    s+=`<div class="sub">${nolar.map(n=>n+' '+esc((c.atlar||{})[n]||'')).join(' · ')}</div>`;
+    let ph={}, KK=EGT==='ÜÇLÜ BAHİS'?3:2;
+    try{ const hh0=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk0=hh0&&hh0.kosular.find(x=>x.kosu===c.kosu), o0=kk0&&hesapla(hh0,kk0);
+      if(o0){ const ix=Object.keys(o0.map).map(Number).filter(i=>(EGM==='Bolton'?o0.map[i].pm:o0.map[i].pj)!=null);
+        if(ix.length>=5){ const T=ustKTahmin(ix.map(i=>EGM==='Bolton'?o0.map[i].pm:o0.map[i].pj),ix,5).find(z=>z.k===KK); T.tum.forEach(x=>{ ph[kk0.atlar[x.i].no]=x.p; }); } } }catch(e){ console.error(e); }
+    const ESK=KK===3?0.5:0.3;
+    s+=`<div class="sub">${nolar.map(n=>{ const p=ph[n]; return n+' '+esc((c.atlar||{})[n]||'')+(p==null?'':p<ESK?` <small style="color:var(--hot)">(değer atı · ilk ${KK} %${Math.round(p*100)})</small>`:` <small>(ilk ${KK} %${Math.round(p*100)})</small>`); }).join(' · ')}</div><div class="sub"><small>Değer atı = piyasanın düşük fiyatladığı, ilk ${KK}'e girme şansı düşük ama girerse ödemeyi büyüten at. Aşağıdaki sırasız kutuya girmemesi bu yüzden normal.</small></div>`;
     if(r) s+=r.isabet?`<div style="color:var(--good);font-weight:600">Tuttu: +${r.kazanc} TL</div>`:'<div class="sub">Tutmadı</div>';
   }
   try{ const hh=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk=hh&&hh.kosular.find(x=>x.kosu===c.kosu); if(kk) s+=sirasizHtml(hh,kk,EGM); }catch(e){ console.error(e); }
