@@ -10,6 +10,7 @@ VERI, SITE = os.path.join(KOK, "data", "besli"), os.path.join(KOK, "docs", "data
 G_M = [1, 0.80, 0.69, 0.69, 0.69]
 G_P = [1, 0.87, 0.74, 0.74, 0.74]
 BUTCELER = (48, 96)
+BUTCELER_G = (48, 96, 150)   # -G varyantları: geçerli kombinasyon sayısı (150 eklendi 13 Ekim 2026, 16:10)
 ESIK_ORAN = 1.15
 BIRIM = 1.25
 
@@ -39,14 +40,12 @@ def gecerli_say(sets):
     return sum(1 for tup in itertools.product(*sets) if len(set(tup)) == 5)
 
 
-def kupon_g(p, B):
-    """kupon() ile aynı açgözlü kurucu; bütçe, geçerli kombinasyon sayısına göre (çarpıma değil)."""
+def _acgozlu_g(p, B, sets):
+    """Verilen başlangıç kümelerinden açgözlü genişletme; bütçe geçerli kombinasyon sayısına göre."""
     n = len(p)
-    if n < 5:
-        return None
     W, T = _W(p, G_M)
     ord_ = sorted(range(n), key=lambda i: -p[i]); aday = ord_[:min(n, 9)]
-    sets = [[ord_[k]] for k in range(5)]
+    sets = [list(x) for x in sets]
     cur = _prob(W, T, sets); nv = gecerli_say(sets)
     for _ in range(60):
         best = None; bg = 0.0
@@ -65,6 +64,27 @@ def kupon_g(p, B):
             break
         sets[best[0]].append(best[1]); cur = best[2]; nv = best[3]
     return sets, cur
+
+
+def kupon_g(p, B):
+    """Çok başlangıçlı açgözlü kurucu (sürüm 2, 13 Ekim 2026 16:30): ilk iki sıra için tek yönlü ve iki yönlü başlangıçlardan en iyisi.
+    Tek başlangıçlı açgözlü, favori çifti iki yönlü açmayı (6,7/6,7) göremiyordu; aynı maliyette %8 daha düşük tutma veriyordu."""
+    n = len(p)
+    if n < 5:
+        return None
+    t = sorted(range(n), key=lambda i: -p[i])
+    W, T = _W(p, G_M)
+    baslangic = [[[t[0]], [t[1]], [t[2]], [t[3]], [t[4]]],
+                 [[t[0], t[1]], [t[0], t[1]], [t[2]], [t[3]], [t[4]]],
+                 [[t[0], t[1]], [t[0], t[1]], [t[2], t[3]], [t[2], t[3]], [t[4]]]]
+    en = None
+    for st in baslangic:
+        if not (0 < gecerli_say(st) <= B):
+            continue
+        sets, pr = _acgozlu_g(p, B, st)
+        if en is None or pr > en[1] + 1e-12:
+            en = (sets, pr)
+    return en
 
 
 def kupon(p, B):
@@ -110,6 +130,23 @@ def _olasiliklar(obj, k):
     return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {})}
 
 
+def _ekle_g(c, at, pp, P, simdi, istek=None):
+    """c['kuponlar']'a eksik -G kuponlarını ekler (mevcut kuponlara dokunmaz)."""
+    Wp, Tp = _W(pp, G_P)
+    for model, p in P.items():
+        for B in BUTCELER_G:
+            if any(q["model"] == model + "-G" and q["butce"] == B for q in c["kuponlar"]):
+                continue
+            kp = kupon_g(p, B)
+            if not kp:
+                continue
+            sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
+            c["kuponlar"].append({"model": model + "-G", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
+                                  "ayaklar": [[at[i]["no"] for i in s] for s in sets],
+                                  "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
+                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": simdi, "surum": 2})
+
+
 def _odeme(tarih):
     try:
         o = pd.read_csv(os.path.join(KOK, "data", "odeme", tarih[:7] + ".csv.gz"))
@@ -150,31 +187,17 @@ def guncelle(obj, simdi=None):
                                                   "ayaklar": [[at[i]["no"] for i in s] for s in sets],
                                                   "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
                                                   "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
-                    for model, p in P.items():                 # ek varyant "-G": bütçe geçerli kombinasyon sayısına göre (makine fişi 13 Ekim 2026)
-                        for B in BUTCELER:
-                            kp = kupon_g(p, B)
-                            if not kp:
-                                continue
-                            sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
-                            c["kuponlar"].append({"model": model + "-G", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
-                                                  "ayaklar": [[at[i]["no"] for i in s] for s in sets],
-                                                  "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
-                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
+                    _ekle_g(c, at, pp, P, simdi)
                     kay[anahtar] = c
-            if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat) and not any(q["model"].endswith("-G") for q in c["kuponlar"]):
-                r = _olasiliklar(obj, k)                 # henüz başlamamış, -G içermeyen kayda -G varyantı eklenir (mevcut kuponlar değişmez)
+            if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat):
+                eski = [q for q in c["kuponlar"] if q["model"].endswith("-G") and q.get("surum", 1) < 2]
+                if eski:                                  # sürüm 1 (tek başlangıçlı) -G kuponlar henüz başlamamış koşuda sürüm 2 ile değiştirilir
+                    c["kuponlar"] = [q for q in c["kuponlar"] if q not in eski]
+            if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat) and any(
+                    not any(q["model"].endswith("-G") and q["butce"] == B for q in c["kuponlar"]) for B in BUTCELER_G):
+                r = _olasiliklar(obj, k)                 # henüz başlamamış kayda eksik -G kuponlar eklenir (mevcut kuponlar değişmez)
                 if r:
-                    at, pp, P = r; Wp, Tp = _W(pp, G_P)
-                    for model, p in P.items():
-                        for B in BUTCELER:
-                            kp = kupon_g(p, B)
-                            if not kp:
-                                continue
-                            sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
-                            c["kuponlar"].append({"model": model + "-G", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
-                                                  "ayaklar": [[at[i]["no"] for i in s] for s in sets],
-                                                  "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
-                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": simdi})
+                    at, pp, P = r; _ekle_g(c, at, pp, P, simdi)
             if c and "sonuc" not in c and k.get("sonuc"):
                 sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None}
                 ilk5 = [no for no, s in sorted(sira.items(), key=lambda x: x[1])][:5]

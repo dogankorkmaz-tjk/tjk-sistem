@@ -287,21 +287,30 @@ function besliKupon(p,B,G,L,GS){
   L=L||5; const n=p.length; if(n<Math.max(5,L+2)) return null; G=G.slice(0,L);
   const W=G.map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
   const ord=p.map((v,i)=>i).sort((a,b)=>p[b]-p[a]); const aday=ord.slice(0,Math.min(n,9));
-  const sets=[...Array(L).keys()].map(k=>[ord[k]]); let cur=besliProb(W,T,sets);
-  for(let it=0;it<60;it++){
-    const nn=sets.reduce((a,x)=>a*x.length,1); const nv=GS?kombSay(sets):0; let best=null,bg=0;
-    for(let k=0;k<L;k++){
-      if(!GS && nn/sets[k].length*(sets[k].length+1)>B) continue;
-      for(const h of aday){ if(sets[k].indexOf(h)>=0) continue;
-        sets[k].push(h); let v2=0;
-        if(GS){ v2=kombSay(sets); if(v2>B||v2<=nv){ sets[k].pop(); continue; } }
-        const pr=besliProb(W,T,sets); sets[k].pop();
-        const g=GS?Math.log(pr/cur)/Math.log(v2/nv):Math.log(pr/cur)/Math.log((sets[k].length+1)/sets[k].length);
-        if(g>bg){ bg=g; best=[k,h,pr]; } }
+  const genislet=(sets)=>{
+    let cur=besliProb(W,T,sets);
+    for(let it=0;it<60;it++){
+      const nn=sets.reduce((a,x)=>a*x.length,1); const nv=GS?kombSay(sets):0; let best=null,bg=0;
+      for(let k=0;k<L;k++){
+        if(!GS && nn/sets[k].length*(sets[k].length+1)>B) continue;
+        for(const h of aday){ if(sets[k].indexOf(h)>=0) continue;
+          sets[k].push(h); let v2=0;
+          if(GS){ v2=kombSay(sets); if(v2>B||v2<=nv){ sets[k].pop(); continue; } }
+          const pr=besliProb(W,T,sets); sets[k].pop();
+          const g=GS?Math.log(pr/cur)/Math.log(v2/nv):Math.log(pr/cur)/Math.log((sets[k].length+1)/sets[k].length);
+          if(g>bg){ bg=g; best=[k,h,pr]; } }
+      }
+      if(!best) break; sets[best[0]].push(best[1]); cur=best[2];
     }
-    if(!best) break; sets[best[0]].push(best[1]); cur=best[2];
-  }
-  return {sets,n:sets.reduce((a,x)=>a*x.length,1),pr:cur,W,T};
+    return {sets,pr:cur};
+  };
+  let en;
+  if(GS && L===5){   // sürüm 2 (13 Ekim 2026): çok başlangıçlı; tek yönlü ve iki yönlü (6,7/6,7) başlangıçlardan en iyisi
+    const t=ord, bas=[[[t[0]],[t[1]],[t[2]],[t[3]],[t[4]]],[[t[0],t[1]],[t[0],t[1]],[t[2]],[t[3]],[t[4]]],[[t[0],t[1]],[t[0],t[1]],[t[2],t[3]],[t[2],t[3]],[t[4]]]];
+    for(const st of bas){ const v=kombSay(st); if(!(v>0&&v<=B)) continue; const r=genislet(st.map(x=>x.slice())); if(!en||r.pr>en.pr+1e-12) en=r; }
+    if(!en) return null;
+  } else en=genislet([...Array(L).keys()].map(k=>[ord[k]]));
+  return {sets:en.sets,n:en.sets.reduce((a,x)=>a*x.length,1),pr:en.pr,W,T};
 }
 function besliHtml(h,k,out){
   const idx=Object.keys(out.map).map(Number); if(idx.length<5) return '';
@@ -979,7 +988,7 @@ function besliEgz(m){
     const P=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj); if(P.some(v=>v==null)) return;
     const pp=idx.map(i=>out.map[i].pp);
     const ppW=G5_P.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G5_P.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
-    const sat=[48,96].map(B=>{ const r=besliKupon(P,B,G5_M,5,true); if(!r) return null;
+    const sat=[48,96,150].map(B=>{ const r=besliKupon(P,B,G5_M,5,true); if(!r) return null;
       const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
       const v=besliGecerli(r.sets);
       return {B,r,prP,oran,h:`<div class="sub"><b>~${B}</b> · ${v} geçerli komb. · <b>${f2(v*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br>${tahOd(kombSay(r.sets),prP,v*1.25)}<span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
