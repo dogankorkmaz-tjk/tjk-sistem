@@ -161,6 +161,20 @@ def guncelle(obj, simdi=None):
                                                   "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
                                                   "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
                     kay[anahtar] = c
+            if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat) and not any(q["model"].endswith("-G") for q in c["kuponlar"]):
+                r = _olasiliklar(obj, k)                 # henüz başlamamış, -G içermeyen kayda -G varyantı eklenir (mevcut kuponlar değişmez)
+                if r:
+                    at, pp, P = r; Wp, Tp = _W(pp, G_P)
+                    for model, p in P.items():
+                        for B in BUTCELER:
+                            kp = kupon_g(p, B)
+                            if not kp:
+                                continue
+                            sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
+                            c["kuponlar"].append({"model": model + "-G", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
+                                                  "ayaklar": [[at[i]["no"] for i in s] for s in sets],
+                                                  "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
+                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": simdi})
             if c and "sonuc" not in c and k.get("sonuc"):
                 sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None}
                 ilk5 = [no for no, s in sorted(sira.items(), key=lambda x: x[1])][:5]

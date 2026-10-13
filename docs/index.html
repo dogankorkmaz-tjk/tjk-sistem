@@ -283,18 +283,20 @@ function besliProb(W,T,sets){
   })(0,1);
   return top;
 }
-function besliKupon(p,B,G,L){
+function besliKupon(p,B,G,L,GS){
   L=L||5; const n=p.length; if(n<Math.max(5,L+2)) return null; G=G.slice(0,L);
   const W=G.map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
   const ord=p.map((v,i)=>i).sort((a,b)=>p[b]-p[a]); const aday=ord.slice(0,Math.min(n,9));
   const sets=[...Array(L).keys()].map(k=>[ord[k]]); let cur=besliProb(W,T,sets);
   for(let it=0;it<60;it++){
-    const nn=sets.reduce((a,x)=>a*x.length,1); let best=null,bg=0;
+    const nn=sets.reduce((a,x)=>a*x.length,1); const nv=GS?kombSay(sets):0; let best=null,bg=0;
     for(let k=0;k<L;k++){
-      if(nn/sets[k].length*(sets[k].length+1)>B) continue;
+      if(!GS && nn/sets[k].length*(sets[k].length+1)>B) continue;
       for(const h of aday){ if(sets[k].indexOf(h)>=0) continue;
-        sets[k].push(h); const pr=besliProb(W,T,sets); sets[k].pop();
-        const g=Math.log(pr/cur)/Math.log((sets[k].length+1)/sets[k].length);
+        sets[k].push(h); let v2=0;
+        if(GS){ v2=kombSay(sets); if(v2>B||v2<=nv){ sets[k].pop(); continue; } }
+        const pr=besliProb(W,T,sets); sets[k].pop();
+        const g=GS?Math.log(pr/cur)/Math.log(v2/nv):Math.log(pr/cur)/Math.log((sets[k].length+1)/sets[k].length);
         if(g>bg){ bg=g; best=[k,h,pr]; } }
     }
     if(!best) break; sets[best[0]].push(best[1]); cur=best[2];
@@ -977,10 +979,10 @@ function besliEgz(m){
     const P=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj); if(P.some(v=>v==null)) return;
     const pp=idx.map(i=>out.map[i].pp);
     const ppW=G5_P.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G5_P.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
-    const sat=[48,96].map(B=>{ const r=besliKupon(P,B,G5_M); if(!r) return null;
+    const sat=[48,96].map(B=>{ const r=besliKupon(P,B,G5_M,5,true); if(!r) return null;
       const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
       const v=besliGecerli(r.sets);
-      return {B,r,prP,oran,h:`<div class="sub"><b>~${B}</b> · ${v} geçerli komb. (${r.n} satır) · <b>${f2(v*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br>${tahOd(kombSay(r.sets),prP,v*1.25)}<span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
+      return {B,r,prP,oran,h:`<div class="sub"><b>~${B}</b> · ${v} geçerli komb. · <b>${f2(v*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br>${tahOd(kombSay(r.sets),prP,v*1.25)}<span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
     if(!sat.length) return;
     const yildiz=sat.some(x=>x.oran>=1.15);
     R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${yildiz?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${sat.map(x=>x.h).join('')}</div>`});
@@ -1371,7 +1373,7 @@ function besliTest(){
   const el=$('otoBesli'); if(!el) return;
   if(!BS){ el.innerHTML='<div class="card empty">Henüz sıralı 5\'li kaydı yok.</div>'; return; }
   const T=BS.toplam||[]; let h='';
-  if(T.length){ h+='<div class="card scroll"><b>Şimdiye kadar</b><table class="t"><thead><tr><th>Kupon</th><th>Koşu</th><th>Harcama</th><th>İsabet</th><th>Geri dönüş</th></tr></thead><tbody>'+T.sort((a,b)=>(a.grup<b.grup?1:-1)||(a.model<b.model?-1:1)||a.butce-b.butce).map(t=>`<tr><td>${t.grup==='onerilen'?'★ ':''}${t.model} ~${t.butce}</td><td class="n">${t.kosu}</td><td class="n">${f2(t.harcama)}</td><td class="n">${t.isabet}</td><td class="n">${t.geri_donus==null?'–':String(t.geri_donus).replace('.',',')}</td></tr>`).join('')+'</tbody></table><div class="sub">★ = önerilen kuponlar (model/piyasa tutma oranı ≥ '+String(BS.esik).replace('.',',')+'). 1,00 üstü = kazandırdı. Karar için en az birkaç yüz koşu gerekir. Devir bilgisi kullanılmaz. Harcama, makinenin fişte ücretlendirdiği geçerli kombinasyon sayısıdır (13 Ekim 2026'ya kadar kayıtlar çarpım olarak yazılmıştı, düzeltildi). "-G" kuponlar bütçeyi geçerli kombinasyon sayısına göre kurar (13 Ekim 2026'dan itibaren).</div></div>'; }
+  if(T.length){ h+='<div class="card scroll"><b>Şimdiye kadar</b><table class="t"><thead><tr><th>Kupon</th><th>Koşu</th><th>Harcama</th><th>İsabet</th><th>Geri dönüş</th></tr></thead><tbody>'+T.sort((a,b)=>(a.grup<b.grup?1:-1)||(a.model<b.model?-1:1)||a.butce-b.butce).map(t=>`<tr><td>${t.grup==='onerilen'?'★ ':''}${t.model} ~${t.butce}</td><td class="n">${t.kosu}</td><td class="n">${f2(t.harcama)}</td><td class="n">${t.isabet}</td><td class="n">${t.geri_donus==null?'–':String(t.geri_donus).replace('.',',')}</td></tr>`).join('')+'</tbody></table><div class="sub">★ = önerilen kuponlar (model/piyasa tutma oranı ≥ '+String(BS.esik).replace('.',',')+'). 1,00 üstü = kazandırdı. Karar için en az birkaç yüz koşu gerekir. Devir bilgisi kullanılmaz. Harcama, makinenin fişte ücretlendirdiği geçerli kombinasyon sayısıdır (13 Ekim 2026 tarihine kadar kayıtlar çarpım olarak yazılmıştı, düzeltildi). "-G" kuponlar bütçeyi geçerli kombinasyon sayısına göre kurar (13 Ekim 2026 tarihinden itibaren).</div></div>'; }
   else h+='<div class="card"><div class="sub">Henüz sonuçlanan kupon yok; kuponlar yarıştan önce dondurulur, sonuç ve ödeme gelince burada birikir.</div></div>';
   el.innerHTML=h;
 }
