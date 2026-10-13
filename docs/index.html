@@ -958,7 +958,7 @@ function kombEgz(m,L){
   const BT=L===2?[6,12]:[12,30], BIRIM=L===2?1:2, ad=L===2?'Sıralı ikili':'Üçlü';
   const R=[];
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
-    if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
+    if(k.sonuc||(L===3&&k.uclu!==true)) return; const out=hesapla(h,k); if(!out) return;   // üçlü yalnız oynanan koşularda (14 Ekim 2026)
     const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
     const P=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj); if(P.some(v=>v==null)) return;
     const pp=idx.map(i=>out.map[i].pp), G=G5_P.slice(0,L);

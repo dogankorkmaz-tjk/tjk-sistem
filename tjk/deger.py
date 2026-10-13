@@ -68,12 +68,14 @@ def guncelle(obj, simdi=None):
                         for key, q in pj.items():
                             o_ = q / max(pq[key], 1e-12)
                             if o_ >= ESIKLER[0]: c["bilet"]["ikili"].append([[no[i] for i in key], round(o_, 3), round(q, 5)])
-                        if n <= 14:
+                        if n <= 14 and k.get("uclu") is True:      # yalnız üçlü bahsin oynandığı koşular (program CSV, 14 Ekim 2026)
                             pj, pq = _uclu(Wj, Tj), _uclu(Wp, Tp)
                             for key, q in pj.items():
                                 o_ = q / max(pq[key], 1e-12)
                                 if o_ >= ESIKLER[0]: c["bilet"]["uclu"].append([[no[i] for i in key], round(o_, 3), round(q, 6)])
                         kay[anahtar] = c
+            if c and "sonuc" not in c and not k.get("sonuc") and k.get("uclu") is False and c["bilet"]["uclu"]:
+                c["bilet"]["uclu"] = []                   # üçlü oynanmayan koşu: önceden üretilmiş üçlü biletler temizlenir
             if c and "sira2" not in c and k.get("sonuc"):
                 sr = sorted((v["sira"], no) for no, v in k["sonuc"].items() if v.get("sira"))
                 if len(sr) >= 2: c["sira2"] = [int(sr[0][1]), int(sr[1][1])]

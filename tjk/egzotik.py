@@ -77,6 +77,15 @@ def _odeme_oku(tarih):
     return od
 
 
+def _uclu_suz(s, k):
+    """Üçlü bahis oynanmayan koşuda (program CSV'sinde yok ya da CSV yok) üçlü seçimi boşaltılır (14 Ekim 2026)."""
+    if s is not None and k.get("uclu") is not True:
+        s["ÜÇLÜ BAHİS"] = []
+        if s.get("_oran"):
+            s["_oran"]["ÜÇLÜ BAHİS"] = {}
+    return s
+
+
 def guncelle(obj):
     tarih = obj["tarih"]
     yol = os.path.join(VERI, "egzotik", tarih + ".json")
@@ -100,7 +109,7 @@ def guncelle(obj):
                 anahtar = f"{onek}{h['id']}|{k['kosu']}"
                 c = kay.get(anahtar)
                 if c is None and not basladi:
-                    s = _secim(k.get("atlar", []), w0, zk, lp2, or_m)
+                    s = _uclu_suz(_secim(k.get("atlar", []), w0, zk, lp2, or_m), k)
                     if s is not None:
                         ora = s.pop("_oran", None)
                         kay[anahtar] = c = {"model": ad_m, "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s, "oran": ora,
@@ -109,7 +118,7 @@ def guncelle(obj):
                     if basladi:
                         c["dondu"] = True
                     else:
-                        s = _secim(k.get("atlar", []), w0, zk, lp2, or_m)
+                        s = _uclu_suz(_secim(k.get("atlar", []), w0, zk, lp2, or_m), k)
                         if s is not None:
                             c["oran"] = s.pop("_oran", None)
                             c["secim"] = s; c["uretim"] = simdi
