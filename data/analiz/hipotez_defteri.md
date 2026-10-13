@@ -64,3 +64,6 @@ Durum: BİRİNCİL = sonuçtan önce yazıldı (ön-kayıt) · KEŞİF = sonuca 
 - **1 Kasım 2026**: ilk bakış (≈300 egzotik koşu). Yalnızca "kural çöküyor mu?" sorusu. Karar yok: bu hacimde aralık yaklaşık ±0,15.
 - **1 Ocak 2027**: asıl değerlendirme (≈1.000+ koşu). Ana kural ve iki varyant yan yana, yarış günü bazında bootstrap %95 aralık; alt sınır 1,0'ı geçerse "kanıt", geçmezse "kanıt yok".
 - **1 Nisan 2027**: 3 atlı kombine ikili ve Jason-1.50 için ilk anlamlı bakış (kupon sayısı az; yalnızca betimleyici). Bu tarihten önce karar verilmez.
+
+## 13 Ekim 2026 — canlı pist durumu kaydı
+Kocaeli kum pist "Nemli" (kullanıcı bildirimi, 17:37). data/pist_durum.csv'ye işlendi. Modellerde HİÇBİR değişiklik yok (ıslak-pist özelliği örnek azlığından kapalı; 1 Mart 2027'de yeniden sınanacak). Amaç: akşamki kron sayfasındaki resmi durumla karşılaştırıp bildirimin doğruluğunu ve bildirimden sonra öncül gün/koşu başı değişimini kayda geçirmek. Not: yalnız 17:45'ten önceki koşular için "canlı" anlam taşır.
