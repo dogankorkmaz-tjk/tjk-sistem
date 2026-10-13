@@ -54,6 +54,11 @@ Durum: BİRİNCİL = sonuçtan önce yazıldı (ön-kayıt) · KEŞİF = sonuca 
 - Karar: modele eklenmedi. Kron sayfaları zaten günlük kaydediliyor; kış ayları sonrası (≈1 Mart 2027) aynı betikle yeniden bakılacak. Betik: data/analiz/islak_pist_testi.py.
 - Not: kron başlığı gün sonunda kaydedildiği için pist gün içinde değişmiş olabilir; canlı kullanım için yarıştan önceki pist durumu gerekir.
 
+## Makine doğrulaması ve sıralı beşli "-G" varyantı (13 Ekim 2026, ~16:00)
+- Makine fişi (Adana 5. koşu): her sıraya birden fazla at yazılabiliyor, aynı at iki sıraya da yazılabiliyor (6,7 / 6,7 / ...). Fiş: 110 bahis, 137,50 TL. Beş ayrı atlı geçerli kombinasyon sayısı = 110; satır çarpımı 336 olurdu (420 TL). Yani makine yalnız geçerli kombinasyonları ücretlendiriyor.
+- Düzeltme (ölçüm, kural değil): sıralı beşli kâğıt testinde harcama artık geçerli kombinasyon sayısı × 1,25 TL. Eski kayıtlar çarpımla yazılmıştı (gerçek maliyetin %65–83'ü kadar fazla); toplamlar yeniden hesaplanıyor, çarpım ayrıca harcama_carpim alanında. 9 koşuda 0 isabet, beklenen isabet ~%5–10/koşu.
+- Dondurulmuş kuponlara dokunulmadı. Ek ön-kayıtlı varyant: Bolton-G ve Jason-G (48 ve 96 geçerli kombinasyon bütçesi; aynı açgözlü kurucu, bütçe geçerli sayıya göre). Bugünden itibaren dondurulur; karar tarihi 1 Ocak 2027 (≥ 300 koşu, yalnızca betimleyici: isabet oranı ve geri dönüş).
+
 ## Kontrol tarihleri
 - **1 Kasım 2026**: ilk bakış (≈300 egzotik koşu). Yalnızca "kural çöküyor mu?" sorusu. Karar yok: bu hacimde aralık yaklaşık ±0,15.
 - **1 Ocak 2027**: asıl değerlendirme (≈1.000+ koşu). Ana kural ve iki varyant yan yana, yarış günü bazında bootstrap %95 aralık; alt sınır 1,0'ı geçerse "kanıt", geçmezse "kanıt yok".

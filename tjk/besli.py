@@ -34,6 +34,39 @@ def _W(p, G):
     return W, [sum(w) for w in W]
 
 
+def gecerli_say(sets):
+    """Makine yalnız beş ayrı atlı kombinasyonları sayar/ücretlendirir (13 Ekim 2026 makine fişiyle doğrulandı: 110 geçerli = 137,50 TL, çarpım 336)."""
+    return sum(1 for tup in itertools.product(*sets) if len(set(tup)) == 5)
+
+
+def kupon_g(p, B):
+    """kupon() ile aynı açgözlü kurucu; bütçe, geçerli kombinasyon sayısına göre (çarpıma değil)."""
+    n = len(p)
+    if n < 5:
+        return None
+    W, T = _W(p, G_M)
+    ord_ = sorted(range(n), key=lambda i: -p[i]); aday = ord_[:min(n, 9)]
+    sets = [[ord_[k]] for k in range(5)]
+    cur = _prob(W, T, sets); nv = gecerli_say(sets)
+    for _ in range(60):
+        best = None; bg = 0.0
+        for k in range(5):
+            for h in aday:
+                if h in sets[k]:
+                    continue
+                sets[k].append(h); v2 = gecerli_say(sets)
+                if v2 > B or v2 <= nv:
+                    sets[k].pop(); continue
+                pr = _prob(W, T, sets); sets[k].pop()
+                g = math.log(pr / cur) / math.log(v2 / nv)
+                if g > bg:
+                    bg, best = g, (k, h, pr, v2)
+        if not best:
+            break
+        sets[best[0]].append(best[1]); cur = best[2]; nv = best[3]
+    return sets, cur
+
+
 def kupon(p, B):
     n = len(p)
     if n < 5:
@@ -113,7 +146,17 @@ def guncelle(obj, simdi=None):
                             if not kp:
                                 continue
                             sets, pm_ = kp; pq = _prob(Wp, Tp, sets); n = math.prod(len(s) for s in sets)
-                            c["kuponlar"].append({"model": model, "butce": B, "kombinasyon": n, "bedel": round(n * BIRIM, 2),
+                            c["kuponlar"].append({"model": model, "butce": B, "kombinasyon": n, "bedel": round(n * BIRIM, 2), "bedel_gecerli": round(gecerli_say(sets) * BIRIM, 2),
+                                                  "ayaklar": [[at[i]["no"] for i in s] for s in sets],
+                                                  "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
+                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
+                    for model, p in P.items():                 # ek varyant "-G": bütçe geçerli kombinasyon sayısına göre (makine fişi 13 Ekim 2026)
+                        for B in BUTCELER:
+                            kp = kupon_g(p, B)
+                            if not kp:
+                                continue
+                            sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
+                            c["kuponlar"].append({"model": model + "-G", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
                                                   "ayaklar": [[at[i]["no"] for i in s] for s in sets],
                                                   "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
                                                   "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
@@ -147,10 +190,10 @@ def ozet_yaz(tarih):
                     if grup == "onerilen" and q["oran"] < ESIK_ORAN:
                         continue
                     t = top.setdefault(f"{grup}-{q['model']}-{q['butce']}", {"grup": grup, "model": q["model"], "butce": q["butce"], "kosu": 0, "harcama": 0.0, "isabet": 0, "kazanc": 0.0, "beklenen": 0.0})
-                    t["kosu"] += 1; t["harcama"] += q["bedel"]; t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
+                    t["kosu"] += 1; t["harcama"] += gecerli_say(q["ayaklar"]) * BIRIM; t["harcama_carpim"] = t.get("harcama_carpim", 0.0) + q["bedel"]; t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
     for t in top.values():
         t["geri_donus"] = round(t["kazanc"] / t["harcama"], 3) if t["harcama"] else None
-        t["harcama"] = round(t["harcama"], 2); t["kazanc"] = round(t["kazanc"], 2); t.pop("beklenen")
+        t["harcama"] = round(t["harcama"], 2); t["harcama_carpim"] = round(t.get("harcama_carpim", 0.0), 2); t["kazanc"] = round(t["kazanc"], 2); t.pop("beklenen")
     yol = os.path.join(VERI, tarih + ".json")
     bugun = list(json.load(open(yol, encoding="utf-8")).values()) if os.path.exists(yol) else []
     os.makedirs(SITE, exist_ok=True)
