@@ -18,3 +18,4 @@ for h, (la, lo) in YER.items():
 with open("data/hava/gunluk.csv", "w", newline="") as f:
     w = csv.writer(f); w.writerow(["hipodrom", "tarih", "yagis_mm", "yagmur_mm", "sicaklik"]); w.writerows(rows)
 print(len(rows), "satır")
+# v2
