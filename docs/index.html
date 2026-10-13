@@ -313,6 +313,7 @@ function besliKupon(p,B,G,L,GS){
   return {sets:en.sets,n:en.sets.reduce((a,x)=>a*x.length,1),pr:en.pr,W,T};
 }
 function besliHtml(h,k,out){
+  if(k.besli===false) return '';   // program CSV'sine göre sıralı beşli oynanmayan koşu (14 Ekim 2026)
   const idx=Object.keys(out.map).map(Number); if(idx.length<5) return '';
   const no=i=>k.atlar[i].no;
   const pm=idx.map(i=>out.map[i].pm), pp=idx.map(i=>out.map[i].pp), pj=out.map[idx[0]].pj!=null?idx.map(i=>out.map[i].pj):null;
@@ -983,7 +984,7 @@ function besliEgz(m){
   if(!VERI||GUN!==trBugun()) return '';
   const R=[];
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
-    if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
+    if(k.sonuc||k.besli===false) return; const out=hesapla(h,k); if(!out) return;
     const idx=Object.keys(out.map).map(Number); if(idx.length<5) return;
     const P=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj); if(P.some(v=>v==null)) return;
     const pp=idx.map(i=>out.map[i].pp);

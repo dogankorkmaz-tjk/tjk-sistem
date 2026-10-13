@@ -44,7 +44,7 @@ def oku_dosya(yol):
             rek = next((_sn(a.split(":", 1)[1]) for a in alan if a.startswith("Rekor")), None)
             yas = alan[1] if len(alan) > 1 else None
             kosular[kn] = {"saat": saat, "cins": alan[0], "yas": yas, "mesafe": mes, "pist": pist,
-                           "rekor_sn": rek, "ikramiye1": None}
+                           "rekor_sn": rek, "ikramiye1": None, "besli": False}
             atlar[kn] = {}
             continue
         if kn and s.startswith("1.)") and kosular[kn]["ikramiye1"] is None:
@@ -61,6 +61,8 @@ def oku_dosya(yol):
                                         "kilo": float(kilo.group(1).replace(",", ".")) if kilo else None,
                                         "kilo_fark": float(kilo.group(2)) if kilo and kilo.group(2) else 0.0}
             continue
+        if kn and "SIRALI 5" in s:
+            kosular[kn]["besli"] = True          # koşu bloğundaki bahis listesinde sıralı beşli var (14 Ekim 2026)
         if "eküridir" in s:
             ek = re.findall(r"\((\d+)\)", s.split("eküridir")[0])
             for x in ek:

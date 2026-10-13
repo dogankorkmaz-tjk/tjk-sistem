@@ -168,6 +168,7 @@ def csv_uygula(obj):
                 continue
             k["saat"] = b["saat"]; k["bilgi"] = C.bilgi_metni(b)
             k["mesafe"] = b["mesafe"]; k["pist"] = b["pist"]; k["cins"] = b["cins"]; k["ikramiye"] = b["ikramiye1"]
+            k["besli"] = bool(b.get("besli"))
             n += 1
         C.kaydet(obj["tarih"], h["id"], kosular, atlar, VERI)
     if n:

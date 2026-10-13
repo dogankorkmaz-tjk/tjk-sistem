@@ -171,7 +171,9 @@ def guncelle(obj, simdi=None):
             anahtar = f"{h['id']}|{k['kosu']}"
             saat = k.get("saat") or "99:99"
             c = kay.get(anahtar)
-            if c is None and not k.get("sonuc") and (simdi is None or simdi < saat) and k["kosu"] >= 2:
+            if c and "sonuc" not in c and not k.get("sonuc") and k.get("besli") is False:
+                del kay[anahtar]; c = None            # program CSV'sine göre sıralı beşli oynanmayan koşu: kupon tutulmaz (14 Ekim 2026)
+            if c is None and not k.get("sonuc") and (simdi is None or simdi < saat) and k["kosu"] >= 2 and k.get("besli") is True:
                 r = _olasiliklar(obj, k)
                 if r:
                     at, pp, P = r
