@@ -2,7 +2,7 @@
 sabah: bugünün programı + model form puanları + AGF  -> docs/data/bugun.json
 canli: AGF'yi yeniler, biten koşuların sonucunu ve kapanış ganyanlarını ekler
 gece : dünün (ve eksik günlerin) sonuçlarını geçmişe ekler, canlı test skorunu hesaplar -> docs/data/skor.json"""
-import os, sys, json, glob, datetime
+import os, re, sys, json, glob, datetime
 import numpy as np, pandas as pd
 from . import ortak as O
 from . import csvprog as C
@@ -172,6 +172,104 @@ def csv_uygula(obj):
         C.kaydet(obj["tarih"], h["id"], kosular, atlar, VERI)
     if n:
         print("TJK CSV'den koşu bilgisi işlendi:", n, "koşu")
+
+
+def _jn(j):
+    return re.sub(r"\s*AP$", "", str(j or "")).strip()
+
+
+def jokey_uygula(obj):
+    """Yarış başlamadan önce yüklenen güncel TJK CSV'sinde jokey değişmişse: atın jokeyini ve model puanlarını (z, z2, z3) yeniler,
+    değişikliği data/jokey_degisiklik/<gün>.csv'ye yazar. Başlamış/sonuçlanmış koşulara dokunmaz."""
+    t = obj["tarih"]
+    cj = C.jokeyler(t)
+    if not cj:
+        return
+    simdi = O.tr_simdi().strftime("%H:%M")
+    deg = {}
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            if k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
+                continue
+            for a in k["atlar"]:
+                j = cj.get((h["id"], k["kosu"], a["no"]))
+                if j and _jn(j) != _jn(a["jokey"]):
+                    deg.setdefault(h["id"], []).append((k["kosu"], a, j))
+    if not deg:
+        return
+    # 1) kayıt
+    yol = os.path.join(VERI, "jokey_degisiklik", t + ".csv")
+    os.makedirs(os.path.dirname(yol), exist_ok=True)
+    var = set()
+    if os.path.exists(yol):
+        for l in open(yol, encoding="utf-8").read().split("\n")[1:]:
+            p = l.split(",")
+            if len(p) > 6:
+                var.add((p[1], p[2], p[3], p[5], p[6]))
+    yeni_sat = []
+    for hid, L in deg.items():
+        for kn, a, j in L:
+            if (hid, str(kn), str(a["no"]), a["jokey"], _jn(j)) not in var:
+                yeni_sat.append(f"{t},{hid},{kn},{a['no']},{a['at']},{a['jokey']},{_jn(j)},otomatik {simdi},model puani yenilendi")
+    if yeni_sat:
+        yeni_dosya = not os.path.exists(yol)
+        with open(yol, "a", encoding="utf-8") as fh:
+            if yeni_dosya:
+                fh.write("tarih,hipodrom,kosu,no,at,eski_jokey,yeni_jokey,kaynak,not\n")
+            fh.write("\n".join(yeni_sat) + "\n")
+    # 2) programı yeniden çek, tüm jokeyleri CSV'ye göre yaz, z'leri yeniden hesapla
+    try:
+        satirlar = []
+        for hid in deg:
+            html = O.getir(O.prog_url(datetime.date.fromisoformat(t), hid))
+            satirlar += O.parse_prog(html, t, hid) if html else []
+        if not satirlar:
+            print("jokey değişikliği: program yeniden okunamadı, puanlar yenilenmedi"); return
+        pr = pd.DataFrame(satirlar).dropna(subset=["no"]); pr["no"] = pr.no.astype(int)
+        for i, r in pr.iterrows():
+            j = cj.get((r.hipodrom, int(r.kosu), int(r.no)))
+            if j:
+                pr.at[i, "p_jokey"] = _jn(j); pr.at[i, "p_apranti"] = j.strip().endswith("AP")
+        yeni = pr.rename(columns={"p_at": "at", "p_jokey": "jokey", "p_apranti": "apranti", "p_kilo": "kilo"})
+        yeni["hnd"] = yeni.hk; yeni["kosmadi"] = False; yeni["ganyan"] = 10.0
+        M = yukle_model()
+        temiz, prog = oku("temiz"), oku("program")
+        d = hazirla(temiz[temiz.tarih < t], prog, M, yeni)
+        bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
+        bz2, bz3 = {}, {}
+        A = GL.yukle()
+        if A:
+            bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
+            d2 = GL.MS.ekle(d, bugun_m) if "f_dp150_m" in A["feat"] else d
+            dy = d2[d2.yeni].copy(); dy["z2"] = GL.z2(dy, A)
+            bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
+            AK = GL.yukle_k()
+            if AK:
+                dk = GL.kapi_ekle(d2); dk = dk[dk.yeni].copy(); dk["z3"] = GL.z2(dk, AK)
+                bz3 = dk.set_index(["hipodrom", "kosu", "no"]).z3.to_dict()
+        n = 0
+        for h in obj["hipodromlar"]:
+            if h["id"] not in deg:
+                continue
+            for k in h["kosular"]:
+                if k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
+                    continue
+                for a in k["atlar"]:
+                    key = (h["id"], k["kosu"], a["no"])
+                    j = cj.get(key)
+                    if not j or _jn(j) == _jn(a["jokey"]):
+                        continue                     # yalnız jokeyi değişen atların puanı yenilenir; diğerleri dondurulmuş sabah değerinde kalır
+                    a["jokey"] = _jn(j); a["apr"] = j.strip().endswith("AP")
+                    if key in bz:
+                        a["z"] = round(float(bz[key]), 4)
+                    if key in bz2 and "z2" in a:
+                        a["z2"] = round(float(bz2[key]), 4)
+                    if key in bz3 and "z3" in a:
+                        a["z3"] = round(float(bz3[key]), 4)
+                n += 1
+        print("jokey değişikliği işlendi:", {h: len(L) for h, L in deg.items()}, "| koşu yenilendi:", n)
+    except Exception as e:
+        print("jokey değişikliği işlenemedi:", repr(e))
 
 
 def agf_ekle(obj):
@@ -374,6 +472,7 @@ def canli(t):
         except Exception as e:
             print("agf_zaman hatası:", repr(e))
     csv_uygula(obj)
+    jokey_uygula(obj)
     kosmaz_isle(obj)
     n = sonuclari_isle(obj, t)
     print("yeni sonuçlanan koşu:", n)

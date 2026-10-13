@@ -81,6 +81,29 @@ def gunun(tarih):
     return out
 
 
+def jokeyler(tarih):
+    """tarih için klasördeki CSV'lerden {(hipodrom, kosu, at_no): jokey_adi} (sonda 'AP' = apranti işareti dahil)."""
+    out = {}
+    for yol in glob.glob(os.path.join(KLASOR, "*.csv")):
+        try:
+            sat = open(yol, encoding="utf-8-sig").read().replace("\r", "").split("\n")
+            p = sat[0].split(";"); hip = _hip(p[0]); d = re.search(r"(\d{2})/(\d{2})/(\d{4})", sat[0])
+            if not hip or not d or f"{d.group(3)}-{d.group(2)}-{d.group(1)}" != tarih:
+                continue
+            kn = None
+            for x in sat[1:]:
+                m = re.match(r"^(\d+)\.\s*Kosu\s*:", x)
+                if m:
+                    kn = int(m.group(1)); continue
+                if kn and re.match(r"^\d+;", x):
+                    f = x.split(";")
+                    if len(f) >= 16 and f[6].strip():
+                        out[(hip, kn, int(f[0]))] = f[6].strip()
+        except Exception as e:
+            print("CSV jokey okunamadı:", yol, e)
+    return out
+
+
 def bilgi_metni(k):
     p = [k["cins"], k["yas"]]
     mp = " ".join(str(x) for x in (k["mesafe"] and f"{k['mesafe']}m", k["pist"]) if x)
