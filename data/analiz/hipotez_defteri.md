@@ -48,6 +48,12 @@ Durum: BİRİNCİL = sonuçtan önce yazıldı (ön-kayıt) · KEŞİF = sonuca 
 - Jason-K = Jason + kapı yanlılığı özelliği; her gece ayrı eğitilir, canlıda Jason ile yan yana skorlanır (docs/data/golge.json: k_eksi_jason). Jason değişmedi.
 - Geriye dönük beklenti (walk-forward): +0,0024 nats/koşu. Karar: 1 Ocak 2027'de canlı fark ve %95 aralık; alt sınır > 0 ise Jason-K ana aday olur. Bu tarihten önce karar yok.
 
+## Eklenen deney: ıslak pist özelliği (13 Ekim 2026)
+- KEŞİF. Kron sayfalarından kum pist durumu (Normal/Nemli/Sulu/Islak) 379 hipodrom-günde var (Oca 2026'dan). Özellik: atın önceki ıslak-gün koşularındaki piyasaya göre bitiş artığı ortalaması (K=2), yalnız bugün ıslaksa. Jason olasılığına tek parametreli ek terim; 464 ıslak-gün koşusu (Şub–Eki 2026).
+- Sonuç: β=0,66, kazanç 0,0014 nats/koşu, LR=1,29, p≈0,26. Anlamlı değil; örnek küçük (ıslak veri yalnız 2026'dan).
+- Karar: modele eklenmedi. Kron sayfaları zaten günlük kaydediliyor; kış ayları sonrası (≈1 Mart 2027) aynı betikle yeniden bakılacak. Betik: data/analiz/islak_pist_testi.py.
+- Not: kron başlığı gün sonunda kaydedildiği için pist gün içinde değişmiş olabilir; canlı kullanım için yarıştan önceki pist durumu gerekir.
+
 ## Kontrol tarihleri
 - **1 Kasım 2026**: ilk bakış (≈300 egzotik koşu). Yalnızca "kural çöküyor mu?" sorusu. Karar yok: bu hacimde aralık yaklaşık ±0,15.
 - **1 Ocak 2027**: asıl değerlendirme (≈1.000+ koşu). Ana kural ve iki varyant yan yana, yarış günü bazında bootstrap %95 aralık; alt sınır 1,0'ı geçerse "kanıt", geçmezse "kanıt yok".
