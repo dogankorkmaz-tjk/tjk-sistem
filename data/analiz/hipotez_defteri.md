@@ -67,3 +67,6 @@ Durum: BİRİNCİL = sonuçtan önce yazıldı (ön-kayıt) · KEŞİF = sonuca 
 
 ## 13 Ekim 2026 — canlı pist durumu kaydı
 Kocaeli kum pist "Nemli" (kullanıcı bildirimi, 17:37). data/pist_durum.csv'ye işlendi. Modellerde HİÇBİR değişiklik yok (ıslak-pist özelliği örnek azlığından kapalı; 1 Mart 2027'de yeniden sınanacak). Amaç: akşamki kron sayfasındaki resmi durumla karşılaştırıp bildirimin doğruluğunu ve bildirimden sonra öncül gün/koşu başı değişimini kayda geçirmek. Not: yalnız 17:45'ten önceki koşular için "canlı" anlam taşır.
+
+## 13 Ekim 2026 — Adana 7'li ganyan devir sonucu (gözlem)
+Adana 7'li ganyan (3–9. koşu, birim 2 TL) 11 Ekim'den 464.387 TL devirliydi; bugün tutturuldu, TV ödemesi 146.556,80. Kazanan: 6-7-11(9)-7-9-4-16(18). Model kuponları tutmadı. Ödeme/1 kupon varsayımı: ekran rakamı kupon başına (bursa 6'lı fişiyle tutarlı; teyit edilmedi). Kazanan sayısı ve gerçek net havuz bilinmiyor -> devir senaryo (iyimser/orta/kötümser) kalibrasyonu bekliyor; kazanan kupon sayısı gelince net havuz = ödeme x N - devir.
