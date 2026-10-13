@@ -70,3 +70,6 @@ Kocaeli kum pist "Nemli" (kullanıcı bildirimi, 17:37). data/pist_durum.csv'ye 
 
 ## 13 Ekim 2026 — Adana 7'li ganyan devir sonucu (gözlem)
 Adana 7'li ganyan (3–9. koşu, birim 2 TL) 11 Ekim'den 464.387 TL devirliydi; bugün tutturuldu, TV ödemesi 146.556,80. Kazanan: 6-7-11(9)-7-9-4-16(18). Model kuponları tutmadı. Ödeme/1 kupon varsayımı: ekran rakamı kupon başına (bursa 6'lı fişiyle tutarlı; teyit edilmedi). Kazanan sayısı ve gerçek net havuz bilinmiyor -> devir senaryo (iyimser/orta/kötümser) kalibrasyonu bekliyor; kazanan kupon sayısı gelince net havuz = ödeme x N - devir.
+
+## 13 Ekim 2026 — Islak pist vekili (yağış) ön kayıt
+Soru: 2023–2025 için resmi pist etiketi yok (kron yalnız 2026'dan). Open-Meteo günlük yağış (hipodrom koordinatı) ıslak pist vekili olarak kullanılabilir mi? Adım 1: 2026 etiketli günlerde vekilin doğruluğu (yağış 0/1/2 gün önce -> Nemli/Sulu/Islak): AUC. AUC<0,75 ise vekil kullanılmaz, deney biter. Adım 2 (yalnız adım 1 geçerse): Jason olasılığına, atın ÖNCEKİ vekil-ıslak koşularındaki artığı ile tek parametreli terim, LR testi, walk-forward OOS, 2023–2026 (çok daha fazla örnek). Tek test; sonuç ne olursa olsun modele eklenmez, 1 Ocak 2027 değerlendirmesine girer. Veri: data/hava/gunluk.csv (Actions ile çekilir).
