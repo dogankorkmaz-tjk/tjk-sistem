@@ -1,48 +1,48 @@
 {
- "zaman": "2026-10-15 00:55",
- "kosu": 247,
+ "zaman": "2026-10-15 01:03",
+ "kosu": 613,
  "ulke": {
-  "abd": 141,
-  "birlesik-krallik": 38,
-  "irlanda": 24,
-  "kanada": 14
+  "abd": 346,
+  "birlesik-krallik": 114,
+  "irlanda": 37,
+  "kanada": 22
  },
  "geri_odeme_medyan": 0.695,
  "dilim": [
   {
    "dilim": "(1, 3]",
-   "at": 299,
-   "kazanma": 0.2843,
-   "oranin_dedigi": 0.3568,
-   "ganyan_roi": 0.56
+   "at": 702,
+   "kazanma": 0.3105,
+   "oranin_dedigi": 0.3519,
+   "ganyan_roi": 0.628
   },
   {
    "dilim": "(3, 6]",
-   "at": 454,
-   "kazanma": 0.1696,
-   "oranin_dedigi": 0.1577,
-   "ganyan_roi": 0.732
+   "at": 1170,
+   "kazanma": 0.165,
+   "oranin_dedigi": 0.1607,
+   "ganyan_roi": 0.695
   },
   {
    "dilim": "(6, 12]",
-   "at": 547,
-   "kazanma": 0.1042,
-   "oranin_dedigi": 0.0827,
-   "ganyan_roi": 0.861
+   "at": 1380,
+   "kazanma": 0.0957,
+   "oranin_dedigi": 0.0828,
+   "ganyan_roi": 0.798
   },
   {
    "dilim": "(12, 25]",
-   "at": 440,
-   "kazanma": 0.05,
-   "oranin_dedigi": 0.0418,
-   "ganyan_roi": 0.869
+   "at": 1199,
+   "kazanma": 0.0442,
+   "oranin_dedigi": 0.0417,
+   "ganyan_roi": 0.763
   },
   {
    "dilim": "(25, 1000]",
-   "at": 276,
-   "kazanma": 0.0217,
-   "oranin_dedigi": 0.0186,
-   "ganyan_roi": 0.734
+   "at": 755,
+   "kazanma": 0.0225,
+   "oranin_dedigi": 0.0182,
+   "ganyan_roi": 0.729
   }
  ]
 }
