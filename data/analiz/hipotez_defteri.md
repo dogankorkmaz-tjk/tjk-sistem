@@ -164,3 +164,10 @@ Kurucular (hepsi aynı açgözlü yapı, aynı bütçe B = 64 ve 256 kombinasyon
 Veri: odeme `6'LI GANYAN` (+ DEVİR = kimse bilemedi, ödeme 0), ayaklar = kosu−5..kosu; ayak koşusunda ölü yarış "3,4" ikisi de geçer. Tüm 6 ayakta OOS p ve AGF olan altılılar.
 Ölçüt: ROI = Σödeme/Σmaliyet (ödeme birim başına varsayımı); V−J ve V−A eşleştirilmiş, gün kümeli bootstrap %95 GA; 2025 ve 2026 ayrı. Ayrıca kalibrasyon: k̂ = medyan(ödeme × Π a_kazanan) ve tahmini EV ile gerçekleşen ROI.
 Karar: V'nin ROI GA alt sınırı > 1,0 → canlı kâğıt test adayı (1 Ocak 2027 değerlendirmesi). Aksi halde betimleyici; parayla oynanmaz. Tek varyant; başka eşik/bütçe denenirse KEŞİF olarak ayrıca yazılır.
+SONUÇ Faz 1 (15 Ekim 2026, 00:20; 5.313 koşu, 2025-01→2026-10): Jason−AGF +0,0020 nats/koşu (GA −0,0061..+0,0100; 2025 +0,0054, 2026 +0,0005). Piyasa−AGF −0,0200 (GA −0,028..−0,012): AGF, son ganyandan DAHA İYİ tahminci. Jason−piyasa (aynı koşular) +0,0220. Dilim tablosu: ganyan piyasası uzun atışları fazla fiyatlıyor (p≤%3 diliminde piyasa %1,89, gerçek %1,31, AGF %1,34); AGF bu yanlılığı taşımıyor. Karar (ön kayıt gereği): ölçüt sağlanmadı → altılıda p/a çarpanı yolu KAPALI. Jason'ın piyasaya karşı avantajının büyük kısmı AGF'nin zaten bildiği şey. Faz 2 yalnız betimleyici koşturulur. Betik: data/analiz/agf_skor.py.
+
+## 15 Ekim 2026, 00:25 — Faz 1b: AGF'yi Jason'a bilgi olarak eklemek (ÖN KAYIT, Faz 1 sonucundan doğan KEŞİF fikri)
+Soru: AGF ganyandan iyi tahmin ettiğine göre Jason ⊕ AGF karışımı ganyan piyasasına karşı Jason'dan fazla kazanır mı, ve bu ganyan EV kuralına yansır mı?
+Model: p ∝ p_Jason^(1−w) · a^w (tek parametre w). w yalnız 2025 koşularında (log-olabilirlik) fit edilir, 2026'da sınanır (AGF'li koşular).
+Ölçüt: 2026 sınamada (Karışım − Jason) nats/koşu, gün kümeli bootstrap GA; ve EV kuralı (p × son ganyan > 1,1 ve > 1,3) ROI: Karışım vs Jason, aynı koşular.
+Karar: nats kazancı GA alt sınırı > 0,005 → "Jason-A" gölge model adayı (AGF canlıda yarıştan önce mevcut; son AGF altılı kapanışında donar). ROI yalnız betimleyici. Tek test.
