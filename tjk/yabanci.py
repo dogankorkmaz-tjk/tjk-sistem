@@ -111,3 +111,18 @@ def calistir():
     pmu_robots()
     topla()
     ozet()
+
+
+def ham_ornek():
+    """Ayrıştırıcı geliştirmek için birkaç ham sayfayı kaydeder (data/yabanci_ham/)."""
+    yol = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(yol, exist_ok=True)
+    sm = O.getir(O.BASE + "/sitemap.xml") or ""
+    secim = {}
+    for m in URL_RE.finditer(sm):
+        hip, ulke = _ayir(m.group(1))
+        if ulke in ("fransa", "birlesik-krallik", "abd") and ulke not in secim:
+            secim[ulke] = m.group(0)
+    for ulke, url in secim.items():
+        h = O.getir(url) or ""
+        open(os.path.join(yol, ulke + ".html"), "w", encoding="utf-8").write(h)
+        print(ulke, url, len(h))

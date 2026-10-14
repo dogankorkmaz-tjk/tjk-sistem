@@ -987,6 +987,9 @@ def main():
     elif mod == "yabanci":
         from . import yabanci as YB
         YB.calistir()
+    elif mod == "yabanciham":
+        from . import yabanci as YB
+        YB.ham_ornek()
     elif mod == "gecmis":
         bas = datetime.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else bugun - datetime.timedelta(days=45)
         gecmis(bas, bugun - datetime.timedelta(days=1))
