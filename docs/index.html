@@ -229,6 +229,18 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="accDurum" style="margin-top:16px;font-size:13px"></div>
     </div>
     <div class="card" style="margin-top:12px">
+      <h2>Yabancı koşu ekran görüntüsü</h2>
+      <p class="note">Koşu bittikten sonra TJK sonuç ekranının (sıra, at no, ganyan görünen) ekran görüntüsünü seç. Birden çok görüntü seçebilirsin; her biri bir koşu olmalı. Sistem yazıyı okuyup kaydeder (1–2 dakika). Fransa, Güney Afrika, Avustralya, Arjantin ve Şili için; diğer ülkeler zaten otomatik kaydediliyor. Yukarıdaki GitHub anahtarı kullanılır.</p>
+      <div style="display:flex;gap:8px;margin:6px 0 12px">
+        <select id="yfUlke" style="flex:1;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)"><option value="guney-afrika">Güney Afrika</option><option value="fransa">Fransa</option><option value="avustralya">Avustralya</option><option value="arjantin">Arjantin</option><option value="sili">Şili</option><option value="diger">Diğer</option></select>
+        <input id="yfTarih" type="date" style="flex:1;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)">
+      </div>
+      <input id="yfDosya" type="file" multiple accept="image/*" style="width:100%;margin-bottom:12px">
+      <button id="yfBtn" class="primary">Görüntüleri gönder</button>
+      <div id="yfSonuc" style="margin-top:12px;font-size:13px"></div>
+      <div id="yfDurum" style="margin-top:12px;font-size:13px"></div>
+    </div>
+    <div class="card" style="margin-top:12px">
       <h2>Sabit oran yapıştır (SİB)</h2>
       <p class="note">tjk.org'da "Sabit İhtimalli Yarış Programı" sayfasını aç, bir yere dokun, "Tümünü seç" ve "Kopyala" de, buraya yapıştır. Sistem tarihi, saati ve oranları kendisi okur. Oranlar gün içinde değiştiği için istediğin kadar kez, farklı saatlerde yapıştırabilirsin.</p>
       <details style="margin:6px 0 12px"><summary class="sub" style="cursor:pointer">Sadece tek bir koşunun sayfasını mı yapıştırıyorsun? Hipodromu burada seç (tüm günün sayfası için gerekmez)</summary><label class="sub" for="sibHip">Hipodrom</label>
@@ -773,6 +785,35 @@ async function sibGonder(){
   }catch(e){ out.innerHTML='✗ '+esc(String(e)); }
 }
 $('sibBtn').onclick=sibGonder;
+try{ const s=localStorage.getItem('gm2_yfulke'); if(s) $('yfUlke').value=s; }catch(e){}
+$('yfTarih').value=(()=>{const d=new Date(),z=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate());})();
+async function yfGonder(){
+  const out=$('yfSonuc'), tok=$('ghTok').value.trim();
+  let tk=tok; try{ if(!tk) tk=localStorage.getItem('gm2_gh')||''; }catch(e){}
+  const fl=[...($('yfDosya').files||[])];
+  if(!tk){ out.innerHTML='<span class="warn">Önce GitHub anahtarını gir.</span>'; return; }
+  if(!fl.length){ out.innerHTML='<span class="warn">Görüntü seçmedin.</span>'; return; }
+  const ulke=$('yfUlke').value, tarih=$('yfTarih').value; try{ localStorage.setItem('gm2_yfulke',ulke); }catch(e){}
+  const h={Authorization:'Bearer '+tk,Accept:'application/vnd.github+json'}, sat=[]; let i=0;
+  for(const f of fl){
+    i++; out.textContent=`Gönderiliyor… ${i}/${fl.length}`;
+    try{
+      const by=new Uint8Array(await f.arrayBuffer()); let bs=''; for(let j=0;j<by.length;j+=8192) bs+=String.fromCharCode.apply(null,by.subarray(j,j+8192));
+      const ext=(f.name.match(/\.(png|jpe?g|webp)$/i)||[,'png'])[1].toLowerCase();
+      const d=new Date(),z=n=>String(n).padStart(2,'0'), ad=`${tarih}_${z(d.getHours())}${z(d.getMinutes())}${z(d.getSeconds())}_${ulke}_${i}.${ext}`;
+      const r=await fetch(`https://api.github.com/repos/${GH}/contents/data/yabanci_foto/${ad}`,{method:'PUT',headers:h,body:JSON.stringify({message:'Yabancı görüntü '+ad,content:btoa(bs),branch:'main'})});
+      sat.push(r.ok?`✓ ${esc(f.name)}`:`✗ ${esc(f.name)}: hata ${r.status}${r.status===401||r.status===403||r.status===404?' (anahtar geçersiz ya da yetkisiz)':''}`);
+    }catch(e){ sat.push(`✗ ${esc(f.name)}: ${esc(String(e))}`); }
+  }
+  out.innerHTML=sat.join('<br>')+'<br><span class="sub">Bitti. 1–2 dakikada okunur; aşağıdaki listede görünür.</span>'; $('yfDosya').value='';
+}
+$('yfBtn').onclick=yfGonder;
+async function yfDurum(){
+  const el=$('yfDurum'); if(!el) return;
+  try{ const d=await getJSON('data/yabanci_foto.json?'+Date.now());
+    el.innerHTML=`<b>Okunan görüntüler</b> <span class="sub">(${d.toplam} görüntü, ${d.tutarli} düzgün okundu)</span>`+(d.dosyalar||[]).slice(0,30).map(x=>`<div style="margin-top:4px">${x.tutarli?'✓':'⚠'} ${esc(x.tarih)} ${esc(x.ulke)} · ${x.satir} at${x.kazanan?' · kazanan '+esc(x.kazanan):''}</div>`).join('')+'<div class="sub" style="margin-top:6px">⚠ = sıra/numara eksik ya da karışık okundu; bu görüntü testte kullanılmaz.</div>';
+  }catch(e){ el.innerHTML='<div class="sub">Henüz okunan görüntü yok.</div>'; }
+}
 $('sibDosya').onchange=async e=>{ const f=e.target.files[0]; if(f){ $('sibMetin').value=await f.text(); $('sibSonuc').textContent='Dosya okundu ('+Math.round(f.size/1024)+' KB). Şimdi "SİB gönder"e bas.'; } };
 
 async function accDurum(){
@@ -786,7 +827,7 @@ async function accDurum(){
   }catch(e){ el.innerHTML='<div class="sub">Accurace durumu henüz oluşmadı.</div>'; }
 }
 const TABS={bugun:'tabBugun',bolton:'tabBolton',jason:'tabJason',egz:'tabEgz',ikili:'tabIkili',kosu:'tabKosu',skor:'tabSkor',dosya:'tabDosya'};
-function sekme(ad){if(arguments[0]==='dosya') accDurum();
+function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   Object.keys(TABS).forEach(k=>{ $(TABS[k]).setAttribute('aria-selected',k===ad); $(k).hidden=k!==ad; });
   if(ad==='egz') egzYukle();
   if(ad==='ikili') degerYukle();
