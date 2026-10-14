@@ -7,8 +7,9 @@ d["q"]=pd.PeriodIndex(pd.to_datetime(d.tarih),freq="Q").astype(str)
 S=sys.argv[1];GJ=[1,0.80,0.69,0.69,0.69]
 def sm(sv,te):
     e=np.exp(sv-pd.Series(sv).groupby(te.rid.values).transform("max").values);return e/pd.Series(e).groupby(te.rid.values).transform("sum").values
+import os
 out=[]
-for q in [x for x in sorted(d.q.unique()) if x>="2025Q1"]:
+for q in ([] if os.path.exists(S+"/p_hib.pkl") else [x for x in sorted(d.q.unique()) if x>="2025Q1"]):
     te=d[d.q==q].copy();tr=d[d.tarih<te.tarih.min()]
     if tr.rid.nunique()<5000 or te.rid.nunique()<50: continue
     thA,muA,sdA,_=_fit(tr.assign(kazandi=(tr.sr==1).astype(float)),feat,M.get("lam",100.0))
@@ -18,7 +19,8 @@ for q in [x for x in sorted(d.q.unique()) if x>="2025Q1"]:
     te["pS"]=sm(thB[0]*te.lp.values+(((X-muB)/sdB).values)@thB[1:],te)
     for k in range(1,5): te[f"a{k+1}"]=aB[k]
     out.append(te[["tarih","hipodrom","kosu","no","pJ","pS","a2","a3","a4","a5"]]);print(q,flush=True)
-P=pd.concat(out);P["tarih"]=P.tarih.astype(str);P.to_pickle(S+"/p_hib.pkl")
+P=pd.read_pickle(S+"/p_hib.pkl") if os.path.exists(S+"/p_hib.pkl") else pd.concat(out)
+P["tarih"]=P.tarih.astype(str);P.to_pickle(S+"/p_hib.pkl")
 R='/home/claude/tjk-sistem/'
 O_=pd.concat([pd.read_csv(f) for f in glob.glob(R+'data/odeme/*.csv.gz')]);O_=O_[O_.tur.str.startswith('SIRALI 5')].drop_duplicates(['tarih','hipodrom','kosu'])
 parse=lambda k:[set(int(x) for x in s.split(',')) for s in str(k).split('/')]
