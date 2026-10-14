@@ -166,6 +166,23 @@ def sabah(t):
     return obj
 
 
+def saat_duzelt(obj):
+    """data/saat_duzelt.json: {"tarih": {"hipodrom": {"koşu": "SS:DD"}}} - erteleme gibi elle bildirilen koşu saatleri; TJK programı/CSV'si ne derse desin bu saat geçerli olur."""
+    try:
+        d = json.load(open(os.path.join(VERI, "saat_duzelt.json"), encoding="utf-8")).get(obj["tarih"], {})
+    except Exception:
+        return 0
+    n = 0
+    for h in obj["hipodromlar"]:
+        for kn, sa in (d.get(h["id"]) or {}).items():
+            for k in h["kosular"]:
+                if str(k["kosu"]) == str(kn) and not k.get("sonuc") and k.get("saat") != sa:
+                    k["saat"] = sa; n += 1
+    if n:
+        print("elle saat düzeltmesi uygulandı:", n, "koşu")
+    return n
+
+
 def csv_uygula(obj):
     """data/tjk_csv/ içindeki o güne ait TJK CSV'lerinden saat, cins, mesafe, pist, ikramiyeyi koşulara işler ve eğitim verisi için biriktirir."""
     veri = C.gunun(obj["tarih"])
@@ -190,6 +207,7 @@ def csv_uygula(obj):
         C.kaydet(obj["tarih"], h["id"], kosular, atlar, VERI)
     if n:
         print("TJK CSV'den koşu bilgisi işlendi:", n, "koşu")
+    saat_duzelt(obj)
 
 
 def _jn(j):
