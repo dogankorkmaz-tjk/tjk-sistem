@@ -123,9 +123,19 @@ def sabah(t):
             print("Jason-K hatası:", repr(e)); AK = None
     else:
         AK = None
+    AS = GL.yukle_s(); bz4 = {}
+    if AS and A:
+        try:
+            ds = d2[d2.yeni].copy(); ds["z4"] = GL.z2(ds, AS)
+            bz4 = ds.set_index(["hipodrom", "kosu", "no"]).z4.to_dict()
+        except Exception as e:
+            print("Jason-S hatası:", repr(e)); AS = None
+    else:
+        AS = None
     obj = {"tarih": tarih, "model": M.get("surum", "v1"), "w0": float(M["w"][0]),
            **({"w0_aday": float(A["w"][0]), "lp2_aday": float(A.get("lp2_a", 0.0)), "aday_egitim_son": A["egitim_son_tarih"]} if A else {}),
            **({"w0_k": float(AK["w"][0]), "lp2_k": float(AK.get("lp2_a", 0.0))} if AK else {}),
+           **({"w0_s": float(AS["w"][0]), "lp2_s": float(AS.get("lp2_a", 0.0)), "a_s": [round(float(x), 4) for x in AS["a"]]} if AS else {}),
            "guncelleme": O.tr_simdi().strftime("%H:%M"), "hipodromlar": []}
     for h in [x for x in O.TRH if x in programlar]:
         g = pr[pr.hipodrom == h]
@@ -135,7 +145,8 @@ def sabah(t):
                       "st": bos_sayi(float(r.st)) if pd.notna(r.st) else None,
                       "z": round(float(bz.get((h, kn, int(r.no)), 0.0)), 4),
                       **({"z2": round(float(bz2.get((h, kn, int(r.no)), 0.0)), 4)} if A else {}),
-                      **({"z3": round(float(bz3.get((h, kn, int(r.no)), 0.0)), 4)} if AK else {})} for r in kg.itertuples()]
+                      **({"z3": round(float(bz3.get((h, kn, int(r.no)), 0.0)), 4)} if AK else {}),
+                      **({"z4": round(float(bz4.get((h, kn, int(r.no)), 0.0)), 4)} if AS else {})} for r in kg.itertuples()]
             kos.append({"kosu": int(kn), "saat": programlar[h]["saat"].get(int(kn)),
                         "bilgi": programlar[h]["bilgi"].get(int(kn)), "atlar": atlar})
         obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
@@ -237,7 +248,7 @@ def jokey_uygula(obj):
         temiz, prog = oku("temiz"), oku("program")
         d = hazirla(temiz[temiz.tarih < t], prog, M, yeni)
         bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
-        bz2, bz3 = {}, {}
+        bz2, bz3, bz4 = {}, {}, {}
         A = GL.yukle()
         if A:
             bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
@@ -248,6 +259,10 @@ def jokey_uygula(obj):
             if AK:
                 dk = GL.kapi_ekle(d2); dk = dk[dk.yeni].copy(); dk["z3"] = GL.z2(dk, AK)
                 bz3 = dk.set_index(["hipodrom", "kosu", "no"]).z3.to_dict()
+            AS = GL.yukle_s()
+            if AS:
+                ds = d2[d2.yeni].copy(); ds["z4"] = GL.z2(ds, AS)
+                bz4 = ds.set_index(["hipodrom", "kosu", "no"]).z4.to_dict()
         n = 0
         for h in obj["hipodromlar"]:
             if h["id"] not in deg:
@@ -267,6 +282,8 @@ def jokey_uygula(obj):
                         a["z2"] = round(float(bz2[key]), 4)
                     if key in bz3 and "z3" in a:
                         a["z3"] = round(float(bz3[key]), 4)
+                    if key in bz4 and "z4" in a:
+                        a["z4"] = round(float(bz4[key]), 4)
                 n += 1
         print("jokey değişikliği işlendi:", {h: len(L) for h, L in deg.items()}, "| koşu yenilendi:", n)
     except Exception as e:
@@ -450,11 +467,16 @@ def sonuclari_isle(obj, t, w0=None):
                 z3 = {a["no"]: a.get("z3") for a in k["atlar"]}; r["z3"] = r.no.map(z3)
                 if r.z3.notna().all():
                     r["p_k"] = model_olasilik(r.p_piyasa.values, r.z3.values, obj["w0_k"], obj.get("lp2_k", 0.0))
+            if obj.get("w0_s") is not None and r.z2.notna().all():
+                z4 = {a["no"]: a.get("z4") for a in k["atlar"]}; r["z4"] = r.no.map(z4)
+                if r.z4.notna().all():
+                    r["p_s"] = model_olasilik(r.p_piyasa.values, r.z4.values, obj["w0_s"], obj.get("lp2_s", 0.0))
             k["sonuc"] = {str(int(x.no)): {"sira": None if pd.isna(x.sira) else int(x.sira),
                                            "g": float(x.ganyan), "pp": round(float(x.p_piyasa), 5),
                                            "pm": round(float(x.p_model), 5),
                                            **({"pm2": round(float(x.p_aday), 5)} if "p_aday" in r.columns else {}),
-                                           **({"pm3": round(float(x.p_k), 5)} if "p_k" in r.columns else {})} for x in r.itertuples()}
+                                           **({"pm3": round(float(x.p_k), 5)} if "p_k" in r.columns else {}),
+                                           **({"pm4": round(float(x.p_s), 5)} if "p_s" in r.columns else {})} for x in r.itertuples()}
             yeni_sonuc += 1
     obj["guncelleme"] = simdi.strftime("%H:%M")
     return yeni_sonuc
@@ -608,6 +630,10 @@ def gece(bugun):
             GL.egit_k()                             # ikinci gölge: Jason-K (Jason + kapı yanlılığı)
         except Exception as e:
             print("Jason-K eğitim hatası:", repr(e))
+        try:
+            GL.egit_s()                             # üçüncü gölge: Jason-S (ilk-5 sırasıyla eğitilmiş)
+        except Exception as e:
+            print("Jason-S eğitim hatası:", repr(e))
         print("gölge skor:", GL.skor())
     except Exception as e:
         print("gölge model hatası:", repr(e))

@@ -16,6 +16,7 @@ VERI = os.path.join(KOK, "data")
 SITE = os.path.join(KOK, "docs", "data")
 YOL = os.path.join(VERI, "model_aday.json")
 YOL_K = os.path.join(VERI, "model_aday_k.json")
+YOL_S = os.path.join(VERI, "model_aday_s.json")
 KAPI = ["f_kapi"]   # Jason-K: Jason + kapı yanlılığı (12 Ekim 2026, ikinci gölge model; Jason değişmedi)
 
 
@@ -25,6 +26,10 @@ def yukle():
 
 def yukle_k():
     return json.load(open(YOL_K, encoding="utf-8")) if os.path.exists(YOL_K) else None
+
+
+def yukle_s():
+    return json.load(open(YOL_S, encoding="utf-8")) if os.path.exists(YOL_S) else None
 
 
 def kapi_ekle(d):
@@ -99,6 +104,55 @@ def egit_k(son=None):
          "lp2_a": float(th[1 + feat.index("f_lp2")] / sd["f_lp2"])}
     json.dump(A, open(YOL_K, "w", encoding="utf-8"), ensure_ascii=False)
     print("Jason-K eğitildi:", son, "| koşu", nk, "| w_kapi", round(th[1 + feat.index("f_kapi")], 4))
+    return A
+
+
+def _blok(rid):
+    st = np.r_[0, np.nonzero(np.diff(rid))[0] + 1]; n = len(rid)
+    return st, np.repeat(np.arange(len(st)), np.diff(np.r_[st, n]))
+
+
+def _fit_s(tr, feat, lam, th0, a0):
+    """Jason-S: tüm ilk-5 sırası üzerinde Plackett-Luce; ağırlıklar paylaşımlı, sıra başına ölçek a2..a5 serbest."""
+    X0 = tr[feat]; mu, sd = X0.mean(), X0.std(ddof=0); X = ((X0 - mu) / sd).values; lp = tr.lp.values
+    st, seg = _blok(tr.rid.values); sr = tr.sr.values; nf = X.shape[1]
+    mk = [((sr >= k) | (sr <= 0)) for k in range(1, 6)]; ch = [(sr == k) for k in range(1, 6)]
+
+    def f(par):
+        w0, w, a = par[0], par[1:1 + nf], np.r_[1.0, par[1 + nf:]]
+        sv = w0 * lp + X @ w; ll = 0.0; gs = np.zeros(len(sv)); ga = np.zeros(4)
+        for k in range(5):
+            z = a[k] * sv; m = np.where(mk[k], z, -1e18); mx = np.maximum.reduceat(m, st)
+            e = np.exp(m - mx[seg]) * mk[k]; Z = np.add.reduceat(e, st); p = e / Z[seg]
+            ll += z[ch[k]].sum() - (np.log(Z) + mx).sum()
+            g = ch[k].astype(float) - p; gs += a[k] * g
+            if k > 0: ga[k - 1] = (sv * g).sum()
+        gr = -np.r_[(gs * lp).sum(), X.T @ gs, ga]; gr[1:1 + nf] += lam * w
+        return -ll + 0.5 * lam * (w @ w), gr
+    r = minimize(f, np.r_[th0, a0[1:]], jac=True, method="L-BFGS-B", options={"maxiter": 300})
+    return r.x[:1 + nf], np.r_[1.0, r.x[1 + nf:]], mu, sd
+
+
+def egit_s(son=None):
+    """Jason-S: Jason özellikleri, ilk-5 sırasıyla eğitilmiş (data/model_aday_s.json). Jason'a dokunmaz."""
+    from .calistir import yukle_model
+    M = yukle_model()
+    son = son or (O.tr_simdi().date() - pd.Timedelta(days=1).to_pytimedelta()).isoformat()
+    d = MS.ekle(hazirla(_oku("temiz"), _oku("program"), M))
+    d["f_lp2"] = np.log(d.p_piyasa.clip(lower=1e-6)) ** 2
+    feat = M["feat"] + EK + LPEK
+    d = d[d.temiz & d.kazandi.notna() & d.lp.notna() & (d.tarih.astype(str) <= son)].copy()
+    d = d.sort_values(O.K + ["no"]).reset_index(drop=True); d["rid"] = d.groupby(O.K).ngroup()
+    d["sr"] = pd.to_numeric(d.sira, errors="coerce").fillna(0)
+    ok = d.groupby("rid").sr.apply(lambda x: all((x == k).sum() == 1 for k in range(1, 6)))
+    tr = d[d.rid.map(ok)].copy().reset_index(drop=True); tr["rid"] = tr.groupby(O.K).ngroup()
+    th0, _, _, _ = _fit(tr.assign(kazandi=(tr.sr == 1).astype(float)), feat, M.get("lam", 100.0))
+    th, a, mu, sd = _fit_s(tr, feat, M.get("lam", 100.0), th0, np.array([1, 0.80, 0.69, 0.69, 0.69]))
+    A = {"surum": "aday_s", "ad": "Jason-S", "egitim_son_tarih": son, "egitim_koşu": int(tr.rid.nunique()), "feat": feat, "cins": M["cins"],
+         "mu": {k: float(v) for k, v in mu.items()}, "sd": {k: float(v) for k, v in sd.items()}, "w": [float(x) for x in th], "lam": M.get("lam", 100.0),
+         "lp2_a": float(th[1 + feat.index("f_lp2")] / sd["f_lp2"]), "a": [float(x) for x in a]}
+    json.dump(A, open(YOL_S, "w", encoding="utf-8"), ensure_ascii=False)
+    print("Jason-S eğitildi:", son, "| koşu", A["egitim_koşu"], "| a", np.round(a, 3))
     return A
 
 

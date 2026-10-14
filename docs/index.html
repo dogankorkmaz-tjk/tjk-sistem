@@ -416,11 +416,11 @@ function hesapla(h,k,kaynakZorla){
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
   else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ idx.push(i); g.push(NaN); }); const ham=atlar.map(a=>Math.max(a.agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
   if(!pp||idx.length<2) return null;
-  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
+  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
-    out.map[i]={pj:pj?pj[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
+    out.map[i]={pj:pj?pj[j]:null,ps:ps?ps[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
   });
   return out;
 }
@@ -986,10 +986,11 @@ function besliEgz(m){
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     if(k.sonuc||k.besli===false) return; const out=hesapla(h,k); if(!out) return;
     const idx=Object.keys(out.map).map(Number); if(idx.length<5) return;
-    const P=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj); if(P.some(v=>v==null)) return;
+    const P=idx.map(i=>m==='Bolton'?out.map[i].pm:m==='Jason-S'?out.map[i].ps:out.map[i].pj); if(P.some(v=>v==null)) return;
+    const GM5=(m==='Jason-S'&&VERI.a_s)?VERI.a_s:G5_M;
     const pp=idx.map(i=>out.map[i].pp);
     const ppW=G5_P.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G5_P.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
-    const sat=[48,96,150].map(B=>{ const r=besliKupon(P,B,G5_M,5,true); if(!r) return null;
+    const sat=[48,96,150].map(B=>{ const r=besliKupon(P,B,GM5,5,true); if(!r) return null;
       const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
       const v=besliGecerli(r.sets);
       return {B,r,prP,oran,h:`<div class="sub"><b>~${B}</b> · ${v} geçerli komb. · <b>${f2(v*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br>${tahOd(kombSay(r.sets),prP,v*1.25)}<span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
@@ -997,7 +998,7 @@ function besliEgz(m){
     const yildiz=sat.some(x=>x.oran>=1.15);
     R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${yildiz?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${sat.map(x=>x.h).join('')}</div>`});
   }));
-  return `<h2 style="margin-top:14px">Sıralı 5'li (kombine, ${m})</h2><div class="sub">Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır, birim 1,25 TL; makine yalnız beş ayrı atlı kombinasyonları ücretlendirir (fişle doğrulandı), aynı at iki sıraya yazılabilir. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü; sonuçlar Test sekmesinde ölçülüyor. Kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
+  return `<h2 style="margin-top:14px">Sıralı 5'li (kombine, ${m}${m==='Jason-S'?' · gölge model':''})</h2><div class="sub">${m==='Jason-S'?'Jason-S: aynı özellikler, ama kazananı değil ilk beşin tam sırasını öğrenecek biçimde eğitilmiş; sıra başına kendi ölçeğini kullanır. Geçmişte 2.–5. sıralarda daha iyi sıralıyor, 1. sırada Jason\'dan biraz kötü. Kuponlar kâğıt üstü ve ayrı ölçülüyor (Test sekmesinde Jason-S-G). ':''}Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır, birim 1,25 TL; makine yalnız beş ayrı atlı kombinasyonları ücretlendirir (fişle doğrulandı), aynı at iki sıraya yazılabilir. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü; sonuçlar Test sekmesinde ölçülüyor. Kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
 }
 function uc3Html(){
   if(!UC3) return '';
@@ -1044,6 +1045,7 @@ function egzCiz(){
   s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için en az ~300 koşu gerekir.</div></div></details>`;
   try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,3); }catch(e){ console.error(e); }
   try{ s+=besliEgz(EGM.indexOf('Jason')===0?'Jason':EGM); }catch(e){ console.error(e); }
+  try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
   el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});

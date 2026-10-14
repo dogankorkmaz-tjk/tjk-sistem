@@ -40,10 +40,10 @@ def gecerli_say(sets):
     return sum(1 for tup in itertools.product(*sets) if len(set(tup)) == 5)
 
 
-def _acgozlu_g(p, B, sets):
+def _acgozlu_g(p, B, sets, G=None):
     """Verilen başlangıç kümelerinden açgözlü genişletme; bütçe geçerli kombinasyon sayısına göre."""
     n = len(p)
-    W, T = _W(p, G_M)
+    W, T = _W(p, G or G_M)
     ord_ = sorted(range(n), key=lambda i: -p[i]); aday = ord_[:min(n, 9)]
     sets = [list(x) for x in sets]
     cur = _prob(W, T, sets); nv = gecerli_say(sets)
@@ -66,14 +66,14 @@ def _acgozlu_g(p, B, sets):
     return sets, cur
 
 
-def kupon_g(p, B):
+def kupon_g(p, B, G=None):
     """Çok başlangıçlı açgözlü kurucu (sürüm 2, 13 Ekim 2026 16:30): ilk iki sıra için tek yönlü ve iki yönlü başlangıçlardan en iyisi.
     Tek başlangıçlı açgözlü, favori çifti iki yönlü açmayı (6,7/6,7) göremiyordu; aynı maliyette %8 daha düşük tutma veriyordu."""
     n = len(p)
     if n < 5:
         return None
     t = sorted(range(n), key=lambda i: -p[i])
-    W, T = _W(p, G_M)
+    W, T = _W(p, G or G_M)
     baslangic = [[[t[0]], [t[1]], [t[2]], [t[3]], [t[4]]],
                  [[t[0], t[1]], [t[0], t[1]], [t[2]], [t[3]], [t[4]]],
                  [[t[0], t[1]], [t[0], t[1]], [t[2], t[3]], [t[2], t[3]], [t[4]]]]
@@ -81,7 +81,7 @@ def kupon_g(p, B):
     for st in baslangic:
         if not (0 < gecerli_say(st) <= B):
             continue
-        sets, pr = _acgozlu_g(p, B, st)
+        sets, pr = _acgozlu_g(p, B, st, G)
         if en is None or pr > en[1] + 1e-12:
             en = (sets, pr)
     return en
@@ -113,6 +113,9 @@ def kupon(p, B):
     return sets, cur
 
 
+GG = {}   # model -> sıra üsleri (Jason-S kendi öğrenilmiş ölçeklerini kullanır)
+
+
 def _olasiliklar(obj, k):
     at = [a for a in k["atlar"] if a.get("agf") and not a.get("kosmaz")]
     if len(at) < 5:
@@ -127,7 +130,17 @@ def _olasiliklar(obj, k):
     if obj.get("w0_aday") is not None and all(a.get("z2") is not None for a in at):
         l2 = obj.get("lp2_aday", 0.0)
         pj = sm([obj["w0_aday"] * math.log(max(p, 1e-6)) + l2 * math.log(max(p, 1e-6)) ** 2 + a["z2"] for p, a in zip(pp, at)])
-    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {})}
+    ps = None
+    if obj.get("w0_s") is not None and all(a.get("z4") is not None for a in at):
+        l2 = obj.get("lp2_s", 0.0)
+        ps = sm([obj["w0_s"] * math.log(max(p, 1e-6)) + l2 * math.log(max(p, 1e-6)) ** 2 + a["z4"] for p, a in zip(pp, at)])
+    GG["Jason-S"] = obj.get("a_s") or G_M
+    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"Jason-S": ps} if ps else {})}
+
+
+def _modeller(obj, k):
+    r = _olasiliklar(obj, k)
+    return list(r[2].keys()) if r else []
 
 
 def _ekle_g(c, at, pp, P, simdi, istek=None):
@@ -137,7 +150,7 @@ def _ekle_g(c, at, pp, P, simdi, istek=None):
         for B in BUTCELER_G:
             if any(q["model"] == model + "-G" and q["butce"] == B for q in c["kuponlar"]):
                 continue
-            kp = kupon_g(p, B)
+            kp = kupon_g(p, B, GG.get(model))
             if not kp:
                 continue
             sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
@@ -180,6 +193,8 @@ def guncelle(obj, simdi=None):
                     c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "kuponlar": []}
                     Wp, Tp = _W(pp, G_P)
                     for model, p in P.items():
+                        if model == "Jason-S":
+                            continue                  # Jason-S yalnız -G kuponlarla ölçülür
                         for B in BUTCELER:
                             kp = kupon(p, B)
                             if not kp:
@@ -195,8 +210,9 @@ def guncelle(obj, simdi=None):
                 eski = [q for q in c["kuponlar"] if q["model"].endswith("-G") and q.get("surum", 1) < 2]
                 if eski:                                  # sürüm 1 (tek başlangıçlı) -G kuponlar henüz başlamamış koşuda sürüm 2 ile değiştirilir
                     c["kuponlar"] = [q for q in c["kuponlar"] if q not in eski]
+            _mod = _modeller(obj, k) if (c and "sonuc" not in c and not k.get("sonuc")) else []
             if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat) and any(
-                    not any(q["model"].endswith("-G") and q["butce"] == B for q in c["kuponlar"]) for B in BUTCELER_G):
+                    not any(q["model"] == m + "-G" and q["butce"] == B for q in c["kuponlar"]) for B in BUTCELER_G for m in _mod):
                 r = _olasiliklar(obj, k)                 # henüz başlamamış kayda eksik -G kuponlar eklenir (mevcut kuponlar değişmez)
                 if r:
                     at, pp, P = r; _ekle_g(c, at, pp, P, simdi)
