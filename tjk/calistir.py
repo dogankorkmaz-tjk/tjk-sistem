@@ -979,6 +979,14 @@ def main():
     elif mod == "gece":
         SC.isle()
         gece(bugun)
+        try:                                   # yabancı koşu kaydı (yalnız kayıt; hata gece işini durdurmaz)
+            from . import yabanci as YB
+            YB.calistir()
+        except Exception as ex:
+            print("yabancı kayıt atlandı:", ex)
+    elif mod == "yabanci":
+        from . import yabanci as YB
+        YB.calistir()
     elif mod == "gecmis":
         bas = datetime.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else bugun - datetime.timedelta(days=45)
         gecmis(bas, bugun - datetime.timedelta(days=1))
