@@ -1,0 +1,48 @@
+{
+ "zaman": "2026-10-15 00:52",
+ "kosu": 289,
+ "ulke": {
+  "abd": 169,
+  "birlesik-krallik": 39,
+  "irlanda": 24,
+  "kanada": 21
+ },
+ "geri_odeme_medyan": 0.695,
+ "dilim": [
+  {
+   "dilim": "(1, 3]",
+   "at": 348,
+   "kazanma": 0.2816,
+   "oranin_dedigi": 0.7184,
+   "ganyan_roi": 0.557
+  },
+  {
+   "dilim": "(3, 6]",
+   "at": 530,
+   "kazanma": 0.1679,
+   "oranin_dedigi": 0.4755,
+   "ganyan_roi": 0.725
+  },
+  {
+   "dilim": "(6, 12]",
+   "at": 623,
+   "kazanma": 0.1156,
+   "oranin_dedigi": 0.4109,
+   "ganyan_roi": 0.954
+  },
+  {
+   "dilim": "(12, 25]",
+   "at": 490,
+   "kazanma": 0.049,
+   "oranin_dedigi": 0.451,
+   "ganyan_roi": 0.838
+  },
+  {
+   "dilim": "(25, 1000]",
+   "at": 300,
+   "kazanma": 0.02,
+   "oranin_dedigi": 0.3733,
+   "ganyan_roi": 0.675
+  }
+ ]
+}
