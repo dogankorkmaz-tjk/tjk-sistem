@@ -979,6 +979,33 @@ def main():
     elif mod == "gece":
         SC.isle()
         gece(bugun)
+        try:                                   # yabancı koşu kaydı (yalnız kayıt; hata gece işini durdurmaz)
+            from . import yabanci as YB
+            YB.calistir()
+        except Exception as ex:
+            print("yabancı kayıt atlandı:", ex)
+    elif mod == "yabanci":
+        if arg: os.environ["YABANCI_EN_COK"] = arg[0]
+        from . import yabanci as YB
+        YB.calistir()
+    elif mod == "abdgecmis":
+        from . import yabanci as YB
+        YB.abd_gecmis(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
+    elif mod == "abdprogram":
+        from . import yabanci as YB
+        YB.abd_program(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
+    elif mod == "slprobe":
+        from . import yabanci as YB
+        YB.sl_probe(*arg)
+    elif mod == "slkosu":
+        from . import yabanci as YB
+        YB.sl_kosu_probe(*[a.replace("|", "/") for a in arg])
+    elif mod == "sltopla":
+        from . import yabanci as YB
+        YB.sl_topla(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
+    elif mod == "yabanciham":
+        from . import yabanci as YB
+        YB.ham_ornek()
     elif mod == "gecmis":
         bas = datetime.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else bugun - datetime.timedelta(days=45)
         gecmis(bas, bugun - datetime.timedelta(days=1))

@@ -5,23 +5,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ecf0ed">
 <title>Ganyan Masası</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
 <style>
 /* Tasarım: yarış programı kâğıdı sadeliği + eyer bezi renkleri. Tek akılda kalan öğe: at numarası rozeti (eyer bezi renginde).
    Alt sekme çubuğu (telefon uygulaması gibi), hipodrom ve koşu seçimi yatay kaydırma. Vurgu: çim yeşili. */
 :root{
-  --bg:#ecf0ed; --surface:#ffffff; --fg:#0e1b16; --muted:#5a6a62; --line:#d9e0db; --soft:#f3f6f4;
-  --accent:#0e5a41; --accent-fg:#ffffff; --accent-soft:#d9eadf;
-  --good:#0d7a45; --good-bg:#dcf0e4; --hot:#a85f00; --hot-bg:#fbebd0; --bad:#b3352e; --bad-bg:#f8e1df;
-  --f-display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
-  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --r:16px; color-scheme:light;
+  --bg:#e9eeeb; --surface:#ffffff; --fg:#0f2119; --muted:#5d6e66; --line:#d6dfda; --soft:#f2f5f3;
+  --accent:#0b5a42; --accent-fg:#ffffff; --accent-soft:#d5e9de;
+  --brass:#a8701a; --brass-bg:#f6e8cc;
+  --good:#0b7a45; --good-bg:#daf0e3; --hot:#a8701a; --hot-bg:#f6e8cc; --bad:#b3352e; --bad-bg:#f8e1df;
+  --f-display:"Schibsted Grotesk",system-ui,sans-serif;
+  --f-body:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:14px; --r-lg:20px; color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root{
-  --bg:#09110d; --surface:#111b16; --fg:#e7efe9; --muted:#8fa197; --line:#22312a; --soft:#16221c;
-  --accent:#5fd1a0; --accent-fg:#06170f; --accent-soft:#16342a;
-  --good:#6fd596; --good-bg:#14301f; --hot:#f0b060; --hot-bg:#33250f; --bad:#f08a82; --bad-bg:#381b19; color-scheme:dark}}
+  --bg:#08110d; --surface:#101b16; --fg:#e4ede8; --muted:#8c9f95; --line:#1f2e27; --soft:#15211b;
+  --accent:#5fd0a0; --accent-fg:#04150d; --accent-soft:#143327;
+  --brass:#e3b45a; --brass-bg:#33270f;
+  --good:#6fd596; --good-bg:#13301f; --hot:#e3b45a; --hot-bg:#33270f; --bad:#f08a82; --bad-bg:#381b19; color-scheme:dark}}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
@@ -141,6 +143,45 @@ button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(
 svg text{fill:var(--muted);font:11px var(--f-body)}
 @media (max-width:380px){.row{grid-template-columns:30px minmax(0,1fr) 64px 46px 38px;gap:6px 8px;padding-inline:12px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* --- 2026-10 sadeleştirme --- */
+body{font-size:15px;letter-spacing:-.003em}
+h1{font:800 21px/1 var(--f-display);letter-spacing:-.03em;display:flex;align-items:center;gap:9px}
+h1::before{content:"";width:22px;height:22px;border-radius:6px;background:var(--accent);box-shadow:inset 0 -5px 0 rgba(0,0,0,.18)}
+h2{font:700 17px/1.15 var(--f-display);letter-spacing:-.015em}
+.top{position:sticky;top:0;z-index:15;margin:calc(-14px - env(safe-area-inset-top,0px)) -16px 0;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.card,details.kb{border-radius:var(--r);border-color:var(--line);box-shadow:0 1px 0 rgba(15,33,25,.04)}
+.kbas b{font:800 24px/1.05 var(--f-display);letter-spacing:-.03em}
+.row .no,.rk b{border-radius:7px;font-weight:800}
+.row .no{width:32px;height:32px;font-size:15.5px}
+.tabs{grid-template-columns:repeat(5,1fr);padding-top:6px}
+.tabs button{font:600 11px var(--f-body);letter-spacing:0}
+.tabs button svg{width:44px;height:30px;padding:5px 12px}
+.tag.ev,.pill.on{background:var(--brass-bg);color:var(--brass)}
+.seg{display:flex;gap:4px;padding:4px;background:var(--soft);border:1px solid var(--line);border-radius:12px}
+.seg button{flex:1;border:0;background:transparent;color:var(--muted);padding:9px 6px;border-radius:9px;font:600 13.5px var(--f-body)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 2px rgba(15,33,25,.12)}
+.bolum{display:flex;flex-direction:column;gap:10px}
+.bolum>h2{margin-top:6px}
+.bolum-not{color:var(--muted);font-size:13px;margin-top:-4px}
+#digerPanel{position:fixed;inset:auto 0 0 0;z-index:30;padding:10px 16px calc(84px + env(safe-area-inset-bottom,0px));
+  background:var(--surface);border-top:1px solid var(--line);border-radius:var(--r-lg) var(--r-lg) 0 0;box-shadow:0 -12px 32px rgba(0,0,0,.18)}
+#digerPanel .ic{max-width:680px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#digerPanel button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:14px;border-radius:14px;background:var(--soft)}
+#digerPanel button span{font:500 12px var(--f-body);color:var(--muted)}
+#digerOrtu{position:fixed;inset:0;z-index:25;background:rgba(5,12,9,.35)}
+@media (prefers-reduced-motion:no-preference){#digerPanel{animation:yuk .18s ease-out}@keyframes yuk{from{transform:translateY(16px);opacity:.6}}}
+.card:not(.empty):not(.stat):not(:has(> .row)):not(:has(> .kbas)):not(:has(> .leg)):not(:has(> .cr)):not(:has(> .rank)){padding:14px 16px}
+.card:not(.empty):not(.stat):not(:has(> .row)):not(:has(> .kbas)):not(:has(> .leg)):not(:has(> .cr)) > table.t{margin:8px -16px -14px;width:calc(100% + 32px)}
+.card > table.t:first-child{margin-top:-14px}
+.card > b:first-child{display:block;font:700 15px/1.25 var(--f-display);letter-spacing:-.01em;margin-bottom:4px}
+.card > .sub + .sub{margin-top:6px}
+.top{flex-wrap:nowrap}
+h1{font-size:19px;gap:8px} h1::before{width:20px;height:20px}
+.daynav button{padding:4px 7px;font-size:20px}
+.daynav .sub{min-width:0;font-size:12.5px}
+.tabs{z-index:35}
+.nm b{font-size:14.5px}
 </style>
 </head>
 <body>
@@ -150,20 +191,29 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
     <div class="daynav"><button id="gGeri" aria-label="Önceki gün">‹</button><span class="sub" id="gun"></span><button id="gIleri" aria-label="Sonraki gün">›</button></div>
   </div>
   <div class="tabs" role="tablist">
-    <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Öneri</button>
-    <button role="tab" id="tabBolton" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V9m7 11V4m7 16v-7"/></svg>Bolton</button>
-    <button role="tab" id="tabJason" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V13m7 7V8m7 12V5"/></svg>Jason</button>
-    <button role="tab" id="tabEgz" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/></svg>Egzotik</button>
-    <button role="tab" id="tabIkili" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14M17 5v14M7 12h10"/></svg>İkili</button>
+    <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Bugün</button>
     <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
+    <button role="tab" id="tabKupon" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 000 4v4H4v-4a2 2 0 000-4z"/></svg>Kuponlar</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
-    <button role="tab" id="tabDosya" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 15v3a2 2 0 002 2h10a2 2 0 002-2v-3"/></svg>Dosya</button>
+    <button role="tab" id="tabDiger" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Diğer</button>
   </div>
+  <div id="digerOrtu" hidden></div>
+  <div id="digerPanel" hidden><div class="ic">
+    <button data-s="bolton"><b>Bolton</b><span>Ana model, tüm atlar</span></button>
+    <button data-s="jason"><b>Jason</b><span>Gölge model, tüm atlar</span></button>
+    <button data-s="arsiv"><b>Arşiv</b><span>Kanıt dışı kâğıt testler</span></button>
+    <button data-s="dosya"><b>Dosya yükle</b><span>CSV, PDF, ekran görüntüsü</span></button>
+  </div></div>
   <div id="durum" class="note"></div>
 
   <section id="bugun" class="sec">
     <div class="sec" id="oynaKutu"></div>
     <div class="sec" id="guvenKutu"></div>
+    <div class="bolum">
+      <h2>Tüyo takibi</h2>
+      <div class="bolum-not">Ana test: Jason olasılığı en az %6 ve AGF'nin en az 1,3 katı olan atlar, kâğıt üstü 1 TL ganyan.</div>
+      <div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
+    </div>
     <div class="sec">
       <h2>Devir fırsatı (7'li ganyan)</h2>
       <div id="otoDevir"><div class="card empty">Yükleniyor…</div></div>
@@ -188,21 +238,6 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <div id="otoCanli"><div class="card empty">Yükleniyor…</div></div>
     </div>
     <div class="sec">
-      <h2>Altılı kupon testi (kağıt üstü)</h2><div>
-      <div class="sub" style="padding:0 12px 8px">Sistemin her gün otomatik kurduğu altılı kuponlar ve toplam sonuçları. Amaç: kuponların uzun vadede kazandırıp kazandırmadığını ölçmek. Oynanmaya değer olanlar zaten yukarıdaki "oyna" listesinde ★ ile çıkar.</div>
-      <div id="otoKupon"><div class="card empty">Yükleniyor…</div></div>
-    </div>
-      <h2>Sırasız ilk 2 / 3 / 5 isabeti</h2><div id="otoSirasiz"><div class="card empty">Yükleniyor…</div></div>
-      <h2>Ek atlı sırasız küme (canlı test)</h2><div id="otoGenis"><div class="card empty">Yükleniyor…</div></div>
-      <h2>Uyandırma ölçümü (uzun ganyanlı atlar)</h2><div id="otoUyan"><div class="card empty">Yükleniyor…</div></div>
-      <h2>Değer filtresi: ikili / üçlü (kağıt üstü)</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div>
-      <h2>Sıralı ikili / üçlü kombine kupon (kağıt üstü)</h2><div id="otoKomb"><div class="card empty">Yükleniyor…</div></div>
-      <h2>Sıralı 5'li kombine kupon (kağıt üstü)</h2><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div>
-      <h2>Jason'ın tüyoları (kağıt üstü takip)</h2><div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
-      <h2>İlk 2 / ilk 3 / ilk 4 takibi (kağıt üstü)</h2>
-      <div id="otoPlase"><div class="card empty">Yükleniyor…</div></div>
-    </div>
-    <div class="sec">
       <h2>Günün özeti</h2>
       <div id="ozet"></div>
     </div>
@@ -214,8 +249,21 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
   <section id="bolton" class="sec" hidden><div id="bolIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="jason" class="sec" hidden><div id="jasIc"><div class="card empty">Yükleniyor…</div></div></section>
 
-  <section id="egz" class="sec" hidden><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
-  <section id="ikili" class="sec" hidden><div id="ikiIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="egz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="true">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button></div><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="ikili" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="true">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button></div><div id="ikiIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="kupon2" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="true">Beşli ve altılı</button></div>
+    <div class="bolum"><h2>Sıralı 5'li kombine kupon</h2><div class="bolum-not">Ana test: Jason, 150 kombinasyonluk bütçe.</div><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div></div>
+    <div class="bolum"><h2>Değer filtresi: ikili ve üçlü</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div></div>
+    <div class="bolum"><h2>Altılı kupon testi</h2><div class="bolum-not">Sistemin her gün kurduğu altılı kuponlar; kâğıt üstü.</div><div id="otoKupon"><div class="card empty">Yükleniyor…</div></div></div>
+  </section>
+  <section id="arsiv" class="sec" hidden>
+    <div class="bolum-not">Bu bölümdeki kurallar izlenmeye devam ediyor ama kanıt hesabına girmiyor. Birinin şansla iyi görünmesi, işe yaradığını göstermez.</div>
+    <div class="bolum"><h2>Sıralı ikili ve üçlü kombine kupon</h2><div id="otoKomb"><div class="card empty">Yükleniyor…</div></div></div>
+    <div class="bolum"><h2>Sırasız ilk 2, 3 ve 5 isabeti</h2><div id="otoSirasiz"><div class="card empty">Yükleniyor…</div></div></div>
+    <div class="bolum"><h2>Ek atlı sırasız küme</h2><div id="otoGenis"><div class="card empty">Yükleniyor…</div></div></div>
+    <div class="bolum"><h2>Uyandırma ölçümü</h2><div id="otoUyan"><div class="card empty">Yükleniyor…</div></div></div>
+    <div class="bolum"><h2>İlk 2, 3 ve 4 takibi</h2><div id="otoPlase"><div class="card empty">Yükleniyor…</div></div></div>
+  </section>
   <section id="skor" class="sec" hidden></section>
   <section id="dosya" class="sec" hidden>
     <div class="card">
@@ -227,6 +275,18 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
       <button id="yukleBtn" class="primary">Yükle</button>
       <div id="yukleSonuc" style="margin-top:12px;font-size:13px"></div>
       <div id="accDurum" style="margin-top:16px;font-size:13px"></div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <h2>Yabancı koşu ekran görüntüsü</h2>
+      <p class="note">Koşu bittikten sonra TJK sonuç ekranının (sıra, at no, ganyan görünen) ekran görüntüsünü seç. Birden çok görüntü seçebilirsin; her biri bir koşu olmalı. Sistem yazıyı okuyup kaydeder (1–2 dakika). Fransa, Güney Afrika, Avustralya, Arjantin ve Şili için; diğer ülkeler zaten otomatik kaydediliyor. Yukarıdaki GitHub anahtarı kullanılır.</p>
+      <div style="display:flex;gap:8px;margin:6px 0 12px">
+        <select id="yfUlke" style="flex:1;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)"><option value="guney-afrika">Güney Afrika</option><option value="fransa">Fransa</option><option value="avustralya">Avustralya</option><option value="arjantin">Arjantin</option><option value="sili">Şili</option><option value="diger">Diğer</option></select>
+        <input id="yfTarih" type="date" style="flex:1;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--fg);font:14px var(--f-body)">
+      </div>
+      <input id="yfDosya" type="file" multiple accept="image/*" style="width:100%;margin-bottom:12px">
+      <button id="yfBtn" class="primary">Görüntüleri gönder</button>
+      <div id="yfSonuc" style="margin-top:12px;font-size:13px"></div>
+      <div id="yfDurum" style="margin-top:12px;font-size:13px"></div>
     </div>
     <div class="card" style="margin-top:12px">
       <h2>Sabit oran yapıştır (SİB)</h2>
@@ -773,6 +833,35 @@ async function sibGonder(){
   }catch(e){ out.innerHTML='✗ '+esc(String(e)); }
 }
 $('sibBtn').onclick=sibGonder;
+try{ const s=localStorage.getItem('gm2_yfulke'); if(s) $('yfUlke').value=s; }catch(e){}
+$('yfTarih').value=(()=>{const d=new Date(),z=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate());})();
+async function yfGonder(){
+  const out=$('yfSonuc'), tok=$('ghTok').value.trim();
+  let tk=tok; try{ if(!tk) tk=localStorage.getItem('gm2_gh')||''; }catch(e){}
+  const fl=[...($('yfDosya').files||[])];
+  if(!tk){ out.innerHTML='<span class="warn">Önce GitHub anahtarını gir.</span>'; return; }
+  if(!fl.length){ out.innerHTML='<span class="warn">Görüntü seçmedin.</span>'; return; }
+  const ulke=$('yfUlke').value, tarih=$('yfTarih').value; try{ localStorage.setItem('gm2_yfulke',ulke); }catch(e){}
+  const h={Authorization:'Bearer '+tk,Accept:'application/vnd.github+json'}, sat=[]; let i=0;
+  for(const f of fl){
+    i++; out.textContent=`Gönderiliyor… ${i}/${fl.length}`;
+    try{
+      const by=new Uint8Array(await f.arrayBuffer()); let bs=''; for(let j=0;j<by.length;j+=8192) bs+=String.fromCharCode.apply(null,by.subarray(j,j+8192));
+      const ext=(f.name.match(/\.(png|jpe?g|webp)$/i)||[,'png'])[1].toLowerCase();
+      const d=new Date(),z=n=>String(n).padStart(2,'0'), ad=`${tarih}_${z(d.getHours())}${z(d.getMinutes())}${z(d.getSeconds())}_${ulke}_${i}.${ext}`;
+      const r=await fetch(`https://api.github.com/repos/${GH}/contents/data/yabanci_foto/${ad}`,{method:'PUT',headers:h,body:JSON.stringify({message:'Yabancı görüntü '+ad,content:btoa(bs),branch:'main'})});
+      sat.push(r.ok?`✓ ${esc(f.name)}`:`✗ ${esc(f.name)}: hata ${r.status}${r.status===401||r.status===403||r.status===404?' (anahtar geçersiz ya da yetkisiz)':''}`);
+    }catch(e){ sat.push(`✗ ${esc(f.name)}: ${esc(String(e))}`); }
+  }
+  out.innerHTML=sat.join('<br>')+'<br><span class="sub">Bitti. 1–2 dakikada okunur; aşağıdaki listede görünür.</span>'; $('yfDosya').value='';
+}
+$('yfBtn').onclick=yfGonder;
+async function yfDurum(){
+  const el=$('yfDurum'); if(!el) return;
+  try{ const d=await getJSON('data/yabanci_foto.json?'+Date.now());
+    el.innerHTML=`<b>Okunan görüntüler</b> <span class="sub">(${d.toplam} görüntü, ${d.tutarli} düzgün okundu)</span>`+(d.dosyalar||[]).slice(0,30).map(x=>`<div style="margin-top:4px">${x.tutarli?'✓':'⚠'} ${esc(x.tarih)} ${esc(x.ulke)} · ${x.satir} at${x.kazanan?' · kazanan '+esc(x.kazanan):''}</div>`).join('')+'<div class="sub" style="margin-top:6px">⚠ = sıra/numara eksik ya da karışık okundu; bu görüntü testte kullanılmaz.</div>';
+  }catch(e){ el.innerHTML='<div class="sub">Henüz okunan görüntü yok.</div>'; }
+}
 $('sibDosya').onchange=async e=>{ const f=e.target.files[0]; if(f){ $('sibMetin').value=await f.text(); $('sibSonuc').textContent='Dosya okundu ('+Math.round(f.size/1024)+' KB). Şimdi "SİB gönder"e bas.'; } };
 
 async function accDurum(){
@@ -785,16 +874,27 @@ async function accDurum(){
     el.innerHTML=h;
   }catch(e){ el.innerHTML='<div class="sub">Accurace durumu henüz oluşmadı.</div>'; }
 }
-const TABS={bugun:'tabBugun',bolton:'tabBolton',jason:'tabJason',egz:'tabEgz',ikili:'tabIkili',kosu:'tabKosu',skor:'tabSkor',dosya:'tabDosya'};
-function sekme(ad){if(arguments[0]==='dosya') accDurum();
-  Object.keys(TABS).forEach(k=>{ $(TABS[k]).setAttribute('aria-selected',k===ad); $(k).hidden=k!==ad; });
+const TABS={bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
+let SON_KUPON=ld('gm2_kupsek','egz');
+function digerAc(ac){ $('digerPanel').hidden=!ac; $('digerOrtu').hidden=!ac; }
+function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
+  digerAc(false);
+  const btn=TABS[ad];
+  ['tabBugun','tabKosu','tabKupon','tabSkor','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
+  Object.keys(TABS).forEach(k=>{ $(k).hidden=k!==ad; });
+  if(btn==='tabKupon'){ SON_KUPON=ad; sv('gm2_kupsek',ad); document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===ad)); }
   if(ad==='egz') egzYukle();
   if(ad==='ikili') degerYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
   if(ad==='bolton'||ad==='jason') (EGZ?Promise.resolve():egzYukle()).then(tumModel);
+  try{ history.replaceState(null,'','#'+ad); }catch(e){}
   try{ window.scrollTo(0,0); }catch(e){}
 }
-Object.keys(TABS).forEach(k=>{ $(TABS[k]).onclick=()=>sekme(k); });
+$('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
+$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor');
+$('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
+document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.dataset.k));
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
@@ -888,16 +988,20 @@ let UC3=null, EGZ=null, KANIT=null, S3=null, EGT=ld('gm2_egt','SIRALI İKİLİ')
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
 function kanitHtml(){
   if(!KANIT||!KANIT.satirlar) return '';
-  const sat=KANIT.satirlar.filter(r=>r.model===EGM);
-  if(!sat.length) return '';
+  const sat=KANIT.satirlar.filter(r=>!r.ana&&r.model===EGM);
+  const ana=KANIT.satirlar.filter(r=>r.ana);
   const f=x=>x==null?'–':String(x).replace('.',',');
   const bin=x=>x==null?'–':x.toLocaleString('tr-TR');
-  const sat_h=sat.map(r=>`<tr><td>${EGT_AD[r.tur]||esc(r.tur)}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.kalan_n==null?'–':bin(r.kalan_n)+(r.kalan_yil!=null&&r.kalan_yil>=0.1?' (~'+f(r.kalan_yil)+' yıl)':'')}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
-  return `<details class="kb"><summary>Kanıt sayacı: bu sonuca ne kadar güvenebilirsin?</summary><div style="padding:0 16px 14px"><b>${esc(EGM)}</b>
-    <table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">Kalan koşu</th><th>Durum</th></tr>${sat_h}</table>
+  const sat_h=sat.map(r=>`<tr><td>${EGT_AD[r.tur]||esc(r.tur)}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.e==null?'–':f(r.e)}</td><td class="n">${r.kalan_n==null?'–':bin(r.kalan_n)+(r.kalan_yil!=null&&r.kalan_yil>=0.1?' (~'+f(r.kalan_yil)+' yıl)':'')}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
+  const ana_h=ana.map(r=>`<tr><td>${esc(r.model)}${r.tur&&r.model.indexOf('Egzotik')===0?' · '+(EGT_AD[r.tur]||esc(r.tur)):''}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.e==null?'–':f(r.e)}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
+  return `<details class="kb"><summary>Kanıt sayacı: bu sonuca ne kadar güvenebilirsin?</summary><div style="padding:0 16px 14px"><b>Ana testler</b> <span class="note">(kanıt eşiği e ≥ ${ana[0]&&ana[0].e_esik?f(ana[0].e_esik):'–'})</span>
+    <table class="t" style="margin-top:4px"><tr><th>Kural</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">e-değer</th><th>Durum</th></tr>${ana_h}</table>
+    ${sat.length?`<div style="margin-top:10px"><b>${esc(EGM)}</b> <span class="note">(arşiv, kanıt hesabı dışı)</span></div>
+    <table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">e-değer</th><th class="n">Kalan koşu</th><th>Durum</th></tr>${sat_h}</table>`:''}
     <div class="sub" style="margin-top:8px"><b>Olası aralık:</b> geri dönüşün gerçekte olabileceği bölge. 1,00'ı kapsıyorsa kâr da zarar da mümkün, yani henüz bir şey söylenemez.</div>
+    <div class="sub"><b>e-değer:</b> her gün bakılabilen kanıt. 1 civarı = kanıt yok; ${KANIT.satirlar[0]&&KANIT.satirlar[0].e_esik?f(KANIT.satirlar[0].e_esik):'–'} ve üstü = kâr kanıtı (çok kurala göre düzeltilmiş). Kötü giderse 0'a yaklaşır.</div>
     <div class="sub"><b>Kalan koşu:</b> +%5 avantajı güvenle ayırt etmek için gereken ek koşu sayısı (tahmin, parantezde bugünkü hızla süre).</div>
-    <div class="sub"><b>Denenen kural:</b> sitede en az ${KANIT.kural_sayisi} farklı kural izleniyor. Çok kural denenince biri şansla iyi görünür, bu yüzden aralık genişletildi (z=${f(KANIT.z_duz)}).</div>
+    <div class="sub"><b>Ana testler:</b> kanıt yalnız bu ${KANIT.kural_sayisi} satıra göre aranır (15 Ekim 2026 seçimi). Sitedeki diğer ${KANIT.kural_sayisi_tum||'–'} kural izlenmeye devam eder ama "arşiv"dir: biri şansla iyi görünse bile kanıt sayılmaz. Aralık ${KANIT.kural_sayisi} teste göre genişletildi (z=${f(KANIT.z_duz)}).</div>
     <div class="sub">Egzotik ödemeler çok çarpık dağıldığı için bu aralıklar yine de iyimser kalabilir. Bu bölüm yalnızca ölçer, hiçbir kuralı değiştirmez.</div></div></details>`;
 }
 function sirali3Html(){

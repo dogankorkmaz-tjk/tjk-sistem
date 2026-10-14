@@ -147,3 +147,95 @@ Kural (tek, değişmez): Model = Jason olasılıkları, sıra üsleri G_M (beşl
 Ölçüt: tür başına oynanan koşularda geri dönüş (ödeme/harcama), bootstrap (gün bazında) GA; oynanmayan koşu sayısı ayrı raporlanır. Karşılaştırma: aynı koşularda sabit bütçeli Jason-G (beşli) ve kombine Jason (ikili/üçlü) kuponları, eşleşmiş.
 Canlı: yarış başlamadan dondurulur, ayrı kayıt (data/esnek/), sitede Egzotik > Esnek. Ana kupon, model ve kurallar DEĞİŞMEZ.
 Karar: tür başına >=300 oynanmış koşu ve eşleşmiş farkın GA'sı sıfırın üstündeyse "aday"; aksi halde kapanır / 1 Nisan 2027'ye ertelenir. Geriye dönük test bu ön kayıttan SONRA ve ayrı kayıtla yapılır; canlı sonuç esastır.
+
+## 15 Ekim 2026, 00:00 — Yol haritası Faz 1: AGF olasılık olarak ne kadar kötü? (ÖN KAYIT, sonuç görülmeden)
+Soru: Altılı oynayan halkın dağılımı (AGF, son değer `zengin.agf_son`) kazananı ganyan piyasasından (`p_piyasa`, son muhtemel ganyan) daha mı kötü tahmin ediyor? Jason'ın AGF'ye karşı kazancı ganyana karşı kazancından büyük mü?
+Veri: walk-forward OOS Jason/Bolton olasılıkları (çeyreklik, 2024Q2+; aynı kod `tjk/walkforward.py`), AGF'si olan koşular (2025-01→05, 2026-01→10). AGF koşu içinde normalize edilir.
+Ölçüt: kazanan log-olasılığı farkı (nats/koşu): Jason−AGF, piyasa−AGF, Jason−piyasa; yarış günü kümeli bootstrap %95 GA; dönem tutarlılığı (2025 / 2026 ayrı).
+Karar (değiştirilmez): Jason−AGF ≥ 0,05 nats/koşu ve GA alt sınırı > 0,03 → Faz 2'ye geç (altılıda ayak başına p/a çarpanı anlamlı olabilir). < 0,03 → altılı yolu da kapalı.
+Tek test; canlıda değişiklik yok.
+
+## 15 Ekim 2026, 00:01 — Faz 2: Altılı "değer" kurucusu geriye testi (ÖN KAYIT, sonuç görülmeden; yalnız Faz 1 geçerse yorumlanır)
+Fikir: altılıda bir kombinasyonun beklenen getirisi ≈ k × Π(pᵢ/aᵢ) (p = Jason OOS, a = AGF payı, k = havuz net oranı/birim). Küçük ayak avantajı altı ayakta çarpılır.
+Kurucular (hepsi aynı açgözlü yapı, aynı bütçe B = 64 ve 256 kombinasyon, 1 birim/kombinasyon):
+- V (değer): her ayağa önce en yüksek p'li at; sonra her adımda log(tutma olasılığı) artışı / log(maliyet) artışı en büyük at eklenir, ama YALNIZ p/a ≥ 1,0 olan atlar eklenebilir; bütçe dolunca durur.
+- J (olasılık): aynı, filtre yok (Jason p ile en yüksek tutma).
+- A (AGF): aynı, p yerine AGF a (halkın kendi kuponu, taban).
+Veri: odeme `6'LI GANYAN` (+ DEVİR = kimse bilemedi, ödeme 0), ayaklar = kosu−5..kosu; ayak koşusunda ölü yarış "3,4" ikisi de geçer. Tüm 6 ayakta OOS p ve AGF olan altılılar.
+Ölçüt: ROI = Σödeme/Σmaliyet (ödeme birim başına varsayımı); V−J ve V−A eşleştirilmiş, gün kümeli bootstrap %95 GA; 2025 ve 2026 ayrı. Ayrıca kalibrasyon: k̂ = medyan(ödeme × Π a_kazanan) ve tahmini EV ile gerçekleşen ROI.
+Karar: V'nin ROI GA alt sınırı > 1,0 → canlı kâğıt test adayı (1 Ocak 2027 değerlendirmesi). Aksi halde betimleyici; parayla oynanmaz. Tek varyant; başka eşik/bütçe denenirse KEŞİF olarak ayrıca yazılır.
+SONUÇ Faz 1 (15 Ekim 2026, 00:20; 5.313 koşu, 2025-01→2026-10): Jason−AGF +0,0020 nats/koşu (GA −0,0061..+0,0100; 2025 +0,0054, 2026 +0,0005). Piyasa−AGF −0,0200 (GA −0,028..−0,012): AGF, son ganyandan DAHA İYİ tahminci. Jason−piyasa (aynı koşular) +0,0220. Dilim tablosu: ganyan piyasası uzun atışları fazla fiyatlıyor (p≤%3 diliminde piyasa %1,89, gerçek %1,31, AGF %1,34); AGF bu yanlılığı taşımıyor. Karar (ön kayıt gereği): ölçüt sağlanmadı → altılıda p/a çarpanı yolu KAPALI. Jason'ın piyasaya karşı avantajının büyük kısmı AGF'nin zaten bildiği şey. Faz 2 yalnız betimleyici koşturulur. Betik: data/analiz/agf_skor.py.
+
+## 15 Ekim 2026, 00:25 — Faz 1b: AGF'yi Jason'a bilgi olarak eklemek (ÖN KAYIT, Faz 1 sonucundan doğan KEŞİF fikri)
+Soru: AGF ganyandan iyi tahmin ettiğine göre Jason ⊕ AGF karışımı ganyan piyasasına karşı Jason'dan fazla kazanır mı, ve bu ganyan EV kuralına yansır mı?
+Model: p ∝ p_Jason^(1−w) · a^w (tek parametre w). w yalnız 2025 koşularında (log-olabilirlik) fit edilir, 2026'da sınanır (AGF'li koşular).
+Ölçüt: 2026 sınamada (Karışım − Jason) nats/koşu, gün kümeli bootstrap GA; ve EV kuralı (p × son ganyan > 1,1 ve > 1,3) ROI: Karışım vs Jason, aynı koşular.
+Karar: nats kazancı GA alt sınırı > 0,005 → "Jason-A" gölge model adayı (AGF canlıda yarıştan önce mevcut; son AGF altılı kapanışında donar). ROI yalnız betimleyici. Tek test.
+DÜZELTME + SONUÇ Faz 1b (15 Ekim 2026, 00:10): İlk koşu geçersiz — ekürlü koşularda `ortak.duzelt` ekür olasılığını atlara böler, 1/p_ham ise ödemeyi 2–3 kat şişirir; karışım ekür atlarını "değerli" sanıyordu (ROI 2,95 sahteydi). Düzeltme: ekürlü koşular (%17) çıkarıldı, ödeme = gerçek ganyan. Sonuç (2026 sınama, 2.917 koşu): w=0,31 (2025 fit); Karışım−Jason +0,0056 nats/koşu (GA +0,0026..+0,0087); Karışım−piyasa +0,0279. Ön kayıt ölçütü (GA alt > 0,005) SAĞLANMADI → Jason-A adayı değil. Gerçek ama küçük; ROI örneği çok küçük (19 bahis), betimleyici bile değil.
+Yan etki kontrolü (mevcut kural): Jason EV>1,1 (walk-forward 2024Q2+) eski hesap 1,174 (n 311) → gerçek ganyanla 1,139; ekür hariç 1,196 (n 287). Jason−piyasa ekürsüz +0,0134 (tümü +0,0153). Önceki sonuçlar büyük ölçüde geçerli; ancak `walkforward.py` EV/ROI hesabı ekür için düzeltilmeli.
+SONUÇ Faz 2 (15 Ekim 2026, 00:15; yalnız betimleyici, Faz 1 geçmedi; 896 altılı, 2025-01→05 + 2026-01→10, ödeme birim başına okuması). k̂ = medyan(ödeme × Π AGF_kazanan) = 0,60 (IQR 0,38–0,74): AGF halkın altılı kapsamasını kabaca temsil ediyor.
+ROI [%95 GA] V / J / A: B=64 1,02 [0,47–1,70] / 0,56 / 0,43; B=256 1,39 [0,61–2,40] / 0,81 / 0,48. Yıl ayrımı tutarsız: 2025 V 0,24 (B64) / 0,68 (B256), 2026 V 1,30 / 1,65. En büyük 3 ödeme çıkarılınca V 0,58 (B64) / 0,70 (B256). Tahmini EV oranı (Π p/a) V'de ortalama 4,6–5,9, gerçekleşen çok altında: p/a filtresi küçük AGF'li atlarda gürültüyü seçiyor (kazananın laneti).
+Karar (ön kayıt): V'nin GA alt sınırı 1,0'ı geçmedi → aday değil, parayla oynanmaz. V−A (B=256) GA [+0,13, +1,92] pozitif ama ağır kuyruk ve 2025 tutarsızlığı nedeniyle KEŞİF sayılır. İleriye dönük izlenebilir: 1 Nisan 2027'de B=256 V kuralı (bu dosyadaki tanımla, değiştirilmeden) betimleyici bakış. Betik: data/analiz/altili_deger.py.
+
+## 15 Ekim 2026, 00:25 — Faz 0: e-değer izlemesi (ölçüm aracı, kural değişikliği yok)
+`tjk/kanit.py` artık her (model, bahis) satırına e-değer yazar: koşu başına getiri X ile karışım bahis martingali W = ort_λ Π(1+λ(X−1)), λ ∈ {0,01; 0,02; 0,05; 0,1; 0,2} (sabit). H0 (ROI ≤ 1) altında W'nin herhangi bir anda 1/α'yı geçme olasılığı ≤ α: her gün bakılabilir. Eşik = kural sayısı/0,05. Simülasyon (ROI=1, 1/20 ihtimalle 20 kat, 1.000 koşu, 2.000 tekrar, her koşudan sonra bakış): e ≥ 20'yi görme oranı 0,032 (≤ 0,05 olmalı) → geçerli.
+Bugünkü durum: 31 kural izleniyor → eşik 620. En yüksek e = 1,60 (Jason-1.50 sıralı ikili, 9 koşu); diğerleri 0,29–0,89. Hiçbir kuralda kanıt yok.
+Budama önerisi (karar Doğan'ın): kural sayısı 31 → 3 olursa eşik 620 → 60 olur, aynı kanıta ~10 kat daha az veriyle ulaşılır. Önerilen 3: Jason egzotik (ana, 1,15), değer filtresi 1,25, Jason ganyan EV>1,1. Diğerleri silinmez, "arşiv/betimleyici" sayılır ve kanıt hesabına girmez.
+
+## 15 Ekim 2026, 00:35 — Faz 4: empirik Bayes önsel gücü (ÖN KAYIT, sonuç görülmeden)
+Gözlem (veriden, sonuç değil): beta-binom moment tahmini önsel gücü k — at 24 (kodda 5), jokey 33 (30), antrenör 84 (30), sahip 42 (30), baba 136 (60). At/antrenör/baba oranları az büzülüyor olabilir.
+Test: Jason'ı f_hwin M=24, f_twin 84, f_swin 42, f_bwin 136 (jokey 30 aynı) ile walk-forward (2024Q2+, aynı kod) yeniden üret; mevcut Jason OOS ile aynı koşularda kazanan log-olasılığı farkı, gün kümeli bootstrap GA, çeyrek tutarlılığı.
+Karar: fark GA alt sınırı > 0,002 ve çeyreklerin ≥ %75'inde pozitif → Jason-EB gölge adayı (1 Ocak 2027). Aksi halde kapanır. Tek test.
+SONUÇ Faz 4 (15 Ekim 2026, 00:45; 14.729 koşu): EB−Jason −0,0001 nats/koşu (GA −0,0003..+0,0001), 5/11 çeyrek pozitif → KAPANDI. Önsel gücü ayarı bilgi eklemiyor (lam taramasıyla tutarlı). Betik: data/analiz/eb_onsel_testi.py.
+
+## 15 Ekim 2026, 00:40 — Faz 3: son dakika kayması (KEŞİF, betimleyici, çok küçük örnek)
+data/canli_oran (bayi/yayın ekranı fotoğrafları, 14 koşu, 112 at; her koşunun en geç ekranı, ekürsüz): son ganyan / canlı ekran oranı tüm atlarda ×1,05 (±0,03). Jason'ın canlı orana göre EV>1,1 gördüğü 6 atta ×0,52 (log −0,66 ± 0,23): "değerli" görünen atların oranı kapanışa kadar yarıya inmiş. 6 at kanıt değil, ama yön tehlikeli: canlıda görülen değer kapanışta kaybolabilir (geç para). Ayrıca Faz 1 dolaylı kanıt: altılı kapanışında donan AGF, sonradan oluşan son ganyandan daha iyi tahminci → ganyan havuzuna geç gelen paranın "akıllı" olduğuna işaret yok; kayma muhtemelen ekran okuma zamanı/dar havuz kaynaklı. Ölçüm sürecek: her gerçek bahiste ekran oranı kaydedilsin (zaten Oynadıklarım'da). 100+ değer atında yeniden bakılır. Betik: data/analiz/son_dakika_kayma.py.
+
+## 15 Ekim 2026, 00:20 — Ana testler seçildi (Doğan'ın kararı; sonuçlar değiştirilmedi)
+Kanıt yalnız şu 6 satırda aranır (eşik e ≥ 6/0,05 = 120; aralıklar 6 teste göre Bonferroni):
+1–3. Egzotik ana kural, Jason (1,15): sıralı ikili, ikili, üçlü
+4. Değer filtresi ikili 1,25, piyasa olasılığı ≥ %1
+5. Ganyan: canlıda son ganyan bilinmediği için EV>1,1 kuralı izlenemiyor; canlı karşılığı Jason tüyoları (pJ ≥ %6, pJ/AGF ≥ 1,30, 1 TL ganyan)
+6. Sıralı 5'li: Jason-G, 150 geçerli kombinasyon bütçesi
+Diğer kurallar sitede sürer, "arşiv" etiketlidir, kanıt sayılmaz. Bu liste 1 Ocak 2027 değerlendirmesine kadar değişmez.
+
+## 15 Ekim 2026, 00:25 — Eşikli (kapsama) kupon: 5'li/6'lı/7'li ganyan (ÖN KAYIT, sonuç görülmeden; Doğan'ın fikri)
+Kural: her ayakta atlar Jason OOS olasılığına göre sıralanır, ayağın toplam olasılığı ≥ T olana kadar eklenir (en az 1, en çok 8 at). Rekabetçi ayakta otomatik genişler, net favorili ayakta daralır. T ∈ {0,60; 0,75; 0,90} (önceden sabit).
+Veri: odeme 5'Lİ / 6'LI / 7'Lİ GANYAN (+DEVİR = kimse bilemedi, 0), ayaklar = son koşudan geriye 5/6/7 koşu; tüm ayaklarda OOS olasılık olan kuponlar; 2025-01→ (ödeme dosyaları). Maliyet = kombinasyon × 1 birim, ödeme birim başına okuması.
+Ölçüt: ROI, gün kümeli bootstrap %95 GA; ayrıca tutma oranı ve ortalama maliyet. 9 test (3 T × 3 bahis) → Bonferroni %95/9.
+Beklenti (Faz 1'den): Jason ≈ AGF olduğundan genişlik kuralı getiriyi kesinti çizgisinin (k̂ ≈ 0,6) üstüne taşımamalı; esas etki tutma oranı ve oynaklık.
+Karar: herhangi bir hücrede Bonferroni GA alt sınırı > 1,0 → canlı kâğıt test adayı; aksi halde betimleyici. Betik: data/analiz/esikli_kupon.py.
+SONUÇ (15 Ekim 2026, 00:30): 9 hücrenin hiçbirinde Bonferroni GA alt sınırı 1'i geçmedi → aday yok. ROI: 5'li 0,72/0,73/0,56; 6'lı 0,71/1,16/0,57; 7'li 1,23/0,63/0,17 (T=0,60/0,75/0,90). 1'in üstündeki iki hücre (6'lı T=0,75, 7'li T=0,60) en büyük 3 ödeme çıkınca 0,47 ve 0,58 → birkaç sürpriz ödemenin eseri. Tutma oranı modelle uyumlu (ör. 6'lı T=0,75: gerçek %29,0, model %26,0): model iyi kalibre, ama kalibre olmak kâr demek değil. Maliyet çok hızlı büyüyor (6'lı T=0,75 ortalama 6.005, T=0,90 59.031 kombinasyon). Faz 1 beklentisiyle tutarlı: genişlik kuralı getiriyi kesinti çizgisinin üstüne taşımıyor.
+
+## 15 Ekim 2026, 01:00 — Yabancı koşular: TJK havuzu kaydı başladı (KEŞİF, yalnız kayıt)
+`tjk/yabanci.py` (gece job'unda): agftablosu sitemap'indeki yabancı sonuç sayfalarından TJK son ganyanları → data/yabanci/. Fransa sayfaları kaynakta bozuk (her koşuda tek satır, at no=0) → Fransa için TJK tarafı bu kaynaktan alınamıyor. ABD/İngiltere/İrlanda/Kanada düzgün.
+İlk 247 koşu (25 Eyl–2 Eki): TJK yabancı havuzu geri ödeme medyanı 0,695 (kesinti ~%30, yurt içiyle aynı). Oran dilimi (kazanma / oranın dediği / ganyan ROI): ≤3 %28,4 / %35,7 / 0,56; 3–6 %17,0 / %15,8 / 0,73; 6–12 %10,4 / %8,3 / 0,86; 12–25 %5,0 / %4,2 / 0,87; 25+ %2,2 / %1,9 / 0,73. Favoriler TJK yabancı havuzunda fazla oynanıyor gibi (yurt içinin tersi). Örnek küçük, hiçbir dilimde ROI > 1 yok.
+Karşı piyasa (yerel ülke oranı) henüz yok: PMU açık API robots.txt 404 (dosya yok), pmu.fr robots sonuç sayfalarını yasaklamıyor; ama Fransa'nın TJK tarafı bozuk. İngiltere için yerel oran kaynağı aranacak. Karar yok; ≥1.000 koşu birikince kalibrasyon yeniden okunur.
+
+## 15 Ekim 2026, 01:05 — Ülke ülke yabancı havuz testi (ÖN KAYIT, sonuç görülmeden; Doğan'ın isteği)
+Soru: TJK'dan oynanan yabancı koşularda hangi ülkenin TJK havuzu en "yanlış fiyatlı"?
+Veri: data/yabanci (agftablosu sitemap ~3 hafta; geçerli koşu: tek kazanan, ≥3 at, Σ1/ganyan 1,2–1,7, at no>0).
+Her ülke için (≥ 80 koşu olanlar; azsa "yetersiz"):
+1) Geri ödeme = 1/medyan(Σ1/ganyan).
+2) Kalibrasyon eğimi β: p ∝ p_piyasa^β (koşullu logit, tek parametre). β>1: favoriler az oynanıyor; β<1: favoriler fazla oynanıyor. Profil olabilirlik %95 GA.
+3) Kural sınaması (ileriye dönük benzetim): β tarih sırasına göre ilk yarıda fit, ikinci yarıda p^β ile EV = p × ganyan > 1,10 olan atlara 1 TL ganyan; ROI ve gün kümeli bootstrap GA.
+Karar: "aday ülke" = ikinci yarı ROI GA alt sınırı > 0,90 VE β'nın GA'sı 1'i dışlıyor. Aday çıkarsa yalnız ileriye dönük kâğıt test (para yok); çıkmazsa veri birikince (≥ 1.000 koşu/ülke hedefi yok, ≥ 300 koşu) yeniden. Çoklu karşılaştırma: ülke sayısı kadar Bonferroni notu düşülür.
+SONUÇ (15 Ekim 2026, 01:20; 613 geçerli koşu, 25 Eyl–14 Eki): Kaynakta yalnız ABD, İngiltere, İrlanda, Kanada sayfaları sağlam; Fransa, Güney Afrika, Avustralya, Arjantin, Şili sayfaları bozuk (at no=0, tek satır) → bu ülkeler bu kaynakla test EDİLEMEZ.
+Geri ödeme tüm ülkelerde 0,694–0,696 (kesinti ~%30,5, ülkeden bağımsız).
+ABD (346 koşu): β=0,79 (GA 0,65–0,92) → TJK'nın ABD havuzunda favoriler anlamlı biçimde fazla oynanıyor. Ama ileriye benzetim (ilk yarı β=0,76, ikinci yarı EV>1,10): 81 bahis, ROI 0,28 (GA 0,00–0,77) → kural çöktü.
+İngiltere (114): β=1,01 (0,77–1,27), iyi kalibre; EV>1,10 bahis çıkmadı. İrlanda (37), Kanada (22): yetersiz.
+Karar: aday ülke YOK. ABD'deki yanlılık gerçek ama ~%30 kesintiyi aşacak büyüklükte değil. Kayıt her gece sürer; ABD/İngiltere ≥ 300'er koşu daha birikince aynı betikle yeniden. Betik: data/analiz/ulke_testi.py.
+
+## 15 Ekim 2026, 01:20 — ABD modeli: Türkiye düzeninin ABD'ye uyarlanması (ÖN KAYIT, sonuç görülmeden)
+Veri: agftablosu ABD sonuç sayfaları, ~Ekim 2025 → Ekim 2026 (geçmiş çekim sürüyor). Kaynakta yalnız sonuç tablosu var: at, jokey, kilo, derece, ganyan. Mesafe/pist/antrenör/idman YOK → bu özellikler kurulamaz; derece mesafesiz olduğu için hız figürü yok.
+Özellikler (hepsi kesinlikle önceki günlerden): atın kazanma oranı (önsel 24), son 3 bitiş yüzdeliği, ilk koşu, dinlenme günü, jokey kazanma oranı (önsel 30), göreli kilo, atın piyasaya göre artığı (son 3, önsel 2), jokeyin piyasaya göre artığı (önsel 30).
+Modeller: M0 = piyasa (son ganyan, normalize); M1 = piyasa + eğrilik (lp, lp²; favori yanlılığını düzeltir); M2 = M1 + özellikler. Koşullu logit, ridge λ=100 (Türkiye ile aynı).
+Yöntem: aylık genişleyen pencere walk-forward; ilk 3 ay yalnız eğitim. Ölçüt: kazanan log-olasılığı (nats/koşu) M2−M1 (bilgi var mı?) ve M1−M0 (yanlılık ne kadar?), gün kümeli bootstrap GA; EV = p×ganyan > 1,10 ROI (gerçek ganyan) betimleyici.
+Karar: M2−M1 GA alt sınırı > 0,005 → "ABD'de halkın kullanmadığı bilgi var", ileriye dönük kâğıt test (para yok). Aksi halde ABD modeli kapanır. Tek test; özellik listesi değişmez. Betik: data/analiz/abd_model.py.
+DÜZELTME (15 Ekim 2026, 01:30, sonuç görülmeden): ABD için agftablosu program sayfası VAR (antrenör, sahip, yaş, start, son 6, KGS; mesafe/pist/orijin yok). Özellik listesine eklendi: antrenör kazanma oranı (önsel 84), sahip (önsel 42), yaş, göreli start. Geçmiş çekim artık program sayfasını da alır; ilk parça için `abdprogram` ile tamamlanır. İdman yok (TJK idman PDF'leri yalnız Türk atları). Karar ölçütü değişmedi.
+
+## 15 Ekim 2026, 01:45 — İki piyasa testi: TJK yabancı havuzu vs yerel piyasa (ÖN KAYIT, sonuç görülmeden)
+Kaynak: TJK son ganyan (agftablosu, data/yabanci) + yerel son oran (Sporting Life, robots izinli, data/yabanci_sl). ABD için tote, İngiltere/İrlanda için SP. Eşleşme: aynı gün/hipodrom, at adları en çok örtüşen koşu (≥ %60 at örtüşmesi), ekürsüz.
+Yerel olasılık q = (1/oran) koşu içinde normalize.
+Ölçütler: (1) Tahmin: kazanan log-olasılığı q − TJK p (nats/koşu), ülke bazında. (2) Kural: TJK'da 1 TL ganyan, q × TJK ganyan > k; k=1,25 BİRİNCİL, k=1,10 ikincil. ROI (gerçek TJK ganyanı), gün kümeli bootstrap %95 GA; zaman yarıları ayrı.
+Karar: k=1,25 ROI GA alt sınırı > 1,0 → ileriye dönük kâğıt test (canlı: bayide TJK oranı + yerel canlı oran). Değilse ama nokta tahmini > 1,0 ise: veri biriktirilir (geçmiş çekimle örnek büyütülür), karar ≥ 1.000 bahiste. Not: iki taraf da SON oran; canlıda ikisi de kayar, ileriye dönük test şart.

@@ -27,7 +27,9 @@ def main():
     d = d[d.temiz & d.kazandi.notna() & d.lp.notna()].copy()
     d["tarih"] = d.tarih.astype(str)
     d["rid"] = d.groupby(O.K).ngroup()
-    d["ganyan_son"] = 1.0 / d.p_ham  # son muhtemel ganyan
+    # 15 Eki 2026 düzeltme: ekürde p_ham bölünür, 1/p_ham ödemeyi şişirir. Ödeme = gerçek ganyan; ekür atları EV kuralına girmez.
+    d["ekur"] = (d.p_ham * d.ganyan - 1).abs() > 1e-6
+    d["ganyan_son"] = d.ganyan
     feats = {"Bolton": M["feat"], "Jason": M["feat"] + EK + LPEK}
     q = pd.PeriodIndex(pd.to_datetime(d.tarih), freq="Q")
     d["q"] = q.astype(str)
@@ -45,7 +47,7 @@ def main():
             th, mu, sd, nk = _fit(tr, feat, M.get("lam", 100.0))
             te["p_" + ad] = skorla(te, feat, th, mu, sd)
         te["fold"] = k
-        rows.append(te[["fold", "tarih", "hipodrom", "kosu", "no", "kazandi", "p_piyasa", "p_Bolton", "p_Jason", "ganyan_son"]])
+        rows.append(te[["fold", "tarih", "hipodrom", "kosu", "no", "kazandi", "p_piyasa", "p_Bolton", "p_Jason", "ganyan_son", "ekur"]])
         w = te[te.kazandi == 1]
         r = {"fold": k, "kosu": int(len(w))}
         for ad in ("Bolton", "Jason"):
@@ -63,7 +65,7 @@ def main():
         ev = R["p_" + ad] * R.ganyan_son
         roi = []
         for esik in (1.0, 1.1, 1.2, 1.3, 1.5):
-            m = ev > esik
+            m = (ev > esik) & ~R.ekur
             ret = R[m].kazandi * R[m].ganyan_son - 1
             roi.append({"esik": esik, "bahis": int(m.sum()), "roi": float(ret.mean()) if m.sum() else None,
                         "se": float(ret.std(ddof=1) / np.sqrt(m.sum())) if m.sum() > 1 else None})

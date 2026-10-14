@@ -1,0 +1,13 @@
+{
+ "zaman": "2026-10-15 00:59",
+ "kaynaklar": {
+  "https://online.turfinfo.api.pmu.fr/robots.txt": {
+   "durum": 404,
+   "metin": "<!doctype html><html lang=\"en\"><head><title>HTTP Status 404 – Not Found</title><style type=\"text/css\">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1></body></html>"
+  },
+  "https://www.pmu.fr/robots.txt": {
+   "durum": 200,
+   "metin": "User-agent: *\n\n# gestion de compte\nDisallow: /compte/approvisionnement*\nDisallow: */mes-paris/*\n\n# eReportPlus\nDisallow: */e-report-plus/*\n\n# url app\nDisallow: */dispatchOS/*\n\n# url non site\nDisallow: */monitoring/pump/*\nDisallow: */casaques/*\nDisallow: */?fromUrl=*\nDisallow: */?ead-publicher=*\nDisallow: */?_ga=*\nDisallow: */pmu_get_all_dispatch?_=*\nDisallow: */actualites/news/*\nDisallow: */[dateOrReunion]/*\nDisallow: */.well-known/*\nDisallow: */sites/online/files/*\nDisallow: */turf/ouverture-compte/hippique/doublequinteboost/*\nDisallow: */ouverture-compte/poker/*\nDisallow: */ouverture-compte/pmusport/*\n\n\nSitemap: https://www.pmu.fr/sitemap.xml"
+  }
+ }
+}
