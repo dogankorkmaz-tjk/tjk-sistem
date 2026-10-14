@@ -957,7 +957,7 @@ function egzKart(c,durum,r){
   if(durum!=='kapali'){
     const OR=(c.oran&&c.oran[EGT])||{}; const LS=L.slice().sort((a,b)=>((OR[b]||[0])[0])-((OR[a]||[0])[0]));
     s+=`<div style="display:flex;gap:6px;flex-wrap:wrap">${LS.map(x=>{const q=OR[x];return `<span style="border:1px solid var(--line);border-radius:8px;padding:3px 8px;display:flex;flex-direction:column;align-items:center;line-height:1.2"><span style="font:600 14px var(--f-mono,monospace)">${esc(x)}</span>`+(q?`<small style="font-size:11px;color:var(--muted)">×${f2(q[0])} · %${pct(q[1])}</small>`:'')+`</span>`}).join('')}</div>`;
-    s+=`<div class="sub">${L.length} kombinasyon · ${(L.length*EGT_B[EGT]).toLocaleString('tr-TR')} TL${L.length*EGT_B[EGT]<20?' <small>(min. bilet 20 TL)</small>':''}</div>`;
+    s+=`<div class="sub">${L.length} kombinasyon · ${(L.length*EGT_B[EGT]).toLocaleString('tr-TR')} TL${L.length*EGT_B[EGT]<20?` <small>→ <b>${Math.ceil(20/(L.length*EGT_B[EGT]))} misli</b> = ${Math.ceil(20/(L.length*EGT_B[EGT]))*L.length*EGT_B[EGT]} TL (min. bilet 20 TL)</small>`:''}</div>`;
     let ph={}, KK=EGT==='ÜÇLÜ BAHİS'?3:2;
     try{ const hh0=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk0=hh0&&hh0.kosular.find(x=>x.kosu===c.kosu), o0=kk0&&hesapla(hh0,kk0);
       if(o0){ const ix=Object.keys(o0.map).map(Number).filter(i=>(PF(o0.map[i],EGM))!=null);
@@ -983,7 +983,7 @@ function kombEgz(m,L){
     const sat=BT.map(B=>{ const r=besliKupon(P,B,GMm,L); if(!r) return null;
       const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
       const lab=r.sets.map((x,j)=>`${j+1}. at: <b>${x.map(i=>k.atlar[idx[i]].no).join(',')}</b>`).join(' &nbsp;|&nbsp; ');
-      return {oran,h:`<div class="sub"><b>≤${f2(B*BIRIM)} TL</b> · ${kombSay(r.sets)} komb. · <b>${f2(kombSay(r.sets)*BIRIM)} TL</b>${kombSay(r.sets)*BIRIM<20?' <small>(min. bilet 20 TL)</small>':''} · tutma %${(r.pr*100).toFixed(1).replace('.',',')} (piyasa %${(prP*100).toFixed(1).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br><span style="font-family:monospace">${lab}</span></div>`}; }).filter(Boolean);
+      return {oran,h:`<div class="sub"><b>≤${f2(B*BIRIM)} TL</b> · ${kombSay(r.sets)} komb. · <b>${f2(kombSay(r.sets)*BIRIM)} TL</b>${kombSay(r.sets)*BIRIM<20?` <small>→ <b>${Math.ceil(20/(kombSay(r.sets)*BIRIM))} misli</b> = ${f2(Math.ceil(20/(kombSay(r.sets)*BIRIM))*kombSay(r.sets)*BIRIM)} TL (min. bilet 20 TL)</small>`:''} · tutma %${(r.pr*100).toFixed(1).replace('.',',')} (piyasa %${(prP*100).toFixed(1).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br><span style="font-family:monospace">${lab}</span></div>`}; }).filter(Boolean);
     if(!sat.length) return;
     R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${sat.some(x=>x.oran>=1.15)?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${sat.map(x=>x.h).join('')}</div>`});
   }));
