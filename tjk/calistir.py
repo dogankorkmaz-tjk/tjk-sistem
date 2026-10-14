@@ -2,7 +2,7 @@
 sabah: bugünün programı + model form puanları + AGF  -> docs/data/bugun.json
 canli: AGF'yi yeniler, biten koşuların sonucunu ve kapanış ganyanlarını ekler
 gece : dünün (ve eksik günlerin) sonuçlarını geçmişe ekler, canlı test skorunu hesaplar -> docs/data/skor.json"""
-import os, re, sys, json, glob, datetime
+import re, os, sys, json, glob, datetime
 import numpy as np, pandas as pd
 from . import ortak as O
 from . import csvprog as C
@@ -188,6 +188,75 @@ def csv_uygula(obj):
 
 def _jn(j):
     return re.sub(r"\s*AP$", "", str(j or "")).strip()
+
+
+def pist_uygula(obj):
+    """data/pist_degisiklik.csv (tarih,hipodrom,kosu,pist,...): resmi pist türü değişen başlamamış koşuların bilgi metnini düzeltir ve
+    o koşulardaki tüm atların model puanlarını (z, z2, z3, z4) yeni pist türüyle yeniden hesaplar (14 Ekim 2026: İstanbul çim -> sentetik)."""
+    yol = os.path.join(VERI, "pist_degisiklik.csv")
+    if not os.path.exists(yol):
+        return
+    t = obj["tarih"]; simdi = O.tr_simdi().strftime("%H:%M")
+    degis = {}
+    for l in open(yol, encoding="utf-8").read().split("\n")[1:]:
+        p = l.split(",")
+        if len(p) >= 4 and p[0] == t:
+            degis[(p[1], int(p[2]))] = p[3].strip()
+    hedef = set()
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            yp = degis.get((h["id"], k["kosu"]))
+            if not yp or k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
+                continue
+            b = k.get("bilgi") or ""
+            m = re.search(r"(\d{3,4})\s*m?\s*(Kum|Çim|Sentetik)", b)
+            if m and m.group(2) != yp:
+                k["bilgi"] = b[:m.start(2)] + yp + b[m.end(2):]; hedef.add((h["id"], k["kosu"]))
+    if not hedef:
+        return
+    try:
+        cj = C.jokeyler(t) or {}
+        satirlar = []
+        for hid in {x[0] for x in hedef}:
+            html = O.getir(O.prog_url(datetime.date.fromisoformat(t), hid))
+            satirlar += O.parse_prog(html, t, hid) if html else []
+        if not satirlar:
+            print("pist değişikliği: program okunamadı, puanlar yenilenmedi"); return
+        pr = pd.DataFrame(satirlar).dropna(subset=["no"]); pr["no"] = pr.no.astype(int)
+        for i, r in pr.iterrows():
+            j = cj.get((r.hipodrom, int(r.kosu), int(r.no)))
+            if j:
+                pr.at[i, "p_jokey"] = _jn(j); pr.at[i, "p_apranti"] = j.strip().endswith("AP")
+        yeni = pr.rename(columns={"p_at": "at", "p_jokey": "jokey", "p_apranti": "apranti", "p_kilo": "kilo"})
+        yeni["hnd"] = yeni.hk; yeni["kosmadi"] = False; yeni["ganyan"] = 10.0
+        M = yukle_model(); A = GL.yukle()
+        d = hazirla(oku("temiz")[lambda x: x.tarih < t], oku("program"), M, yeni)
+        bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
+        bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
+        d2 = GL.MS.ekle(d, bugun_m) if A and "f_dp150_m" in A["feat"] else d
+        bz2 = bz3 = bz4 = {}
+        if A:
+            dy = d2[d2.yeni].copy(); dy["z2"] = GL.z2(dy, A); bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
+            AK = GL.yukle_k()
+            if AK:
+                dk = GL.kapi_ekle(d2); dk = dk[dk.yeni].copy(); dk["z3"] = GL.z2(dk, AK); bz3 = dk.set_index(["hipodrom", "kosu", "no"]).z3.to_dict()
+            AS = GL.yukle_s()
+            if AS:
+                ds = d2[d2.yeni].copy(); ds["z4"] = GL.z2(ds, AS); bz4 = ds.set_index(["hipodrom", "kosu", "no"]).z4.to_dict()
+        n = 0
+        for h in obj["hipodromlar"]:
+            for k in h["kosular"]:
+                if (h["id"], k["kosu"]) not in hedef:
+                    continue
+                for a in k["atlar"]:
+                    key = (h["id"], k["kosu"], a["no"])
+                    for ad, bzx in (("z", bz), ("z2", bz2), ("z3", bz3), ("z4", bz4)):
+                        if key in bzx and ad in a:
+                            a[ad] = round(float(bzx[key]), 4)
+                n += 1
+        print("pist değişikliği işlendi: koşu", n, sorted(hedef))
+    except Exception as e:
+        print("pist değişikliği hatası:", repr(e))
 
 
 def s_doldur(obj):
@@ -542,6 +611,7 @@ def canli(t):
     csv_uygula(obj)
     jokey_uygula(obj)
     s_doldur(obj)
+    pist_uygula(obj)
     kosmaz_isle(obj)
     n = sonuclari_isle(obj, t)
     print("yeni sonuçlanan koşu:", n)
