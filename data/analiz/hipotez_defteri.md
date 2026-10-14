@@ -220,3 +220,8 @@ Her ülke için (≥ 80 koşu olanlar; azsa "yetersiz"):
 2) Kalibrasyon eğimi β: p ∝ p_piyasa^β (koşullu logit, tek parametre). β>1: favoriler az oynanıyor; β<1: favoriler fazla oynanıyor. Profil olabilirlik %95 GA.
 3) Kural sınaması (ileriye dönük benzetim): β tarih sırasına göre ilk yarıda fit, ikinci yarıda p^β ile EV = p × ganyan > 1,10 olan atlara 1 TL ganyan; ROI ve gün kümeli bootstrap GA.
 Karar: "aday ülke" = ikinci yarı ROI GA alt sınırı > 0,90 VE β'nın GA'sı 1'i dışlıyor. Aday çıkarsa yalnız ileriye dönük kâğıt test (para yok); çıkmazsa veri birikince (≥ 1.000 koşu/ülke hedefi yok, ≥ 300 koşu) yeniden. Çoklu karşılaştırma: ülke sayısı kadar Bonferroni notu düşülür.
+SONUÇ (15 Ekim 2026, 01:20; 613 geçerli koşu, 25 Eyl–14 Eki): Kaynakta yalnız ABD, İngiltere, İrlanda, Kanada sayfaları sağlam; Fransa, Güney Afrika, Avustralya, Arjantin, Şili sayfaları bozuk (at no=0, tek satır) → bu ülkeler bu kaynakla test EDİLEMEZ.
+Geri ödeme tüm ülkelerde 0,694–0,696 (kesinti ~%30,5, ülkeden bağımsız).
+ABD (346 koşu): β=0,79 (GA 0,65–0,92) → TJK'nın ABD havuzunda favoriler anlamlı biçimde fazla oynanıyor. Ama ileriye benzetim (ilk yarı β=0,76, ikinci yarı EV>1,10): 81 bahis, ROI 0,28 (GA 0,00–0,77) → kural çöktü.
+İngiltere (114): β=1,01 (0,77–1,27), iyi kalibre; EV>1,10 bahis çıkmadı. İrlanda (37), Kanada (22): yetersiz.
+Karar: aday ülke YOK. ABD'deki yanlılık gerçek ama ~%30 kesintiyi aşacak büyüklükte değil. Kayıt her gece sürer; ABD/İngiltere ≥ 300'er koşu daha birikince aynı betikle yeniden. Betik: data/analiz/ulke_testi.py.
