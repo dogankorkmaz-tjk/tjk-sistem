@@ -120,3 +120,8 @@ SONUÇ Test 2 (hibrit kupon, 14 Ekim 2026, 1396 koşu, ödeme okuması A): tutan
 
 ## 14 Ekim 2026, 13:45 — İstanbul pist türü değişikliği (operasyonel kayıt, hipotez değil)
 Kullanıcı bildirdi: pist ağır (5,5) ölçüldüğü için G1 Harem koşusu hariç tüm İstanbul koşuları sentetik pistte koşulacak. Programda 1. ve 3. koşu çim görünüyordu; 4., 5., 6. koşuların bilgi satırı programda yok. Sistem: data/pist_degisiklik.csv (tarih,hipodrom,kosu,pist) başlamamış koşuların bilgi metnindeki pisti değiştirir ve o koşulardaki tüm atların z/z2/z3/z4 puanlarını yeni pistle yeniden hesaplar (calistir.pist_uygula). Uygulandı: İstanbul 1 ve 3 (çim -> sentetik). 4–6: G1 hangisi ve mesafe/pist bilgisi bekleniyor. Model notu: pist türü yalnız mesafe-pist uyum özelliğine (f_dp150_m) giriyor; yeni pistte atın geçmişi az olabilir, bu koşuların puanları daha güvenilmez sayılmalı.
+
+## 2026-10-14 — İstanbul pist değişikliği, CSV ile işlendi (operasyonel not)
+Resmi CSV: İstanbul 1-5, 7, 8. koşular Sentetik; 6. koşu (Harem G1, 1600m) Çim kalır; 3. koşu 1600→1500m. 2 ve 3. koşuda birer koşmaz (BORN HERO, YARGIÇ). Jokey farkı yok. Elazığ'da yalnız beşli/üçlü bayrakları farklı.
+Mekanizma: csv_uygula mesafe/pist değişimini `yeniden_puan` bayrağıyla işaretler; pist_uygula başlamamış koşuların z/z2/z3/z4 puanını yeniden hesaplar. Kural/model değişmedi.
+Uyarı: sentetik pistte at geçmişi az; bu koşuların puanları daha az güvenilir.

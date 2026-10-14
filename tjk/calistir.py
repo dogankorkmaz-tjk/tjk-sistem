@@ -177,7 +177,12 @@ def csv_uygula(obj):
             b = kosular.get(k["kosu"])
             if not b:
                 continue
-            k["saat"] = b["saat"]; k["bilgi"] = C.bilgi_metni(b)
+            eski = re.search(r"(\d{3,4})\s*m?\s*(Kum|Çim|Sentetik)", k.get("bilgi") or "")
+            yeni_b = C.bilgi_metni(b)
+            ym = re.search(r"(\d{3,4})\s*m?\s*(Kum|Çim|Sentetik)", yeni_b or "")
+            if ym and (not eski or eski.groups() != ym.groups()) and not k.get("sonuc"):
+                k["yeniden_puan"] = True
+            k["saat"] = b["saat"]; k["bilgi"] = yeni_b
             k["mesafe"] = b["mesafe"]; k["pist"] = b["pist"]; k["cins"] = b["cins"]; k["ikramiye"] = b["ikramiye1"]
             k["besli"] = bool(b.get("besli")); k["uclu"] = bool(b.get("uclu"))
             n += 1
@@ -205,6 +210,8 @@ def pist_uygula(obj):
     hedef = set()
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
+            if k.get("yeniden_puan") and not k.get("sonuc") and not (k.get("saat") and simdi >= k["saat"]):
+                hedef.add((h["id"], k["kosu"]))
             yp = degis.get((h["id"], k["kosu"]))
             if not yp or k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
                 continue
@@ -253,6 +260,7 @@ def pist_uygula(obj):
                     for ad, bzx in (("z", bz), ("z2", bz2), ("z3", bz3), ("z4", bz4)):
                         if key in bzx and ad in a:
                             a[ad] = round(float(bzx[key]), 4)
+                k.pop("yeniden_puan", None)
                 n += 1
         print("pist değişikliği işlendi: koşu", n, sorted(hedef))
     except Exception as e:

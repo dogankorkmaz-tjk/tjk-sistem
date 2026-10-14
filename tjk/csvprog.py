@@ -35,7 +35,7 @@ def oku_dosya(yol):
     kosular, atlar, ekur = {}, {}, set()
     kn = None
     for s in sat[1:]:
-        m = re.match(r"^(\d+)\.\s*Kosu\s*:\s*(\d{1,2})[.:](\d{2});(.*)$", s)
+        m = re.match(r"^(\d+)\.\s*Kosu\s*:\s*(?:[^;]*?\s)?(\d{1,2})[.:](\d{2});(.*)$", s)
         if m:
             kn = int(m.group(1)); saat = f"{int(m.group(2)):02d}:{m.group(3)}"
             alan = [a.strip() for a in m.group(4).split(";")]
