@@ -128,3 +128,6 @@ Uyarı: sentetik pistte at geçmişi az; bu koşuların puanları daha az güven
 
 ## 2026-10-14 14:26 — Jokey değişikliği (kullanıcı bildirdi)
 İstanbul 6. koşu (Harem G1), 4 İLLEDE DORU: S.KAYA -> M.KAYA. İstanbul CSV satırı elle düzeltildi (TJK CSV henüz yansıtmıyordu); jokey_uygula puanları yeniler. Model/kural değişmedi.
+
+## 2026-10-14 14:30 — Jokey değişikliği (kullanıcı bildirdi)
+Müs.Çelik ve S.Kaya raporlu. İstanbul 8. koşu 1 FEYZANUR: MÜS.ÇELİK -> B.AKÇAY (CSV elle düzeltildi). Resmi CSV zaten 2/8 COSAS ve 4/13 İLKUTHAN için B.AKÇAY, 3/7 SENKRON için E.AKTUĞ gösteriyor. 6/9 BERAY SULTAN yeni jokey bekliyor.
