@@ -90,17 +90,18 @@ def ozet():
     if not fs:
         return None
     d = pd.concat([pd.read_csv(f) for f in fs])
-    d = d[d.ganyan.notna() & (d.ganyan > 0) & ~d.kosmadi.fillna(False).astype(bool)]
+    d = d[d.ganyan.notna() & (d.ganyan > 0) & ~d.kosmadi.fillna(False).astype(bool) & (d.no > 0)]   # no=0: kaynağı bozuk sayfa (ör. Fransa)
     k = ["tarih", "hipodrom", "kosu"]
     d["p"] = 1 / d.ganyan
     g = d.groupby(k).agg(top=("p", "sum"), n=("p", "size"), kaz=("sira", lambda s: (s == 1).sum()))
-    tam = g[(g.kaz == 1) & (g.n >= 3)].index
+    tam = g[(g.kaz == 1) & (g.n >= 3) & g.top.between(1.2, 1.7)].index      # eksik/ekürlü görünen koşular dışarıda
     d = d.set_index(k).loc[tam].reset_index()
+    d["pn"] = d.p / d.groupby(k).p.transform("sum")
     out = {"zaman": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "kosu": int(len(tam)), "ulke": d.groupby("ulke").apply(lambda x: x[k].drop_duplicates().shape[0]).to_dict(),
            "geri_odeme_medyan": round(float(1 / g.loc[tam].top.median()), 3) if len(tam) else None}
     d["dilim"] = pd.cut(d.ganyan, [1, 3, 6, 12, 25, 1000])
     out["dilim"] = [{"dilim": str(i), "at": int(len(x)), "kazanma": round(float((x.sira == 1).mean()), 4),
-                     "oranin_dedigi": round(float((x.p / x.groupby(k).p.transform("sum")).mean()), 4),
+                     "oranin_dedigi": round(float(x.pn.mean()), 4),
                      "ganyan_roi": round(float(((x.sira == 1) * x.ganyan).mean()), 3)} for i, x in d.groupby("dilim", observed=True)]
     json.dump(out, open(os.path.join(VERI, "ozet.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(json.dumps(out, ensure_ascii=False)[:1500])
