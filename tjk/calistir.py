@@ -19,6 +19,7 @@ from . import devir as DV
 from . import egzotik as EG
 from . import uc_at as UA
 from . import golge as GL
+from . import esnek as ES
 from . import bildir as BL
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -656,6 +657,10 @@ def canli(t):
     except Exception as e:
         print("besli hatası:", repr(e))
     try:
+        ES.guncelle(obj)
+    except Exception as e:
+        print("esnek hatası:", repr(e))
+    try:
         DG.guncelle(obj)
     except Exception as e:
         print("değer hatası:", repr(e))
@@ -734,6 +739,10 @@ def gece(bugun):
                 BS.guncelle(obj)
             except Exception as e:
                 print("besli hatası:", repr(e))
+            try:
+                ES.guncelle(obj)
+            except Exception as e:
+                print("esnek hatası:", repr(e))
             try:
                 DG.guncelle(obj)
             except Exception as e:

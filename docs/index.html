@@ -900,7 +900,9 @@ function kanitHtml(){
     <div class="sub"><b>Denenen kural:</b> sitede en az ${KANIT.kural_sayisi} farklı kural izleniyor. Çok kural denenince biri şansla iyi görünür, bu yüzden aralık genişletildi (z=${f(KANIT.z_duz)}).</div>
     <div class="sub">Egzotik ödemeler çok çarpık dağıldığı için bu aralıklar yine de iyimser kalabilir. Bu bölüm yalnızca ölçer, hiçbir kuralı değiştirmez.</div></div></details>`;
 }
+let ESN=null;
 async function egzYukle(){
+  try{ ESN=await getJSON('data/esnek.json'); }catch(e){ ESN=null; }
   try{ EGZ=await getJSON('data/egzotik.json'); }catch(e){ EGZ=null; }
   try{ UC3=await getJSON('data/uc_at.json'); }catch(e){ UC3=null; }
   try{ KANIT=await getJSON('data/kanit.json'); }catch(e){ KANIT=null; }
@@ -1036,6 +1038,21 @@ function uc3Html(){
   });
   return h;
 }
+function esnekHtml(){
+  if(!ESN) return '<div class="card empty">Esnek kupon verisi henüz yok. İlk turdan sonra oluşur.</div>';
+  const f=x=>x==null?'–':String(x).replace('.',','), AD={'SIRALI İKİLİ':'Sıralı ikili','ÜÇLÜ BAHİS':'Üçlü','SIRALI 5 Lİ BAHİS':'Sıralı beşli'};
+  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>Esnek kupon (ayrı ölçüm)</b>
+    <div class="sub">Sabit bütçe yok. Model, kuponu her yeni kombinasyonun modele göre piyasadan en az %15 daha olası olduğu sürece genişletir; güvendiği koşuda dar, belirsizde geniş olur, kenarı yoksa o koşuyu oynamaz. Tavan: sıralı ikili 40, üçlü 25, beşli 150 kombinasyon. Jason olasılıklarıyla, kâğıt üstü. Diğer sekmelerdeki kuponları değiştirmez.</div></div>`;
+  const bg=(ESN.bugun||[]).filter(c=>!c.sonuc&&!c.dondu), oy=bg.filter(c=>c.oyna).sort((a,b)=>(a.saat+a.hipodrom)<(b.saat+b.hipodrom)?-1:1), oyn=bg.filter(c=>!c.oyna);
+  s+='<h2 style="margin-top:8px">Sıradaki koşular</h2>';
+  s+=oy.length?oy.map(c=>{ const b=c.bedel, m=b<20?Math.ceil(20/b):1;
+    return `<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(c.saat||'')}</span></b><span class="pill on">${AD[c.tur]}</span></div>
+      <div class="sub">${c.kombinasyon} komb. · <b>${f(b)} TL</b>${m>1?` → <b>${m} misli</b> = ${f(b*m)} TL (min. bilet 20 TL)`:''} · tutma %${f((c.tutma_model*100).toFixed(c.tur==='SIRALI 5 Lİ BAHİS'?2:1))} (piyasa %${f((c.tutma_piyasa*100).toFixed(c.tur==='SIRALI 5 Lİ BAHİS'?2:1))}, ×${f(c.oran)})</div>
+      <div class="sub" style="font-family:monospace">${c.ayaklar.map((x,i)=>`${i+1}. at: <b>${x.join(',')}</b>`).join(' &nbsp;|&nbsp; ')}</div></div>`; }).join(''):'<div class="card empty">Şu an esnek kuponun oynamayı seçtiği koşu yok.</div>';
+  if(oyn.length) s+=`<details class="kb"><summary>Kenarı olmadığı için oynanmayan (${oyn.length})</summary><div style="padding:0 16px 12px" class="sub">${oyn.map(c=>`${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu · ${AD[c.tur]}`).join('<br>')}</div></details>`;
+  s+=`<details class="kb"><summary>Kâğıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px"><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Oynanan</th><th class="n">Oynanmayan</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>${(ESN.toplam||[]).map(t=>`<tr><td>${AD[t.tur]}</td><td class="n">${t.oynanan}</td><td class="n">${t.oynanmayan}</td><td class="n">${f(t.harcama)}</td><td class="n">${f(t.kazanc)}</td><td class="n">${t.geri_donus==null?'–':f(t.geri_donus)}</td></tr>`).join('')}</table><div class="sub" style="margin-top:6px">Karar: tür başına ≥300 oynanmış koşu ve sabit bütçeli kuponla eşleşmiş karşılaştırma. Ön kayıt: hipotez defteri 14 Ekim 2026.</div></div></details>`;
+  return s;
+}
 function egzCiz(){
   const el=$('egzIc'); if(!el) return;
   if(!EGZ){ el.innerHTML='<div class="card empty">Egzotik seçim verisi henüz yok. İlk koşulardan önce oluşur.</div>'; return; }
@@ -1046,7 +1063,9 @@ function egzCiz(){
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   try{ s+=uc3Html(); }catch(e){ console.error(e); }
-  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
+  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
+  if(EGM==='Esnek'){ try{ s+=esnekHtml(); }catch(e){ console.error(e); }
+    el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();}); return; }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
   const hepsi=(d.bugun||[]).filter(c=>(c.model||'Bolton')===EGM&&c.secim&&c.secim[EGT]&&c.secim[EGT].length);
