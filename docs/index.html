@@ -1044,7 +1044,14 @@ function egzCiz(){
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   try{ s+=uc3Html(); }catch(e){ console.error(e); }
-  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
+  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
+  if(EGM==='Jason-S'){
+    s+=`<div class="note">Jason-S yalnız sıralı 5'li için ayrı bir gölge modeldir (ilk beşin tam sırasıyla eğitildi). İkili, üçlü ve diğer bahisler için seçimi yoktur; onlar için Bolton veya Jason'a bakın. Kuponlar kâğıt üstü, Test sekmesinde "Jason-S-G" adıyla ölçülür.</div>`;
+    try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
+    el.innerHTML=s;
+    el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});
+    return;
+  }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
   const hepsi=(d.bugun||[]).filter(c=>(c.model||'Bolton')===EGM&&c.secim&&c.secim[EGT]&&c.secim[EGT].length);
@@ -1061,7 +1068,6 @@ function egzCiz(){
   s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
   try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,3); }catch(e){ console.error(e); }
   try{ s+=besliEgz(EGM.indexOf('Jason')===0?'Jason':EGM); }catch(e){ console.error(e); }
-  try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
   el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});
