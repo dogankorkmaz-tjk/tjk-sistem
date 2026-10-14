@@ -137,3 +137,6 @@ Müs.Çelik ve S.Kaya raporlu. İstanbul 8. koşu 1 FEYZANUR: MÜS.ÇELİK -> B.
 
 ## 2026-10-14 14:55 — Jason-S egzotik gölge (kullanıcı isteği)
 Jason-S, sıralı ikili/ikili/üçlü için de aynı DONDURULMUŞ kuralla (ORAN 1,15, GAMA/DELTA) gölge olarak seçim yapar (egzotik.py, z4/w0_s/lp2_s). Ayrı sayaç "Jason-S"; kombine (bütçeli) kuponlar Jason-S olasılığı ve a_s üsleriyle. Karar kuralı: Jason ile eşleşmiş karşılaştırma, her tür için >=300 sonuçlanmış koşu; yoksa 1 Nisan 2027. Kural/ana model değişmedi.
+
+## 2026-10-14 15:00 — Birim fiyat teyidi (bayi tablosu, kullanıcı fotoğrafı)
+Ganyan/plase/çifte/ikili/sıralı ikili 1 TL; plase ikili 2; sıralı üçlü 2; tabela 1,50; sıralı beşli 1,25; 3lü ganyan 2; 4lü 1,75; 5li 1,50; 6lı 1,25; 7li plase 2. TÜM oyunlarda asgari bilet 20 TL. Koddaki birimler (1/1/2/1,25) doğru. Düzeltme: kombine kupon etiketleri kombinasyon sayısı yerine TL bütçesi (sıralı ikili 20/40 TL, üçlü 20/50 TL); beşli etiketi "<=B komb."; 20 TL altı kuponlara "min. bilet 20 TL" notu. Seçim kuralları değişmedi.
