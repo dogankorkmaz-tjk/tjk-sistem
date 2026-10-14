@@ -131,3 +131,6 @@ Uyarı: sentetik pistte at geçmişi az; bu koşuların puanları daha az güven
 
 ## 2026-10-14 14:30 — Jokey değişikliği (kullanıcı bildirdi)
 Müs.Çelik ve S.Kaya raporlu. İstanbul 8. koşu 1 FEYZANUR: MÜS.ÇELİK -> B.AKÇAY (CSV elle düzeltildi). Resmi CSV zaten 2/8 COSAS ve 4/13 İLKUTHAN için B.AKÇAY, 3/7 SENKRON için E.AKTUĞ gösteriyor. 6/9 BERAY SULTAN yeni jokey bekliyor.
+
+## 2026-10-14 14:45 — Düzeltme
+İstanbul 8. koşuda B.AKÇAY, 9 HÜRRİYET atına bindi (resmi CSV 5); benim 8/1 FEYZANUR için yaptığım elle düzeltme yanlış yorumdu, geri alındı (CSV resmi hâli: FEYZANUR hâlâ MÜS.ÇELİK, raporlu -> yeni jokey bekleniyor, puanı güvenilmez). 6/9 BERAY SULTAN: G.ÖZÇELİK.
