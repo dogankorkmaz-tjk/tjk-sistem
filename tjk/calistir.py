@@ -190,6 +190,51 @@ def _jn(j):
     return re.sub(r"\s*AP$", "", str(j or "")).strip()
 
 
+def s_doldur(obj):
+    """Jason-S (14 Ekim 2026): sabah Jason-S'siz kurulmuş günün başlamamış koşularına z4 ve w0_s/lp2_s/a_s ekler (bir kez)."""
+    if obj.get("w0_s") is not None:
+        return
+    AS = GL.yukle_s(); A = GL.yukle()
+    if not AS or not A:
+        return
+    t = obj["tarih"]; simdi = O.tr_simdi().strftime("%H:%M")
+    try:
+        cj = C.jokeyler(t) or {}
+        satirlar = []
+        for h in obj["hipodromlar"]:
+            html = O.getir(O.prog_url(datetime.date.fromisoformat(t), h["id"]))
+            satirlar += O.parse_prog(html, t, h["id"]) if html else []
+        if not satirlar:
+            print("Jason-S doldurma: program okunamadı"); return
+        pr = pd.DataFrame(satirlar).dropna(subset=["no"]); pr["no"] = pr.no.astype(int)
+        for i, r in pr.iterrows():
+            j = cj.get((r.hipodrom, int(r.kosu), int(r.no)))
+            if j:
+                pr.at[i, "p_jokey"] = _jn(j); pr.at[i, "p_apranti"] = j.strip().endswith("AP")
+        yeni = pr.rename(columns={"p_at": "at", "p_jokey": "jokey", "p_apranti": "apranti", "p_kilo": "kilo"})
+        yeni["hnd"] = yeni.hk; yeni["kosmadi"] = False; yeni["ganyan"] = 10.0
+        M = yukle_model()
+        d = hazirla(oku("temiz")[lambda x: x.tarih < t], oku("program"), M, yeni)
+        bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
+        d2 = GL.MS.ekle(d, bugun_m) if "f_dp150_m" in A["feat"] else d
+        ds = d2[d2.yeni].copy(); ds["z4"] = GL.z2(ds, AS)
+        bz4 = ds.set_index(["hipodrom", "kosu", "no"]).z4.to_dict()
+        n = 0
+        for h in obj["hipodromlar"]:
+            for k in h["kosular"]:
+                if k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
+                    continue
+                for a in k["atlar"]:
+                    key = (h["id"], k["kosu"], a["no"])
+                    if key in bz4:
+                        a["z4"] = round(float(bz4[key]), 4)
+                n += 1
+        obj["w0_s"] = float(AS["w"][0]); obj["lp2_s"] = float(AS.get("lp2_a", 0.0)); obj["a_s"] = [round(float(x), 4) for x in AS["a"]]
+        print("Jason-S doldurma: koşu", n)
+    except Exception as e:
+        print("Jason-S doldurma hatası:", repr(e))
+
+
 def jokey_uygula(obj):
     """Yarış başlamadan önce yüklenen güncel TJK CSV'sinde jokey değişmişse: atın jokeyini ve model puanlarını (z, z2, z3) yeniler,
     değişikliği data/jokey_degisiklik/<gün>.csv'ye yazar. Başlamış/sonuçlanmış koşulara dokunmaz."""
@@ -496,6 +541,7 @@ def canli(t):
             print("agf_zaman hatası:", repr(e))
     csv_uygula(obj)
     jokey_uygula(obj)
+    s_doldur(obj)
     kosmaz_isle(obj)
     n = sonuclari_isle(obj, t)
     print("yeni sonuçlanan koşu:", n)
