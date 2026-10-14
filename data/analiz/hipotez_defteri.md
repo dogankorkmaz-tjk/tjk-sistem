@@ -190,3 +190,11 @@ SONUÇ Faz 4 (15 Ekim 2026, 00:45; 14.729 koşu): EB−Jason −0,0001 nats/koş
 
 ## 15 Ekim 2026, 00:40 — Faz 3: son dakika kayması (KEŞİF, betimleyici, çok küçük örnek)
 data/canli_oran (bayi/yayın ekranı fotoğrafları, 14 koşu, 112 at; her koşunun en geç ekranı, ekürsüz): son ganyan / canlı ekran oranı tüm atlarda ×1,05 (±0,03). Jason'ın canlı orana göre EV>1,1 gördüğü 6 atta ×0,52 (log −0,66 ± 0,23): "değerli" görünen atların oranı kapanışa kadar yarıya inmiş. 6 at kanıt değil, ama yön tehlikeli: canlıda görülen değer kapanışta kaybolabilir (geç para). Ayrıca Faz 1 dolaylı kanıt: altılı kapanışında donan AGF, sonradan oluşan son ganyandan daha iyi tahminci → ganyan havuzuna geç gelen paranın "akıllı" olduğuna işaret yok; kayma muhtemelen ekran okuma zamanı/dar havuz kaynaklı. Ölçüm sürecek: her gerçek bahiste ekran oranı kaydedilsin (zaten Oynadıklarım'da). 100+ değer atında yeniden bakılır. Betik: data/analiz/son_dakika_kayma.py.
+
+## 15 Ekim 2026, 00:20 — Ana testler seçildi (Doğan'ın kararı; sonuçlar değiştirilmedi)
+Kanıt yalnız şu 6 satırda aranır (eşik e ≥ 6/0,05 = 120; aralıklar 6 teste göre Bonferroni):
+1–3. Egzotik ana kural, Jason (1,15): sıralı ikili, ikili, üçlü
+4. Değer filtresi ikili 1,25, piyasa olasılığı ≥ %1
+5. Ganyan: canlıda son ganyan bilinmediği için EV>1,1 kuralı izlenemiyor; canlı karşılığı Jason tüyoları (pJ ≥ %6, pJ/AGF ≥ 1,30, 1 TL ganyan)
+6. Sıralı 5'li: Jason-G, 150 geçerli kombinasyon bütçesi
+Diğer kurallar sitede sürer, "arşiv" etiketlidir, kanıt sayılmaz. Bu liste 1 Ocak 2027 değerlendirmesine kadar değişmez.

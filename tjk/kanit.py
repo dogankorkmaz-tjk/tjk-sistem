@@ -63,6 +63,48 @@ def egzotik_kosular():
     return out
 
 
+# Ana testler (15 Ekim 2026, Doğan'ın seçimi): kanıt eşiği yalnız bunlara göre. Diğer kurallar sitede durur, "arşiv" sayılır.
+ANA_EGZ_MODEL = "Jason"                      # egzotik ana kural (1,15), 3 bahis türü
+ANA_DEGER = ("ikili", 1.25, 0.01)           # değer filtresi 1,25, piyasa olasılığı >= %1
+ANA_BESLI = ("Jason-G", 150)                # sıralı 5'li, geçerli kombinasyon bütçesi 150
+# Ganyan: canlıda son ganyan bilinmediği için EV>1,1 kuralı izlenemiyor; canlı karşılığı Jason tüyoları (pJ >= %6, pJ/AGF >= 1,30, 1 TL ganyan)
+
+
+def deger_kosular(tur, esik, pmmin):
+    from .deger import _kazanc, BIRIM as DB
+    out = []
+    for y in sorted(glob.glob(os.path.join(VERI, "deger", "*.json"))):
+        for c in (_oku(y) or {}).values():
+            if not c.get("sonuc") or not (c.get("odeme") or {}).get(tur):
+                continue
+            sec = [b for b in c["bilet"][tur] if b[1] >= esik and (b[2] / max(b[1], 1e-9)) >= pmmin]
+            if sec:
+                out.append((len(sec) * DB[tur], sum(_kazanc(c, tur, b[0]) for b in sec), os.path.basename(y)[:10] + "|" + str(c.get("saat", ""))))
+    return out
+
+
+def tuyo_kosular():
+    k = {}
+    for y in sorted(glob.glob(os.path.join(VERI, "tuyo", "*.json"))):
+        for key, c in (_oku(y) or {}).items():
+            if c.get("sira") is None:
+                continue
+            r = k.setdefault((os.path.basename(y)[:10], c["hipodrom"], c["kosu"]), [0.0, 0.0, os.path.basename(y)[:10] + "|" + str(c.get("saat", ""))])
+            r[0] += 1.0; r[1] += (c.get("g") or 0.0) if c["sira"] == 1 else 0.0
+    return [tuple(v) for v in k.values()]
+
+
+def besli_kosular(model, butce):
+    from .besli import gecerli_say, BIRIM as BB
+    out = []
+    for y in sorted(glob.glob(os.path.join(VERI, "besli", "*.json"))):
+        for c in (_oku(y) or {}).values():
+            for q in c.get("kuponlar", []):
+                if q.get("model") == model and q.get("butce") == butce and "isabet" in q:
+                    out.append((gecerli_say(q["ayaklar"]) * BB, float(q.get("kazanc") or 0.0), os.path.basename(y)[:10] + "|" + str(c.get("saat", ""))))
+    return out
+
+
 def kural_say():
     """Sitede izlenen kural/varyant sayısı (en az). Her dosyadan, bahis türünden bağımsız ayrı kural kimlikleri sayılır."""
     L = lambda n: _oku(os.path.join(SITE, n + ".json")) or {}
@@ -129,15 +171,29 @@ def hesapla(liste, zd, m=1):
 
 
 def yaz(tarih=None):
-    m, parca = kural_say()
+    m_tum, parca = kural_say()
+    egz = egzotik_kosular()
+    ana = [(("Egzotik (Jason)", t), egz.get((ANA_EGZ_MODEL, t), [])) for t in ("SIRALI İKİLİ", "İKİLİ", "ÜÇLÜ BAHİS")]
+    ana += [(("Değer filtresi 1,25", "İKİLİ"), deger_kosular(*ANA_DEGER)),
+            (("Jason tüyo (ganyan)", "GANYAN"), tuyo_kosular()),
+            (("Sıralı 5'li (Jason-G 150)", "SIRALI 5"), besli_kosular(*ANA_BESLI))]
+    m = len(ana)
     zd = z_duz(m)
     satirlar = []
-    for (model, tur), liste in sorted(egzotik_kosular().items()):
+    for (ad, tur), liste in ana:
         r = hesapla(liste, zd, m)
-        r.update({"model": model, "tur": tur, "kaynak": "egzotik"})
+        r.update({"model": ad, "tur": tur, "kaynak": "ana", "ana": True})
+        satirlar.append(r)
+    for (model, tur), liste in sorted(egz.items()):
+        if model == ANA_EGZ_MODEL:
+            continue
+        r = hesapla(liste, zd, m)
+        r.update({"model": model, "tur": tur, "kaynak": "egzotik", "ana": False})
+        if r.get("etiket") not in ("çok erken", "veri yok"):
+            r["etiket"] = "arşiv (kanıt dışı)"
         satirlar.append(r)
     os.makedirs(SITE, exist_ok=True)
-    cikti = {"tarih": tarih, "kural_sayisi": m, "parcalar": parca, "z": Z_NOM, "z_duz": round(zd, 2), "hedef": HEDEF, "guc": 0.8,
+    cikti = {"tarih": tarih, "kural_sayisi": m, "kural_sayisi_tum": m_tum, "parcalar": parca, "z": Z_NOM, "z_duz": round(zd, 2), "hedef": HEDEF, "guc": 0.8,
              "min_n": MIN_N, "satirlar": satirlar}
     json.dump(cikti, open(os.path.join(SITE, "kanit.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     return cikti

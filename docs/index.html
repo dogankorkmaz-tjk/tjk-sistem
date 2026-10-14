@@ -888,17 +888,20 @@ let UC3=null, EGZ=null, KANIT=null, S3=null, EGT=ld('gm2_egt','SIRALI İKİLİ')
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
 function kanitHtml(){
   if(!KANIT||!KANIT.satirlar) return '';
-  const sat=KANIT.satirlar.filter(r=>r.model===EGM);
-  if(!sat.length) return '';
+  const sat=KANIT.satirlar.filter(r=>!r.ana&&r.model===EGM);
+  const ana=KANIT.satirlar.filter(r=>r.ana);
   const f=x=>x==null?'–':String(x).replace('.',',');
   const bin=x=>x==null?'–':x.toLocaleString('tr-TR');
   const sat_h=sat.map(r=>`<tr><td>${EGT_AD[r.tur]||esc(r.tur)}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.e==null?'–':f(r.e)}</td><td class="n">${r.kalan_n==null?'–':bin(r.kalan_n)+(r.kalan_yil!=null&&r.kalan_yil>=0.1?' (~'+f(r.kalan_yil)+' yıl)':'')}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
-  return `<details class="kb"><summary>Kanıt sayacı: bu sonuca ne kadar güvenebilirsin?</summary><div style="padding:0 16px 14px"><b>${esc(EGM)}</b>
-    <table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">e-değer</th><th class="n">Kalan koşu</th><th>Durum</th></tr>${sat_h}</table>
+  const ana_h=ana.map(r=>`<tr><td>${esc(r.model)}${r.tur&&r.model.indexOf('Egzotik')===0?' · '+(EGT_AD[r.tur]||esc(r.tur)):''}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.e==null?'–':f(r.e)}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
+  return `<details class="kb"><summary>Kanıt sayacı: bu sonuca ne kadar güvenebilirsin?</summary><div style="padding:0 16px 14px"><b>Ana testler</b> <span class="note">(kanıt eşiği e ≥ ${ana[0]&&ana[0].e_esik?f(ana[0].e_esik):'–'})</span>
+    <table class="t" style="margin-top:4px"><tr><th>Kural</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">e-değer</th><th>Durum</th></tr>${ana_h}</table>
+    ${sat.length?`<div style="margin-top:10px"><b>${esc(EGM)}</b> <span class="note">(arşiv, kanıt hesabı dışı)</span></div>
+    <table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">e-değer</th><th class="n">Kalan koşu</th><th>Durum</th></tr>${sat_h}</table>`:''}
     <div class="sub" style="margin-top:8px"><b>Olası aralık:</b> geri dönüşün gerçekte olabileceği bölge. 1,00'ı kapsıyorsa kâr da zarar da mümkün, yani henüz bir şey söylenemez.</div>
     <div class="sub"><b>e-değer:</b> her gün bakılabilen kanıt. 1 civarı = kanıt yok; ${KANIT.satirlar[0]&&KANIT.satirlar[0].e_esik?f(KANIT.satirlar[0].e_esik):'–'} ve üstü = kâr kanıtı (çok kurala göre düzeltilmiş). Kötü giderse 0'a yaklaşır.</div>
     <div class="sub"><b>Kalan koşu:</b> +%5 avantajı güvenle ayırt etmek için gereken ek koşu sayısı (tahmin, parantezde bugünkü hızla süre).</div>
-    <div class="sub"><b>Denenen kural:</b> sitede en az ${KANIT.kural_sayisi} farklı kural izleniyor. Çok kural denenince biri şansla iyi görünür, bu yüzden aralık genişletildi (z=${f(KANIT.z_duz)}).</div>
+    <div class="sub"><b>Ana testler:</b> kanıt yalnız bu ${KANIT.kural_sayisi} satıra göre aranır (15 Ekim 2026 seçimi). Sitedeki diğer ${KANIT.kural_sayisi_tum||'–'} kural izlenmeye devam eder ama "arşiv"dir: biri şansla iyi görünse bile kanıt sayılmaz. Aralık ${KANIT.kural_sayisi} teste göre genişletildi (z=${f(KANIT.z_duz)}).</div>
     <div class="sub">Egzotik ödemeler çok çarpık dağıldığı için bu aralıklar yine de iyimser kalabilir. Bu bölüm yalnızca ölçer, hiçbir kuralı değiştirmez.</div></div></details>`;
 }
 function sirali3Html(){
