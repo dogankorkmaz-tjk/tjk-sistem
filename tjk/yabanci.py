@@ -156,6 +156,8 @@ def abd_gecmis(bas, son):
             for r in rows:
                 r.update({"ulke": ulke, "url": url})
             satir += rows; bulunan += 1
+            if rows:
+                _program(t, pist, ulke)
         if t.day == 1 or t == son:
             print(t, "sayfa", bulunan, "satır", len(satir), flush=True)
             _yaz(satir); satir = []
@@ -173,3 +175,27 @@ def _yaz(satirlar):
         y = os.path.join(VERI, ay + ".csv.gz")
         eski = pd.read_csv(y) if os.path.exists(y) else pd.DataFrame()
         pd.concat([eski, g], ignore_index=True).drop_duplicates(["tarih", "hipodrom", "kosu", "no", "at"], keep="last").to_csv(y, index=False)
+
+
+def _program(t, pist, ulke):
+    """Program sayfası (antrenör, sahip, yaş, start, son 6, KGS) -> data/yabanci_program/YYYY-MM.csv.gz. Mesafe/pist sayfada yok."""
+    yol = os.path.join(KOK, "data", "yabanci_program"); os.makedirs(yol, exist_ok=True)
+    y = os.path.join(yol, t.strftime("%Y-%m") + ".csv.gz")
+    eski = pd.read_csv(y) if os.path.exists(y) else pd.DataFrame()
+    if len(eski) and ((eski.tarih == t.isoformat()) & (eski.hipodrom == pist)).any():
+        return
+    html = O.getir(O.prog_url(t, f"{pist}-{ulke}"))
+    rows = O.parse_prog(html or "", t.isoformat(), pist)
+    if rows:
+        pd.concat([eski, pd.DataFrame(rows)], ignore_index=True).to_csv(y, index=False)
+
+
+def abd_program(bas, son):
+    """Sonucu olan ABD/Kanada günleri için eksik program sayfalarını çeker (geçmiş çekimin ilk parçası programsız yapıldı)."""
+    import glob
+    d = pd.concat([pd.read_csv(f, usecols=["tarih", "hipodrom", "ulke"]) for f in glob.glob(os.path.join(VERI, "*.csv.gz"))]).drop_duplicates()
+    d = d[d.ulke.isin(["abd", "kanada"]) & (d.tarih >= bas.isoformat()) & (d.tarih <= son.isoformat())]
+    for i, r in enumerate(d.sort_values("tarih").itertuples()):
+        _program(datetime.date.fromisoformat(r.tarih), r.hipodrom, r.ulke)
+        if i % 25 == 0:
+            print(r.tarih, i, "/", len(d), flush=True)

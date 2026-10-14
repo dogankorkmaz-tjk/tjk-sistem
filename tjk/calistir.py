@@ -991,6 +991,9 @@ def main():
     elif mod == "abdgecmis":
         from . import yabanci as YB
         YB.abd_gecmis(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
+    elif mod == "abdprogram":
+        from . import yabanci as YB
+        YB.abd_program(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
     elif mod == "yabanciham":
         from . import yabanci as YB
         YB.ham_ornek()

@@ -12,6 +12,14 @@ d['at']=d['at'].astype(str).str.replace(r'\(\d+\)\s*$','',regex=True).str.strip(
 d['jokey']=d.jokey.astype(str).str.strip().str.upper()
 d['pn']=d.p/d.groupby(K).p.transform('sum');d['y']=(d.sira==1).astype(float);d['n']=d.groupby(K).no.transform('size')
 d['pct']=(d.sira-1)/(d.n-1);d['res']=d.y-d.pn;d['td']=pd.to_datetime(d.tarih)
+pf=glob.glob(R+'data/yabanci_program/*.csv.gz')
+if pf:
+    P=pd.concat([pd.read_csv(f) for f in pf]).drop_duplicates(K+['no'])[K+['no','antrenor','sahip','yas_ham','st']]
+    d=d.merge(P,on=K+['no'],how='left')
+else:
+    d['antrenor']=np.nan;d['sahip']=np.nan;d['yas_ham']=np.nan;d['st']=np.nan
+print('program kapsamı',round(d.antrenor.notna().mean(),3))
+d['antrenor']=d.antrenor.fillna('?').astype(str).str.upper().str.strip();d['sahip']=d.sahip.fillna('?').astype(str).str.upper().str.strip()
 # --- özellikler: yalnız önceki günler (aynı gün birden çok koşu olsa da gün bazında kaydırılır)
 def gecmis(key,cols,pri):
     t=d.groupby([key,'tarih'])[cols].sum().reset_index().sort_values('tarih')
@@ -26,9 +34,13 @@ a=d.groupby(['at','tarih']).agg(pct=('pct','mean'),td=('td','first')).reset_inde
 a['p3']=a.groupby('at').pct.transform(lambda s:s.shift(1).rolling(3,min_periods=1).mean());a['gun']=(a.td-a.groupby('at').td.shift(1)).dt.days
 d=d.merge(a[['at','tarih','p3','gun']],on=['at','tarih'],how='left')
 d['f_hpct3']=d.p3.fillna(0.5)-0.5;d['f_gun']=np.log1p(d.gun.fillna(60).clip(upper=180))-3.5
+t_=gecmis('antrenor',['y','one'],0);d['f_twin']=np.where(d.antrenor=='?',0,(t_.c_y.values+84*0.1)/(t_.c_one.values+84)-0.1)
+s_=gecmis('sahip',['y','one'],0);d['f_swin']=np.where(d.sahip=='?',0,(s_.c_y.values+42*0.1)/(s_.c_one.values+42)-0.1)
+d['yas']=pd.to_numeric(d.yas_ham.astype(str).str.extract(r'(\d+)')[0],errors='coerce');d['f_yas']=(d.yas-4).fillna(0).clip(-2,4)
+d['f_st']=((pd.to_numeric(d.st,errors='coerce')-(d.n+1)/2)/d.n).fillna(0)
 d['kilo']=pd.to_numeric(d.kilo,errors='coerce');d['f_kilo']=(d.kilo-d.groupby(K).kilo.transform('mean')).fillna(0)
 d['lp']=np.log(d.pn);d['lp2']=d.lp**2
-F=['f_hwin','f_ilk','f_hres','f_jwin','f_jres','f_hpct3','f_gun','f_kilo']
+F=['f_hwin','f_ilk','f_hres','f_jwin','f_jres','f_hpct3','f_gun','f_kilo','f_twin','f_swin','f_yas','f_st']
 d=d.sort_values(K+['no']).reset_index(drop=True);d['rid']=d.groupby(K).ngroup();d['ay']=d.tarih.str[:7]
 def fit(tr,cols,lam):
     X=tr[cols].values;mu=X.mean(0);sd=X.std(0)+1e-9;Z=(X-mu)/sd;Z[:,:2]=X[:,:2] if cols[:2]==['lp','lp2'] else Z[:,:2]
