@@ -147,3 +147,20 @@ Kural (tek, değişmez): Model = Jason olasılıkları, sıra üsleri G_M (beşl
 Ölçüt: tür başına oynanan koşularda geri dönüş (ödeme/harcama), bootstrap (gün bazında) GA; oynanmayan koşu sayısı ayrı raporlanır. Karşılaştırma: aynı koşularda sabit bütçeli Jason-G (beşli) ve kombine Jason (ikili/üçlü) kuponları, eşleşmiş.
 Canlı: yarış başlamadan dondurulur, ayrı kayıt (data/esnek/), sitede Egzotik > Esnek. Ana kupon, model ve kurallar DEĞİŞMEZ.
 Karar: tür başına >=300 oynanmış koşu ve eşleşmiş farkın GA'sı sıfırın üstündeyse "aday"; aksi halde kapanır / 1 Nisan 2027'ye ertelenir. Geriye dönük test bu ön kayıttan SONRA ve ayrı kayıtla yapılır; canlı sonuç esastır.
+
+## 15 Ekim 2026, 00:00 — Yol haritası Faz 1: AGF olasılık olarak ne kadar kötü? (ÖN KAYIT, sonuç görülmeden)
+Soru: Altılı oynayan halkın dağılımı (AGF, son değer `zengin.agf_son`) kazananı ganyan piyasasından (`p_piyasa`, son muhtemel ganyan) daha mı kötü tahmin ediyor? Jason'ın AGF'ye karşı kazancı ganyana karşı kazancından büyük mü?
+Veri: walk-forward OOS Jason/Bolton olasılıkları (çeyreklik, 2024Q2+; aynı kod `tjk/walkforward.py`), AGF'si olan koşular (2025-01→05, 2026-01→10). AGF koşu içinde normalize edilir.
+Ölçüt: kazanan log-olasılığı farkı (nats/koşu): Jason−AGF, piyasa−AGF, Jason−piyasa; yarış günü kümeli bootstrap %95 GA; dönem tutarlılığı (2025 / 2026 ayrı).
+Karar (değiştirilmez): Jason−AGF ≥ 0,05 nats/koşu ve GA alt sınırı > 0,03 → Faz 2'ye geç (altılıda ayak başına p/a çarpanı anlamlı olabilir). < 0,03 → altılı yolu da kapalı.
+Tek test; canlıda değişiklik yok.
+
+## 15 Ekim 2026, 00:01 — Faz 2: Altılı "değer" kurucusu geriye testi (ÖN KAYIT, sonuç görülmeden; yalnız Faz 1 geçerse yorumlanır)
+Fikir: altılıda bir kombinasyonun beklenen getirisi ≈ k × Π(pᵢ/aᵢ) (p = Jason OOS, a = AGF payı, k = havuz net oranı/birim). Küçük ayak avantajı altı ayakta çarpılır.
+Kurucular (hepsi aynı açgözlü yapı, aynı bütçe B = 64 ve 256 kombinasyon, 1 birim/kombinasyon):
+- V (değer): her ayağa önce en yüksek p'li at; sonra her adımda log(tutma olasılığı) artışı / log(maliyet) artışı en büyük at eklenir, ama YALNIZ p/a ≥ 1,0 olan atlar eklenebilir; bütçe dolunca durur.
+- J (olasılık): aynı, filtre yok (Jason p ile en yüksek tutma).
+- A (AGF): aynı, p yerine AGF a (halkın kendi kuponu, taban).
+Veri: odeme `6'LI GANYAN` (+ DEVİR = kimse bilemedi, ödeme 0), ayaklar = kosu−5..kosu; ayak koşusunda ölü yarış "3,4" ikisi de geçer. Tüm 6 ayakta OOS p ve AGF olan altılılar.
+Ölçüt: ROI = Σödeme/Σmaliyet (ödeme birim başına varsayımı); V−J ve V−A eşleştirilmiş, gün kümeli bootstrap %95 GA; 2025 ve 2026 ayrı. Ayrıca kalibrasyon: k̂ = medyan(ödeme × Π a_kazanan) ve tahmini EV ile gerçekleşen ROI.
+Karar: V'nin ROI GA alt sınırı > 1,0 → canlı kâğıt test adayı (1 Ocak 2027 değerlendirmesi). Aksi halde betimleyici; parayla oynanmaz. Tek varyant; başka eşik/bütçe denenirse KEŞİF olarak ayrıca yazılır.
