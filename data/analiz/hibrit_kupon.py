@@ -24,8 +24,12 @@ P["tarih"]=P.tarih.astype(str);P.to_pickle(S+"/p_hib.pkl")
 R='/home/claude/tjk-sistem/'
 O_=pd.concat([pd.read_csv(f) for f in glob.glob(R+'data/odeme/*.csv.gz')]);O_=O_[O_.tur.str.startswith('SIRALI 5')].drop_duplicates(['tarih','hipodrom','kosu'])
 parse=lambda k:[set(int(x) for x in s.split(',')) for s in str(k).split('/')]
-_W0=besli._W;GM0=list(besli.G_M);rows=[];n=0
+import time,pickle;T0=time.time();BUD=float(os.environ.get("BUTCE_SN","520"));CK=S+"/hibrit_rows.pkl"
+_W0=besli._W;GM0=list(besli.G_M)
+rows,done=(pickle.load(open(CK,"rb")) if os.path.exists(CK) else ([],set()));n=0;bitti=True
 for r in O_.itertuples():
+    if (r.tarih,r.hipodrom,r.kosu) in done: continue
+    if time.time()-T0>BUD: bitti=False;break
     g=P[(P.tarih==r.tarih)&(P.hipodrom==r.hipodrom)&(P.kosu==r.kosu)]
     if len(g)<5: continue
     g=g.sort_values('no');nos=g.no.tolist();devir=r.tur.endswith('DEVİR');win=None if devir else parse(r.kombo)
@@ -44,9 +48,11 @@ for r in O_.itertuples():
             sets,pr=k;cost=besli.gecerli_say(sets)*besli.BIRIM
             hit=(not devir) and all(any(nos[i] in win[j] for i in sets[j]) for j in range(5))
             rows.append((r.tarih,r.hipodrom,r.kosu,model,B,cost,hit,float(r.tutar) if hit else 0.0,pr))
-    n+=1
-    if n%100==0: print(n,flush=True)
+    n+=1;done.add((r.tarih,r.hipodrom,r.kosu))
+    if n%25==0: pickle.dump((rows,done),open(CK,'wb'));print(len(done),flush=True)
 besli._W=_W0;besli.G_M=GM0
+pickle.dump((rows,done),open(CK,'wb'))
+if not bitti: print('DEVAM',len(done),flush=True);sys.exit(0)
 dd=pd.DataFrame(rows,columns=['t','h','k','model','B','cost','hit','pay','pr']);dd.to_csv(S+'/hibrit_kupon.csv',index=False);print('koşu',n)
 def kar(x,y,B):
     m=x.merge(y,on=['t','h','k'],suffixes=('_x','_y'));rng=np.random.default_rng(5);bs=[]
