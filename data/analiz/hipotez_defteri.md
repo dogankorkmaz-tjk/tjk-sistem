@@ -239,3 +239,12 @@ Kaynak: TJK son ganyan (agftablosu, data/yabanci) + yerel son oran (Sporting Lif
 Yerel olasılık q = (1/oran) koşu içinde normalize.
 Ölçütler: (1) Tahmin: kazanan log-olasılığı q − TJK p (nats/koşu), ülke bazında. (2) Kural: TJK'da 1 TL ganyan, q × TJK ganyan > k; k=1,25 BİRİNCİL, k=1,10 ikincil. ROI (gerçek TJK ganyanı), gün kümeli bootstrap %95 GA; zaman yarıları ayrı.
 Karar: k=1,25 ROI GA alt sınırı > 1,0 → ileriye dönük kâğıt test (canlı: bayide TJK oranı + yerel canlı oran). Değilse ama nokta tahmini > 1,0 ise: veri biriktirilir (geçmiş çekimle örnek büyütülür), karar ≥ 1.000 bahiste. Not: iki taraf da SON oran; canlıda ikisi de kayar, ileriye dönük test şart.
+SONUÇ İki piyasa testi (15 Ekim 2026, 02:30; 416 eşleşen koşu, 25 Eyl–14 Eki): Yerel oran TJK'dan çok daha iyi tahminci: q−TJK +0,096 nats/koşu [+0,050, +0,141]; ABD +0,092, İngiltere +0,052 (GA 0'ı kesiyor), İrlanda +0,33 (23 koşu).
+Kural k=1,25 (BİRİNCİL), tümü: 411 bahis, ROI 1,39 [0,93–1,88]; yarılar 1,65 / 1,17 → ön kayıt ölçütü (alt sınır > 1,0) TOPLAMDA SAĞLANMADI.
+Ülke ayrımı (alt grup, 4 kesit → çoklu test, KEŞİF sayılır): ABD 260 bahis, 32 isabet, ROI 1,57 [1,03–2,13], yarılar 1,58 / 1,56 (tutarlı). İngiltere 115 bahis ROI 0,66. İrlanda 36 bahis (yetersiz). k=1,10 ABD 1,26 [0,89–1,63].
+Sağlamlık (ABD, k=1,25): en büyük 3 ödeme hariç 1,17, en büyük 5 hariç 1,01; ödeme yalnız birkaç sürprize dayanmıyor. Pistlere yayılmış (Belmont 2,09 / Gulfstream 2,25 / Keeneland 1,24; Santa Anita 0,19 ve Laurel 0,00 küçük örnek). Ters yön kontrolü: q×TJK < 0,8 olan atlar 0,52; tüm atlar 0,755 → sinyal tek yönlü ve tutarlı. Yerel oran kalibrasyonu iyi (q dilimlerinde kazanma oranı ≈ q).
+EN BÜYÜK UYARI: İki taraf da SON oran. Bahis anında ne TJK'nın son ganyanı ne de ABD'nin son oranı bilinir; TJK havuzu küçük olduğu için kendi bahsin oranı düşürür. Geriye dönük kâr canlıya taşınmayabilir.
+Karar: Toplam ölçüt sağlanmadığı ve ABD bulgusu alt grup olduğu için PARA YOK. ABD için ileriye dönük kâğıt test açılır (ön kayıt aşağıda). Veri biriktikçe (her gece otomatik) aynı betik yeniden koşulur; 1.000 ABD bahsinde karar.
+
+## 15 Ekim 2026, 02:30 — ÖN KAYIT: ABD iki piyasa ileriye dönük test
+Kural (değişmez): ABD koşusu, TJK ganyanı × yerel (ABD) olasılık q > 1,25 → 1 TL ganyan. Ölçüm 15 Ekim 2026 sonrası koşularda, son oranlarla (üst sınır) ve ayrıca bahis anı oranlarıyla (Doğan'ın bayi ekranından T-2 dk TJK ganyanı + Sporting Life oran geçmişinin son kalemi) ayrı ayrı. Karar: 1 Ocak 2027'de veya ≥ 500 bahiste; e-değer ile her gün izlenir.
