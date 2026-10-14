@@ -526,6 +526,10 @@ def kosmaz_isle(obj):
     if os.path.exists(ky):
         e = pd.read_csv(ky)
         elle = {(str(r.hipodrom), int(r.kosu), int(r.no)) for r in e.itertuples()}
+    try:
+        elle |= C.kosmazlar(obj["tarih"])          # TJK CSV'sindeki "(Koşmaz)" işaretleri
+    except Exception as ex:
+        print("CSV koşmaz hatası:", repr(ex))
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             for a in k["atlar"]:
