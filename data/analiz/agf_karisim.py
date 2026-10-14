@@ -3,6 +3,8 @@ import sys,numpy as np,pandas as pd
 from scipy.optimize import minimize_scalar
 S=sys.argv[1];d=pd.read_pickle(S+'/agf_d.pkl');K=['tarih','hipodrom','kosu']
 d=d[d.groupby(K).kazandi.transform('sum')==1].copy()
+# DÜZELTME 15 Eki 00:10: ekürlü koşular çıkarılır (p_ham ekürde bölünür, 1/p_ham ödemeyi şişirir); ödeme = gerçek ganyan
+d['ekur']=(abs(d.p_ham*d.ganyan-1)>1e-6);d=d[~d.groupby(K).ekur.transform('any')].copy()
 d['rid']=d.groupby(K).ngroup();d['yil']=d.tarih.str[:4]
 def karis(g,w):
     s=(1-w)*np.log(g.p_Jason.values)+w*np.log(g.a.values);e=np.exp(s-pd.Series(s).groupby(g.rid.values).transform('max').values)
@@ -18,7 +20,7 @@ def boot(x,g,B=2000):
         t=s.iloc[rng.integers(0,len(s),len(s))];o.append(t['sum'].sum()/t['size'].sum())
     return np.percentile(o,[2.5,97.5])
 print('2026 koşu',len(k));print('Karışım−Jason %+.4f GA %s'%(k.x.mean(),np.round(boot(k.x,k.gun),4)));print('Karışım−piyasa %+.4f GA %s'%(k.y.mean(),np.round(boot(k.y,k.gun),4)))
-te['gan']=1/te.p_ham
+te['gan']=te.ganyan
 for e in (1.1,1.3):
     for c in ('p_Jason','p_M'):
         m=te[c]*te.gan>e;r=te[m].kazandi*te[m].gan
