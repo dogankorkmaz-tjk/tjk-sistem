@@ -215,3 +215,14 @@ def sl_probe(tarih="2026-10-12"):
         time.sleep(3)
         open(os.path.join(yol, "sl_abd.html"), "w", encoding="utf-8").write(requests.get("https://www.sportinglife.com" + abd[0], headers=H, timeout=30).text)
         print("ABD örnek:", abd[0])
+
+
+def sl_kosu_probe(*yollar):
+    """Sporting Life tek koşu sayfası ham kaydı (keşif)."""
+    import requests, time
+    yol = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(yol, exist_ok=True)
+    H = {"User-Agent": "Mozilla/5.0 (kisisel arastirma; gunde birkac yavas istek)"}
+    for i, y in enumerate(yollar):
+        h = requests.get("https://www.sportinglife.com/racing/results/" + y, headers=H, timeout=30)
+        open(os.path.join(yol, f"sl_kosu_{i}.html"), "w", encoding="utf-8").write(h.text)
+        print(y, h.status_code, len(h.text)); time.sleep(3)

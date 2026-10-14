@@ -997,6 +997,9 @@ def main():
     elif mod == "slprobe":
         from . import yabanci as YB
         YB.sl_probe(*arg)
+    elif mod == "slkosu":
+        from . import yabanci as YB
+        YB.sl_kosu_probe(*[a.replace("|", "/") for a in arg])
     elif mod == "yabanciham":
         from . import yabanci as YB
         YB.ham_ornek()
