@@ -225,3 +225,10 @@ Geri ödeme tüm ülkelerde 0,694–0,696 (kesinti ~%30,5, ülkeden bağımsız)
 ABD (346 koşu): β=0,79 (GA 0,65–0,92) → TJK'nın ABD havuzunda favoriler anlamlı biçimde fazla oynanıyor. Ama ileriye benzetim (ilk yarı β=0,76, ikinci yarı EV>1,10): 81 bahis, ROI 0,28 (GA 0,00–0,77) → kural çöktü.
 İngiltere (114): β=1,01 (0,77–1,27), iyi kalibre; EV>1,10 bahis çıkmadı. İrlanda (37), Kanada (22): yetersiz.
 Karar: aday ülke YOK. ABD'deki yanlılık gerçek ama ~%30 kesintiyi aşacak büyüklükte değil. Kayıt her gece sürer; ABD/İngiltere ≥ 300'er koşu daha birikince aynı betikle yeniden. Betik: data/analiz/ulke_testi.py.
+
+## 15 Ekim 2026, 01:20 — ABD modeli: Türkiye düzeninin ABD'ye uyarlanması (ÖN KAYIT, sonuç görülmeden)
+Veri: agftablosu ABD sonuç sayfaları, ~Ekim 2025 → Ekim 2026 (geçmiş çekim sürüyor). Kaynakta yalnız sonuç tablosu var: at, jokey, kilo, derece, ganyan. Mesafe/pist/antrenör/idman YOK → bu özellikler kurulamaz; derece mesafesiz olduğu için hız figürü yok.
+Özellikler (hepsi kesinlikle önceki günlerden): atın kazanma oranı (önsel 24), son 3 bitiş yüzdeliği, ilk koşu, dinlenme günü, jokey kazanma oranı (önsel 30), göreli kilo, atın piyasaya göre artığı (son 3, önsel 2), jokeyin piyasaya göre artığı (önsel 30).
+Modeller: M0 = piyasa (son ganyan, normalize); M1 = piyasa + eğrilik (lp, lp²; favori yanlılığını düzeltir); M2 = M1 + özellikler. Koşullu logit, ridge λ=100 (Türkiye ile aynı).
+Yöntem: aylık genişleyen pencere walk-forward; ilk 3 ay yalnız eğitim. Ölçüt: kazanan log-olasılığı (nats/koşu) M2−M1 (bilgi var mı?) ve M1−M0 (yanlılık ne kadar?), gün kümeli bootstrap GA; EV = p×ganyan > 1,10 ROI (gerçek ganyan) betimleyici.
+Karar: M2−M1 GA alt sınırı > 0,005 → "ABD'de halkın kullanmadığı bilgi var", ileriye dönük kâğıt test (para yok). Aksi halde ABD modeli kapanır. Tek test; özellik listesi değişmez. Betik: data/analiz/abd_model.py.
