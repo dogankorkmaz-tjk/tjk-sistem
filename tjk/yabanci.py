@@ -226,3 +226,99 @@ def sl_kosu_probe(*yollar):
         h = requests.get("https://www.sportinglife.com/racing/results/" + y, headers=H, timeout=30)
         open(os.path.join(yol, f"sl_kosu_{i}.html"), "w", encoding="utf-8").write(h.text)
         print(y, h.status_code, len(h.text)); time.sleep(3)
+
+
+# ---------- Sporting Life: yerel piyasa oranları (robots.txt izin veriyor; az ve yavaş istek) ----------
+SL = "https://www.sportinglife.com/racing/results/"
+SL_ULKE = {"United States": "abd", "England": "birlesik-krallik", "Scotland": "birlesik-krallik", "Wales": "birlesik-krallik",
+           "Eire": "irlanda", "Canada": "kanada", "France": "fransa", "South Africa": "guney-afrika", "Australia": "avustralya"}
+
+
+def _sl_json(url):
+    import requests, time
+    H = {"User-Agent": "Mozilla/5.0 (kisisel arastirma; gunde birkac yavas istek)"}
+    for den in range(3):
+        try:
+            r = requests.get(url, headers=H, timeout=30); time.sleep(3)
+            if r.status_code == 404:
+                return None
+            r.raise_for_status()
+            m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', r.text, re.S)
+            return json.loads(m.group(1))["props"]["pageProps"] if m else None
+        except Exception as e:
+            print("  SL hata:", url, e); time.sleep(10 * (den + 1))
+    return None
+
+
+def _slug(s):
+    s = str(s).lower().translate(O.TR)
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+
+
+def _eslestir(sl_ad, adaylar):
+    """SL pist adı -> agftablosu hipodrom slug'ı (ortak kelime)."""
+    a = set(_slug(sl_ad).split("-")) - {"park", "downs", "racecourse", "race", "course", "the", "at", "big"}
+    en, puan = None, 0
+    for h in adaylar:
+        b = set(h.split("-")) - {"park", "downs", "racecourse", "race", "course", "the", "at", "big"}
+        p = len(a & b)
+        if p > puan:
+            en, puan = h, p
+    return en
+
+
+def _kesir(o):
+    try:
+        if o in (None, "", "-"):
+            return None
+        if str(o).upper() in ("EVS", "EVENS"):
+            return 2.0
+        a, b = str(o).split("/"); return float(a) / float(b) + 1
+    except Exception:
+        return None
+
+
+def sl_topla(bas, son, ulkeler=("abd", "birlesik-krallik", "irlanda", "kanada")):
+    """TJK'da oynanan (data/yabanci'de kaydı olan) yabancı pistlerin yerel son oranlarını ve form bilgisini kaydeder."""
+    import glob
+    tj = pd.concat([pd.read_csv(f, usecols=["tarih", "hipodrom", "ulke"]) for f in glob.glob(os.path.join(VERI, "*.csv.gz"))]).drop_duplicates()
+    cik = os.path.join(KOK, "data", "yabanci_sl"); os.makedirs(cik, exist_ok=True)
+    t = bas
+    while t <= son:
+        gun = t.isoformat(); tjg = tj[(tj.tarih == gun) & tj.ulke.isin(ulkeler)]
+        y = os.path.join(cik, t.strftime("%Y-%m") + ".csv.gz")
+        eski = pd.read_csv(y) if os.path.exists(y) else pd.DataFrame()
+        if len(tjg) == 0 or (len(eski) and (eski.tarih == gun).any()):
+            t += datetime.timedelta(days=1); continue
+        pp = _sl_json(SL + gun)
+        rows = []
+        for m in (pp or {}).get("meetings", []):
+            ms = m["meeting_summary"]; ulke = SL_ULKE.get(ms["course"]["country"]["long_name"])
+            if ulke not in ulkeler:
+                continue
+            hip = _eslestir(ms["course"]["name"], tjg[tjg.ulke == ulke].hipodrom.tolist() if ulke != "kanada" else tjg.hipodrom.tolist())
+            if not hip:
+                continue
+            races = sorted(m["races"], key=lambda r: r.get("time") or "")
+            for sira, rc in enumerate(races, 1):
+                rid = rc["race_summary_reference"]["id"]
+                rp = _sl_json(f"{SL}{gun}/{_slug(ms['course']['name'])}/{rid}/{_slug(rc.get('name') or 'race')}")
+                if not rp or not rp.get("race"):
+                    continue
+                rs = rp["race"].get("race_summary", {})
+                mno = re.match(r"Race\s+(\d+)", rc.get("name") or "")
+                for x in rp["race"].get("rides", []):
+                    b = x.get("betting") or {}; hz = x.get("horse") or {}
+                    rows.append({"tarih": gun, "hipodrom": hip, "ulke": ulke, "sl_pist": ms["course"]["name"], "sl_id": rid,
+                                 "kosu_sira": sira, "kosu_no": int(mno.group(1)) if mno else None, "saat": rc.get("time"),
+                                 "mesafe": rc.get("distance"), "zemin": (rc.get("course_surface") or {}).get("surface"),
+                                 "pist_durum": rc.get("going") or rs.get("going"), "no": x.get("cloth_number"),
+                                 "at": (hz.get("name") or "").upper(), "sira": x.get("finish_position"),
+                                 "oran_son": _kesir(b.get("current_odds")), "oran_gecmis": "|".join(b.get("historical_odds") or []),
+                                 "jokey": (x.get("jockey") or {}).get("name"), "antrenor": (x.get("trainer") or {}).get("name"),
+                                 "yas": hz.get("age"), "son_kosu_gun": hz.get("last_ran_days"),
+                                 "onceki": json.dumps([[p.get("date"), p.get("course_name"), p.get("distance"), p.get("going"), p.get("position"), p.get("runner_count"), p.get("odds"), p.get("bha")] for p in (hz.get("previous_results") or []) if p.get("race_id") != rid])})
+        if rows:
+            pd.concat([eski, pd.DataFrame(rows)], ignore_index=True).to_csv(y, index=False)
+        print(gun, "SL satır", len(rows), flush=True)
+        t += datetime.timedelta(days=1)
