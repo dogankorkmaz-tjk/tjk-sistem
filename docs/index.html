@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ecf0ed">
+<meta name="theme-color" content="#07100c">
 <title>Ganyan Masası</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Big+Shoulders+Display:wght@700;800&display=swap">
 <style>
@@ -11,23 +11,17 @@
    Fikir: sayfa hipodromdaki koşu kartı gibi okunur. Akılda kalan tek öğe: eyer bezi (at numarası renkli şeridi).
    Rakamlar tabela yazısıyla (Big Shoulders), metin Schibsted Grotesk. Vurgu: çim yeşili; değer: pirinç. */
 :root{
-  --bg:#e9eeeb; --surface:#ffffff; --raise:#f6f8f7; --fg:#0f2119; --muted:#5d6e66; --line:#dbe3de; --line2:#edf1ee;
-  --accent:#0b5a42; --accent-fg:#ffffff; --accent-soft:#d5e9de;
-  --brass:#a8701a; --brass-bg:#f6e8cc;
-  --good:#0b7a45; --good-bg:#daf0e3; --hot:#a8701a; --hot-bg:#f6e8cc; --bad:#b3352e; --bad-bg:#f8e1df;
-  --bar:#0b5a42; --bar-bg:#e6ede9; --mk:#0f2119; --jas:#a8701a;
+  --bg:#07100c; --surface:#0f1a15; --raise:#14211b; --fg:#e4ede8; --muted:#8c9f95; --line:#1e2e27; --line2:#17241e;
+  --accent:#5fd0a0; --accent-fg:#04150d; --accent-soft:#133226;
+  --brass:#e3b45a; --brass-bg:#32260f;
+  --good:#6fd596; --good-bg:#13301f; --hot:#e3b45a; --hot-bg:#32260f; --bad:#f08a82; --bad-bg:#381b19;
+  --bar:#5fd0a0; --bar-bg:#1a2922; --mk:#e4ede8; --jas:#e3b45a;
   --f-display:"Schibsted Grotesk",system-ui,sans-serif;
   --f-body:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-sayi:"Big Shoulders Display","Schibsted Grotesk",system-ui,sans-serif;
-  --r:16px; --r-sm:10px; color-scheme:light;
+  --r:16px; --r-sm:10px; color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root{
-  --bg:#08110d; --surface:#101b16; --raise:#14211b; --fg:#e4ede8; --muted:#8c9f95; --line:#20302a; --line2:#18251f;
-  --accent:#5fd0a0; --accent-fg:#04150d; --accent-soft:#143327;
-  --brass:#e3b45a; --brass-bg:#33270f;
-  --good:#6fd596; --good-bg:#13301f; --hot:#e3b45a; --hot-bg:#33270f; --bad:#f08a82; --bad-bg:#381b19;
-  --bar:#5fd0a0; --bar-bg:#1b2a23; --mk:#e4ede8; --jas:#e3b45a; color-scheme:dark}}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
@@ -72,7 +66,7 @@ button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(
 .chip small{font:500 11px var(--f-body);opacity:.75;margin-top:2px}
 #hipChips .chip{flex-direction:row;gap:8px;border-radius:999px;padding:9px 16px;font:600 14.5px var(--f-body)}
 #hipChips .chip small{font-weight:600;margin:0}
-.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 .chip.bitti:not([aria-pressed="true"]){background:transparent;color:var(--muted);border-style:dashed}
 
 /* genel yapı */
@@ -114,12 +108,15 @@ button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(
 .dur small{font:500 10px var(--f-body);opacity:.7}
 .dur.bitti{opacity:.38;background:transparent}
 .dur.sira{background:var(--brass-bg);color:#3a2604;border-color:transparent}
-@media (prefers-color-scheme: dark){.pano{background:#e9efe9;color:#0d1a14}.dur.sira{color:#3a2604}.pn-ad b{color:#0b5a42}.pn-kalan b{color:#8a5a10}}
+.pano{background:radial-gradient(120% 140% at 0% 0%,#123a2b 0%,#0c2119 55%,#0a1a14 100%);color:var(--fg);border:1px solid #1f4a39;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.pn-ad b{color:var(--accent)}.pn-kalan b{color:var(--brass)}
+.dur{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+.dur.sira{background:var(--brass);color:#2a1b02}
 
 /* koşu kartı başlığı: tabela */
 .kbas{padding:16px 16px 12px;display:flex;flex-direction:column;gap:10px}
 .ykbas{display:flex;gap:14px;align-items:center}
-.ykno{flex:0 0 auto;width:62px;height:66px;border-radius:12px;background:var(--fg);color:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ykno{flex:0 0 auto;width:62px;height:66px;border-radius:12px;background:var(--accent);color:var(--accent-fg);display:flex;flex-direction:column;align-items:center;justify-content:center}
 .ykno small{font:600 10.5px var(--f-body);opacity:.7;margin-bottom:-2px}
 .ykno b{font:800 40px/1 var(--f-sayi)}
 .ykb{display:flex;flex-direction:column;gap:2px;min-width:0}
@@ -237,7 +234,7 @@ svg text{fill:var(--muted);font:11px var(--f-body)}
 /* kupon türü seçici */
 .seg{display:flex;gap:4px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
 .seg button{flex:1;border:0;background:transparent;color:var(--muted);padding:9px 6px;border-radius:10px;font:600 13.5px var(--f-body)}
-.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.seg button[aria-pressed="true"]{background:var(--raise);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
 
 /* dosya sayfası */
 #dosya .card{padding:18px;display:flex;flex-direction:column;gap:10px}
