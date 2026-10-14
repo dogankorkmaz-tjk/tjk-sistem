@@ -184,3 +184,8 @@ def ozet_yaz(tarih):
                "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
                "toplam_ikramiye": {d: list(v.values()) for d, v in ikd.items()}, "ikramiye_kesim": list(IK_KES)},
               open(os.path.join(SITE, "egzotik.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    try:
+        from . import kanit as KT                 # kanıt sayacı: yalnızca ölçer, hiçbir kuralı değiştirmez
+        KT.yaz(tarih)
+    except Exception as e:
+        print("kanıt sayacı hatası:", repr(e))
