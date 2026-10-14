@@ -884,11 +884,26 @@ otoPlaseYukle();
 otoTuyoYukle();
 besliYukle();
 
-let UC3=null, EGZ=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
+let UC3=null, EGZ=null, KANIT=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
+function kanitHtml(){
+  if(!KANIT||!KANIT.satirlar) return '';
+  const sat=KANIT.satirlar.filter(r=>r.model===EGM);
+  if(!sat.length) return '';
+  const f=x=>x==null?'–':String(x).replace('.',',');
+  const bin=x=>x==null?'–':x.toLocaleString('tr-TR');
+  const sat_h=sat.map(r=>`<tr><td>${EGT_AD[r.tur]||esc(r.tur)}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.kalan_n==null?'–':bin(r.kalan_n)+(r.kalan_yil!=null&&r.kalan_yil>=0.1?' (~'+f(r.kalan_yil)+' yıl)':'')}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
+  return `<details class="kb"><summary>Kanıt sayacı: bu sonuca ne kadar güvenebilirsin?</summary><div style="padding:0 16px 14px"><b>${esc(EGM)}</b>
+    <table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">Kalan koşu</th><th>Durum</th></tr>${sat_h}</table>
+    <div class="sub" style="margin-top:8px"><b>Olası aralık:</b> geri dönüşün gerçekte olabileceği bölge. 1,00'ı kapsıyorsa kâr da zarar da mümkün, yani henüz bir şey söylenemez.</div>
+    <div class="sub"><b>Kalan koşu:</b> +%5 avantajı güvenle ayırt etmek için gereken ek koşu sayısı (tahmin, parantezde bugünkü hızla süre).</div>
+    <div class="sub"><b>Denenen kural:</b> sitede en az ${KANIT.kural_sayisi} farklı kural izleniyor. Çok kural denenince biri şansla iyi görünür, bu yüzden aralık genişletildi (z=${f(KANIT.z_duz)}).</div>
+    <div class="sub">Egzotik ödemeler çok çarpık dağıldığı için bu aralıklar yine de iyimser kalabilir. Bu bölüm yalnızca ölçer, hiçbir kuralı değiştirmez.</div></div></details>`;
+}
 async function egzYukle(){
   try{ EGZ=await getJSON('data/egzotik.json'); }catch(e){ EGZ=null; }
   try{ UC3=await getJSON('data/uc_at.json'); }catch(e){ UC3=null; }
+  try{ KANIT=await getJSON('data/kanit.json'); }catch(e){ KANIT=null; }
   egzCiz(); tumModel();
 }
 function egzIlkAyak(){ const k=new Set(); ((VERI&&VERI.hipodromlar)||[]).forEach(h=>Object.values(h.altili||{}).forEach(v=>k.add(h.id+'|'+(v-5)))); return k; }
@@ -1042,7 +1057,8 @@ function egzCiz(){
   if(kap.length) s+=`<h2>Bu bahis kapalı</h2>`+kap.map(c=>egzKart(c,'kapali',null)).join('');
   if(bit.length) s+=`<details class="kb"><summary>Başlayan ve biten koşular (${bit.length})</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${bit.map(c=>egzKart(c,'bitti',c.sonuc&&c.sonuc[EGT])).join('')}</div></details>`;
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
-  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için en az ~300 koşu gerekir.</div></div></details>`;
+  try{ s+=kanitHtml(); }catch(e){ console.error(e); }
+  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
   try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,3); }catch(e){ console.error(e); }
   try{ s+=besliEgz(EGM.indexOf('Jason')===0?'Jason':EGM); }catch(e){ console.error(e); }
   try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
