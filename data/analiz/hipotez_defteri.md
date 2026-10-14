@@ -134,3 +134,6 @@ Müs.Çelik ve S.Kaya raporlu. İstanbul 8. koşu 1 FEYZANUR: MÜS.ÇELİK -> B.
 
 ## 2026-10-14 14:45 — Düzeltme
 İstanbul 8. koşuda B.AKÇAY, 9 HÜRRİYET atına bindi (resmi CSV 5); benim 8/1 FEYZANUR için yaptığım elle düzeltme yanlış yorumdu, geri alındı (CSV resmi hâli: FEYZANUR hâlâ MÜS.ÇELİK, raporlu -> yeni jokey bekleniyor, puanı güvenilmez). 6/9 BERAY SULTAN: G.ÖZÇELİK.
+
+## 2026-10-14 14:55 — Jason-S egzotik gölge (kullanıcı isteği)
+Jason-S, sıralı ikili/ikili/üçlü için de aynı DONDURULMUŞ kuralla (ORAN 1,15, GAMA/DELTA) gölge olarak seçim yapar (egzotik.py, z4/w0_s/lp2_s). Ayrı sayaç "Jason-S"; kombine (bütçeli) kuponlar Jason-S olasılığı ve a_s üsleriyle. Karar kuralı: Jason ile eşleşmiş karşılaştırma, her tür için >=300 sonuçlanmış koşu; yoksa 1 Nisan 2027. Kural/ana model değişmedi.

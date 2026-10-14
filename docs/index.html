@@ -931,10 +931,12 @@ function ustKTahmin(p,idx,K){
     return {k:kk,tem:kk,set:set.map(i=>({i:idx[i],p:cnt[q][i]/N})),kap:kap/N,maks:AYAR[kk].maks,tum:idx.map((ix,j)=>({i:ix,p:cnt[q][j]/N}))};
   });
 }
+function PF(x,m){ return m==='Bolton'?x.pm:m==='Jason-S'?x.ps:x.pj; }
+function MM(e){ return e==='Jason-S'?'Jason-S':e.indexOf('Jason')===0?'Jason':e; }
 function sirasizHtml(h,k,m){
   const out=hesapla(h,k); if(!out) return '';
-  const idx=Object.keys(out.map).map(Number).filter(i=>(m==='Bolton'?out.map[i].pm:out.map[i].pj)!=null); if(idx.length<5) return '';
-  const p=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj);
+  const idx=Object.keys(out.map).map(Number).filter(i=>(PF(out.map[i],m))!=null); if(idx.length<5) return '';
+  const p=idx.map(i=>PF(out.map[i],m));
   const S=ustKTahmin(p,idx,5);
   const gercek=k.sonuc?Object.entries(k.sonuc).filter(([n,v])=>v.sira).map(([n,v])=>({no:+n,sira:v.sira})):null;
   const comb=(a,b)=>{ let r=1; for(let i=1;i<=b;i++) r=r*(a-b+i)/i; return Math.round(r); };
@@ -958,13 +960,13 @@ function egzKart(c,durum,r){
     s+=`<div class="sub">${L.length} kombinasyon · ${(L.length*EGT_B[EGT]).toLocaleString('tr-TR')} TL</div>`;
     let ph={}, KK=EGT==='ÜÇLÜ BAHİS'?3:2;
     try{ const hh0=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk0=hh0&&hh0.kosular.find(x=>x.kosu===c.kosu), o0=kk0&&hesapla(hh0,kk0);
-      if(o0){ const ix=Object.keys(o0.map).map(Number).filter(i=>(EGM==='Bolton'?o0.map[i].pm:o0.map[i].pj)!=null);
-        if(ix.length>=5){ const T=ustKTahmin(ix.map(i=>EGM==='Bolton'?o0.map[i].pm:o0.map[i].pj),ix,5).find(z=>z.k===KK); T.tum.forEach(x=>{ ph[kk0.atlar[x.i].no]=x.p; }); } } }catch(e){ console.error(e); }
+      if(o0){ const ix=Object.keys(o0.map).map(Number).filter(i=>(PF(o0.map[i],EGM))!=null);
+        if(ix.length>=5){ const T=ustKTahmin(ix.map(i=>PF(o0.map[i],EGM)),ix,5).find(z=>z.k===KK); T.tum.forEach(x=>{ ph[kk0.atlar[x.i].no]=x.p; }); } } }catch(e){ console.error(e); }
     const ESK=KK===3?0.5:0.3;
     s+=`<div class="sub">${nolar.map(n=>{ const p=ph[n]; return n+' '+esc((c.atlar||{})[n]||'')+(p==null?'':p<ESK?` <small style="color:var(--hot)">(değer atı · ilk ${KK} %${Math.round(p*100)})</small>`:` <small>(ilk ${KK} %${Math.round(p*100)})</small>`); }).join(' · ')}</div><div class="sub"><small>Değer atı = piyasanın düşük fiyatladığı, ilk ${KK}'e girme şansı düşük ama girerse ödemeyi büyüten at. Aşağıdaki sırasız kutuya girmemesi bu yüzden normal.</small></div>`;
     if(r) s+=r.isabet?`<div style="color:var(--good);font-weight:600">Tuttu: +${r.kazanc} TL</div>`:'<div class="sub">Tutmadı</div>';
   }
-  try{ const hh=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk=hh&&hh.kosular.find(x=>x.kosu===c.kosu); if(kk) s+=sirasizHtml(hh,kk,EGM.indexOf('Jason')===0?'Jason':EGM); }catch(e){ console.error(e); }
+  try{ const hh=((VERI&&VERI.hipodromlar)||[]).find(x=>x.id===c.hipodrom), kk=hh&&hh.kosular.find(x=>x.kosu===c.kosu); if(kk) s+=sirasizHtml(hh,kk,MM(EGM)); }catch(e){ console.error(e); }
   return s+'</div>';
 }
 function kombSay(sets){ let c=0; const kul=[]; (function rec(k){ if(k===sets.length){ c++; return; } for(const h of sets[k]){ if(kul.indexOf(h)>=0) continue; kul.push(h); rec(k+1); kul.pop(); } })(0); return c; }
@@ -975,10 +977,10 @@ function kombEgz(m,L){
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     if(k.sonuc||(L===3&&k.uclu!==true)) return; const out=hesapla(h,k); if(!out) return;   // üçlü yalnız oynanan koşularda (14 Ekim 2026)
     const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
-    const P=idx.map(i=>m==='Bolton'?out.map[i].pm:out.map[i].pj); if(P.some(v=>v==null)) return;
-    const pp=idx.map(i=>out.map[i].pp), G=G5_P.slice(0,L);
+    const P=idx.map(i=>PF(out.map[i],m)); if(P.some(v=>v==null)) return;
+    const pp=idx.map(i=>out.map[i].pp), G=G5_P.slice(0,L), GMm=(m==='Jason-S'&&VERI.a_s)?VERI.a_s:G5_M;
     const ppW=G.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
-    const sat=BT.map(B=>{ const r=besliKupon(P,B,G5_M,L); if(!r) return null;
+    const sat=BT.map(B=>{ const r=besliKupon(P,B,GMm,L); if(!r) return null;
       const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
       const lab=r.sets.map((x,j)=>`${j+1}. at: <b>${x.map(i=>k.atlar[idx[i]].no).join(',')}</b>`).join(' &nbsp;|&nbsp; ');
       return {oran,h:`<div class="sub"><b>~${B}</b> · ${kombSay(r.sets)} komb. · <b>${f2(kombSay(r.sets)*BIRIM)} TL</b> · tutma %${(r.pr*100).toFixed(1).replace('.',',')} (piyasa %${(prP*100).toFixed(1).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br><span style="font-family:monospace">${lab}</span></div>`}; }).filter(Boolean);
@@ -1045,13 +1047,6 @@ function egzCiz(){
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   try{ s+=uc3Html(); }catch(e){ console.error(e); }
   s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
-  if(EGM==='Jason-S'){
-    s+=`<div class="note">Jason-S yalnız sıralı 5'li için ayrı bir gölge modeldir (ilk beşin tam sırasıyla eğitildi). İkili, üçlü ve diğer bahisler için seçimi yoktur; onlar için Bolton veya Jason'a bakın. Kuponlar kâğıt üstü, Test sekmesinde "Jason-S-G" adıyla ölçülür.</div>`;
-    try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
-    el.innerHTML=s;
-    el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});
-    return;
-  }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
   const hepsi=(d.bugun||[]).filter(c=>(c.model||'Bolton')===EGM&&c.secim&&c.secim[EGT]&&c.secim[EGT].length);
@@ -1065,9 +1060,9 @@ function egzCiz(){
   if(bit.length) s+=`<details class="kb"><summary>Başlayan ve biten koşular (${bit.length})</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${bit.map(c=>egzKart(c,'bitti',c.sonuc&&c.sonuc[EGT])).join('')}</div></details>`;
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
   try{ s+=kanitHtml(); }catch(e){ console.error(e); }
-  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
-  try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(EGM.indexOf('Jason')===0?'Jason':EGM,3); }catch(e){ console.error(e); }
-  try{ s+=besliEgz(EGM.indexOf('Jason')===0?'Jason':EGM); }catch(e){ console.error(e); }
+  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${tab('Jason-S (gölge, yalnızca karşılaştırma)',d.toplam_jason_s)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
+  try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(MM(EGM),2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(MM(EGM),3); }catch(e){ console.error(e); }
+  try{ s+=besliEgz(MM(EGM)); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
   el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});

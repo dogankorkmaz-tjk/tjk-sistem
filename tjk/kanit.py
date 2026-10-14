@@ -52,7 +52,7 @@ def kural_say():
     L = lambda n: _oku(os.path.join(SITE, n + ".json")) or {}
     parca = {}
     eg = L("egzotik")
-    parca["egzotik"] = 2 + len(eg.get("toplam_varyant") or {})                    # Bolton, Jason + ön-kayıtlı varyantlar
+    parca["egzotik"] = 3 + len(eg.get("toplam_varyant") or {})                    # Bolton, Jason, Jason-S + ön-kayıtlı varyantlar
     dg = L("deger")
     parca["deger"] = len({(t.get("esik"), t.get("pm_min")) for t in dg.get("toplam", [])})
     kb = L("kombine")

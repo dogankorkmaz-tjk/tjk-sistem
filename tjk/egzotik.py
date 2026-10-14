@@ -102,6 +102,8 @@ def guncelle(obj):
         modeller.append(("J|", "z2", obj["w0_aday"], "Jason", obj.get("lp2_aday", 0.0), ORAN))      # Jason: aynı kural, ayrı sayaç (gölge kâğıt testi)
         for ad_v, o_v in VARYANT.items():                                                         # ön-kayıtlı varyantlar (12 Ekim 2026): yalnızca eşik farklı, ana kural değişmedi
             modeller.append((ad_v.replace("Jason-", "J") .replace(".", "") + "|", "z2", obj["w0_aday"], ad_v, obj.get("lp2_aday", 0.0), o_v))
+    if obj.get("w0_s") is not None:                                                            # Jason-S (14 Ekim 2026): aynı dondurulmuş kural, ayrı gölge sayaç
+        modeller.append(("JS|", "z4", obj["w0_s"], "Jason-S", obj.get("lp2_s", 0.0), ORAN))
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             basladi = bool(k.get("sonuc")) or (simdi is not None and k.get("saat") and simdi >= k["saat"] and obj.get("gecmis") is not True)
@@ -157,7 +159,7 @@ def h_ad(c):
 def ozet_yaz(tarih):
     def bos():
         return {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
-    tops = {"Bolton": bos(), "Jason": bos(), **{v: bos() for v in VARYANT}}
+    tops = {"Bolton": bos(), "Jason": bos(), "Jason-S": bos(), **{v: bos() for v in VARYANT}}
     ikd = {d: bos() for d in ("düşük", "orta", "yüksek")}
     gun = []
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
@@ -181,7 +183,7 @@ def ozet_yaz(tarih):
             a["harcama"] = round(a["harcama"], 2); a["kazanc"] = round(a["kazanc"], 2)
     os.makedirs(SITE, exist_ok=True)
     json.dump({"tarih": tarih, "kural": {"gama": GAMA, "delta": DELTA, "oran": ORAN, "esik": ESIK, "birim": BIRIM},
-               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
+               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_jason_s": list(tops["Jason-S"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
                "toplam_ikramiye": {d: list(v.values()) for d, v in ikd.items()}, "ikramiye_kesim": list(IK_KES)},
               open(os.path.join(SITE, "egzotik.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     try:
