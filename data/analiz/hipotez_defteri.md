@@ -211,3 +211,12 @@ SONUÇ (15 Ekim 2026, 00:30): 9 hücrenin hiçbirinde Bonferroni GA alt sınır�
 `tjk/yabanci.py` (gece job'unda): agftablosu sitemap'indeki yabancı sonuç sayfalarından TJK son ganyanları → data/yabanci/. Fransa sayfaları kaynakta bozuk (her koşuda tek satır, at no=0) → Fransa için TJK tarafı bu kaynaktan alınamıyor. ABD/İngiltere/İrlanda/Kanada düzgün.
 İlk 247 koşu (25 Eyl–2 Eki): TJK yabancı havuzu geri ödeme medyanı 0,695 (kesinti ~%30, yurt içiyle aynı). Oran dilimi (kazanma / oranın dediği / ganyan ROI): ≤3 %28,4 / %35,7 / 0,56; 3–6 %17,0 / %15,8 / 0,73; 6–12 %10,4 / %8,3 / 0,86; 12–25 %5,0 / %4,2 / 0,87; 25+ %2,2 / %1,9 / 0,73. Favoriler TJK yabancı havuzunda fazla oynanıyor gibi (yurt içinin tersi). Örnek küçük, hiçbir dilimde ROI > 1 yok.
 Karşı piyasa (yerel ülke oranı) henüz yok: PMU açık API robots.txt 404 (dosya yok), pmu.fr robots sonuç sayfalarını yasaklamıyor; ama Fransa'nın TJK tarafı bozuk. İngiltere için yerel oran kaynağı aranacak. Karar yok; ≥1.000 koşu birikince kalibrasyon yeniden okunur.
+
+## 15 Ekim 2026, 01:05 — Ülke ülke yabancı havuz testi (ÖN KAYIT, sonuç görülmeden; Doğan'ın isteği)
+Soru: TJK'dan oynanan yabancı koşularda hangi ülkenin TJK havuzu en "yanlış fiyatlı"?
+Veri: data/yabanci (agftablosu sitemap ~3 hafta; geçerli koşu: tek kazanan, ≥3 at, Σ1/ganyan 1,2–1,7, at no>0).
+Her ülke için (≥ 80 koşu olanlar; azsa "yetersiz"):
+1) Geri ödeme = 1/medyan(Σ1/ganyan).
+2) Kalibrasyon eğimi β: p ∝ p_piyasa^β (koşullu logit, tek parametre). β>1: favoriler az oynanıyor; β<1: favoriler fazla oynanıyor. Profil olabilirlik %95 GA.
+3) Kural sınaması (ileriye dönük benzetim): β tarih sırasına göre ilk yarıda fit, ikinci yarıda p^β ile EV = p × ganyan > 1,10 olan atlara 1 TL ganyan; ROI ve gün kümeli bootstrap GA.
+Karar: "aday ülke" = ikinci yarı ROI GA alt sınırı > 0,90 VE β'nın GA'sı 1'i dışlıyor. Aday çıkarsa yalnız ileriye dönük kâğıt test (para yok); çıkmazsa veri birikince (≥ 1.000 koşu/ülke hedefi yok, ≥ 300 koşu) yeniden. Çoklu karşılaştırma: ülke sayısı kadar Bonferroni notu düşülür.
