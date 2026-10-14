@@ -125,3 +125,6 @@ Kullanıcı bildirdi: pist ağır (5,5) ölçüldüğü için G1 Harem koşusu h
 Resmi CSV: İstanbul 1-5, 7, 8. koşular Sentetik; 6. koşu (Harem G1, 1600m) Çim kalır; 3. koşu 1600→1500m. 2 ve 3. koşuda birer koşmaz (BORN HERO, YARGIÇ). Jokey farkı yok. Elazığ'da yalnız beşli/üçlü bayrakları farklı.
 Mekanizma: csv_uygula mesafe/pist değişimini `yeniden_puan` bayrağıyla işaretler; pist_uygula başlamamış koşuların z/z2/z3/z4 puanını yeniden hesaplar. Kural/model değişmedi.
 Uyarı: sentetik pistte at geçmişi az; bu koşuların puanları daha az güvenilir.
+
+## 2026-10-14 14:26 — Jokey değişikliği (kullanıcı bildirdi)
+İstanbul 6. koşu (Harem G1), 4 İLLEDE DORU: S.KAYA -> M.KAYA. İstanbul CSV satırı elle düzeltildi (TJK CSV henüz yansıtmıyordu); jokey_uygula puanları yeniler. Model/kural değişmedi.
