@@ -985,6 +985,7 @@ def main():
         except Exception as ex:
             print("yabancı kayıt atlandı:", ex)
     elif mod == "yabanci":
+        if arg: os.environ["YABANCI_EN_COK"] = arg[0]
         from . import yabanci as YB
         YB.calistir()
     elif mod == "yabanciham":

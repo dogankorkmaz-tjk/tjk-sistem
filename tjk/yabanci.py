@@ -11,7 +11,7 @@ from . import ortak as O
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI = os.path.join(KOK, "data", "yabanci")
-EN_COK = 60                     # çalışma başına en çok sayfa (yavaş ve az istek)
+EN_COK = int(os.environ.get("YABANCI_EN_COK", "60"))   # çalışma başına en çok sayfa (yavaş ve az istek)
 AY = {a: i + 1 for i, a in enumerate(O.AYLAR)}
 URL_RE = re.compile(r"https?://www\.agftablosu\.com/at-yarisi-sonuclar/at-yarisi-sonuclari-([a-z0-9-]+?)-(\d{1,2})-([a-z]+)-(\d{4})")
 ULKELER = ["fransa", "birlesik-krallik", "irlanda", "abd", "avustralya", "guney-afrika", "arjantin", "sili", "kanada",
