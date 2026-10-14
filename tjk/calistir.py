@@ -988,6 +988,9 @@ def main():
         if arg: os.environ["YABANCI_EN_COK"] = arg[0]
         from . import yabanci as YB
         YB.calistir()
+    elif mod == "abdgecmis":
+        from . import yabanci as YB
+        YB.abd_gecmis(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
     elif mod == "yabanciham":
         from . import yabanci as YB
         YB.ham_ornek()

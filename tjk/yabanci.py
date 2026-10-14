@@ -127,3 +127,49 @@ def ham_ornek():
         h = O.getir(url) or ""
         open(os.path.join(yol, ulke + ".html"), "w", encoding="utf-8").write(h)
         print(ulke, url, len(h))
+
+
+ABD_PIST = ["belmont-park", "horseshoe-indianapolis", "santa-anita-park", "keeneland", "gulfstream-park", "finger-lakes",
+            "philadelphia", "laurel-park", "delaware-park", "aqueduct", "saratoga", "churchill-downs", "del-mar",
+            "woodbine", "monmouth-park", "oaklawn-park", "fair-grounds", "tampa-bay-downs", "parx-racing", "golden-gate-fields"]
+
+
+def abd_gecmis(bas, son):
+    """ABD (ve Kanada'da Woodbine) geçmiş sonuç sayfaları: pist x gün adresi denenir; 404 hızlı geçilir. Az ve yavaş istek (ortak.getir 2 sn)."""
+    os.makedirs(VERI, exist_ok=True)
+    yol_isl = os.path.join(VERI, "islenen.txt")
+    islenen = set(open(yol_isl, encoding="utf-8").read().split()) if os.path.exists(yol_isl) else set()
+    t, satir, bulunan = bas, [], 0
+    while t <= son:
+        for pist in ABD_PIST:
+            ulke = "kanada" if pist == "woodbine" else "abd"
+            url = f"{O.BASE}/at-yarisi-sonuclar/at-yarisi-sonuclari-{pist}-{ulke}-{t.day}-{O.AYLAR[t.month-1]}-{t.year}"
+            if url in islenen:
+                continue
+            html = O.getir(url)
+            if html is None:
+                continue
+            islenen.add(url)
+            if not html:
+                continue
+            rows = O.parse_sonuc(html, t.isoformat(), pist)
+            for r in rows:
+                r.update({"ulke": ulke, "url": url})
+            satir += rows; bulunan += 1
+        if t.day == 1 or t == son:
+            print(t, "sayfa", bulunan, "satır", len(satir), flush=True)
+            _yaz(satir); satir = []
+            open(yol_isl, "w", encoding="utf-8").write("\n".join(sorted(islenen)) + "\n")
+        t += datetime.timedelta(days=1)
+    _yaz(satir)
+    open(yol_isl, "w", encoding="utf-8").write("\n".join(sorted(islenen)) + "\n")
+
+
+def _yaz(satirlar):
+    if not satirlar:
+        return
+    d = pd.DataFrame(satirlar)[["tarih", "hipodrom", "ulke", "kosu", "sira", "no", "at", "jokey", "kilo", "ganyan", "kosmadi", "url"]]
+    for ay, g in d.groupby(d.tarih.str[:7]):
+        y = os.path.join(VERI, ay + ".csv.gz")
+        eski = pd.read_csv(y) if os.path.exists(y) else pd.DataFrame()
+        pd.concat([eski, g], ignore_index=True).drop_duplicates(["tarih", "hipodrom", "kosu", "no", "at"], keep="last").to_csv(y, index=False)
