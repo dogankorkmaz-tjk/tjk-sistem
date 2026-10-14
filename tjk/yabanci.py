@@ -199,3 +199,19 @@ def abd_program(bas, son):
         _program(datetime.date.fromisoformat(r.tarih), r.hipodrom, r.ulke)
         if i % 25 == 0:
             print(r.tarih, i, "/", len(d), flush=True)
+
+
+def sl_probe(tarih="2026-10-12"):
+    """Sporting Life (robots.txt izin veriyor) sonuç sayfası yapısını keşif: günün sayfası + bir ABD koşusu ham kaydı."""
+    import requests, time
+    yol = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(yol, exist_ok=True)
+    H = {"User-Agent": "Mozilla/5.0 (kisisel arastirma; gunde birkac yavas istek)"}
+    gun = requests.get(f"https://www.sportinglife.com/racing/results/{tarih}", headers=H, timeout=30).text
+    open(os.path.join(yol, "sl_gun.html"), "w", encoding="utf-8").write(gun)
+    linkler = sorted(set(re.findall(r"/racing/results/" + tarih + r"/[a-z0-9-]+/\d+/[a-z0-9-]+", gun)))
+    print("koşu linki", len(linkler)); print("\n".join(linkler[:80]))
+    abd = [l for l in linkler if any(p in l for p in ("santa-anita", "finger-lakes", "horseshoe", "presque", "mountaineer"))]
+    if abd:
+        time.sleep(3)
+        open(os.path.join(yol, "sl_abd.html"), "w", encoding="utf-8").write(requests.get("https://www.sportinglife.com" + abd[0], headers=H, timeout=30).text)
+        print("ABD örnek:", abd[0])
