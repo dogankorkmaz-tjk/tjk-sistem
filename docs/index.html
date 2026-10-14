@@ -892,10 +892,11 @@ function kanitHtml(){
   if(!sat.length) return '';
   const f=x=>x==null?'–':String(x).replace('.',',');
   const bin=x=>x==null?'–':x.toLocaleString('tr-TR');
-  const sat_h=sat.map(r=>`<tr><td>${EGT_AD[r.tur]||esc(r.tur)}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.kalan_n==null?'–':bin(r.kalan_n)+(r.kalan_yil!=null&&r.kalan_yil>=0.1?' (~'+f(r.kalan_yil)+' yıl)':'')}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
+  const sat_h=sat.map(r=>`<tr><td>${EGT_AD[r.tur]||esc(r.tur)}</td><td class="n">${r.n}</td><td class="n">${f(r.geri_donus)}</td><td class="n">${r.aralik_duz?f(r.aralik_duz[0])+'–'+f(r.aralik_duz[1]):'–'}</td><td class="n">${r.e==null?'–':f(r.e)}</td><td class="n">${r.kalan_n==null?'–':bin(r.kalan_n)+(r.kalan_yil!=null&&r.kalan_yil>=0.1?' (~'+f(r.kalan_yil)+' yıl)':'')}</td><td>${esc(r.etiket||'')}</td></tr>`).join('');
   return `<details class="kb"><summary>Kanıt sayacı: bu sonuca ne kadar güvenebilirsin?</summary><div style="padding:0 16px 14px"><b>${esc(EGM)}</b>
-    <table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">Kalan koşu</th><th>Durum</th></tr>${sat_h}</table>
+    <table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Geri dönüş</th><th class="n">Olası aralık</th><th class="n">e-değer</th><th class="n">Kalan koşu</th><th>Durum</th></tr>${sat_h}</table>
     <div class="sub" style="margin-top:8px"><b>Olası aralık:</b> geri dönüşün gerçekte olabileceği bölge. 1,00'ı kapsıyorsa kâr da zarar da mümkün, yani henüz bir şey söylenemez.</div>
+    <div class="sub"><b>e-değer:</b> her gün bakılabilen kanıt. 1 civarı = kanıt yok; ${KANIT.satirlar[0]&&KANIT.satirlar[0].e_esik?f(KANIT.satirlar[0].e_esik):'–'} ve üstü = kâr kanıtı (çok kurala göre düzeltilmiş). Kötü giderse 0'a yaklaşır.</div>
     <div class="sub"><b>Kalan koşu:</b> +%5 avantajı güvenle ayırt etmek için gereken ek koşu sayısı (tahmin, parantezde bugünkü hızla süre).</div>
     <div class="sub"><b>Denenen kural:</b> sitede en az ${KANIT.kural_sayisi} farklı kural izleniyor. Çok kural denenince biri şansla iyi görünür, bu yüzden aralık genişletildi (z=${f(KANIT.z_duz)}).</div>
     <div class="sub">Egzotik ödemeler çok çarpık dağıldığı için bu aralıklar yine de iyimser kalabilir. Bu bölüm yalnızca ölçer, hiçbir kuralı değiştirmez.</div></div></details>`;

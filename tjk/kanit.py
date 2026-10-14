@@ -12,6 +12,10 @@ Bu modül hiçbir kuralı, modeli, kuponu ya da eşiği DEĞİŞTİRMEZ; yalnız
    biri tesadüfen iyi görünür; güven aralığı bu yüzden Bonferroni ile genişletilir:
    z_düzeltilmiş = Φ^-1(1 - 0,05 / (2*m)).
 
+3) e-değer (15 Ekim 2026): her gün bakılabilen ("anytime-valid") kanıt. Koşu başına getiri X = kazanç/harcama;
+   H0: beklenen getiri ≤ 1. Bahis martingali W = ort_λ Π(1 + λ(X-1)), λ ∈ LAMBDA (sabit ızgara, X ≥ 0 olduğundan W > 0).
+   H0 altında P(W hiç ≥ 1/α olur) ≤ α (Ville eşitsizliği), yani her gün bakmak sonucu bozmaz. Eşik çoklu kurala göre m/0,05.
+
 Çıktı: docs/data/kanit.json
 """
 import os, json, glob, math
@@ -25,6 +29,18 @@ HEDEF = 0.05          # ayırt etmek istediğimiz avantaj (geri dönüşte +%5)
 Z_NOM = 1.96          # %95 güven
 Z_GUC = 0.84          # %80 güç
 MIN_N = 30            # bunun altında "çok erken"
+LAMBDA = (0.01, 0.02, 0.05, 0.1, 0.2)   # e-değer bahis kesirleri (önceden sabit, sonuca göre değişmez)
+
+
+def e_deger(liste):
+    """liste: [(harcama, kazanç, tarih), ...] -> karışım bahis martingalinin son değeri (tarih sırasıyla)."""
+    W = [1.0] * len(LAMBDA)
+    for b, k, *_ in sorted(liste, key=lambda x: x[2] if len(x) > 2 else ""):
+        if b <= 0:
+            continue
+        x = k / b
+        W = [w * (1 + l * (x - 1)) for w, l in zip(W, LAMBDA)]
+    return sum(W) / len(W)
 
 
 def _oku(yol):
@@ -70,7 +86,8 @@ def z_duz(m):
     return NormalDist().inv_cdf(1 - 0.05 / (2 * max(1, m)))
 
 
-def hesapla(liste, zd):
+def hesapla(liste, zd, m=1):
+    ev = e_deger(liste)
     n = len(liste)
     gun = len({x[2] for x in liste}) if liste and len(liste[0]) > 2 else None
     liste = [(x[0], x[1]) for x in liste]
@@ -80,7 +97,8 @@ def hesapla(liste, zd):
         return {"n": n, "harcama": round(B, 2), "kazanc": round(K, 2), "geri_donus": None, "aralik": None, "aralik_duz": None,
                 "gerekli_n": None, "kalan_n": None, "etiket": "veri yok"}
     R = K / B
-    sonuc = {"n": n, "gun": gun, "harcama": round(B, 2), "kazanc": round(K, 2), "geri_donus": round(R, 3)}
+    sonuc = {"n": n, "gun": gun, "harcama": round(B, 2), "kazanc": round(K, 2), "geri_donus": round(R, 3),
+             "e": round(ev, 3), "e_esik": round(m / 0.05, 1)}
     if n < 2:
         sonuc.update({"aralik": None, "aralik_duz": None, "gerekli_n": None, "kalan_n": None, "etiket": "çok erken"})
         return sonuc
@@ -93,6 +111,8 @@ def hesapla(liste, zd):
     gerekli = ((Z_NOM + Z_GUC) * sd_r / HEDEF) ** 2 if sd_r > 0 else None
     if n < MIN_N:
         et = "çok erken"
+    elif ev >= m / 0.05:
+        et = "net olumlu (e-değer)"
     elif lo_d > 1:
         et = "net olumlu"
     elif hi_d < 1:
@@ -113,7 +133,7 @@ def yaz(tarih=None):
     zd = z_duz(m)
     satirlar = []
     for (model, tur), liste in sorted(egzotik_kosular().items()):
-        r = hesapla(liste, zd)
+        r = hesapla(liste, zd, m)
         r.update({"model": model, "tur": tur, "kaynak": "egzotik"})
         satirlar.append(r)
     os.makedirs(SITE, exist_ok=True)
@@ -127,4 +147,4 @@ if __name__ == "__main__":
     c = yaz()
     print("kural sayısı:", c["kural_sayisi"], c["parcalar"], "z_düz:", c["z_duz"])
     for r in c["satirlar"]:
-        print(r["model"], r["tur"], "n=%d" % r["n"], "GD", r["geri_donus"], "aralık", r["aralik"], "düz", r["aralik_duz"], "gerekli", r["gerekli_n"], r["etiket"])
+        print(r["model"], r["tur"], "n=%d" % r["n"], "GD", r["geri_donus"], "aralık", r["aralik"], "düz", r["aralik_duz"], "gerekli", r["gerekli_n"], "e", r.get("e"), "/", r.get("e_esik"), r["etiket"])
