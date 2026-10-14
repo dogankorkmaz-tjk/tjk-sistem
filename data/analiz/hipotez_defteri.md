@@ -233,3 +233,9 @@ Modeller: M0 = piyasa (son ganyan, normalize); M1 = piyasa + eğrilik (lp, lp²;
 Yöntem: aylık genişleyen pencere walk-forward; ilk 3 ay yalnız eğitim. Ölçüt: kazanan log-olasılığı (nats/koşu) M2−M1 (bilgi var mı?) ve M1−M0 (yanlılık ne kadar?), gün kümeli bootstrap GA; EV = p×ganyan > 1,10 ROI (gerçek ganyan) betimleyici.
 Karar: M2−M1 GA alt sınırı > 0,005 → "ABD'de halkın kullanmadığı bilgi var", ileriye dönük kâğıt test (para yok). Aksi halde ABD modeli kapanır. Tek test; özellik listesi değişmez. Betik: data/analiz/abd_model.py.
 DÜZELTME (15 Ekim 2026, 01:30, sonuç görülmeden): ABD için agftablosu program sayfası VAR (antrenör, sahip, yaş, start, son 6, KGS; mesafe/pist/orijin yok). Özellik listesine eklendi: antrenör kazanma oranı (önsel 84), sahip (önsel 42), yaş, göreli start. Geçmiş çekim artık program sayfasını da alır; ilk parça için `abdprogram` ile tamamlanır. İdman yok (TJK idman PDF'leri yalnız Türk atları). Karar ölçütü değişmedi.
+
+## 15 Ekim 2026, 01:45 — İki piyasa testi: TJK yabancı havuzu vs yerel piyasa (ÖN KAYIT, sonuç görülmeden)
+Kaynak: TJK son ganyan (agftablosu, data/yabanci) + yerel son oran (Sporting Life, robots izinli, data/yabanci_sl). ABD için tote, İngiltere/İrlanda için SP. Eşleşme: aynı gün/hipodrom, at adları en çok örtüşen koşu (≥ %60 at örtüşmesi), ekürsüz.
+Yerel olasılık q = (1/oran) koşu içinde normalize.
+Ölçütler: (1) Tahmin: kazanan log-olasılığı q − TJK p (nats/koşu), ülke bazında. (2) Kural: TJK'da 1 TL ganyan, q × TJK ganyan > k; k=1,25 BİRİNCİL, k=1,10 ikincil. ROI (gerçek TJK ganyanı), gün kümeli bootstrap %95 GA; zaman yarıları ayrı.
+Karar: k=1,25 ROI GA alt sınırı > 1,0 → ileriye dönük kâğıt test (canlı: bayide TJK oranı + yerel canlı oran). Değilse ama nokta tahmini > 1,0 ise: veri biriktirilir (geçmiş çekimle örnek büyütülür), karar ≥ 1.000 bahiste. Not: iki taraf da SON oran; canlıda ikisi de kayar, ileriye dönük test şart.
