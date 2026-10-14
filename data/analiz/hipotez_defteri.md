@@ -198,3 +198,10 @@ Kanıt yalnız şu 6 satırda aranır (eşik e ≥ 6/0,05 = 120; aralıklar 6 te
 5. Ganyan: canlıda son ganyan bilinmediği için EV>1,1 kuralı izlenemiyor; canlı karşılığı Jason tüyoları (pJ ≥ %6, pJ/AGF ≥ 1,30, 1 TL ganyan)
 6. Sıralı 5'li: Jason-G, 150 geçerli kombinasyon bütçesi
 Diğer kurallar sitede sürer, "arşiv" etiketlidir, kanıt sayılmaz. Bu liste 1 Ocak 2027 değerlendirmesine kadar değişmez.
+
+## 15 Ekim 2026, 00:25 — Eşikli (kapsama) kupon: 5'li/6'lı/7'li ganyan (ÖN KAYIT, sonuç görülmeden; Doğan'ın fikri)
+Kural: her ayakta atlar Jason OOS olasılığına göre sıralanır, ayağın toplam olasılığı ≥ T olana kadar eklenir (en az 1, en çok 8 at). Rekabetçi ayakta otomatik genişler, net favorili ayakta daralır. T ∈ {0,60; 0,75; 0,90} (önceden sabit).
+Veri: odeme 5'Lİ / 6'LI / 7'Lİ GANYAN (+DEVİR = kimse bilemedi, 0), ayaklar = son koşudan geriye 5/6/7 koşu; tüm ayaklarda OOS olasılık olan kuponlar; 2025-01→ (ödeme dosyaları). Maliyet = kombinasyon × 1 birim, ödeme birim başına okuması.
+Ölçüt: ROI, gün kümeli bootstrap %95 GA; ayrıca tutma oranı ve ortalama maliyet. 9 test (3 T × 3 bahis) → Bonferroni %95/9.
+Beklenti (Faz 1'den): Jason ≈ AGF olduğundan genişlik kuralı getiriyi kesinti çizgisinin (k̂ ≈ 0,6) üstüne taşımamalı; esas etki tutma oranı ve oynaklık.
+Karar: herhangi bir hücrede Bonferroni GA alt sınırı > 1,0 → canlı kâğıt test adayı; aksi halde betimleyici. Betik: data/analiz/esikli_kupon.py.
