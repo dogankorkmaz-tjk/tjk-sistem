@@ -1017,6 +1017,9 @@ def main():
     elif mod == "abdcanli":
         from . import yabanci as YB
         YB.abd_canli()
+    elif mod == "sayfaprobe":
+        from . import yabanci as YB
+        YB.sayfa_probe()
     elif mod == "yabanciham":
         from . import yabanci as YB
         YB.ham_ornek()

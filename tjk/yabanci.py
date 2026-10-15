@@ -371,3 +371,19 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika")):
     cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: İngiltere saati", "kosular": kos, "toplantilar": toplanti}
     json.dump(cik, open(os.path.join(KOK, "docs", "data", "abd.json"), "w"), ensure_ascii=False)
     print("ABD+GA canlı koşu", len(kos), "pencere", pencere_dk)
+
+
+def sayfa_probe(dosya="data/probe_istek.txt"):
+    """Keşif: dosyadaki her URL'yi (robots.txt izinli sayfalar) yavaşça indirip data/yabanci_ham/probe_<i>.html olarak kaydeder."""
+    import requests, time
+    H = {"User-Agent": "Mozilla/5.0 (kisisel arastirma; gunde birkac yavas istek)"}
+    yol = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(yol, exist_ok=True)
+    urller = [u.strip() for u in open(os.path.join(KOK, dosya), encoding="utf-8") if u.strip().startswith("http")]
+    for i, u in enumerate(urller[:10]):
+        try:
+            r = requests.get(u, headers=H, timeout=30)
+            open(os.path.join(yol, f"probe_{i}.html"), "w", encoding="utf-8").write(r.text)
+            print(u, r.status_code, len(r.text))
+        except Exception as e:
+            print(u, "hata", repr(e))
+        time.sleep(3)
