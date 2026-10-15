@@ -1031,7 +1031,7 @@ function abdCiz(r){
   });
   h+='</div>'; if(r.tarih!=='elle') h=`<div class="card"><label class="sub" for="abdHizli">Hızlı yaz: TJK ganyanları atların sırasıyla, boşlukla ayır</label><input id="abdHizli" class="alan" inputmode="decimal" placeholder="3,4 4 6,5 8 20" style="margin-top:6px"></div>`+h; $('abdKosu').innerHTML=h;
   const hz=$('abdHizli'); if(hz) hz.oninput=()=>{ const v=hz.value.trim().split(/\s+/).filter(Boolean); const sat=[...$('abdKosu').querySelectorAll('.ar[data-i]')].filter(s=>s.querySelector('.yo').value!==''); sat.forEach((s,i)=>{ s.querySelector('.tj').value=v[i]||''; }); abdHesap(r,anahtar); };
-  $('abdKosu').querySelectorAll('input').forEach(x=>x.oninput=()=>abdHesap(r,anahtar));
+  $('abdKosu').querySelectorAll('.ar input').forEach(x=>x.oninput=()=>abdHesap(r,anahtar));
   abdHesap(r,anahtar);
 }
 function abdHesap(r,anahtar){
