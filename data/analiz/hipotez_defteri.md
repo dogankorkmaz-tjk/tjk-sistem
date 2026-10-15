@@ -304,3 +304,6 @@ M1−M0 (yanlılık düzeltmesi): +0,0056 nats/koşu, GA [+0,0024, +0,0087], ayl
 M2−M1 (halkın kullanmadığı bilgi): +0,0005 nats/koşu, GA [−0,0027, +0,0037], aylık pozitif 5/10.
 M2−M0: +0,0060, GA [+0,0017, +0,0102]. EV>1,10 betimleyici: 108 bahis ROI 1,22 ± 0,37 (kanıt değil).
 KARAR (önceden yazılı kurala göre): M2−M1 alt sınırı −0,0027 < 0,005 → ABD'de halkın kullanmadığı bilgi bulunamadı; ABD at/jokey/antrenör modeli KAPANDI. Bu sonuç, favori-uzun oran yanlılığının varlığını (M1−M0 pozitif) ve iki piyasa testinin ayrı hipotezini etkilemez. Sporting Life geçmiş oranları ile bağımsız sınav sürüyor.
+
+## 2026-10-15 13:25 — Jokey değişikliği (kullanıcı bildirdi)
+Ankara 1. koşu 5 PEVRUL: MÜS.ÇELİK -> V.ABİŞ; 2. koşu 7 HIZLI KRAL: MÜS.ÇELİK -> M.S.ÇELİK (TJK Jokey Değişikliği sayfası, ekran görüntüsü). Ankara CSV satırları elle düzeltildi; jokey_uygula puanları yeniler. Model/kural değişmedi.
