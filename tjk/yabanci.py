@@ -322,3 +322,41 @@ def sl_topla(bas, son, ulkeler=("abd", "birlesik-krallik", "irlanda", "kanada"))
             pd.concat([eski, pd.DataFrame(rows)], ignore_index=True).to_csv(y, index=False)
         print(gun, "SL satır", len(rows), flush=True)
         t += datetime.timedelta(days=1)
+
+
+def abd_canli(gunler=None):
+    """Bugünün (ve yarının) ABD koşuları: Sporting Life program sayfasından anlık yerel oranlar -> docs/data/abd.json."""
+    bugun = datetime.date.today()
+    gunler = gunler or [bugun, bugun + datetime.timedelta(days=1)]
+    RC = "https://www.sportinglife.com/racing/racecards/"
+    ham = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(ham, exist_ok=True)
+    kos = []
+    for t in gunler:
+        gun = t.isoformat(); pp = _sl_json(RC + gun)
+        if not pp:
+            print(gun, "program sayfası yok"); continue
+        print(gun, "anahtarlar", list(pp.keys())[:10], "toplantı", len(pp.get("meetings", [])))
+        for m in pp.get("meetings", []):
+            ms = m["meeting_summary"]
+            if SL_ULKE.get(ms["course"]["country"]["long_name"]) != "abd":
+                continue
+            races = sorted(m["races"], key=lambda r: r.get("time") or "")
+            for sira, rc in enumerate(races, 1):
+                rid = rc["race_summary_reference"]["id"]
+                rp = _sl_json(f"{RC}{gun}/{_slug(ms['course']['name'])}/racecard/{rid}/{_slug(rc.get('name') or 'race')}")
+                if not rp or not rp.get("race"):
+                    print("  koşu sayfası yok", ms["course"]["name"], rid)
+                    continue
+                if not os.path.exists(os.path.join(ham, "sl_canli_ornek.json")):
+                    json.dump(rp["race"], open(os.path.join(ham, "sl_canli_ornek.json"), "w"), ensure_ascii=False)
+                mno = re.match(r"Race\s+(\d+)", rc.get("name") or "")
+                atlar = []
+                for x in rp["race"].get("rides", []):
+                    b = x.get("betting") or {}; hz = x.get("horse") or {}
+                    atlar.append({"no": x.get("cloth_number"), "ad": (hz.get("name") or "").upper(), "oran": _kesir(b.get("current_odds")),
+                                  "gecmis": b.get("historical_odds") or [], "cekildi": bool(x.get("ride_status") and str(x.get("ride_status")).upper() not in ("RUNNER", "NONE"))})
+                kos.append({"tarih": gun, "pist": ms["course"]["name"], "kosu": int(mno.group(1)) if mno else sira, "saat": rc.get("time"),
+                            "mesafe": rc.get("distance"), "zemin": (rc.get("course_surface") or {}).get("surface"), "atlar": atlar})
+    cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M") + " UTC", "kosular": kos}
+    json.dump(cik, open(os.path.join(KOK, "docs", "data", "abd.json"), "w"), ensure_ascii=False)
+    print("ABD canlı koşu", len(kos))

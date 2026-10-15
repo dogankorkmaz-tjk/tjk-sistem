@@ -1003,6 +1003,9 @@ def main():
     elif mod == "sltopla":
         from . import yabanci as YB
         YB.sl_topla(datetime.date.fromisoformat(arg[0]), datetime.date.fromisoformat(arg[1]))
+    elif mod == "abdcanli":
+        from . import yabanci as YB
+        YB.abd_canli()
     elif mod == "yabanciham":
         from . import yabanci as YB
         YB.ham_ornek()
