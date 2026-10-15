@@ -332,11 +332,16 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika")):
     gunler = gunler or [simdi.date(), simdi.date() + datetime.timedelta(days=1)]
     RC = "https://www.sportinglife.com/racing/racecards/"
     ham = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(ham, exist_ok=True)
-    isler = []
+    isler = []; toplanti = []
     for t in gunler:
         gun = t.isoformat(); pp = _sl_json(RC + gun, 0.5)
         for m in (pp or {}).get("meetings", []):
             ms = m["meeting_summary"]
+            try:
+                zz = sorted(r.get("time") or "" for r in m.get("races", []))
+                toplanti.append({"tarih": gun, "pist": ms["course"]["name"], "ulke": ms["course"]["country"]["long_name"], "kosu": len(zz), "ilk": zz[0] if zz else None, "son": zz[-1] if zz else None})
+            except Exception:
+                pass
             if SL_ULKE.get(ms["course"]["country"]["long_name"]) not in ulkeler:
                 continue
             for sira, rc in enumerate(sorted(m["races"], key=lambda r: r.get("time") or ""), 1):
@@ -363,6 +368,6 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika")):
     with ThreadPoolExecutor(4) as ex:
         kos = [k for k in ex.map(al, isler) if k]
     kos.sort(key=lambda k: k["dk"])
-    cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: İngiltere saati", "kosular": kos}
+    cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: İngiltere saati", "kosular": kos, "toplantilar": toplanti}
     json.dump(cik, open(os.path.join(KOK, "docs", "data", "abd.json"), "w"), ensure_ascii=False)
     print("ABD+GA canlı koşu", len(kos), "pencere", pencere_dk)
