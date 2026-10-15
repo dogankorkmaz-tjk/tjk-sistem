@@ -248,3 +248,15 @@ Karar: Toplam ölçüt sağlanmadığı ve ABD bulgusu alt grup olduğu için PA
 
 ## 15 Ekim 2026, 02:30 — ÖN KAYIT: ABD iki piyasa ileriye dönük test
 Kural (değişmez): ABD koşusu, TJK ganyanı × yerel (ABD) olasılık q > 1,25 → 1 TL ganyan. Ölçüm 15 Ekim 2026 sonrası koşularda, son oranlarla (üst sınır) ve ayrıca bahis anı oranlarıyla (Doğan'ın bayi ekranından T-2 dk TJK ganyanı + Sporting Life oran geçmişinin son kalemi) ayrı ayrı. Karar: 1 Ocak 2027'de veya ≥ 500 bahiste; e-değer ile her gün izlenir.
+
+## 15 Ekim 2026, 03:20 — İki piyasa SAĞLAMLIK: ABD yarış öncesi oranları (ÖN KAYIT, sonuç görülmeden)
+Soru: ABD k=1,25 bulgusu (son oranlarla ROI 1,57) yarıştan önceki ABD oranlarıyla da duruyor mu? Durmuyorsa avantaj son dakika parasına bağlıdır ve bayide yakalanamaz.
+Veri: data/yabanci_sl oran_gecmis (Sporting Life oran hareketi; son eleman %97,6 oranında son orandan farklı → son orandan ÖNCEKİ görüntüler). Yalnız ABD, aynı eşleşme kuralları (iki_piyasa.py).
+Varyantlar (koşudaki TÜM atların geçmişi doluysa koşu dahil; aynı koşu kümesinde üçü karşılaştırılır):
+- SON: oran_son (önceki testin aynısı, referans)
+- GEÇ (BİRİNCİL): geçmişin son elemanı (bahis anına en yakın)
+- ERKEN: geçmişin ilk elemanı
+q = 1/oran koşu içinde normalize. Kural: q × TJK son ganyan > 1,25 → 1 TL. Ödeme: gerçek TJK ganyanı.
+Ölçüt: ROI ve gün kümeli bootstrap %95 GA; tahmin gücü (kazanan log-olasılığı q−TJK).
+Karar: GEÇ varyantında ROI GA alt sınırı > 1,0 → bulgu "bahis anına taşınabilir" adayı (ileriye dönük testte GEÇ oranı da kaydedilir). GEÇ ROI nokta tahmini < 1,10 → avantaj büyük ölçüde son dakika parasında; bayide uygulanabilirliği zayıf.
+Sınır: TJK tarafı hâlâ SON ganyan (bahis anı TJK oranı bu veride yok; ileriye dönük testte Doğan'ın ekranından ölçülecek).
