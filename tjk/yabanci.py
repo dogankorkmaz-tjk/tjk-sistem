@@ -328,7 +328,7 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birle
     """ABD + Güney Afrika koşuları: yalnız başlamasına en çok pencere_dk kala olanların anlık yerel oranları -> docs/data/abd.json (hızlı, paralel)."""
     from concurrent.futures import ThreadPoolExecutor
     from zoneinfo import ZoneInfo
-    simdi = datetime.datetime.now(ZoneInfo("Europe/London"))
+    simdi = datetime.datetime.now(ZoneInfo("UTC"))           # Sporting Life JSON saatleri UTC (15 Ekim: Brighton 12:32 = TJK 15:32 TR)
     gunler = gunler or [simdi.date(), simdi.date() + datetime.timedelta(days=1)]
     RC = "https://www.sportinglife.com/racing/racecards/"
     ham = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(ham, exist_ok=True)
@@ -346,15 +346,15 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birle
                 continue
             for sira, rc in enumerate(sorted(m["races"], key=lambda r: r.get("time") or ""), 1):
                 try:
-                    bas = datetime.datetime.combine(t, datetime.time.fromisoformat(rc["time"]), ZoneInfo("Europe/London"))
+                    bas = datetime.datetime.combine(t, datetime.time.fromisoformat(rc["time"]), ZoneInfo("UTC"))
                 except Exception:
                     continue
                 dk = (bas - simdi).total_seconds() / 60
                 if -5 <= dk <= pencere_dk:
-                    isler.append((gun, ms, rc, sira, dk))
+                    isler.append((gun, ms, rc, sira, dk, bas.astimezone(ZoneInfo("Europe/Istanbul")).strftime("%H:%M")))
 
     def al(x):
-        gun, ms, rc, sira, dk = x; rid = rc["race_summary_reference"]["id"]
+        gun, ms, rc, sira, dk, saat_tr = x; rid = rc["race_summary_reference"]["id"]
         rp = _sl_json(f"{RC}{gun}/{_slug(ms['course']['name'])}/racecard/{rid}/{_slug(rc.get('name') or 'race')}", 0.7)
         if not rp or not rp.get("race"):
             return None
@@ -363,12 +363,12 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birle
         for r in rp["race"].get("rides", []):
             b = r.get("betting") or {}; hz = r.get("horse") or {}
             atlar.append({"no": r.get("cloth_number"), "ad": (hz.get("name") or "").upper(), "oran": _kesir(b.get("current_odds")), "gecmis": b.get("historical_odds") or []})
-        return {"tarih": gun, "ulke": SL_ULKE.get(ms["course"]["country"]["long_name"]), "pist": ms["course"]["name"], "kosu": int(mno.group(1)) if mno else sira, "saat": rc.get("time"), "dk": round(dk),
+        return {"tarih": gun, "ulke": SL_ULKE.get(ms["course"]["country"]["long_name"]), "pist": ms["course"]["name"], "kosu": int(mno.group(1)) if mno else sira, "saat": saat_tr, "saat_utc": rc.get("time"), "dk": round(dk),
                 "mesafe": rc.get("distance"), "zemin": (rc.get("course_surface") or {}).get("surface"), "atlar": atlar}
     with ThreadPoolExecutor(4) as ex:
         kos = [k for k in ex.map(al, isler) if k]
     kos.sort(key=lambda k: k["dk"])
-    cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: İngiltere saati", "kosular": kos, "toplantilar": toplanti}
+    cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: Türkiye saati", "kosular": kos, "toplantilar": toplanti}
     json.dump(cik, open(os.path.join(KOK, "docs", "data", "abd.json"), "w"), ensure_ascii=False)
     print("ABD+GA canlı koşu", len(kos), "pencere", pencere_dk)
 
