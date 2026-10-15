@@ -273,7 +273,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Bugün</button>
     <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
     <button role="tab" id="tabKupon" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 000 4v4H4v-4a2 2 0 000-4z"/></svg>Kuponlar</button>
-    <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>ABD</button>
+    <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>Yabancı</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
     <button role="tab" id="tabDiger" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Diğer</button>
   </div>
@@ -339,9 +339,9 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
   </section>
   <section id="abd" class="sec" hidden>
     <div class="card">
-      <b>ABD: iki piyasa kuralı</b>
-      <div class="sub">ABD yerel oranından yarışı kazanma olasılığı (q) hesaplanır. Bayide gördüğün TJK ganyanı ile çarpılır. q × ganyan 1,25'in üstündeyse o at işaretlenir: kâğıt üstü 1 TL ganyan.</div>
-      <div class="sub">Dürüst durum: 3 haftalık geriye bakışta işe yarar göründü, bağımsız sınav ve ileriye dönük kâğıt testi sürüyor. Şu an gerçek para kanıtı yok; sadece küçük sabit tutar ve ancak test sonuçlandıktan sonra.</div>
+      <b>ABD ve Güney Afrika: iki piyasa kuralı</b>
+      <div class="sub">Yerel orandan (ABD ya da Güney Afrika) yarışı kazanma olasılığı (q) hesaplanır. Bayide gördüğün TJK ganyanı ile çarpılır. q × ganyan 1,25'in üstündeyse o at işaretlenir: kâğıt üstü 1 TL ganyan.</div>
+      <div class="sub">Dürüst durum: ABD'de 3 haftalık geriye bakışta işe yarar göründü, bağımsız sınav ve ileriye dönük kâğıt testi sürüyor. Güney Afrika için hiç test yok: yalnızca kâğıt üstü kayıt. Şu an gerçek para kanıtı yok; sadece küçük sabit tutar ve ancak test sonuçlandıktan sonra.</div>
       <div class="actions" style="margin-top:10px"><button id="abdYenile">Oranları yenile</button><span id="abdGuncel" class="sub"></span></div><div class="sub" style="margin-top:6px">Sadece başlamasına 90 dakikadan az kalan koşular listelenir. Oran yaşını yukarıdaki "Son" saatinden kontrol et.</div>
     </div>
     <div class="chips" id="abdChips"></div>
@@ -1012,9 +1012,9 @@ function abdChipler(){
   const kutu=$('abdChips'); kutu.innerHTML='';
   const liste=k.concat(bos);
   liste.forEach((r,i)=>{ const b=document.createElement('button'); b.className='chip'; b.setAttribute('aria-pressed',ABDK===i);
-    b.innerHTML=`${esc(r.pist.split(' ')[0])}<small>${r.tarih==='elle'?'boş koşu':esc((r.kosu||'')+'. koşu · '+(r.dk!=null?(r.dk>0?r.dk+' dk':'başladı'):r.saat))}</small>`;
+    b.innerHTML=`${r.ulke==='guney-afrika'?'GA · ':(r.ulke==='abd'?'ABD · ':'')}${esc(r.pist.split(' ')[0])}<small>${r.tarih==='elle'?'boş koşu':esc((r.kosu||'')+'. koşu · '+(r.dk!=null?(r.dk>0?r.dk+' dk':'başladı'):r.saat))}</small>`;
     b.onclick=()=>{ ABDK=i; abdChipler(); abdCiz(liste[i]); }; kutu.appendChild(b); });
-  if(!k.length) $('abdKosu').innerHTML='<div class="card empty">Yakın saatte başlayan ABD koşusu yok ya da oranlar henüz gelmedi. "Oranları yenile"ye bas, 1–2 dakika sonra tekrar bak. Ya da "Elle gir" ile yerel oranı kendin yaz.</div>';
+  if(!k.length) $('abdKosu').innerHTML='<div class="card empty">Yakın saatte başlayan ABD ya da Güney Afrika koşusu yok ya da oranlar henüz gelmedi. "Oranları yenile"ye bas, 1–2 dakika sonra tekrar bak. Ya da "Elle gir" ile yerel oranı kendin yaz.</div>';
   else if(ABDK==null){ ABDK=0; abdChipler(); abdCiz(k[0]); }
 }
 function abdCiz(r){
@@ -1053,7 +1053,7 @@ function abdKayit(r,anahtar,vals,oyn){
   kutu.innerHTML=`<b>Kâğıt testi kaydı</b><div class="sub">Bayideki son ganyanları (kapanışa en yakın) girdikten sonra kaydet. Kayıt, sonuç gelince değerlendirilir. Şu ana kadar bu telefonda ${log.length} koşu kayıtlı.</div>
   <div class="actions" style="margin-top:10px"><button id="abdKaydet" class="primary" ${dolu>=3?'':'disabled'}>Bu koşuyu kaydet (${oyn.length} işaretli)</button></div><div id="abdSonuc" class="sub" style="margin-top:8px"></div>`;
   $('abdKaydet').onclick=async()=>{
-    const kay={tarih:r.tarih==='elle'?new Date().toISOString().slice(0,10):r.tarih,pist:r.pist,kosu:r.kosu,saat:r.saat,zaman:new Date().toISOString(),
+    const kay={tarih:r.tarih==='elle'?new Date().toISOString().slice(0,10):r.tarih,ulke:r.ulke||null,pist:r.pist,kosu:r.kosu,saat:r.saat,zaman:new Date().toISOString(),
       atlar:vals.map((v,i)=>({no:r.atlar[i]?r.atlar[i].no:i+1,ad:r.atlar[i]?r.atlar[i].ad:'',yerel:v.y||null,tjk:v.t||null})),isaretli:oyn,esik:ABD_ESIK};
     log.push(kay); sv('gm2_abd_log',log);
     const out=$('abdSonuc'); let tk=''; try{ tk=($('ghTok').value.trim())||localStorage.getItem('gm2_gh')||''; }catch(e){}

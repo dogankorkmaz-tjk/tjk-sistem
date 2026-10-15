@@ -307,3 +307,10 @@ KARAR (önceden yazılı kurala göre): M2−M1 alt sınırı −0,0027 < 0,005 
 
 ## 2026-10-15 13:25 — Jokey değişikliği (kullanıcı bildirdi)
 Ankara 1. koşu 5 PEVRUL: MÜS.ÇELİK -> V.ABİŞ; 2. koşu 7 HIZLI KRAL: MÜS.ÇELİK -> M.S.ÇELİK (TJK Jokey Değişikliği sayfası, ekran görüntüsü). Ankara CSV satırları elle düzeltildi; jokey_uygula puanları yeniler. Model/kural değişmedi.
+
+## 15 Ekim 2026, 15:20 — Güney Afrika iki piyasa kuralı: ön kayıt (hiçbir GA sonucu görülmeden)
+Hipotez: Güney Afrika koşularında Sporting Life yerel oranından normalize q × TJK ganyanı > 1,25 olan atlara 1 TL ganyan, ROI > 1,0 verir. Kural ABD ile BİREBİR aynı ve dondurulmuş (normalize 1/oran, eşik 1,25); GA için hiçbir parametre ayarlanmayacak.
+Neden ayrı test: ABD bulgusu GA'ya taşınmaz; farklı yerel piyasa (tote/bookmaker), farklı TJK havuz büyüklüğü. Artısı: GA koşuları Türkiye saatiyle öğlen/öğleden sonra, bayi açıkken.
+Veri durumu: TJK GA sonuçları şu an hatalı ayrıştırılmış (sıra/no/ganyan çoğunlukla boş), SL GA geçmişi çekilmedi → geriye dönük test şimdilik YOK. Ayrıştırıcı düzeltilip geçmiş toplanırsa geriye test bu kurala bakılarak, kural değiştirilmeden, ayrı kayıtla yapılır: BİRİNCİL ölçüt ROI gün kümeli bootstrap %95 GA alt sınırı > 1,0.
+İleriye dönük kâğıt testi: Yabancı sekmesindeki kayıtlar (data/abd_kayit, ulke=guney-afrika). Değerlendirmede TJK resmi kapanış ganyanı esas; kayıt anındaki ekran ganyanı ayrıca raporlanır (bahis anı uygulanabilirliği). Karar: >=300 işaretli bahis ya da 1 Mart 2027 (hangisi önce): alt sınır > 1,0 → aday (para kararı ayrıca, küçük sabit tutar); nokta ≤ 1,0 → kural GA'da kapanır. O zamana kadar gerçek para YOK.
+Mekanizma: abd_canli artık ABD + Güney Afrika koşularını çeker (abd_canli.yml'e UTC 08-15 saatleri eklendi).

@@ -324,8 +324,8 @@ def sl_topla(bas, son, ulkeler=("abd", "birlesik-krallik", "irlanda", "kanada"))
         t += datetime.timedelta(days=1)
 
 
-def abd_canli(gunler=None, pencere_dk=90):
-    """ABD koşuları: yalnız başlamasına en çok pencere_dk kala olanların anlık yerel oranları -> docs/data/abd.json (hızlı, paralel)."""
+def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika")):
+    """ABD + Güney Afrika koşuları: yalnız başlamasına en çok pencere_dk kala olanların anlık yerel oranları -> docs/data/abd.json (hızlı, paralel)."""
     from concurrent.futures import ThreadPoolExecutor
     from zoneinfo import ZoneInfo
     simdi = datetime.datetime.now(ZoneInfo("Europe/London"))
@@ -337,7 +337,7 @@ def abd_canli(gunler=None, pencere_dk=90):
         gun = t.isoformat(); pp = _sl_json(RC + gun, 0.5)
         for m in (pp or {}).get("meetings", []):
             ms = m["meeting_summary"]
-            if SL_ULKE.get(ms["course"]["country"]["long_name"]) != "abd":
+            if SL_ULKE.get(ms["course"]["country"]["long_name"]) not in ulkeler:
                 continue
             for sira, rc in enumerate(sorted(m["races"], key=lambda r: r.get("time") or ""), 1):
                 try:
@@ -358,11 +358,11 @@ def abd_canli(gunler=None, pencere_dk=90):
         for r in rp["race"].get("rides", []):
             b = r.get("betting") or {}; hz = r.get("horse") or {}
             atlar.append({"no": r.get("cloth_number"), "ad": (hz.get("name") or "").upper(), "oran": _kesir(b.get("current_odds")), "gecmis": b.get("historical_odds") or []})
-        return {"tarih": gun, "pist": ms["course"]["name"], "kosu": int(mno.group(1)) if mno else sira, "saat": rc.get("time"), "dk": round(dk),
+        return {"tarih": gun, "ulke": SL_ULKE.get(ms["course"]["country"]["long_name"]), "pist": ms["course"]["name"], "kosu": int(mno.group(1)) if mno else sira, "saat": rc.get("time"), "dk": round(dk),
                 "mesafe": rc.get("distance"), "zemin": (rc.get("course_surface") or {}).get("surface"), "atlar": atlar}
     with ThreadPoolExecutor(4) as ex:
         kos = [k for k in ex.map(al, isler) if k]
     kos.sort(key=lambda k: k["dk"])
     cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: İngiltere saati", "kosular": kos}
     json.dump(cik, open(os.path.join(KOK, "docs", "data", "abd.json"), "w"), ensure_ascii=False)
-    print("ABD canlı koşu", len(kos), "pencere", pencere_dk)
+    print("ABD+GA canlı koşu", len(kos), "pencere", pencere_dk)
