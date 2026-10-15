@@ -342,7 +342,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
       <b>ABD: iki piyasa kuralı</b>
       <div class="sub">ABD yerel oranından yarışı kazanma olasılığı (q) hesaplanır. Bayide gördüğün TJK ganyanı ile çarpılır. q × ganyan 1,25'in üstündeyse o at işaretlenir: kâğıt üstü 1 TL ganyan.</div>
       <div class="sub">Dürüst durum: 3 haftalık geriye bakışta işe yarar göründü, bağımsız sınav ve ileriye dönük kâğıt testi sürüyor. Şu an gerçek para kanıtı yok; sadece küçük sabit tutar ve ancak test sonuçlandıktan sonra.</div>
-      <div class="actions" style="margin-top:10px"><button id="abdYenile">Oranları yenile</button><span id="abdGuncel" class="sub"></span></div>
+      <div class="actions" style="margin-top:10px"><button id="abdYenile">Oranları yenile</button><span id="abdGuncel" class="sub"></span></div><div class="sub" style="margin-top:6px">Sadece başlamasına 90 dakikadan az kalan koşular listelenir. Oran yaşını yukarıdaki "Son" saatinden kontrol et.</div>
     </div>
     <div class="chips" id="abdChips"></div>
     <div id="abdKosu"></div>
@@ -1012,9 +1012,9 @@ function abdChipler(){
   const kutu=$('abdChips'); kutu.innerHTML='';
   const liste=k.concat(bos);
   liste.forEach((r,i)=>{ const b=document.createElement('button'); b.className='chip'; b.setAttribute('aria-pressed',ABDK===i);
-    b.innerHTML=`${esc(r.pist.split(' ')[0])}<small>${r.tarih==='elle'?'boş koşu':esc((r.kosu||'')+'. '+(r.saat||''))}</small>`;
+    b.innerHTML=`${esc(r.pist.split(' ')[0])}<small>${r.tarih==='elle'?'boş koşu':esc((r.kosu||'')+'. koşu · '+(r.dk!=null?(r.dk>0?r.dk+' dk':'başladı'):r.saat))}</small>`;
     b.onclick=()=>{ ABDK=i; abdChipler(); abdCiz(liste[i]); }; kutu.appendChild(b); });
-  if(!k.length) $('abdKosu').innerHTML='<div class="card empty">Henüz ABD oranı yok. "Oranları yenile"ye bas, 1–2 dakika sonra tekrar bak. Ya da "Elle gir" ile yerel oranı kendin yaz.</div>';
+  if(!k.length) $('abdKosu').innerHTML='<div class="card empty">Yakın saatte başlayan ABD koşusu yok ya da oranlar henüz gelmedi. "Oranları yenile"ye bas, 1–2 dakika sonra tekrar bak. Ya da "Elle gir" ile yerel oranı kendin yaz.</div>';
   else if(ABDK==null){ ABDK=0; abdChipler(); abdCiz(k[0]); }
 }
 function abdCiz(r){
