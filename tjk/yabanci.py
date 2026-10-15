@@ -32,7 +32,7 @@ def pmu_robots():
     out = {"zaman": O.tr_simdi().strftime("%Y-%m-%d %H:%M"), "kaynaklar": {}}
     for u in ("https://online.turfinfo.api.pmu.fr/robots.txt", "https://www.pmu.fr/robots.txt"):
         try:
-            r = requests.get(u, headers=O.HEADERS, timeout=30)
+            r = O._CR.get(u, impersonate="chrome", timeout=30) if O._CR else requests.get(u, headers=O.HEADERS, timeout=30)
             out["kaynaklar"][u] = {"durum": r.status_code, "metin": r.text[:4000]}
         except Exception as e:
             out["kaynaklar"][u] = {"hata": str(e)[:300]}
