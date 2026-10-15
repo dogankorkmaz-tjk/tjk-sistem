@@ -297,3 +297,10 @@ Horseshoe Indianapolis 13 Ekim SİB (yükleme zamanı belirsiz) ile Sporting Lif
 
 ### ABD SİB gözlem güncellemesi (15 Ekim 2026 04:20, keşif, n=17 koşu, 13 Ekim Finger Lakes + Horseshoe)
 SİB 1/oran toplamı ort. 1,42; SL kapanış 1,25. Tüm atlara SİB ROI 0,66 (SL kapanış oranıyla 0,76). q×SİB>0,9: 0 bahis. Aynı veride q×TJK ganyan>1,0: 15 bahis, 3 isabet, ROI 3,45 (n çok küçük, şans payı büyük; kanıt sayılmaz). Kuralın seçtiği atlarda TJK ganyanı SİB oranından belirgin yüksek (ör. 22,9 vs 9,0; 24,4 vs 14,0; 29,1 vs 14,0): değer ganyan havuzunda, SİB'de değil. SİB tavanı 50.
+
+## 15 Ekim 2026, 09:55 — ABD modeli SONUCU (ön kayıt 01:20'ye göre, kural ve özellik listesi değişmeden)
+Veri: Ekim 2025–Ekim 2026 ABD sonuçları ve program sayfaları (program kapsamı %96), 3261 sınama koşusu, 10 aylık walk-forward.
+M1−M0 (yanlılık düzeltmesi): +0,0056 nats/koşu, GA [+0,0024, +0,0087], aylık pozitif 9/10.
+M2−M1 (halkın kullanmadığı bilgi): +0,0005 nats/koşu, GA [−0,0027, +0,0037], aylık pozitif 5/10.
+M2−M0: +0,0060, GA [+0,0017, +0,0102]. EV>1,10 betimleyici: 108 bahis ROI 1,22 ± 0,37 (kanıt değil).
+KARAR (önceden yazılı kurala göre): M2−M1 alt sınırı −0,0027 < 0,005 → ABD'de halkın kullanmadığı bilgi bulunamadı; ABD at/jokey/antrenör modeli KAPANDI. Bu sonuç, favori-uzun oran yanlılığının varlığını (M1−M0 pozitif) ve iki piyasa testinin ayrı hipotezini etkilemez. Sporting Life geçmiş oranları ile bağımsız sınav sürüyor.
