@@ -294,3 +294,6 @@ Not: 10 Ekim ABD SİB dosyalarında oran boş (yapıştırma oran açılmadan ya
 
 ### ABD SİB ilk gözlem (15 Ekim 2026 04:10, keşif amaçlı, n=8 koşu)
 Horseshoe Indianapolis 13 Ekim SİB (yükleme zamanı belirsiz) ile Sporting Life kapanış oranı karşılaştırıldı: SİB 1/oran toplamı 1,37–1,68 (çoğu ~1,40), SL 1,19–1,46 (çoğu ~1,2–1,3). Her 8 koşuda kazananın SİB oranı SL kapanış oranından düşük. q×SİB>1,0 olan at: 0. Tüm atlara SİB ganyan ROI 0,66. Çıkarım (zayıf, n küçük): SİB oranı yerel piyasadan türetilmiş ve ekstra marj eklenmiş görünüyor; ön kayıtlı kural SİB'de tetiklenmedi. Kural değişmedi; ileriye dönük SİB verisi toplanmaya devam.
+
+### ABD SİB gözlem güncellemesi (15 Ekim 2026 04:20, keşif, n=17 koşu, 13 Ekim Finger Lakes + Horseshoe)
+SİB 1/oran toplamı ort. 1,42; SL kapanış 1,25. Tüm atlara SİB ROI 0,66 (SL kapanış oranıyla 0,76). q×SİB>0,9: 0 bahis. Aynı veride q×TJK ganyan>1,0: 15 bahis, 3 isabet, ROI 3,45 (n çok küçük, şans payı büyük; kanıt sayılmaz). Kuralın seçtiği atlarda TJK ganyanı SİB oranından belirgin yüksek (ör. 22,9 vs 9,0; 24,4 vs 14,0; 29,1 vs 14,0): değer ganyan havuzunda, SİB'de değil. SİB tavanı 50.
