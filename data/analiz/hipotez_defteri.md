@@ -291,3 +291,6 @@ Soru: SİB oranı, yerel piyasanın (Sporting Life) KAPANIŞ olasılığına gö
 Kural (değişmez): SİB'in alındığı andaki oranlar (sib_ham zaman damgalı) ile aynı koşunun SL kapanış oranından q; q × SİB oranı > 1,25 olan atlara 1 TL ganyan (kâğıt üstü). Karşılaştırma ölçüsü: koşu başına log-kayıp farkı (q − SİB-normalize) ve kural ROI'si, gün-kümeli bootstrap.
 Veri: Doğan ABD SİB sayfasını telefondan (Dosya > SİB yapıştır) gün içinde 2–3 farklı saatte yapıştırır. Karar: en az 300 bahis veya 1 Ocak 2027; o zamana kadar gerçek para yok.
 Not: 10 Ekim ABD SİB dosyalarında oran boş (yapıştırma oran açılmadan yapılmış); 13 Ekim Philadelphia için TJK/SL eşleşmesi yok, karşılaştırma yapılamadı.
+
+### ABD SİB ilk gözlem (15 Ekim 2026 04:10, keşif amaçlı, n=8 koşu)
+Horseshoe Indianapolis 13 Ekim SİB (yükleme zamanı belirsiz) ile Sporting Life kapanış oranı karşılaştırıldı: SİB 1/oran toplamı 1,37–1,68 (çoğu ~1,40), SL 1,19–1,46 (çoğu ~1,2–1,3). Her 8 koşuda kazananın SİB oranı SL kapanış oranından düşük. q×SİB>1,0 olan at: 0. Tüm atlara SİB ganyan ROI 0,66. Çıkarım (zayıf, n küçük): SİB oranı yerel piyasadan türetilmiş ve ekstra marj eklenmiş görünüyor; ön kayıtlı kural SİB'de tetiklenmedi. Kural değişmedi; ileriye dönük SİB verisi toplanmaya devam.
