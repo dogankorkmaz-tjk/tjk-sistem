@@ -1,5 +1,5 @@
-https://www.skysports.com/robots.txt
-https://www.skysports.com/racing/racecards
-https://www.skysports.com/racing/results
-https://www.gallop.co.za/
-https://www.sportingpost.co.za/robots.txt
+https://www.attheraces.com/racecard/Turffontein/15-October-2026/1505
+https://tabonline.co.za/robots.txt
+https://tabonline.co.za/
+https://www.hollywoodbets.net/robots.txt
+https://www.tellytrack.com/
