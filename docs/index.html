@@ -1008,11 +1008,11 @@ async function abdYukle(){
   abdChipler();
 }
 function abdChipler(){
-  const k=(ABD&&ABD.kosular||[]), bos=[{tarih:'ekran',pist:'Ekran (SABİT)',kosu:'',saat:'',atlar:[]},{tarih:'elle',pist:'Elle gir',kosu:'',saat:'',atlar:[]}];
+  const k=(ABD&&ABD.kosular||[]), bos=[{tarih:'ekran',pist:'Güney Afrika (ekrandan)',kosu:'',saat:'',atlar:[]},{tarih:'elle',pist:'Elle gir',kosu:'',saat:'',atlar:[]}];
   const kutu=$('abdChips'); kutu.innerHTML='';
   const liste=k.concat(bos);
   liste.forEach((r,i)=>{ const b=document.createElement('button'); b.className='chip'; b.setAttribute('aria-pressed',ABDK===i);
-    b.innerHTML=`${({'guney-afrika':'GA · ','abd':'ABD · ','birlesik-krallik':'İNG · ','irlanda':'İRL · ','fransa':'FR · '})[r.ulke]||''}${esc(r.tarih==='ekran'?'Ekran':r.pist.split(' ')[0])}<small>${r.tarih==='ekran'?'ganyan + SABİT':r.tarih==='elle'?'boş koşu':esc((r.kosu||'')+'. koşu · '+(r.dk!=null?(r.dk>0?r.dk+' dk':'başladı'):r.saat))}</small>`;
+    b.innerHTML=`${({'guney-afrika':'GA · ','abd':'ABD · ','birlesik-krallik':'İNG · ','irlanda':'İRL · ','fransa':'FR · '})[r.ulke]||''}${esc(r.tarih==='ekran'?'GA · Ekran':r.pist.split(' ')[0])}<small>${r.tarih==='ekran'?'Güney Afrika: ganyan + SABİT':r.tarih==='elle'?'boş koşu':esc((r.kosu||'')+'. koşu · '+(r.dk!=null?(r.dk>0?r.dk+' dk':'başladı'):r.saat))}</small>`;
     b.onclick=()=>{ ABDK=i; abdChipler(); abdCiz(liste[i]); }; kutu.appendChild(b); });
   if(!k.length) $('abdKosu').innerHTML='<div class="card empty">Yakın saatte başlayan ABD ya da Güney Afrika koşusu yok ya da oranlar henüz gelmedi. "Oranları yenile"ye bas, 1–2 dakika sonra tekrar bak. Ya da "Elle gir" ile yerel oranı kendin yaz.</div>';
   else if(ABDK==null){ ABDK=0; abdChipler(); abdCiz(k[0]); }
