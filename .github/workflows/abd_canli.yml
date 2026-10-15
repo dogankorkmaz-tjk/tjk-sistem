@@ -3,6 +3,7 @@ name: abd_canli
 on:
   schedule:
     - cron: "*/5 16-23,0-3 * * *"   # ABD yarış saatleri (UTC); 5 dakikada bir
+    - cron: "*/5 9-15 * * *"        # İngiltere/İrlanda/Fransa gündüz koşuları (UTC)
   workflow_dispatch:
   push:
     paths: ["data/abd_istek.txt"]     # siteden "Yenile" ile tetiklenir

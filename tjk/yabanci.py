@@ -324,7 +324,7 @@ def sl_topla(bas, son, ulkeler=("abd", "birlesik-krallik", "irlanda", "kanada"))
         t += datetime.timedelta(days=1)
 
 
-def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika")):
+def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birlesik-krallik", "irlanda", "fransa")):
     """ABD + Güney Afrika koşuları: yalnız başlamasına en çok pencere_dk kala olanların anlık yerel oranları -> docs/data/abd.json (hızlı, paralel)."""
     from concurrent.futures import ThreadPoolExecutor
     from zoneinfo import ZoneInfo
