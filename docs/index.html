@@ -1058,6 +1058,10 @@ function abdHesap(r,anahtar){
   const satir=[...$('abdKosu').querySelectorAll('.ar[data-i]')]; const vals=satir.map(s=>({y:abdOndalik(s.querySelector('.yo').value),t:abdOndalik(s.querySelector('.tj').value)}));
   const top=vals.reduce((a,v)=>a+(v.y>1?1/v.y:0),0);
   const uy=$('abdUyari'); if(uy){ const g=vals.filter(v=>v.t>1).length, y=vals.filter(v=>v.y>1).length; uy.textContent=(g&&y<2)?'⚠ Hesap için SABİT (ya da yerel) sütununu da doldur: sadece ganyanla q hesaplanamaz.':''; }
+  const ozet=()=>{ const u=$('abdUyari'); if(!u||u.textContent.startsWith('⚠')) return; const dl=vals.filter(v=>v.t>1&&v.y>1).length; if(dl<3){ return; }
+    const top2=vals.reduce((a,v)=>a+(v.y>1?1/v.y:0),0); const isr=vals.map((v,i)=>({i,d:(v.y>1&&v.t>1)?(1/v.y)/top2*v.t:0})).filter(x=>x.d>ABD_ESIK);
+    u.style.color=isr.length?'var(--ok,#3c3)':''; u.textContent=isr.length?('OYNA: '+isr.map(x=>(r.atlar[x.i]?r.atlar[x.i].no:x.i+1)).join(', ')+' (1 TL ganyan, kâğıt üstü)'):'Bu koşuda değerli at yok (hiçbiri 1,25’i geçmiyor) → OYNAMA. Yine de kaydet.'; };
+  setTimeout(ozet,0);
   const gir=ld('gm2_abd_gir',{}); gir[anahtar]=satir.map((s,i)=>({y:s.querySelector('.yo').value,t:s.querySelector('.tj').value,ad:(s.querySelector('.ad')||{}).value||''})); sv('gm2_abd_gir',gir);
   const oyn=[];
   satir.forEach((s,i)=>{ const v=vals[i], q=(v.y>1&&top)?(1/v.y)/top:null, deg=(q&&v.t>1)?q*v.t:null;
