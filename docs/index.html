@@ -1004,6 +1004,7 @@ const ABD_ESIK=1.25;
 function abdOndalik(v){ v=String(v||'').trim().replace(',','.'); if(v.includes('/')){const[a,b]=v.split('/').map(Number); return b?a/b+1:NaN;} return parseFloat(v); }
 async function abdYukle(){
   try{ ABD=await (await fetch('data/abd.json?'+Date.now())).json(); }catch(e){ ABD={kosular:[]}; }
+  try{ const ga=await (await fetch('data/ga.json?'+Date.now())).json(); const bg=new Date(Date.now()+3*3600e3).toISOString().slice(0,10); if(ga.tarih===bg) ABD.kosular=(ABD.kosular||[]).concat(ga.kosular||[]); }catch(e){}
   $('abdGuncel').textContent=ABD.guncel?('Son: '+ABD.guncel):'';
   abdChipler();
 }
@@ -1012,7 +1013,7 @@ function abdChipler(){
   const kutu=$('abdChips'); kutu.innerHTML='';
   const liste=k.concat(bos);
   liste.forEach((r,i)=>{ const b=document.createElement('button'); b.className='chip'; b.setAttribute('aria-pressed',ABDK===i);
-    b.innerHTML=`${({'guney-afrika':'GA · ','abd':'ABD · ','birlesik-krallik':'İNG · ','irlanda':'İRL · ','fransa':'FR · '})[r.ulke]||''}${esc(r.tarih==='ekran'?'GA · Ekran':r.pist.split(' ')[0])}<small>${r.tarih==='ekran'?'Güney Afrika: ganyan + SABİT':r.tarih==='elle'?'boş koşu':esc((r.kosu||'')+'. koşu · '+(r.dk!=null?(r.dk>0?r.dk+' dk':'başladı'):r.saat))}</small>`;
+    b.innerHTML=`${({'guney-afrika':'GA · ','abd':'ABD · ','birlesik-krallik':'İNG · ','irlanda':'İRL · ','fransa':'FR · '})[r.ulke]||''}${esc(r.tarih==='ekran'?'GA · Ekran':r.pist.split(' ')[0])}<small>${r.tarih==='ekran'?'Güney Afrika: ganyan + SABİT':r.tarih==='elle'?'boş koşu':r.kaynak==='program'?esc(r.kosu+'. koşu · ganyan+SABİT'):esc((r.kosu||'')+'. koşu · '+(r.dk!=null?(r.dk>0?r.dk+' dk':'başladı'):r.saat))}</small>`;
     b.onclick=()=>{ ABDK=i; abdChipler(); abdCiz(liste[i]); }; kutu.appendChild(b); });
   if(!k.length) $('abdKosu').innerHTML='<div class="card empty">Yakın saatte başlayan ABD ya da Güney Afrika koşusu yok ya da oranlar henüz gelmedi. "Oranları yenile"ye bas, 1–2 dakika sonra tekrar bak. Ya da "Elle gir" ile yerel oranı kendin yaz.</div>';
   else if(ABDK==null){ ABDK=0; abdChipler(); abdCiz(k[0]); }
@@ -1021,16 +1022,17 @@ function abdCiz(r){
   const anahtar=r.tarih+'|'+r.pist+'|'+r.kosu; const kay=ld('gm2_abd_gir',{})[anahtar]||{};
   let atlar=r.atlar.slice(); if(r.tarih==='elle'){ atlar=Array.from({length:10},(_,i)=>({no:i+1,ad:'',oran:null})); }
   if(r.tarih==='ekran'){ atlar=Array.from({length:16},(_,i)=>({no:i+1,ad:'',oran:null})); r.atlar=atlar; }
+  const ekm=r.tarih==='ekran'||r.kaynak==='program';
   const kar=(r.mesafe?r.mesafe+' · ':'')+(r.zemin||'');
   let h=`<div class="card"><div class="ar head" style="grid-template-columns:1fr"><span>${esc(r.pist)} ${r.kosu?r.kosu+'. koşu':''} ${esc(r.saat||'')} ${kar?'· '+esc(kar):''}</span></div>
-  <div class="ar head"><span>No</span><span>${r.tarih==='ekran'?'At · q (SABİT’ten)':'At · yerel oran'}</span><span style="text-align:right">${r.tarih==='ekran'?'SABİT':'Yerel'}</span><span style="text-align:right">${r.tarih==='ekran'?'Ganyan':'TJK'}</span></div>`;
+  <div class="ar head"><span>No</span><span>${ekm?'At · q (SABİT’ten)':'At · yerel oran'}</span><span style="text-align:right">${ekm?'SABİT':'Yerel'}</span><span style="text-align:right">${ekm?'Ganyan':'TJK'}</span></div>`;
   atlar.forEach((a,i)=>{
     const yo=(kay[i]&&kay[i].y!==undefined)?kay[i].y:(a.oran?String(a.oran):'');
     const tj=(kay[i]&&kay[i].t)||'';
     h+=`<div class="ar" data-i="${i}"><span class="no">${a.no??''}</span><span class="nm">${r.tarih==='ekran'?'':r.tarih==='elle'?`<input class="ad" value="${esc(kay[i]&&kay[i].ad||'')}" placeholder="at adı" style="text-align:left;font:600 14px var(--f-body)">`:esc(a.ad)}<small class="q"></small></span>
     <input class="yo" inputmode="decimal" placeholder="yerel" value="${esc(yo)}"><input class="tj" inputmode="decimal" placeholder="ganyan" value="${esc(tj)}"><span class="tag" hidden></span></div>`;
   });
-  h+='</div>'; if(r.tarih==='ekran'){ const ek=ld('gm2_ekran_ust',{pist:'',kosu:''}); h=`<div class="card"><div class="sub">Bayi ekranındaki GANYAN ve SABİT sütunlarını yaz. SABİT'ten yerel olasılık (q) çıkarılır, ganyanla çarpılır. Yarışa en yakın anda gir ve kaydet. Yeni hipotez, test ediliyor; gerçek para yok.</div>
+  h+='</div>'; if(ekm){ const ek=r.kaynak==='program'?{pist:r.pist,kosu:String(r.kosu)}:ld('gm2_ekran_ust',{pist:'',kosu:''}); h=`<div class="card"><div class="sub">Bayi ekranındaki GANYAN ve SABİT sütunlarını yaz. SABİT'ten yerel olasılık (q) çıkarılır, ganyanla çarpılır. Yarışa en yakın anda gir ve kaydet. Yeni hipotez, test ediliyor; gerçek para yok.</div>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-top:8px"><input id="ekPist" class="alan" placeholder="Hipodrom (örn. Turffontein)" value="${esc(ek.pist)}"><input id="ekKosu" class="alan" inputmode="numeric" placeholder="Koşu" value="${esc(ek.kosu)}"></div>
   <label class="sub" for="ekG" style="display:block;margin-top:10px">Ganyanlar, 1 numaradan başlayarak sırayla (koşmayan için - yaz)</label><input id="ekG" class="alan" inputmode="text" autocomplete="off" autocapitalize="off" placeholder="11,9 17,5 14,7 8,75 2,9 - 3,9" style="margin-top:6px">
   <label class="sub" for="ekS" style="display:block;margin-top:8px">SABİT'ler, aynı sırayla</label><input id="ekS" class="alan" inputmode="text" autocomplete="off" autocapitalize="off" placeholder="6,5 6,5 20 6 4,5 - 12" style="margin-top:6px">
@@ -1069,7 +1071,7 @@ function abdKayit(r,anahtar,vals,oyn){
   kutu.innerHTML=`<b>Kâğıt testi kaydı</b><div class="sub">Bayideki son ganyanları (kapanışa en yakın) girdikten sonra kaydet. Kayıt, sonuç gelince değerlendirilir. Şu ana kadar bu telefonda ${log.length} koşu kayıtlı.</div>
   <div class="actions" style="margin-top:10px"><button id="abdKaydet" class="primary" ${dolu>=3?'':'disabled'}>Bu koşuyu kaydet (${oyn.length} işaretli)</button></div><div id="abdSonuc" class="sub" style="margin-top:8px"></div>`;
   $('abdKaydet').onclick=async()=>{
-    const ekr=r.tarih==='ekran'; const kay={tarih:(r.tarih==='elle'||ekr)?new Date().toISOString().slice(0,10):r.tarih,ulke:r.ulke||null,yontem:ekr?'sib':'yerel',pist:ekr?(($('ekPist')||{}).value||'?'):r.pist,kosu:ekr?(($('ekKosu')||{}).value||''):r.kosu,saat:r.saat,zaman:new Date().toISOString(),
+    const ekr=r.tarih==='ekran'||r.kaynak==='program'; const kay={tarih:(r.tarih==='elle'||r.tarih==='ekran')?new Date().toISOString().slice(0,10):r.tarih,ulke:r.ulke||null,yontem:ekr?'sib':'yerel',pist:ekr?(($('ekPist')||{}).value||'?'):r.pist,kosu:ekr?(($('ekKosu')||{}).value||''):r.kosu,saat:r.saat,zaman:new Date().toISOString(),
       atlar:vals.map((v,i)=>({no:r.atlar[i]?r.atlar[i].no:i+1,ad:r.atlar[i]?r.atlar[i].ad:'',yerel:v.y||null,tjk:v.t||null})),isaretli:oyn,esik:ABD_ESIK};
     log.push(kay); sv('gm2_abd_log',log);
     const out=$('abdSonuc'); let tk=''; try{ tk=($('ghTok').value.trim())||localStorage.getItem('gm2_gh')||''; }catch(e){}

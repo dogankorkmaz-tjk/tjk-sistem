@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "tjk-bot"
           git config user.email "tjk-bot@users.noreply.github.com"
-          git add -A docs/data/abd.json data/yabanci_ham/sl_canli_ornek.json
+          git add -A docs/data/abd.json docs/data/ga.json data/yabanci_ham/sl_canli_ornek.json
           if git diff --cached --quiet; then echo "değişiklik yok"; exit 0; fi
           git commit -m "ABD canlı oranlar $(date -u '+%H:%M') UTC"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs && git push && exit 0; sleep 10; done

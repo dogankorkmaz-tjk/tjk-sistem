@@ -370,6 +370,10 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birle
     kos.sort(key=lambda k: k["dk"])
     cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: Türkiye saati", "kosular": kos, "toplantilar": toplanti}
     json.dump(cik, open(os.path.join(KOK, "docs", "data", "abd.json"), "w"), ensure_ascii=False)
+    try:
+        ga_program()
+    except Exception as e:
+        print("GA program hatası:", repr(e))
     print("ABD+GA canlı koşu", len(kos), "pencere", pencere_dk)
 
 
@@ -391,3 +395,28 @@ def sayfa_probe(dosya="data/probe_istek.txt"):
         except Exception as e:
             print(u, "hata", repr(e))
         time.sleep(3)
+
+
+def ga_program(t=None):
+    """Günün Güney Afrika toplantıları (agftablosu program sayfası; saat yok) -> docs/data/ga.json. Günde bir kez çekilir."""
+    from zoneinfo import ZoneInfo
+    t = t or datetime.datetime.now(ZoneInfo("Europe/Istanbul")).date()
+    cik = os.path.join(KOK, "docs", "data", "ga.json")
+    try:
+        eski = json.load(open(cik, encoding="utf-8"))
+        if eski.get("tarih") == t.isoformat() and eski.get("kosular"):
+            return
+    except Exception:
+        pass
+    ana = O.getir(O.BASE) or ""
+    gun = f"{t.day}-{O.AYLAR[t.month-1]}-{t.year}"
+    sluglar = sorted(set(s for s in re.findall(r"/at-yarisi/([a-z\-]+)/" + re.escape(gun) + r"-", ana) if s.endswith("-guney-afrika")))
+    kos = []
+    for sl in sluglar:
+        rows = O.parse_prog(O.getir(O.prog_url(t, sl)) or "", t.isoformat(), sl)
+        pist = sl.replace("-guney-afrika", "").replace("-", " ").title()
+        for kn in sorted({int(r["kosu"]) for r in rows}):
+            atlar = [{"no": int(r["no"]), "ad": str(r["p_at"]), "oran": None} for r in rows if int(r["kosu"]) == kn]
+            kos.append({"tarih": t.isoformat(), "ulke": "guney-afrika", "kaynak": "program", "pist": pist, "kosu": kn, "saat": "", "atlar": sorted(atlar, key=lambda a: a["no"])})
+    json.dump({"tarih": t.isoformat(), "kosular": kos}, open(cik, "w", encoding="utf-8"), ensure_ascii=False)
+    print("GA program:", sluglar, len(kos), "koşu")
