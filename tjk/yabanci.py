@@ -389,6 +389,10 @@ def sayfa_probe(dosya="data/probe_istek.txt"):
         CR = None
     for i, u in enumerate(urller[:10]):
         try:
+            if u.startswith("tarayici:"):
+                from . import tarayici as TR
+                h = TR.getir(u[9:]) or "YOK"
+                open(os.path.join(yol, f"probe_{i}.html"), "w", encoding="utf-8").write(h); print(u, len(h)); continue
             r = CR.get(u, impersonate="chrome", timeout=30) if CR else requests.get(u, headers=H, timeout=30)
             open(os.path.join(yol, f"probe_{i}.html"), "w", encoding="utf-8").write(r.text)
             print(u, r.status_code, len(r.text))
