@@ -34,8 +34,15 @@ def getir(url):
     for deneme in range(3):
         try:
             r = _CR.get(url, impersonate="chrome", timeout=30) if _CR else requests.get(url, headers=HEADERS, timeout=30)
-            if _CR is None and r.status_code == 403 and "Just a moment" in r.text:
-                print("  Cloudflare engeli (curl_cffi yok):", url)
+            if r.status_code in (403, 503) and "Just a moment" in r.text:   # Cloudflare JS denetimi -> gerçek tarayıcı
+                try:
+                    from . import tarayici as _TR
+                    h = _TR.getir(url)
+                    if h:
+                        time.sleep(DELAY); return h
+                except Exception as e:
+                    print("  tarayıcı yolu yok:", repr(e))
+                print("  Cloudflare engeli:", url); time.sleep(5); continue
             time.sleep(DELAY)
             if r.status_code == 404:
                 return ""

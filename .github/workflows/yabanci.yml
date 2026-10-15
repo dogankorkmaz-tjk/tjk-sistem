@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt playwright && python -m playwright install --with-deps chromium
       - run: |
           MOD="${{ inputs.mod }}"
           if [ -z "$MOD" ]; then MOD=$(head -1 data/yabanci_istek.txt); fi
