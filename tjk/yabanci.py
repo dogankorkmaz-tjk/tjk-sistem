@@ -379,9 +379,13 @@ def sayfa_probe(dosya="data/probe_istek.txt"):
     H = {"User-Agent": "Mozilla/5.0 (kisisel arastirma; gunde birkac yavas istek)"}
     yol = os.path.join(KOK, "data", "yabanci_ham"); os.makedirs(yol, exist_ok=True)
     urller = [u.strip() for u in open(os.path.join(KOK, dosya), encoding="utf-8") if u.strip().startswith("http")]
+    try:
+        from curl_cffi import requests as CR          # tarayıcı TLS parmak izi (Cloudflare denemesi)
+    except Exception:
+        CR = None
     for i, u in enumerate(urller[:10]):
         try:
-            r = requests.get(u, headers=H, timeout=30)
+            r = CR.get(u, impersonate="chrome", timeout=30) if CR else requests.get(u, headers=H, timeout=30)
             open(os.path.join(yol, f"probe_{i}.html"), "w", encoding="utf-8").write(r.text)
             print(u, r.status_code, len(r.text))
         except Exception as e:
