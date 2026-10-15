@@ -378,7 +378,18 @@ def jokey_uygula(obj):
             html = O.getir(O.prog_url(datetime.date.fromisoformat(t), hid))
             satirlar += O.parse_prog(html, t, hid) if html else []
         if not satirlar:
-            print("jokey değişikliği: program yeniden okunamadı, puanlar yenilenmedi"); return
+            print("jokey değişikliği: program yeniden okunamadı, puanlar yenilenmedi (jokey adı yazıldı, puan_eski işaretlendi)")
+            for h in obj["hipodromlar"]:
+                if h["id"] not in deg:
+                    continue
+                for k in h["kosular"]:
+                    if k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
+                        continue
+                    for a in k["atlar"]:
+                        j = cj.get((h["id"], k["kosu"], a["no"]))
+                        if j and _jn(j) != _jn(a["jokey"]):
+                            a["jokey"] = _jn(j); a["apr"] = j.strip().endswith("AP"); a["puan_eski"] = True
+            return
         pr = pd.DataFrame(satirlar).dropna(subset=["no"]); pr["no"] = pr.no.astype(int)
         for i, r in pr.iterrows():
             j = cj.get((r.hipodrom, int(r.kosu), int(r.no)))
