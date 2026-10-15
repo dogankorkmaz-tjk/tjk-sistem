@@ -23,18 +23,27 @@ def tr_simdi():
     return datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=3)
 
 
+try:
+    from curl_cffi import requests as _CR      # 15 Ekim 2026: agftablosu Cloudflare "Just a moment" engeli; tarayıcı TLS parmak iziyle geçiyor
+except Exception:
+    _CR = None
+
+
 def getir(url):
     """Sayfayı indirir. 404 -> ''. Hata -> None (sonra tekrar denenir)."""
     for deneme in range(3):
         try:
-            r = requests.get(url, headers=HEADERS, timeout=30)
+            r = _CR.get(url, impersonate="chrome", timeout=30) if _CR else requests.get(url, headers=HEADERS, timeout=30)
+            if _CR is None and r.status_code == 403 and "Just a moment" in r.text:
+                print("  Cloudflare engeli (curl_cffi yok):", url)
             time.sleep(DELAY)
             if r.status_code == 404:
                 return ""
             r.raise_for_status()
-            r.encoding = r.apparent_encoding or "utf-8"
+            if _CR is None:
+                r.encoding = r.apparent_encoding or "utf-8"
             return r.text
-        except requests.RequestException as e:
+        except Exception as e:
             print("  hata, tekrar:", url, e)
             time.sleep(8 * (deneme + 1))
     return None
