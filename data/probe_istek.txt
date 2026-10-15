@@ -1,4 +1,5 @@
-https://www.attheraces.com/racecards
-https://www.attheraces.com/racecard/Turffontein/15-October-2026/1235
-https://www.attheraces.com/results/Turffontein/08-October-2026
-https://www.attheraces.com/racecard/Turffontein/08-August-2026/1550
+https://www.skysports.com/robots.txt
+https://www.skysports.com/racing/racecards
+https://www.skysports.com/racing/results
+https://www.gallop.co.za/
+https://www.sportingpost.co.za/robots.txt
