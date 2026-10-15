@@ -1055,7 +1055,7 @@ function abdCiz(r){
   abdHesap(r,anahtar);
 }
 function abdHesap(r,anahtar){
-  const satir=[...$('abdKosu').querySelectorAll('.ar[data-i]')]; const vals=satir.map(s=>({y:abdOndalik(s.querySelector('.yo').value),t:abdOndalik(s.querySelector('.tj').value)}));
+  const satir=[...$('abdKosu').querySelectorAll('.ar[data-i]')]; const vals=satir.map(s=>{ const kz=/^\s*[-xk]\s*$/i.test(s.querySelector('.tj').value); return {y:kz?NaN:abdOndalik(s.querySelector('.yo').value),t:abdOndalik(s.querySelector('.tj').value),kz}; });   // ganyanı '-' olan at koşmuyor: q normalizasyonundan çıkar
   const top=vals.reduce((a,v)=>a+(v.y>1?1/v.y:0),0);
   const uy=$('abdUyari'); if(uy){ const g=vals.filter(v=>v.t>1).length, y=vals.filter(v=>v.y>1).length; uy.textContent=(g&&y<2)?'⚠ Hesap için SABİT (ya da yerel) sütununu da doldur: sadece ganyanla q hesaplanamaz.':''; }
   const ozet=()=>{ const u=$('abdUyari'); if(!u||u.textContent.startsWith('⚠')) return; const dl=vals.filter(v=>v.t>1&&v.y>1).length; if(dl<3){ return; }
