@@ -284,3 +284,10 @@ Kural 25 Eyl–14 Eki 2026 verisinde bulundu; o tarihten ÖNCEKİ dönem bu kura
 Veri: TJK tarafı abdgecmis çekimi (Ekim 2025 → 24 Eylül 2026), yerel taraf Sporting Life (sltopla, aynı tarihler). İki varyant: SON oran ve GEÇ oran (oran geçmişinin son elemanı).
 BİRİNCİL ölçüt: GEÇ varyantı ROI, gün kümeli bootstrap %95 GA. Karar: alt sınır > 1,0 → "bağımsız örnekte doğrulandı" (para kararı yine ileriye dönük testle birlikte verilir). Alt sınır ≤ 1,0 ama nokta > 1,10 → "zayıf destek". Nokta ≤ 1,0 → "bulgu tekrar etmedi; 3 haftalık sonuç şanstı", kural kapanır.
 Ek kontroller (yalnız betimleyici): ay ay ROI, pist bazında, oran dilimi. Kural, eşik ve tanımlar sonuç görüldükten sonra DEĞİŞTİRİLMEZ.
+
+## ABD sabit ihtimalli (SİB) testi — ön kayıt 15 Ekim 2026 04:00 (sonuç görülmeden)
+Gözlem (13 Ekim Philadelphia SİB sayfası, kullanıcı yüklemesi): SİB oranlarının 1/oran toplamı koşu başına 1,38–1,42 (ortalama geri ödeme ≈ 0,71, ganyan kesintisiyle aynı düzey). SİB oranı bahis anında kilitlenir (ganyan kapanış oranından ödenir).
+Soru: SİB oranı, yerel piyasanın (Sporting Life) KAPANIŞ olasılığına göre bayat/yanlış fiyatlı mı?
+Kural (değişmez): SİB'in alındığı andaki oranlar (sib_ham zaman damgalı) ile aynı koşunun SL kapanış oranından q; q × SİB oranı > 1,25 olan atlara 1 TL ganyan (kâğıt üstü). Karşılaştırma ölçüsü: koşu başına log-kayıp farkı (q − SİB-normalize) ve kural ROI'si, gün-kümeli bootstrap.
+Veri: Doğan ABD SİB sayfasını telefondan (Dosya > SİB yapıştır) gün içinde 2–3 farklı saatte yapıştırır. Karar: en az 300 bahis veya 1 Ocak 2027; o zamana kadar gerçek para yok.
+Not: 10 Ekim ABD SİB dosyalarında oran boş (yapıştırma oran açılmadan yapılmış); 13 Ekim Philadelphia için TJK/SL eşleşmesi yok, karşılaştırma yapılamadı.
