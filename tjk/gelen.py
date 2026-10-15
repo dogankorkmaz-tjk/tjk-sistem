@@ -42,6 +42,35 @@ def _atlar(tarih, hip, kosu):
     return None
 
 
+def _sade(s):
+    return re.sub(r"[^a-z0-9]", "", _ascii(str(s)))
+
+
+_SONUC = {}
+
+
+def _ad_eslestir(d, tarih, hip, kosu):
+    """Accurace satırlarını resmi sonuçtaki at adıyla eşleştirip numarayı oradan yazar. Değişiklik varsa True."""
+    import difflib
+    ay = tarih[:7]
+    if ay not in _SONUC:
+        f = os.path.join(KOK, "data", "temiz", ay + ".csv.gz")
+        _SONUC[ay] = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame(columns=["tarih", "hipodrom", "kosu", "no", "at"])
+    g = _SONUC[ay]
+    g = g[(g.tarih == tarih) & (g.hipodrom.map(_ascii) == hip) & (g.kosu == kosu)]
+    if g.empty:
+        return False
+    ad = {_sade(a): int(n) for a, n in zip(g["at"], g["no"])}
+    degisti = False
+    for r in d.get("atlar", []):
+        x = difflib.get_close_matches(_sade(r.get("ad", "")), list(ad), n=1, cutoff=0.75)
+        if x and r.get("no") != ad[x[0]]:
+            if r.get("no") is not None and "no_ocr" not in r:
+                r["no_ocr"] = r["no"]
+            r["no"] = ad[x[0]]; r["no_kaynak"] = "ad"; degisti = True
+    return degisti
+
+
 def ozet_yaz():
     """data/accurace/*.json: tek eksik at numarasini doldur, durum ozetini docs/data/accurace_ozet.json'a yaz."""
     gun = {}
@@ -57,6 +86,8 @@ def ozet_yaz():
             continue
         atlar = d.get("atlar", [])
         bek = _atlar(t, hip, k)
+        if _ad_eslestir(d, t, hip, k):                     # 15 Eki 2026: numara, resmi sonuçtaki at adından (OCR'dan daha güvenilir)
+            json.dump(d, open(f, "w", encoding="utf-8"), ensure_ascii=False)
         nolar = [a.get("no") for a in atlar]
         if bek and nolar.count(None) == 1:
             eksik = [n for n in bek if n not in nolar]

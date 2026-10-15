@@ -262,3 +262,15 @@ Karar: GEÇ varyantında ROI GA alt sınırı > 1,0 → bulgu "bahis anına taş
 Sınır: TJK tarafı hâlâ SON ganyan (bahis anı TJK oranı bu veride yok; ileriye dönük testte Doğan'ın ekranından ölçülecek).
 SONUÇ (15 Ekim 2026, 03:30; 269 ABD koşusu, geçmişi tam olanlar): SON 227 bahis ROI 1,59 [1,02–2,23]; GEÇ (birincil) 232 bahis ROI 1,49 [0,94–2,09], yarılar 1,52/1,45, büyük 3 hariç 1,04; ERKEN 266 bahis ROI 1,39 [0,89–1,94], büyük 3 hariç 1,00. Tahmin gücü üç varyantta da benzer (+0,079…+0,089 nats/koşu). Seçilen atlarda ABD olasılığı son dakikada ort. ×0,975 (neredeyse değişmiyor).
 Okuma: Avantajın büyük kısmı ABD'nin son dakika parasına bağlı DEĞİL; erken oranlarla da sürüyor. Ön kayıt ölçütüne göre: GEÇ alt sınırı 1,0'ın biraz altında (0,94) → "kanıtlanmış" değil; nokta tahmini 1,49 > 1,10 → "son dakikaya bağlı" da değil. Ara bölge: ileriye dönük test sürer. Kalan risk TJK tarafında: bahis anı TJK ganyanı ve kendi bahsimizin küçük havuzdaki etkisi (bu veride yok). Betik: data/analiz/iki_piyasa_erken.py.
+
+## 15 Ekim 2026, 03:45 — Accurace numara düzeltmesi (ölçüm)
+`tjk/gelen.py`: Accurace satırlarının at numarası artık resmi sonuçtaki at ADIYLA eşleştirilerek yazılır (OCR numarası `no_ocr` olarak saklanır). 3.757 satırın 3.747'si (%99,7) eşleşti; OCR numarası 73 satırda yanlıştı. Kalan "sorunlu" koşular (151/415) yalnızca OCR'ın bir satırı hiç okumadığı koşular (ör. 11/12 at); diğer atların verisi kullanılabilir.
+
+## 15 Ekim 2026, 03:50 — Yer kaybı (fazla mesafe) İLK BAKIŞ (ÖN KAYIT, sonuç görülmeden)
+Hipotez: Halk bitiriş sırasına bakar; önceki koşusunda fazla mesafe koşmuş (geniş dönmüş) atı yeterince oynamaz.
+Özellikler (yalnız kesinlikle önceki tarihlerin Accurace verisi, en çok 120 gün geriye):
+- fm = koşulan_mesafe − o koşunun medyan koşulan mesafesi (metre); f_yk = atın EN SON önceki Accurace koşusundaki fm / 10 (yoksa 0)
+- f_maz = f_yk × [o koşuda piyasa sırasından kötü bitirdi] (mazeretli kötü koşu)
+Model: s = log p_Jason(OOS walk-forward) + b1·f_yk + b2·f_maz, koşullu logit. Sınama koşuları: en az bir koşan atta f_yk tanımlı olanlar.
+Yöntem: zaman bölünmesi; b'ler sınama koşularının ilk yarısında (tarih medyanından önce) fit, ikinci yarısında ölçülür. BİRİNCİL ölçüt: ikinci yarı kazanan log-olasılığı kazancı (model − Jason), gün kümeli bootstrap %95 GA. Beklenen yön: b1 > 0.
+Karar: kazanç ≥ +0,005 ve GA alt > 0 → "Jason-YK" gölge model adayı. Aksi halde "ilk bakış: etki ölçülemedi"; ~1.000 sınama koşusunda (daha fazla Accurace PDF'i ile) aynı betikle yeniden. Güç notu: bu örnekte yalnız büyük etkiler (≳0,01 nats/koşu) görülebilir. Betik: data/analiz/yer_kaybi_testi.py.
