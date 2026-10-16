@@ -209,6 +209,21 @@ def csv_uygula(obj):
     if n:
         print("TJK CSV'den koşu bilgisi işlendi:", n, "koşu")
     saat_duzelt(obj)
+    ertele_uygula(obj)
+
+
+def ertele_uygula(obj):
+    """data/ertelenen.json: {"tarih": {"hipodrom": "yeni_tarih"}} - günü ertelenen hipodrom o günün programından çıkarılır (sonuç beklenmez, test sayımına girmez)."""
+    try:
+        d = json.load(open(os.path.join(VERI, "ertelenen.json"), encoding="utf-8")).get(obj["tarih"], {})
+    except Exception:
+        return
+    if not d:
+        return
+    kalan = [h for h in obj["hipodromlar"] if h["id"] not in d]
+    if len(kalan) != len(obj["hipodromlar"]):
+        obj["ertelenen"] = d; obj["hipodromlar"] = kalan
+        print("ertelenen hipodrom çıkarıldı:", d)
 
 
 def _jn(j):

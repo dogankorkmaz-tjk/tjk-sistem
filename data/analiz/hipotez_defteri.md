@@ -336,3 +336,6 @@ KARAR (ön kayıt): GA alt sınırı 1,30 > 1,0 → "BAĞIMSIZ ÖRNEKTE DOĞRULA
 Betimleyici: 12 ayın hepsinde ROI > 1,0 (en düşük Mart 2026 1,17, Aralık 2025 1,18); pistlerin çoğunda > 1 (istisna: Belmont Park 41 bahis 0,22, Tampa Bay 94 bahis 0,92, Oaklawn 43 bahis 0,95); her oran diliminde > 1,3.
 SINIRLAR (para kararı bunlar çözülmeden verilmez): (1) TJK tarafı KAPANIŞ ganyanı; bahis anındaki TJK ganyanı bu veride yok — işaretin bahis anında görünüp görünmediği ileriye dönük testte ölçülecek. (2) Havuzlar küçük olabilir: kendi bahsimiz oranı düşürür; ölçek sınırlı. (3) ABD koşuları 20:00 sonrası, bayi kapalı — uygulanabilirlik Doğan'ın çözümüne bağlı. (4) Eşleşme yalnız tüm atları eşleşen koşularda; seçim yanlılığı küçük olası.
 Sonraki adım: ileriye dönük kâğıt testi (Yabancı sekmesi kayıtları) aynen sürer; para kararı ileriye dönük >=300 bahis ve bahis-anı ganyanıyla ROI GA alt sınırı > 1,0 ile.
+
+## 16 Ekim 2026, 19:45 — Bursa ertelendi (kullanıcı bildirdi)
+Bursa 16 Ekim koşuları aşırı yağış nedeniyle 21 Ekim'e ertelendi. data/ertelenen.json ile 16 Ekim programından çıkarıldı; o güne ait Bursa tahmin/kupon kayıtları sonuçsuz kalır ve hiçbir test sayımına girmez (kayıp sayılmaz). 21 Ekim'de program TJK'dan normal şekilde yeniden çekilir; sabah dondurulan puanlar o günün verisiyle yeniden üretilir. Kural/model değişmedi.
