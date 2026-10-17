@@ -348,6 +348,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <div id="abdUyari" class="sub" style="color:var(--hot);margin:6px 2px"></div>
     <div id="abdKosu"></div>
     <div class="card" id="abdKayitKutu"></div>
+    <div class="card" id="abdSonucKutu"></div>
   </section>
   <section id="arsiv" class="sec" hidden>
     <div class="bolum-not">Bu bölümdeki kurallar izlenmeye devam ediyor ama kanıt hesabına girmiyor. Birinin şansla iyi görünmesi, işe yaradığını göstermez.</div>
@@ -1009,7 +1010,31 @@ async function abdYukle(){
   { const g=ABD.guncel?Date.parse(ABD.guncel.replace(' UTC','Z').replace(' ','T')):NaN, yas=isNaN(g)?null:Math.round((Date.now()-g)/60000);
     $('abdGuncel').textContent=ABD.guncel?('Son: '+ABD.guncel+(yas!=null?' ('+yas+' dk önce)':'')):'';
     $('abdGuncel').style.color=(yas!=null&&yas>20)?'var(--hot)':''; }
-  abdChipler();
+  abdChipler(); abdSonucFormu();
+}
+
+function abdSonucFormu(){
+  const kutu=$('abdSonucKutu'); if(!kutu) return;
+  const log=ld('gm2_abd_log',[]), bit=ld('gm2_abd_sonuc',{});
+  const lst=log.map((k,i)=>({k,i})).filter(x=>!bit[x.k.tarih+'|'+x.k.pist+'|'+x.k.kosu]).slice(-12).reverse();
+  if(!lst.length){ kutu.innerHTML='<b>Sonuç gir</b><div class="sub">Sonucu girilecek kayıtlı koşu yok. (Fransa, Güney Afrika ve elle girilen koşuların sonucunu otomatik okuyamıyoruz; bayi ekranındaki resmî sonucu buraya yaz.)</div>'; return; }
+  kutu.innerHTML=`<b>Sonuç gir (kaydettiğin koşu bitince)</b><div class="sub">Bayi ekranındaki resmî sonuç: ilk 3 at numarası ve kazananın ganyanı. Güney Afrika/Fransa için tek sonuç kaynağı bu.</div>
+  <select id="soSec" style="width:100%;padding:9px;margin-top:8px">${lst.map(x=>`<option value="${x.i}">${esc(x.k.tarih)} · ${esc(x.k.pist)} ${esc(String(x.k.kosu||''))}. koşu</option>`).join('')}</select>
+  <div style="display:flex;gap:8px;margin-top:8px"><input id="so1" inputmode="numeric" placeholder="1. at no" style="flex:1;padding:9px"><input id="so2" inputmode="numeric" placeholder="2. at no" style="flex:1;padding:9px"><input id="so3" inputmode="numeric" placeholder="3. at no" style="flex:1;padding:9px"></div>
+  <input id="soG" inputmode="decimal" placeholder="Kazananın ganyanı (örn 3,40)" style="width:100%;padding:9px;margin-top:8px">
+  <div class="actions" style="margin-top:10px"><button id="soKaydet" class="primary">Sonucu kaydet</button></div><div id="soOut" class="sub" style="margin-top:8px"></div>`;
+  $('soKaydet').onclick=async()=>{
+    const k=log[+$('soSec').value], o=$('soOut'); const n=x=>parseInt(($(x).value||'').trim(),10)||null;
+    const sira=[n('so1'),n('so2'),n('so3')].filter(Boolean), g=abdOndalik($('soG').value);
+    if(!sira.length||!(g>1)){ o.textContent='En az 1. at numarasını ve ganyanı yaz.'; return; }
+    let tk=''; try{ tk=($('ghTok').value.trim())||localStorage.getItem('gm2_gh')||''; }catch(e){}
+    if(!tk){ o.textContent='Dosya sekmesinde GitHub anahtarını bir kez gir.'; return; }
+    const kay={tarih:k.tarih,ulke:k.ulke||null,pist:k.pist,kosu:k.kosu,sira,ganyan:g,zaman:new Date().toISOString()};
+    const ad=`${k.tarih}_${_abdSlug(k.pist)}_${k.kosu||'x'}.json`;
+    try{ const rr=await fetch(`https://api.github.com/repos/${GH}/contents/data/abd_sonuc/${ad}`,{method:'PUT',headers:{Authorization:'Bearer '+tk,Accept:'application/vnd.github+json'},body:JSON.stringify({message:'Sonuç '+ad,content:btoa(unescape(encodeURIComponent(JSON.stringify(kay)))),branch:'main'})});
+      if(rr.ok||rr.status===422){ bit[k.tarih+'|'+k.pist+'|'+k.kosu]=1; sv('gm2_abd_sonuc',bit); o.textContent='✓ Sonuç kaydedildi.'; setTimeout(abdSonucFormu,900); } else o.textContent='Gönderilemedi (hata '+rr.status+').';
+    }catch(e){ o.textContent='Gönderilemedi.'; }
+  };
 }
 function abdChipler(){
   const _n=new Date(), _m=_n.getUTCHours()*60+_n.getUTCMinutes();
@@ -1083,7 +1108,7 @@ function abdKayit(r,anahtar,vals,oyn){
   $('abdKaydet').onclick=async()=>{
     const ekr=r.tarih==='ekran'||r.kaynak==='program'; const kay={tarih:(r.tarih==='elle'||r.tarih==='ekran')?new Date().toISOString().slice(0,10):r.tarih,ulke:r.ulke||null,yontem:ekr?'sib':'yerel',pist:ekr?(($('ekPist')||{}).value||'?'):r.pist,kosu:ekr?(($('ekKosu')||{}).value||''):r.kosu,saat:r.saat,zaman:new Date().toISOString(),
       atlar:vals.map((v,i)=>({no:r.atlar[i]?r.atlar[i].no:i+1,ad:r.atlar[i]?r.atlar[i].ad:'',yerel:v.y||null,tjk:v.t||null})),isaretli:oyn,esik:ABD_ESIK};
-    log.push(kay); sv('gm2_abd_log',log);
+    log.push(kay); sv('gm2_abd_log',log); try{ abdSonucFormu(); }catch(e){}
     const out=$('abdSonuc'); let tk=''; try{ tk=($('ghTok').value.trim())||localStorage.getItem('gm2_gh')||''; }catch(e){}
     if(!tk){ out.textContent='Telefona kaydedildi. Depoya göndermek için Dosya sekmesinde GitHub anahtarını bir kez gir.'; return; }
     const ad=`${kay.tarih}_${_abdSlug(kay.pist)}_${kay.kosu||'x'}_${Date.now()}.json`;

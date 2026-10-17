@@ -1,0 +1,57 @@
+{
+ "kayitli_kosu": 10,
+ "bekleyen": 4,
+ "bahis": 0,
+ "isabet": 0,
+ "roi": null,
+ "ulke": {},
+ "not": "Küçük örnek; karar için en az 300 bahis (hipotez defteri).",
+ "satirlar": [
+  {
+   "tarih": "2026-10-15",
+   "pist": "Brighton",
+   "kosu": 1,
+   "ulke": "birlesik-krallik",
+   "durum": "sonuç/ganyan bekleniyor",
+   "isaretli": [
+    5,
+    8
+   ]
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Brighton",
+   "kosu": 6,
+   "ulke": "birlesik-krallik",
+   "durum": "sonuç/ganyan bekleniyor",
+   "isaretli": [
+    3,
+    7,
+    8
+   ]
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Turffontein",
+   "kosu": 5,
+   "ulke": "guney-afrika",
+   "durum": "sonuç/ganyan bekleniyor",
+   "isaretli": [
+    2,
+    8,
+    9
+   ]
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Turffontein",
+   "kosu": 6,
+   "ulke": "guney-afrika",
+   "durum": "sonuç/ganyan bekleniyor",
+   "isaretli": [
+    2,
+    10
+   ]
+  }
+ ]
+}
