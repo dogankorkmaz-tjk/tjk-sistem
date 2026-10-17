@@ -368,6 +368,10 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birle
     with ThreadPoolExecutor(4) as ex:
         kos = [k for k in ex.map(al, isler) if k]
     kos.sort(key=lambda k: k["dk"])
+    try:
+        oto_kayit(kos, simdi)
+    except Exception as e:
+        print("oto kayıt hatası:", repr(e))
     cik = {"guncel": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S") + " UTC", "saat_notu": "saat: Türkiye saati", "kosular": kos, "toplantilar": toplanti}
     json.dump(cik, open(os.path.join(KOK, "docs", "data", "abd.json"), "w"), ensure_ascii=False)
     try:
@@ -375,6 +379,26 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birle
     except Exception as e:
         print("GA program hatası:", repr(e))
     print("ABD+GA canlı koşu", len(kos), "pencere", pencere_dk)
+
+
+def oto_kayit(kos, simdi):
+    """Otomatik kâğıt üstü kayıt: her koşunun başlamasından önceki SON yerel-oran görüntüsünü saklar (0 <= dk <= 6).
+    Bahis anı TJK ganyanı sistemde yok; değerlendirme TJK resmî kapanış ganyanı ile yapılır (data/analiz/abd_oto_degerlendir.py)."""
+    yol = os.path.join(KOK, "data", "abd_oto"); os.makedirs(yol, exist_ok=True)
+    for k in kos:
+        if not (0 <= k["dk"] <= 6):
+            continue
+        f = os.path.join(yol, k["tarih"] + ".json")
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            d = {}
+        atlar = [{"no": a["no"], "ad": a["ad"], "oran": a["oran"]} for a in k["atlar"] if a.get("oran")]
+        if len(atlar) < 3:
+            continue
+        d[f'{k["ulke"]}|{k["pist"]}|{k["kosu"]}'] = {"ulke": k["ulke"], "pist": k["pist"], "kosu": k["kosu"], "saat_utc": k["saat_utc"],
+            "dk": round(k["dk"], 1), "gorulen_utc": simdi.strftime("%H:%M:%S"), "atlar": atlar}
+        json.dump(d, open(f, "w", encoding="utf-8"), ensure_ascii=False)
 
 
 def sayfa_probe(dosya="data/probe_istek.txt"):

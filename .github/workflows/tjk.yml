@@ -46,6 +46,7 @@ jobs:
           esac
           echo "mod: $MOD"
           python -m tjk.calistir "$MOD"
+          python -W ignore -I data/analiz/abd_oto_degerlendir.py || echo "oto değerlendirme atlandı"
       - name: Kaydet
         run: |
           git config user.name "tjk-bot"

@@ -1,0 +1,95 @@
+"""Otomatik ileriye dönük kâğıt üstü test (ön kayıt: hipotez_defteri.md, 18 Ekim 2026).
+Kayıt: data/abd_oto/<gün>.json = koşu başlamadan önceki SON yerel (Sporting Life) oran görüntüsü.
+Kural (değişmez): q = normalize(1/oran); q x TJK KAPANIŞ ganyanı > 1,25 -> 1 TL ganyan. Ödeme: TJK resmî ganyanı.
+Not: bahis anı TJK ganyanı yok; kapanış ganyanı üst sınırdır (bayide yakalanabilirlik ayrıca ölçülmeli).
+Çıktı: docs/data/abd_oto_sonuc.json. Kullanım: python3 -I data/analiz/abd_oto_degerlendir.py"""
+import glob, json, os, re
+import numpy as np, pandas as pd
+
+KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+ESIK = 1.25
+ULKE_TJK = {"abd": "abd", "birlesik-krallik": "birlesik-krallik", "irlanda": "irlanda"}   # GA/Fransa: TJK sonuç okuması güvenilir değil
+
+
+def slug(s):
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
+def ad(s):
+    return re.sub(r"\(\d+\)\s*$", "", str(s)).strip().upper()
+
+
+def bootstrap(gun, v, B=4000, tohum=7):
+    rng = np.random.default_rng(tohum)
+    g = pd.Series(v).groupby(np.array(gun)).agg(["sum", "count"])
+    s, c = g["sum"].values, g["count"].values
+    out = []
+    for _ in range(B):
+        i = rng.integers(0, len(s), len(s))
+        out.append(s[i].sum() / c[i].sum())
+    return float(np.percentile(out, 2.5)), float(np.percentile(out, 97.5))
+
+
+def main():
+    T = pd.concat([pd.read_csv(f) for f in glob.glob(KOK + "/data/yabanci/*.csv.gz")], ignore_index=True)
+    T = T[T.ulke.isin(ULKE_TJK.values()) & (T.no > 0) & ~T.kosmadi.fillna(False).astype(bool)].copy()
+    T["at"] = T["at"].map(ad)
+    T["gun_dt"] = pd.to_datetime(T.tarih)
+    kayit = []
+    for f in sorted(glob.glob(KOK + "/data/abd_oto/*.json")):
+        gun = os.path.basename(f)[:-5]
+        for _, k in json.load(open(f, encoding="utf-8")).items():
+            if k["ulke"] in ULKE_TJK:
+                kayit.append((gun, k))
+    satir, eslesmeyen = [], 0
+    for gun, k in kayit:
+        d0 = pd.to_datetime(gun)
+        adaylar = T[(T.gun_dt >= d0 - pd.Timedelta(days=1)) & (T.gun_dt <= d0 + pd.Timedelta(days=1)) & (T.ulke == ULKE_TJK[k["ulke"]])]
+        mine = {ad(a["ad"]): a for a in k["atlar"]}
+        en = None
+        for (t, hp, ko), g in adaylar.groupby(["tarih", "hipodrom", "kosu"]):
+            ort = len(set(g["at"]) & set(mine)) / max(1, len(set(g["at"])))
+            if ort >= 0.6 and (en is None or ort > en[0]):
+                en = (ort, g)
+        if en is None:
+            eslesmeyen += 1
+            continue
+        g = en[1]
+        if not (g.sira == 1).sum() == 1 or g.ganyan.isna().any():
+            eslesmeyen += 1
+            continue
+        g = g[g["at"].isin(mine)].copy()
+        if len(g) < 3:
+            eslesmeyen += 1
+            continue
+        inv = np.array([1 / mine[a]["oran"] for a in g["at"]])
+        g["q"] = inv / inv.sum()
+        g["ev"] = g.q * g.ganyan
+        for _, r in g.iterrows():
+            satir.append({"gun": gun, "ulke": k["ulke"], "pist": k["pist"], "kosu": k["kosu"], "at": r["at"], "q": r.q, "g": r.ganyan,
+                          "ev": r.ev, "kazandi": int(r.sira == 1)})
+    D = pd.DataFrame(satir)
+    sonuc = {"uretim": pd.Timestamp.utcnow().strftime("%Y-%m-%d %H:%M UTC"), "kayitli_kosu": len(kayit), "eslesmeyen_kosu": eslesmeyen,
+             "kural": f"q x TJK kapanış ganyanı > {ESIK}, 1 TL ganyan", "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
+             "bahis": 0, "kosu": 0}
+    if len(D):
+        B = D[D.ev > ESIK].copy()
+        B["net"] = np.where(B.kazandi == 1, B.g, 0.0)
+        sonuc["kosu"] = int(D.groupby(["gun", "ulke", "pist", "kosu"]).ngroups)
+        sonuc["bahis"] = int(len(B))
+        if len(B):
+            sonuc["isabet"] = int(B.kazandi.sum())
+            sonuc["roi"] = round(float(B.net.sum() / len(B)), 3)
+            if B.gun.nunique() >= 3:
+                lo, hi = bootstrap(B.gun.values, B.net.values)
+                sonuc["ga95"] = [round(lo, 3), round(hi, 3)]
+            sonuc["ulke"] = {u: {"bahis": int(len(x)), "roi": round(float(x.net.sum() / len(x)), 3)} for u, x in B.groupby("ulke")}
+        sonuc["bahisler"] = [{"gun": r.gun, "pist": r.pist, "kosu": int(r.kosu), "at": r.at, "q": round(r.q, 3), "g": r.g, "kazandi": bool(r.kazandi)}
+                             for r in B.sort_values(["gun", "pist", "kosu"]).tail(40).itertuples()]
+    os.makedirs(KOK + "/docs/data", exist_ok=True)
+    json.dump(sonuc, open(KOK + "/docs/data/abd_oto_sonuc.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print({k: v for k, v in sonuc.items() if k != "bahisler"})
+
+
+if __name__ == "__main__":
+    main()

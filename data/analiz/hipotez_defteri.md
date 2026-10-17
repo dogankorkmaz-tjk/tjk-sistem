@@ -339,3 +339,11 @@ Sonraki adım: ileriye dönük kâğıt testi (Yabancı sekmesi kayıtları) ayn
 
 ## 16 Ekim 2026, 19:45 — Bursa ertelendi (kullanıcı bildirdi)
 Bursa 16 Ekim koşuları aşırı yağış nedeniyle 21 Ekim'e ertelendi. data/ertelenen.json ile 16 Ekim programından çıkarıldı; o güne ait Bursa tahmin/kupon kayıtları sonuçsuz kalır ve hiçbir test sayımına girmez (kayıp sayılmaz). 21 Ekim'de program TJK'dan normal şekilde yeniden çekilir; sabah dondurulan puanlar o günün verisiyle yeniden üretilir. Kural/model değişmedi.
+
+## 18 Ekim 2026, 00:55 — Otomatik ileriye dönük kâğıt üstü test (ön kayıt) ve durdurma ölçütü
+Kapsam: ABD, İngiltere, İrlanda (TJK resmî ganyanı okunabilen ülkeler). Güney Afrika ve Fransa dahil DEĞİL (TJK sonuç okuması bozuk; ayrı ele alınır).
+Kayıt: abd_canli her 4 dakikada bir çalışır; koşu başlamadan 0–6 dk önceki SON Sporting Life oran görüntüsü data/abd_oto/<gün>.json'a yazılır (elle giriş yok). Bahis anı TJK ganyanı sistemde yok.
+Kural (değişmez): q = normalize(1/oran); q × TJK KAPANIŞ ganyanı > 1,25 → 1 TL ganyan. Ödeme: TJK resmî ganyanı. Değerlendirme: data/analiz/abd_oto_degerlendir.py → docs/data/abd_oto_sonuc.json (gün kümeli bootstrap).
+Bu sonuç ÜST SINIRDIR (kapanış ganyanı bahis anında bilinmez; havuz küçük). Bayide yakalanabilirlik ayrıca ölçülür: Doğan'ın ekrandan girdiği T-2 dk kayıtları (data/abd_kayit) otomatik kayıtlarla karşılaştırılır.
+Durdurma ölçütü: ≥300 otomatik bahiste ROI %95 GA alt sınırı < 1,0 ise ABD/İngiltere/İrlanda testi kapanır, gerçek para önerilmez. Alt sınır ≥ 1,0 ise yalnız o zaman bayi kapanış-farkı ölçümüne geçilir. Tarih sınırı: 1 Ocak 2027, hangisi önce olursa. Bakma sıklığı: haftalık, aradaki sonuçlara göre kural değiştirilmez.
+Beklenti (önceden): bağımsız sınavda kural çökmüştü (81 bahis ROI 0,28); ileriye dönük sonucun da düşük çıkması bekleniyor.
