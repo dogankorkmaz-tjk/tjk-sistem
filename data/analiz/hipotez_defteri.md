@@ -347,3 +347,8 @@ Kural (değişmez): q = normalize(1/oran); q × TJK KAPANIŞ ganyanı > 1,25 →
 Bu sonuç ÜST SINIRDIR (kapanış ganyanı bahis anında bilinmez; havuz küçük). Bayide yakalanabilirlik ayrıca ölçülür: Doğan'ın ekrandan girdiği T-2 dk kayıtları (data/abd_kayit) otomatik kayıtlarla karşılaştırılır.
 Durdurma ölçütü: ≥300 otomatik bahiste ROI %95 GA alt sınırı < 1,0 ise ABD/İngiltere/İrlanda testi kapanır, gerçek para önerilmez. Alt sınır ≥ 1,0 ise yalnız o zaman bayi kapanış-farkı ölçümüne geçilir. Tarih sınırı: 1 Ocak 2027, hangisi önce olursa. Bakma sıklığı: haftalık, aradaki sonuçlara göre kural değiştirilmez.
 Beklenti (önceden): bağımsız sınavda kural çökmüştü (81 bahis ROI 0,28); ileriye dönük sonucun da düşük çıkması bekleniyor.
+
+## 18 Ekim 2026, 01:20 — Güney Afrika sonuç kaynağı: agftablosu'nda YOK
+Bulgu (probe, 3 Ekim Turffontein sayfası, curl_cffi ile çekildi): agftablosu GA sonuç sayfaları koşu başına tek boş satır (sıra 0, no 0, at boş, ganyan boş) içeriyor. Ayrıştırıcı hatası değil, kaynakta veri yok → Güney Afrika (ve Fransa) için TJK resmî ganyanı bu kaynaktan alınamaz. Geçmiş data/yabanci GA/FR satırları kullanılmaz.
+Çözüm: sonuç elle (siteden "Sonuç gir": ilk 3 at no + kazananın resmî ganyanı, bayi ekranından) → data/abd_sonuc/; değerlendirme data/analiz/abd_kayit_degerlendir.py → docs/data/abd_kayit_ozet.json. Karar kuralı değişmedi (≥300 bahis ya da 1 Mart 2027).
+Not: bu kayıtlar küçük kalacak (elle). Otomatik test yalnız ABD/İng/İrl'i kapsar.
