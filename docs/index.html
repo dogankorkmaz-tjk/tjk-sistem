@@ -1006,11 +1006,15 @@ function abdOndalik(v){ v=String(v||'').trim().replace(',','.'); if(v.includes('
 async function abdYukle(){
   try{ ABD=await (await fetch('data/abd.json?'+Date.now())).json(); }catch(e){ ABD={kosular:[]}; }
   try{ const ga=await (await fetch('data/ga.json?'+Date.now())).json(); const bg=new Date(Date.now()+3*3600e3).toISOString().slice(0,10); if(ga.tarih===bg) ABD.kosular=(ABD.kosular||[]).concat(ga.kosular||[]); }catch(e){}
-  $('abdGuncel').textContent=ABD.guncel?('Son: '+ABD.guncel):'';
+  { const g=ABD.guncel?Date.parse(ABD.guncel.replace(' UTC','Z').replace(' ','T')):NaN, yas=isNaN(g)?null:Math.round((Date.now()-g)/60000);
+    $('abdGuncel').textContent=ABD.guncel?('Son: '+ABD.guncel+(yas!=null?' ('+yas+' dk önce)':'')):'';
+    $('abdGuncel').style.color=(yas!=null&&yas>20)?'var(--hot)':''; }
   abdChipler();
 }
 function abdChipler(){
-  const k=(ABD&&ABD.kosular||[]), bos=[{tarih:'ekran',pist:'Güney Afrika (ekrandan)',kosu:'',saat:'',atlar:[]},{tarih:'elle',pist:'Elle gir',kosu:'',saat:'',atlar:[]}];
+  const _n=new Date(), _m=_n.getUTCHours()*60+_n.getUTCMinutes();
+  (ABD&&ABD.kosular||[]).forEach(r=>{ if(r.saat_utc&&r.tarih===_n.toISOString().slice(0,10)){ const [h,m]=r.saat_utc.split(':').map(Number); r.dk=h*60+m-_m; } });
+  const k=(ABD&&ABD.kosular||[]).filter(r=>r.dk==null||r.dk>-20).sort((x,y)=>(x.dk==null?1e9:x.dk)-(y.dk==null?1e9:y.dk)), bos=[{tarih:'ekran',pist:'Güney Afrika (ekrandan)',kosu:'',saat:'',atlar:[]},{tarih:'elle',pist:'Elle gir',kosu:'',saat:'',atlar:[]}];
   const kutu=$('abdChips'); kutu.innerHTML='';
   const liste=k.concat(bos);
   liste.forEach((r,i)=>{ const b=document.createElement('button'); b.className='chip'; b.setAttribute('aria-pressed',ABDK===i);
