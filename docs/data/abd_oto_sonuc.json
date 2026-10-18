@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 20:32 UTC",
- "kayitli_kosu": 63,
- "eslesmeyen_kosu": 41,
+ "uretim": "2026-10-18 20:48 UTC",
+ "kayitli_kosu": 64,
+ "eslesmeyen_kosu": 40,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 44,
- "kosu": 22,
+ "bahis": 46,
+ "kosu": 24,
  "isabet": 3,
- "roi": 1.026,
+ "roi": 0.982,
  "ulke": {
   "abd": {
-   "bahis": 39,
-   "roi": 1.158
+   "bahis": 41,
+   "roi": 1.101
   },
   "fransa": {
    "bahis": 3,
@@ -23,30 +23,12 @@
   }
  },
  "bahis_ani": {
-  "bahis": 44,
-  "kosu": 19,
+  "bahis": 46,
+  "kosu": 21,
   "isabet": 4,
-  "roi": 0.53
+  "roi": 0.507
  },
  "bahisler": [
-  {
-   "gun": "2026-10-17",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "LES REYS",
-   "q": 0.177,
-   "g": 8.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-17",
-   "pist": "Woodbine",
-   "kosu": 11,
-   "at": "CAPTIVATING NAME",
-   "q": 0.175,
-   "g": 7.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Belmont Park",
@@ -117,6 +99,15 @@
    "at": "SLINGING SLASHER",
    "q": 0.122,
    "g": 17.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "MIKE'S MAGIC",
+   "q": 0.041,
+   "g": 37.55,
    "kazandi": false
   },
   {
@@ -279,6 +270,15 @@
    "at": "BANZAI BETTY",
    "q": 0.071,
    "g": 25.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 2,
+   "at": "JASMINE",
+   "q": 0.262,
+   "g": 7.2,
    "kazandi": false
   },
   {
