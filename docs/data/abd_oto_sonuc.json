@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 19:43 UTC",
- "kayitli_kosu": 53,
- "eslesmeyen_kosu": 37,
+ "uretim": "2026-10-18 20:02 UTC",
+ "kayitli_kosu": 57,
+ "eslesmeyen_kosu": 40,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 27,
- "kosu": 16,
+ "bahis": 30,
+ "kosu": 17,
  "isabet": 2,
- "roi": 0.731,
+ "roi": 0.658,
  "ulke": {
   "abd": {
-   "bahis": 22,
-   "roi": 0.898
+   "bahis": 25,
+   "roi": 0.79
   },
   "fransa": {
    "bahis": 3,
@@ -23,10 +23,10 @@
   }
  },
  "bahis_ani": {
-  "bahis": 28,
-  "kosu": 13,
+  "bahis": 32,
+  "kosu": 14,
   "isabet": 2,
-  "roi": 0.377
+  "roi": 0.33
  },
  "bahisler": [
   {
@@ -180,6 +180,33 @@
    "at": "JUDGE DAVIS",
    "q": 0.161,
    "g": 8.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 6,
+   "at": "SKINDRED SPIRIT",
+   "q": 0.171,
+   "g": 8.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 6,
+   "at": "ALI DARLING",
+   "q": 0.066,
+   "g": 26.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 6,
+   "at": "BLAZING SUNSET",
+   "q": 0.171,
+   "g": 7.85,
    "kazandi": false
   },
   {
