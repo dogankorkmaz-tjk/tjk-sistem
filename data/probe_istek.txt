@@ -1,1 +1,2 @@
-https://vhs-medya-cdn.tjk.org/muhtemeller/r/contents/970bcbab.json
+https://vhs-medya.tjk.org/muhtemeller/s/2026/10/18/checksum.json
+https://vhs-medya.tjk.org/muhtemeller/s/2026/10/17/checksum.json
