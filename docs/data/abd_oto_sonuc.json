@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 21:00 UTC",
- "kayitli_kosu": 66,
+ "uretim": "2026-10-18 21:20 UTC",
+ "kayitli_kosu": 68,
  "eslesmeyen_kosu": 42,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 46,
- "kosu": 24,
- "isabet": 3,
- "roi": 0.982,
+ "bahis": 51,
+ "kosu": 26,
+ "isabet": 4,
+ "roi": 1.091,
  "ulke": {
   "abd": {
-   "bahis": 41,
-   "roi": 1.101
+   "bahis": 46,
+   "roi": 1.21
   },
   "fransa": {
    "bahis": 3,
@@ -23,57 +23,12 @@
   }
  },
  "bahis_ani": {
-  "bahis": 46,
-  "kosu": 21,
-  "isabet": 4,
-  "roi": 0.507
+  "bahis": 50,
+  "kosu": 23,
+  "isabet": 5,
+  "roi": 0.676
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 2,
-   "at": "CADDIEMASTER",
-   "q": 0.224,
-   "g": 9.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "GALLEGA",
-   "q": 0.149,
-   "g": 10.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "STELLA FORTUNA",
-   "q": 0.074,
-   "g": 21.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "MOBAY PRINCESS",
-   "q": 0.091,
-   "g": 16.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "ROAR OF KENNA",
-   "q": 0.041,
-   "g": 38.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Belmont Park",
@@ -217,6 +172,15 @@
    "q": 0.063,
    "g": 21.5,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "MANDY'S MAN CAN",
+   "q": 0.143,
+   "g": 10.5,
+   "kazandi": true
   },
   {
    "gun": "2026-10-18",
@@ -388,6 +352,42 @@
    "q": 0.112,
    "g": 25.4,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "IT WASN'T A BLUFF",
+   "q": 0.086,
+   "g": 19.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "MARVELLOUS MARVIN",
+   "q": 0.259,
+   "g": 5.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "SIGNATURE WINNER",
+   "q": 0.111,
+   "g": 16.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "SLOVAN",
+   "q": 0.037,
+   "g": 35.4,
+   "kazandi": false
   }
  ]
 }
