@@ -1114,6 +1114,7 @@ function abdHesap(r,anahtar){
 }
 function abdKayit(r,anahtar,vals,oyn){
   const dolu=vals.filter(v=>v.t>1).length, kutu=$('abdKayitKutu'), log=ld('gm2_abd_log',[]);
+  if(r.tarih!=='elle'&&r.tarih!=='ekran'&&r.kaynak!=='program'){ kutu.innerHTML='<b>Kâğıt testi</b><div class="sub">Bu koşu kendiliğinden kaydediliyor ve sonuç gelince değerlendiriliyor. Senin yapacağın bir şey yok. Sonuçlar “Kâğıt testi sonucu” kartında.</div>'; return; }
   kutu.innerHTML=`<b>Kâğıt testi kaydı</b><div class="sub">Bayideki son ganyanları (kapanışa en yakın) girdikten sonra kaydet. Kayıt, sonuç gelince değerlendirilir. Şu ana kadar bu telefonda ${log.length} koşu kayıtlı.</div>
   <div class="actions" style="margin-top:10px"><button id="abdKaydet" class="primary" ${dolu>=3?'':'disabled'}>Bu koşuyu kaydet (${oyn.length} işaretli)</button></div><div id="abdSonuc" class="sub" style="margin-top:8px"></div>`;
   $('abdKaydet').onclick=async()=>{
