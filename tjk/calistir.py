@@ -600,6 +600,25 @@ def kosmaz_isle(obj):
         print("koşmaz işaretlendi:", n)
 
 
+def muh_sonuc_df(t, hid):
+    """data/muh/<gün>.json'dan (vhs.tjk.org) bir hipodromun biten koşuları: kosu, no, sira, ganyan (resmî kapanış)."""
+    yol = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "muh", t.isoformat() + ".json")
+    if not os.path.exists(yol):
+        return pd.DataFrame()
+    D = json.load(open(yol, encoding="utf-8"))
+    satir = []
+    for key, v in D.items():
+        ad = re.sub(r"[^a-z0-9]", "", str(v.get("hipodrom", "")).lower().translate(str.maketrans("ıİşŞğĞüÜöÖçÇ", "iissgguuoocc")))
+        if not (ad == hid or str(v.get("slug", "")).startswith(hid)) or not v.get("sonuc"):
+            continue
+        so = v["sonuc"]
+        for no, sira in so["sira"].items():
+            g = so["ganyan"].get(no)
+            if g:
+                satir.append({"tarih": t.isoformat(), "hipodrom": hid, "kosu": int(v["kosu"]), "sira": sira, "no": int(no), "ganyan": float(g), "kosmadi": False})
+    return pd.DataFrame(satir)
+
+
 def sonuclari_isle(obj, t, w0=None):
     """Biten koşulara sonuç sırası, kapanış ganyanı, piyasa ve model olasılığı ekler."""
     w0 = w0 if w0 is not None else obj.get("w0", 1.0)
@@ -618,9 +637,18 @@ def sonuclari_isle(obj, t, w0=None):
             html = O.getir(u)
             if html:
                 break
-        if not html:
-            continue
-        s = pd.DataFrame(O.parse_sonuc(html, t.isoformat(), h["id"]))
+        s = pd.DataFrame(O.parse_sonuc(html, t.isoformat(), h["id"])) if html else pd.DataFrame()
+        # 18 Ekim 2026: vhs.tjk.org/muhtemeller yedeği (resmî sıra + kapanış ganyanı); agftablosu eksik/gecikmeliyse kullanılır
+        try:
+            m = muh_sonuc_df(t, h["id"])
+            if not m.empty:
+                if s.empty:
+                    s = m
+                else:
+                    tam = set(s[s.ganyan.notna() & (s.ganyan > 0) & s.sira.notna()].kosu)
+                    s = pd.concat([s, m[~m.kosu.isin(tam)]], ignore_index=True)
+        except Exception as e:
+            print("muh yedek hatası:", repr(e))
         if s.empty:
             continue
         for k in bekleyen:
@@ -671,6 +699,11 @@ def canli(t):
     s_doldur(obj)
     pist_uygula(obj)
     kosmaz_isle(obj)
+    try:
+        from . import muhtemeller as MUH
+        MUH.topla(t.isoformat(), yalniz_yurtdisi=False)       # vhs.tjk.org: resmî sıra + ganyan (agftablosu gecikirse yedek)
+    except Exception as e:
+        print("muhtemeller hatası:", repr(e))
     n = sonuclari_isle(obj, t)
     print("yeni sonuçlanan koşu:", n)
     try:

@@ -166,7 +166,7 @@ def calistir():
         gunler.append((simdi.date() - datetime.timedelta(days=1)).isoformat())
     for g in gunler:
         try:
-            n += topla(g)
+            n += topla(g, yalniz_yurtdisi=False)
         except Exception as e:
             print("muh hatası:", repr(e))
     return n
