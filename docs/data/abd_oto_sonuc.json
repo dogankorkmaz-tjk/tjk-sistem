@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 18:06 UTC",
- "kayitli_kosu": 40,
- "eslesmeyen_kosu": 31,
+ "uretim": "2026-10-18 18:23 UTC",
+ "kayitli_kosu": 43,
+ "eslesmeyen_kosu": 33,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 14,
- "kosu": 9,
+ "bahis": 17,
+ "kosu": 10,
  "isabet": 2,
- "roi": 1.411,
+ "roi": 1.162,
  "ulke": {
   "abd": {
-   "bahis": 9,
-   "roi": 2.194
+   "bahis": 12,
+   "roi": 1.646
   },
   "fransa": {
    "bahis": 3,
@@ -23,10 +23,10 @@
   }
  },
  "bahis_ani": {
-  "bahis": 13,
-  "kosu": 6,
+  "bahis": 16,
+  "kosu": 7,
   "isabet": 2,
-  "roi": 0.812
+  "roi": 0.659
  },
  "bahisler": [
   {
@@ -108,6 +108,33 @@
    "at": "PARKING LOT POURS",
    "q": 0.194,
    "g": 8.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "HERE COMES BRAYLON",
+   "q": 0.04,
+   "g": 35.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "COMPANY YOU KEEP",
+   "q": 0.185,
+   "g": 9.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "MAGIC GRANT",
+   "q": 0.027,
+   "g": 55.45,
    "kazandi": false
   },
   {
