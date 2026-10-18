@@ -378,6 +378,11 @@ def abd_canli(gunler=None, pencere_dk=90, ulkeler=("abd", "guney-afrika", "birle
         ga_program()
     except Exception as e:
         print("GA program hatası:", repr(e))
+    try:
+        from . import muhtemeller as MUH
+        MUH.calistir()
+    except Exception as e:
+        print("muhtemeller hatası:", repr(e))
     print("ABD+GA canlı koşu", len(kos), "pencere", pencere_dk)
 
 

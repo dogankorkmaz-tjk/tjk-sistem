@@ -1,0 +1,149 @@
+"""vhs.tjk.org/muhtemeller (TJK'nın halka açık canlı muhtemel ganyan sayfası) -> data/muh/<gün>.json
+
+Biçim (18 Ekim 2026'da sayfanın kendi JS'inden çözüldü; robots.txt yok, kullanıcı izni var):
+  s/YYYY/MM/DD/checksum.json              (vhs-medya.tjk.org)      -> {day, runs{KEY-no: [koşu_sağlaması, tam_sağlama]}}
+  s/YYYY/MM/DD/day-<day>.json             (vhs-medya-cdn.tjk.org)  -> yarislar[]: KEY, YER, YURTDISI, atlar{koşu:{no:ad}}, kosular[{NO,SAAT(TR),DURUM}]
+  s/YYYY/MM/DD/<KEY>-<no>-<sağlama>.json (vhs-medya-cdn.tjk.org)  -> muhtemeller.bahisler[GANYAN].muhtemeller[{S1,G,R,A,K}]
+DURUM: AÇIK (muhtemel ganyan canlı) / KAPALI (bahis kapandı) / RESMİ (sonuç: R = varış sırası, G = resmî ganyan, G='-' koşmadı).
+İstek yükü: günde 2 sabit dosya + yalnız başlamasına ≤ 12 dk kalan açık yurtdışı koşuların kendi dosyası (döngü başına en çok birkaç istek)."""
+import datetime, json, os, re, time
+import requests
+
+KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+HOST = "https://vhs-medya.tjk.org/muhtemeller/s/"
+CDN = "https://vhs-medya-cdn.tjk.org/muhtemeller/s/"
+HEADERS = {"User-Agent": "Mozilla/5.0 (kisisel arastirma; dusuk sikli istek)", "Accept": "application/json"}
+try:
+    from curl_cffi import requests as _CR
+except Exception:
+    _CR = None
+
+
+def _json(url):
+    for _ in range(2):
+        try:
+            r = _CR.get(url, impersonate="chrome", timeout=20) if _CR else requests.get(url, headers=HEADERS, timeout=20)
+            if r.status_code == 200:
+                return r.json()
+            if r.status_code == 404:
+                return None
+        except Exception:
+            pass
+        time.sleep(1.5)
+    return None
+
+
+def _slug(s):
+    t = str(s).lower().translate(str.maketrans("ıİşŞğĞüÜöÖçÇ", "iissgguuoocc"))
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+
+
+def _tr_simdi():
+    return datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=3)
+
+
+def _ganyan(run):
+    """run JSON -> ({no: ganyan}, {no: sıra}, durum, favori)"""
+    m = (run.get("data") or {}).get("muhtemeller") or {}
+    g, r, fav = {}, {}, None
+    for b in m.get("bahisler", []):
+        if b.get("isGanyan"):
+            for x in b.get("muhtemeller", []):
+                try:
+                    no = int(x["S1"])
+                except Exception:
+                    continue
+                if x.get("K"):
+                    g[no] = None
+                    continue
+                try:
+                    g[no] = float(x["G"])
+                except Exception:
+                    g[no] = None
+                if x.get("R"):
+                    r[no] = int(x["R"])
+                if x.get("A"):
+                    fav = no
+    return g, r, m.get("DURUM"), fav
+
+
+def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
+    """Bir döngü: günün gününü okur, kaydı data/muh/<gün>.json'a ekler. Döner: yazılan snapshot sayısı."""
+    simdi = _tr_simdi()
+    gun = tarih or simdi.date().isoformat()
+    yol = gun.replace("-", "/")
+    ck = _json(f"{HOST}{yol}/checksum.json")
+    if not ck or not ck.get("day"):
+        print("muh: checksum yok", gun); return 0
+    gj = _json(f"{CDN}{yol}/day-{ck['day']}.json")
+    if not gj or not gj.get("success"):
+        print("muh: gün dosyası yok"); return 0
+    dosya = os.path.join(KOK, "data", "muh", gun + ".json")
+    os.makedirs(os.path.dirname(dosya), exist_ok=True)
+    try:
+        D = json.load(open(dosya, encoding="utf-8"))
+    except Exception:
+        D = {}
+    yazilan = 0
+    for y in gj["data"]["yarislar"]:
+        if yalniz_yurtdisi and not y.get("YURTDISI"):
+            continue
+        for k in y.get("kosular", []):
+            key = f'{y["KEY"]}-{k["NO"]}'
+            runs = (ck.get("runs") or {}).get(key)
+            if not runs:
+                continue
+            kay = D.setdefault(key, {"hipodrom": y["KEY"], "yer": y.get("YER"), "slug": _slug(y.get("HIPODROM") or y["KEY"]), "kosu": int(k["NO"]),
+                                     "saat_tr": k["SAAT"], "pist": k.get("PIST"), "atlar": (y.get("atlar") or {}).get(str(k["NO"]), {}), "anlik": []})
+            kay["saat_tr"] = k["SAAT"]
+            try:
+                bas = datetime.datetime.combine(simdi.date(), datetime.time.fromisoformat(k["SAAT"]))
+                # gece yarısını aşan koşular (ABD): saat < 6 ve şimdi akşam ise ertesi güne ait
+                if bas.hour < 6 and simdi.hour >= 12:
+                    bas += datetime.timedelta(days=1)
+                elif bas.hour >= 12 and simdi.hour < 6:
+                    bas -= datetime.timedelta(days=1)
+                dk = (bas - simdi.replace(tzinfo=None)).total_seconds() / 60
+            except Exception:
+                dk = None
+            durum = k.get("DURUM")
+            if durum == "RESMİ":
+                if kay.get("sonuc"):
+                    continue
+                run = _json(f"{CDN}{yol}/{key}-{runs[0]}.json")
+                if run and run.get("success"):
+                    g, r, dr, fav = _ganyan(run)
+                    if r:
+                        kay["sonuc"] = {"sira": {str(n): s for n, s in r.items()}, "ganyan": {str(n): v for n, v in g.items()}}
+                        yazilan += 1
+                continue
+            if dk is None or not (-4 <= dk <= pencere_dk):
+                continue
+            run = _json(f"{CDN}{yol}/{key}-{runs[0]}.json")
+            if run and run.get("success"):
+                g, r, dr, fav = _ganyan(run)
+                if g:
+                    kay["anlik"].append({"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "durum": dr, "g": {str(n): v for n, v in g.items()}, "fav": fav})
+                    kay["anlik"] = kay["anlik"][-8:]
+                    yazilan += 1
+    json.dump(D, open(dosya, "w", encoding="utf-8"), ensure_ascii=False)
+    print("muh:", gun, "yazılan", yazilan, "koşu", len(D))
+    return yazilan
+
+
+def calistir():
+    """Döngü girişi: bugün (+ gece yarısından sonra dünün TJK günü, çünkü ABD koşuları ertesi güne taşar)."""
+    simdi = _tr_simdi(); n = 0
+    gunler = [simdi.date().isoformat()]
+    if simdi.hour < 6:
+        gunler.append((simdi.date() - datetime.timedelta(days=1)).isoformat())
+    for g in gunler:
+        try:
+            n += topla(g)
+        except Exception as e:
+            print("muh hatası:", repr(e))
+    return n
+
+
+if __name__ == "__main__":
+    calistir()
