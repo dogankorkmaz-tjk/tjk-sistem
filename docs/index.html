@@ -51,7 +51,7 @@ button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(
 
 /* alt sekme çubuğu: yüzen hap */
 .tabs{position:fixed;z-index:35;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));
-  width:min(calc(100% - 24px),520px);display:grid;grid-template-columns:repeat(6,1fr);gap:2px;padding:6px;
+  width:min(calc(100% - 24px),520px);display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:6px;
   background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 30px rgba(8,20,14,.16)}
 .tabs button{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:transparent;color:var(--muted);padding:6px 0 5px;border-radius:16px;font:600 11px var(--f-body);min-width:0}
@@ -273,6 +273,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Bugün</button>
     <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
     <button role="tab" id="tabKupon" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 000 4v4H4v-4a2 2 0 000-4z"/></svg>Kuponlar</button>
+    <button role="tab" id="tabS5" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m5 9V5m5 13v-6m5 6V8"/></svg>Sıralı 5</button>
     <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>Yabancı</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
     <button role="tab" id="tabDiger" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Diğer</button>
@@ -337,6 +338,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <div class="bolum"><h2>Değer filtresi: ikili ve üçlü</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div></div>
     <div class="bolum"><h2>Altılı kupon testi</h2><div class="bolum-not">Sistemin her gün kurduğu altılı kuponlar; kâğıt üstü.</div><div id="otoKupon"><div class="card empty">Yükleniyor…</div></div></div>
   </section>
+  <section id="s5" class="sec" hidden><div id="s5Ic"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="abd" class="sec" hidden>
     <div class="card">
       <b>ABD ve Güney Afrika: iki piyasa kuralı</b>
@@ -1185,15 +1187,16 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={abd:'tabAbd',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={s5:'tabS5',abd:'tabAbd',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
 function digerAc(ac){ $('digerPanel').hidden=!ac; $('digerOrtu').hidden=!ac; }
 function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   digerAc(false);
   const btn=TABS[ad];
-  ['tabBugun','tabKosu','tabKupon','tabAbd','tabSkor','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
+  ['tabBugun','tabKosu','tabKupon','tabS5','tabAbd','tabSkor','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
   Object.keys(TABS).forEach(k=>{ $(k).hidden=k!==ad; });
   if(btn==='tabKupon'){ SON_KUPON=ad; sv('gm2_kupsek',ad); document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===ad)); }
+  if(ad==='s5') s5Ciz(0);
   if(ad==='egz') egzYukle();
   if(ad==='ikili') degerYukle();
   if(ad==='abd'&&!ABD) abdYukle();
@@ -1203,7 +1206,7 @@ function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   try{ window.scrollTo(0,0); }catch(e){}
 }
 $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
-$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('abd');
+$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('abd'); $('tabS5').onclick=()=>sekme('s5');
 $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
 document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
 document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.dataset.k));
@@ -1430,6 +1433,15 @@ function tahOd(nv,prP,bedel){
   const base=0.875*nv/prP, kT=x=>x>=1e6?(x/1e6).toFixed(1).replace('.',',')+' milyon':x>=1000?Math.round(x/1000).toLocaleString('tr-TR')+' bin':Math.round(x);
   const med=base*0.91, lo=base*0.32, hi=base*2.39, kat=med/bedel;
   return `<span class="sub" style="display:block">Tutarsa tahmini ödeme ≈ <b>${kT(med)} TL</b> (olası aralık ${kT(lo)}–${kT(hi)}), bedelin ≈ ${kat>=10?Math.round(kat):kat.toFixed(1).replace('.',',')} katı. Kaba tahmin: piyasa olasılığından hesaplanır, havuz/devir bilinmez.</span>`;
+}
+function s5Ciz(n){
+  const el=$('s5Ic'); if(!el) return;
+  if(!VERI){ if(n<12) setTimeout(()=>{ if(!$('s5').hidden) s5Ciz(n+1); },1200); return; }
+  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sıralı 5'li: özel model (Jason-S)</b>
+  <div class="sub">Tek bir kazananı değil, ilk beşin <b>sırasını</b> öğrenen model. Kupon, bütçe dolana kadar tutma olasılığını en çok artıran atı ekleyerek kurulur; AGF'nin ilk beşini yazmaktan farkı bu. Sürpriz için ayrı yer ayıran hibrit kupon geriye dönük testte daha iyi çıkmadı. Dürüst durum: sürprizi bulmak en zor kısım, aşağıdaki canlı takip bunu gösteriyor. Kâr kanıtı yok, kâğıt üstü.</div></div>`;
+  try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); s+='<div class="card empty">Kuponlar hesaplanamadı.</div>'; }
+  s+=`<h2 style="margin-top:14px">Canlı takip (dondurulmuş kuponlar)</h2><div id="s5Takip">${BS_HTML||'<div class="card empty">Yükleniyor…</div>'}</div>`;
+  el.innerHTML=s;
 }
 function besliGecerli(sets){ let n=0; (function rec(k,u){ if(k===5){ n++; return; } for(const h of sets[k]){ if(u.has(h)) continue; u.add(h); rec(k+1,u); u.delete(h); } })(0,new Set()); return n; }
 function besliEgz(m){
@@ -1857,8 +1869,9 @@ function besliTest(){
   const T=BS.toplam||[]; let h='';
   if(T.length){ h+='<div class="card scroll"><b>Şimdiye kadar</b><table class="t"><thead><tr><th>Kupon</th><th>Koşu</th><th>Harcama</th><th>İsabet</th><th>Geri dönüş</th></tr></thead><tbody>'+T.sort((a,b)=>(a.grup<b.grup?1:-1)||(a.model<b.model?-1:1)||a.butce-b.butce).map(t=>`<tr><td>${t.grup==='onerilen'?'★ ':''}${t.model} ~${t.butce}</td><td class="n">${t.kosu}</td><td class="n">${f2(t.harcama)}</td><td class="n">${t.isabet}</td><td class="n">${t.geri_donus==null?'–':String(t.geri_donus).replace('.',',')}</td></tr>`).join('')+'</tbody></table><div class="sub">★ = önerilen kuponlar (model/piyasa tutma oranı ≥ '+String(BS.esik).replace('.',',')+'). 1,00 üstü = kazandırdı. Karar için en az birkaç yüz koşu gerekir. Devir bilgisi kullanılmaz. Harcama, makinenin fişte ücretlendirdiği geçerli kombinasyon sayısıdır (13 Ekim 2026 tarihine kadar kayıtlar çarpım olarak yazılmıştı, düzeltildi). "-G" kuponlar bütçeyi geçerli kombinasyon sayısına göre kurar (13 Ekim 2026 tarihinden itibaren).</div></div>'; }
   else h+='<div class="card"><div class="sub">Henüz sonuçlanan kupon yok; kuponlar yarıştan önce dondurulur, sonuç ve ödeme gelince burada birikir.</div></div>';
-  el.innerHTML=h;
+  el.innerHTML=h; try{ BS_HTML=h; if($('s5Takip')) $('s5Takip').innerHTML=h; }catch(e){}
 }
+let BS_HTML='';
 function tuyolar(){
   const R=[]; if(!VERI||GUN!==trBugun()||VERI.w0_aday==null) return R;
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
