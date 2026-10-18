@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 20:02 UTC",
- "kayitli_kosu": 57,
- "eslesmeyen_kosu": 40,
+ "uretim": "2026-10-18 20:17 UTC",
+ "kayitli_kosu": 58,
+ "eslesmeyen_kosu": 38,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 30,
- "kosu": 17,
+ "bahis": 37,
+ "kosu": 20,
  "isabet": 2,
- "roi": 0.658,
+ "roi": 0.534,
  "ulke": {
   "abd": {
-   "bahis": 25,
-   "roi": 0.79
+   "bahis": 32,
+   "roi": 0.617
   },
   "fransa": {
    "bahis": 3,
@@ -23,10 +23,10 @@
   }
  },
  "bahis_ani": {
-  "bahis": 32,
-  "kosu": 14,
-  "isabet": 2,
-  "roi": 0.33
+  "bahis": 39,
+  "kosu": 17,
+  "isabet": 4,
+  "roi": 0.597
  },
  "bahisler": [
   {
@@ -117,6 +117,42 @@
    "at": "MOBAY PRINCESS",
    "q": 0.091,
    "g": 16.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "ROAR OF KENNA",
+   "q": 0.041,
+   "g": 38.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "TAPPIN MAGIC",
+   "q": 0.065,
+   "g": 33.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "DECIMAL POINT",
+   "q": 0.095,
+   "g": 17.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "SLINGING SLASHER",
+   "q": 0.122,
+   "g": 17.1,
    "kazandi": false
   },
   {
@@ -256,6 +292,15 @@
   },
   {
    "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 1,
+   "at": "BANZAI BETTY",
+   "q": 0.071,
+   "g": 25.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
    "pist": "Woodbine",
    "kosu": 3,
    "at": "ALPHA BOND",
@@ -297,6 +342,24 @@
    "at": "FRIDAY'S GRACE",
    "q": 0.051,
    "g": 57.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "CYCLONE TAYLOR",
+   "q": 0.233,
+   "g": 6.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "EXTRAORDINARY ONE",
+   "q": 0.039,
+   "g": 47.4,
    "kazandi": false
   }
  ]
