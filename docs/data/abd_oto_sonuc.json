@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 18:39 UTC",
- "kayitli_kosu": 45,
+ "uretim": "2026-10-18 18:52 UTC",
+ "kayitli_kosu": 46,
  "eslesmeyen_kosu": 33,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 22,
- "kosu": 12,
+ "bahis": 23,
+ "kosu": 13,
  "isabet": 2,
- "roi": 0.898,
+ "roi": 0.859,
  "ulke": {
   "abd": {
-   "bahis": 17,
-   "roi": 1.162
+   "bahis": 18,
+   "roi": 1.097
   },
   "fransa": {
    "bahis": 3,
@@ -23,10 +23,10 @@
   }
  },
  "bahis_ani": {
-  "bahis": 21,
-  "kosu": 9,
+  "bahis": 25,
+  "kosu": 10,
   "isabet": 2,
-  "roi": 0.502
+  "roi": 0.422
  },
  "bahisler": [
   {
@@ -135,6 +135,15 @@
    "at": "MAGIC GRANT",
    "q": 0.027,
    "g": 55.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "MUNNINGSREDPRINCE",
+   "q": 0.111,
+   "g": 19.55,
    "kazandi": false
   },
   {
