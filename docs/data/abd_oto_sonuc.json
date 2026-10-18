@@ -1,18 +1,32 @@
 {
- "uretim": "2026-10-18 16:21 UTC",
- "kayitli_kosu": 22,
- "eslesmeyen_kosu": 19,
+ "uretim": "2026-10-18 16:51 UTC",
+ "kayitli_kosu": 25,
+ "eslesmeyen_kosu": 20,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 6,
- "kosu": 3,
+ "bahis": 11,
+ "kosu": 5,
  "isabet": 2,
- "roi": 3.292,
+ "roi": 1.795,
  "ulke": {
   "abd": {
    "bahis": 6,
    "roi": 3.292
+  },
+  "fransa": {
+   "bahis": 3,
+   "roi": 0.0
+  },
+  "irlanda": {
+   "bahis": 2,
+   "roi": 0.0
   }
+ },
+ "bahis_ani": {
+  "bahis": 6,
+  "kosu": 2,
+  "isabet": 0,
+  "roi": 0.0
  },
  "bahisler": [
   {
@@ -67,6 +81,51 @@
    "at": "CAPTIVATING NAME",
    "q": 0.175,
    "g": 7.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Leopardstown",
+   "kosu": 7,
+   "at": "BAY OF DREAMS",
+   "q": 0.083,
+   "g": 20.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Leopardstown",
+   "kosu": 7,
+   "at": "ROSATO",
+   "q": 0.15,
+   "g": 12.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "ParisLongchamp",
+   "kosu": 8,
+   "at": "NUMERUS BORGET",
+   "q": 0.104,
+   "g": 22.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "ParisLongchamp",
+   "kosu": 8,
+   "at": "ANDOUINS",
+   "q": 0.138,
+   "g": 12.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "ParisLongchamp",
+   "kosu": 8,
+   "at": "BECQUATHUNDER",
+   "q": 0.073,
+   "g": 20.45,
    "kazandi": false
   }
  ]
