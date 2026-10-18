@@ -1,9 +1,9 @@
 {
  "kayitli_kosu": 11,
- "bekleyen": 1,
- "bahis": 10,
+ "bekleyen": 0,
+ "bahis": 11,
  "isabet": 1,
- "roi": 0.41,
+ "roi": 0.373,
  "ulke": {
   "birlesik-krallik": {
    "bahis": 5,
@@ -14,6 +14,11 @@
    "bahis": 5,
    "isabet": 1,
    "roi": 0.82
+  },
+  "irlanda": {
+   "bahis": 1,
+   "isabet": 0,
+   "roi": 0.0
   }
  },
  "not": "Küçük örnek; karar için en az 300 bahis (hipotez defteri).",
@@ -123,10 +128,10 @@
    "pist": "Leopardstown",
    "kosu": 6,
    "ulke": "irlanda",
-   "durum": "sonuç/ganyan bekleniyor",
-   "isaretli": [
-    5
-   ]
+   "no": 5,
+   "kazandi": false,
+   "bahis_ani_tjk": 31,
+   "kapanis_ganyan_kazanan": 7.8
   }
  ]
 }
