@@ -1,5 +1,5 @@
 {
- "uretim": "2026-10-18 22:18 UTC",
+ "uretim": "2026-10-18 22:25 UTC",
  "kayitli_kosu": 72,
  "eslesmeyen_kosu": 39,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
@@ -27,6 +27,18 @@
   "kosu": 30,
   "isabet": 7,
   "roi": 0.601
+ },
+ "bahis_t1": {
+  "bahis": 69,
+  "kosu": 30,
+  "isabet": 10,
+  "roi": 0.836
+ },
+ "bahis_t3": {
+  "bahis": 70,
+  "kosu": 29,
+  "isabet": 9,
+  "roi": 0.776
  },
  "bahisler": [
   {

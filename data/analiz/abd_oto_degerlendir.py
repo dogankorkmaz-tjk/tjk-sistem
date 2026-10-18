@@ -39,12 +39,16 @@ def muh_tablo():
                 continue
             ank = [a for a in k.get("anlik", []) if a.get("durum") == "AÇIK" and a.get("dk", -1) >= 0]
             son = ank[-1]["g"] if ank else {}
+            a1 = [a for a in k.get("anlik", []) if a.get("durum") == "AÇIK" and a.get("dk", -1) >= 1.0]
+            son1 = a1[-1]["g"] if a1 else {}
+            a3 = [a for a in k.get("anlik", []) if a.get("durum") == "AÇIK" and a.get("dk", -1) >= 3.0]
+            son3 = a3[-1]["g"] if a3 else {}
             for no, ad_ in (k.get("atlar") or {}).items():
                 g = so["ganyan"].get(str(no))
                 if g is None:
                     continue
                 satir.append({"tarih": gun, "hipodrom": k["slug"], "ulke": ulke_yer(k.get("yer")), "kosu": k["kosu"], "sira": so["sira"].get(str(no), 99),
-                              "no": int(no), "at": ad(ad_), "ganyan": g, "g_anlik": son.get(str(no)), "kosmadi": False})
+                              "no": int(no), "at": ad(ad_), "ganyan": g, "g_anlik": son.get(str(no)), "g_t1": son1.get(str(no)), "g_t3": son3.get(str(no)), "kosmadi": False})
     return pd.DataFrame(satir)
 
 
@@ -63,7 +67,7 @@ def main():
     T = pd.concat([pd.read_csv(f) for f in glob.glob(KOK + "/data/yabanci/*.csv.gz")], ignore_index=True)
     T = T[T.ulke.isin(ULKE_TJK.values()) & (T.no > 0) & ~T.kosmadi.fillna(False).astype(bool)].copy()
     T["at"] = T["at"].map(ad)
-    T["g_anlik"] = np.nan
+    T["g_anlik"] = np.nan; T["g_t1"] = np.nan; T["g_t3"] = np.nan
     M = muh_tablo()
     if len(M):
         # aynı koşu iki kaynaktaysa muh (resmî sonuç + bahis anı ganyanı) önceliklidir
@@ -100,10 +104,10 @@ def main():
         inv = np.array([1 / mine[a]["oran"] for a in g["at"]])
         g["q"] = inv / inv.sum()
         g["ev"] = g.q * g.ganyan
-        g["ev_anlik"] = g.q * g.g_anlik
+        g["ev_anlik"] = g.q * g.g_anlik; g["ev_t1"] = g.q * g.g_t1; g["ev_t3"] = g.q * g.g_t3
         for _, r in g.iterrows():
             satir.append({"gun": gun, "ulke": k["ulke"], "pist": k["pist"], "kosu": k["kosu"], "at": r["at"], "q": r.q, "g": r.ganyan,
-                          "ev": r.ev, "ev_anlik": r.ev_anlik, "g_anlik": r.g_anlik, "kazandi": int(r.sira == 1)})
+                          "ev": r.ev, "ev_anlik": r.ev_anlik, "ev_t1": r.ev_t1, "ev_t3": r.ev_t3, "g_anlik": r.g_anlik, "kazandi": int(r.sira == 1)})
     D = pd.DataFrame(satir)
     sonuc = {"uretim": pd.Timestamp.utcnow().strftime("%Y-%m-%d %H:%M UTC"), "kayitli_kosu": len(kayit), "eslesmeyen_kosu": eslesmeyen,
              "kural": f"q x TJK kapanış ganyanı > {ESIK}, 1 TL ganyan", "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
@@ -129,6 +133,15 @@ def main():
                 sonuc["bahis_ani"].update({"isabet": int(A.kazandi.sum()), "roi": round(float(A.net.sum() / len(A)), 3)})
                 if A.gun.nunique() >= 3:
                     lo, hi = bootstrap(A.gun.values, A.net.values); sonuc["bahis_ani"]["ga95"] = [round(lo, 3), round(hi, 3)]
+        # Ayrıca: karar T-1 dk (en az 1 dk kala) ve T-3 dk görüntüsüyle; ödeme yine resmî kapanış. Ganyanın kapanışa doğru ne kadar eridiğini gösterir.
+        for ad_, kol in (("bahis_t1", "ev_t1"), ("bahis_t3", "ev_t3")):
+            if D[kol].notna().any():
+                Z = D[D[kol] > ESIK].copy(); Z["net"] = np.where(Z.kazandi == 1, Z.g, 0.0)
+                sonuc[ad_] = {"bahis": int(len(Z)), "kosu": int(D[D[kol].notna()].groupby(["gun", "ulke", "pist", "kosu"]).ngroups)}
+                if len(Z):
+                    sonuc[ad_].update({"isabet": int(Z.kazandi.sum()), "roi": round(float(Z.net.sum() / len(Z)), 3)})
+                    if Z.gun.nunique() >= 3:
+                        lo, hi = bootstrap(Z.gun.values, Z.net.values); sonuc[ad_]["ga95"] = [round(lo, 3), round(hi, 3)]
         sonuc["bahisler"] = [{"gun": r.gun, "pist": r.pist, "kosu": int(r.kosu), "at": r.at, "q": round(r.q, 3), "g": r.g, "kazandi": bool(r.kazandi)}
                              for r in B.sort_values(["gun", "pist", "kosu"]).tail(40).itertuples()]
     os.makedirs(KOK + "/docs/data", exist_ok=True)

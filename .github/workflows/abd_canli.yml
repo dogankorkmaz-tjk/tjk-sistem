@@ -42,5 +42,5 @@ jobs:
               for k in 1 2 3 4 5; do git pull -q --rebase -X theirs && git push -q && break; sleep 8; done
             fi
             [ "$i" -lt "$N" ] || break
-            GEC=$(( $(date +%s) - BAS )); BEK=$(( 225 - GEC )); [ "$BEK" -gt 0 ] && sleep $BEK
+            GEC=$(( $(date +%s) - BAS )); BEK=$(( 225 - GEC )); if [ "$BEK" -gt 20 ]; then python -m tjk.muhtemeller yakin $(( BEK - 8 )) || sleep $BEK; fi
           done

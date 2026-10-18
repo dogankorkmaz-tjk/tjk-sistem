@@ -363,3 +363,8 @@ Değerlendirme: abd_oto_degerlendir.py artık muh kaynaklı (resmî kapanış ga
 ## 19 Ekim 2026, 01:35 — Düzeltmeler (kural DEĞİŞMEDİ)
 (1) Değerlendiricide 'Birleşik Krallık' ülke eşlemesi Türkçe karakter yüzünden tutmuyordu; düzeltildi, İngiltere koşuları artık sayılıyor. Fransa TJK sonucu muh kaynağından okunabildiği için testte yer alıyor (00:55 kaydındaki 'Fransa dahil değil' notu bu açıdan geçersiz; kural ve eşik aynı). Eşleşmeyen koşuların kalanı TJK'nın oynatmadığı pistler (Caen, Amiens, Laurel Park, Mountaineer, Sedgefield) — bayide bahis yapılamayacağı için testin dışında kalması doğru.
 (2) Yabancı sekmesi: TJK muhtemel ganyanı muh_canli.json'dan at adlarıyla otomatik dolar (son 15 dk içinde alınmışsa). Eşik, kural ve ödeme aynı. Bu yalnız veri girişini otomatikleştirir.
+
+## 19 Ekim 2026, 01:50 — Bahis anı ölçümü inceltildi (ölçüm eklemesi; kural ve durdurma ölçütü DEĞİŞMEDİ)
+Neden: bahis anı varyantı (son görüntü, 0–4 dk önce) kaba. Döngü arası beklemede, başlamasına −1,5…+5 dk kalan koşular için muhtemel ganyan ~40 sn aralıkla kaydedilir (tjk.muhtemeller yakin); aynı kural q × ganyan > 1,25 ile T-1 dk ve T-3 dk varyantları da hesaplanır (bahis_t1, bahis_t3), ödeme yine resmî kapanış ganyanı.
+Mevcut kaba veriyle (SONUÇ GÖRÜLDÜKTEN SONRA eklendiği için yalnız betimleyici): kapanış 64 bahis ROI 0,87; bahis anı (son görüntü) 71 bahis 0,60; T-1 69 bahis 0,84; T-3 70 bahis 0,78. Örnek küçük, aralıklar geniş; fark gürültü olabilir.
+Karar değişmedi: ≥300 bahiste kapanış varyantı GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır. T-1/T-3 varyantları, avantajın bayide yakalanıp yakalanamayacağına dair ikincil kanıttır.

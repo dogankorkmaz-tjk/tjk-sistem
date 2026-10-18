@@ -124,7 +124,7 @@ def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
                 g, r, dr, fav = _ganyan(run)
                 if g:
                     kay["anlik"].append({"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "durum": dr, "g": {str(n): v for n, v in g.items()}, "fav": fav})
-                    kay["anlik"] = kay["anlik"][-8:]
+                    kay["anlik"] = kay["anlik"][-40:]
                     yazilan += 1
     json.dump(D, open(dosya, "w", encoding="utf-8"), ensure_ascii=False)
     print("muh:", gun, "yazılan", yazilan, "koşu", len(D))
@@ -152,6 +152,64 @@ def _canli_yaz(D):
     sinir = (simdi - datetime.timedelta(minutes=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
     C = {a: b for a, b in C.items() if b.get("utc", "") >= sinir and not (D.get(a) or {}).get("sonuc")}
     json.dump(C, open(yol, "w", encoding="utf-8"), ensure_ascii=False)
+
+
+def _dk(saat, simdi):
+    bas = datetime.datetime.combine(simdi.date(), datetime.time.fromisoformat(saat))
+    if bas.hour < 6 and simdi.hour >= 12:
+        bas += datetime.timedelta(days=1)
+    elif bas.hour >= 12 and simdi.hour < 6:
+        bas -= datetime.timedelta(days=1)
+    return (bas - simdi.replace(tzinfo=None)).total_seconds() / 60
+
+
+def yakin(sure_s, aralik=40, ust=5.0, alt=-1.5):
+    """Döngü arasındaki bekleme süresinde: başlamasına [alt, ust] dk kalan açık koşuların muhtemel ganyanını sık aralıkla (varsayılan 40 sn) kaydeder.
+    Amaç: bahis anı ganyanı ile resmî kapanış ganyanı arasındaki farkı (T-4..T0) ince çözünürlükle ölçmek. Her turda 1 checksum + yalnız pencere içindeki koşular."""
+    bitis = time.time() + sure_s
+    gj = None; gun_day = None; n = 0
+    while time.time() < bitis - 5:
+        t0 = time.time(); simdi = _tr_simdi(); gun = simdi.date().isoformat()
+        if simdi.hour < 6:   # gece yarısını aşan koşular dünün TJK gününde
+            gun = (simdi.date() - datetime.timedelta(days=1)).isoformat()
+        yol = gun.replace("-", "/")
+        ck = _json(f"{HOST}{yol}/checksum.json")
+        if ck and ck.get("day"):
+            if gun_day != (gun, ck["day"]):
+                gj = _json(f"{CDN}{yol}/day-{ck['day']}.json"); gun_day = (gun, ck["day"])
+            dosya = os.path.join(KOK, "data", "muh", gun + ".json")
+            try:
+                D = json.load(open(dosya, encoding="utf-8"))
+            except Exception:
+                D = {}
+            yaz = 0
+            for y in ((gj or {}).get("data") or {}).get("yarislar", []):
+                for k in y.get("kosular", []):
+                    key = f'{y["KEY"]}-{k["NO"]}'; runs = (ck.get("runs") or {}).get(key)
+                    kay = D.get(key)
+                    if not runs or not kay or kay.get("sonuc") or k.get("DURUM") == "RESMİ":
+                        continue
+                    try:
+                        dk = _dk(k["SAAT"], simdi)
+                    except Exception:
+                        continue
+                    if not (alt <= dk <= ust):
+                        continue
+                    run = _json(f"{CDN}{yol}/{key}-{runs[0]}.json")
+                    if run and run.get("success"):
+                        g, r, dr, fav = _ganyan(run)
+                        if g:
+                            kay["anlik"].append({"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 2), "durum": dr, "g": {str(a): v for a, v in g.items()}, "fav": fav})
+                            kay["anlik"] = kay["anlik"][-40:]; yaz += 1
+            if yaz:
+                json.dump(D, open(dosya, "w", encoding="utf-8"), ensure_ascii=False); n += yaz
+        kal = aralik - (time.time() - t0)
+        if kal > 0 and time.time() + kal < bitis - 5:
+            time.sleep(kal)
+        elif kal > 0:
+            break
+    print("muh yakin: yazılan", n)
+    return n
 
 
 def geri(tarihler):
@@ -196,4 +254,8 @@ def calistir():
 
 
 if __name__ == "__main__":
-    calistir()
+    import sys
+    if len(sys.argv) > 2 and sys.argv[1] == "yakin":
+        yakin(int(sys.argv[2]))
+    else:
+        calistir()
