@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 20:17 UTC",
- "kayitli_kosu": 58,
- "eslesmeyen_kosu": 38,
+ "uretim": "2026-10-18 20:32 UTC",
+ "kayitli_kosu": 63,
+ "eslesmeyen_kosu": 41,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 37,
- "kosu": 20,
- "isabet": 2,
- "roi": 0.534,
+ "bahis": 44,
+ "kosu": 22,
+ "isabet": 3,
+ "roi": 1.026,
  "ulke": {
   "abd": {
-   "bahis": 32,
-   "roi": 0.617
+   "bahis": 39,
+   "roi": 1.158
   },
   "fransa": {
    "bahis": 3,
@@ -23,48 +23,12 @@
   }
  },
  "bahis_ani": {
-  "bahis": 39,
-  "kosu": 17,
+  "bahis": 44,
+  "kosu": 19,
   "isabet": 4,
-  "roi": 0.597
+  "roi": 0.53
  },
  "bahisler": [
-  {
-   "gun": "2026-10-17",
-   "pist": "Santa Anita",
-   "kosu": 6,
-   "at": "BLAME ASHLEY",
-   "q": 0.396,
-   "g": 3.6,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-17",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "ULTIMATE AUTHORITY",
-   "q": 0.05,
-   "g": 25.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-17",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "QUADRUPLE",
-   "q": 0.114,
-   "g": 16.15,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-17",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "AUSTERE",
-   "q": 0.145,
-   "g": 11.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-17",
    "pist": "Woodbine",
@@ -247,6 +211,24 @@
   },
   {
    "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "MASSARAT",
+   "q": 0.039,
+   "g": 33.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "SNIPSNIPPITYSNIP",
+   "q": 0.063,
+   "g": 21.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
    "pist": "Leopardstown",
    "kosu": 7,
    "at": "BAY OF DREAMS",
@@ -361,6 +343,51 @@
    "q": 0.039,
    "g": 47.4,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "GOLDEN SUNSET",
+   "q": 0.071,
+   "g": 24.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "RADAR WOMAN",
+   "q": 0.06,
+   "g": 66.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "SERAPHIM",
+   "q": 0.196,
+   "g": 12.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "STRICTLY JAMAICAN",
+   "q": 0.037,
+   "g": 114.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "QUALITY AMI",
+   "q": 0.112,
+   "g": 25.4,
+   "kazandi": true
   }
  ]
 }
