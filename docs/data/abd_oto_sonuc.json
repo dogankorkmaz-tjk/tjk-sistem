@@ -1,9 +1,73 @@
 {
- "uretim": "2026-10-18 11:18 UTC",
+ "uretim": "2026-10-18 11:23 UTC",
  "kayitli_kosu": 13,
- "eslesmeyen_kosu": 13,
+ "eslesmeyen_kosu": 10,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 0,
- "kosu": 0
+ "bahis": 6,
+ "kosu": 3,
+ "isabet": 2,
+ "roi": 3.292,
+ "ulke": {
+  "abd": {
+   "bahis": 6,
+   "roi": 3.292
+  }
+ },
+ "bahisler": [
+  {
+   "gun": "2026-10-17",
+   "pist": "Santa Anita",
+   "kosu": 6,
+   "at": "BLAME ASHLEY",
+   "q": 0.396,
+   "g": 3.6,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-17",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "ULTIMATE AUTHORITY",
+   "q": 0.05,
+   "g": 25.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-17",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "QUADRUPLE",
+   "q": 0.114,
+   "g": 16.15,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-17",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "AUSTERE",
+   "q": 0.145,
+   "g": 11.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-17",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "LES REYS",
+   "q": 0.177,
+   "g": 8.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-17",
+   "pist": "Woodbine",
+   "kosu": 11,
+   "at": "CAPTIVATING NAME",
+   "q": 0.175,
+   "g": 7.65,
+   "kazandi": false
+  }
+ ]
 }

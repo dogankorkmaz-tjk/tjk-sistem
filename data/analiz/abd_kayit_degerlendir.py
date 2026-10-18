@@ -28,11 +28,35 @@ def main():
         except Exception:
             continue
         sonuc[(s.get("tarih"), slug(s.get("pist")), str(s.get("kosu")))] = s
+    muh = {}
+    for f in glob.glob(KOK + "/data/muh/*.json"):
+        gun = os.path.basename(f)[:-5]
+        try:
+            for key, v in json.load(open(f, encoding="utf-8")).items():
+                if v.get("sonuc"):
+                    muh[(gun, v["kosu"])] = muh.get((gun, v["kosu"]), []) + [v]
+        except Exception:
+            pass
+
+    def muh_sonuc(a, k):
+        """vhs.tjk.org otomatik sonucu: gün + koşu no + hipodrom adı eşleşmesi (slug içerme)."""
+        try:
+            kn = int(k.get("kosu"))
+        except Exception:
+            return None
+        for v in muh.get((a[0], kn), []):
+            ps = a[1]
+            if ps and (ps in v["slug"] or v["slug"] in ps or ps in slug(v["hipodrom"]) or slug(v["hipodrom"]) in ps):
+                so = v["sonuc"]; sira = sorted(so["sira"], key=lambda n: so["sira"][n])
+                kaz = sira[0] if sira else None
+                return {"sira": [int(n) for n in sira], "ganyan": so["ganyan"].get(kaz) if kaz else None, "kaynak": "vhs.tjk.org resmî"}
+        return None
+
     satir, bekleyen, bahis, isabet, odeme = [], 0, 0, 0, 0.0
     ulke = {}
     for a, k in sorted(kay.items()):
         isr = k.get("isaretli") or []
-        s = sonuc.get(a) or k.get("sonuc") or {}
+        s = sonuc.get(a) or muh_sonuc(a, k) or k.get("sonuc") or {}
         sira = s.get("sira") or []
         g = s.get("ganyan") or s.get("kazanan_ganyan")
         if not isr:

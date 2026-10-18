@@ -1,10 +1,21 @@
 {
  "kayitli_kosu": 10,
- "bekleyen": 4,
- "bahis": 0,
- "isabet": 0,
- "roi": null,
- "ulke": {},
+ "bekleyen": 0,
+ "bahis": 10,
+ "isabet": 1,
+ "roi": 0.41,
+ "ulke": {
+  "birlesik-krallik": {
+   "bahis": 5,
+   "isabet": 0,
+   "roi": 0.0
+  },
+  "guney-afrika": {
+   "bahis": 5,
+   "isabet": 1,
+   "roi": 0.82
+  }
+ },
  "not": "Küçük örnek; karar için en az 300 bahis (hipotez defteri).",
  "satirlar": [
   {
@@ -12,46 +23,100 @@
    "pist": "Brighton",
    "kosu": 1,
    "ulke": "birlesik-krallik",
-   "durum": "sonuç/ganyan bekleniyor",
-   "isaretli": [
-    5,
-    8
-   ]
+   "no": 5,
+   "kazandi": false,
+   "bahis_ani_tjk": 8.05,
+   "kapanis_ganyan_kazanan": 9.1
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Brighton",
+   "kosu": 1,
+   "ulke": "birlesik-krallik",
+   "no": 8,
+   "kazandi": false,
+   "bahis_ani_tjk": 20.9,
+   "kapanis_ganyan_kazanan": 9.1
   },
   {
    "tarih": "2026-10-15",
    "pist": "Brighton",
    "kosu": 6,
    "ulke": "birlesik-krallik",
-   "durum": "sonuç/ganyan bekleniyor",
-   "isaretli": [
-    3,
-    7,
-    8
-   ]
+   "no": 3,
+   "kazandi": false,
+   "bahis_ani_tjk": 13.05,
+   "kapanis_ganyan_kazanan": 6.85
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Brighton",
+   "kosu": 6,
+   "ulke": "birlesik-krallik",
+   "no": 7,
+   "kazandi": false,
+   "bahis_ani_tjk": 36.2,
+   "kapanis_ganyan_kazanan": 6.85
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Brighton",
+   "kosu": 6,
+   "ulke": "birlesik-krallik",
+   "no": 8,
+   "kazandi": false,
+   "bahis_ani_tjk": 12.05,
+   "kapanis_ganyan_kazanan": 6.85
   },
   {
    "tarih": "2026-10-15",
    "pist": "Turffontein",
    "kosu": 5,
    "ulke": "guney-afrika",
-   "durum": "sonuç/ganyan bekleniyor",
-   "isaretli": [
-    2,
-    8,
-    9
-   ]
+   "no": 2,
+   "kazandi": true,
+   "bahis_ani_tjk": 8.5,
+   "kapanis_ganyan_kazanan": 4.1
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Turffontein",
+   "kosu": 5,
+   "ulke": "guney-afrika",
+   "no": 8,
+   "kazandi": false,
+   "bahis_ani_tjk": 48.65,
+   "kapanis_ganyan_kazanan": 4.1
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Turffontein",
+   "kosu": 5,
+   "ulke": "guney-afrika",
+   "no": 9,
+   "kazandi": false,
+   "bahis_ani_tjk": 26.6,
+   "kapanis_ganyan_kazanan": 4.1
   },
   {
    "tarih": "2026-10-15",
    "pist": "Turffontein",
    "kosu": 6,
    "ulke": "guney-afrika",
-   "durum": "sonuç/ganyan bekleniyor",
-   "isaretli": [
-    2,
-    10
-   ]
+   "no": 2,
+   "kazandi": false,
+   "bahis_ani_tjk": 30.55,
+   "kapanis_ganyan_kazanan": 5.6
+  },
+  {
+   "tarih": "2026-10-15",
+   "pist": "Turffontein",
+   "kosu": 6,
+   "ulke": "guney-afrika",
+   "no": 10,
+   "kazandi": false,
+   "bahis_ani_tjk": 13.3,
+   "kapanis_ganyan_kazanan": 5.6
   }
  ]
 }
