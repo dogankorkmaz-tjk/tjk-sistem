@@ -1,2 +1,1 @@
-https://vhs.tjk.org/robots.txt
-https://vhs.tjk.org/muhtemeller/
+https://vhs-medya-cdn.tjk.org/muhtemeller/r/js/all.min.js?v32
