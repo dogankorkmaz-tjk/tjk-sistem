@@ -128,7 +128,30 @@ def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
                     yazilan += 1
     json.dump(D, open(dosya, "w", encoding="utf-8"), ensure_ascii=False)
     print("muh:", gun, "yazılan", yazilan, "koşu", len(D))
+    try:
+        _canli_yaz(D)
+    except Exception as e:
+        print("muh canlı yazım hatası:", repr(e))
     return yazilan
+
+
+def _canli_yaz(D):
+    """Sayfa (Yabancı sekmesi) için: son 90 dk içinde alınmış en güncel AÇIK muhtemel ganyan -> docs/data/muh_canli.json (at adıyla eşleşir)."""
+    yol = os.path.join(KOK, "docs", "data", "muh_canli.json")
+    simdi = datetime.datetime.now(datetime.timezone.utc)
+    try:
+        C = json.load(open(yol, encoding="utf-8"))
+    except Exception:
+        C = {}
+    for key, k in D.items():
+        a = [x for x in k.get("anlik", []) if x.get("durum") == "AÇIK" and x.get("g")]
+        if not a or k.get("sonuc"):
+            continue
+        C[key] = {"yer": k.get("yer"), "kosu": k["kosu"], "saat_tr": k["saat_tr"], "atlar": k.get("atlar"),
+                  "g": a[-1]["g"], "dk": a[-1]["dk"], "utc": simdi.strftime("%Y-%m-%dT%H:%M:%SZ")}
+    sinir = (simdi - datetime.timedelta(minutes=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    C = {a: b for a, b in C.items() if b.get("utc", "") >= sinir and not (D.get(a) or {}).get("sonuc")}
+    json.dump(C, open(yol, "w", encoding="utf-8"), ensure_ascii=False)
 
 
 def geri(tarihler):

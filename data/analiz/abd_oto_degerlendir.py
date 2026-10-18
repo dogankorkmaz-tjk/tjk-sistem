@@ -12,7 +12,8 @@ ULKE_TJK = {"abd": "abd", "birlesik-krallik": "birlesik-krallik", "irlanda": "ir
 
 
 def slug(s):
-    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+    t = str(s).replace("İ", "i").lower().translate(str.maketrans("ışğüöç", "isguoc"))
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
 
 
 def ad(s):
@@ -21,7 +22,7 @@ def ad(s):
 
 def ulke_yer(yer):
     y = slug(yer or "")
-    for k, u in (("abd", "abd"), ("kanada", "abd"), ("ngiltere", "birlesik-krallik"), ("rlanda", "irlanda"), ("fransa", "fransa"), ("guney-afrika", "guney-afrika")):
+    for k, u in (("abd", "abd"), ("kanada", "abd"), ("ngiltere", "birlesik-krallik"), ("birlesik-krallik", "birlesik-krallik"), ("rlanda", "irlanda"), ("fransa", "fransa"), ("guney-afrika", "guney-afrika")):
         if y.endswith(k) or ("-" + k) in y:
             return u
     return "diger"

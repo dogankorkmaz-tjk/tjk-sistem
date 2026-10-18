@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 21:58 UTC",
+ "uretim": "2026-10-18 22:18 UTC",
  "kayitli_kosu": 72,
- "eslesmeyen_kosu": 41,
+ "eslesmeyen_kosu": 39,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 60,
- "kosu": 31,
+ "bahis": 64,
+ "kosu": 33,
  "isabet": 4,
- "roi": 0.927,
+ "roi": 0.87,
  "ulke": {
   "abd": {
-   "bahis": 55,
-   "roi": 1.012
+   "bahis": 59,
+   "roi": 0.943
   },
   "fransa": {
    "bahis": 3,
@@ -23,48 +23,12 @@
   }
  },
  "bahis_ani": {
-  "bahis": 64,
-  "kosu": 28,
+  "bahis": 71,
+  "kosu": 30,
   "isabet": 7,
-  "roi": 0.667
+  "roi": 0.601
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "HERE COMES BRAYLON",
-   "q": 0.04,
-   "g": 35.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "COMPANY YOU KEEP",
-   "q": 0.185,
-   "g": 9.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "MAGIC GRANT",
-   "q": 0.027,
-   "g": 55.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "MUNNINGSREDPRINCE",
-   "q": 0.111,
-   "g": 19.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Keeneland",
@@ -243,6 +207,42 @@
    "at": "GYPSY TEARS",
    "q": 0.075,
    "g": 33.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 5,
+   "at": "YACOWLEF",
+   "q": 0.06,
+   "g": 33.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 5,
+   "at": "JETOVATOR",
+   "q": 0.087,
+   "g": 38.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 5,
+   "at": "PHOSPHORESCENCE",
+   "q": 0.025,
+   "g": 58.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 5,
+   "at": "SMART CODE",
+   "q": 0.071,
+   "g": 29.35,
    "kazandi": false
   },
   {

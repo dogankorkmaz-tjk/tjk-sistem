@@ -1003,9 +1003,18 @@ async function accDurum(){
 /* ---- ABD sekmesi ---- */
 let ABD=null, ABDK=null, ABD_DEG={};
 const ABD_ESIK=1.25;
+let MUHC={};
+function _adn(s){ return String(s||'').toUpperCase().replace(/\s*\([^)]*\)\s*$/,'').replace(/[^A-Z0-9]/g,''); }
+function abdMuhEsle(r){   // SL koşusunu TJK muhtemel ganyan koşusuyla at adlarından eşle -> {ganyan:[..atlar sırasıyla], dk önce}
+  const mine=(r.atlar||[]).map(a=>_adn(a.ad)); let en=null;
+  for(const k of Object.values(MUHC||{})){ const th=Object.entries(k.atlar||{}).map(([n,a])=>[n,_adn(a)]); const ort=mine.filter(m=>th.some(t=>t[1]===m)).length/Math.max(1,mine.length); if(ort>=0.6&&(!en||ort>en.ort)) en={ort,k,th}; }
+  if(!en) return null; const yas=(Date.now()-Date.parse(en.k.utc))/60000; if(!(yas<=15)) return null;
+  return {g:mine.map(m=>{ const t=en.th.find(t=>t[1]===m); const v=t?en.k.g[t[0]]:null; return v?String(v).replace('.',','):''; }), yas:Math.round(yas), saat:en.k.saat_tr};
+}
 function abdOndalik(v){ v=String(v||'').trim().replace(',','.'); if(v.includes('/')){const[a,b]=v.split('/').map(Number); return b?a/b+1:NaN;} return parseFloat(v); }
 async function abdYukle(){
   try{ ABD=await (await fetch('data/abd.json?'+Date.now())).json(); }catch(e){ ABD={kosular:[]}; }
+  try{ MUHC=await (await fetch('data/muh_canli.json?'+Date.now())).json(); }catch(e){ MUHC={}; }
   try{ const ga=await (await fetch('data/ga.json?'+Date.now())).json(); const bg=new Date(Date.now()+3*3600e3).toISOString().slice(0,10); if(ga.tarih===bg) ABD.kosular=(ABD.kosular||[]).concat(ga.kosular||[]); }catch(e){}
   { const g=ABD.guncel?Date.parse(ABD.guncel.replace(' UTC','Z').replace(' ','T')):NaN, yas=isNaN(g)?null:Math.round((Date.now()-g)/60000);
     $('abdGuncel').textContent=ABD.guncel?('Son: '+ABD.guncel+(yas!=null?' ('+yas+' dk önce)':'')):'';
@@ -1053,12 +1062,13 @@ function abdCiz(r){
   let atlar=r.atlar.slice(); if(r.tarih==='elle'){ atlar=Array.from({length:10},(_,i)=>({no:i+1,ad:'',oran:null})); }
   if(r.tarih==='ekran'){ atlar=Array.from({length:16},(_,i)=>({no:i+1,ad:'',oran:null})); r.atlar=atlar; }
   const ekm=r.tarih==='ekran'||r.kaynak==='program';
+  const MU=(!ekm&&r.tarih!=='elle')?abdMuhEsle(r):null;
   const kar=(r.mesafe?r.mesafe+' · ':'')+(r.zemin||'');
   let h=`<div class="card"><div class="ar head" style="grid-template-columns:1fr"><span>${esc(r.pist)} ${r.kosu?r.kosu+'. koşu':''} ${esc(r.saat||'')} ${kar?'· '+esc(kar):''}</span></div>
   <div class="ar head"><span>No</span><span>${ekm?'At · q (SABİT’ten)':'At · yerel oran'}</span><span style="text-align:right">${ekm?'SABİT':'Yerel'}</span><span style="text-align:right">${ekm?'Ganyan':'TJK'}</span></div>`;
   atlar.forEach((a,i)=>{
     const yo=(kay[i]&&kay[i].y!==undefined)?kay[i].y:(a.oran?String(a.oran):'');
-    const tj=(kay[i]&&kay[i].t)||'';
+    const tj=(kay[i]&&kay[i].t)||(MU&&MU.g[i])||'';
     h+=`<div class="ar" data-i="${i}"><span class="no">${a.no??''}</span><span class="nm">${r.tarih==='ekran'?'':r.tarih==='elle'?`<input class="ad" value="${esc(kay[i]&&kay[i].ad||'')}" placeholder="at adı" style="text-align:left;font:600 14px var(--f-body)">`:esc(a.ad)}<small class="q"></small></span>
     <input class="yo" inputmode="decimal" placeholder="${ekm?'SABİT':'yerel'}" value="${esc(yo)}"><input class="tj" inputmode="decimal" placeholder="ganyan" value="${esc(tj)}"><span class="tag" hidden></span></div>`;
   });
@@ -1077,7 +1087,8 @@ function abdCiz(r){
   $('ekTemizle').onclick=()=>{ const g=ld('gm2_abd_gir',{}); delete g[anahtar]; sv('gm2_abd_gir',g); sv('gm2_ekran_ust',{pist:$('ekPist').value,kosu:''}); abdCiz(r); };
   $('abdKosu').querySelectorAll('.ar input').forEach(x=>x.oninput=()=>abdHesap(r,anahtar));
   abdHesap(r,anahtar); return; }
-  if(r.tarih!=='elle') h=`<div class="card"><label class="sub" for="abdHizli">Hızlı yaz: TJK ganyanları atların sırasıyla, boşluk, + ya da * ile ayır</label><input id="abdHizli" class="alan" inputmode="text" autocomplete="off" autocapitalize="off" placeholder="3,4 4 6,5 8 20" style="margin-top:6px"><label class="sub" for="abdFoto" style="display:block;margin-top:10px">Ya da ekranın fotoğrafını / ekran görüntüsünü ver, sayıları okuyayım</label><input id="abdFoto" type="file" accept="image/*" style="width:100%;margin-top:6px"><div id="abdFotoDurum" class="sub" style="margin-top:6px"></div></div>`+h; $('abdKosu').innerHTML=h;
+  const muNot=MU?`<div class="sub" style="color:var(--ok,#3c3)">✓ TJK ganyanları otomatik dolduruldu (${MU.saat} koşusu, ${MU.yas} dk önceki görüntü). Başlamaya yakın yeniden aç; gerekirse elle düzelt.</div>`:'';
+  if(r.tarih!=='elle') h=`<div class="card">${muNot}<label class="sub" for="abdHizli">Hızlı yaz: TJK ganyanları atların sırasıyla, boşluk, + ya da * ile ayır</label><input id="abdHizli" class="alan" inputmode="text" autocomplete="off" autocapitalize="off" placeholder="3,4 4 6,5 8 20" style="margin-top:6px"><label class="sub" for="abdFoto" style="display:block;margin-top:10px">Ya da ekranın fotoğrafını / ekran görüntüsünü ver, sayıları okuyayım</label><input id="abdFoto" type="file" accept="image/*" style="width:100%;margin-top:6px"><div id="abdFotoDurum" class="sub" style="margin-top:6px"></div></div>`+h; $('abdKosu').innerHTML=h;
   const ft=$('abdFoto'); if(ft) ft.onchange=()=>abdOku(ft.files[0],r);
   const hz=$('abdHizli'); if(hz) hz.oninput=()=>{ const v=hz.value.trim().split(/[\s+*;\/]+/).filter(Boolean); const sat=[...$('abdKosu').querySelectorAll('.ar[data-i]')].filter(s=>s.querySelector('.yo').value!==''); sat.forEach((s,i)=>{ s.querySelector('.tj').value=v[i]||''; }); abdHesap(r,anahtar); };
   $('abdKosu').querySelectorAll('.ar input').forEach(x=>x.oninput=()=>abdHesap(r,anahtar));
