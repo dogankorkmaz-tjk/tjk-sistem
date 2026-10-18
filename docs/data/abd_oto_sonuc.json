@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 17:49 UTC",
- "kayitli_kosu": 36,
- "eslesmeyen_kosu": 29,
+ "uretim": "2026-10-18 18:06 UTC",
+ "kayitli_kosu": 40,
+ "eslesmeyen_kosu": 31,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 11,
- "kosu": 7,
+ "bahis": 14,
+ "kosu": 9,
  "isabet": 2,
- "roi": 1.795,
+ "roi": 1.411,
  "ulke": {
   "abd": {
-   "bahis": 6,
-   "roi": 3.292
+   "bahis": 9,
+   "roi": 2.194
   },
   "fransa": {
    "bahis": 3,
@@ -23,10 +23,10 @@
   }
  },
  "bahis_ani": {
-  "bahis": 8,
-  "kosu": 4,
-  "isabet": 1,
-  "roi": 0.412
+  "bahis": 13,
+  "kosu": 6,
+  "isabet": 2,
+  "roi": 0.812
  },
  "bahisler": [
   {
@@ -81,6 +81,33 @@
    "at": "CAPTIVATING NAME",
    "q": 0.175,
    "g": 7.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Belmont Park",
+   "kosu": 2,
+   "at": "CADDIEMASTER",
+   "q": 0.224,
+   "g": 9.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 2,
+   "at": "FLIRTIN AGAIN",
+   "q": 0.249,
+   "g": 7.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 2,
+   "at": "PARKING LOT POURS",
+   "q": 0.194,
+   "g": 8.65,
    "kazandi": false
   },
   {
