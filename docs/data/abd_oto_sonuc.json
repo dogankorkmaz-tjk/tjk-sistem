@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 18:23 UTC",
- "kayitli_kosu": 43,
+ "uretim": "2026-10-18 18:39 UTC",
+ "kayitli_kosu": 45,
  "eslesmeyen_kosu": 33,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 17,
- "kosu": 10,
+ "bahis": 22,
+ "kosu": 12,
  "isabet": 2,
- "roi": 1.162,
+ "roi": 0.898,
  "ulke": {
   "abd": {
-   "bahis": 12,
-   "roi": 1.646
+   "bahis": 17,
+   "roi": 1.162
   },
   "fransa": {
    "bahis": 3,
@@ -23,10 +23,10 @@
   }
  },
  "bahis_ani": {
-  "bahis": 16,
-  "kosu": 7,
+  "bahis": 21,
+  "kosu": 9,
   "isabet": 2,
-  "roi": 0.659
+  "roi": 0.502
  },
  "bahisler": [
   {
@@ -180,6 +180,51 @@
    "at": "BECQUATHUNDER",
    "q": 0.073,
    "g": 20.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "ALPHA BOND",
+   "q": 0.305,
+   "g": 4.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "MY JAXSON STORM",
+   "q": 0.152,
+   "g": 8.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "ATTACKOFFRAC",
+   "q": 0.194,
+   "g": 6.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "NORTHERN KING",
+   "q": 0.082,
+   "g": 36.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "FRIDAY'S GRACE",
+   "q": 0.051,
+   "g": 57.6,
    "kazandi": false
   }
  ]
