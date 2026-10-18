@@ -8,7 +8,7 @@ import numpy as np, pandas as pd
 
 KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 ESIK = 1.25
-ULKE_TJK = {"abd": "abd", "birlesik-krallik": "birlesik-krallik", "irlanda": "irlanda"}   # GA/Fransa: TJK sonuç okuması güvenilir değil
+ULKE_TJK = {"abd": "abd", "birlesik-krallik": "birlesik-krallik", "irlanda": "irlanda", "fransa": "fransa", "guney-afrika": "guney-afrika"}
 
 
 def slug(s):
@@ -17,6 +17,34 @@ def slug(s):
 
 def ad(s):
     return re.sub(r"\(\d+\)\s*$", "", str(s)).strip().upper()
+
+
+def ulke_yer(yer):
+    y = slug(yer or "")
+    for k, u in (("abd", "abd"), ("kanada", "abd"), ("ngiltere", "birlesik-krallik"), ("rlanda", "irlanda"), ("fransa", "fransa"), ("guney-afrika", "guney-afrika")):
+        if y.endswith(k) or ("-" + k) in y:
+            return u
+    return "diger"
+
+
+def muh_tablo():
+    """data/muh/*.json -> satır tablosu. ganyan = RESMÎ kapanış, g_anlik = başlamadan önceki son AÇIK muhtemel ganyan (0 <= dk)."""
+    satir = []
+    for f in sorted(glob.glob(KOK + "/data/muh/*.json")):
+        gun = os.path.basename(f)[:-5]
+        for key, k in json.load(open(f, encoding="utf-8")).items():
+            so = k.get("sonuc")
+            if not so:
+                continue
+            ank = [a for a in k.get("anlik", []) if a.get("durum") == "AÇIK" and a.get("dk", -1) >= 0]
+            son = ank[-1]["g"] if ank else {}
+            for no, ad_ in (k.get("atlar") or {}).items():
+                g = so["ganyan"].get(str(no))
+                if g is None:
+                    continue
+                satir.append({"tarih": gun, "hipodrom": k["slug"], "ulke": ulke_yer(k.get("yer")), "kosu": k["kosu"], "sira": so["sira"].get(str(no), 99),
+                              "no": int(no), "at": ad(ad_), "ganyan": g, "g_anlik": son.get(str(no)), "kosmadi": False})
+    return pd.DataFrame(satir)
 
 
 def bootstrap(gun, v, B=4000, tohum=7):
@@ -34,6 +62,12 @@ def main():
     T = pd.concat([pd.read_csv(f) for f in glob.glob(KOK + "/data/yabanci/*.csv.gz")], ignore_index=True)
     T = T[T.ulke.isin(ULKE_TJK.values()) & (T.no > 0) & ~T.kosmadi.fillna(False).astype(bool)].copy()
     T["at"] = T["at"].map(ad)
+    T["g_anlik"] = np.nan
+    M = muh_tablo()
+    if len(M):
+        # aynı koşu iki kaynaktaysa muh (resmî sonuç + bahis anı ganyanı) önceliklidir
+        anahtar = set(zip(M.tarih, M.hipodrom, M.kosu))
+        T = pd.concat([T[[(t, h, k) not in anahtar for t, h, k in zip(T.tarih, T.hipodrom, T.kosu)]], M], ignore_index=True)
     T["gun_dt"] = pd.to_datetime(T.tarih)
     kayit = []
     for f in sorted(glob.glob(KOK + "/data/abd_oto/*.json")):
@@ -65,9 +99,10 @@ def main():
         inv = np.array([1 / mine[a]["oran"] for a in g["at"]])
         g["q"] = inv / inv.sum()
         g["ev"] = g.q * g.ganyan
+        g["ev_anlik"] = g.q * g.g_anlik
         for _, r in g.iterrows():
             satir.append({"gun": gun, "ulke": k["ulke"], "pist": k["pist"], "kosu": k["kosu"], "at": r["at"], "q": r.q, "g": r.ganyan,
-                          "ev": r.ev, "kazandi": int(r.sira == 1)})
+                          "ev": r.ev, "ev_anlik": r.ev_anlik, "g_anlik": r.g_anlik, "kazandi": int(r.sira == 1)})
     D = pd.DataFrame(satir)
     sonuc = {"uretim": pd.Timestamp.utcnow().strftime("%Y-%m-%d %H:%M UTC"), "kayitli_kosu": len(kayit), "eslesmeyen_kosu": eslesmeyen,
              "kural": f"q x TJK kapanış ganyanı > {ESIK}, 1 TL ganyan", "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
@@ -84,6 +119,15 @@ def main():
                 lo, hi = bootstrap(B.gun.values, B.net.values)
                 sonuc["ga95"] = [round(lo, 3), round(hi, 3)]
             sonuc["ulke"] = {u: {"bahis": int(len(x)), "roi": round(float(x.net.sum() / len(x)), 3)} for u, x in B.groupby("ulke")}
+        # BAHİS ANI varyantı: karar q x (başlamadan önceki son AÇIK muhtemel ganyan) > eşik; ödeme yine resmî kapanış ganyanı (pari-mutuel).
+        if D.ev_anlik.notna().any():
+            A = D[D.ev_anlik > ESIK].copy()
+            A["net"] = np.where(A.kazandi == 1, A.g, 0.0)
+            sonuc["bahis_ani"] = {"bahis": int(len(A)), "kosu": int(D[D.ev_anlik.notna()].groupby(["gun", "ulke", "pist", "kosu"]).ngroups)}
+            if len(A):
+                sonuc["bahis_ani"].update({"isabet": int(A.kazandi.sum()), "roi": round(float(A.net.sum() / len(A)), 3)})
+                if A.gun.nunique() >= 3:
+                    lo, hi = bootstrap(A.gun.values, A.net.values); sonuc["bahis_ani"]["ga95"] = [round(lo, 3), round(hi, 3)]
         sonuc["bahisler"] = [{"gun": r.gun, "pist": r.pist, "kosu": int(r.kosu), "at": r.at, "q": round(r.q, 3), "g": r.g, "kazandi": bool(r.kazandi)}
                              for r in B.sort_values(["gun", "pist", "kosu"]).tail(40).itertuples()]
     os.makedirs(KOK + "/docs/data", exist_ok=True)

@@ -131,9 +131,36 @@ def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
     return yazilan
 
 
+def geri(tarihler):
+    """Geçmiş günler (bir kez): resmî sonuçlar + TJK'nın arşivlenmiş ganyan geçmişi (s/h/<gün>/<KEY>-<no>-GANYAN-0.json, varsa) -> data/muh."""
+    for g in tarihler:
+        try:
+            topla(g)
+        except Exception as e:
+            print("muh geri hatası:", repr(e))
+        yol = g.replace("-", "/")
+        dosya = os.path.join(KOK, "data", "muh", g + ".json")
+        try:
+            D = json.load(open(dosya, encoding="utf-8"))
+        except Exception:
+            continue
+        hk = os.path.join(KOK, "data", "muh", "h", g); os.makedirs(hk, exist_ok=True)
+        n = 0
+        for key in D:
+            h = _json(f"{CDN}h/{yol}/{key}-GANYAN-0.json")
+            if h:
+                json.dump(h, open(os.path.join(hk, key + ".json"), "w", encoding="utf-8"), ensure_ascii=False); n += 1
+        print("muh geçmiş ganyan dosyası:", g, n, "/", len(D))
+
+
 def calistir():
     """Döngü girişi: bugün (+ gece yarısından sonra dünün TJK günü, çünkü ABD koşuları ertesi güne taşar)."""
     simdi = _tr_simdi(); n = 0
+    gf = os.path.join(KOK, "data", "muh_geri.txt")
+    if os.path.exists(gf):
+        tl = [x.strip() for x in open(gf) if re.match(r"\d{4}-\d\d-\d\d", x.strip())]
+        os.remove(gf)
+        geri(tl)
     gunler = [simdi.date().isoformat()]
     if simdi.hour < 6:
         gunler.append((simdi.date() - datetime.timedelta(days=1)).isoformat())
