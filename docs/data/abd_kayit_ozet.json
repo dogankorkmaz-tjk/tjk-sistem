@@ -1,6 +1,6 @@
 {
- "kayitli_kosu": 10,
- "bekleyen": 0,
+ "kayitli_kosu": 11,
+ "bekleyen": 1,
  "bahis": 10,
  "isabet": 1,
  "roi": 0.41,
@@ -117,6 +117,16 @@
    "kazandi": false,
    "bahis_ani_tjk": 13.3,
    "kapanis_ganyan_kazanan": 5.6
+  },
+  {
+   "tarih": "2026-10-18",
+   "pist": "Leopardstown",
+   "kosu": 6,
+   "ulke": "irlanda",
+   "durum": "sonuç/ganyan bekleniyor",
+   "isaretli": [
+    5
+   ]
   }
  ]
 }
