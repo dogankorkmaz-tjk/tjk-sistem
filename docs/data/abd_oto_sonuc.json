@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 21:20 UTC",
- "kayitli_kosu": 68,
+ "uretim": "2026-10-18 21:30 UTC",
+ "kayitli_kosu": 70,
  "eslesmeyen_kosu": 42,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 51,
- "kosu": 26,
+ "bahis": 55,
+ "kosu": 28,
  "isabet": 4,
- "roi": 1.091,
+ "roi": 1.012,
  "ulke": {
   "abd": {
-   "bahis": 46,
-   "roi": 1.21
+   "bahis": 50,
+   "roi": 1.113
   },
   "fransa": {
    "bahis": 3,
@@ -23,46 +23,37 @@
   }
  },
  "bahis_ani": {
-  "bahis": 50,
-  "kosu": 23,
-  "isabet": 5,
-  "roi": 0.676
+  "bahis": 56,
+  "kosu": 25,
+  "isabet": 6,
+  "roi": 0.716
  },
  "bahisler": [
   {
    "gun": "2026-10-18",
    "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "TAPPIN MAGIC",
-   "q": 0.065,
-   "g": 33.55,
+   "kosu": 8,
+   "at": "PROVE ME WRONG",
+   "q": 0.038,
+   "g": 40.35,
    "kazandi": false
   },
   {
    "gun": "2026-10-18",
    "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "DECIMAL POINT",
-   "q": 0.095,
-   "g": 17.1,
+   "kosu": 8,
+   "at": "HOLD'EM",
+   "q": 0.051,
+   "g": 28.1,
    "kazandi": false
   },
   {
    "gun": "2026-10-18",
    "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "SLINGING SLASHER",
-   "q": 0.122,
-   "g": 17.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "MIKE'S MAGIC",
-   "q": 0.041,
-   "g": 37.55,
+   "kosu": 8,
+   "at": "CAPTAIN G",
+   "q": 0.051,
+   "g": 38.3,
    "kazandi": false
   },
   {
@@ -243,6 +234,15 @@
    "at": "JASMINE",
    "q": 0.262,
    "g": 7.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 3,
+   "at": "LITTLE MO",
+   "q": 0.185,
+   "g": 7.45,
    "kazandi": false
   },
   {
