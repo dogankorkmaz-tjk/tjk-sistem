@@ -1,2 +1,4 @@
-https://vhs-medya.tjk.org/muhtemeller/s/2026/10/18/checksum.json
-https://vhs-medya.tjk.org/muhtemeller/s/2026/10/17/checksum.json
+https://vhs-medya-cdn.tjk.org/muhtemeller/s/2026/10/18/day-24313d05.json
+https://vhs-medya-cdn.tjk.org/muhtemeller/s/2026/10/18/FAIRVIEW-1-8b34c7d6.json
+https://vhs-medya-cdn.tjk.org/muhtemeller/s/h/2026/10/18/FAIRVIEW-1-GANYAN-0.json
+https://vhs-medya-cdn.tjk.org/muhtemeller/s/2026/10/18/ISTANBUL-1-4b25fee0.json
