@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 21:30 UTC",
+ "uretim": "2026-10-18 21:48 UTC",
  "kayitli_kosu": 70,
- "eslesmeyen_kosu": 42,
+ "eslesmeyen_kosu": 39,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 55,
- "kosu": 28,
+ "bahis": 60,
+ "kosu": 31,
  "isabet": 4,
- "roi": 1.012,
+ "roi": 0.927,
  "ulke": {
   "abd": {
-   "bahis": 50,
-   "roi": 1.113
+   "bahis": 55,
+   "roi": 1.012
   },
   "fransa": {
    "bahis": 3,
@@ -23,57 +23,12 @@
   }
  },
  "bahis_ani": {
-  "bahis": 56,
-  "kosu": 25,
-  "isabet": 6,
-  "roi": 0.716
+  "bahis": 64,
+  "kosu": 28,
+  "isabet": 7,
+  "roi": 0.667
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 8,
-   "at": "PROVE ME WRONG",
-   "q": 0.038,
-   "g": 40.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 8,
-   "at": "HOLD'EM",
-   "q": 0.051,
-   "g": 28.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Belmont Park",
-   "kosu": 8,
-   "at": "CAPTAIN G",
-   "q": 0.051,
-   "g": 38.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 2,
-   "at": "FLIRTIN AGAIN",
-   "q": 0.249,
-   "g": 7.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 2,
-   "at": "PARKING LOT POURS",
-   "q": 0.194,
-   "g": 8.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Keeneland",
@@ -175,6 +130,15 @@
   },
   {
    "gun": "2026-10-18",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "WHICH ONE",
+   "q": 0.069,
+   "g": 22.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
    "pist": "Leopardstown",
    "kosu": 7,
    "at": "BAY OF DREAMS",
@@ -243,6 +207,42 @@
    "at": "LITTLE MO",
    "q": 0.185,
    "g": 7.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 4,
+   "at": "SUPERNAL",
+   "q": 0.184,
+   "g": 9.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 4,
+   "at": "PIPER'S CAUSEWAY",
+   "q": 0.118,
+   "g": 17.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 4,
+   "at": "MR. MACHUPICCHU",
+   "q": 0.207,
+   "g": 7.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 4,
+   "at": "GYPSY TEARS",
+   "q": 0.075,
+   "g": 33.9,
    "kazandi": false
   },
   {
