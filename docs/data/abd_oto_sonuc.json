@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-19 17:01 UTC",
- "kayitli_kosu": 120,
- "eslesmeyen_kosu": 73,
+ "uretim": "2026-10-19 17:25 UTC",
+ "kayitli_kosu": 124,
+ "eslesmeyen_kosu": 75,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 99,
- "kosu": 47,
+ "bahis": 100,
+ "kosu": 49,
  "isabet": 7,
- "roi": 1.159,
+ "roi": 1.147,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 64,
-   "roi": 0.985
+   "bahis": 65,
+   "roi": 0.97
   },
   "birlesik-krallik": {
    "bahis": 8,
@@ -31,33 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 105,
-  "kosu": 44,
-  "isabet": 9,
-  "roi": 0.799
+  "bahis": 112,
+  "kosu": 46,
+  "isabet": 10,
+  "roi": 0.788
  },
  "bahis_t1": {
-  "bahis": 107,
-  "kosu": 44,
-  "isabet": 13,
-  "roi": 1.111
+  "bahis": 112,
+  "kosu": 46,
+  "isabet": 14,
+  "roi": 1.101
  },
  "bahis_t3": {
-  "bahis": 113,
-  "kosu": 43,
-  "isabet": 12,
-  "roi": 0.855
+  "bahis": 118,
+  "kosu": 45,
+  "isabet": 13,
+  "roi": 0.857
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "SERAPHIM",
-   "q": 0.196,
-   "g": 12.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Woodbine",
@@ -335,6 +326,15 @@
    "at": "RED HEAD KID",
    "q": 0.223,
    "g": 13.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Mahoning Valley",
+   "kosu": 3,
+   "at": "CANELA FINA",
+   "q": 0.072,
+   "g": 20.3,
    "kazandi": false
   },
   {
