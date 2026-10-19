@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-19 21:26 UTC",
- "kayitli_kosu": 152,
- "eslesmeyen_kosu": 88,
+ "uretim": "2026-10-19 21:52 UTC",
+ "kayitli_kosu": 154,
+ "eslesmeyen_kosu": 89,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 117,
- "kosu": 64,
+ "bahis": 119,
+ "kosu": 65,
  "isabet": 8,
- "roi": 1.035,
+ "roi": 1.018,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 79,
-   "roi": 0.879
+   "bahis": 81,
+   "roi": 0.857
   },
   "birlesik-krallik": {
    "bahis": 11,
@@ -31,42 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 140,
-  "kosu": 61,
+  "bahis": 142,
+  "kosu": 62,
   "isabet": 13,
-  "roi": 0.695
+  "roi": 0.686
  },
  "bahis_t1": {
-  "bahis": 139,
-  "kosu": 61,
+  "bahis": 141,
+  "kosu": 62,
   "isabet": 19,
-  "roi": 0.999
+  "roi": 0.985
  },
  "bahis_t3": {
-  "bahis": 148,
-  "kosu": 60,
+  "bahis": 150,
+  "kosu": 61,
   "isabet": 19,
-  "roi": 0.806
+  "roi": 0.795
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Finger Lakes",
-   "kosu": 4,
-   "at": "INVALUABLE WILL",
-   "q": 0.049,
-   "g": 34.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Finger Lakes",
-   "kosu": 4,
-   "at": "MAX FOSTER",
-   "q": 0.088,
-   "g": 22.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Finger Lakes",
@@ -245,6 +227,24 @@
    "at": "KUTTAWA",
    "q": 0.06,
    "g": 33.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "WINERY",
+   "q": 0.106,
+   "g": 21.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "MORAL MAN",
+   "q": 0.124,
+   "g": 10.6,
    "kazandi": false
   },
   {
