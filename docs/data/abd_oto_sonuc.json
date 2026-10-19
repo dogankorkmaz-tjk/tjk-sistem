@@ -1,13 +1,17 @@
 {
- "uretim": "2026-10-19 12:45 UTC",
- "kayitli_kosu": 85,
- "eslesmeyen_kosu": 50,
+ "uretim": "2026-10-19 13:26 UTC",
+ "kayitli_kosu": 87,
+ "eslesmeyen_kosu": 51,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 66,
- "kosu": 35,
+ "bahis": 69,
+ "kosu": 36,
  "isabet": 5,
- "roi": 0.955,
+ "roi": 0.914,
+ "ga95": [
+  0.0,
+  3.292
+ ],
  "ulke": {
   "abd": {
    "bahis": 61,
@@ -18,56 +22,29 @@
    "roi": 0.0
   },
   "irlanda": {
-   "bahis": 2,
+   "bahis": 5,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 75,
-  "kosu": 32,
+  "bahis": 78,
+  "kosu": 33,
   "isabet": 7,
-  "roi": 0.569
+  "roi": 0.547
  },
  "bahis_t1": {
-  "bahis": 74,
-  "kosu": 32,
+  "bahis": 77,
+  "kosu": 33,
   "isabet": 10,
-  "roi": 0.779
+  "roi": 0.749
  },
  "bahis_t3": {
-  "bahis": 77,
-  "kosu": 31,
+  "bahis": 81,
+  "kosu": 32,
   "isabet": 10,
-  "roi": 0.721
+  "roi": 0.685
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 6,
-   "at": "ALI DARLING",
-   "q": 0.066,
-   "g": 26.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 6,
-   "at": "BLAZING SUNSET",
-   "q": 0.171,
-   "g": 7.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "MASSARAT",
-   "q": 0.039,
-   "g": 33.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Keeneland",
@@ -399,6 +376,33 @@
    "at": "SLOVAN",
    "q": 0.037,
    "g": 35.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 1,
+   "at": "DEAR THEODOSIA",
+   "q": 0.071,
+   "g": 28.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 1,
+   "at": "RATHBRAN LADY",
+   "q": 0.052,
+   "g": 46.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 1,
+   "at": "TINA TERESHKOVA",
+   "q": 0.06,
+   "g": 24.95,
    "kazandi": false
   }
  ]
