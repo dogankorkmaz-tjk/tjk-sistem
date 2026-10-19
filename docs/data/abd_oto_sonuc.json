@@ -1,13 +1,13 @@
 {
- "uretim": "2026-10-19 14:19 UTC",
+ "uretim": "2026-10-19 14:22 UTC",
  "kayitli_kosu": 93,
- "eslesmeyen_kosu": 57,
+ "eslesmeyen_kosu": 56,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 69,
- "kosu": 36,
+ "bahis": 71,
+ "kosu": 37,
  "isabet": 5,
- "roi": 0.914,
+ "roi": 0.888,
  "ga95": [
   0.0,
   3.292
@@ -22,47 +22,29 @@
    "roi": 0.0
   },
   "irlanda": {
-   "bahis": 5,
+   "bahis": 7,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 78,
-  "kosu": 33,
+  "bahis": 79,
+  "kosu": 34,
   "isabet": 7,
-  "roi": 0.547
+  "roi": 0.541
  },
  "bahis_t1": {
-  "bahis": 77,
-  "kosu": 33,
+  "bahis": 80,
+  "kosu": 34,
   "isabet": 10,
-  "roi": 0.749
+  "roi": 0.721
  },
  "bahis_t3": {
-  "bahis": 81,
-  "kosu": 32,
+  "bahis": 84,
+  "kosu": 33,
   "isabet": 10,
-  "roi": 0.685
+  "roi": 0.661
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "SNIPSNIPPITYSNIP",
-   "q": 0.063,
-   "g": 21.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "MANDY'S MAN CAN",
-   "q": 0.143,
-   "g": 10.5,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-18",
    "pist": "Keeneland",
@@ -403,6 +385,24 @@
    "at": "TINA TERESHKOVA",
    "q": 0.06,
    "g": 24.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 3,
+   "at": "CONCLUSIVE",
+   "q": 0.123,
+   "g": 12.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 3,
+   "at": "SYSTEM RESET",
+   "q": 0.067,
+   "g": 25.75,
    "kazandi": false
   }
  ]
