@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-19 19:55 UTC",
- "kayitli_kosu": 144,
- "eslesmeyen_kosu": 84,
+ "uretim": "2026-10-19 20:15 UTC",
+ "kayitli_kosu": 147,
+ "eslesmeyen_kosu": 86,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 113,
- "kosu": 60,
+ "bahis": 114,
+ "kosu": 61,
  "isabet": 8,
- "roi": 1.072,
+ "roi": 1.062,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 75,
-   "roi": 0.926
+   "bahis": 76,
+   "roi": 0.914
   },
   "birlesik-krallik": {
    "bahis": 11,
@@ -31,33 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 135,
-  "kosu": 57,
+  "bahis": 137,
+  "kosu": 58,
   "isabet": 12,
-  "roi": 0.709
+  "roi": 0.698
  },
  "bahis_t1": {
-  "bahis": 134,
-  "kosu": 57,
+  "bahis": 136,
+  "kosu": 58,
   "isabet": 17,
-  "roi": 0.996
+  "roi": 0.982
  },
  "bahis_t3": {
-  "bahis": 141,
-  "kosu": 56,
+  "bahis": 143,
+  "kosu": 57,
   "isabet": 17,
-  "roi": 0.808
+  "roi": 0.797
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 8,
-   "at": "AURA",
-   "q": 0.128,
-   "g": 14.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Finger Lakes",
@@ -101,6 +92,15 @@
    "at": "MAX FOSTER",
    "q": 0.088,
    "g": 22.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "GAME AND BLUE",
+   "q": 0.273,
+   "g": 7.05,
    "kazandi": false
   },
   {
