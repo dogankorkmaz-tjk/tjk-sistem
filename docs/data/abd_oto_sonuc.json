@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-19 19:04 UTC",
- "kayitli_kosu": 137,
- "eslesmeyen_kosu": 79,
+ "uretim": "2026-10-19 19:38 UTC",
+ "kayitli_kosu": 144,
+ "eslesmeyen_kosu": 85,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 112,
- "kosu": 58,
+ "bahis": 113,
+ "kosu": 59,
  "isabet": 8,
- "roi": 1.081,
+ "roi": 1.072,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 74,
-   "roi": 0.939
+   "bahis": 75,
+   "roi": 0.926
   },
   "birlesik-krallik": {
    "bahis": 11,
@@ -31,33 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 133,
-  "kosu": 55,
+  "bahis": 134,
+  "kosu": 56,
   "isabet": 11,
-  "roi": 0.675
+  "roi": 0.67
  },
  "bahis_t1": {
-  "bahis": 132,
-  "kosu": 55,
+  "bahis": 133,
+  "kosu": 56,
   "isabet": 16,
-  "roi": 0.967
+  "roi": 0.959
  },
  "bahis_t3": {
-  "bahis": 139,
-  "kosu": 54,
-  "isabet": 15,
-  "roi": 0.759
+  "bahis": 140,
+  "kosu": 55,
+  "isabet": 16,
+  "roi": 0.772
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 8,
-   "at": "DARI RIVER",
-   "q": 0.144,
-   "g": 13.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Deauville",
@@ -245,6 +236,15 @@
    "at": "MI SARGENTO",
    "q": 0.174,
    "g": 28.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 3,
+   "at": "GRIND",
+   "q": 0.138,
+   "g": 14.0,
    "kazandi": false
   },
   {
