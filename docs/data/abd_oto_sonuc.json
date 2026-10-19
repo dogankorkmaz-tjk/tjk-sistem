@@ -1,153 +1,54 @@
 {
- "uretim": "2026-10-19 16:16 UTC",
- "kayitli_kosu": 113,
- "eslesmeyen_kosu": 71,
+ "uretim": "2026-10-19 16:58 UTC",
+ "kayitli_kosu": 120,
+ "eslesmeyen_kosu": 73,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 88,
- "kosu": 42,
- "isabet": 6,
- "roi": 1.075,
+ "bahis": 99,
+ "kosu": 47,
+ "isabet": 7,
+ "roi": 1.159,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 61,
-   "roi": 1.034
+   "bahis": 64,
+   "roi": 0.985
   },
   "birlesik-krallik": {
-   "bahis": 6,
-   "roi": 5.258
+   "bahis": 8,
+   "roi": 6.456
   },
   "fransa": {
-   "bahis": 8,
+   "bahis": 11,
    "roi": 0.0
   },
   "irlanda": {
-   "bahis": 13,
+   "bahis": 16,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 95,
-  "kosu": 39,
+  "bahis": 105,
+  "kosu": 44,
   "isabet": 9,
-  "roi": 0.883
+  "roi": 0.799
  },
  "bahis_t1": {
-  "bahis": 97,
-  "kosu": 39,
-  "isabet": 12,
-  "roi": 1.019
+  "bahis": 107,
+  "kosu": 44,
+  "isabet": 13,
+  "roi": 1.111
  },
  "bahis_t3": {
-  "bahis": 101,
-  "kosu": 38,
+  "bahis": 113,
+  "kosu": 43,
   "isabet": 12,
-  "roi": 0.957
+  "roi": 0.855
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 6,
-   "at": "ZUZU'S CLASSIC GAL",
-   "q": 0.281,
-   "g": 11.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 7,
-   "at": "ESSOS",
-   "q": 0.174,
-   "g": 7.4,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 3,
-   "at": "ALPHA BOND",
-   "q": 0.305,
-   "g": 4.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 3,
-   "at": "MY JAXSON STORM",
-   "q": 0.152,
-   "g": 8.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 3,
-   "at": "ATTACKOFFRAC",
-   "q": 0.194,
-   "g": 6.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 3,
-   "at": "NORTHERN KING",
-   "q": 0.082,
-   "g": 36.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 3,
-   "at": "FRIDAY'S GRACE",
-   "q": 0.051,
-   "g": 57.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "CYCLONE TAYLOR",
-   "q": 0.233,
-   "g": 6.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "EXTRAORDINARY ONE",
-   "q": 0.039,
-   "g": 47.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "GOLDEN SUNSET",
-   "q": 0.071,
-   "g": 24.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "RADAR WOMAN",
-   "q": 0.06,
-   "g": 66.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Woodbine",
@@ -258,6 +159,33 @@
   },
   {
    "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 8,
+   "at": "ALMAROMY",
+   "q": 0.164,
+   "g": 12.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 8,
+   "at": "DARI RIVER",
+   "q": 0.144,
+   "g": 13.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 8,
+   "at": "AURA",
+   "q": 0.128,
+   "g": 14.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
    "pist": "Gowran Park",
    "kosu": 1,
    "at": "DEAR THEODOSIA",
@@ -357,6 +285,60 @@
   },
   {
    "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 8,
+   "at": "LOVE ORCHID",
+   "q": 0.111,
+   "g": 11.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 8,
+   "at": "NO MORE HIDING",
+   "q": 0.097,
+   "g": 21.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 8,
+   "at": "MISTER ADAM",
+   "q": 0.065,
+   "g": 34.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Mahoning Valley",
+   "kosu": 1,
+   "at": "VENTURE ON",
+   "q": 0.048,
+   "g": 212.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Mahoning Valley",
+   "kosu": 1,
+   "at": "RADIO SILENT",
+   "q": 0.048,
+   "g": 59.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Mahoning Valley",
+   "kosu": 1,
+   "at": "RED HEAD KID",
+   "q": 0.223,
+   "g": 13.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
    "pist": "Wolverhampton",
    "kosu": 1,
    "at": "MALIQUI",
@@ -408,6 +390,24 @@
    "q": 0.045,
    "g": 48.45,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 3,
+   "at": "MUDAMER",
+   "q": 0.101,
+   "g": 15.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 3,
+   "at": "LORNA B",
+   "q": 0.09,
+   "g": 20.1,
+   "kazandi": true
   }
  ]
 }
