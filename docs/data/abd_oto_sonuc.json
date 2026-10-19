@@ -1,17 +1,17 @@
 {
- "uretim": "2026-10-18 22:25 UTC",
- "kayitli_kosu": 72,
- "eslesmeyen_kosu": 39,
+ "uretim": "2026-10-19 01:11 UTC",
+ "kayitli_kosu": 77,
+ "eslesmeyen_kosu": 42,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 64,
- "kosu": 33,
- "isabet": 4,
- "roi": 0.87,
+ "bahis": 66,
+ "kosu": 35,
+ "isabet": 5,
+ "roi": 0.955,
  "ulke": {
   "abd": {
-   "bahis": 59,
-   "roi": 0.943
+   "bahis": 61,
+   "roi": 1.034
   },
   "fransa": {
    "bahis": 3,
@@ -23,42 +23,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 71,
-  "kosu": 30,
+  "bahis": 75,
+  "kosu": 32,
   "isabet": 7,
-  "roi": 0.601
+  "roi": 0.569
  },
  "bahis_t1": {
-  "bahis": 69,
-  "kosu": 30,
+  "bahis": 74,
+  "kosu": 32,
   "isabet": 10,
-  "roi": 0.836
+  "roi": 0.779
  },
  "bahis_t3": {
-  "bahis": 70,
-  "kosu": 29,
-  "isabet": 9,
-  "roi": 0.776
+  "bahis": 77,
+  "kosu": 31,
+  "isabet": 10,
+  "roi": 0.721
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "JUDGE DAVIS",
-   "q": 0.161,
-   "g": 8.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Keeneland",
-   "kosu": 6,
-   "at": "SKINDRED SPIRIT",
-   "q": 0.171,
-   "g": 8.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Keeneland",
@@ -256,6 +238,24 @@
    "q": 0.071,
    "g": 29.35,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 6,
+   "at": "ZUZU'S CLASSIC GAL",
+   "q": 0.281,
+   "g": 11.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-18",
+   "pist": "Santa Anita",
+   "kosu": 7,
+   "at": "ESSOS",
+   "q": 0.174,
+   "g": 7.4,
+   "kazandi": true
   },
   {
    "gun": "2026-10-18",
