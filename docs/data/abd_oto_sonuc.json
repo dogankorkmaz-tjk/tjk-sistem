@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-19 18:11 UTC",
- "kayitli_kosu": 130,
- "eslesmeyen_kosu": 79,
+ "uretim": "2026-10-19 19:01 UTC",
+ "kayitli_kosu": 137,
+ "eslesmeyen_kosu": 82,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 103,
- "kosu": 51,
+ "bahis": 108,
+ "kosu": 55,
  "isabet": 8,
- "roi": 1.176,
+ "roi": 1.121,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 66,
-   "roi": 1.052
+   "bahis": 71,
+   "roi": 0.978
   },
   "birlesik-krallik": {
    "bahis": 10,
@@ -31,69 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 114,
-  "kosu": 48,
-  "isabet": 10,
-  "roi": 0.775
+  "bahis": 125,
+  "kosu": 52,
+  "isabet": 11,
+  "roi": 0.718
  },
  "bahis_t1": {
-  "bahis": 115,
-  "kosu": 48,
-  "isabet": 14,
-  "roi": 1.073
+  "bahis": 124,
+  "kosu": 52,
+  "isabet": 16,
+  "roi": 1.029
  },
  "bahis_t3": {
-  "bahis": 120,
-  "kosu": 47,
-  "isabet": 13,
-  "roi": 0.842
+  "bahis": 131,
+  "kosu": 51,
+  "isabet": 14,
+  "roi": 0.783
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "MARVELLOUS MARVIN",
-   "q": 0.259,
-   "g": 5.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "SIGNATURE WINNER",
-   "q": 0.111,
-   "g": 16.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "SLOVAN",
-   "q": 0.037,
-   "g": 35.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 6,
-   "at": "MOON RIDER",
-   "q": 0.109,
-   "g": 11.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 6,
-   "at": "BRAMANS",
-   "q": 0.164,
-   "g": 8.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Deauville",
@@ -156,6 +111,42 @@
    "q": 0.231,
    "g": 6.4,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Finger Lakes",
+   "kosu": 4,
+   "at": "SMOKIN' ALONE",
+   "q": 0.038,
+   "g": 57.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Finger Lakes",
+   "kosu": 4,
+   "at": "MISTER J T",
+   "q": 0.132,
+   "g": 10.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Finger Lakes",
+   "kosu": 4,
+   "at": "INVALUABLE WILL",
+   "q": 0.049,
+   "g": 34.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Finger Lakes",
+   "kosu": 4,
+   "at": "MAX FOSTER",
+   "q": 0.088,
+   "g": 22.35,
+   "kazandi": false
   },
   {
    "gun": "2026-10-19",
@@ -317,6 +308,15 @@
    "at": "CANELA FINA",
    "q": 0.072,
    "g": 20.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Mahoning Valley",
+   "kosu": 5,
+   "at": "HANDSOME FOX",
+   "q": 0.171,
+   "g": 7.35,
    "kazandi": false
   },
   {
