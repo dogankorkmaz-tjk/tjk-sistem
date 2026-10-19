@@ -1,13 +1,13 @@
 {
- "uretim": "2026-10-19 15:51 UTC",
- "kayitli_kosu": 106,
- "eslesmeyen_kosu": 65,
+ "uretim": "2026-10-19 16:11 UTC",
+ "kayitli_kosu": 110,
+ "eslesmeyen_kosu": 68,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 85,
- "kosu": 41,
+ "bahis": 88,
+ "kosu": 42,
  "isabet": 6,
- "roi": 1.113,
+ "roi": 1.075,
  "ga95": [
   0.722,
   3.292
@@ -22,7 +22,7 @@
    "roi": 5.258
   },
   "fransa": {
-   "bahis": 5,
+   "bahis": 8,
    "roi": 0.0
   },
   "irlanda": {
@@ -31,51 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 91,
-  "kosu": 38,
+  "bahis": 95,
+  "kosu": 39,
   "isabet": 9,
-  "roi": 0.921
+  "roi": 0.883
  },
  "bahis_t1": {
-  "bahis": 93,
-  "kosu": 38,
+  "bahis": 97,
+  "kosu": 39,
   "isabet": 12,
-  "roi": 1.062
+  "roi": 1.019
  },
  "bahis_t3": {
-  "bahis": 98,
-  "kosu": 37,
+  "bahis": 101,
+  "kosu": 38,
   "isabet": 12,
-  "roi": 0.986
+  "roi": 0.957
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 5,
-   "at": "JETOVATOR",
-   "q": 0.087,
-   "g": 38.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 5,
-   "at": "PHOSPHORESCENCE",
-   "q": 0.025,
-   "g": 58.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 5,
-   "at": "SMART CODE",
-   "q": 0.071,
-   "g": 29.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Santa Anita",
@@ -254,6 +227,33 @@
    "at": "BRAMANS",
    "q": 0.164,
    "g": 8.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "SOGYNT",
+   "q": 0.096,
+   "g": 24.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "HARRISON POINT",
+   "q": 0.074,
+   "g": 25.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "KIEVSKY",
+   "q": 0.16,
+   "g": 8.7,
    "kazandi": false
   },
   {
