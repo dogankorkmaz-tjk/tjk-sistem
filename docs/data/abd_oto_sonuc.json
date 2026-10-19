@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-19 20:27 UTC",
- "kayitli_kosu": 148,
- "eslesmeyen_kosu": 87,
+ "uretim": "2026-10-19 20:54 UTC",
+ "kayitli_kosu": 150,
+ "eslesmeyen_kosu": 88,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 114,
- "kosu": 61,
+ "bahis": 117,
+ "kosu": 62,
  "isabet": 8,
- "roi": 1.062,
+ "roi": 1.035,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 76,
-   "roi": 0.914
+   "bahis": 79,
+   "roi": 0.879
   },
   "birlesik-krallik": {
    "bahis": 11,
@@ -31,51 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 137,
-  "kosu": 58,
+  "bahis": 138,
+  "kosu": 59,
   "isabet": 12,
-  "roi": 0.698
+  "roi": 0.693
  },
  "bahis_t1": {
   "bahis": 136,
-  "kosu": 58,
+  "kosu": 59,
   "isabet": 17,
   "roi": 0.982
  },
  "bahis_t3": {
-  "bahis": 143,
-  "kosu": 57,
+  "bahis": 144,
+  "kosu": 58,
   "isabet": 17,
-  "roi": 0.797
+  "roi": 0.791
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Finger Lakes",
-   "kosu": 2,
-   "at": "MR BALDY",
-   "q": 0.231,
-   "g": 6.4,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Finger Lakes",
-   "kosu": 4,
-   "at": "SMOKIN' ALONE",
-   "q": 0.038,
-   "g": 57.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Finger Lakes",
-   "kosu": 4,
-   "at": "MISTER J T",
-   "q": 0.132,
-   "g": 10.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Finger Lakes",
@@ -245,6 +218,33 @@
    "at": "GRIND",
    "q": 0.138,
    "g": 14.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "BLACKMORE",
+   "q": 0.049,
+   "g": 38.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "J'ACCUSE",
+   "q": 0.141,
+   "g": 9.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "KUTTAWA",
+   "q": 0.06,
+   "g": 33.2,
    "kazandi": false
   },
   {
