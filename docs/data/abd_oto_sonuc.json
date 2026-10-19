@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-19 17:36 UTC",
- "kayitli_kosu": 124,
- "eslesmeyen_kosu": 75,
+ "uretim": "2026-10-19 18:07 UTC",
+ "kayitli_kosu": 128,
+ "eslesmeyen_kosu": 77,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 100,
- "kosu": 49,
- "isabet": 7,
- "roi": 1.147,
+ "bahis": 103,
+ "kosu": 51,
+ "isabet": 8,
+ "roi": 1.176,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 65,
-   "roi": 0.97
+   "bahis": 66,
+   "roi": 1.052
   },
   "birlesik-krallik": {
-   "bahis": 8,
-   "roi": 6.456
+   "bahis": 10,
+   "roi": 5.165
   },
   "fransa": {
    "bahis": 11,
@@ -31,51 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 112,
-  "kosu": 46,
+  "bahis": 114,
+  "kosu": 48,
   "isabet": 10,
-  "roi": 0.788
+  "roi": 0.775
  },
  "bahis_t1": {
-  "bahis": 112,
-  "kosu": 46,
+  "bahis": 115,
+  "kosu": 48,
   "isabet": 14,
-  "roi": 1.101
+  "roi": 1.073
  },
  "bahis_t3": {
-  "bahis": 118,
-  "kosu": 45,
+  "bahis": 120,
+  "kosu": 47,
   "isabet": 13,
-  "roi": 0.857
+  "roi": 0.842
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "STRICTLY JAMAICAN",
-   "q": 0.037,
-   "g": 114.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "QUALITY AMI",
-   "q": 0.112,
-   "g": 25.4,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "IT WASN'T A BLUFF",
-   "q": 0.086,
-   "g": 19.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Woodbine",
@@ -174,6 +147,15 @@
    "q": 0.128,
    "g": 14.35,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Finger Lakes",
+   "kosu": 2,
+   "at": "MR BALDY",
+   "q": 0.231,
+   "g": 6.4,
+   "kazandi": true
   },
   {
    "gun": "2026-10-19",
@@ -408,6 +390,24 @@
    "q": 0.09,
    "g": 20.1,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 5,
+   "at": "JAX EDGE",
+   "q": 0.069,
+   "g": 24.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 5,
+   "at": "STYLE KING",
+   "q": 0.149,
+   "g": 12.2,
+   "kazandi": false
   }
  ]
 }
