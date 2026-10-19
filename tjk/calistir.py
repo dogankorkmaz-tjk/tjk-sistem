@@ -125,6 +125,15 @@ def sabah(t):
             print("Jason-K hatası:", repr(e)); AK = None
     else:
         AK = None
+    AF = GL.yukle_f(); bz5 = {}
+    if AF and A:
+        try:
+            df_ = GL.fk_ekle(d2); df_ = df_[df_.yeni].copy(); df_["z5"] = GL.z2(df_, AF)
+            bz5 = df_.set_index(["hipodrom", "kosu", "no"]).z5.to_dict()
+        except Exception as e:
+            print("Jason-F hatası:", repr(e)); AF = None
+    else:
+        AF = None
     AS = GL.yukle_s(); bz4 = {}
     if AS and A:
         try:
@@ -137,6 +146,7 @@ def sabah(t):
     obj = {"tarih": tarih, "model": M.get("surum", "v1"), "w0": float(M["w"][0]),
            **({"w0_aday": float(A["w"][0]), "lp2_aday": float(A.get("lp2_a", 0.0)), "aday_egitim_son": A["egitim_son_tarih"]} if A else {}),
            **({"w0_k": float(AK["w"][0]), "lp2_k": float(AK.get("lp2_a", 0.0))} if AK else {}),
+           **({"w0_f": float(AF["w"][0]), "lp2_f": float(AF.get("lp2_a", 0.0))} if AF else {}),
            **({"w0_s": float(AS["w"][0]), "lp2_s": float(AS.get("lp2_a", 0.0)), "a_s": [round(float(x), 4) for x in AS["a"]]} if AS else {}),
            "guncelleme": O.tr_simdi().strftime("%H:%M"), "hipodromlar": []}
     for h in [x for x in O.TRH if x in programlar]:
@@ -148,7 +158,8 @@ def sabah(t):
                       "z": round(float(bz.get((h, kn, int(r.no)), 0.0)), 4),
                       **({"z2": round(float(bz2.get((h, kn, int(r.no)), 0.0)), 4)} if A else {}),
                       **({"z3": round(float(bz3.get((h, kn, int(r.no)), 0.0)), 4)} if AK else {}),
-                      **({"z4": round(float(bz4.get((h, kn, int(r.no)), 0.0)), 4)} if AS else {})} for r in kg.itertuples()]
+                      **({"z4": round(float(bz4.get((h, kn, int(r.no)), 0.0)), 4)} if AS else {}),
+                      **({"z5": round(float(bz5.get((h, kn, int(r.no)), 0.0)), 4)} if AF else {})} for r in kg.itertuples()]
             kos.append({"kosu": int(kn), "saat": programlar[h]["saat"].get(int(kn)),
                         "bilgi": programlar[h]["bilgi"].get(int(kn)), "atlar": atlar})
         obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
@@ -276,7 +287,7 @@ def pist_uygula(obj):
         bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
         bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
         d2 = GL.MS.ekle(d, bugun_m) if A and "f_dp150_m" in A["feat"] else d
-        bz2 = bz3 = bz4 = {}
+        bz2 = bz3 = bz4 = bz5 = {}
         if A:
             dy = d2[d2.yeni].copy(); dy["z2"] = GL.z2(dy, A); bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
             AK = GL.yukle_k()
@@ -285,6 +296,9 @@ def pist_uygula(obj):
             AS = GL.yukle_s()
             if AS:
                 ds = d2[d2.yeni].copy(); ds["z4"] = GL.z2(ds, AS); bz4 = ds.set_index(["hipodrom", "kosu", "no"]).z4.to_dict()
+            AF = GL.yukle_f()
+            if AF:
+                df_ = GL.fk_ekle(d2); df_ = df_[df_.yeni].copy(); df_["z5"] = GL.z2(df_, AF); bz5 = df_.set_index(["hipodrom", "kosu", "no"]).z5.to_dict()
         n = 0
         for h in obj["hipodromlar"]:
             for k in h["kosular"]:
@@ -292,7 +306,7 @@ def pist_uygula(obj):
                     continue
                 for a in k["atlar"]:
                     key = (h["id"], k["kosu"], a["no"])
-                    for ad, bzx in (("z", bz), ("z2", bz2), ("z3", bz3), ("z4", bz4)):
+                    for ad, bzx in (("z", bz), ("z2", bz2), ("z3", bz3), ("z4", bz4), ("z5", bz5)):
                         if key in bzx and ad in a:
                             a[ad] = round(float(bzx[key]), 4)
                 k.pop("yeniden_puan", None)
@@ -416,7 +430,7 @@ def jokey_uygula(obj):
         temiz, prog = oku("temiz"), oku("program")
         d = hazirla(temiz[temiz.tarih < t], prog, M, yeni)
         bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
-        bz2, bz3, bz4 = {}, {}, {}
+        bz2, bz3, bz4, bz5 = {}, {}, {}, {}
         A = GL.yukle()
         if A:
             bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
@@ -431,6 +445,10 @@ def jokey_uygula(obj):
             if AS:
                 ds = d2[d2.yeni].copy(); ds["z4"] = GL.z2(ds, AS)
                 bz4 = ds.set_index(["hipodrom", "kosu", "no"]).z4.to_dict()
+            AF = GL.yukle_f()
+            if AF:
+                df_ = GL.fk_ekle(d2); df_ = df_[df_.yeni].copy(); df_["z5"] = GL.z2(df_, AF)
+                bz5 = df_.set_index(["hipodrom", "kosu", "no"]).z5.to_dict()
         n = 0
         for h in obj["hipodromlar"]:
             if h["id"] not in deg:
@@ -452,6 +470,8 @@ def jokey_uygula(obj):
                         a["z3"] = round(float(bz3[key]), 4)
                     if key in bz4 and "z4" in a:
                         a["z4"] = round(float(bz4[key]), 4)
+                    if key in bz5 and "z5" in a:
+                        a["z5"] = round(float(bz5[key]), 4)
                 n += 1
         print("jokey değişikliği işlendi:", {h: len(L) for h, L in deg.items()}, "| koşu yenilendi:", n)
     except Exception as e:
@@ -853,6 +873,10 @@ def gece(bugun):
             GL.egit_s()                             # üçüncü gölge: Jason-S (ilk-5 sırasıyla eğitilmiş)
         except Exception as e:
             print("Jason-S eğitim hatası:", repr(e))
+        try:
+            GL.egit_f()                             # dördüncü gölge: Jason-F (Jason + handikap fazla kilo)
+        except Exception as e:
+            print("Jason-F eğitim hatası:", repr(e))
         print("gölge skor:", GL.skor())
     except Exception as e:
         print("gölge model hatası:", repr(e))

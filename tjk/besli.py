@@ -134,8 +134,12 @@ def _olasiliklar(obj, k):
     if obj.get("w0_s") is not None and all(a.get("z4") is not None for a in at):
         l2 = obj.get("lp2_s", 0.0)
         ps = sm([obj["w0_s"] * math.log(max(p, 1e-6)) + l2 * math.log(max(p, 1e-6)) ** 2 + a["z4"] for p, a in zip(pp, at)])
+    pf = None
+    if obj.get("w0_f") is not None and all(a.get("z5") is not None for a in at):
+        l2 = obj.get("lp2_f", 0.0)
+        pf = sm([obj["w0_f"] * math.log(max(p, 1e-6)) + l2 * math.log(max(p, 1e-6)) ** 2 + a["z5"] for p, a in zip(pp, at)])
     GG["Jason-S"] = obj.get("a_s") or G_M
-    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"Jason-S": ps} if ps else {})}
+    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"Jason-S": ps} if ps else {}), **({"Jason-F": pf} if pf else {})}
 
 
 def _modeller(obj, k):

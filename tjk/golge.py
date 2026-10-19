@@ -17,6 +17,8 @@ SITE = os.path.join(KOK, "docs", "data")
 YOL = os.path.join(VERI, "model_aday.json")
 YOL_K = os.path.join(VERI, "model_aday_k.json")
 YOL_S = os.path.join(VERI, "model_aday_s.json")
+YOL_F = os.path.join(VERI, "model_aday_f.json")
+FK = ["kfz", "kfz_pos"]   # Jason-F: Jason + handikap fazla-kilo (taban etkisi) (20 Ekim 2026, dördüncü gölge; Jason değişmedi)
 KAPI = ["f_kapi"]   # Jason-K: Jason + kapı yanlılığı (12 Ekim 2026, ikinci gölge model; Jason değişmedi)
 
 
@@ -30,6 +32,19 @@ def yukle_k():
 
 def yukle_s():
     return json.load(open(YOL_S, encoding="utf-8")) if os.path.exists(YOL_S) else None
+
+
+def yukle_f():
+    return json.load(open(YOL_F, encoding="utf-8")) if os.path.exists(YOL_F) else None
+
+
+def fk_ekle(d):
+    """kfz = f_kilo - 0,5*hnd_rel (yalnız koşudaki TÜM atların handikap puanı varsa, yoksa 0); kfz_pos = max(kfz,0)."""
+    d = d.copy()
+    hv = d.hnd_rel.notna() & d.groupby(O.K).hnd_rel.transform(lambda x: x.notna().all())
+    d["kfz"] = (d.f_kilo - 0.5 * d.hnd_rel).where(hv, 0.0).fillna(0.0)
+    d["kfz_pos"] = d.kfz.clip(lower=0)
+    return d
 
 
 def kapi_ekle(d):
@@ -104,6 +119,24 @@ def egit_k(son=None):
          "lp2_a": float(th[1 + feat.index("f_lp2")] / sd["f_lp2"])}
     json.dump(A, open(YOL_K, "w", encoding="utf-8"), ensure_ascii=False)
     print("Jason-K eğitildi:", son, "| koşu", nk, "| w_kapi", round(th[1 + feat.index("f_kapi")], 4))
+    return A
+
+
+def egit_f(son=None):
+    """Jason-F: Jason özellikleri + kfz/kfz_pos; aynı eğitim kuralı, ayrı dosya (data/model_aday_f.json). Jason'a dokunmaz."""
+    from .calistir import yukle_model
+    M = yukle_model()
+    son = son or (O.tr_simdi().date() - pd.Timedelta(days=1).to_pytimedelta()).isoformat()
+    d = fk_ekle(MS.ekle(hazirla(_oku("temiz"), _oku("program"), M)))
+    d["f_lp2"] = np.log(d.p_piyasa.clip(lower=1e-6)) ** 2
+    feat = M["feat"] + EK + LPEK + FK
+    tr = d[(d.tarih <= son) & d.kazandi.notna() & d.lp.notna()].copy()
+    th, mu, sd, nk = _fit(tr, feat, M.get("lam", 100.0))
+    A = {"surum": "aday_f", "ad": "Jason-F", "egitim_son_tarih": son, "egitim_koşu": nk, "feat": feat, "cins": M["cins"],
+         "mu": {k: float(v) for k, v in mu.items()}, "sd": {k: float(v) for k, v in sd.items()}, "w": [float(x) for x in th], "lam": M.get("lam", 100.0),
+         "lp2_a": float(th[1 + feat.index("f_lp2")] / sd["f_lp2"])}
+    json.dump(A, open(YOL_F, "w", encoding="utf-8"), ensure_ascii=False)
+    print("Jason-F eğitildi:", son, "| koşu", nk, "| w_kfz_pos", round(th[1 + feat.index("kfz_pos")], 4))
     return A
 
 
