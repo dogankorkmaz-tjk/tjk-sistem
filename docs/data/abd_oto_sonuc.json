@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-19 19:01 UTC",
+ "uretim": "2026-10-19 19:04 UTC",
  "kayitli_kosu": 137,
- "eslesmeyen_kosu": 82,
+ "eslesmeyen_kosu": 79,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 108,
- "kosu": 55,
+ "bahis": 112,
+ "kosu": 58,
  "isabet": 8,
- "roi": 1.121,
+ "roi": 1.081,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 71,
-   "roi": 0.978
+   "bahis": 74,
+   "roi": 0.939
   },
   "birlesik-krallik": {
-   "bahis": 10,
-   "roi": 5.165
+   "bahis": 11,
+   "roi": 4.695
   },
   "fransa": {
    "bahis": 11,
@@ -31,60 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 125,
-  "kosu": 52,
+  "bahis": 133,
+  "kosu": 55,
   "isabet": 11,
-  "roi": 0.718
+  "roi": 0.675
  },
  "bahis_t1": {
-  "bahis": 124,
-  "kosu": 52,
+  "bahis": 132,
+  "kosu": 55,
   "isabet": 16,
-  "roi": 1.029
+  "roi": 0.967
  },
  "bahis_t3": {
-  "bahis": 131,
-  "kosu": 51,
-  "isabet": 14,
-  "roi": 0.783
+  "bahis": 139,
+  "kosu": 54,
+  "isabet": 15,
+  "roi": 0.759
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "SOGYNT",
-   "q": 0.096,
-   "g": 24.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "HARRISON POINT",
-   "q": 0.074,
-   "g": 25.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "KIEVSKY",
-   "q": 0.16,
-   "g": 8.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Deauville",
-   "kosu": 8,
-   "at": "ALMAROMY",
-   "q": 0.164,
-   "g": 12.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Deauville",
@@ -276,6 +240,15 @@
   },
   {
    "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "MI SARGENTO",
+   "q": 0.174,
+   "g": 28.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
    "pist": "Mahoning Valley",
    "kosu": 1,
    "at": "VENTURE ON",
@@ -317,6 +290,24 @@
    "at": "HANDSOME FOX",
    "q": 0.171,
    "g": 7.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Mahoning Valley",
+   "kosu": 6,
+   "at": "GLINT",
+   "q": 0.086,
+   "g": 17.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Mahoning Valley",
+   "kosu": 6,
+   "at": "PALLINO",
+   "q": 0.193,
+   "g": 6.6,
    "kazandi": false
   },
   {
@@ -407,6 +398,15 @@
    "at": "STYLE KING",
    "q": 0.149,
    "g": 12.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 8,
+   "at": "SHEIK YERBOUTI",
+   "q": 0.136,
+   "g": 13.25,
    "kazandi": false
   }
  ]
