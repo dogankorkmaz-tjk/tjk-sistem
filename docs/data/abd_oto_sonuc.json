@@ -1,15 +1,15 @@
 {
- "uretim": "2026-10-19 15:05 UTC",
- "kayitli_kosu": 99,
- "eslesmeyen_kosu": 61,
+ "uretim": "2026-10-19 15:36 UTC",
+ "kayitli_kosu": 106,
+ "eslesmeyen_kosu": 65,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 75,
- "kosu": 38,
- "isabet": 5,
- "roi": 0.841,
+ "bahis": 85,
+ "kosu": 41,
+ "isabet": 6,
+ "roi": 1.113,
  "ga95": [
-  0.0,
+  0.722,
   3.292
  ],
  "ulke": {
@@ -17,124 +17,38 @@
    "bahis": 61,
    "roi": 1.034
   },
+  "birlesik-krallik": {
+   "bahis": 6,
+   "roi": 5.258
+  },
   "fransa": {
-   "bahis": 3,
+   "bahis": 5,
    "roi": 0.0
   },
   "irlanda": {
-   "bahis": 11,
+   "bahis": 13,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 81,
-  "kosu": 35,
-  "isabet": 7,
-  "roi": 0.527
+  "bahis": 91,
+  "kosu": 38,
+  "isabet": 9,
+  "roi": 0.921
  },
  "bahis_t1": {
-  "bahis": 82,
-  "kosu": 35,
-  "isabet": 10,
-  "roi": 0.703
+  "bahis": 93,
+  "kosu": 38,
+  "isabet": 12,
+  "roi": 1.062
  },
  "bahis_t3": {
-  "bahis": 87,
-  "kosu": 34,
-  "isabet": 10,
-  "roi": 0.638
+  "bahis": 98,
+  "kosu": 37,
+  "isabet": 12,
+  "roi": 0.986
  },
  "bahisler": [
-  {
-   "gun": "2026-10-18",
-   "pist": "ParisLongchamp",
-   "kosu": 8,
-   "at": "ANDOUINS",
-   "q": 0.138,
-   "g": 12.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "ParisLongchamp",
-   "kosu": 8,
-   "at": "BECQUATHUNDER",
-   "q": 0.073,
-   "g": 20.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 1,
-   "at": "BANZAI BETTY",
-   "q": 0.071,
-   "g": 25.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 2,
-   "at": "JASMINE",
-   "q": 0.262,
-   "g": 7.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 3,
-   "at": "LITTLE MO",
-   "q": 0.185,
-   "g": 7.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 4,
-   "at": "SUPERNAL",
-   "q": 0.184,
-   "g": 9.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 4,
-   "at": "PIPER'S CAUSEWAY",
-   "q": 0.118,
-   "g": 17.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 4,
-   "at": "MR. MACHUPICCHU",
-   "q": 0.207,
-   "g": 7.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 4,
-   "at": "GYPSY TEARS",
-   "q": 0.075,
-   "g": 33.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-18",
-   "pist": "Santa Anita",
-   "kosu": 5,
-   "at": "YACOWLEF",
-   "q": 0.06,
-   "g": 33.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-18",
    "pist": "Santa Anita",
@@ -326,6 +240,24 @@
   },
   {
    "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 6,
+   "at": "MOON RIDER",
+   "q": 0.109,
+   "g": 11.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Deauville",
+   "kosu": 6,
+   "at": "BRAMANS",
+   "q": 0.164,
+   "g": 8.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
    "pist": "Gowran Park",
    "kosu": 1,
    "at": "DEAR THEODOSIA",
@@ -403,6 +335,78 @@
    "at": "ARIZONA STAR",
    "q": 0.231,
    "g": 6.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 6,
+   "at": "ZARENAKARENA",
+   "q": 0.095,
+   "g": 18.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Gowran Park",
+   "kosu": 6,
+   "at": "STAYWITHERJOHNNY",
+   "q": 0.095,
+   "g": 14.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 1,
+   "at": "MALIQUI",
+   "q": 0.156,
+   "g": 20.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 1,
+   "at": "MORIARTY MOON",
+   "q": 0.104,
+   "g": 16.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 1,
+   "at": "ENHANCING",
+   "q": 0.063,
+   "g": 21.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 1,
+   "at": "BETTER NATURE",
+   "q": 0.072,
+   "g": 31.55,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 1,
+   "at": "SACRED RHYTHM",
+   "q": 0.072,
+   "g": 24.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Wolverhampton",
+   "kosu": 1,
+   "at": "SOVEREIGN BEACH",
+   "q": 0.045,
+   "g": 48.45,
    "kazandi": false
   }
  ]
