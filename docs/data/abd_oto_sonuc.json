@@ -1,15 +1,15 @@
 {
- "uretim": "2026-10-20 14:38 UTC",
- "kayitli_kosu": 178,
- "eslesmeyen_kosu": 108,
+ "uretim": "2026-10-20 15:17 UTC",
+ "kayitli_kosu": 182,
+ "eslesmeyen_kosu": 110,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 135,
- "kosu": 71,
+ "bahis": 136,
+ "kosu": 72,
  "isabet": 9,
- "roi": 1.022,
+ "roi": 1.014,
  "ga95": [
-  0.549,
+  0.506,
   1.742
  ],
  "ulke": {
@@ -18,8 +18,8 @@
    "roi": 0.992
   },
   "birlesik-krallik": {
-   "bahis": 15,
-   "roi": 3.443
+   "bahis": 16,
+   "roi": 3.228
   },
   "fransa": {
    "bahis": 17,
@@ -31,45 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 155,
-  "kosu": 68,
+  "bahis": 157,
+  "kosu": 69,
   "isabet": 14,
-  "roi": 0.703,
+  "roi": 0.694,
   "ga95": [
    0.569,
-   1.059
+   0.896
   ]
  },
  "bahis_t1": {
-  "bahis": 156,
-  "kosu": 68,
+  "bahis": 158,
+  "kosu": 69,
   "isabet": 20,
-  "roi": 0.965,
+  "roi": 0.953,
   "ga95": [
-   0.779,
+   0.777,
    1.177
   ]
  },
  "bahis_t3": {
-  "bahis": 163,
-  "kosu": 67,
+  "bahis": 165,
+  "kosu": 68,
   "isabet": 19,
-  "roi": 0.732,
+  "roi": 0.723,
   "ga95": [
    0.0,
    0.851
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "GRIND",
-   "q": 0.138,
-   "g": 14.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Horseshoe Indianapolis",
@@ -419,6 +410,15 @@
    "at": "KOHANA GIRL",
    "q": 0.125,
    "g": 12.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Yarmouth",
+   "kosu": 5,
+   "at": "MMMBOP",
+   "q": 0.053,
+   "g": 26.5,
    "kazandi": false
   }
  ]
