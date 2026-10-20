@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-19 22:01 UTC",
- "kayitli_kosu": 154,
- "eslesmeyen_kosu": 89,
+ "uretim": "2026-10-20 01:15 UTC",
+ "kayitli_kosu": 160,
+ "eslesmeyen_kosu": 94,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 119,
- "kosu": 65,
- "isabet": 8,
- "roi": 1.018,
+ "bahis": 125,
+ "kosu": 66,
+ "isabet": 9,
+ "roi": 1.104,
  "ga95": [
   0.722,
   3.292
  ],
  "ulke": {
   "abd": {
-   "bahis": 81,
-   "roi": 0.857
+   "bahis": 87,
+   "roi": 0.992
   },
   "birlesik-krallik": {
    "bahis": 11,
@@ -31,78 +31,24 @@
   }
  },
  "bahis_ani": {
-  "bahis": 142,
-  "kosu": 62,
+  "bahis": 144,
+  "kosu": 63,
   "isabet": 13,
-  "roi": 0.686
+  "roi": 0.676
  },
  "bahis_t1": {
-  "bahis": 141,
-  "kosu": 62,
+  "bahis": 143,
+  "kosu": 63,
   "isabet": 19,
-  "roi": 0.985
+  "roi": 0.971
  },
  "bahis_t3": {
-  "bahis": 150,
-  "kosu": 61,
+  "bahis": 152,
+  "kosu": 62,
   "isabet": 19,
-  "roi": 0.795
+  "roi": 0.785
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Finger Lakes",
-   "kosu": 6,
-   "at": "GAME AND BLUE",
-   "q": 0.273,
-   "g": 7.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 1,
-   "at": "DEAR THEODOSIA",
-   "q": 0.071,
-   "g": 28.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 1,
-   "at": "RATHBRAN LADY",
-   "q": 0.052,
-   "g": 46.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 1,
-   "at": "TINA TERESHKOVA",
-   "q": 0.06,
-   "g": 24.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 3,
-   "at": "CONCLUSIVE",
-   "q": 0.123,
-   "g": 12.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 3,
-   "at": "SYSTEM RESET",
-   "q": 0.067,
-   "g": 25.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Gowran Park",
@@ -245,6 +191,60 @@
    "at": "MORAL MAN",
    "q": 0.124,
    "g": 10.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "K P KWEEN",
+   "q": 0.076,
+   "g": 16.85,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "FLYER FLY",
+   "q": 0.218,
+   "g": 14.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "CAPABILITY",
+   "q": 0.061,
+   "g": 20.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "RIGHT AGAIN AMY",
+   "q": 0.164,
+   "g": 11.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "OH BONITA",
+   "q": 0.047,
+   "g": 27.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-19",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "PASSIONFORWINNING",
+   "q": 0.061,
+   "g": 32.95,
    "kazandi": false
   },
   {
