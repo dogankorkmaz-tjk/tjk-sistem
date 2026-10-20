@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-20 15:18 UTC",
- "kayitli_kosu": 183,
- "eslesmeyen_kosu": 111,
+ "uretim": "2026-10-20 15:55 UTC",
+ "kayitli_kosu": 184,
+ "eslesmeyen_kosu": 109,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 136,
- "kosu": 72,
- "isabet": 9,
- "roi": 1.014,
+ "bahis": 140,
+ "kosu": 75,
+ "isabet": 10,
+ "roi": 1.236,
  "ga95": [
-  0.506,
-  1.742
+  0.846,
+  2.612
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.992
   },
   "birlesik-krallik": {
-   "bahis": 16,
-   "roi": 3.228
+   "bahis": 18,
+   "roi": 2.869
   },
   "fransa": {
-   "bahis": 17,
-   "roi": 0.0
+   "bahis": 19,
+   "roi": 1.847
   },
   "irlanda": {
    "bahis": 16,
@@ -31,72 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 157,
-  "kosu": 69,
-  "isabet": 14,
-  "roi": 0.694,
+  "bahis": 158,
+  "kosu": 72,
+  "isabet": 15,
+  "roi": 0.912,
   "ga95": [
    0.569,
-   0.896
+   3.339
   ]
  },
  "bahis_t1": {
-  "bahis": 158,
-  "kosu": 69,
-  "isabet": 20,
-  "roi": 0.953,
+  "bahis": 159,
+  "kosu": 71,
+  "isabet": 21,
+  "roi": 1.167,
   "ga95": [
-   0.777,
-   1.177
+   0.779,
+   2.922
   ]
  },
  "bahis_t3": {
-  "bahis": 165,
-  "kosu": 68,
-  "isabet": 19,
-  "roi": 0.723,
+  "bahis": 169,
+  "kosu": 70,
+  "isabet": 20,
+  "roi": 0.914,
   "ga95": [
-   0.0,
-   0.851
+   0.721,
+   2.065
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 5,
-   "at": "BLACKMORE",
-   "q": 0.049,
-   "g": 38.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 5,
-   "at": "J'ACCUSE",
-   "q": 0.141,
-   "g": 9.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 5,
-   "at": "KUTTAWA",
-   "q": 0.06,
-   "g": 33.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "WINERY",
-   "q": 0.106,
-   "g": 21.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Horseshoe Indianapolis",
@@ -378,6 +342,24 @@
   },
   {
    "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 7,
+   "at": "INSEPARABLE",
+   "q": 0.105,
+   "g": 35.1,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 7,
+   "at": "MILORD DU LEMO",
+   "q": 0.05,
+   "g": 39.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
    "pist": "Yarmouth",
    "kosu": 1,
    "at": "PASSING THOUGHT",
@@ -419,6 +401,24 @@
    "at": "MMMBOP",
    "q": 0.053,
    "g": 26.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Yarmouth",
+   "kosu": 6,
+   "at": "DIOMED DUKE",
+   "q": 0.171,
+   "g": 16.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Yarmouth",
+   "kosu": 6,
+   "at": "FANTASY MASTER",
+   "q": 0.142,
+   "g": 11.55,
    "kazandi": false
   }
  ]
