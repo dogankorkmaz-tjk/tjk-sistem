@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-20 13:59 UTC",
+ "uretim": "2026-10-20 14:04 UTC",
  "kayitli_kosu": 175,
- "eslesmeyen_kosu": 106,
+ "eslesmeyen_kosu": 105,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 130,
- "kosu": 69,
+ "bahis": 131,
+ "kosu": 70,
  "isabet": 9,
- "roi": 1.061,
+ "roi": 1.053,
  "ga95": [
-  0.666,
-  1.795
+  0.656,
+  1.742
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.992
   },
   "birlesik-krallik": {
-   "bahis": 14,
-   "roi": 3.689
+   "bahis": 15,
+   "roi": 3.443
   },
   "fransa": {
    "bahis": 13,
@@ -31,45 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 151,
-  "kosu": 66,
+  "bahis": 153,
+  "kosu": 67,
   "isabet": 14,
-  "roi": 0.722,
+  "roi": 0.712,
   "ga95": [
    0.569,
-   1.664
+   1.294
   ]
  },
  "bahis_t1": {
-  "bahis": 151,
-  "kosu": 66,
+  "bahis": 153,
+  "kosu": 67,
   "isabet": 20,
-  "roi": 0.997,
+  "roi": 0.984,
   "ga95": [
    0.779,
-   1.456
+   1.177
   ]
  },
  "bahis_t3": {
-  "bahis": 158,
-  "kosu": 65,
+  "bahis": 160,
+  "kosu": 66,
   "isabet": 19,
-  "roi": 0.755,
+  "roi": 0.746,
   "ga95": [
    0.0,
    0.851
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 6,
-   "at": "STAYWITHERJOHNNY",
-   "q": 0.095,
-   "g": 14.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Gowran Park",
@@ -419,6 +410,15 @@
    "at": "ANTONOVA",
    "q": 0.269,
    "g": 9.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Yarmouth",
+   "kosu": 3,
+   "at": "KOHANA GIRL",
+   "q": 0.125,
+   "g": 12.0,
    "kazandi": false
   }
  ]
