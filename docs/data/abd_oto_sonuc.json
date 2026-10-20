@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-20 18:39 UTC",
- "kayitli_kosu": 211,
- "eslesmeyen_kosu": 124,
+ "uretim": "2026-10-20 19:16 UTC",
+ "kayitli_kosu": 214,
+ "eslesmeyen_kosu": 123,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 149,
- "kosu": 87,
+ "bahis": 155,
+ "kosu": 91,
  "isabet": 11,
- "roi": 1.213,
+ "roi": 1.166,
  "ga95": [
-  0.846,
-  2.083
+  0.822,
+  1.742
  ],
  "ulke": {
   "abd": {
-   "bahis": 92,
-   "roi": 0.938
+   "bahis": 95,
+   "roi": 0.908
   },
   "birlesik-krallik": {
-   "bahis": 21,
-   "roi": 2.46
+   "bahis": 24,
+   "roi": 2.152
   },
   "fransa": {
    "bahis": 20,
@@ -31,90 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 179,
-  "kosu": 84,
-  "isabet": 21,
-  "roi": 0.928,
+  "bahis": 183,
+  "kosu": 88,
+  "isabet": 22,
+  "roi": 0.917,
   "ga95": [
    0.569,
-   1.964
+   1.809
   ]
  },
  "bahis_t1": {
-  "bahis": 182,
-  "kosu": 83,
-  "isabet": 27,
-  "roi": 1.141,
+  "bahis": 187,
+  "kosu": 87,
+  "isabet": 28,
+  "roi": 1.12,
   "ga95": [
    0.779,
-   1.763
+   1.603
   ]
  },
  "bahis_t3": {
-  "bahis": 191,
-  "kosu": 82,
-  "isabet": 26,
-  "roi": 0.923,
+  "bahis": 197,
+  "kosu": 86,
+  "isabet": 27,
+  "roi": 0.904,
   "ga95": [
    0.721,
-   1.459
+   1.304
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Mahoning Valley",
-   "kosu": 1,
-   "at": "RED HEAD KID",
-   "q": 0.223,
-   "g": 13.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Mahoning Valley",
-   "kosu": 3,
-   "at": "CANELA FINA",
-   "q": 0.072,
-   "g": 20.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Mahoning Valley",
-   "kosu": 5,
-   "at": "HANDSOME FOX",
-   "q": 0.171,
-   "g": 7.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Mahoning Valley",
-   "kosu": 6,
-   "at": "GLINT",
-   "q": 0.086,
-   "g": 17.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Mahoning Valley",
-   "kosu": 6,
-   "at": "PALLINO",
-   "q": 0.193,
-   "g": 6.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Wolverhampton",
-   "kosu": 1,
-   "at": "MALIQUI",
-   "q": 0.156,
-   "g": 20.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Wolverhampton",
@@ -324,11 +270,38 @@
   },
   {
    "gun": "2026-10-20",
+   "pist": "Fort Erie",
+   "kosu": 6,
+   "at": "LEZIATE",
+   "q": 0.115,
+   "g": 12.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Fort Erie",
+   "kosu": 6,
+   "at": "PERIWINKLE",
+   "q": 0.135,
+   "g": 9.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
    "pist": "Horseshoe Indianapolis",
    "kosu": 1,
    "at": "DIAMANTE NEGRO",
    "q": 0.065,
    "g": 24.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "BOSS JUSTICE",
+   "q": 0.153,
+   "g": 11.5,
    "kazandi": false
   },
   {
@@ -356,6 +329,33 @@
    "at": "SHES GOT THE BLUES",
    "q": 0.146,
    "g": 10.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Newcastle",
+   "kosu": 7,
+   "at": "HERAKLES",
+   "q": 0.088,
+   "g": 21.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Newcastle",
+   "kosu": 7,
+   "at": "OPAL STORM",
+   "q": 0.132,
+   "g": 20.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Newcastle",
+   "kosu": 7,
+   "at": "LUCIUS AURELIUS",
+   "q": 0.099,
+   "g": 14.15,
    "kazandi": false
   },
   {
