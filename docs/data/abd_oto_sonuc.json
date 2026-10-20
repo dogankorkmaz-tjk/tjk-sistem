@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-20 20:36 UTC",
- "kayitli_kosu": 225,
- "eslesmeyen_kosu": 131,
+ "uretim": "2026-10-20 21:12 UTC",
+ "kayitli_kosu": 227,
+ "eslesmeyen_kosu": 129,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 160,
- "kosu": 94,
- "isabet": 11,
- "roi": 1.129,
+ "bahis": 167,
+ "kosu": 98,
+ "isabet": 12,
+ "roi": 1.162,
  "ga95": [
-  0.805,
+  0.838,
   1.742
  ],
  "ulke": {
   "abd": {
-   "bahis": 100,
-   "roi": 0.863
+   "bahis": 107,
+   "roi": 0.931
   },
   "birlesik-krallik": {
    "bahis": 24,
@@ -31,99 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 190,
-  "kosu": 91,
-  "isabet": 23,
-  "roi": 0.906,
+  "bahis": 197,
+  "kosu": 95,
+  "isabet": 24,
+  "roi": 0.889,
   "ga95": [
    0.569,
-   1.626
+   1.468
   ]
  },
  "bahis_t1": {
-  "bahis": 195,
-  "kosu": 90,
-  "isabet": 29,
-  "roi": 1.096,
+  "bahis": 202,
+  "kosu": 94,
+  "isabet": 30,
+  "roi": 1.073,
   "ga95": [
    0.779,
-   1.438
+   1.319
   ]
  },
  "bahis_t3": {
-  "bahis": 206,
-  "kosu": 89,
-  "isabet": 28,
-  "roi": 0.885,
+  "bahis": 214,
+  "kosu": 93,
+  "isabet": 29,
+  "roi": 0.866,
   "ga95": [
    0.721,
-   1.166
+   1.064
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Wolverhampton",
-   "kosu": 3,
-   "at": "MUDAMER",
-   "q": 0.101,
-   "g": 15.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Wolverhampton",
-   "kosu": 3,
-   "at": "LORNA B",
-   "q": 0.09,
-   "g": 20.1,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Wolverhampton",
-   "kosu": 5,
-   "at": "JAX EDGE",
-   "q": 0.069,
-   "g": 24.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Wolverhampton",
-   "kosu": 5,
-   "at": "STYLE KING",
-   "q": 0.149,
-   "g": 12.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Wolverhampton",
-   "kosu": 8,
-   "at": "SHEIK YERBOUTI",
-   "q": 0.136,
-   "g": 13.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 2,
-   "at": "DUBLIN CALLING",
-   "q": 0.168,
-   "g": 7.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 2,
-   "at": "LA SAUCELLE",
-   "q": 0.056,
-   "g": 26.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Clairefontaine",
@@ -216,6 +153,24 @@
   },
   {
    "gun": "2026-10-20",
+   "pist": "Finger Lakes",
+   "kosu": 8,
+   "at": "MAIZE LOVED LAFFY",
+   "q": 0.117,
+   "g": 19.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Finger Lakes",
+   "kosu": 8,
+   "at": "STELLA BROWN",
+   "q": 0.039,
+   "g": 50.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
    "pist": "Fort Erie",
    "kosu": 1,
    "at": "BASHFUL DAISY",
@@ -248,6 +203,15 @@
    "at": "PERIWINKLE",
    "q": 0.135,
    "g": 9.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Fort Erie",
+   "kosu": 9,
+   "at": "BOLD RELOAD",
+   "q": 0.16,
+   "g": 14.15,
    "kazandi": false
   },
   {
@@ -302,6 +266,42 @@
    "at": "TAZZY",
    "q": 0.048,
    "g": 31.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "FAT CHANCE",
+   "q": 0.143,
+   "g": 10.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "SHANGHAI EXPRESS",
+   "q": 0.191,
+   "g": 10.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 6,
+   "at": "ATHENAEUM",
+   "q": 0.148,
+   "g": 13.35,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 6,
+   "at": "SUCCY'S SONG",
+   "q": 0.074,
+   "g": 21.65,
    "kazandi": false
   },
   {
