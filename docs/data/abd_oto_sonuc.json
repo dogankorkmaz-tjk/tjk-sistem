@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-20 16:36 UTC",
- "kayitli_kosu": 191,
- "eslesmeyen_kosu": 115,
+ "uretim": "2026-10-20 17:17 UTC",
+ "kayitli_kosu": 197,
+ "eslesmeyen_kosu": 116,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 141,
- "kosu": 76,
+ "bahis": 146,
+ "kosu": 81,
  "isabet": 11,
- "roi": 1.282,
+ "roi": 1.238,
  "ga95": [
   0.857,
-  2.841
+  2.315
  ],
  "ulke": {
   "abd": {
-   "bahis": 87,
-   "roi": 0.992
+   "bahis": 90,
+   "roi": 0.959
   },
   "birlesik-krallik": {
-   "bahis": 18,
-   "roi": 2.869
+   "bahis": 20,
+   "roi": 2.583
   },
   "fransa": {
    "bahis": 20,
@@ -31,81 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 160,
-  "kosu": 73,
-  "isabet": 16,
-  "roi": 0.948,
+  "bahis": 174,
+  "kosu": 78,
+  "isabet": 20,
+  "roi": 0.945,
   "ga95": [
    0.569,
-   3.4
+   2.233
   ]
  },
  "bahis_t1": {
-  "bahis": 161,
-  "kosu": 72,
-  "isabet": 22,
-  "roi": 1.2,
+  "bahis": 176,
+  "kosu": 77,
+  "isabet": 26,
+  "roi": 1.17,
   "ga95": [
    0.779,
-   3.022
+   2.03
   ]
  },
  "bahis_t3": {
-  "bahis": 171,
-  "kosu": 71,
-  "isabet": 21,
-  "roi": 0.948,
+  "bahis": 184,
+  "kosu": 76,
+  "isabet": 24,
+  "roi": 0.929,
   "ga95": [
    0.721,
-   2.25
+   1.616
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "K P KWEEN",
-   "q": 0.076,
-   "g": 16.85,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "FLYER FLY",
-   "q": 0.218,
-   "g": 14.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "CAPABILITY",
-   "q": 0.061,
-   "g": 20.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "RIGHT AGAIN AMY",
-   "q": 0.164,
-   "g": 11.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "OH BONITA",
-   "q": 0.047,
-   "g": 27.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Horseshoe Indianapolis",
@@ -357,6 +312,51 @@
    "q": 0.177,
    "g": 7.65,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "MAGIC BEACH",
+   "q": 0.091,
+   "g": 31.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Fort Erie",
+   "kosu": 1,
+   "at": "BASHFUL DAISY",
+   "q": 0.323,
+   "g": 7.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Fort Erie",
+   "kosu": 2,
+   "at": "SILVERDART",
+   "q": 0.275,
+   "g": 8.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Newcastle",
+   "kosu": 3,
+   "at": "NEWSREADER",
+   "q": 0.097,
+   "g": 13.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Newcastle",
+   "kosu": 3,
+   "at": "BLUFFERONTHEBUS",
+   "q": 0.071,
+   "g": 21.4,
+   "kazandi": false
   },
   {
    "gun": "2026-10-20",
