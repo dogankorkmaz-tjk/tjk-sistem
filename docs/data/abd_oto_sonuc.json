@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-20 18:29 UTC",
- "kayitli_kosu": 208,
- "eslesmeyen_kosu": 123,
+ "uretim": "2026-10-20 18:39 UTC",
+ "kayitli_kosu": 211,
+ "eslesmeyen_kosu": 124,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 148,
- "kosu": 85,
+ "bahis": 149,
+ "kosu": 87,
  "isabet": 11,
- "roi": 1.221,
+ "roi": 1.213,
  "ga95": [
-  0.85,
-  2.155
+  0.846,
+  2.083
  ],
  "ulke": {
   "abd": {
-   "bahis": 91,
-   "roi": 0.948
+   "bahis": 92,
+   "roi": 0.938
   },
   "birlesik-krallik": {
    "bahis": 21,
@@ -31,45 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 178,
-  "kosu": 82,
+  "bahis": 179,
+  "kosu": 84,
   "isabet": 21,
-  "roi": 0.933,
+  "roi": 0.928,
   "ga95": [
    0.569,
-   2.022
+   1.964
   ]
  },
  "bahis_t1": {
-  "bahis": 180,
-  "kosu": 81,
+  "bahis": 182,
+  "kosu": 83,
   "isabet": 27,
-  "roi": 1.153,
+  "roi": 1.141,
   "ga95": [
    0.779,
-   1.858
+   1.763
   ]
  },
  "bahis_t3": {
-  "bahis": 190,
-  "kosu": 80,
+  "bahis": 191,
+  "kosu": 82,
   "isabet": 26,
-  "roi": 0.927,
+  "roi": 0.923,
   "ga95": [
    0.721,
-   1.497
+   1.459
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Mahoning Valley",
-   "kosu": 1,
-   "at": "RADIO SILENT",
-   "q": 0.048,
-   "g": 59.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Mahoning Valley",
@@ -329,6 +320,15 @@
    "at": "SILVERDART",
    "q": 0.275,
    "g": 8.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 1,
+   "at": "DIAMANTE NEGRO",
+   "q": 0.065,
+   "g": 24.95,
    "kazandi": false
   },
   {
