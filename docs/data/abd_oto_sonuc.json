@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-20 21:14 UTC",
- "kayitli_kosu": 229,
- "eslesmeyen_kosu": 131,
+ "uretim": "2026-10-20 21:52 UTC",
+ "kayitli_kosu": 232,
+ "eslesmeyen_kosu": 133,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 167,
- "kosu": 98,
+ "bahis": 168,
+ "kosu": 99,
  "isabet": 12,
- "roi": 1.162,
+ "roi": 1.155,
  "ga95": [
-  0.838,
+  0.834,
   1.742
  ],
  "ulke": {
   "abd": {
-   "bahis": 107,
-   "roi": 0.931
+   "bahis": 108,
+   "roi": 0.923
   },
   "birlesik-krallik": {
    "bahis": 24,
@@ -31,45 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 197,
-  "kosu": 95,
+  "bahis": 198,
+  "kosu": 96,
   "isabet": 24,
-  "roi": 0.889,
+  "roi": 0.885,
   "ga95": [
    0.569,
-   1.468
+   1.441
   ]
  },
  "bahis_t1": {
-  "bahis": 202,
-  "kosu": 94,
+  "bahis": 203,
+  "kosu": 95,
   "isabet": 30,
-  "roi": 1.073,
+  "roi": 1.067,
   "ga95": [
    0.779,
-   1.319
+   1.297
   ]
  },
  "bahis_t3": {
-  "bahis": 214,
-  "kosu": 93,
+  "bahis": 215,
+  "kosu": 94,
   "isabet": 29,
-  "roi": 0.866,
+  "roi": 0.862,
   "ga95": [
    0.721,
-   1.064
+   1.047
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 5,
-   "at": "DORADO",
-   "q": 0.229,
-   "g": 11.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Clairefontaine",
@@ -302,6 +293,15 @@
    "at": "SUCCY'S SONG",
    "q": 0.074,
    "g": 21.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "MEGA WICH",
+   "q": 0.176,
+   "g": 8.6,
    "kazandi": false
   },
   {
