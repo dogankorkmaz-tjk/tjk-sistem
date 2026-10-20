@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-20 12:28 UTC",
- "kayitli_kosu": 166,
- "eslesmeyen_kosu": 100,
+ "uretim": "2026-10-20 13:13 UTC",
+ "kayitli_kosu": 170,
+ "eslesmeyen_kosu": 102,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 125,
- "kosu": 66,
+ "bahis": 129,
+ "kosu": 68,
  "isabet": 9,
- "roi": 1.104,
+ "roi": 1.069,
  "ga95": [
-  0.722,
-  3.292
+  0.677,
+  1.975
  ],
  "ulke": {
   "abd": {
@@ -18,11 +18,11 @@
    "roi": 0.992
   },
   "birlesik-krallik": {
-   "bahis": 11,
-   "roi": 4.695
+   "bahis": 13,
+   "roi": 3.973
   },
   "fransa": {
-   "bahis": 11,
+   "bahis": 13,
    "roi": 0.0
   },
   "irlanda": {
@@ -31,60 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 144,
-  "kosu": 63,
-  "isabet": 13,
-  "roi": 0.676
+  "bahis": 150,
+  "kosu": 65,
+  "isabet": 14,
+  "roi": 0.727,
+  "ga95": [
+   0.569,
+   1.942
+  ]
  },
  "bahis_t1": {
-  "bahis": 143,
-  "kosu": 63,
-  "isabet": 19,
-  "roi": 0.971
+  "bahis": 150,
+  "kosu": 65,
+  "isabet": 20,
+  "roi": 1.003,
+  "ga95": [
+   0.779,
+   1.664
+  ]
  },
  "bahis_t3": {
-  "bahis": 152,
-  "kosu": 62,
+  "bahis": 157,
+  "kosu": 64,
   "isabet": 19,
-  "roi": 0.785
+  "roi": 0.76,
+  "ga95": [
+   0.0,
+   0.851
+  ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 5,
-   "at": "CANNONBALL QUEEN",
-   "q": 0.087,
-   "g": 23.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 5,
-   "at": "CAPTAIN CIANO",
-   "q": 0.033,
-   "g": 46.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 5,
-   "at": "KAYAMITE",
-   "q": 0.082,
-   "g": 15.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 5,
-   "at": "ARIZONA STAR",
-   "q": 0.231,
-   "g": 6.9,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Gowran Park",
@@ -407,6 +383,42 @@
    "at": "SHEIK YERBOUTI",
    "q": 0.136,
    "g": 13.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 2,
+   "at": "DUBLIN CALLING",
+   "q": 0.168,
+   "g": 7.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 2,
+   "at": "LA SAUCELLE",
+   "q": 0.056,
+   "g": 26.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Yarmouth",
+   "kosu": 1,
+   "at": "PASSING THOUGHT",
+   "q": 0.077,
+   "g": 23.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Yarmouth",
+   "kosu": 1,
+   "at": "KORBUT",
+   "q": 0.307,
+   "g": 4.7,
    "kazandi": false
   }
  ]
