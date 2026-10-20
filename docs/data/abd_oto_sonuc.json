@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-20 21:53 UTC",
- "kayitli_kosu": 232,
- "eslesmeyen_kosu": 133,
+ "uretim": "2026-10-20 22:23 UTC",
+ "kayitli_kosu": 234,
+ "eslesmeyen_kosu": 134,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 168,
- "kosu": 99,
+ "bahis": 171,
+ "kosu": 100,
  "isabet": 12,
- "roi": 1.155,
+ "roi": 1.135,
  "ga95": [
-  0.834,
+  0.823,
   1.742
  ],
  "ulke": {
   "abd": {
-   "bahis": 108,
-   "roi": 0.923
+   "bahis": 111,
+   "roi": 0.898
   },
   "birlesik-krallik": {
    "bahis": 24,
@@ -31,63 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 198,
-  "kosu": 96,
-  "isabet": 24,
-  "roi": 0.885,
+  "bahis": 202,
+  "kosu": 97,
+  "isabet": 25,
+  "roi": 0.897,
   "ga95": [
    0.569,
-   1.441
+   1.446
   ]
  },
  "bahis_t1": {
-  "bahis": 203,
-  "kosu": 95,
-  "isabet": 30,
-  "roi": 1.067,
+  "bahis": 206,
+  "kosu": 96,
+  "isabet": 31,
+  "roi": 1.081,
   "ga95": [
    0.779,
-   1.297
+   1.331
   ]
  },
  "bahis_t3": {
-  "bahis": 215,
-  "kosu": 94,
+  "bahis": 220,
+  "kosu": 95,
   "isabet": 29,
-  "roi": 0.862,
+  "roi": 0.842,
   "ga95": [
    0.721,
-   1.047
+   0.97
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 5,
-   "at": "VATICAN",
-   "q": 0.262,
-   "g": 5.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 5,
-   "at": "BELLE HARMONIE",
-   "q": 0.306,
-   "g": 5.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 5,
-   "at": "VAPOA",
-   "q": 0.167,
-   "g": 15.9,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Clairefontaine",
@@ -302,6 +275,33 @@
    "at": "MEGA WICH",
    "q": 0.176,
    "g": 8.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "MORE SWEETS",
+   "q": 0.106,
+   "g": 14.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "CENTEYA",
+   "q": 0.149,
+   "g": 8.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "VEE'S REASON",
+   "q": 0.124,
+   "g": 28.45,
    "kazandi": false
   },
   {
