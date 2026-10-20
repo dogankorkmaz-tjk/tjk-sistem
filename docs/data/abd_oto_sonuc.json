@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-20 17:19 UTC",
- "kayitli_kosu": 199,
- "eslesmeyen_kosu": 118,
+ "uretim": "2026-10-20 17:51 UTC",
+ "kayitli_kosu": 200,
+ "eslesmeyen_kosu": 116,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 146,
- "kosu": 81,
+ "bahis": 148,
+ "kosu": 84,
  "isabet": 11,
- "roi": 1.238,
+ "roi": 1.221,
  "ga95": [
-  0.857,
-  2.315
+  0.85,
+  2.155
  ],
  "ulke": {
   "abd": {
-   "bahis": 90,
-   "roi": 0.959
+   "bahis": 91,
+   "roi": 0.948
   },
   "birlesik-krallik": {
-   "bahis": 20,
-   "roi": 2.583
+   "bahis": 21,
+   "roi": 2.46
   },
   "fransa": {
    "bahis": 20,
@@ -31,54 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 174,
-  "kosu": 78,
-  "isabet": 20,
-  "roi": 0.945,
+  "bahis": 177,
+  "kosu": 81,
+  "isabet": 21,
+  "roi": 0.938,
   "ga95": [
    0.569,
-   2.233
+   2.083
   ]
  },
  "bahis_t1": {
-  "bahis": 176,
-  "kosu": 77,
-  "isabet": 26,
-  "roi": 1.17,
+  "bahis": 179,
+  "kosu": 80,
+  "isabet": 27,
+  "roi": 1.16,
   "ga95": [
    0.779,
-   2.03
+   1.91
   ]
  },
  "bahis_t3": {
-  "bahis": 184,
-  "kosu": 76,
-  "isabet": 24,
-  "roi": 0.929,
+  "bahis": 189,
+  "kosu": 79,
+  "isabet": 26,
+  "roi": 0.932,
   "ga95": [
    0.721,
-   1.616
+   1.538
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "PASSIONFORWINNING",
-   "q": 0.061,
-   "g": 32.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Mahoning Valley",
-   "kosu": 1,
-   "at": "VENTURE ON",
-   "q": 0.048,
-   "g": 212.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Mahoning Valley",
@@ -324,6 +306,15 @@
   },
   {
    "gun": "2026-10-20",
+   "pist": "Finger Lakes",
+   "kosu": 2,
+   "at": "NICE TRY CAT",
+   "q": 0.135,
+   "g": 12.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
    "pist": "Fort Erie",
    "kosu": 1,
    "at": "BASHFUL DAISY",
@@ -356,6 +347,15 @@
    "at": "BLUFFERONTHEBUS",
    "q": 0.071,
    "g": 21.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Newcastle",
+   "kosu": 5,
+   "at": "SHES GOT THE BLUES",
+   "q": 0.146,
+   "g": 10.85,
    "kazandi": false
   },
   {
