@@ -591,9 +591,9 @@ function hesapla(h,k,kaynakZorla){
   const elle=atlar.map(a=>parseOran(o[a.no]));
   const elleSay=elle.filter(x=>!isNaN(x)).length;
   let kaynak=null, idx=[], g=[], pp=null;
-  if(kaynakZorla!=='agf' && elleSay>=2){ kaynak='elle'; atlar.forEach((a,i)=>{ if(!isNaN(elle[i])){idx.push(i);g.push(elle[i]);} }); pp=piyasa(g); }
+  if(kaynakZorla!=='agf' && elleSay>=2){ kaynak='elle'; atlar.forEach((a,i)=>{ if(!isNaN(elle[i])&&!a.kosmaz){idx.push(i);g.push(elle[i]);} }); pp=piyasa(g); }
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
-  else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ idx.push(i); g.push(NaN); }); const ham=atlar.map(a=>Math.max(a.agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
+  else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ if(!a.kosmaz){ idx.push(i); g.push(NaN); } }); const ham=idx.map(i=>Math.max(atlar[i].agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
   if(!pp||idx.length<2) return null;
   const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
@@ -617,9 +617,9 @@ function renderKosu(){
     <div class="rkbas">Model sırası</div><div class="rank" id="rank"></div>
     <div id="b5"></div>`;
   k.atlar.forEach((a,i)=>{
-    const sn=bitti&&k.sonuc[a.no]; const ph=sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
+    const sn=bitti&&k.sonuc[a.no]; const ph=a.kosmaz?'KOŞMAZ':sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
     s+=`<div class="row at${sn&&sn.sira===1?' kazanan':sn&&sn.sira===2?' ikinci':sn&&sn.sira===3?' ucuncu':''}" id="r${i}"><span class="no c${(a.no-1)%16+1}">${a.no}${sn&&sn.sira?`<em>${sn.sira}.</em>`:''}</span>
-      <div class="nm"><b>${esc(a.at)}</b><span>${esc(a.jokey||'')}${a.st?' · start '+a.st:''}</span></div>
+      <div class="nm"><b${a.kosmaz?' style="text-decoration:line-through;opacity:.5"':''}>${esc(a.at)}</b>${a.kosmaz?'<span style="color:var(--hot)">KOŞMAZ</span>':''}<span>${esc(a.jokey||'')}${a.st?' · start '+a.st:''}</span></div>
       <label class="gn"><small>Ganyan</small><input class="oran" id="o${i}" data-i="${i}" inputmode="decimal" autocomplete="off" placeholder="${esc(ph)}" value="${esc(o[a.no]||'')}" aria-label="${esc(a.at)} ganyan"></label>
       <div class="bar" id="bar${i}" aria-hidden="true"><i class="bm"></i><i class="bp"></i><i class="bj"></i></div>
       <div class="ozt"><span><b class="num" id="m${i}">–</b> Bolton</span><span><b class="num" id="e${i}">–</b> EV</span></div>
