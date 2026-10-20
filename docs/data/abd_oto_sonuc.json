@@ -1,15 +1,15 @@
 {
- "uretim": "2026-10-20 14:04 UTC",
- "kayitli_kosu": 175,
- "eslesmeyen_kosu": 105,
+ "uretim": "2026-10-20 14:37 UTC",
+ "kayitli_kosu": 178,
+ "eslesmeyen_kosu": 107,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 131,
- "kosu": 70,
+ "bahis": 135,
+ "kosu": 71,
  "isabet": 9,
- "roi": 1.053,
+ "roi": 1.022,
  "ga95": [
-  0.656,
+  0.549,
   1.742
  ],
  "ulke": {
@@ -22,7 +22,7 @@
    "roi": 3.443
   },
   "fransa": {
-   "bahis": 13,
+   "bahis": 17,
    "roi": 0.0
   },
   "irlanda": {
@@ -31,72 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 153,
-  "kosu": 67,
+  "bahis": 155,
+  "kosu": 68,
   "isabet": 14,
-  "roi": 0.712,
+  "roi": 0.703,
   "ga95": [
    0.569,
-   1.294
+   1.059
   ]
  },
  "bahis_t1": {
-  "bahis": 153,
-  "kosu": 67,
+  "bahis": 156,
+  "kosu": 68,
   "isabet": 20,
-  "roi": 0.984,
+  "roi": 0.965,
   "ga95": [
    0.779,
    1.177
   ]
  },
  "bahis_t3": {
-  "bahis": 160,
-  "kosu": 66,
+  "bahis": 163,
+  "kosu": 67,
   "isabet": 19,
-  "roi": 0.746,
+  "roi": 0.732,
   "ga95": [
    0.0,
    0.851
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 8,
-   "at": "LOVE ORCHID",
-   "q": 0.111,
-   "g": 11.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 8,
-   "at": "NO MORE HIDING",
-   "q": 0.097,
-   "g": 21.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Gowran Park",
-   "kosu": 8,
-   "at": "MISTER ADAM",
-   "q": 0.065,
-   "g": 34.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-19",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 2,
-   "at": "MI SARGENTO",
-   "q": 0.174,
-   "g": 28.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-19",
    "pist": "Horseshoe Indianapolis",
@@ -383,6 +347,42 @@
    "at": "LA SAUCELLE",
    "q": 0.056,
    "g": 26.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 5,
+   "at": "DORADO",
+   "q": 0.229,
+   "g": 11.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 5,
+   "at": "VATICAN",
+   "q": 0.262,
+   "g": 5.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 5,
+   "at": "BELLE HARMONIE",
+   "q": 0.306,
+   "g": 5.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-20",
+   "pist": "Clairefontaine",
+   "kosu": 5,
+   "at": "VAPOA",
+   "q": 0.167,
+   "g": 15.9,
    "kazandi": false
   },
   {
