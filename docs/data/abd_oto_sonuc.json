@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-21 17:28 UTC",
- "kayitli_kosu": 302,
- "eslesmeyen_kosu": 195,
+ "uretim": "2026-10-21 18:00 UTC",
+ "kayitli_kosu": 310,
+ "eslesmeyen_kosu": 201,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 178,
- "kosu": 107,
+ "bahis": 181,
+ "kosu": 109,
  "isabet": 12,
- "roi": 1.09,
+ "roi": 1.072,
  "ga95": [
-  0.76,
-  1.559
+  0.728,
+  1.547
  ],
  "ulke": {
   "abd": {
-   "bahis": 113,
-   "roi": 0.882
+   "bahis": 116,
+   "roi": 0.859
   },
   "birlesik-krallik": {
    "bahis": 29,
@@ -31,63 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 219,
-  "kosu": 104,
-  "isabet": 27,
-  "roi": 0.864,
+  "bahis": 221,
+  "kosu": 106,
+  "isabet": 28,
+  "roi": 0.884,
   "ga95": [
-   0.552,
-   1.26
+   0.604,
+   1.272
   ]
  },
  "bahis_t1": {
-  "bahis": 225,
-  "kosu": 103,
-  "isabet": 34,
-  "roi": 1.047,
+  "bahis": 227,
+  "kosu": 105,
+  "isabet": 35,
+  "roi": 1.064,
   "ga95": [
-   0.758,
-   1.271
+   0.805,
+   1.288
   ]
  },
  "bahis_t3": {
-  "bahis": 238,
-  "kosu": 102,
-  "isabet": 30,
-  "roi": 0.801,
+  "bahis": 241,
+  "kosu": 104,
+  "isabet": 32,
+  "roi": 0.837,
   "ga95": [
-   0.622,
-   0.916
+   0.735,
+   0.938
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Finger Lakes",
-   "kosu": 8,
-   "at": "STELLA BROWN",
-   "q": 0.039,
-   "g": 50.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Fort Erie",
-   "kosu": 1,
-   "at": "BASHFUL DAISY",
-   "q": 0.323,
-   "g": 7.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Fort Erie",
-   "kosu": 2,
-   "at": "SILVERDART",
-   "q": 0.275,
-   "g": 8.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Fort Erie",
@@ -360,6 +333,24 @@
   },
   {
    "gun": "2026-10-21",
+   "pist": "Belmont Park",
+   "kosu": 2,
+   "at": "PISTOL LIZ ABLAZEN",
+   "q": 0.088,
+   "g": 22.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Belmont Park",
+   "kosu": 2,
+   "at": "THAT'S FUNNY",
+   "q": 0.072,
+   "g": 34.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
    "pist": "Keeneland",
    "kosu": 1,
    "at": "GHOST WISH",
@@ -374,6 +365,15 @@
    "at": "FLANKER",
    "q": 0.154,
    "g": 8.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Keeneland",
+   "kosu": 2,
+   "at": "AERATE",
+   "q": 0.115,
+   "g": 17.8,
    "kazandi": false
   },
   {
