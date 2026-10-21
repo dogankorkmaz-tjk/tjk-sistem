@@ -1420,27 +1420,28 @@ function permHtml(k,idx,P,pp,GMm,BIRIM,base){
     const GM=GMm.slice(0,3), pW=GM.map(g=>P.map(v=>Math.pow(Math.max(v,1e-9),g))), pT=GM.map(g=>P.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
     const ozet=(sets,v,etiket,ek)=>{ const tl=v*BIRIM, prM=besliProb(pW,pT,sets), prP=besliProb(ppW,ppT,sets), oran=prM/Math.max(prP,1e-9);
       return `<div class="sub"><b>${etiket}</b> · ${v} komb. · <b>${tl} TL</b> · tutma %${(prM*100).toFixed(1).replace('.',',')} (piyasa %${(prP*100).toFixed(1).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})${ek||''}${tahOd(v,prP,tl)}</div>`; };
-    if(!cand.length){ const sT=U.slice().sort((x,y)=>t3(y)-t3(x)); const V=sT.slice(0,4), m=V.length;
-      return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:4px"><b>Sırasız kombine</b>'+ozet([V,V,V],m*(m-1)*(m-2),'Sırasız (kombine tuşu, '+m+' at): '+V.map(no).join(', '))+'<small class="sub" style="opacity:.7">Sürpriz adayı yok. Atlar ilk-3 olasılığına göre seçildi; tam 4 at. Kâğıt üstü.</small></div>'; }
+    if(!cand.length){ const sT=U.slice().sort((x,y)=>t3(y)-t3(x)); let V=sT.slice(0,4); const kp=S=>besliProb(pW,pT,[S,S,S]); if(sT.length>4&&kp(sT.slice(0,5))-kp(V)>=0.05) V=sT.slice(0,5); const m=V.length;
+      return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:4px"><b>Sırasız kombine</b>'+ozet([V,V,V],m*(m-1)*(m-2),'Sırasız (kombine tuşu, '+m+' at): '+V.map(no).join(', '))+'<small class="sub" style="opacity:.7">Sürpriz adayı yok. Atlar ilk-3 olasılığına göre seçildi; 4 at, 5. at yalnız kapsamayı ≥5 puan artırırsa. Kâğıt üstü.</small></div>'; }
     const sg=cand[0];
     const sets2=base.map(x=>x.concat([sg]));
     const sirT=U.concat([sg]).filter((v,i,a)=>a.indexOf(v)===i).sort((x,y)=>(y===sg)-(x===sg)||t3(y)-t3(x));   // sürpriz zorunlu; kalanlar ilk-3 olasılığına göre
     let U2=sirT.slice(0,4); const kap=S=>besliProb(pW,pT,[S,S,S]);
+    if(sirT.length>4&&kap(sirT.slice(0,5))-kap(U2)>=0.05) U2=sirT.slice(0,5);      // 5. at yalnız kapsamayı >=5 puan artırırsa
     const n=U2.length, hepsi=[U2,U2,U2];
     return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:4px"><b>Sürprizli kupon</b>'
       +`<div class="sub">Sürpriz at: <b>${no(sg)}</b> ${esc(k.atlar[idx[sg]].at||'')} · model kazanma %${(P[sg]*100).toFixed(1).replace('.',',')}, piyasa %${(pp[sg]*100).toFixed(1).replace('.',',')} (×${f2(P[sg]/pp[sg])}) · ilk 3'e girme %${Math.round(t3(sg)*100)}</div>`
       +ozet(sets2,kombSay(sets2),'Sıralı: '+sets2.map((x,j)=>`${j+1}. at ${x.map(no).join(',')}`).join(' | '))
       +ozet(hepsi,n*(n-1)*(n-2),'Sırasız (kombine tuşu, '+n+' at): '+U2.map(no).join(', '))
-      +'<small class="sub" style="opacity:.7">Sıralı kupon: yukarıdaki ≤50 TL kuponun üstüne sürpriz her sıraya yazılır (seçenek sayısı serbest). Sırasız kombinede tam 4 at, sürpriz dahil. Geçmişte sürprize ayrılan yer ROI\'yi artırmadı; kâğıt üstü, ölçümü yok.</small></div>';
+      +'<small class="sub" style="opacity:.7">Sıralı kupon: yukarıdaki ≤50 TL kuponun üstüne sürpriz her sıraya yazılır (seçenek sayısı serbest). Sırasız kombinede 4 at (5. at yalnız kapsamayı ≥5 puan artırırsa), sürpriz dahil. Geçmişte sürprize ayrılan yer ROI\'yi artırmadı; kâğıt üstü, ölçümü yok.</small></div>';
   }catch(e){ console.error(e); return ''; }
 }
 function perm2Html(k,idx,P,pp,GMm,BIRIM){
-  // Sıralı ikili sırasız kombine: 3 at, tüm ikili sıralamalar (6 komb.)
+  // Sıralı ikili sırasız kombine: 3 at (4. at kapsamayı >=5 puan artırırsa), tüm ikili sıralamalar
   try{ const no=i=>k.atlar[idx[i]].no, G=G5_P.slice(0,2), GM=GMm.slice(0,2);
     const ppW=G.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
     const pW=GM.map(g=>P.map(v=>Math.pow(Math.max(v,1e-9),g))), pT=GM.map(g=>P.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
-    const U=P.map((v,i)=>i).sort((a,b)=>P[b]-P[a]).slice(0,3), sets=[U,U], v=6, prM=besliProb(pW,pT,sets), prP=besliProb(ppW,ppT,sets), oran=prM/Math.max(prP,1e-9);
-    return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:4px"><b>Sırasız kombine</b><div class="sub">Sırasız (kombine tuşu, 3 at): '+U.map(no).join(', ')+' · '+v+' komb. · <b>'+f2(v*BIRIM)+' TL</b> · tutma %'+(prM*100).toFixed(1).replace('.',',')+' (piyasa %'+(prP*100).toFixed(1).replace('.',',')+', ×'+f2(oran)+(oran>=1.15?' ★':'')+')'+tahOd(v,prP,v*BIRIM)+'</div></div>';
+    const srt=P.map((v,i)=>i).sort((a,b)=>P[b]-P[a]), kp=S=>besliProb(pW,pT,[S,S]); let U=srt.slice(0,3); if(srt.length>3&&kp(srt.slice(0,4))-kp(U)>=0.05) U=srt.slice(0,4); const sets=[U,U], v=U.length*(U.length-1), prM=besliProb(pW,pT,sets), prP=besliProb(ppW,ppT,sets), oran=prM/Math.max(prP,1e-9);
+    return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:4px"><b>Sırasız kombine</b><div class="sub">Sırasız (kombine tuşu, '+U.length+' at): '+U.map(no).join(', ')+' · '+v+' komb. · <b>'+f2(v*BIRIM)+' TL</b> · tutma %'+(prM*100).toFixed(1).replace('.',',')+' (piyasa %'+(prP*100).toFixed(1).replace('.',',')+', ×'+f2(oran)+(oran>=1.15?' ★':'')+')'+tahOd(v,prP,v*BIRIM)+'</div></div>';
   }catch(e){ console.error(e); return ''; }
 }
 function kombEgz(m,L){
@@ -1551,15 +1552,15 @@ function tabelaEgz(){
         return `<div class="sub">${etiket} · ${v} komb. · <b>${f2(v*BIRIM)} TL</b> · tutma %${(prM*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})${tahOd(v,prP,v*BIRIM)}<br><span style="font-family:monospace">${sets.map((x,j)=>`${j+1}. ${x.map(no).join(',')}`).join(' | ')}</span></div>`; };
       let t='';
       [24,120].forEach(B=>{ const r=besliKupon(P,B,GMm,4,true); if(r) t+=satir(r.sets,'Sıralı ≤'+B); });
-      const top=P.map((v,i)=>i).sort((a,b)=>P[b]-P[a]).slice(0,5), U=top;
-      t+=satir([U,U,U,U],'Sırasız kombine (5 at: '+U.map(no).join(', ')+')');
+      const srt=P.map((v,i)=>i).sort((a,b)=>P[b]-P[a]), kp=S=>besliProb(pW,pT,[S,S,S,S]); let U=srt.slice(0,5); if(srt.length>5&&kp(srt.slice(0,6))-kp(U)>=0.05) U=srt.slice(0,6);
+      t+=satir([U,U,U,U],'Sırasız kombine ('+U.length+' at: '+U.map(no).join(', ')+')');
       return `<div style="border-top:1px solid var(--line);padding-top:6px"><b>${m}</b>${t}</div>`;
     }).join('');
     if(blok) R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${blok}</div>`});
   }));
   setTimeout(()=>{ getJSON('data/tabela.json?'+Date.now()).then(d=>{ const el=document.getElementById('tbTakip'); if(!el) return; const T=d.toplam||[];
     el.innerHTML=T.length?'<table class="t"><tr><th>Model</th><th>Tür</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">İsabet</th><th class="n">Geri dönüş</th></tr>'+T.map(t=>`<tr><td>${esc(t.model)}</td><td>${t.tur==='sirali'?'Sıralı ≤'+t.butce:'Sırasız 5 at'}</td><td class="n">${t.kosu}</td><td class="n">${f2(t.harcama)}</td><td class="n">${f2(t.kazanc)}</td><td class="n">${t.isabet}</td><td class="n">${t.geri_donus==null?'–':String(t.geri_donus).replace('.',',')}</td></tr>`).join('')+'</table>':'Henüz sonuçlanan tabela yok. Kuponlar yarıştan önce dondurulur; resmî ödeme CSV’si gelince değerlendirilir. Tabela oynanmayan koşular ölçüme girmez.'; }).catch(()=>{}); },0);
-  return `<h2 style="margin-top:14px">Tabela kâğıt üstü takip</h2><div class="card" style="padding:14px 16px"><div id="tbTakip" class="sub">Yükleniyor…</div></div><h2 style="margin-top:14px">Tabela (ilk 4, kombine)</h2><div class="sub">Her model için sıralı kombine (sıra başına birden fazla at) ve sırasız kombine (5 at, tüm 4'lü sıralamalar = 120 komb.). Kupondaki her sıralama ayrı bilet: ilk 4 sırayla tutarsa tam ödeme, aynı 4 at başka sırada gelirse her ilgili bilet küçük 'sırasız' ödeme alır. Birim 1,50 TL. Koşu listesi tüm bekleyen koşulardır; tabela hangisinde açıksa onu seç. Kâğıt üstü, ölçüm ve kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
+  return `<h2 style="margin-top:14px">Tabela kâğıt üstü takip</h2><div class="card" style="padding:14px 16px"><div id="tbTakip" class="sub">Yükleniyor…</div></div><h2 style="margin-top:14px">Tabela (ilk 4, kombine)</h2><div class="sub">Her model için sıralı kombine (sıra başına birden fazla at) ve sırasız kombine (5 at, 6. at yalnız kapsamayı ≥5 puan artırırsa). Kupondaki her sıralama ayrı bilet: ilk 4 sırayla tutarsa tam ödeme, aynı 4 at başka sırada gelirse her ilgili bilet küçük 'sırasız' ödeme alır. Birim 1,50 TL. Koşu listesi tüm bekleyen koşulardır; tabela hangisinde açıksa onu seç. Kâğıt üstü, ölçüm ve kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
 }
 function egzCiz(){
   const el=$('egzIc'); if(!el) return;
