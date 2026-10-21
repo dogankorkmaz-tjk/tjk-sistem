@@ -1,7 +1,7 @@
 """Tabela bahsi (ilk 4 at) kağıt üstü takip (21 Ekim 2026, ön-kayıtlı kural: yarış başlamadan dondur, sonra değiştirme).
 Her koşu için (>=6 at) her modelin: sıralı kombine <=24 ve <=120 geçerli kombinasyon, sırasız kombine (modelin en yüksek 5 atı, 120 komb.).
 Değerlendirme: data/odeme'de o koşu için 'TABELA BAHİS' (sıralı) / 'TABELA BAHİS SIRASIZ' satırı varsa; hiçbiri yoksa ama o koşuda başka ödeme satırı varsa
-tabela oynanmamış sayılır ve ölçüme girmez. Birim 1 TL varsayımı (makinede doğrulanmadı), ödeme satırı birim bahis başına kabul edilir."""
+tabela oynanmamış sayılır ve ölçüme girmez. Birim 1,50 TL (kullanıcı doğruladı 21 Ekim 2026), ödeme satırı birim bilet (1,50 TL) başına kabul edilir."""
 import os, json, glob, math, itertools
 import pandas as pd
 from .besli import _olasiliklar, _modeller, GG, G_M, G_P
@@ -9,7 +9,7 @@ from .besli import _olasiliklar, _modeller, GG, G_M, G_P
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI, SITE = os.path.join(KOK, "data", "tabela"), os.path.join(KOK, "docs", "data")
 BUTCELER = (24, 120)
-BIRIM = 1.0
+BIRIM = 1.5
 L = 4
 
 

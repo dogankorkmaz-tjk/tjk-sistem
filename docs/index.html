@@ -1529,7 +1529,7 @@ function esnekHtml(){
 function tabelaEgz(){
   // Tabela bahsi (21 Ekim 2026): ilk 4 at; her model için sıralı kombine (sıra başına çok at) ve sırasız kombine (5 at, 120 kombinasyon). Kâğıt üstü, ölçüm/takip yok.
   if(!VERI||GUN!==trBugun()) return '<div class="card empty">Tabela yalnız bugün için gösterilir.</div>';
-  const BIRIM=1, MODELLER=['Bolton','Jason','Jason-S','Jason-F'], R=[];
+  const BIRIM=1.5, MODELLER=['Bolton','Jason','Jason-S','Jason-F'], R=[];
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
     const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
@@ -1551,7 +1551,7 @@ function tabelaEgz(){
   }));
   setTimeout(()=>{ getJSON('data/tabela.json?'+Date.now()).then(d=>{ const el=document.getElementById('tbTakip'); if(!el) return; const T=d.toplam||[];
     el.innerHTML=T.length?'<table class="t"><tr><th>Model</th><th>Tür</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">İsabet</th><th class="n">Geri dönüş</th></tr>'+T.map(t=>`<tr><td>${esc(t.model)}</td><td>${t.tur==='sirali'?'Sıralı ≤'+t.butce:'Sırasız 5 at'}</td><td class="n">${t.kosu}</td><td class="n">${f2(t.harcama)}</td><td class="n">${f2(t.kazanc)}</td><td class="n">${t.isabet}</td><td class="n">${t.geri_donus==null?'–':String(t.geri_donus).replace('.',',')}</td></tr>`).join('')+'</table>':'Henüz sonuçlanan tabela yok. Kuponlar yarıştan önce dondurulur; resmî ödeme CSV’si gelince değerlendirilir. Tabela oynanmayan koşular ölçüme girmez.'; }).catch(()=>{}); },0);
-  return `<h2 style="margin-top:14px">Tabela kâğıt üstü takip</h2><div class="card" style="padding:14px 16px"><div id="tbTakip" class="sub">Yükleniyor…</div></div><h2 style="margin-top:14px">Tabela (ilk 4, kombine)</h2><div class="sub">Her model için sıralı kombine (sıra başına birden fazla at) ve sırasız kombine (5 at, tüm 4'lü sıralamalar = 120 komb.). Kupondaki her sıralama ayrı bilet: ilk 4 sırayla tutarsa tam ödeme, aynı 4 at başka sırada gelirse her ilgili bilet küçük 'sırasız' ödeme alır. Birim 1 TL varsayıldı, makinede bahsin birimini ve açık olup olmadığını doğrula. Koşu listesi tüm bekleyen koşulardır; tabela hangisinde açıksa onu seç. Kâğıt üstü, ölçüm ve kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
+  return `<h2 style="margin-top:14px">Tabela kâğıt üstü takip</h2><div class="card" style="padding:14px 16px"><div id="tbTakip" class="sub">Yükleniyor…</div></div><h2 style="margin-top:14px">Tabela (ilk 4, kombine)</h2><div class="sub">Her model için sıralı kombine (sıra başına birden fazla at) ve sırasız kombine (5 at, tüm 4'lü sıralamalar = 120 komb.). Kupondaki her sıralama ayrı bilet: ilk 4 sırayla tutarsa tam ödeme, aynı 4 at başka sırada gelirse her ilgili bilet küçük 'sırasız' ödeme alır. Birim 1,50 TL. Koşu listesi tüm bekleyen koşulardır; tabela hangisinde açıksa onu seç. Kâğıt üstü, ölçüm ve kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
 }
 function egzCiz(){
   const el=$('egzIc'); if(!el) return;
