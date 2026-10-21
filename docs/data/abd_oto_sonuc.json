@@ -1,15 +1,15 @@
 {
- "uretim": "2026-10-21 15:30 UTC",
- "kayitli_kosu": 287,
- "eslesmeyen_kosu": 184,
+ "uretim": "2026-10-21 16:11 UTC",
+ "kayitli_kosu": 294,
+ "eslesmeyen_kosu": 190,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 173,
- "kosu": 103,
+ "bahis": 175,
+ "kosu": 104,
  "isabet": 12,
- "roi": 1.122,
+ "roi": 1.109,
  "ga95": [
-  0.816,
+  0.794,
   1.559
  ],
  "ulke": {
@@ -18,8 +18,8 @@
    "roi": 0.898
   },
   "birlesik-krallik": {
-   "bahis": 26,
-   "roi": 1.987
+   "bahis": 28,
+   "roi": 1.845
   },
   "fransa": {
    "bahis": 20,
@@ -32,7 +32,7 @@
  },
  "bahis_ani": {
   "bahis": 210,
-  "kosu": 100,
+  "kosu": 101,
   "isabet": 27,
   "roi": 0.901,
   "ga95": [
@@ -42,7 +42,7 @@
  },
  "bahis_t1": {
   "bahis": 215,
-  "kosu": 99,
+  "kosu": 100,
   "isabet": 34,
   "roi": 1.095,
   "ga95": [
@@ -52,7 +52,7 @@
  },
  "bahis_t3": {
   "bahis": 227,
-  "kosu": 98,
+  "kosu": 99,
   "isabet": 30,
   "roi": 0.84,
   "ga95": [
@@ -61,24 +61,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 8,
-   "at": "MISS TECH",
-   "q": 0.177,
-   "g": 7.65,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "MAGIC BEACH",
-   "q": 0.091,
-   "g": 31.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Finger Lakes",
@@ -419,6 +401,24 @@
    "at": "PREVIOUS",
    "q": 0.201,
    "g": 10.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Newmarket",
+   "kosu": 6,
+   "at": "MANOLIN",
+   "q": 0.181,
+   "g": 10.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Newmarket",
+   "kosu": 6,
+   "at": "MAWRID",
+   "q": 0.201,
+   "g": 10.7,
    "kazandi": false
   }
  ]
