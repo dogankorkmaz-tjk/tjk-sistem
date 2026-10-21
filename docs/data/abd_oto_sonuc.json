@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-21 21:11 UTC",
- "kayitli_kosu": 336,
- "eslesmeyen_kosu": 214,
+ "uretim": "2026-10-21 21:49 UTC",
+ "kayitli_kosu": 340,
+ "eslesmeyen_kosu": 216,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 193,
- "kosu": 122,
+ "bahis": 196,
+ "kosu": 124,
  "isabet": 12,
- "roi": 1.005,
+ "roi": 0.99,
  "ga95": [
-  0.58,
+  0.565,
   1.394
  ],
  "ulke": {
   "abd": {
-   "bahis": 128,
-   "roi": 0.779
+   "bahis": 131,
+   "roi": 0.761
   },
   "birlesik-krallik": {
    "bahis": 29,
@@ -31,63 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 241,
-  "kosu": 119,
+  "bahis": 244,
+  "kosu": 121,
   "isabet": 33,
-  "roi": 0.919,
+  "roi": 0.908,
   "ga95": [
-   0.638,
-   1.279
+   0.631,
+   1.26
   ]
  },
  "bahis_t1": {
-  "bahis": 250,
-  "kosu": 118,
+  "bahis": 254,
+  "kosu": 120,
   "isabet": 39,
-  "roi": 1.053,
+  "roi": 1.036,
   "ga95": [
-   0.831,
-   1.253
+   0.804,
+   1.25
   ]
  },
  "bahis_t3": {
-  "bahis": 264,
-  "kosu": 117,
+  "bahis": 268,
+  "kosu": 119,
   "isabet": 35,
-  "roi": 0.821,
+  "roi": 0.809,
   "ga95": [
-   0.719,
-   0.925
+   0.696,
+   0.91
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 6,
-   "at": "SUCCY'S SONG",
-   "q": 0.074,
-   "g": 21.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "MEGA WICH",
-   "q": 0.176,
-   "g": 8.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "MORE SWEETS",
-   "q": 0.106,
-   "g": 14.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Horseshoe Indianapolis",
@@ -302,6 +275,33 @@
    "at": "COOL CAT BOOTS",
    "q": 0.121,
    "g": 17.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "AISLE NINE",
+   "q": 0.079,
+   "g": 18.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "PASSAGE DU DESIR",
+   "q": 0.119,
+   "g": 14.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "MAHINA NIGHTS",
+   "q": 0.119,
+   "g": 17.2,
    "kazandi": false
   },
   {
