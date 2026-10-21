@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-21 19:57 UTC",
- "kayitli_kosu": 327,
- "eslesmeyen_kosu": 210,
+ "uretim": "2026-10-21 20:22 UTC",
+ "kayitli_kosu": 333,
+ "eslesmeyen_kosu": 215,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 187,
- "kosu": 117,
+ "bahis": 191,
+ "kosu": 118,
  "isabet": 12,
- "roi": 1.038,
+ "roi": 1.016,
  "ga95": [
-  0.658,
-  1.442
+  0.599,
+  1.394
  ],
  "ulke": {
   "abd": {
-   "bahis": 122,
-   "roi": 0.817
+   "bahis": 126,
+   "roi": 0.791
   },
   "birlesik-krallik": {
    "bahis": 29,
@@ -31,72 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 238,
-  "kosu": 114,
+  "bahis": 239,
+  "kosu": 115,
   "isabet": 31,
-  "roi": 0.884,
+  "roi": 0.88,
   "ga95": [
    0.622,
    1.26
   ]
  },
  "bahis_t1": {
-  "bahis": 247,
-  "kosu": 113,
+  "bahis": 248,
+  "kosu": 114,
   "isabet": 38,
-  "roi": 1.039,
+  "roi": 1.034,
   "ga95": [
-   0.796,
+   0.789,
    1.25
   ]
  },
  "bahis_t3": {
-  "bahis": 260,
-  "kosu": 112,
+  "bahis": 261,
+  "kosu": 113,
   "isabet": 35,
-  "roi": 0.834,
+  "roi": 0.831,
   "ga95": [
-   0.744,
-   0.938
+   0.738,
+   0.936
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "SLAM DUNK JUSTICE",
-   "q": 0.191,
-   "g": 10.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "STRANGER'S CHURCH",
-   "q": 0.191,
-   "g": 24.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "TAZZY",
-   "q": 0.048,
-   "g": 31.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 5,
-   "at": "FAT CHANCE",
-   "q": 0.143,
-   "g": 10.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Horseshoe Indianapolis",
@@ -302,6 +266,42 @@
    "at": "ROYAL BROWNE",
    "q": 0.089,
    "g": 19.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "SUPREME GOOD",
+   "q": 0.111,
+   "g": 17.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "PAUL'S RECOVERY",
+   "q": 0.087,
+   "g": 27.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "MAGNUM'S MACROBRST",
+   "q": 0.049,
+   "g": 34.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "TAKAHAMA",
+   "q": 0.06,
+   "g": 22.25,
    "kazandi": false
   },
   {
