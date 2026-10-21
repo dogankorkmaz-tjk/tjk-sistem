@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-21 15:17 UTC",
- "kayitli_kosu": 286,
+ "uretim": "2026-10-21 15:29 UTC",
+ "kayitli_kosu": 287,
  "eslesmeyen_kosu": 184,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 172,
- "kosu": 102,
+ "bahis": 173,
+ "kosu": 103,
  "isabet": 12,
- "roi": 1.128,
+ "roi": 1.122,
  "ga95": [
-  0.819,
-  1.72
+  0.816,
+  1.559
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.898
   },
   "birlesik-krallik": {
-   "bahis": 25,
-   "roi": 2.066
+   "bahis": 26,
+   "roi": 1.987
   },
   "fransa": {
    "bahis": 20,
@@ -31,28 +31,28 @@
   }
  },
  "bahis_ani": {
-  "bahis": 209,
-  "kosu": 99,
-  "isabet": 26,
-  "roi": 0.893,
+  "bahis": 210,
+  "kosu": 100,
+  "isabet": 27,
+  "roi": 0.901,
   "ga95": [
-   0.588,
-   1.375
+   0.611,
+   1.392
   ]
  },
  "bahis_t1": {
-  "bahis": 213,
-  "kosu": 98,
-  "isabet": 33,
-  "roi": 1.094,
+  "bahis": 215,
+  "kosu": 99,
+  "isabet": 34,
+  "roi": 1.095,
   "ga95": [
-   0.838,
-   1.344
+   0.849,
+   1.342
   ]
  },
  "bahis_t3": {
   "bahis": 227,
-  "kosu": 97,
+  "kosu": 98,
   "isabet": 30,
   "roi": 0.84,
   "ga95": [
@@ -61,15 +61,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Clairefontaine",
-   "kosu": 7,
-   "at": "MILORD DU LEMO",
-   "q": 0.05,
-   "g": 39.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Clairefontaine",
@@ -419,6 +410,15 @@
    "at": "EL WAABIL",
    "q": 0.151,
    "g": 10.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Newmarket",
+   "kosu": 5,
+   "at": "PREVIOUS",
+   "q": 0.201,
+   "g": 10.5,
    "kazandi": false
   }
  ]
