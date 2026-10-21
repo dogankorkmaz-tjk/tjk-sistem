@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-21 18:40 UTC",
- "kayitli_kosu": 319,
- "eslesmeyen_kosu": 207,
+ "uretim": "2026-10-21 19:05 UTC",
+ "kayitli_kosu": 321,
+ "eslesmeyen_kosu": 206,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 182,
- "kosu": 112,
+ "bahis": 185,
+ "kosu": 115,
  "isabet": 12,
- "roi": 1.066,
+ "roi": 1.049,
  "ga95": [
-  0.719,
-  1.537
+  0.682,
+  1.479
  ],
  "ulke": {
   "abd": {
-   "bahis": 117,
-   "roi": 0.852
+   "bahis": 120,
+   "roi": 0.83
   },
   "birlesik-krallik": {
    "bahis": 29,
@@ -31,63 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 230,
-  "kosu": 109,
-  "isabet": 29,
-  "roi": 0.89,
+  "bahis": 236,
+  "kosu": 112,
+  "isabet": 31,
+  "roi": 0.891,
   "ga95": [
    0.622,
    1.26
   ]
  },
  "bahis_t1": {
-  "bahis": 237,
-  "kosu": 108,
-  "isabet": 36,
-  "roi": 1.058,
+  "bahis": 244,
+  "kosu": 111,
+  "isabet": 38,
+  "roi": 1.051,
   "ga95": [
    0.817,
-   1.271
+   1.257
   ]
  },
  "bahis_t3": {
-  "bahis": 251,
-  "kosu": 107,
-  "isabet": 33,
-  "roi": 0.841,
+  "bahis": 257,
+  "kosu": 110,
+  "isabet": 35,
+  "roi": 0.844,
   "ga95": [
    0.753,
    0.938
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Fort Erie",
-   "kosu": 6,
-   "at": "PERIWINKLE",
-   "q": 0.135,
-   "g": 9.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Fort Erie",
-   "kosu": 9,
-   "at": "BOLD RELOAD",
-   "q": 0.16,
-   "g": 14.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 1,
-   "at": "DIAMANTE NEGRO",
-   "q": 0.065,
-   "g": 24.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Horseshoe Indianapolis",
@@ -342,6 +315,15 @@
   },
   {
    "gun": "2026-10-21",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "JOLLY JUSTICE",
+   "q": 0.298,
+   "g": 4.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
    "pist": "Keeneland",
    "kosu": 1,
    "at": "GHOST WISH",
@@ -374,6 +356,24 @@
    "at": "SHEZA GO GETTER",
    "q": 0.062,
    "g": 35.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "MONEY RUN",
+   "q": 0.196,
+   "g": 10.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "FIVE O' SOMEWHERE",
+   "q": 0.156,
+   "g": 9.8,
    "kazandi": false
   },
   {
