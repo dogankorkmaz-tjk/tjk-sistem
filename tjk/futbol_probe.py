@@ -27,3 +27,9 @@ for k, u in HEDEF.items():
     print(k, out[k].get("kod"), out[k].get("bayt"), out[k].get("hata", ""))
 os.makedirs(os.path.join(KOK, "data", "futbol"), exist_ok=True)
 json.dump(out, open(os.path.join(KOK, "data", "futbol", "probe.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+try:
+    r = requests.get(HEDEF["iddaa_api"], headers=H, timeout=40)
+    open(os.path.join(KOK, "data", "futbol", "iddaa_ornek.json"), "w", encoding="utf-8").write(r.text)
+except Exception as e:
+    print("iddaa örnek hatası", repr(e))
