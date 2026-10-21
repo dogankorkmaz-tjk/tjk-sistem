@@ -1415,12 +1415,14 @@ function permHtml(k,idx,P,pp,GMm,BIRIM,base){
     const U=[...new Set(base.flat())], T=ustKTahmin(P,idx,5).find(z=>z.k===3); if(!T) return '';
     const t3=i=>{ const x=T.tum.find(z=>z.i===idx[i]); return x?x.p:0; };
     const cand=P.map((v,i)=>i).filter(i=>!U.includes(i)&&P[i]>=0.008).sort((a,b)=>P[b]/pp[b]-P[a]/pp[a]);
-    if(!cand.length) return '<div class="sub">Sürpriz adayı yok (model olasılığı ≥%0,8 olan ve kuponda olmayan at çıkmadı).</div>';
-    const sg=cand[0], no=i=>k.atlar[idx[i]].no, G=G5_P.slice(0,3);
+    const no=i=>k.atlar[idx[i]].no, G=G5_P.slice(0,3);
     const ppW=G.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
     const GM=GMm.slice(0,3), pW=GM.map(g=>P.map(v=>Math.pow(Math.max(v,1e-9),g))), pT=GM.map(g=>P.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
     const ozet=(sets,v,etiket,ek)=>{ const tl=v*BIRIM, prM=besliProb(pW,pT,sets), prP=besliProb(ppW,ppT,sets), oran=prM/Math.max(prP,1e-9);
       return `<div class="sub"><b>${etiket}</b> · ${v} komb. · <b>${tl} TL</b> · tutma %${(prM*100).toFixed(1).replace('.',',')} (piyasa %${(prP*100).toFixed(1).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})${ek||''}${tahOd(v,prP,tl)}</div>`; };
+    if(!cand.length){ const sT=U.slice().sort((x,y)=>t3(y)-t3(x)); let V=sT.slice(0,4); const kp=S=>besliProb(pW,pT,[S,S,S]); if(sT.length>4&&kp(sT.slice(0,5))-kp(V)>=0.05) V=sT.slice(0,5); const m=V.length;
+      return '<div style="border-top:1px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:4px"><b>Sırasız kombine</b>'+ozet([V,V,V],m*(m-1)*(m-2),'Sırasız (kombine tuşu, '+m+' at): '+V.map(no).join(', '))+'<small class="sub" style="opacity:.7">Sürpriz adayı yok. Atlar ilk-3 olasılığına göre seçildi; en çok 4 at (kapsamayı ≥5 puan artırırsa 5). Kâğıt üstü.</small></div>'; }
+    const sg=cand[0];
     const sets2=base.map(x=>x.concat([sg]));
     const sirT=U.concat([sg]).filter((v,i,a)=>a.indexOf(v)===i).sort((x,y)=>(y===sg)-(x===sg)||t3(y)-t3(x));   // sürpriz zorunlu; kalanlar ilk-3 olasılığına göre
     let U2=sirT.slice(0,4); const kap=S=>besliProb(pW,pT,[S,S,S]);
