@@ -1520,14 +1520,15 @@ function egzCiz(){
     const kapali=EGT==='ÜÇLÜ BAHİS'&&ilk.has(c.hipodrom+'|'+c.kosu);
     if(c.sonuc||c.dondu) bit.push(c); else if(kapali) kap.push(c); else oy.push(c);
   });
-  s+=`<h2 style="margin-top:8px">Sıradaki koşular</h2>`+(oy.length?oy.map(c=>egzKart(c,'oyna',null)).join(''):'<div class="card empty">Şu an oynanabilir seçim yok.</div>');
-  if(kap.length) s+=`<h2>Bu bahis kapalı</h2>`+kap.map(c=>egzKart(c,'kapali',null)).join('');
+  const KOMB=(EGT==='SIRALI İKİLİ'||EGT==='ÜÇLÜ BAHİS');
+  if(KOMB){ try{ s+=kombEgz(MM(EGM),EGT==='SIRALI İKİLİ'?2:3); }catch(e){ console.error(e); } }
+  const tek=`<h2 style="margin-top:8px">Sıradaki koşular</h2>`+(oy.length?oy.map(c=>egzKart(c,'oyna',null)).join(''):'<div class="card empty">Şu an oynanabilir seçim yok.</div>')+(kap.length?`<h2>Bu bahis kapalı</h2>`+kap.map(c=>egzKart(c,'kapali',null)).join(''):'');
+  if(KOMB) s+=`<details class="kb"><summary>Tek tek kombinasyonlar (eski görünüm; kâğıt üstü takip bunun üzerinden)</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${tek}</div></details>`; else s+=tek;
   if(bit.length) s+=`<details class="kb"><summary>Başlayan ve biten koşular (${bit.length})</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:8px">${bit.map(c=>egzKart(c,'bitti',c.sonuc&&c.sonuc[EGT])).join('')}</div></details>`;
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
   try{ s+=sirali3Html(); }catch(e){ console.error(e); }
   try{ s+=kanitHtml(); }catch(e){ console.error(e); }
   s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${tab('Jason-S (gölge, yalnızca karşılaştırma)',d.toplam_jason_s)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
-  try{ if(EGT==='SIRALI İKİLİ') s+=kombEgz(MM(EGM),2); else if(EGT==='ÜÇLÜ BAHİS') s+=kombEgz(MM(EGM),3); }catch(e){ console.error(e); }
   try{ s+=besliEgz(MM(EGM)); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
