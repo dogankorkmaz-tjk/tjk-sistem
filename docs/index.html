@@ -527,7 +527,7 @@ async function gunYukle(t){
   try{
     VERI = t ? await getJSON('data/gun/'+t+'.json') : await getJSON('data/bugun.json');
     GUN = VERI.tarih;
-    $('durum').textContent = VERI.gecmis ? 'Arşiv günü: kapanış ganyanları ve sonuçlar kayıtlı. Model puanı o günkü bilgiyle hesaplandı (2026-10-08 öncesi günler modelin eğitim verisidir, canlı test sayılmaz).' : VERI.hipodromlar.length ? `Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir` : 'Bu gün Türkiye\'de yarış yok.';
+    $('durum').textContent = VERI.gecmis ? 'Arşiv günü: kapanış ganyanları ve sonuçlar kayıtlı. Model puanı o günkü bilgiyle hesaplandı (2026-10-08 öncesi günler modelin eğitim verisidir, canlı test sayılmaz).' : VERI.hipodromlar.length ? `Son güncelleme ${VERI.guncelleme||'?'} · yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir` : 'Bu gün Türkiye\'de yarış yok.';
   }catch(e){
     if(t){ VERI={tarih:t,hipodromlar:[]}; GUN=t; $('durum').textContent='Bu güne ait kayıt yok.'; }
     else { $('durum').innerHTML='<span class="warn">Veri okunamadı. Sistem ilk çalışmasını yapmamış olabilir.</span>'; VERI={tarih:trBugun(),hipodromlar:[]}; GUN=VERI.tarih; }
@@ -1213,7 +1213,7 @@ document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.datase
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 20 dakikada bir yenilenir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
