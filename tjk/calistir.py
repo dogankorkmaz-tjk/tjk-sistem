@@ -12,6 +12,7 @@ from . import kupon as KP
 from . import plase as PL
 from . import tuyo as TY
 from . import besli as BS
+from . import tabela as TB
 from . import sirali3 as S3
 from . import deger as DG
 from . import kombine as KB
@@ -755,6 +756,10 @@ def canli(t):
     except Exception as e:
         print("besli hatası:", repr(e))
     try:
+        TB.guncelle(obj)
+    except Exception as e:
+        print("tabela hatası:", repr(e))
+    try:
         S3.guncelle(obj)
     except Exception as e:
         print("sıralı 3'lü kolon kuponu hatası:", repr(e))
@@ -841,6 +846,10 @@ def gece(bugun):
                 BS.guncelle(obj)
             except Exception as e:
                 print("besli hatası:", repr(e))
+            try:
+                TB.guncelle(obj)
+            except Exception as e:
+                print("tabela hatası:", repr(e))
             try:
                 ES.guncelle(obj)
             except Exception as e:
