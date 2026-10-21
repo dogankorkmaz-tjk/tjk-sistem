@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-21 16:56 UTC",
- "kayitli_kosu": 296,
- "eslesmeyen_kosu": 191,
+ "uretim": "2026-10-21 17:27 UTC",
+ "kayitli_kosu": 302,
+ "eslesmeyen_kosu": 195,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 176,
- "kosu": 105,
+ "bahis": 178,
+ "kosu": 107,
  "isabet": 12,
- "roi": 1.103,
+ "roi": 1.09,
  "ga95": [
-  0.782,
+  0.76,
   1.559
  ],
  "ulke": {
   "abd": {
-   "bahis": 111,
-   "roi": 0.898
+   "bahis": 113,
+   "roi": 0.882
   },
   "birlesik-krallik": {
    "bahis": 29,
@@ -31,54 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 215,
-  "kosu": 102,
+  "bahis": 219,
+  "kosu": 104,
   "isabet": 27,
-  "roi": 0.88,
+  "roi": 0.864,
   "ga95": [
-   0.577,
-   1.294
+   0.552,
+   1.26
   ]
  },
  "bahis_t1": {
-  "bahis": 220,
-  "kosu": 101,
+  "bahis": 225,
+  "kosu": 103,
   "isabet": 34,
-  "roi": 1.07,
+  "roi": 1.047,
   "ga95": [
-   0.801,
-   1.29
+   0.758,
+   1.271
   ]
  },
  "bahis_t3": {
-  "bahis": 232,
-  "kosu": 100,
+  "bahis": 238,
+  "kosu": 102,
   "isabet": 30,
-  "roi": 0.822,
+  "roi": 0.801,
   "ga95": [
-   0.685,
-   0.938
+   0.622,
+   0.916
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Finger Lakes",
-   "kosu": 6,
-   "at": "PARTNERS N CRIME",
-   "q": 0.061,
-   "g": 22.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Finger Lakes",
-   "kosu": 8,
-   "at": "MAIZE LOVED LAFFY",
-   "q": 0.117,
-   "g": 19.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Finger Lakes",
@@ -374,6 +356,24 @@
    "at": "FANTASY MASTER",
    "q": 0.142,
    "g": 11.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Keeneland",
+   "kosu": 1,
+   "at": "GHOST WISH",
+   "q": 0.066,
+   "g": 20.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Keeneland",
+   "kosu": 1,
+   "at": "FLANKER",
+   "q": 0.154,
+   "g": 8.3,
    "kazandi": false
   },
   {
