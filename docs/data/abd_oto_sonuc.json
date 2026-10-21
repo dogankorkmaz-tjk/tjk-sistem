@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-21 19:20 UTC",
- "kayitli_kosu": 324,
- "eslesmeyen_kosu": 209,
+ "uretim": "2026-10-21 19:54 UTC",
+ "kayitli_kosu": 327,
+ "eslesmeyen_kosu": 210,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 185,
- "kosu": 115,
+ "bahis": 187,
+ "kosu": 117,
  "isabet": 12,
- "roi": 1.049,
+ "roi": 1.038,
  "ga95": [
-  0.682,
-  1.479
+  0.658,
+  1.442
  ],
  "ulke": {
   "abd": {
-   "bahis": 120,
-   "roi": 0.83
+   "bahis": 122,
+   "roi": 0.817
   },
   "birlesik-krallik": {
    "bahis": 29,
@@ -31,54 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 236,
-  "kosu": 112,
+  "bahis": 238,
+  "kosu": 114,
   "isabet": 31,
-  "roi": 0.891,
+  "roi": 0.884,
   "ga95": [
    0.622,
    1.26
   ]
  },
  "bahis_t1": {
-  "bahis": 244,
-  "kosu": 111,
+  "bahis": 247,
+  "kosu": 113,
   "isabet": 38,
-  "roi": 1.051,
+  "roi": 1.039,
   "ga95": [
-   0.817,
-   1.257
+   0.796,
+   1.25
   ]
  },
  "bahis_t3": {
-  "bahis": 257,
-  "kosu": 110,
+  "bahis": 260,
+  "kosu": 112,
   "isabet": 35,
-  "roi": 0.844,
+  "roi": 0.834,
   "ga95": [
-   0.753,
+   0.744,
    0.938
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 2,
-   "at": "BOSS JUSTICE",
-   "q": 0.153,
-   "g": 11.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "UNBRIDLED SLOPE",
-   "q": 0.109,
-   "g": 23.2,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Horseshoe Indianapolis",
@@ -315,11 +297,29 @@
   },
   {
    "gun": "2026-10-21",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "ROYAL BROWNE",
+   "q": 0.089,
+   "g": 19.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
    "pist": "Horseshoe Indianapolis",
    "kosu": 2,
    "at": "JOLLY JUSTICE",
    "q": 0.298,
    "g": 4.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 3,
+   "at": "COOL CAT BOOTS",
+   "q": 0.121,
+   "g": 17.1,
    "kazandi": false
   },
   {
