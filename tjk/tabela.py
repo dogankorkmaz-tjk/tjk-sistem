@@ -104,11 +104,18 @@ def guncelle(obj, simdi=None):
                                                   "ayaklar": [[at[i]["no"] for i in s] for s in sets],
                                                   "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
                         W, T = _W(p, G)
-                        top = sorted(range(len(p)), key=lambda i: -p[i])[:5]; sets = [top] * L
-                        pm_ = _prob(W, T, sets); pq = _prob(Wp, Tp, sets); v = gecerli(sets)
-                        c["kuponlar"].append({"model": model, "tur": "sirasiz", "butce": 120, "kombinasyon": v, "bedel": round(v * BIRIM, 2),
-                                              "ayaklar": [[at[i]["no"] for i in s] for s in sets],
-                                              "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
+                        sr = sorted(range(len(p)), key=lambda i: -p[i])
+                        for ad, n in (("sirasiz", 5), ("sirasiz+", None)):
+                            top = sr[:5]
+                            if n is None:     # +1 at kuralı: 6. at kapsamayı >=5 puan artırırsa (aksi halde bu varyant yok)
+                                if len(sr) <= 5 or _prob(W, T, [sr[:6]] * L) - _prob(W, T, [sr[:5]] * L) < 0.05:
+                                    continue
+                                top = sr[:6]
+                            sets = [top] * L
+                            pm_ = _prob(W, T, sets); pq = _prob(Wp, Tp, sets); v = gecerli(sets)
+                            c["kuponlar"].append({"model": model, "tur": ad, "butce": v, "kombinasyon": v, "bedel": round(v * BIRIM, 2),
+                                                  "ayaklar": [[at[i]["no"] for i in s] for s in sets],
+                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
                     kay[anahtar] = c
             if c and "sonuc" not in c and k.get("sonuc"):
                 sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None}
