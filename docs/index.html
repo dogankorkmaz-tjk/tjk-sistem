@@ -1300,7 +1300,7 @@ otoTuyoYukle();
 besliYukle();
 
 let UC3=null, EGZ=null, KANIT=null, S3=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
-const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2};
+const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü','TABELA':'Tabela'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2,'TABELA':1};
 function kanitHtml(){
   if(!KANIT||!KANIT.satirlar) return '';
   const sat=KANIT.satirlar.filter(r=>!r.ana&&r.model===EGM);
@@ -1526,6 +1526,31 @@ function esnekHtml(){
   s+=`<details class="kb"><summary>Kâğıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px"><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Oynanan</th><th class="n">Oynanmayan</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>${(ESN.toplam||[]).map(t=>`<tr><td>${AD[t.tur]}</td><td class="n">${t.oynanan}</td><td class="n">${t.oynanmayan}</td><td class="n">${f(t.harcama)}</td><td class="n">${f(t.kazanc)}</td><td class="n">${t.geri_donus==null?'–':f(t.geri_donus)}</td></tr>`).join('')}</table><div class="sub" style="margin-top:6px">Karar: tür başına ≥300 oynanmış koşu ve sabit bütçeli kuponla eşleşmiş karşılaştırma. Ön kayıt: hipotez defteri 14 Ekim 2026.</div></div></details>`;
   return s;
 }
+function tabelaEgz(){
+  // Tabela bahsi (21 Ekim 2026): ilk 4 at; her model için sıralı kombine (sıra başına çok at) ve sırasız kombine (5 at, 120 kombinasyon). Kâğıt üstü, ölçüm/takip yok.
+  if(!VERI||GUN!==trBugun()) return '<div class="card empty">Tabela yalnız bugün için gösterilir.</div>';
+  const BIRIM=1, MODELLER=['Bolton','Jason','Jason-S','Jason-F'], R=[];
+  (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
+    if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
+    const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
+    const pp=idx.map(i=>out.map[i].pp), G=G5_P.slice(0,4), no=i=>k.atlar[idx[i]].no;
+    const ppW=G.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))), ppT=G.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
+    const blok=MODELLER.map(m=>{
+      const P=idx.map(i=>PF(out.map[i],m)); if(P.some(v=>v==null)) return '';
+      const GMm=(m==='Jason-S'&&VERI.a_s)?VERI.a_s:G5_M, GM=GMm.slice(0,4);
+      const pW=GM.map(g=>P.map(v=>Math.pow(Math.max(v,1e-9),g))), pT=GM.map(g=>P.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0));
+      const satir=(sets,etiket)=>{ const v=kombSay(sets), prM=besliProb(pW,pT,sets), prP=besliProb(ppW,ppT,sets), oran=prM/Math.max(prP,1e-9);
+        return `<div class="sub">${etiket} · ${v} komb. · <b>${f2(v*BIRIM)} TL</b> · tutma %${(prM*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})${tahOd(v,prP,v*BIRIM)}<br><span style="font-family:monospace">${sets.map((x,j)=>`${j+1}. ${x.map(no).join(',')}`).join(' | ')}</span></div>`; };
+      let t='';
+      [24,120].forEach(B=>{ const r=besliKupon(P,B,GMm,4,true); if(r) t+=satir(r.sets,'Sıralı ≤'+B); });
+      const top=P.map((v,i)=>i).sort((a,b)=>P[b]-P[a]).slice(0,5), U=top;
+      t+=satir([U,U,U,U],'Sırasız kombine (5 at: '+U.map(no).join(', ')+')');
+      return `<div style="border-top:1px solid var(--line);padding-top:6px"><b>${m}</b>${t}</div>`;
+    }).join('');
+    if(blok) R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${blok}</div>`});
+  }));
+  return `<h2 style="margin-top:14px">Tabela (ilk 4, kombine)</h2><div class="sub">Her model için sıralı kombine (sıra başına birden fazla at) ve sırasız kombine (5 at, tüm 4'lü sıralamalar = 120 komb.). Birim 1 TL varsayıldı, makinede bahsin birimini ve açık olup olmadığını doğrula. Koşu listesi tüm bekleyen koşulardır; tabela hangisinde açıksa onu seç. Kâğıt üstü, ölçüm ve kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
+}
 function egzCiz(){
   const el=$('egzIc'); if(!el) return;
   if(!EGZ){ el.innerHTML='<div class="card empty">Egzotik seçim verisi henüz yok. İlk koşulardan önce oluşur.</div>'; return; }
@@ -1540,6 +1565,8 @@ function egzCiz(){
   if(EGM==='Esnek'){ try{ s+=esnekHtml(); }catch(e){ console.error(e); }
     el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();}); return; }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
+  if(EGT==='TABELA'){ try{ s+=tabelaEgz(); }catch(e){ console.error(e); }
+    el.innerHTML=s; el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();}); return; }
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
   const hepsi=(d.bugun||[]).filter(c=>(c.model||'Bolton')===EGM&&c.secim&&c.secim[EGT]&&c.secim[EGT].length);
   const oy=[],kap=[],bit=[];
