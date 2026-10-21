@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-21 18:00 UTC",
- "kayitli_kosu": 310,
- "eslesmeyen_kosu": 201,
+ "uretim": "2026-10-21 18:40 UTC",
+ "kayitli_kosu": 319,
+ "eslesmeyen_kosu": 207,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 181,
- "kosu": 109,
+ "bahis": 182,
+ "kosu": 112,
  "isabet": 12,
- "roi": 1.072,
+ "roi": 1.066,
  "ga95": [
-  0.728,
-  1.547
+  0.719,
+  1.537
  ],
  "ulke": {
   "abd": {
-   "bahis": 116,
-   "roi": 0.859
+   "bahis": 117,
+   "roi": 0.852
   },
   "birlesik-krallik": {
    "bahis": 29,
@@ -31,45 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 221,
-  "kosu": 106,
-  "isabet": 28,
-  "roi": 0.884,
+  "bahis": 230,
+  "kosu": 109,
+  "isabet": 29,
+  "roi": 0.89,
   "ga95": [
-   0.604,
-   1.272
+   0.622,
+   1.26
   ]
  },
  "bahis_t1": {
-  "bahis": 227,
-  "kosu": 105,
-  "isabet": 35,
-  "roi": 1.064,
+  "bahis": 237,
+  "kosu": 108,
+  "isabet": 36,
+  "roi": 1.058,
   "ga95": [
-   0.805,
-   1.288
+   0.817,
+   1.271
   ]
  },
  "bahis_t3": {
-  "bahis": 241,
-  "kosu": 104,
-  "isabet": 32,
-  "roi": 0.837,
+  "bahis": 251,
+  "kosu": 107,
+  "isabet": 33,
+  "roi": 0.841,
   "ga95": [
-   0.735,
+   0.753,
    0.938
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Fort Erie",
-   "kosu": 6,
-   "at": "LEZIATE",
-   "q": 0.115,
-   "g": 12.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Fort Erie",
@@ -374,6 +365,15 @@
    "at": "AERATE",
    "q": 0.115,
    "g": 17.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-21",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "SHEZA GO GETTER",
+   "q": 0.062,
+   "g": 35.1,
    "kazandi": false
   },
   {
