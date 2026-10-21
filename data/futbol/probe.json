@@ -2,35 +2,35 @@
  "fd_T1": {
   "kod": 200,
   "bayt": 158392,
-  "sn": 1.1,
+  "sn": 1.5,
   "tip": "text/csv",
   "bas": "ï»¿Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,HS,AS,HST,AST,HF,AF,HC,AC,HY,AY,HR,AR,B365H,B365D,B365A,BFDH,BFDD,BFDA,BMGMH,BMGMD,BMGMA,BVH,BVD,BVA,BWH,BWD,BWA,CLH,CLD,CLA,LBH,LBD,LBA,PSH,PSD,PSA,MaxH,MaxD,MaxA,AvgH,AvgD,AvgA,BFEH,BFED,BFEA,B365>2.5,B365<2.5,P>2.5,P<2.5,Max>2.5,Max<2"
  },
  "fd_E0": {
   "kod": 200,
   "bayt": 203438,
-  "sn": 1.1,
+  "sn": 1.5,
   "tip": "text/csv",
   "bas": "ï»¿Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HF,AF,HC,AC,HY,AY,HR,AR,B365H,B365D,B365A,BFDH,BFDD,BFDA,BMGMH,BMGMD,BMGMA,BVH,BVD,BVA,BWH,BWD,BWA,CLH,CLD,CLA,LBH,LBD,LBA,PSH,PSD,PSA,MaxH,MaxD,MaxA,AvgH,AvgD,AvgA,BFEH,BFED,BFEA,B365>2.5,B365<2.5,P>2.5,P<2.5,Max>2"
  },
  "fd_notes": {
   "kod": 200,
   "bayt": 7686,
-  "sn": 0.7,
+  "sn": 1.0,
   "tip": "text/plain",
   "bas": "Notes for Football Data\r \r All data is in csv format, ready for use within standard spreadsheet applications. Please note that some abbreviations are no longer in use (in particular odds from specific bookmakers no longer used) and refer to data collected in earlier seasons. For a current list of wh"
  },
  "fbref_tr": {
   "kod": 403,
   "bayt": 5665,
-  "sn": 0.1,
+  "sn": 0.2,
   "tip": "text/html; charset=UTF-8",
   "bas": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
  },
  "understat": {
   "kod": 200,
   "bayt": 18698,
-  "sn": 0.6,
+  "sn": 0.8,
   "tip": "text/html; charset=UTF-8",
   "bas": "<!DOCTYPE html> <html lang=\"en\">     <head> \t\t<base href=\"https://understat.com/\"> \t\t<title>EPL xG Table and Scorers for the 2026/2027 season | Understat.com</title>         <meta charset=\"UTF-8\" /> \t\t<meta name=\"description\" content=\"xG table of EPL standings and top scorers for the 2026/2027 seaso"
  },
@@ -44,16 +44,16 @@
  "iddaa_site": {
   "kod": 200,
   "bayt": 54010,
-  "sn": 0.3,
+  "sn": 0.7,
   "tip": "text/html; charset=utf-8",
   "bas": "<!DOCTYPE html><html lang=\"tr\"><head><meta charSet=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><link rel=\"dns-prefetch\" href=\"//s.iddaa.com\"/><link rel=\"preconnect\" href=\"//s.iddaa.com\"/><link rel=\"dns-prefetch\" href=\"//i.iddaa.com\"/><link rel=\"preconnect\" href=\"//i.iddaa.com\"/><link rel=\"dns-pre"
  },
  "iddaa_api": {
   "kod": 200,
-  "bayt": 464259,
-  "sn": 1.1,
+  "bayt": 464260,
+  "sn": 1.4,
   "tip": "application/json; charset=utf-8",
-  "bas": "{\"isSuccess\":true,\"data\":{\"isdiff\":false,\"version\":1792620064298,\"events\":[{\"i\":3252081,\"bri\":74930618,\"v\":982404245,\"hn\":\"Libertad (K)\",\"an\":\"Nacional Montevideo (K)\",\"sid\":1,\"s\":0,\"bp\":0,\"il\":false,\"mbc\":3,\"kOdd\":true,\"m\":[{\"i\":85928128,\"t\":2,\"st\":101,\"v\":982404242,\"s\":1,\"mbc\":3,\"sov\":\"2.5\",\"o\":[{"
+  "bas": "{\"isSuccess\":true,\"data\":{\"isdiff\":false,\"version\":1792620167119,\"events\":[{\"i\":3252081,\"bri\":74930618,\"v\":982404245,\"hn\":\"Libertad (K)\",\"an\":\"Nacional Montevideo (K)\",\"sid\":1,\"s\":0,\"bp\":0,\"il\":false,\"mbc\":3,\"kOdd\":true,\"m\":[{\"i\":85928128,\"t\":2,\"st\":101,\"v\":982404242,\"s\":1,\"mbc\":3,\"sov\":\"2.5\",\"o\":[{"
  },
  "nesine": {
   "hata": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='www.nesine.com', port=443): Max retries exceeded with url: /iddaa (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.nesine.com', port=44"
@@ -61,14 +61,14 @@
  "oddsportal": {
   "kod": 200,
   "bayt": 556097,
-  "sn": 1.8,
+  "sn": 2.4,
   "tip": "text/html; charset=utf-8",
   "bas": "<!DOCTYPE html><html lang=\"en\" class=\"opensans_aaadb7a3-module__b9fGUa__variable montserrat_5d237d23-module__hkFSxG__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/2x0fi7fucyswm.css\" data-p"
  },
  "openfootball": {
   "kod": 200,
   "bayt": 6330,
-  "sn": 0.1,
+  "sn": 0.2,
   "tip": "text/plain; charset=utf-8",
   "bas": "## Frequently Asked Questions (& Answers)  Q: When (and how often) do the football.json datasets get updated?  A: The football.json datsets of the latest season (that is, 2026 & 2026/27)  get auto-updated once a day (5 o'clock UTC) from the upstream Football.TXT datasets via a github action, see the"
  }
