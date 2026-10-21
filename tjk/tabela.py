@@ -126,11 +126,11 @@ def guncelle(obj, simdi=None):
                         c["odeme_sirali"] = float(ts.tutar.max()) if len(ts) else 0.0
                         c["odeme_sirasiz"] = float(tz.tutar.max()) if len(tz) else 0.0
                         for q in c["kuponlar"]:
-                            if q["tur"] == "sirali":
-                                q["isabet"] = all(ilk4[i] in q["ayaklar"][i] for i in range(4)); od_ = c["odeme_sirali"]
-                            else:
-                                q["isabet"] = all(x in q["ayaklar"][0] for x in ilk4); od_ = c["odeme_sirasiz"]
-                            q["kazanc"] = od_ if q["isabet"] else 0.0
+                            # Ödeme: koşunun ilk 4'ü sıra doğruysa 'TABELA BAHİS', dört at sırasız doğruysa 'TABELA BAHİS SIRASIZ' (24 sıralamadan 23'ü). Kuponun içindeki her sıralama ayrı bilet.
+                            ns = q["ayaklar"]
+                            npm = sum(1 for t in itertools.product(*ns) if len(set(t)) == L and set(t) == set(ilk4))
+                            q["isabet"] = all(ilk4[i] in ns[i] for i in range(L))
+                            q["kazanc"] = (c["odeme_sirali"] if q["isabet"] else 0.0) + (npm - (1 if q["isabet"] else 0)) * c["odeme_sirasiz"]
     json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     ozet_yaz(tarih)
 
