@@ -1,130 +1,98 @@
 {
- "mk_robots": {
-  "kod": 200,
-  "bayt": 228,
-  "sn": 0.6,
-  "tip": "text/html",
-  "bas": "User-Agent: * Allow: / Disallow: /api/ Disallow: /_nuxt/ User-agent: GPTBot Disallow: / User-agent: Amazonbot Disallow: / User-agent: Google-Extended Disallow: / User-agent: CCBot Disallow: / User-agent: anthropic-ai Disallow: /",
-  "metin": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /_nuxt/\nUser-agent: GPTBot\nDisallow: /\nUser-agent: Amazonbot\nDisallow: /\nUser-agent: Google-Extended\nDisallow: /\nUser-agent: CCBot\nDisallow: /\nUser-agent: anthropic-ai\nDisallow: /"
- },
- "mk_home": {
-  "kod": 200,
-  "bayt": 117355,
-  "sn": 3.4,
-  "tip": "text/html; charset=utf-8",
-  "bas": "\r \r <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" >\r <head>\r     <title>Mackolik.com - iddaa,canlı maç,iddaa sonuçları,sahadan,futbol @ Mackolik.com</title>\r     <met",
-  "metin": "\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" >\r\n<head>\r\n    <title>Mackolik.com - iddaa,canlı maç,iddaa sonuçları,sahadan,futbol @ Mackolik.com</title>\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n    <meta name=\"description\" content=\"iddaa, iddaa sonuclari, iddaa canlı maç sonuçları,puan durumları,iddaa oranları,iddaa programı,tuttur kuponları,istatistikler,futbol ve diрer spor haberleri,altılı sonuçları ve at yarışı burada.\" />\r\n    <meta name=\"keywords\" content=\"iddaa, Futbol, Tahmin, Maçlar, Spor, Sahadan, Canlı Sonuçlar, Basketbol, Fenerbahçe, Galatasaray, Beşiktaş, Trabzonspor, Superlig, Mackolik, Maçkolik, Opta, Transfer, Transferler\" />\r\n    <meta property=\"og:site_name\" content=\"Mackolik.com\" />\r\n    <meta property=\"og:description\" content=\"iddaa, iddaa sonuclari, iddaa canlı maç sonuçları,puan durumları,iddaa oranları,iddaa programı,tuttur kuponları,istatistikler,futbol ve diрer spor haberleri,altılı sonuçları ve at yarışı burada.\" />\r\n    <meta property=\"fb:app_id\" content=\"117408951656499\" />\r\n    <meta property=\"fb:admins\" content=\"100001798426036\" />\r\n    <meta property=\"fb:pages\" content=\"144002632327179\" />\r\n\r\n    \r\n\r\n    <script src=\"//securepubads.g.doubleclick.net/tag/js/gpt.js\"></script>\r\n    <script type=\"text/javascript\" src=\"//im.mackolik.com/js5/gpt.js?v=2.141\"></script>\r\n\r\n    \r\n<!-- Yandex.Metrika counter -->\r\n<script type=\"text/javascript\" >\r\n    (function (m, e, t, r, i, k, a) {\r\n        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };\r\n        m[i].l = 1 * new Date();\r\n        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }\r\n        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)\r\n    })\r\n        (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\");\r\n\r\n    ym(101254504, \"init\", {\r\n        clickmap: true,\r\n        trackLinks: true,\r\n        accurateTrackBounce: true\r\n    });\r\n</script>\r\n<noscript><div><img src=\"https://mc.yandex.ru/watch/101254504\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div></noscript>\r\n<!-- /Yandex.Metrika counter -->\r\n\r\n    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js\" type=\"text/javascript\"></script>\r\n    <script src=\"//cm.mackolik.com/js5/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js\" type=\"text/javascript\"></script>\r\n    <link href=\"//cm.mackolik.com/js5/jquery-ui-1.8.20.custom/css/custom-theme/jquery-ui-1.8.20.custom.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n    <script src=\"//cm.mackolik.com/js5/jquery.jsonp-2.1.4.js\" type=\"text/javascript\"></script>\r\n    <script src=\"//cm.mackolik.com/js5/jquery-ui-1.8.20.custom/development-bundle/ui/i18n/jquery.ui.datepicker-tr.js\" type=\"text/javascript\"></script>\r\n    <link href=\"//cm.mackolik.com/js5/jquery-ui-1.8.20.custom/development-bundle/themes/custom-theme/jquery.ui.datepicker.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n    <link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />\r\n\r\n    <script type=\"text/javascript\" src=\"//cm.mackolik.com/js5/jquery-autocomplete/jquery.autocomplete.min.js\"></script>\r\n    <script type=\"text/javascript\" src=\"//cm.mackolik.com/js5/script.js?v=2.141\"></script>\r\n    <script type=\"text/javascript\" src=\"//cm.mackolik.com/js5/validator.js\"></script>\r\n    <script type=\"text/javascript\" src=\"//cm.mackolik.com/js5/Mackolik/UrlHelper.js?v=2.141\"></script>\r\n    <script type=\"text/javascript\" src=\"//cm.mackolik.com/js5/Mackolik/json2.js\"></script>\r\n    <script type=\"text/javascript\" src=\"//cm.mackolik.com/js5/Mackolik/User.js?v=2.141\"></script>\r\n\r\n    <script src=\"//cm.mackolik.com/js5/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js\" type=\"text/javascript\"></script>\r\n    <link href=\"//cm.mac"
- },
- "mk_canli": {
-  "kod": 200,
-  "bayt": 310340,
-  "sn": 1.7,
-  "tip": "text/html; charset=UTF-8",
-  "bas": "<!DOCTYPE html> <html data-status-code=\"200\" lang=\"tr\" dir=\"ltr\"> <head>   <link rel=\"preload\"  as=\"font\"  type=\"font/woff2\" href=\"/fonts/mksh-icons.acfca05eb7.woff2\"   crossorigin=\"anonymous\" >    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"  >  <link rel=\"dns-prefetch\" href=\"https://",
-  "metin": "<!DOCTYPE html>\n<html data-status-code=\"200\" lang=\"tr\" dir=\"ltr\">\n<head>\n  <link rel=\"preload\"  as=\"font\"  type=\"font/woff2\" href=\"/fonts/mksh-icons.acfca05eb7.woff2\"   crossorigin=\"anonymous\" >    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"  >  <link rel=\"dns-prefetch\" href=\"https://www.google-analytics.com\"  >  <link rel=\"dns-prefetch\" href=\"https://www.google.com\"  >  <link rel=\"dns-prefetch\" href=\"//ajax.googleapis.com\"  >  <script>\n  var isMobile = false;\n  var mobileAgentsList = /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/;\n\n  if (navigator.userAgent.match(mobileAgentsList)) {\n    isMobile = true;\n  }\n\n  \n\n</script>\n<style>\n  nav .badge-game {\n    display: block;\n    position: absolute;\n    top: 6px;\n    right: -23px;\n    line-height: 2.6em;\n    height: 2.6em;\n    padding: 0 2px;\n    color: white;\n    font-style: italic;\n    font-size: 8px;\n    text-shadow: 0 1px rgba(0, 0, 0, 0.25);\n    border: 1px solid;\n    border-radius: 100%;\n    background: #ff8100;\n    border-color: #ff8100;\n  }\n\n  .badge-game:before, .badge-game:after {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 2.6em;\n    width: 2.6em;\n    background: #ff8100;\n    border-radius: 18%;\n    z-index: -1;\n  }\n\n  .badge-game:before {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n\n  .badge-game:after {\n    -webkit-transform: rotate(-45deg);\n    -moz-transform: rotate(-45deg);\n    -ms-transform: rotate(-45deg);\n    -o-transform: rotate(-45deg);\n    transform: rotate(-45deg);\n  }\n\n  #aGames:hover > .badge-game {\n    transform: matrix3d(1, 0.38, -0.38, 0, -0.38, 1, -0.38, 0, 0.38, 0.38, 0.8464, 0, 0, 0, 0, 1);\n    -webkit-transform: matrix3d(1, 0.38, -0.38, 0, -0.38, 1, -0.38, 0, 0.38, 0.38, 0.8464, 0, 0, 0, 0, 1);\n  }\n</style>\n  <meta charset=\"utf-8\" />\n  <script>window.dataLayer = window.dataLayer || [];window.dataLayer.push({\"prf.pageType\":\"Livescores\",\"prf.siteName\":\"Mackolik\",\"prf.gaUACode\":\"UA-241588-3\",\"prf.date\":\"22-10-2026:08:53:55\"});</script>\n<script>window.testData = window.testData || {};window.testData.gtmContainerId = 'GTM-MF7ZLM4';</script>\n<!-- Google Tag Manager -->\n<script>\n    window.gtag = function(){dataLayer.push(arguments);};\n    var consent = {\n      isFunctionalityChecked: true,\n      isPerformanceChecked: true,\n      isAdsChecked: true\n    };\n    try{\n      var consentFromStorage = window.localStorage.getItem('cookieConsent');\n      if (consentFromStorage) {\n        consent = window.JSON.parse(consentFromStorage);\n      }\n    } catch(err) {\n    }\n\n    gtag('consent', 'default', {'functionality_storage': consent.isFunctionalityChecked ? 'granted' : 'denied'});\n    gtag('consent', 'default', {'analytics_storage': consent.isPerformanceChecked ? 'granted' : 'denied'});\n    gtag('consent', 'default', {'ad_storage': consent.isAdsChecked ? 'granted' : 'denied'});\n</script>\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;\n    f.parentNode.insertBefore(j,f);\n  })(window,document,'script','dataLayer','GTM-MF7ZLM4');\n</script>\n<!-- End Google Tag Manager -->\n\n<script type=\"text/javascript\">\n    (function(c,l,a,r,i,t,y){\n        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n        t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n    })(window, document, \"clarity\", \"script\", \"z04trbjmrq\");\n</script>  <meta name=\"viewport\" content=\"user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1\">\n  <meta name=\"apple-itunes-app\" content=\"app"
- },
- "mk_mac": {
-  "kod": 403,
-  "bayt": 0,
-  "sn": 0.8,
-  "tip": "",
-  "bas": "",
-  "metin": ""
- },
- "mk_arsiv": {
-  "kod": 403,
-  "bayt": 0,
+ "tff_robots": {
+  "kod": 404,
+  "bayt": 1245,
   "sn": 1.1,
-  "tip": "",
+  "tip": "text/html",
+  "bas": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r <html xmlns=\"http://www.w3.org/1999/xhtml\">\r <head>\r <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>\r <title>404 - File or directory not found.</title>\r <style typ",
+  "metin": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>\r\n<title>404 - File or directory not found.</title>\r\n<style type=\"text/css\">\r\n<!--\r\nbody{margin:0;font-size:.7em;font-family:Verdana, Arial, Helvetica, sans-serif;background:#EEEEEE;}\r\nfieldset{padding:0 15px 10px 15px;} \r\nh1{font-size:2.4em;margin:0;color:#FFF;}\r\nh2{font-size:1.7em;margin:0;color:#CC0000;} \r\nh3{font-size:1.2em;margin:10px 0 0 0;color:#000000;} \r\n#header{width:96%;margin:0 0 0 0;padding:6px 2% 6px 2%;font-family:\"trebuchet MS\", Verdana, sans-serif;color:#FFF;\r\nbackground-color:#555555;}\r\n#content{margin:0 0 0 2%;position:relative;}\r\n.content-container{background:#FFF;width:96%;margin-top:8px;padding:10px;position:relative;}\r\n-->\r\n</style>\r\n</head>\r\n<body>\r\n<div id=\"header\"><h1>Server Error</h1></div>\r\n<div id=\"content\">\r\n <div class=\"content-container\"><fieldset>\r\n  <h2>404 - File or directory not found.</h2>\r\n  <h3>The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable.</h3>\r\n </fieldset></div>\r\n</div>\r\n</body>\r\n</html>\r\n"
+ },
+ "tff_hakem": {
+  "kod": 200,
+  "bayt": 336461,
+  "sn": 0.4,
+  "tip": "text/html; charset=windows-1254",
+  "bas": "\r \r <html>\r <head id=\"ctl00_Head\"><title>\r \t Trendyol Süper Lig Fikstürü ve Puan Cetveli TFF\r </title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no\" /><link rel=\"ICON\" href=\"App_Themes/TFF_Default/Images/tff16x.ico\" /><link rel",
+  "metin": ""
+ },
+ "tm_robots": {
+  "kod": 200,
+  "bayt": 131,
+  "sn": 0.4,
+  "tip": "text/plain; charset=utf-8",
+  "bas": "User-agent: Slurp Crawl-delay: 2  User-agent: Mediapartners-Google Disallow:  User-agent: wget Disallow: /  User-agent: * Allow: / ",
+  "metin": "User-agent: Slurp\nCrawl-delay: 2\n\nUser-agent: Mediapartners-Google\nDisallow:\n\nUser-agent: wget\nDisallow: /\n\nUser-agent: *\nAllow: /\n"
+ },
+ "tm_sl": {
+  "kod": 202,
+  "bayt": 0,
+  "sn": 0.1,
+  "tip": "text/html; charset=UTF-8",
   "bas": "",
   "metin": ""
  },
- "fd_T1": {
+ "wf_robots": {
   "kod": 200,
-  "bayt": 158392,
-  "sn": 1.8,
-  "tip": "text/csv",
-  "bas": "ï»¿Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,HS,AS,HST,AST,HF,AF,HC,AC,HY,AY,HR,AR,B365H,B365D,B365A,BFDH,BFDD,BFDA,BMGMH,BMGMD,BMGMA,BVH,BVD,BVA,BWH,BWD,BWA,CLH,CLD,CLA,LBH,LBD,LBA,PSH,PSD,PSA,MaxH,MaxD,MaxA,AvgH,AvgD,AvgA,BFEH,BFED,BFEA,B365>2.5,B365<2.5,P>2.5,P<2.5,Max>2.5,Max<2",
-  "metin": ""
+  "bayt": 3259,
+  "sn": 0.1,
+  "tip": "text/plain; charset=utf-8",
+  "bas": "# As a condition of accessing this website, you agree to abide by the following # content signals:  # (a)  If a Content-Signal = yes, you may collect content for the corresponding #      use. # (b)  If a Content-Signal = no, you may not collect content for the #      corresponding use. # (c)  If the",
+  "metin": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a Content-Signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a Content-Signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a Content-Signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via Content-Signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n# use:      how AI systems may consume the content (immediate, reference, or full).\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n\n# BEGIN Cloudflare Managed content\n\n\nUser-agent: *\nContent-Signal: search=yes,ai-train=no,use=reference\nAllow: /\n\n# Training crawlers\nUser-agent: Amazonbot\nDisallow: /"
  },
- "fd_E0": {
-  "kod": 200,
-  "bayt": 203438,
-  "sn": 1.7,
-  "tip": "text/csv",
-  "bas": "ï»¿Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG,HTR,Referee,HS,AS,HST,AST,HF,AF,HC,AC,HY,AY,HR,AR,B365H,B365D,B365A,BFDH,BFDD,BFDA,BMGMH,BMGMD,BMGMA,BVH,BVD,BVA,BWH,BWD,BWA,CLH,CLD,CLA,LBH,LBD,LBA,PSH,PSD,PSA,MaxH,MaxD,MaxA,AvgH,AvgD,AvgA,BFEH,BFED,BFEA,B365>2.5,B365<2.5,P>2.5,P<2.5,Max>2",
-  "metin": ""
- },
- "fd_notes": {
-  "kod": 200,
-  "bayt": 7686,
-  "sn": 1.2,
-  "tip": "text/plain",
-  "bas": "Notes for Football Data\r \r All data is in csv format, ready for use within standard spreadsheet applications. Please note that some abbreviations are no longer in use (in particular odds from specific bookmakers no longer used) and refer to data collected in earlier seasons. For a current list of wh",
-  "metin": ""
- },
- "fbref_tr": {
+ "wf_sl": {
   "kod": 403,
-  "bayt": 5665,
+  "bayt": 5692,
   "sn": 0.1,
   "tip": "text/html; charset=UTF-8",
   "bas": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal",
   "metin": ""
  },
- "understat": {
+ "fotmob": {
+  "kod": 404,
+  "bayt": 211716,
+  "sn": 0.4,
+  "tip": "text/html; charset=utf-8",
+  "bas": "<!DOCTYPE html><html lang=\"en\" dir=\"ltr\"><head><meta charSet=\"utf-8\" data-next-head=\"\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=5.0\" data-next-head=\"\"/><meta name=\"apple-itunes-app\" content=\"app-id=488575683\" data-next-head=\"\"/><link rel=\"alternate\" href=\"",
+  "metin": ""
+ },
+ "fdorg": {
+  "kod": 403,
+  "bayt": 152,
+  "sn": 0.6,
+  "tip": "application/json;charset=UTF-8",
+  "bas": "{\"message\":\"The resource you are looking for is restricted and apparently not within your permissions. Please check your subscription.\",\"errorCode\":403}",
+  "metin": ""
+ },
+ "apifootball": {
+  "kod": 403,
+  "bayt": 219,
+  "sn": 0.2,
+  "tip": "application/json",
+  "bas": "{\"get\": \"\",\"parameters\": [],\"errors\": {\"token\": \"Missing application key, Check our documentation on how to add your API key in headers.\",\"error\": \"4xHe\"},\"results\": 0,\"paging\": {\"current\": 1,\"total\": 1},\"response\": []}",
+  "metin": ""
+ },
+ "sportsdb": {
+  "kod": 403,
+  "bayt": 153,
+  "sn": 0.1,
+  "tip": "text/plain",
+  "bas": "The old '3' Free Sports API key is permanently disabled, Please use the new test key \"123\" or sign up to premium here https://www.thesportsdb.com/pricing",
+  "metin": ""
+ },
+ "espn": {
   "kod": 200,
-  "bayt": 18688,
+  "bayt": 14822,
+  "sn": 0.2,
+  "tip": "application/json;charset=UTF-8",
+  "bas": "{\"leagues\":[{\"id\":\"3946\",\"uid\":\"s:600~l:3946\",\"name\":\"Turkish Super Lig\",\"abbreviation\":\"Turkish Super Lig\",\"midsizeName\":\"TUR.1\",\"slug\":\"tur.1\",\"season\":{\"year\":2026,\"startDate\":\"2026-07-01T04:00Z\",\"endDate\":\"2027-07-01T03:59Z\",\"displayName\":\"2026-27 Turkish Super Lig\",\"type\":{\"id\":\"1\",\"type\":14382",
+  "metin": ""
+ },
+ "understat_players": {
+  "kod": 200,
+  "bayt": 18698,
   "sn": 0.8,
   "tip": "text/html; charset=UTF-8",
-  "bas": "<!DOCTYPE html> <html lang=\"en\">     <head> \t\t<base href=\"https://understat.com/\"> \t\t<title>EPL xG Table and Scorers for the 2026/2027 season | Understat.com</title>         <meta charset=\"UTF-8\" /> \t\t<meta name=\"description\" content=\"xG table of EPL standings and top scorers for the 2026/2027 seaso",
-  "metin": ""
- },
- "sofascore_gun": {
-  "kod": 403,
-  "bayt": 48,
-  "sn": 0.1,
-  "tip": "application/json",
-  "bas": "{\"error\": {\"code\": 403, \"reason\": \"Forbidden\" }}",
-  "metin": ""
- },
- "iddaa_site": {
-  "kod": 200,
-  "bayt": 54010,
-  "sn": 0.6,
-  "tip": "text/html; charset=utf-8",
-  "bas": "<!DOCTYPE html><html lang=\"tr\"><head><meta charSet=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><link rel=\"dns-prefetch\" href=\"//s.iddaa.com\"/><link rel=\"preconnect\" href=\"//s.iddaa.com\"/><link rel=\"dns-prefetch\" href=\"//i.iddaa.com\"/><link rel=\"preconnect\" href=\"//i.iddaa.com\"/><link rel=\"dns-pre",
-  "metin": ""
- },
- "iddaa_api": {
-  "kod": 200,
-  "bayt": 382516,
-  "sn": 1.5,
-  "tip": "application/json; charset=utf-8",
-  "bas": "{\"isSuccess\":true,\"data\":{\"isdiff\":false,\"version\":1792648384820,\"events\":[{\"i\":3274030,\"bri\":75113128,\"v\":981997204,\"hn\":\"Sitra Club\",\"an\":\"Al-Rifaa\",\"sid\":1,\"s\":0,\"bp\":0,\"il\":true,\"mbc\":3,\"kOdd\":true,\"m\":[{\"i\":85830990,\"t\":2,\"st\":101,\"v\":981569493,\"s\":1,\"mbc\":3,\"sov\":\"2.5\",\"o\":[{\"no\":1,\"odd\":1.59,",
-  "metin": ""
- },
- "nesine": {
-  "kod": 200,
-  "bayt": 310848,
-  "sn": 2.1,
-  "tip": "text/html; charset=utf-8",
-  "bas": "\r \r \r <!DOCTYPE html>\r <html lang=\"tr\">\r <head>\r \r \r         <script>\r         window.dataLayer = window.dataLayer || [];\r         window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };\r         </script>\r         <script>\r         (function () {\r             var isOld =",
-  "metin": ""
- },
- "oddsportal": {
-  "kod": 429,
-  "bayt": 0,
-  "sn": 1.0,
-  "tip": "",
-  "bas": "",
-  "metin": ""
- },
- "openfootball": {
-  "kod": 200,
-  "bayt": 6330,
-  "sn": 0.1,
-  "tip": "text/plain; charset=utf-8",
-  "bas": "## Frequently Asked Questions (& Answers)  Q: When (and how often) do the football.json datasets get updated?  A: The football.json datsets of the latest season (that is, 2026 & 2026/27)  get auto-updated once a day (5 o'clock UTC) from the upstream Football.TXT datasets via a github action, see the",
+  "bas": "<!DOCTYPE html> <html lang=\"en\">     <head> \t\t<base href=\"https://understat.com/\"> \t\t<title>EPL xG Table and Scorers for the 2025/2026 season | Understat.com</title>         <meta charset=\"UTF-8\" /> \t\t<meta name=\"description\" content=\"xG table of EPL standings and top scorers for the 2025/2026 seaso",
   "metin": ""
  }
 }
