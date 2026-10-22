@@ -34,3 +34,21 @@ try:
     open(os.path.join(KOK, "data", "futbol", "iddaa_ornek.json"), "w", encoding="utf-8").write(r.text)
 except Exception as e:
     print("iddaa örnek hatası", repr(e))
+
+try:
+    sb = requests.get("https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20260920-20261019", headers=H, timeout=40).json()
+    evs = sb.get("events", [])
+    ornek = {"n_events": len(evs), "ilk": evs[0] if evs else None}
+    bitmis = [e for e in evs if e.get("status", {}).get("type", {}).get("completed")]
+    if bitmis:
+        eid = bitmis[0]["id"]
+        sm = requests.get("https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/summary?event=" + eid, headers=H, timeout=40).json()
+        ornek["summary_keys"] = list(sm.keys())
+        ornek["gameInfo"] = sm.get("gameInfo")
+        ornek["rosters_var"] = bool(sm.get("rosters"))
+        ornek["rosters_ilk"] = (sm.get("rosters") or [None])[0]
+        ornek["boxscore"] = sm.get("boxscore")
+        ornek["keyEvents_ilk"] = (sm.get("keyEvents") or [])[:5]
+    json.dump(ornek, open(os.path.join(KOK, "data", "futbol", "espn_ornek.json"), "w", encoding="utf-8"), ensure_ascii=False)
+except Exception as e:
+    print("espn örnek hatası", repr(e))
