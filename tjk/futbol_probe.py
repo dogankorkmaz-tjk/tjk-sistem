@@ -3,6 +3,12 @@ import json, os, time
 import requests
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HEDEF = {
+    "mk_robots": "https://www.mackolik.com/robots.txt",
+    "mk_home": "https://www.mackolik.com/",
+    "mk_canli": "https://www.mackolik.com/canli-sonuclar",
+    "mk_mac": "https://www.mackolik.com/mac/galatasaray-fenerbahce/",
+    "mk_arsiv": "https://arsiv.mackolik.com/Genis-Iddaa-Programi",
+
     "fd_T1": "https://www.football-data.co.uk/mmz4281/2526/T1.csv",
     "fd_E0": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
     "fd_notes": "https://www.football-data.co.uk/notes.txt",
@@ -21,7 +27,7 @@ for k, u in HEDEF.items():
     t = time.time()
     try:
         r = requests.get(u, headers=H, timeout=25)
-        out[k] = {"kod": r.status_code, "bayt": len(r.content), "sn": round(time.time() - t, 1), "tip": r.headers.get("content-type", "")[:40], "bas": r.text[:300].replace("\n", " ")}
+        out[k] = {"kod": r.status_code, "bayt": len(r.content), "sn": round(time.time() - t, 1), "tip": r.headers.get("content-type", "")[:40], "bas": r.text[:300].replace("\n", " "), "metin": r.text[:4000] if k.startswith("mk_") else ""}
     except Exception as e:
         out[k] = {"hata": repr(e)[:200]}
     print(k, out[k].get("kod"), out[k].get("bayt"), out[k].get("hata", ""))
