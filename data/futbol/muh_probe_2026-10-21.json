@@ -1,0 +1,164 @@
+{
+ "gun": "2026-10-21",
+ "run": {
+  "BURSA-1": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-2": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-3": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-5": [
+   "GANYAN",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
+  ],
+  "ISTANBUL-1": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-2": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-3": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-5": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-7": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-8": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-9": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-10": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
+  ],
+  "ELAZIG-1": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ELAZIG-2": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ELAZIG-3": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ELAZIG-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ELAZIG-5": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ELAZIG-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ELAZIG-7": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
+  ]
+ },
+ "saat": {
+  "BURSA-1": "12:15",
+  "BURSA-2": "12:45",
+  "BURSA-3": "13:15",
+  "BURSA-4": "13:45",
+  "BURSA-5": "14:15",
+  "BURSA-6": "14:45",
+  "ISTANBUL-1": "13:30",
+  "ISTANBUL-2": "14:00",
+  "ISTANBUL-3": "14:30",
+  "ISTANBUL-4": "15:00",
+  "ISTANBUL-5": "15:30",
+  "ISTANBUL-6": "16:00",
+  "ISTANBUL-7": "16:30",
+  "ISTANBUL-8": "17:00",
+  "ISTANBUL-9": "17:30",
+  "ISTANBUL-10": "18:00",
+  "ELAZIG-1": "18:30",
+  "ELAZIG-2": "19:00",
+  "ELAZIG-3": "19:30",
+  "ELAZIG-4": "20:00",
+  "ELAZIG-5": "20:30",
+  "ELAZIG-6": "21:00",
+  "ELAZIG-7": "21:30"
+ }
+}
