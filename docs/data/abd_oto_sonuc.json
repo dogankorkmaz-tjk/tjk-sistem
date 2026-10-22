@@ -1,15 +1,15 @@
 {
- "uretim": "2026-10-22 14:15 UTC",
+ "uretim": "2026-10-22 14:19 UTC",
  "kayitli_kosu": 385,
- "eslesmeyen_kosu": 249,
+ "eslesmeyen_kosu": 248,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 217,
- "kosu": 136,
+ "bahis": 218,
+ "kosu": 137,
  "isabet": 12,
- "roi": 0.894,
+ "roi": 0.89,
  "ga95": [
-  0.408,
+  0.402,
   1.285
  ],
  "ulke": {
@@ -18,8 +18,8 @@
    "roi": 0.761
   },
   "birlesik-krallik": {
-   "bahis": 33,
-   "roi": 1.565
+   "bahis": 34,
+   "roi": 1.519
   },
   "fransa": {
    "bahis": 25,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 289,
-  "kosu": 133,
+  "bahis": 290,
+  "kosu": 134,
   "isabet": 35,
-  "roi": 0.801,
+  "roi": 0.798,
   "ga95": [
-   0.509,
+   0.503,
    1.15
   ]
  },
  "bahis_t1": {
-  "bahis": 304,
-  "kosu": 132,
-  "isabet": 41,
-  "roi": 0.899,
+  "bahis": 306,
+  "kosu": 133,
+  "isabet": 42,
+  "roi": 0.903,
   "ga95": [
-   0.577,
+   0.597,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 307,
-  "kosu": 130,
-  "isabet": 37,
-  "roi": 0.739,
+  "bahis": 310,
+  "kosu": 131,
+  "isabet": 38,
+  "roi": 0.742,
   "ga95": [
-   0.548,
+   0.564,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-21",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "TAKAHAMA",
-   "q": 0.06,
-   "g": 22.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-21",
    "pist": "Horseshoe Indianapolis",
@@ -315,6 +306,15 @@
    "at": "ONE NINE SEVEN",
    "q": 0.105,
    "g": 14.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 4,
+   "at": "BEACH POINT",
+   "q": 0.161,
+   "g": 10.3,
    "kazandi": false
   },
   {
