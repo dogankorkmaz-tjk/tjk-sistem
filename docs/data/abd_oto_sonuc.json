@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-22 14:19 UTC",
- "kayitli_kosu": 385,
- "eslesmeyen_kosu": 248,
+ "uretim": "2026-10-22 14:54 UTC",
+ "kayitli_kosu": 391,
+ "eslesmeyen_kosu": 252,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 218,
- "kosu": 137,
+ "bahis": 224,
+ "kosu": 139,
  "isabet": 12,
- "roi": 0.89,
+ "roi": 0.866,
  "ga95": [
-  0.402,
-  1.285
+  0.373,
+  1.276
  ],
  "ulke": {
   "abd": {
@@ -18,15 +18,15 @@
    "roi": 0.761
   },
   "birlesik-krallik": {
-   "bahis": 34,
-   "roi": 1.519
+   "bahis": 36,
+   "roi": 1.435
   },
   "fransa": {
    "bahis": 25,
    "roi": 1.71
   },
   "guney-afrika": {
-   "bahis": 12,
+   "bahis": 16,
    "roi": 0.0
   },
   "irlanda": {
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 290,
-  "kosu": 134,
+  "bahis": 296,
+  "kosu": 136,
   "isabet": 35,
-  "roi": 0.798,
+  "roi": 0.782,
   "ga95": [
-   0.503,
-   1.15
+   0.467,
+   1.149
   ]
  },
  "bahis_t1": {
-  "bahis": 306,
-  "kosu": 133,
-  "isabet": 42,
-  "roi": 0.903,
+  "bahis": 314,
+  "kosu": 135,
+  "isabet": 43,
+  "roi": 0.892,
   "ga95": [
-   0.597,
+   0.586,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 310,
-  "kosu": 131,
+  "bahis": 318,
+  "kosu": 133,
   "isabet": 38,
-  "roi": 0.742,
+  "roi": 0.723,
   "ga95": [
-   0.564,
+   0.515,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-21",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 2,
-   "at": "JOLLY JUSTICE",
-   "q": 0.298,
-   "g": 4.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "COOL CAT BOOTS",
-   "q": 0.121,
-   "g": 17.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "AISLE NINE",
-   "q": 0.079,
-   "g": 18.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "PASSAGE DU DESIR",
-   "q": 0.119,
-   "g": 14.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "MAHINA NIGHTS",
-   "q": 0.119,
-   "g": 17.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Keeneland",
-   "kosu": 1,
-   "at": "GHOST WISH",
-   "q": 0.066,
-   "g": 20.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-21",
    "pist": "Keeneland",
@@ -319,6 +265,24 @@
   },
   {
    "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 5,
+   "at": "ARTANIS",
+   "q": 0.072,
+   "g": 19.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 5,
+   "at": "SLACK BOB",
+   "q": 0.12,
+   "g": 13.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
    "pist": "Turffontein",
    "kosu": 3,
    "at": "LANCE ATTACK",
@@ -423,6 +387,42 @@
    "at": "TINA LOVELACE",
    "q": 0.1,
    "g": 30.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 7,
+   "at": "BLIZZARD QUEST",
+   "q": 0.065,
+   "g": 22.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 7,
+   "at": "SKY PILOT",
+   "q": 0.105,
+   "g": 13.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 7,
+   "at": "INDUSTRIALSTRENGTH",
+   "q": 0.14,
+   "g": 18.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 7,
+   "at": "HARUN AL RASHID",
+   "q": 0.077,
+   "g": 16.7,
    "kazandi": false
   }
  ]
