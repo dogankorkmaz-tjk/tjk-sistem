@@ -11,7 +11,7 @@ permissions:
 jobs:
   calis:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,7 +20,7 @@ jobs:
       - run: pip install requests
       - run: python -m tjk.futbol_espn
         env:
-          ESPN_LIMIT: "250"
+          ESPN_LIMIT: "400"
       - name: Kaydet
         run: |
           git config user.name "tjk-bot"

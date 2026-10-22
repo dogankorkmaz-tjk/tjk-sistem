@@ -33,14 +33,15 @@ def sade(sm, ev):
 def main():
     os.makedirs(HD, exist_ok=True)
     bugun = datetime.date.today(); n = 0
+    durum_yol = os.path.join(HD, "_durum.json")
+    durum = json.load(open(durum_yol)) if os.path.exists(durum_yol) else {}
     for lig in LIGLER:
-        gun = BASLA
+        gun = datetime.date.fromisoformat(durum.get(lig, BASLA.isoformat()))
         while gun <= bugun and n < LIMIT:
-            bit = min(gun + datetime.timedelta(days=6), bugun)
             try:
-                sb = requests.get(BASE % lig + "scoreboard?dates=%s-%s" % (gun.strftime("%Y%m%d"), bit.strftime("%Y%m%d")), headers=H, timeout=40).json()
+                sb = requests.get(BASE % lig + "scoreboard?dates=%s" % gun.strftime("%Y%m%d"), headers=H, timeout=40).json()
             except Exception as e:
-                print("scoreboard hata", gun, repr(e)[:80]); gun = bit + datetime.timedelta(days=1); continue
+                print("scoreboard hata", gun, repr(e)[:80]); break
             for ev in sb.get("events", []):
                 if not ev.get("status", {}).get("type", {}).get("completed"):
                     continue
@@ -54,10 +55,13 @@ def main():
                         json.dump(d, f, ensure_ascii=False, separators=(",", ":"))
                 except Exception as e:
                     print("özet hata", ev["id"], repr(e)[:80])
-                time.sleep(0.5)
-            gun = bit + datetime.timedelta(days=1)
-            time.sleep(0.3)
-    print("yeni maç", n)
+                time.sleep(0.4)
+            gun += datetime.timedelta(days=1)
+            if gun < bugun - datetime.timedelta(days=3):      # yakın günler tekrar taranır (geç biten maçlar)
+                durum[lig] = gun.isoformat()
+            time.sleep(0.25)
+    json.dump(durum, open(durum_yol, "w"))
+    print("yeni maç", n, "durum", durum)
 
 
 if __name__ == "__main__":
