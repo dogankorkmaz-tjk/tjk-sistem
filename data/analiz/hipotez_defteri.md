@@ -484,3 +484,9 @@ Not: ilk bakışta canlı skorda z5 ile z2 korelasyonu 0,93 (std 0,36 vs 0,29): 
 
 ## 22 Ekim 2026 09:15 — hata düzeltmesi: sonuçta 'sira 0' atlar (Derecesiz) ilk sıraya sıralanıyordu
 - besli.py, tabela.py, sirali3.py, esnek.py ilk-N sıralamasında sira=0 olan (bitirememiş/derecesiz) atları da en öne alıyordu; ödeme CSV'si gelmeden canlı sonuçla değerlendirilen koşularda ilk-N yanlış çıkabiliyordu. Düzeltme: yalnız sira>0 sayılır. Geçmiş kayıtlar (13–21 Ekim) gün dosyalarından yeniden değerlendirildi: sıralı 5'li toplamı değişmedi; tabela 21 Ekim: Jason-S ≤24 İstanbul 6'da tuttu (570,07 TL, 102 TL harcama).
+
+## 22 Ekim 2026 09:40 — İddaa/futbol yan piyasa projesi (kâğıt üstü), başlangıç
+- Otomasyon: .github/workflows/futbol.yml (30 dk): tjk/futbol_oran.py iddaa herkese açık oran servisinden maç başına ilk ve kapanışa yakın (≤90 dk) oranları data/futbol/oran/YYYY-MM.json.gz'ye yazar; tjk/futbol_sonuc.py football-data.co.uk lig CSV'lerini (12 lig, 2021/22–2026/27: şut, faul, korner, kart, hakem, kurum oranları) data/futbol/fd'ye indirir. Maçkolik robots.txt yapay zekâ botlarını yasakladığı için kullanılmadı.
+- İlk ölçüm (kaba model: takım hücum/savunma üstel ağırlıklı, 14.834 maç, walk-forward): toplam korner MAE 2,698 (lig ortalaması 2,714), kart 1,663 (1,681), faul 4,286 (4,397). Yani basit takım bilgisi lig ortalamasına göre çok küçük iyileşme veriyor; piyasa çizgisi muhtemelen bundan iyi. Henüz kenar kanıtı yok.
+- Piyasa kodu eşlemesi doğrulanmadı: iddaa st=48 (çizgi ~8.5) ve st=49 (~4.5) büyük olasılıkla korner/kart; sonuçlarla eşleştirerek doğrulanacak.
+- Ön-kayıtlı karar kuralı (sonradan değişmez): iddaa kapanış oranının marjsız olasılığına göre modelin olasılığı/piyasa ≥1,10 ve en az 300 maçlık ileriye dönük örnek olmadan hiçbir kenar iddiası yapılmaz.
