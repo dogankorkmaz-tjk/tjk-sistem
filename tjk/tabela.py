@@ -118,7 +118,7 @@ def guncelle(obj, simdi=None):
                                                   "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
                     kay[anahtar] = c
             if c and "sonuc" not in c and k.get("sonuc"):
-                sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None}
+                sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None and v["sira"] > 0}
                 ilk4 = [no for no, s in sorted(sira.items(), key=lambda x: x[1])][:4]
                 if len(ilk4) == 4:
                     if od is None:

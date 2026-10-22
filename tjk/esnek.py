@@ -118,7 +118,7 @@ def guncelle(obj, simdi=None):
                         od = _odeme(tarih)
                     x = od[(od.hipodrom == h["id"]) & (od.kosu == k["kosu"])] if len(od) else od
                     if len(x):
-                        sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None}
+                        sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None and v["sira"] > 0}
                         ilk = [no for no, s in sorted(sira.items(), key=lambda z: z[1])][:L]
                         if len(ilk) == L:
                             xs = x[x.tur.isin(["SIRALI BEŞLİ BAHİS", "SIRALI 5 Lİ BAHİS"])] if L == 5 else x[x.tur == c["tur"]]

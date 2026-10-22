@@ -104,7 +104,7 @@ def guncelle(obj, simdi=None):
                     else:
                         c = None
             if c and "sonuc" not in c and k.get("sonuc"):
-                sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None}
+                sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None and v["sira"] > 0}
                 ilk3 = [no for no, s in sorted(sira.items(), key=lambda x: x[1])][:3]
                 if len(ilk3) == 3:
                     if od is None:

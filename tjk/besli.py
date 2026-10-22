@@ -221,7 +221,7 @@ def guncelle(obj, simdi=None):
                 if r:
                     at, pp, P = r; _ekle_g(c, at, pp, P, simdi)
             if c and "sonuc" not in c and k.get("sonuc"):
-                sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None}
+                sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None and v["sira"] > 0}
                 ilk5 = [no for no, s in sorted(sira.items(), key=lambda x: x[1])][:5]
                 if len(ilk5) == 5:
                     if od is None:
