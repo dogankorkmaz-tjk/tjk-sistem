@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-22 21:15 UTC",
- "kayitli_kosu": 438,
+ "uretim": "2026-10-22 22:03 UTC",
+ "kayitli_kosu": 442,
  "eslesmeyen_kosu": 276,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 268,
- "kosu": 162,
+ "bahis": 278,
+ "kosu": 166,
  "isabet": 18,
- "roi": 1.035,
+ "roi": 0.997,
  "ga95": [
-  0.69,
-  1.325
+  0.687,
+  1.285
  ],
  "ulke": {
   "abd": {
-   "bahis": 170,
-   "roi": 1.076
+   "bahis": 180,
+   "roi": 1.016
   },
   "birlesik-krallik": {
    "bahis": 38,
@@ -35,32 +35,32 @@
   }
  },
  "bahis_ani": {
-  "bahis": 337,
-  "kosu": 158,
+  "bahis": 340,
+  "kosu": 162,
   "isabet": 39,
-  "roi": 0.808,
+  "roi": 0.801,
   "ga95": [
-   0.597,
+   0.588,
    1.149
   ]
  },
  "bahis_t1": {
-  "bahis": 355,
-  "kosu": 156,
+  "bahis": 358,
+  "kosu": 160,
   "isabet": 46,
-  "roi": 0.893,
+  "roi": 0.885,
   "ga95": [
-   0.661,
+   0.651,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 350,
-  "kosu": 154,
+  "bahis": 357,
+  "kosu": 158,
   "isabet": 41,
-  "roi": 0.697,
+  "roi": 0.684,
   "ga95": [
-   0.495,
+   0.468,
    0.871
   ]
  },
@@ -68,46 +68,28 @@
   {
    "gun": "2026-10-22",
    "pist": "Keeneland",
-   "kosu": 4,
-   "at": "COLTRANE",
-   "q": 0.111,
-   "g": 11.35,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "TRIUMPHANT SPIRIT",
-   "q": 0.071,
-   "g": 34.35,
+   "kosu": 9,
+   "at": "SOCK MONKEY",
+   "q": 0.093,
+   "g": 17.05,
    "kazandi": false
   },
   {
    "gun": "2026-10-22",
    "pist": "Keeneland",
-   "kosu": 7,
-   "at": "ATROPA",
-   "q": 0.192,
-   "g": 11.5,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "NOBALS",
-   "q": 0.158,
-   "g": 9.65,
+   "kosu": 9,
+   "at": "MARIAMAKESMELAUGH",
+   "q": 0.04,
+   "g": 32.7,
    "kazandi": false
   },
   {
    "gun": "2026-10-22",
    "pist": "Keeneland",
-   "kosu": 8,
-   "at": "SCRIPT",
-   "q": 0.124,
-   "g": 10.8,
+   "kosu": 9,
+   "at": "SHIFTYINDEPENDENCE",
+   "q": 0.093,
+   "g": 22.65,
    "kazandi": false
   },
   {
@@ -424,6 +406,24 @@
    "q": 0.196,
    "g": 7.35,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Woodbine",
+   "kosu": 5,
+   "at": "VOICE FROM ABOVE",
+   "q": 0.09,
+   "g": 15.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Woodbine",
+   "kosu": 5,
+   "at": "SPIRIT BEAR",
+   "q": 0.181,
+   "g": 9.4,
+   "kazandi": false
   }
  ]
 }
