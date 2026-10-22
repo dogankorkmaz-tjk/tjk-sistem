@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-22 12:44 UTC",
+ "uretim": "2026-10-22 12:48 UTC",
  "kayitli_kosu": 377,
- "eslesmeyen_kosu": 245,
+ "eslesmeyen_kosu": 243,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 210,
- "kosu": 132,
+ "bahis": 212,
+ "kosu": 134,
  "isabet": 12,
- "roi": 0.924,
+ "roi": 0.915,
  "ga95": [
-  0.462,
-  1.292
+  0.449,
+  1.288
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.722
   },
   "fransa": {
-   "bahis": 23,
-   "roi": 1.859
+   "bahis": 25,
+   "roi": 1.71
   },
   "guney-afrika": {
    "bahis": 10,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 281,
-  "kosu": 129,
-  "isabet": 34,
-  "roi": 0.796,
+  "bahis": 285,
+  "kosu": 131,
+  "isabet": 35,
+  "roi": 0.812,
   "ga95": [
-   0.449,
+   0.532,
    1.15
   ]
  },
  "bahis_t1": {
-  "bahis": 294,
-  "kosu": 128,
-  "isabet": 40,
-  "roi": 0.902,
+  "bahis": 299,
+  "kosu": 130,
+  "isabet": 41,
+  "roi": 0.914,
   "ga95": [
-   0.552,
+   0.608,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 299,
-  "kosu": 126,
-  "isabet": 36,
-  "roi": 0.732,
+  "bahis": 301,
+  "kosu": 128,
+  "isabet": 37,
+  "roi": 0.754,
   "ga95": [
-   0.497,
+   0.58,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Yarmouth",
-   "kosu": 6,
-   "at": "FANTASY MASTER",
-   "q": 0.142,
-   "g": 11.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Belmont Park",
-   "kosu": 2,
-   "at": "PISTOL LIZ ABLAZEN",
-   "q": 0.088,
-   "g": 22.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-21",
    "pist": "Belmont Park",
@@ -324,6 +306,24 @@
    "at": "NINA JERSEY",
    "q": 0.114,
    "g": 12.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Les Sables",
+   "kosu": 6,
+   "at": "MRS HOLIDAY",
+   "q": 0.187,
+   "g": 7.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Les Sables",
+   "kosu": 7,
+   "at": "MARCHEMALO",
+   "q": 0.09,
+   "g": 16.2,
    "kazandi": false
   },
   {
