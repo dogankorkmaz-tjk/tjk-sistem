@@ -1,0 +1,67 @@
+{
+ "lig": "T1",
+ "kaynak": "Doğan Korkmaz, 22 Ekim 2026 (futbol bilgisi)",
+ "not": "Takım adları football-data.co.uk yazımıyla. Etkinin yönü veriyle ölçülür, varsayılmaz.",
+ "ciftler": [
+  [
+   "Amedspor",
+   "Goztep"
+  ],
+  [
+   "Amedspor",
+   "Trabzonspor"
+  ],
+  [
+   "Besiktas",
+   "Fenerbahce"
+  ],
+  [
+   "Besiktas",
+   "Galatasaray"
+  ],
+  [
+   "Besiktas",
+   "Goztep"
+  ],
+  [
+   "Besiktas",
+   "Trabzonspor"
+  ],
+  [
+   "Fenerbahce",
+   "Galatasaray"
+  ],
+  [
+   "Fenerbahce",
+   "Goztep"
+  ],
+  [
+   "Fenerbahce",
+   "Trabzonspor"
+  ],
+  [
+   "Galatasaray",
+   "Goztep"
+  ],
+  [
+   "Galatasaray",
+   "Trabzonspor"
+  ],
+  [
+   "Goztep",
+   "Kocaelispor"
+  ],
+  [
+   "Goztep",
+   "Samsunspor"
+  ],
+  [
+   "Rizespor",
+   "Trabzonspor"
+  ],
+  [
+   "Samsunspor",
+   "Trabzonspor"
+  ]
+ ]
+}
