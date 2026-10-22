@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-22 20:48 UTC",
- "kayitli_kosu": 431,
- "eslesmeyen_kosu": 273,
+ "uretim": "2026-10-22 21:15 UTC",
+ "kayitli_kosu": 438,
+ "eslesmeyen_kosu": 276,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 261,
- "kosu": 158,
- "isabet": 17,
- "roi": 1.034,
+ "bahis": 268,
+ "kosu": 162,
+ "isabet": 18,
+ "roi": 1.035,
  "ga95": [
   0.69,
-  1.339
+  1.325
  ],
  "ulke": {
   "abd": {
-   "bahis": 163,
-   "roi": 1.077
+   "bahis": 170,
+   "roi": 1.076
   },
   "birlesik-krallik": {
    "bahis": 38,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 327,
-  "kosu": 154,
-  "isabet": 38,
-  "roi": 0.81,
+  "bahis": 337,
+  "kosu": 158,
+  "isabet": 39,
+  "roi": 0.808,
   "ga95": [
-   0.589,
+   0.597,
    1.149
   ]
  },
  "bahis_t1": {
-  "bahis": 346,
-  "kosu": 152,
-  "isabet": 45,
-  "roi": 0.895,
+  "bahis": 355,
+  "kosu": 156,
+  "isabet": 46,
+  "roi": 0.893,
   "ga95": [
-   0.654,
+   0.661,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 342,
-  "kosu": 150,
-  "isabet": 40,
-  "roi": 0.692,
+  "bahis": 350,
+  "kosu": 154,
+  "isabet": 41,
+  "roi": 0.697,
   "ga95": [
-   0.465,
+   0.495,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 2,
-   "at": "WYGUY",
-   "q": 0.072,
-   "g": 19.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "BLAKELY'S BOY",
-   "q": 0.019,
-   "g": 68.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "FEED ME THE ROCK",
-   "q": 0.106,
-   "g": 11.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Keeneland",
@@ -118,6 +91,24 @@
    "q": 0.192,
    "g": 11.5,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "NOBALS",
+   "q": 0.158,
+   "g": 9.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "SCRIPT",
+   "q": 0.124,
+   "g": 10.8,
+   "kazandi": false
   },
   {
    "gun": "2026-10-22",
@@ -424,6 +415,15 @@
    "q": 0.211,
    "g": 10.5,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Woodbine",
+   "kosu": 4,
+   "at": "KINZIE GIRL",
+   "q": 0.196,
+   "g": 7.35,
+   "kazandi": true
   }
  ]
 }
