@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-22 12:09 UTC",
- "kayitli_kosu": 368,
- "eslesmeyen_kosu": 239,
+ "uretim": "2026-10-22 12:35 UTC",
+ "kayitli_kosu": 374,
+ "eslesmeyen_kosu": 243,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 199,
- "kosu": 129,
+ "bahis": 203,
+ "kosu": 131,
  "isabet": 12,
- "roi": 0.975,
+ "roi": 0.956,
  "ga95": [
-  0.535,
-  1.386
+  0.506,
+  1.346
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,16 @@
    "roi": 0.761
   },
   "birlesik-krallik": {
-   "bahis": 29,
-   "roi": 1.781
+   "bahis": 30,
+   "roi": 1.722
   },
   "fransa": {
    "bahis": 23,
    "roi": 1.859
+  },
+  "guney-afrika": {
+   "bahis": 3,
+   "roi": 0.0
   },
   "irlanda": {
    "bahis": 16,
@@ -31,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 259,
-  "kosu": 126,
-  "isabet": 33,
-  "roi": 0.855,
+  "bahis": 272,
+  "kosu": 128,
+  "isabet": 34,
+  "roi": 0.822,
   "ga95": [
-   0.562,
-   1.193
+   0.52,
+   1.15
   ]
  },
  "bahis_t1": {
-  "bahis": 271,
-  "kosu": 125,
-  "isabet": 39,
-  "roi": 0.971,
+  "bahis": 285,
+  "kosu": 127,
+  "isabet": 40,
+  "roi": 0.931,
   "ga95": [
-   0.677,
+   0.616,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 284,
-  "kosu": 123,
-  "isabet": 35,
-  "roi": 0.763,
+  "bahis": 298,
+  "kosu": 125,
+  "isabet": 36,
+  "roi": 0.735,
   "ga95": [
-   0.578,
-   0.887
+   0.504,
+   0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Newcastle",
-   "kosu": 3,
-   "at": "BLUFFERONTHEBUS",
-   "q": 0.071,
-   "g": 21.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Newcastle",
-   "kosu": 5,
-   "at": "SHES GOT THE BLUES",
-   "q": 0.146,
-   "g": 10.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Newcastle",
-   "kosu": 7,
-   "at": "HERAKLES",
-   "q": 0.088,
-   "g": 21.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-20",
-   "pist": "Newcastle",
-   "kosu": 7,
-   "at": "OPAL STORM",
-   "q": 0.132,
-   "g": 20.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Newcastle",
@@ -419,6 +387,42 @@
    "at": "NINA JERSEY",
    "q": 0.114,
    "g": 12.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 1,
+   "at": "MUNAJAD",
+   "q": 0.258,
+   "g": 6.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 3,
+   "at": "LANCE ATTACK",
+   "q": 0.063,
+   "g": 24.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 3,
+   "at": "SNOWEDIN",
+   "q": 0.063,
+   "g": 20.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 3,
+   "at": "BUDDY'S DOLL",
+   "q": 0.063,
+   "g": 21.1,
    "kazandi": false
   }
  ]
