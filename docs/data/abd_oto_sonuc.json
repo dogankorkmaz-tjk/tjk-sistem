@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-22 17:34 UTC",
- "kayitli_kosu": 410,
- "eslesmeyen_kosu": 267,
+ "uretim": "2026-10-22 19:00 UTC",
+ "kayitli_kosu": 420,
+ "eslesmeyen_kosu": 272,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 236,
- "kosu": 143,
- "isabet": 12,
- "roi": 0.822,
+ "bahis": 245,
+ "kosu": 148,
+ "isabet": 14,
+ "roi": 0.971,
  "ga95": [
-  0.322,
-  1.276
+  0.636,
+  1.288
  ],
  "ulke": {
   "abd": {
-   "bahis": 138,
-   "roi": 0.722
+   "bahis": 147,
+   "roi": 0.977
   },
   "birlesik-krallik": {
    "bahis": 38,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 300,
-  "kosu": 139,
-  "isabet": 35,
-  "roi": 0.772,
+  "bahis": 311,
+  "kosu": 144,
+  "isabet": 36,
+  "roi": 0.83,
   "ga95": [
-   0.441,
-   1.149
+   0.605,
+   1.15
   ]
  },
  "bahis_t1": {
-  "bahis": 321,
-  "kosu": 138,
-  "isabet": 43,
-  "roi": 0.872,
+  "bahis": 331,
+  "kosu": 143,
+  "isabet": 44,
+  "roi": 0.926,
   "ga95": [
-   0.551,
+   0.694,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 322,
-  "kosu": 136,
+  "bahis": 327,
+  "kosu": 141,
   "isabet": 38,
-  "roi": 0.714,
+  "roi": 0.704,
   "ga95": [
-   0.493,
+   0.468,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Belmont Park",
-   "kosu": 1,
-   "at": "KATIE KING",
-   "q": 0.313,
-   "g": 7.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Belmont Park",
-   "kosu": 1,
-   "at": "FULL POUR",
-   "q": 0.17,
-   "g": 8.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 1,
-   "at": "SASSY ALLIE",
-   "q": 0.025,
-   "g": 89.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Keeneland",
@@ -126,6 +99,33 @@
    "at": "ASHES AND DIAMONDS",
    "q": 0.142,
    "g": 11.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 2,
+   "at": "WYGUY",
+   "q": 0.072,
+   "g": 19.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "BLAKELY'S BOY",
+   "q": 0.019,
+   "g": 68.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "FEED ME THE ROCK",
+   "q": 0.106,
+   "g": 11.95,
    "kazandi": false
   },
   {
