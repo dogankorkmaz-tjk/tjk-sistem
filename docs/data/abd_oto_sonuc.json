@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-22 20:03 UTC",
- "kayitli_kosu": 426,
- "eslesmeyen_kosu": 272,
+ "uretim": "2026-10-22 20:48 UTC",
+ "kayitli_kosu": 431,
+ "eslesmeyen_kosu": 273,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 251,
- "kosu": 154,
- "isabet": 16,
- "roi": 1.03,
+ "bahis": 261,
+ "kosu": 158,
+ "isabet": 17,
+ "roi": 1.034,
  "ga95": [
-  0.687,
-  1.346
+  0.69,
+  1.339
  ],
  "ulke": {
   "abd": {
-   "bahis": 153,
-   "roi": 1.072
+   "bahis": 163,
+   "roi": 1.077
   },
   "birlesik-krallik": {
    "bahis": 38,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 318,
-  "kosu": 150,
-  "isabet": 36,
-  "roi": 0.812,
+  "bahis": 327,
+  "kosu": 154,
+  "isabet": 38,
+  "roi": 0.81,
   "ga95": [
-   0.582,
+   0.589,
    1.149
   ]
  },
  "bahis_t1": {
-  "bahis": 337,
-  "kosu": 148,
-  "isabet": 44,
-  "roi": 0.91,
+  "bahis": 346,
+  "kosu": 152,
+  "isabet": 45,
+  "roi": 0.895,
   "ga95": [
-   0.671,
+   0.654,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 333,
-  "kosu": 146,
-  "isabet": 38,
-  "roi": 0.691,
+  "bahis": 342,
+  "kosu": 150,
+  "isabet": 40,
+  "roi": 0.692,
   "ga95": [
-   0.441,
+   0.465,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 1,
-   "at": "KEEN GAL",
-   "q": 0.223,
-   "g": 6.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 1,
-   "at": "ASHES AND DIAMONDS",
-   "q": 0.142,
-   "g": 11.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Keeneland",
@@ -127,6 +109,15 @@
    "q": 0.071,
    "g": 34.35,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "ATROPA",
+   "q": 0.192,
+   "g": 11.5,
+   "kazandi": true
   },
   {
    "gun": "2026-10-22",
@@ -423,6 +414,15 @@
    "at": "FULL GO",
    "q": 0.058,
    "g": 48.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "SURFSIDE BEACH",
+   "q": 0.211,
+   "g": 10.5,
    "kazandi": false
   }
  ]
