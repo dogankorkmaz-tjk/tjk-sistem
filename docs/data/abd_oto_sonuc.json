@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-22 19:00 UTC",
- "kayitli_kosu": 420,
- "eslesmeyen_kosu": 272,
+ "uretim": "2026-10-22 19:37 UTC",
+ "kayitli_kosu": 426,
+ "eslesmeyen_kosu": 274,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 245,
- "kosu": 148,
- "isabet": 14,
- "roi": 0.971,
+ "bahis": 251,
+ "kosu": 152,
+ "isabet": 16,
+ "roi": 1.03,
  "ga95": [
-  0.636,
-  1.288
+  0.687,
+  1.346
  ],
  "ulke": {
   "abd": {
-   "bahis": 147,
-   "roi": 0.977
+   "bahis": 153,
+   "roi": 1.072
   },
   "birlesik-krallik": {
    "bahis": 38,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 311,
-  "kosu": 144,
+  "bahis": 317,
+  "kosu": 148,
   "isabet": 36,
-  "roi": 0.83,
+  "roi": 0.815,
   "ga95": [
-   0.605,
-   1.15
+   0.585,
+   1.149
   ]
  },
  "bahis_t1": {
-  "bahis": 331,
-  "kosu": 143,
+  "bahis": 336,
+  "kosu": 146,
   "isabet": 44,
-  "roi": 0.926,
+  "roi": 0.913,
   "ga95": [
-   0.694,
+   0.674,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 327,
-  "kosu": 141,
+  "bahis": 332,
+  "kosu": 144,
   "isabet": 38,
-  "roi": 0.704,
+  "roi": 0.693,
   "ga95": [
-   0.468,
+   0.446,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 1,
-   "at": "MOM'S CHEESECAKE",
-   "q": 0.195,
-   "g": 35.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 1,
-   "at": "ZAFYRE",
-   "q": 0.111,
-   "g": 34.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Keeneland",
@@ -126,6 +108,24 @@
    "at": "FEED ME THE ROCK",
    "q": 0.106,
    "g": 11.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "COLTRANE",
+   "q": 0.111,
+   "g": 11.35,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Keeneland",
+   "kosu": 5,
+   "at": "TRIUMPHANT SPIRIT",
+   "q": 0.071,
+   "g": 34.35,
    "kazandi": false
   },
   {
