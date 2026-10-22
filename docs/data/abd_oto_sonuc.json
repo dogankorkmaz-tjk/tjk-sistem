@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-22 06:52 UTC",
- "kayitli_kosu": 357,
- "eslesmeyen_kosu": 233,
+ "uretim": "2026-10-22 10:16 UTC",
+ "kayitli_kosu": 360,
+ "eslesmeyen_kosu": 235,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 196,
- "kosu": 124,
+ "bahis": 197,
+ "kosu": 125,
  "isabet": 12,
- "roi": 0.99,
+ "roi": 0.985,
  "ga95": [
-  0.565,
-  1.394
+  0.546,
+  1.433
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.781
   },
   "fransa": {
-   "bahis": 20,
-   "roi": 2.138
+   "bahis": 21,
+   "roi": 2.036
   },
   "irlanda": {
    "bahis": 16,
@@ -31,45 +31,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 244,
-  "kosu": 121,
+  "bahis": 246,
+  "kosu": 122,
   "isabet": 33,
-  "roi": 0.908,
+  "roi": 0.9,
   "ga95": [
-   0.631,
-   1.26
+   0.626,
+   1.284
   ]
  },
  "bahis_t1": {
-  "bahis": 254,
-  "kosu": 120,
+  "bahis": 256,
+  "kosu": 121,
   "isabet": 39,
-  "roi": 1.036,
+  "roi": 1.028,
   "ga95": [
-   0.804,
-   1.25
+   0.779,
+   1.251
   ]
  },
  "bahis_t3": {
-  "bahis": 268,
-  "kosu": 119,
+  "bahis": 270,
+  "kosu": 120,
   "isabet": 35,
-  "roi": 0.809,
+  "roi": 0.803,
   "ga95": [
-   0.696,
+   0.67,
    0.91
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-20",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "CENTEYA",
-   "q": 0.149,
-   "g": 8.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-20",
    "pist": "Horseshoe Indianapolis",
@@ -419,6 +410,15 @@
    "at": "CROWNED",
    "q": 0.18,
    "g": 9.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Les Sables",
+   "kosu": 2,
+   "at": "PLUMBAGO",
+   "q": 0.112,
+   "g": 16.5,
    "kazandi": false
   }
  ]
