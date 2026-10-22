@@ -36,8 +36,14 @@ except Exception as e:
     print("iddaa örnek hatası", repr(e))
 
 try:
-    sb = requests.get("https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20260920-20261019", headers=H, timeout=40).json()
-    evs = sb.get("events", [])
+    evs = []
+    for dt in ("20261018", "20261017", "20261016", "20261011", "20261004", "20260927", "20260920", ""):
+        u = "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard" + ("?dates=" + dt if dt else "")
+        sb = requests.get(u, headers=H, timeout=40).json()
+        evs = sb.get("events", [])
+        print("espn", dt or "bugün", len(evs))
+        if evs and any(e.get("status", {}).get("type", {}).get("completed") for e in evs):
+            break
     ornek = {"n_events": len(evs), "ilk": evs[0] if evs else None}
     bitmis = [e for e in evs if e.get("status", {}).get("type", {}).get("completed")]
     if bitmis:
