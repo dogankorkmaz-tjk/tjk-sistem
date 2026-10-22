@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-22 13:03 UTC",
- "kayitli_kosu": 378,
- "eslesmeyen_kosu": 244,
+ "uretim": "2026-10-22 13:29 UTC",
+ "kayitli_kosu": 379,
+ "eslesmeyen_kosu": 243,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 212,
- "kosu": 134,
+ "bahis": 217,
+ "kosu": 136,
  "isabet": 12,
- "roi": 0.915,
+ "roi": 0.894,
  "ga95": [
-  0.449,
-  1.288
+  0.408,
+  1.285
  ],
  "ulke": {
   "abd": {
@@ -18,15 +18,15 @@
    "roi": 0.761
   },
   "birlesik-krallik": {
-   "bahis": 30,
-   "roi": 1.722
+   "bahis": 33,
+   "roi": 1.565
   },
   "fransa": {
    "bahis": 25,
    "roi": 1.71
   },
   "guney-afrika": {
-   "bahis": 10,
+   "bahis": 12,
    "roi": 0.0
   },
   "irlanda": {
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 285,
-  "kosu": 131,
+  "bahis": 289,
+  "kosu": 133,
   "isabet": 35,
-  "roi": 0.812,
+  "roi": 0.801,
   "ga95": [
-   0.532,
+   0.509,
    1.15
   ]
  },
  "bahis_t1": {
-  "bahis": 299,
-  "kosu": 130,
+  "bahis": 304,
+  "kosu": 132,
   "isabet": 41,
-  "roi": 0.914,
+  "roi": 0.899,
   "ga95": [
-   0.608,
+   0.577,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 301,
-  "kosu": 128,
+  "bahis": 307,
+  "kosu": 130,
   "isabet": 37,
-  "roi": 0.754,
+  "roi": 0.739,
   "ga95": [
-   0.58,
+   0.548,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-21",
-   "pist": "Belmont Park",
-   "kosu": 2,
-   "at": "THAT'S FUNNY",
-   "q": 0.072,
-   "g": 34.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "ROYAL BROWNE",
-   "q": 0.089,
-   "g": 19.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "SUPREME GOOD",
-   "q": 0.111,
-   "g": 17.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "PAUL'S RECOVERY",
-   "q": 0.087,
-   "g": 27.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "MAGNUM'S MACROBRST",
-   "q": 0.049,
-   "g": 34.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-21",
    "pist": "Belmont Park",
@@ -337,6 +292,33 @@
   },
   {
    "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 2,
+   "at": "RAISE AND SHINE",
+   "q": 0.105,
+   "g": 12.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 2,
+   "at": "TRUE KNIGHT",
+   "q": 0.093,
+   "g": 13.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 2,
+   "at": "ONE NINE SEVEN",
+   "q": 0.105,
+   "g": 14.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
    "pist": "Turffontein",
    "kosu": 3,
    "at": "LANCE ATTACK",
@@ -423,6 +405,24 @@
    "at": "STANISLAVA",
    "q": 0.091,
    "g": 23.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 5,
+   "at": "WHAT A WARRIOR",
+   "q": 0.069,
+   "g": 19.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Turffontein",
+   "kosu": 5,
+   "at": "TINA LOVELACE",
+   "q": 0.1,
+   "g": 30.15,
    "kazandi": false
   }
  ]
