@@ -1,390 +1,169 @@
 {
  "gun": "2026-10-22",
- "ck_keys": [
-  "day",
-  "sonuclar",
-  "checksum",
-  "date",
-  "runs",
-  "time",
-  "datetime",
-  "timestamp",
-  "pdate",
-  "pdatetext",
-  "success"
- ],
- "ck_ornek": {
+ "run": {
   "BURSA-1": [
-   "a6725f7",
-   "73fb49f8"
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
   ],
   "BURSA-2": [
-   "1721033b",
-   "19a06394"
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
   ],
   "BURSA-3": [
-   "5c3a4c63",
-   "7ba29245"
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-5": [
+   "GANYAN",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-7": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
+  ],
+  "ANKARA-1": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-2": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-3": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-5": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-7": [
+   "GANYAN",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-8": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ANKARA-9": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
+  ],
+  "IZMIR-1": [
+   "GANYAN",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "IZMIR-2": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "IZMIR-3": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "IZMIR-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "IZMIR-5": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "IZMIR-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "IZMIR-7": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "IZMIR-8": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
   ]
  },
- "yarislar": [
-  {
-   "KEY": "BURSA",
-   "YER": "Bursa",
-   "HIPODROM": "Bursa Osmangazi Hipodromu",
-   "atlar": "...",
-   "selected": "7",
-   "agf": [
-    {
-     "name": "AGF",
-     "RESMI": true,
-     "kosular": [
-      {
-       "NO": "2",
-       "ATLAR": "8"
-      },
-      {
-       "NO": "3",
-       "ATLAR": "11"
-      },
-      {
-       "NO": "4",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "5",
-       "ATLAR": "2"
-      },
-      {
-       "NO": "6",
-       "ATLAR": "1"
-      },
-      {
-       "NO": "7",
-       "ATLAR": "6,7"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "KEY": "ANKARA",
-   "YER": "Ankara",
-   "HIPODROM": "Ankara 75. Yıl Hipodromu",
-   "atlar": "...",
-   "selected": "5",
-   "agf": [
-    {
-     "name": "AGF-1",
-     "RESMI": true,
-     "kosular": [
-      {
-       "NO": "1",
-       "ATLAR": "5,8"
-      },
-      {
-       "NO": "2",
-       "ATLAR": "2"
-      },
-      {
-       "NO": "3",
-       "ATLAR": "6"
-      },
-      {
-       "NO": "4",
-       "ATLAR": "5"
-      },
-      {
-       "NO": "5",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "6",
-       "ATLAR": "2"
-      }
-     ]
-    },
-    {
-     "name": "AGF-2",
-     "RESMI": true,
-     "kosular": [
-      {
-       "NO": "4",
-       "ATLAR": "5"
-      },
-      {
-       "NO": "5",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "6",
-       "ATLAR": "2"
-      },
-      {
-       "NO": "7",
-       "ATLAR": "2"
-      },
-      {
-       "NO": "8",
-       "ATLAR": "3"
-      },
-      {
-       "NO": "9",
-       "ATLAR": "7"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "KEY": "IZMIR",
-   "YER": "İzmir",
-   "HIPODROM": "İzmir Şirinyer Hipodromu",
-   "atlar": "...",
-   "selected": "1",
-   "agf": [
-    {
-     "name": "AGF-1",
-     "RESMI": false,
-     "kosular": [
-      {
-       "NO": "1",
-       "ATLAR": "2"
-      },
-      {
-       "NO": "2",
-       "ATLAR": "7"
-      },
-      {
-       "NO": "3",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "4",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "5",
-       "ATLAR": "5"
-      },
-      {
-       "NO": "6",
-       "ATLAR": "4"
-      }
-     ]
-    },
-    {
-     "name": "AGF-2",
-     "RESMI": false,
-     "kosular": [
-      {
-       "NO": "3",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "4",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "5",
-       "ATLAR": "5"
-      },
-      {
-       "NO": "6",
-       "ATLAR": "4"
-      },
-      {
-       "NO": "7",
-       "ATLAR": "1"
-      },
-      {
-       "NO": "8",
-       "ATLAR": "10"
-      }
-     ]
-    }
-   ]
-  }
- ],
- "kosular": {
-  "BURSA": [
-   {
-    "NO": "1",
-    "SAAT": "12:15",
-    "PIST": "Çim",
-    "DURUM": "RESMİ"
-   },
-   {
-    "NO": "2",
-    "SAAT": "12:45",
-    "PIST": "Çim",
-    "DURUM": "RESMİ"
-   },
-   {
-    "NO": "3",
-    "SAAT": "13:15",
-    "PIST": "Çim",
-    "DURUM": "RESMİ"
-   }
-  ],
-  "ANKARA": [
-   {
-    "NO": "1",
-    "SAAT": "13:30",
-    "PIST": "Çim",
-    "DURUM": "RESMİ"
-   },
-   {
-    "NO": "2",
-    "SAAT": "14:00",
-    "PIST": "Kum",
-    "DURUM": "RESMİ"
-   },
-   {
-    "NO": "3",
-    "SAAT": "14:30",
-    "PIST": "Kum",
-    "DURUM": "RESMİ"
-   }
-  ],
-  "IZMIR": [
-   {
-    "NO": "1",
-    "SAAT": "18:00",
-    "PIST": "Kum",
-    "DURUM": "AÇIK"
-   },
-   {
-    "NO": "2",
-    "SAAT": "18:30",
-    "PIST": "Kum",
-    "DURUM": "AÇIK"
-   },
-   {
-    "NO": "3",
-    "SAAT": "19:00",
-    "PIST": "Kum",
-    "DURUM": "AÇIK"
-   }
-  ]
- },
- "run": {
-  "BURSA-1": {
-   "data_keys": [
-    "timestampDiff",
-    "muhtemeller"
-   ],
-   "muh_keys": [
-    "KEY",
-    "NO",
-    "PIST",
-    "SAAT",
-    "DURUM",
-    "timestamp",
-    "bahisler"
-   ],
-   "bahisler": [
-    {
-     "B": "GANYAN",
-     "D": "KAPALI",
-     "cls": "ganyan",
-     "isGanyan": true
-    },
-    {
-     "B": "İKİLİ",
-     "D": "KAPALI",
-     "cls": "ikili",
-     "hasMore": true
-    },
-    {
-     "B": "SIRALI İKİLİ",
-     "D": "KAPALI",
-     "cls": "sirali-ikili",
-     "hasMore": true
-    },
-    {
-     "B": "ÇİFTE",
-     "D": "KAPALI",
-     "cls": "cifte",
-     "hasMore": true
-    }
-   ]
-  },
-  "ANKARA-1": {
-   "data_keys": [
-    "timestampDiff",
-    "muhtemeller"
-   ],
-   "muh_keys": [
-    "KEY",
-    "NO",
-    "PIST",
-    "SAAT",
-    "DURUM",
-    "timestamp",
-    "bahisler"
-   ],
-   "bahisler": [
-    {
-     "B": "GANYAN",
-     "D": "KAPALI",
-     "cls": "ganyan",
-     "isGanyan": true
-    },
-    {
-     "B": "İKİLİ",
-     "D": "KAPALI",
-     "cls": "ikili",
-     "hasMore": true
-    },
-    {
-     "B": "SIRALI İKİLİ",
-     "D": "KAPALI",
-     "cls": "sirali-ikili",
-     "hasMore": true
-    },
-    {
-     "B": "ÇİFTE",
-     "D": "KAPALI",
-     "cls": "cifte",
-     "hasMore": true
-    }
-   ]
-  },
-  "IZMIR-1": {
-   "data_keys": [
-    "timestampDiff",
-    "muhtemeller"
-   ],
-   "muh_keys": [
-    "KEY",
-    "NO",
-    "PIST",
-    "SAAT",
-    "DURUM",
-    "timestamp",
-    "bahisler"
-   ],
-   "bahisler": [
-    {
-     "B": "GANYAN",
-     "D": "AÇIK",
-     "cls": "ganyan",
-     "isGanyan": true
-    },
-    {
-     "B": "SIRALI İKİLİ",
-     "D": "AÇIK",
-     "cls": "sirali-ikili",
-     "hasMore": true
-    },
-    {
-     "B": "ÇİFTE",
-     "D": "AÇIK",
-     "cls": "cifte",
-     "hasMore": true
-    }
-   ]
-  }
+ "saat": {
+  "BURSA-1": "12:15",
+  "BURSA-2": "12:45",
+  "BURSA-3": "13:15",
+  "BURSA-4": "13:45",
+  "BURSA-5": "14:15",
+  "BURSA-6": "14:45",
+  "BURSA-7": "15:15",
+  "ANKARA-1": "13:30",
+  "ANKARA-2": "14:00",
+  "ANKARA-3": "14:30",
+  "ANKARA-4": "15:00",
+  "ANKARA-5": "15:30",
+  "ANKARA-6": "16:00",
+  "ANKARA-7": "16:30",
+  "ANKARA-8": "17:00",
+  "ANKARA-9": "17:30",
+  "IZMIR-1": "18:00",
+  "IZMIR-2": "18:30",
+  "IZMIR-3": "19:00",
+  "IZMIR-4": "19:30",
+  "IZMIR-5": "20:00",
+  "IZMIR-6": "20:30",
+  "IZMIR-7": "21:00",
+  "IZMIR-8": "21:30"
  }
 }
