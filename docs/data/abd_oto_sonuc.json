@@ -1,15 +1,15 @@
 {
- "uretim": "2026-10-22 15:39 UTC",
- "kayitli_kosu": 399,
- "eslesmeyen_kosu": 259,
+ "uretim": "2026-10-22 16:14 UTC",
+ "kayitli_kosu": 403,
+ "eslesmeyen_kosu": 262,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 227,
- "kosu": 140,
+ "bahis": 229,
+ "kosu": 141,
  "isabet": 12,
- "roi": 0.855,
+ "roi": 0.847,
  "ga95": [
-  0.36,
+  0.347,
   1.276
  ],
  "ulke": {
@@ -18,8 +18,8 @@
    "roi": 0.761
   },
   "birlesik-krallik": {
-   "bahis": 36,
-   "roi": 1.435
+   "bahis": 38,
+   "roi": 1.359
   },
   "fransa": {
    "bahis": 25,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 297,
-  "kosu": 137,
+  "bahis": 299,
+  "kosu": 138,
   "isabet": 35,
-  "roi": 0.78,
+  "roi": 0.774,
   "ga95": [
-   0.46,
+   0.447,
    1.149
   ]
  },
  "bahis_t1": {
-  "bahis": 317,
-  "kosu": 136,
+  "bahis": 320,
+  "kosu": 137,
   "isabet": 43,
-  "roi": 0.883,
+  "roi": 0.875,
   "ga95": [
-   0.57,
+   0.555,
    1.188
   ]
  },
  "bahis_t3": {
-  "bahis": 321,
-  "kosu": 134,
+  "bahis": 322,
+  "kosu": 135,
   "isabet": 38,
-  "roi": 0.717,
+  "roi": 0.714,
   "ga95": [
-   0.499,
+   0.493,
    0.871
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-21",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "MONEY RUN",
-   "q": 0.196,
-   "g": 10.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-21",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "FIVE O' SOMEWHERE",
-   "q": 0.156,
-   "g": 9.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-21",
    "pist": "Keeneland",
@@ -252,6 +234,24 @@
    "at": "SLACK BOB",
    "q": 0.12,
    "g": 13.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 7,
+   "at": "SOLAR INVINCIBLE",
+   "q": 0.096,
+   "g": 15.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-22",
+   "pist": "Newmarket",
+   "kosu": 7,
+   "at": "ALBEGONE",
+   "q": 0.152,
+   "g": 11.5,
    "kazandi": false
   },
   {
