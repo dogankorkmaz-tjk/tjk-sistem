@@ -1449,7 +1449,7 @@ function kombEgz(m,L){
   const BTL=L===2?[20,40]:[20,50], BIRIM=L===2?1:2, BT=BTL.map(t=>Math.floor(t/BIRIM)), ad=L===2?'Sıralı ikili':'Üçlü';
   const R=[];
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
-    if(k.sonuc||(L===3&&k.uclu!==true)) return; const out=hesapla(h,k); if(!out) return;   // üçlü yalnız oynanan koşularda (14 Ekim 2026)
+    if(k.sonuc||(L===3&&k.uclu!==true&&k.csv===true)) return; const out=hesapla(h,k); if(!out) return;   // üçlü yalnız oynanan koşularda (14 Ekim 2026)
     const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
     const P=idx.map(i=>PF(out.map[i],m)); if(P.some(v=>v==null)) return;
     const pp=idx.map(i=>out.map[i].pp), G=G5_P.slice(0,L), GMm=(m==='Jason-S'&&VERI.a_s)?VERI.a_s:G5_M;
@@ -1459,7 +1459,7 @@ function kombEgz(m,L){
       const lab=r.sets.map((x,j)=>`${j+1}. at: <b>${x.map(i=>k.atlar[idx[i]].no).join(',')}</b>`).join(' &nbsp;|&nbsp; ');
       return {oran,sets:r.sets,h:`<div class="sub"><b>≤${f2(B*BIRIM)} TL</b> · ${kombSay(r.sets)} komb. · <b>${f2(kombSay(r.sets)*BIRIM)} TL</b>${kombSay(r.sets)*BIRIM<20?` <small>→ <b>${Math.ceil(20/(kombSay(r.sets)*BIRIM))} misli</b> = ${f2(Math.ceil(20/(kombSay(r.sets)*BIRIM))*kombSay(r.sets)*BIRIM)} TL (min. bilet 20 TL)</small>`:''} · tutma %${(r.pr*100).toFixed(1).replace('.',',')} (piyasa %${(prP*100).toFixed(1).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br><span style="font-family:monospace">${lab}</span></div>`}; }).filter(Boolean);
     if(!sat.length) return;
-    R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${sat.some(x=>x.oran>=1.15)?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${sat.map(x=>x.h).join('')}${L===3?permHtml(k,idx,P,pp,GMm,BIRIM,sat[sat.length-1].sets):''}${L===2?perm2Html(k,idx,P,pp,GMm,BIRIM):''}</div>`});
+    R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${sat.some(x=>x.oran>=1.15)?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${(L===3&&k.uclu!==true)?'<div class="sub" style="color:#e0b050">Program dosyası yok: bu koşuda üçlü bahis var mı, makinede kontrol et.</div>':''}${sat.map(x=>x.h).join('')}${L===3?permHtml(k,idx,P,pp,GMm,BIRIM,sat[sat.length-1].sets):''}${L===2?perm2Html(k,idx,P,pp,GMm,BIRIM):''}</div>`});
   }));
   return `<h2 style="margin-top:14px">${ad} (kombine, ${m})</h2><div class="sub">Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır. Birim ${BIRIM} TL, en az 20 TL'lik bilet. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü, geçmiş ölçümü yok, kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
 }

@@ -234,7 +234,7 @@ def csv_uygula(obj):
                 k["yeniden_puan"] = True
             k["saat"] = b["saat"]; k["bilgi"] = yeni_b
             k["mesafe"] = b["mesafe"]; k["pist"] = b["pist"]; k["cins"] = b["cins"]; k["ikramiye"] = b["ikramiye1"]
-            k["besli"] = bool(b.get("besli")); k["uclu"] = bool(b.get("uclu"))
+            k["besli"] = bool(b.get("besli")); k["uclu"] = bool(b.get("uclu")); k["csv"] = True
             n += 1
         C.kaydet(obj["tarih"], h["id"], kosular, atlar, VERI)
     if n:
