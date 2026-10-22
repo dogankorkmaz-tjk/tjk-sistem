@@ -154,6 +154,23 @@ def _canli_yaz(D):
     json.dump(C, open(yol, "w", encoding="utf-8"), ensure_ascii=False)
 
 
+def program_saatleri(tarih):
+    """vhs-medya gün dosyasından {HİPODROM_SLUG: {koşu_no: 'SS:DD'}} (yurtiçi dahil). Program CSV'si gelmediği günlerde saat bilgisi buradan alınır (22 Ekim 2026)."""
+    yol = tarih.replace("-", "/")
+    ck = _json(f"{HOST}{yol}/checksum.json")
+    if not ck or not ck.get("day"):
+        return {}
+    gj = _json(f"{CDN}{yol}/day-{ck['day']}.json")
+    if not gj or not gj.get("success"):
+        return {}
+    out = {}
+    for y in gj["data"]["yarislar"]:
+        if y.get("YURTDISI"):
+            continue
+        out[_slug(y["KEY"])] = {int(k["NO"]): k["SAAT"] for k in y.get("kosular", []) if k.get("SAAT")}
+    return out
+
+
 def _dk(saat, simdi):
     bas = datetime.datetime.combine(simdi.date(), datetime.time.fromisoformat(saat))
     if bas.hour < 6 and simdi.hour >= 12:

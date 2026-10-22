@@ -196,6 +196,25 @@ def saat_duzelt(obj):
     return n
 
 
+def vhs_saat(obj):
+    """Program CSV'si olmayan (saati boş) koşulara saati TJK'nın halka açık canlı muhtemel sayfasından (vhs-medya) işler; CSV'deki saate dokunmaz."""
+    try:
+        from . import muhtemeller as MH
+        if not any(not k.get("saat") for h in obj["hipodromlar"] for k in h["kosular"]):
+            return
+        sa = MH.program_saatleri(obj["tarih"])
+        n = 0
+        for h in obj["hipodromlar"]:
+            d = sa.get(MH._slug(h["id"])) or {}
+            for k in h["kosular"]:
+                if not k.get("saat") and d.get(int(k["kosu"])):
+                    k["saat"] = d[int(k["kosu"])]; n += 1
+        if n:
+            print("vhs'den koşu saati işlendi:", n, "koşu")
+    except Exception as e:
+        print("vhs saat hatası:", repr(e)[:100])
+
+
 def csv_uygula(obj):
     """data/tjk_csv/ içindeki o güne ait TJK CSV'lerinden saat, cins, mesafe, pist, ikramiyeyi koşulara işler ve eğitim verisi için biriktirir."""
     veri = C.gunun(obj["tarih"])
@@ -220,6 +239,7 @@ def csv_uygula(obj):
         C.kaydet(obj["tarih"], h["id"], kosular, atlar, VERI)
     if n:
         print("TJK CSV'den koşu bilgisi işlendi:", n, "koşu")
+    vhs_saat(obj)
     saat_duzelt(obj)
     ertele_uygula(obj)
 
