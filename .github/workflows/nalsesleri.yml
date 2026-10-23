@@ -1,0 +1,28 @@
+name: nalsesleri
+on:
+  schedule:
+    - cron: "17 */3 * * *"      # 3 saatte bir, çalışma başına en fazla 400 nazik istek (3 sn arayla ~20 dk)
+  workflow_dispatch:
+concurrency:
+  group: nalsesleri
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  topla:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -u -m tjk.nalsesleri
+      - name: Kaydet
+        run: |
+          git config user.name "tjk-bot"; git config user.email "tjk-bot@users.noreply.github.com"
+          git add -A data/nalsesleri; git diff --cached --quiet && exit 0
+          git commit -m "nalsesleri $(date -u '+%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
