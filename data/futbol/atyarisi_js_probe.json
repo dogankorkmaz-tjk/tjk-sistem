@@ -1,27 +1,116 @@
 {
- "scriptler": [
-  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/scripts/React/react-app-loader.min.js?v=10979123351",
-  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/CCAll.min.js?v=10979123351",
-  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/libs/lazyload.min.js?v=10979123351"
+ "js": [
+  "https://sc.atyarisi.com/10979123351/www/libs/crypto-js.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/scripts/React/react-app-loader.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/scripts/ClientCoupon/minMaxRefTable.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/libs/lazyload.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/CCAll.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/NesineAllJS.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/Sentry.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/nsn-global.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/MobileSmartBanner.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/MobileBottomNav.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/CookiesPopup.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/vendor.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/HeaderMobileNav.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/tjk-global.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/Notice.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/TjkHeaderWebNav.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/nsnGlobalReduxManagerChunk.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/TjkFlyingCoupon.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/LuckyLink.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/tjk-flying-coupon.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/FooterTJK.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/TJK.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/MiniPlayer.min.js?v=10979123351",
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/3933.min.js"
  ],
  "yollar": {
-  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/scripts/React/react-app-loader.min.js?v=10979123351": [
-   "https://lg.atyarisi.com/api/v1",
-   "https://lg.atyarisi.com/api/v1/RaffleTicketPlay",
-   "https://lg.atyarisi.com/api/v1/TicketPlay",
-   "https://log.atyarisi.com/api/v1/"
+  "https://sc.atyarisi.com/10979123351/www/scripts/React/react-app-loader.min.js?v=10979123351": [
+   "/gallop-sprint-widget"
   ],
-  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/CCAll.min.js?v=10979123351": [
-   "https://lg.atyarisi.com/api/v1",
-   "https://lg.atyarisi.com/api/v1/RaffleTicketPlay",
-   "https://lg.atyarisi.com/api/v1/TicketPlay",
-   "https://log.atyarisi.com/api/v1/"
+  "https://sc.atyarisi.com/10979123351/www/NesineAllJS.min.js?v=10979123351": [
+   "/api/v1/GetMemberContactPermissions",
+   "/api/v4/LiveScore/GetMatchDetailByCodeWithVersion"
   ],
-  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/libs/lazyload.min.js?v=10979123351": [
-   "https://lg.atyarisi.com/api/v1",
-   "https://lg.atyarisi.com/api/v1/RaffleTicketPlay",
-   "https://lg.atyarisi.com/api/v1/TicketPlay",
-   "https://log.atyarisi.com/api/v1/"
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/nsn-global.min.js?v=10979123351": [
+   ",GallopSprintWidget:",
+   "/StatisticWebview/GetSeoConfig",
+   "/api/v1",
+   "/api/v1/",
+   "/api/v1/member/Balance",
+   "/api/v1/member/BalanceDetail",
+   "/gallop-sprint-widget"
+  ],
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/CookiesPopup.min.js?v=10979123351": [
+   "/api/v1/digital-studio/sdk-public/event",
+   "/api/v1/digital-studio/sdk-public/web-communication-wrapper"
+  ],
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/HeaderMobileNav.min.js?v=10979123351": [
+   "/api/v1",
+   "/api/v1/",
+   "/api/v1/member/Balance",
+   "/api/v1/member/BalanceDetail",
+   "/api/v2",
+   "/api/v3",
+   "api/v2"
+  ],
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/tjk-global.min.js?v=10979123351": [
+   "/api/v1/Contract/CheckContractTjkSharedCoupon",
+   "/api/v1/Contract/SignContractTjkSharedCoupon"
+  ],
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/FooterTJK.min.js?v=10979123351": [
+   "/api/v1",
+   "/api/v3"
+  ],
+  "https://sc.atyarisi.com/10979123351/www/nsn-react/public/js/TJK.min.js?v=10979123351": [
+   ",horseStatsCell:",
+   "/api/v1/",
+   "GallopSprintWidget",
+   "GallopsSprints",
+   "race-gallops-sprints"
   ]
- }
+ },
+ "json_istekleri": [
+  {
+   "url": "https://www.atyarisi.com/StatisticWebview/GetSeoConfig",
+   "bas": "\"[{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/\\\",\\\"title\\\":\\\"At Yarışı : atyarışı.com | At Yarışı Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası "
+  },
+  {
+   "url": "https://content.atyarisi.com/notice/GetGeneralNotice?deviceType=0",
+   "bas": "{\"sc\":200,\"d\":[],\"el\":null,\"ml\":null}"
+  },
+  {
+   "url": "https://bam.nr-data.net/1/NRBR-ec5906af2eafc5f9fac?a=1340378594&v=1.324.0&to=blFbbUQEWEBZUkRcClcbdG91SmJ5c3JfWxFLW1VVUxcZZ3J6clQNUEdgWEY%3D&rst=7578&s=a32eba5fa9ea1dbc&ref=https://www.atyarisi.com/tjk",
+   "bas": "{\"stn\":0,\"err\":1,\"ins\":1,\"spa\":1,\"sr\":0,\"srs\":0,\"st\":1,\"sts\":0,\"log\":0,\"logapi\":0,\"app\":{\"agents\":[{\"entityGuid\":\"MjcyMjY0fEJST1dTRVJ8QVBQTElDQVRJT058MTM4NjE1NjI4OA\"}],\"nrServerTime\":1792794656012}}"
+  }
+ ],
+ "baglam": [
+  "zir-kuponlar\",\"at-yarisi/ortak-altili\",\"at-yarisi/at-yarisi-yorumlari\",\"haber\",\"/tjk-istatistikler-best-grade-widget\",\"/gallop-sprint-widget\",\"/tjk-at-jokey\",\"/tjk-kayitlar\",\"/tjk-son-2-kosu\",\"/tjk-birlikte-kosular\",\"/at-detay\",\"/at-detay-yaris-sonuclari\",\"/at\",\"/jokey\",\"tjk-at-yarisi-",
+  "onlar\",\"at-yarisi/ortak-altili\",\"at-yarisi/at-yarisi-yorumlari\",\"haber\",\"/tjk-istatistikler-best-grade-widget\",\"/gallop-sprint-widget\",\"/tjk-at-jokey\",\"/tjk-kayitlar\",\"/tjk-son-2-kosu\",\"/tjk-birlikte-kosular\",\"/at-detay\",\"/at-detay-yaris-sonuclari\",\"/at\",\"/jokey\",\"tjk-at-yarisi-program",
+  " ($1)\",manufacturer:\"HTC\"},{regex:\"USCCHTC(\\\\d+)\",device_replacement:\"HTC $1 (US Cellular)\",manufacturer:\"HTC\"},{regex:\"Sprint APA(9292)\",device_replacement:\"HTC $1 (Sprint)\",manufacturer:\"HTC\"},{regex:\"HTC ([A-Za-z0-9]+ [A-Z])\",device_replacement:\"HTC $1\",manufacturer:\"HTC\"},{regex:\"H",
+  "+)\",device_replacement:\"HTC $1 (US Cellular)\",manufacturer:\"HTC\"},{regex:\"Sprint APA(9292)\",device_replacement:\"HTC $1 (Sprint)\",manufacturer:\"HTC\"},{regex:\"HTC ([A-Za-z0-9]+ [A-Z])\",device_replacement:\"HTC $1\",manufacturer:\"HTC\"},{regex:\"HTC-([A-Za-z0-9]+)\",device_replacement:\"HTC $1\"",
+  "ing:\"/at-yarisi/tjk-at-yarisi-istatistikler/at-detay-yaris-sonuclari\",Horse:\"/at-yarisi/tjk-at-yarisi-istatistikler/at\",GallopSprintWidget:\"/at-yarisi/tjk-at-yarisi-istatistikler/galoplar\",BestGradeWidget:\"/at-yarisi/tjk-at-yarisi-istatistikler/en-iyi-derece\",HorseJockeyWidget:\"/at-yar",
+  "at-yarisi/tjk-at-yarisi-istatistikler/at-detay-yaris-sonuclari\",Horse:\"/at-yarisi/tjk-at-yarisi-istatistikler/at\",GallopSprintWidget:\"/at-yarisi/tjk-at-yarisi-istatistikler/galoplar\",BestGradeWidget:\"/at-yarisi/tjk-at-yarisi-istatistikler/en-iyi-derece\",HorseJockeyWidget:\"/at-yarisi/tj",
+  "sonuclari\",Horse:\"/at-yarisi/tjk-at-yarisi-istatistikler/at\",GallopSprintWidget:\"/at-yarisi/tjk-at-yarisi-istatistikler/galoplar\",BestGradeWidget:\"/at-yarisi/tjk-at-yarisi-istatistikler/en-iyi-derece\",HorseJockeyWidget:\"/at-yarisi/tjk-at-yarisi-istatistikler/at-jokey\",Last2RunsWidget:",
+  "rtak-altili\",v=\"/tjk-at-yarisi-istatistikler-mobile\",y=\"/at-detay\",h=\"/jokey\",k=\"/at-detay-yaris-sonuclari\",g=\"/at\",w=\"/gallop-sprint-widget\",S=\"/tjk-istatistikler-best-grade-widget\",C=\"/tjk-at-jokey\",T=\"/tjk-son-2-kosu\",I=\"/tjk-birlikte-kosular\",E=\"/tjk-kayitlar\",M=\"/sanal-yarislar\",x",
+  "tili\",v=\"/tjk-at-yarisi-istatistikler-mobile\",y=\"/at-detay\",h=\"/jokey\",k=\"/at-detay-yaris-sonuclari\",g=\"/at\",w=\"/gallop-sprint-widget\",S=\"/tjk-istatistikler-best-grade-widget\",C=\"/tjk-at-jokey\",T=\"/tjk-son-2-kosu\",I=\"/tjk-birlikte-kosular\",E=\"/tjk-kayitlar\",M=\"/sanal-yarislar\",x=\"/sana",
+  "com-tv\",News:a?i.News:\"/haber\",GanyanKulubu:\"/ganyan-kulubu?act=getpublicfeeds\",StatisticsMobile:a?i.StatisticsMobile:v,GallopSprintWidget:a?i.GallopSprintWidget:w,BestGradeWidget:a?i.BestGradeWidget:S,HorseJockeyWidget:a?i.HorseJockeyWidget:C,Last2RunsWidget:a?i.Last2RunsWidget:T,Toge",
+  "\",News:a?i.News:\"/haber\",GanyanKulubu:\"/ganyan-kulubu?act=getpublicfeeds\",StatisticsMobile:a?i.StatisticsMobile:v,GallopSprintWidget:a?i.GallopSprintWidget:w,BestGradeWidget:a?i.BestGradeWidget:S,HorseJockeyWidget:a?i.HorseJockeyWidget:C,Last2RunsWidget:a?i.Last2RunsWidget:T,TogetherRu",
+  "/haber\",GanyanKulubu:\"/ganyan-kulubu?act=getpublicfeeds\",StatisticsMobile:a?i.StatisticsMobile:v,GallopSprintWidget:a?i.GallopSprintWidget:w,BestGradeWidget:a?i.BestGradeWidget:S,HorseJockeyWidget:a?i.HorseJockeyWidget:C,Last2RunsWidget:a?i.Last2RunsWidget:T,TogetherRunsWidget:a?i.Toge",
+  "\",GanyanKulubu:\"/ganyan-kulubu?act=getpublicfeeds\",StatisticsMobile:a?i.StatisticsMobile:v,GallopSprintWidget:a?i.GallopSprintWidget:w,BestGradeWidget:a?i.BestGradeWidget:S,HorseJockeyWidget:a?i.HorseJockeyWidget:C,Last2RunsWidget:a?i.Last2RunsWidget:T,TogetherRunsWidget:a?i.TogetherRu",
+  "\",\"/tjk-at-yarisi-bulteni_Muhtemel\":\"bulten_muhtemel\",\"/tjk-at-yarisi-bulteni_AGF\":\"bulten_agf\",\"/tjk-at-yarisi-bulteni_Galoplar\":\"bulten_galoplar\",\"/tjk-at-yarisi-bulteni_Yorumlar\":\"bulten_yorumlar\",\"/tjk-at-yarisi-bulteni_En İyi Derece\":\"bulten_en_iyi_derece\",\"/tjk-at-yarisi-bulteni",
+  "bulteni_Muhtemel\":\"bulten_muhtemel\",\"/tjk-at-yarisi-bulteni_AGF\":\"bulten_agf\",\"/tjk-at-yarisi-bulteni_Galoplar\":\"bulten_galoplar\",\"/tjk-at-yarisi-bulteni_Yorumlar\":\"bulten_yorumlar\",\"/tjk-at-yarisi-bulteni_En İyi Derece\":\"bulten_en_iyi_derece\",\"/tjk-at-yarisi-bulteni_Son 2 Koşu\":\"bult",
+  "t-ihtimalli_Muhtemel\":\"sabit_ihtimalli_muhtemel\",\"/tjk-sabit-ihtimalli_AGF\":\"sabit_ihtimalli_agf\",\"/tjk-sabit-ihtimalli_Galoplar\":\"sabit_ihtimalli_galoplar\",\"/tjk-sabit-ihtimalli_Yorumlar\":\"sabit_ihtimalli_yorumlar\",\"/tjk-sabit-ihtimalli_En İyi Derece\":\"sabit_ihtimalli_en_iyi_derece\",",
+  "t_ihtimalli_muhtemel\",\"/tjk-sabit-ihtimalli_AGF\":\"sabit_ihtimalli_agf\",\"/tjk-sabit-ihtimalli_Galoplar\":\"sabit_ihtimalli_galoplar\",\"/tjk-sabit-ihtimalli_Yorumlar\":\"sabit_ihtimalli_yorumlar\",\"/tjk-sabit-ihtimalli_En İyi Derece\":\"sabit_ihtimalli_en_iyi_derece\",\"/tjk-sabit-ihtimalli_Son 2",
+  "]],[/\\btu_(1491) b/i],[f,[h,\"Rotor\"],[p,b]],[/((?:tegranote|shield t(?!.+d tv))[\\w- ]*?)(?: b|\\))/i],[f,[h,I],[p,b]],[/(sprint) (\\w+)/i],[h,f,[p,y]],[/(kin\\.[onetw]{3})/i],[[f,/\\./g,\" \"],[h,A],[p,y]],[/droid.+; (cc6666?|et5[16]|mc[239][23]x?|vc8[03]x?)\\)/i],[f,[h,H],[p,b]],[/droid.+; (",
+  "EMEL:{Value:\"MUHTEMEL\",Text:\"Oranlar\"}}:{MUHTEMEL:{Value:\"MUHTEMEL\",Text:\"Muhtemel\"}}),{},{AGF:{Value:\"AGF\",Text:\"AGF\"},GALOPLAR:{Value:\"GALOPLAR\",Text:\"Galoplar\"},COMMENTS:{Value:\"COMMENTS\",Text:\"Yorumlar\",showThreeDots:!0,isNew:!v.iV}},window.TjkScoreAndCommentsEnabled?{SCORE_NOTES:",
+  "EMEL\",Text:\"Oranlar\"}}:{MUHTEMEL:{Value:\"MUHTEMEL\",Text:\"Muhtemel\"}}),{},{AGF:{Value:\"AGF\",Text:\"AGF\"},GALOPLAR:{Value:\"GALOPLAR\",Text:\"Galoplar\"},COMMENTS:{Value:\"COMMENTS\",Text:\"Yorumlar\",showThreeDots:!0,isNew:!v.iV}},window.TjkScoreAndCommentsEnabled?{SCORE_NOTES:{Value:\"Puanlar_N",
+  "lar\"}}:{MUHTEMEL:{Value:\"MUHTEMEL\",Text:\"Muhtemel\"}}),{},{AGF:{Value:\"AGF\",Text:\"AGF\"},GALOPLAR:{Value:\"GALOPLAR\",Text:\"Galoplar\"},COMMENTS:{Value:\"COMMENTS\",Text:\"Yorumlar\",showThreeDots:!0,isNew:!v.iV}},window.TjkScoreAndCommentsEnabled?{SCORE_NOTES:{Value:\"Puanlar_Notlar\",Text:\"Pua",
+  "onusunda bilgi sahibi olması tercihlerini doğrudan etkileyen unsurlardır.\",type:\"H1\"},{heading:\"At & Jokey İstatistiği: Galoplar ve Sprintler\",description:\"Anlaşılır ve zengin içeriğiyle galoplar, sprintler, aprantiler, jokey, at, kısrak bilgileri, detaylı analiz ve daha fazlasına aty",
+  "gi sahibi olması tercihlerini doğrudan etkileyen unsurlardır.\",type:\"H1\"},{heading:\"At & Jokey İstatistiği: Galoplar ve Sprintler\",description:\"Anlaşılır ve zengin içeriğiyle galoplar, sprintler, aprantiler, jokey, at, kısrak bilgileri, detaylı analiz ve daha fazlasına atyarışı.com ist",
+  "ardır.\",type:\"H1\"},{heading:\"At & Jokey İstatistiği: Galoplar ve Sprintler\",description:\"Anlaşılır ve zengin içeriğiyle galoplar, sprintler, aprantiler, jokey, at, kısrak bilgileri, detaylı analiz ve daha fazlasına atyarışı.com istatistik sayfalarından erişim sağlanabilmektedir.\",type",
+  "pe:\"H1\"},{heading:\"At & Jokey İstatistiği: Galoplar ve Sprintler\",description:\"Anlaşılır ve zengin içeriğiyle galoplar, sprintler, aprantiler, jokey, at, kısrak bilgileri, detaylı analiz ve daha fazlasına atyarışı.com istatistik sayfalarından erişim sağlanabilmektedir.\",type:\"H2\"},{hea",
+  "ippodrome\",\"run\"]);return r.createElement(Dt,{params:e,\"data-test-id\":\"BestGradeWidget\"})},_t=function(){var e=Ft(\"race-gallops-sprints\");return r.createElement(Dt,{params:e,\"data-test-id\":\"GallopSprintWidget\"})},Kt=\"c1eab4a1bdfc21d3fe81\",Gt=\"a7d511688b7560b68114\";function Vt(e,a){var "
+ ]
 }
