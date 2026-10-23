@@ -530,3 +530,6 @@ Bulgu: 2. ve 3. sıralar için Harville fazla dik; öğrenilen gamma2≈0,80, ga
 
 ## 2026-10-24 02:15 — Model yapısı deneyi 2 (ayrıştırma; data/analiz/model_yapisi_2.py), aynı test kümesi
 Piyasaya yalnız gamma (özellik yok): kazanan −0.0015, sıralı ikili −0.0078 [−0.0102,−0.0054], sıralı üçlü −0.0328 [−0.0381,−0.0276] (gamma2 0,787, gamma3 0,667, alfa 1,076 ⇒ etkin üs 0,85/0,72; tjk/egzotik.py'deki GAMA,DELTA=0,867/0,735 ile uyumlu). K=3+gamma+özellik: −0.0039 | −0.0219 | −0.0601. Yani üçlüdeki kazancın ~%55'i yalnız üstten, kalan ~%45 (−0.027) özelliklerden; ikilide ~%36 üs, ~%64 özellik. Düzeltme: egzotik hesaplarda üs düzeltmesi zaten vardı; eksik olan, 2./3. sıra için özellik katkısı (K=3 eğitimli model).
+
+## 2026-10-24 02:40 — G1-S egzotik gölgesi (kâğıt, ön kayıt)
+tjk/g1.py egit3/z6: ilk 3 sıra + sıra üsleriyle eğitilmiş Benter-G1 (g2≈0,80, g3≈0,69; katsayılar data/analiz/g1s_katsayi.json, her gece yenilenir). tjk/egzotik.py: "G1-S" adıyla aynı dondurulmuş kural (model/AGF ≥1,15 ve AGF kombinasyon eşiği) ve kendi üsleriyle sıralı ikili/ikili/üçlü seçer; ayrı sayaç, Bolton/Jason/Jason-S dokunulmadı. Atlara kg/hk (kilo, handikap) alanları eklendi (bugünden itibaren). Karar: ≥300 sonuçlanan koşuda geri dönüş ve isabet Bolton/Jason ile aynı ölçütle karşılaştırılır; aşağıdaki sonuçtan önce kural değişmez. Tabela ve sıralı 5'li bu turda eklenmedi.

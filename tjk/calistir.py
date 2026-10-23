@@ -164,6 +164,8 @@ def sabah(t):
         for kn, kg in g.groupby("kosu"):
             atlar = [{"no": int(r.no), "at": r.p_at, "jokey": r.p_jokey, "apr": bool(r.p_apranti),
                       "st": bos_sayi(float(r.st)) if pd.notna(r.st) else None,
+                      **({"kg": float(r.p_kilo)} if pd.notna(getattr(r, "p_kilo", None)) else {}),
+                      **({"hk": float(r.hk)} if pd.notna(getattr(r, "hk", None)) else {}),
                       "z": round(float(bz.get((h, kn, int(r.no)), 0.0)), 4),
                       **({"z2": round(float(bz2.get((h, kn, int(r.no)), 0.0)), 4)} if A else {}),
                       **({"z3": round(float(bz3.get((h, kn, int(r.no)), 0.0)), 4)} if AK else {}),
@@ -984,6 +986,7 @@ def gece(bugun):
     try:
         from . import g1 as _G1                    # Benter-G1: katsayıları her gece tüm geçmişle yenile (8 sn)
         _G1.egit()
+        _G1.egit3()
     except Exception as e:
         print("g1 eğitim hatası:", repr(e))
     try:

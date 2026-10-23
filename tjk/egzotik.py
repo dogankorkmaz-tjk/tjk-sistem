@@ -29,8 +29,9 @@ def ik_dilim(ik):
     return "düşük" if ik < IK_KES[0] else ("orta" if ik <= IK_KES[1] else "yüksek")
 
 
-def _kombolar(p, k):
-    q2 = {n: v ** GAMA for n, v in p.items()}; q3 = {n: v ** DELTA for n, v in p.items()}
+def _kombolar(p, k, gama=None, delta=None):
+    gama = GAMA if gama is None else gama; delta = DELTA if delta is None else delta
+    q2 = {n: v ** gama for n, v in p.items()}; q3 = {n: v ** delta for n, v in p.items()}
     s2, s3 = sum(q2.values()), sum(q3.values()); out = {}
     for c in itertools.permutations(p, k):
         pr = p[c[0]]
@@ -42,7 +43,7 @@ def _kombolar(p, k):
     return out
 
 
-def _secim(atlar, w0, zk="z", lp2=0.0, esik_oran=ORAN):
+def _secim(atlar, w0, zk="z", lp2=0.0, esik_oran=ORAN, gd=None):
     """atlar: koşu atları (agf, z). Her tür için seçilen kombinasyonlar: {tur: ["a-b", ...]}. zk: form puanı alanı (Bolton "z", Jason "z2")."""
     at = [a for a in atlar if a.get("agf") and not a.get("kosmaz")]
     if len(at) < 5 or (zk != "z" and any(a.get(zk) is None for a in at)):
@@ -53,7 +54,7 @@ def _secim(atlar, w0, zk="z", lp2=0.0, esik_oran=ORAN):
     Z = sum(ham.values()); pm = {n: v / Z for n, v in ham.items()}
     out = {}; oran = {}
     for tur, k in K.items():
-        A, B = _kombolar(pk, k), _kombolar(pm, k)
+        A, B = _kombolar(pk, k), (_kombolar(pm, k, *gd) if gd else _kombolar(pm, k))
         if tur == "İKİLİ":
             A2, B2 = {}, {}
             for c, v in A.items():
@@ -104,14 +105,31 @@ def guncelle(obj):
             modeller.append((ad_v.replace("Jason-", "J") .replace(".", "") + "|", "z2", obj["w0_aday"], ad_v, obj.get("lp2_aday", 0.0), o_v))
     if obj.get("w0_s") is not None:                                                            # Jason-S (14 Ekim 2026): aynı dondurulmuş kural, ayrı gölge sayaç
         modeller.append(("JS|", "z4", obj["w0_s"], "Jason-S", obj.get("lp2_s", 0.0), ORAN))
+    GD = {}
+    try:                                                                                       # G1-S (24 Ekim 2026): ilk 3 sıra + sıra üsleriyle eğitilmiş Benter-G1; aynı dondurulmuş kural, ayrı gölge sayaç
+        from . import g1 as _G1
+        if os.path.exists(_G1.YOL3):
+            c3 = json.load(open(_G1.YOL3)); modeller.append(("G1|", "z6", c3["alfa"], "G1-S", 0.0, ORAN)); GD["G1|"] = (c3["g2"], c3["g3"])
+    except Exception as e:
+        print("G1-S hatası:", repr(e))
+    import datetime as _dt
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
+            if GD and not k.get("sonuc") and any(a.get("z6") is None for a in k.get("atlar", [])):
+                try:
+                    zz = _G1.z6(k.get("atlar", []), _dt.date.fromisoformat(tarih))
+                    if zz:
+                        for a in k["atlar"]:
+                            if a["no"] in zz:
+                                a["z6"] = round(zz[a["no"]], 4)
+                except Exception as e:
+                    print("G1-S z hatası:", repr(e))
             basladi = bool(k.get("sonuc")) or (simdi is not None and k.get("saat") and simdi >= k["saat"] and obj.get("gecmis") is not True)
             for onek, zk, w0, ad_m, lp2, or_m in modeller:
                 anahtar = f"{onek}{h['id']}|{k['kosu']}"
                 c = kay.get(anahtar)
                 if c is None and not basladi:
-                    s = _uclu_suz(_secim(k.get("atlar", []), w0, zk, lp2, or_m), k)
+                    s = _uclu_suz(_secim(k.get("atlar", []), w0, zk, lp2, or_m, GD.get(onek)), k)
                     if s is not None:
                         ora = s.pop("_oran", None)
                         kay[anahtar] = c = {"model": ad_m, "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": simdi, "dondu": False, "secim": s, "oran": ora,
@@ -120,7 +138,7 @@ def guncelle(obj):
                     if basladi:
                         c["dondu"] = True
                     else:
-                        s = _uclu_suz(_secim(k.get("atlar", []), w0, zk, lp2, or_m), k)
+                        s = _uclu_suz(_secim(k.get("atlar", []), w0, zk, lp2, or_m, GD.get(onek)), k)
                         if s is not None:
                             c["oran"] = s.pop("_oran", None)
                             c["secim"] = s; c["uretim"] = simdi
@@ -159,7 +177,7 @@ def h_ad(c):
 def ozet_yaz(tarih):
     def bos():
         return {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
-    tops = {"Bolton": bos(), "Jason": bos(), "Jason-S": bos(), **{v: bos() for v in VARYANT}}
+    tops = {"Bolton": bos(), "Jason": bos(), "Jason-S": bos(), "G1-S": bos(), **{v: bos() for v in VARYANT}}
     ikd = {d: bos() for d in ("düşük", "orta", "yüksek")}
     gun = []
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
@@ -183,7 +201,7 @@ def ozet_yaz(tarih):
             a["harcama"] = round(a["harcama"], 2); a["kazanc"] = round(a["kazanc"], 2)
     os.makedirs(SITE, exist_ok=True)
     json.dump({"tarih": tarih, "kural": {"gama": GAMA, "delta": DELTA, "oran": ORAN, "esik": ESIK, "birim": BIRIM},
-               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_jason_s": list(tops["Jason-S"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
+               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_jason_s": list(tops["Jason-S"].values()), "toplam_g1s": list(tops["G1-S"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
                "toplam_ikramiye": {d: list(v.values()) for d, v in ikd.items()}, "ikramiye_kesim": list(IK_KES)},
               open(os.path.join(SITE, "egzotik.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     try:
