@@ -331,9 +331,10 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
   <section id="bolton" class="sec" hidden><div id="bolIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="jason" class="sec" hidden><div id="jasIc"><div class="card empty">Yükleniyor…</div></div></section>
 
-  <section id="egz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="true">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button></div><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
-  <section id="ikili" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="true">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button></div><div id="ikiIc"><div class="card empty">Yükleniyor…</div></div></section>
-  <section id="kupon2" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="true">Beşli ve altılı</button></div>
+  <section id="egz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="true">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button><button data-k="tegz" aria-pressed="false">Tüyo egz.</button></div><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="ikili" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="true">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button><button data-k="tegz" aria-pressed="false">Tüyo egz.</button></div><div id="ikiIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="tegz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button><button data-k="tegz" aria-pressed="true">Tüyo egz.</button></div><div id="tegzIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="kupon2" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="true">Beşli ve altılı</button><button data-k="tegz" aria-pressed="false">Tüyo egz.</button></div>
     <div class="bolum"><h2>Sıralı 5'li kombine kupon</h2><div class="bolum-not">Ana test: Jason, 150 kombinasyonluk bütçe.</div><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div></div>
     <div class="bolum"><h2>Değer filtresi: ikili ve üçlü</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div></div>
     <div class="bolum"><h2>Altılı kupon testi</h2><div class="bolum-not">Sistemin her gün kurduğu altılı kuponlar; kâğıt üstü.</div><div id="otoKupon"><div class="card empty">Yükleniyor…</div></div></div>
@@ -1187,7 +1188,7 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={s5:'tabS5',abd:'tabAbd',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={s5:'tabS5',abd:'tabAbd',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
 function digerAc(ac){ $('digerPanel').hidden=!ac; $('digerOrtu').hidden=!ac; }
 function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
@@ -1199,6 +1200,7 @@ function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   if(ad==='s5') s5Ciz(0);
   if(ad==='egz') egzYukle();
   if(ad==='ikili') degerYukle();
+  if(ad==='tegz') tegzYukle();
   if(ad==='abd'&&!ABD) abdYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
   if(ad==='bolton'||ad==='jason') (EGZ?Promise.resolve():egzYukle()).then(tumModel);
@@ -1270,13 +1272,18 @@ async function otoCanliYukle(){
   }catch(e){ el.innerHTML='<div class="card empty">Henüz kaydedilmiş oran yok. Bir koşuda oranları girip "Bu oranları kaydet"e bas.</div>'; }
 }
 otoCanliYukle();
+async function tegzYukle(){
+  const el=$('tegzIc'); if(!el) return;
+  try{ const E=(await getJSON('data/tuyo_egz.json?'+Date.now())).sonuc||{}; const fx=v=>v==null?'–':String(v).replace('.',',');
+    const sat=Object.keys(E).map(t=>{const v=E[t],q=v.kontrol||{}; return `<tr><td>${t}</td><td class="n">${v.n}</td><td class="n">${v.isabet}</td><td class="n">${f2(v.maliyet)}</td><td class="n">${fx(v.geri_donus)}</td><td class="n">${q['koşu']}</td><td class="n">${fx(q.geri_donus)}</td></tr>`;}).join('');
+    el.innerHTML='<div class="card scroll"><b>Jason tüyosu egzotik bahiste (kâğıt üstü)</b><table class="t"><thead><tr><th>Bahis</th><th>Tüyo</th><th>İsabet</th><th>Harcama</th><th>Geri dönüş</th><th>Kontrol koşu</th><th>Kontrol geri dönüş</th></tr></thead><tbody>'+sat+'</tbody></table><div class="sub">1,00 üstü = kazandırdı. Karar için en az 300 tüyo gerekir; şimdilik yalnız ölçüm.</div></div>'
+    +'<div class="card"><b>Kurallar (dondurulmuş, 23 Ekim 2026)</b><div class="sub">Tüyo at T + sabah AGF\'sine göre T hariç en yüksek atlar. <b>İkili</b>: {T,F1}, {T,F2}. <b>Sıralı ikili</b>: T birinci, ikinci F1 ya da F2. <b>Üçlü</b>: T+2 favori kutu (6 sıralama, 2 TL). <b>Tabela</b>: T+3 favori kutu (24 sıralama / sırasız 1 bilet, 1,50 TL). <b>Sıralı 5\'li</b>: T+4 favori kutu (120 sıralama, 1,25 TL). Kontrol: aynı koşularda yalnız piyasa, AGF\'nin ilk 2/3/4/5 atı kutu. Devirli koşular veride yoksa geri dönüş olduğundan iyi görünebilir.</div></div>';
+  }catch(e){ el.innerHTML='<div class="card empty">Henüz veri yok.</div>'; }
+}
 async function otoTuyoYukle(){
   const el=$('otoTuyo'); if(!el) return;
   try{ const d=await getJSON('data/tuyo.json?'+Date.now()); const t=d.toplam||{n:0}; let h='<div class="card"><b>Şimdiye kadar</b><div class="sub">'+(t.n?`${t.n} tüyo sonuçlandı: <b>${t.kazanan}</b> kazandı, <b>${t.ilk3}</b> ilk üçe girdi. Her ata 1 TL ganyan oynansaydı geri dönüş <b>${String(t.geri_donus).replace('.',',')}</b> (1,00 üstü = kazandırdı).`:'Henüz sonuçlanan tüyo yok.')+'</div>'+(t.grup&&(t.grup.ust.n+t.grup.alt.n)?'<div class="sub">Adil ganyan ayrımı (kapanış ganyanı Jason\'un adil ganyanı 1/pj ve üstü = ÜST): <b>ÜST</b> '+t.grup.ust.n+' tüyo, '+t.grup.ust.kazanan+' kazandı, geri dönüş '+String(t.grup.ust.geri_donus).replace('.',',')+' · <b>ALT</b> '+t.grup.alt.n+' tüyo, '+t.grup.alt.kazanan+' kazandı, geri dönüş '+String(t.grup.alt.geri_donus).replace('.',',')+'</div>':'')+'<div class="sub">Tüyolar ilk görüldüğünde dondurulur, sonradan değişmez. Karar için en az ~300 tüyo gerekir.</div></div>';
     const g=(d.bugun||[]); if(g.length) h+='<div class="card"><b>Bugünün tüyoları</b>'+g.map(c=>`<div class="sub" style="margin-top:6px"><b>${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu</b> · ${c.no} ${esc(c.at)} · Jason %${pct(c.pj)} / piyasa %${pct(c.pp)}${c.sira!=null?` · <b>${c.sira}. oldu</b>${c.sira===1&&c.g?' (ganyan '+String(c.g).replace('.',',')+')':''}`:''}</div>`).join('')+'</div>';
-    try{ const E=(await getJSON('data/tuyo_egz.json?'+Date.now())).sonuc||{}; const fx=v=>v==null?'–':String(v).replace('.',',');
-      const sat=Object.keys(E).map(t=>{const v=E[t],q=v.kontrol||{}; return `<tr><td>${t}</td><td class="n">${v.n}</td><td class="n">${v.isabet}</td><td class="n">${fx(v.geri_donus)}</td><td class="n">${q['koşu']}</td><td class="n">${fx(q.geri_donus)}</td></tr>`;}).join('');
-      h+='<div class="card scroll"><b>Tüyo egzotik bahiste</b><table class="t"><thead><tr><th>Bahis</th><th>Tüyo</th><th>İsabet</th><th>Geri dönüş</th><th>Kontrol koşu</th><th>Kontrol geri dönüş</th></tr></thead><tbody>'+sat+'</tbody></table><div class="sub">Tüyo at + sabah AGF\'sine göre en yüksek 2 at (İKİLİ: 2 kombinasyon, SIRALI İKİLİ: tüyo birinci, 2 kombinasyon). Kontrol: aynı koşularda yalnız piyasa, AGF\'nin ilk 3 atı (İKİLİ kutu 3, SIRALI İKİLİ tüm sıralar 6 kombinasyon). Karar için en az 300 tüyo gerekir; şimdilik yalnız ölçüm.</div></div>'; }catch(e){}
     el.innerHTML=h; }catch(e){ el.innerHTML='<div class="card empty">Henüz tüyo kaydı yok.</div>'; }
 }
 async function otoPlaseYukle(){
