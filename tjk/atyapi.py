@@ -95,7 +95,7 @@ def _kosu(k):
     return {"saat": k.get("hour"), "cins": k.get("typeDescription"), "yas": k.get("groupName"),
             "mesafe": int(k["distance"]) if str(k.get("distance") or "").isdigit() else None, "pist": k.get("raceCourseType"),
             "rekor_sn": _sn(bg), "ikramiye1": int(pr[0]) if pr else None,
-            "besli": "SIRALI 5" in b, "uclu": "ÜÇLÜ BAHİS" in b}
+            "besli": "SIRALI 5" in b, "uclu": "ÜÇLÜ BAHİS" in b, "tabela": "TABELA BAHİS" in b}
 
 
 def gunun(tarih):

@@ -1276,7 +1276,21 @@ async function tegzYukle(){
   const el=$('tegzIc'); if(!el) return;
   try{ const E=(await getJSON('data/tuyo_egz.json?'+Date.now())).sonuc||{}; const fx=v=>v==null?'–':String(v).replace('.',',');
     const sat=Object.keys(E).map(t=>{const v=E[t],q=v.kontrol||{}; return `<tr><td>${t}</td><td class="n">${v.n}</td><td class="n">${v.isabet}</td><td class="n">${f2(v.maliyet)}</td><td class="n">${fx(v.geri_donus)}</td><td class="n">${q['koşu']}</td><td class="n">${fx(q.geri_donus)}</td></tr>`;}).join('');
-    el.innerHTML='<div class="card scroll"><b>Jason tüyosu egzotik bahiste (kâğıt üstü)</b><table class="t"><thead><tr><th>Bahis</th><th>Tüyo</th><th>İsabet</th><th>Harcama</th><th>Geri dönüş</th><th>Kontrol koşu</th><th>Kontrol geri dönüş</th></tr></thead><tbody>'+sat+'</tbody></table><div class="sub">1,00 üstü = kazandırdı. Karar için en az 300 tüyo gerekir; şimdilik yalnız ölçüm.</div></div>'
+    let bg='';
+    try{ const TD=await getJSON('data/tuyo.json?'+Date.now()); const L=[];
+      if(VERI&&GUN===trBugun()) (TD.bugun||[]).forEach(c=>{ const h=(VERI.hipodromlar||[]).find(x=>x.id===c.hipodrom); const k=h&&h.kosular.find(x=>x.kosu===c.kosu); if(!k) return;
+        const at=k.atlar.filter(a=>!a.kosmaz&&(a.agf0||a.agf)).sort((a,b)=>(b.agf0||b.agf)-(a.agf0||a.agf)); const F=at.filter(a=>a.no!==c.no); if(F.length<2) return;
+        const T=c.no, f=n=>F.slice(0,n).map(a=>a.no), ad=n=>{const a=k.atlar.find(x=>x.no===n); return n+(a?' '+esc(a.at):'')};
+        const sat=[`<b>İkili:</b> ${T}-${f(2)[0]}, ${T}-${f(2)[1]}`,`<b>Sıralı ikili:</b> ${T}→${f(2)[0]}, ${T}→${f(2)[1]}`];
+        if(k.uclu===true&&F.length>=2) sat.push(`<b>Üçlü kutu:</b> ${[T,...f(2)].join('-')} (6 sıralama)`);
+        if(k.tabela===true&&F.length>=3) sat.push(`<b>Tabela kutu:</b> ${[T,...f(3)].join('-')} (24 sıralama; sırasız 1 bilet)`);
+        if(k.besli===true&&F.length>=4) sat.push(`<b>Sıralı 5'li kutu:</b> ${[T,...f(4)].join('-')} (120 sıralama)`);
+        let dur=''; if(k.sonuc){ const sr=Object.entries(k.sonuc).filter(([n,v])=>v.sira>0).sort((a,b)=>a[1].sira-b[1].sira).map(x=>x[0]); dur=`<div class="sub"><b>Sonuç:</b> ${sr.slice(0,5).join('-')} · tüyo ${c.sira!=null?c.sira+'. oldu':'-'}</div>`; }
+        else if(k.saat&&new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'})>=k.saat) dur='<div class="sub"><b>⏳ sonuç bekleniyor</b></div>';
+        L.push({t:(k.saat||'99:99')+h.ad, h:`<div style="margin-top:10px"><b>${esc(k.saat||'')} · ${esc(h.ad)} ${k.kosu}. koşu · tüyo ${esc(ad(T))}</b>${dur}<div class="sub">Favoriler (sabah AGF): ${f(4).map(n=>esc(ad(n))).join(', ')}</div><div class="sub">${sat.join('<br>')}</div></div>`}); });
+      bg='<div class="card"><b>Bugünün tüyo kuponları</b>'+(L.length?L.sort((u,v)=>u.t<v.t?-1:1).map(x=>x.h).join(''):'<div class="sub">Bugün için tüyo yok.</div>')+'<div class="sub" style="margin-top:8px">Kutular, koşuda o bahis varsa listelenir. Kâğıt üstü ölçüm; sayılar yarıştan önce dondurulmuş sabah AGF\'sine göredir.</div></div>';
+    }catch(e){}
+    el.innerHTML=bg+'<div class="card scroll"><b>Jason tüyosu egzotik bahiste (kâğıt üstü)</b><table class="t"><thead><tr><th>Bahis</th><th>Tüyo</th><th>İsabet</th><th>Harcama</th><th>Geri dönüş</th><th>Kontrol koşu</th><th>Kontrol geri dönüş</th></tr></thead><tbody>'+sat+'</tbody></table><div class="sub">1,00 üstü = kazandırdı. Karar için en az 300 tüyo gerekir; şimdilik yalnız ölçüm.</div></div>'
     +'<div class="card"><b>Kurallar (dondurulmuş, 23 Ekim 2026)</b><div class="sub">Tüyo at T + sabah AGF\'sine göre T hariç en yüksek atlar. <b>İkili</b>: {T,F1}, {T,F2}. <b>Sıralı ikili</b>: T birinci, ikinci F1 ya da F2. <b>Üçlü</b>: T+2 favori kutu (6 sıralama, 2 TL). <b>Tabela</b>: T+3 favori kutu (24 sıralama / sırasız 1 bilet, 1,50 TL). <b>Sıralı 5\'li</b>: T+4 favori kutu (120 sıralama, 1,25 TL). Kontrol: aynı koşularda yalnız piyasa, AGF\'nin ilk 2/3/4/5 atı kutu. Devirli koşular veride yoksa geri dönüş olduğundan iyi görünebilir.</div></div>';
   }catch(e){ el.innerHTML='<div class="card empty">Henüz veri yok.</div>'; }
 }
