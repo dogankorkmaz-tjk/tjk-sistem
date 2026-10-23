@@ -89,9 +89,9 @@ def to_float(s):
 
 def parse_sonuc(html, tarih, hip):
     try:
-        tablolar = pd.read_html(StringIO(html), thousands=None, converters={c: str for c in
+        tablolar = pd.read_html(StringIO(html), flavor="lxml", thousands=None, converters={c: str for c in
                     ["Sıra", "No", "Atın Adı", "Jokey", "Kilo", "Derece", "Ganyan", "Hnd."]})
-    except ValueError:
+    except (ValueError, ImportError):
         return []
     satirlar, kosu_no = [], 0
     for t in tablolar:
@@ -130,8 +130,8 @@ def fark_boy(s):
 def parse_fark(html, tarih, hip):
     """Sonuç sayfasındaki 'Fark' sütunu (önündeki attan bitiş farkı)."""
     try:
-        tablolar = pd.read_html(StringIO(html), thousands=None, converters={c: str for c in ["Sıra", "No", "Atın Adı", "Jokey", "Kilo", "Derece", "Ganyan", "Fark", "Hnd."]})
-    except ValueError:
+        tablolar = pd.read_html(StringIO(html), flavor="lxml", thousands=None, converters={c: str for c in ["Sıra", "No", "Atın Adı", "Jokey", "Kilo", "Derece", "Ganyan", "Fark", "Hnd."]})
+    except (ValueError, ImportError):
         return []
     out, kosu_no = [], 0
     for t in tablolar:
@@ -181,8 +181,8 @@ def parse_prog(html, tarih, hip):
     if not html:
         return []
     try:
-        tablolar = pd.read_html(StringIO(html), converters={c: str for c in PK})
-    except ValueError:
+        tablolar = pd.read_html(StringIO(html), flavor="lxml", converters={c: str for c in PK})
+    except (ValueError, ImportError):
         return []
     out, kosu = [], 0
     for t in tablolar:
