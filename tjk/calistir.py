@@ -634,6 +634,11 @@ def hizli(t):
     c = copy.deepcopy(obj)
     agf_ekle(c)
     print("agf_zaman satırı:", agf_zaman_yaz(c))
+    try:
+        from . import piyasa_zaman as PZ
+        print("piyasa_zaman satırı:", PZ.topla(t.isoformat()))
+    except Exception as e:
+        print("piyasa_zaman hatası:", repr(e))
 
 
 def kosmaz_isle(obj):
@@ -797,6 +802,11 @@ def canli(t):
             agf_zaman_yaz(obj)
         except Exception as e:
             print("agf_zaman hatası:", repr(e))
+    try:
+        from . import piyasa_zaman as PZ              # sabit ihtimalli + muhtemel oran zaman serisi (24 Ekim 2026)
+        PZ.topla(t.isoformat())
+    except Exception as e:
+        print("piyasa_zaman hatası:", repr(e))
     csv_uygula(obj)
     jokey_uygula(obj)
     s_doldur(obj)

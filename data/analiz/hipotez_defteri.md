@@ -536,3 +536,8 @@ tjk/g1.py egit3/z6: ilk 3 sıra + sıra üsleriyle eğitilmiş Benter-G1 (g2≈0
 
 ## 2026-10-24 03:05 — G1-S tabela ve sıralı 5'li gölgesi (kâğıt, ön kayıt)
 G1-S artık ilk 5 sıra ile eğitiliyor (alfa 0,912; sıra üsleri 1; 0,816; 0,704; 0,623; 0,568; 22.666 koşu; her gece yenilenir). Tabela (≤24 / ≤120 sıralı, sırasız 5/6 at) ve sıralı 5'li (-G kuponlar, bütçeler mevcut) için aynı dondurulmuş kurallarla, ayrı sayaç "G1-S". Egzotik G1-S ise aynı güncel katsayıları kullanır. Karar: sıralı 5'li ve tabelada ≥300 sonuçlanan koşuda Bolton/Jason/Jason-S ile aynı tutma/geri dönüş ölçütüyle karşılaştırılır; o zamana kadar kural değişmez. Kâr kanıtı değil, model kalitesi ölçümü.
+
+## 2026-10-24 03:30 — Piyasa zamanlaması ve ikinci piyasa: toplama başladı (tjk/piyasa_zaman.py)
+Bulgu (probe8, 24 Ekim): Türk koşularında atyarisi API'sinde SABİT İHTİMALLİ (FobProbables; betTypeId 1001 ganyan, 1002, 1008, 1010, 1100, 1101) var; Ankara, İzmir, Diyarbakır'da aktif. Yarış öncesi değerler 1.0 yer tutucu, koşuya yaklaşınca dolması beklenir. Probables (havuz muhtemeli) bahis açılmadan boş.
+Toplama: her canlı (20 dk) ve hızlı (5 dk, yarışa ≤40 dk) çalışmada tek atlı satırlar değiştikçe data/piyasa/<gün>.csv.gz'ye zaman damgasıyla (kaynak F=sabit, M=muhtemel).
+ÖN KAYIT (ölçüm planı, veri toplandıktan sonra, ≥300 koşu): (1) sabit ihtimalli oranın marjsız olasılığı ile pari-mutuel kapanış arasındaki log-kayıp farkı; (2) iki piyasanın farkının (log oran) kazananı kapanışın ötesinde açıklayıp açıklamadığı (eşleştirilmiş fark, gün kümeli GA); (3) kapanıştan 30/15/8/3 dk önceki muhtemelin kapanışa göre kalibrasyonu (modelin gerçekte bahis zamanındaki piyasa karşısındaki durumu).
