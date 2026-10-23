@@ -42,6 +42,6 @@ jobs:
       - name: Kaydet
         run: |
           git config user.name tjk-bot; git config user.email tjk-bot@users.noreply.github.com
-          git add -A data/atyarisi data/futbol/atyarisi_derinlik.json; git diff --cached --quiet && exit 0
+          git add -A data; git diff --cached --quiet && exit 0
           git commit -m "atyarisi arşiv $(date -u '+%Y-%m-%d %H:%M') UTC"
           for i in 1 2 3; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
