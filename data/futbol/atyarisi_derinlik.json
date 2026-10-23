@@ -1,0 +1,113 @@
+{
+ "2026-09-01": {
+  "hipodrom": [
+   "Ankara",
+   "Karma",
+   "Kocaeli"
+  ],
+  "sonuc": {
+   "kosu": 8,
+   "atli": 61,
+   "last800": 8,
+   "bahis": 49
+  }
+ },
+ "2026-06-01": {
+  "hipodrom": [
+   "Bursa",
+   "Karma",
+   "Şanlıurfa"
+  ],
+  "sonuc": {
+   "kosu": 9,
+   "atli": 96,
+   "last800": 8,
+   "bahis": 79
+  }
+ },
+ "2026-01-15": {
+  "hipodrom": [
+   "İzmir",
+   "Antalya"
+  ],
+  "sonuc": {
+   "kosu": 6,
+   "atli": 51,
+   "last800": 6,
+   "bahis": 41
+  }
+ },
+ "2025-09-01": {
+  "hipodrom": [
+   "Bursa",
+   "Elazığ"
+  ],
+  "sonuc": {
+   "kosu": 9,
+   "atli": 95,
+   "last800": 9,
+   "bahis": 75
+  }
+ },
+ "2025-06-01": {
+  "hipodrom": [
+   "İstanbul",
+   "Adana"
+  ],
+  "sonuc": {
+   "kosu": 9,
+   "atli": 75,
+   "last800": 9,
+   "bahis": 73
+  }
+ },
+ "2025-01-15": {
+  "hipodrom": [
+   "İstanbul",
+   "Şanlıurfa"
+  ],
+  "sonuc": {
+   "kosu": 7,
+   "atli": 59,
+   "last800": 7,
+   "bahis": 49
+  }
+ },
+ "2024-06-01": {
+  "hipodrom": [
+   "Ankara",
+   "Antalya",
+   "Diyarbakır"
+  ],
+  "sonuc": {
+   "kosu": 10,
+   "atli": 93,
+   "last800": 10,
+   "bahis": 81
+  }
+ },
+ "2024-01-15": {
+  "hipodrom": [
+   "Bursa",
+   "Şanlıurfa"
+  ],
+  "sonuc": {
+   "kosu": 9,
+   "atli": 83,
+   "last800": 9,
+   "bahis": 60
+  }
+ },
+ "2023-06-01": {
+  "hipodrom": [
+   "Ankara",
+   "İzmir"
+  ],
+  "sonuc": {
+   "kosu": 9,
+   "atli": 71,
+   "last800": 8,
+   "bahis": 62
+  }
+ }
+}
