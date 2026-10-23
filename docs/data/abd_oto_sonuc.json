@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-23 17:17 UTC",
- "kayitli_kosu": 512,
- "eslesmeyen_kosu": 331,
+ "uretim": "2026-10-23 17:50 UTC",
+ "kayitli_kosu": 521,
+ "eslesmeyen_kosu": 338,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 318,
- "kosu": 181,
- "isabet": 22,
- "roi": 1.247,
+ "bahis": 320,
+ "kosu": 183,
+ "isabet": 23,
+ "roi": 1.249,
  "ga95": [
   0.808,
-  1.917
+  1.912
  ],
  "ulke": {
   "abd": {
-   "bahis": 184,
-   "roi": 0.994
+   "bahis": 186,
+   "roi": 1.001
   },
   "birlesik-krallik": {
    "bahis": 54,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 378,
-  "kosu": 177,
+  "bahis": 384,
+  "kosu": 179,
   "isabet": 44,
-  "roi": 0.901,
+  "roi": 0.887,
   "ga95": [
-   0.632,
-   1.318
+   0.628,
+   1.261
   ]
  },
  "bahis_t1": {
-  "bahis": 392,
-  "kosu": 174,
+  "bahis": 400,
+  "kosu": 176,
   "isabet": 52,
-  "roi": 1.132,
+  "roi": 1.11,
   "ga95": [
-   0.714,
-   1.96
+   0.706,
+   1.79
   ]
  },
  "bahis_t3": {
-  "bahis": 388,
-  "kosu": 172,
+  "bahis": 397,
+  "kosu": 174,
   "isabet": 48,
-  "roi": 0.962,
+  "roi": 0.94,
   "ga95": [
    0.534,
-   1.879
+   1.691
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 2,
-   "at": "DARK THIRTY",
-   "q": 0.036,
-   "g": 44.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Doncaster",
@@ -423,6 +414,15 @@
    "at": "MANSOUR",
    "q": 0.071,
    "g": 24.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 3,
+   "at": "DOROTHY",
+   "q": 0.276,
+   "g": 6.1,
    "kazandi": false
   }
  ]
