@@ -1,4 +1,4 @@
-mod hata kodu: 1  2026-10-23 10:28 UTC
+mod hata kodu: 1  2026-10-23 10:31 UTC
 sonuç CSV okunamadı: /home/runner/work/tjk-sistem/tjk-sistem/data/tjk_sonuc/2026-09-27-gulfstreamparkabd.csv
 sonuç CSV okunamadı: /home/runner/work/tjk-sistem/tjk-sistem/data/tjk_sonuc/2026-09-27-laurelparkabd.csv
 sonuç CSV okunamadı: /home/runner/work/tjk-sistem/tjk-sistem/data/tjk_sonuc/2026-09-27-santaanitaparkabd.csv
