@@ -68,6 +68,25 @@ def derinlik():
     print(json.dumps(out, ensure_ascii=False)[:1500])
 
 
+def _kaydet():
+    """Emek boşa gitmesin: geriye doldururken 10 günde bir repoya yaz (yalnız GitHub Actions'ta)."""
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    import subprocess
+    try:
+        for c in (["git", "config", "user.name", "tjk-bot"], ["git", "config", "user.email", "tjk-bot@users.noreply.github.com"], ["git", "add", "-A", "data"]):
+            subprocess.run(c, check=False)
+        if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode == 0:
+            return
+        subprocess.run(["git", "commit", "-qm", "atyarisi arşiv ara kayıt"], check=False)
+        for _ in range(3):
+            if subprocess.run(["git", "pull", "-q", "--rebase"]).returncode == 0 and subprocess.run(["git", "push", "-q"]).returncode == 0:
+                break
+            subprocess.run(["git", "rebase", "--abort"], check=False); time.sleep(5)
+    except Exception as e:
+        print("ara kayıt hatası:", repr(e))
+
+
 if __name__ == "__main__":
     m = sys.argv[1]
     if m == "derinlik":
@@ -86,3 +105,5 @@ if __name__ == "__main__":
             if s != "var":
                 n += 1
             print(d, s, flush=True); d -= datetime.timedelta(days=1)
+            if n and n % 10 == 0 and s != "var":
+                _kaydet()
