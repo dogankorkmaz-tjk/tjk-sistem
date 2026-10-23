@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-23 16:33 UTC",
- "kayitli_kosu": 504,
- "eslesmeyen_kosu": 326,
+ "uretim": "2026-10-23 16:46 UTC",
+ "kayitli_kosu": 506,
+ "eslesmeyen_kosu": 327,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 308,
- "kosu": 178,
+ "bahis": 312,
+ "kosu": 179,
  "isabet": 21,
- "roi": 1.098,
+ "roi": 1.083,
  "ga95": [
-  0.789,
-  1.478
+  0.784,
+  1.419
  ],
  "ulke": {
   "abd": {
-   "bahis": 180,
-   "roi": 1.016
+   "bahis": 184,
+   "roi": 0.994
   },
   "birlesik-krallik": {
    "bahis": 48,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 374,
-  "kosu": 174,
+  "bahis": 377,
+  "kosu": 175,
   "isabet": 44,
-  "roi": 0.911,
+  "roi": 0.904,
   "ga95": [
    0.634,
-   1.354
+   1.327
   ]
  },
  "bahis_t1": {
-  "bahis": 387,
-  "kosu": 171,
+  "bahis": 390,
+  "kosu": 172,
   "isabet": 51,
-  "roi": 0.996,
+  "roi": 0.988,
   "ga95": [
    0.692,
-   1.45
+   1.406
   ]
  },
  "bahis_t3": {
-  "bahis": 382,
-  "kosu": 169,
-  "isabet": 46,
+  "bahis": 385,
+  "kosu": 170,
+  "isabet": 47,
   "roi": 0.818,
   "ga95": [
    0.531,
-   1.324
+   1.307
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 7,
-   "at": "SKY PILOT",
-   "q": 0.105,
-   "g": 13.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 7,
-   "at": "INDUSTRIALSTRENGTH",
-   "q": 0.14,
-   "g": 18.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 7,
-   "at": "HARUN AL RASHID",
-   "q": 0.077,
-   "g": 16.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 8,
-   "at": "STOP THE TRAFFIC",
-   "q": 0.079,
-   "g": 28.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Turffontein",
@@ -423,6 +387,42 @@
    "at": "THE BIDDER",
    "q": 0.084,
    "g": 14.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 1,
+   "at": "GOLDEN JOSHUA",
+   "q": 0.037,
+   "g": 46.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 1,
+   "at": "CHIEF LION",
+   "q": 0.06,
+   "g": 30.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 1,
+   "at": "TANIUS",
+   "q": 0.173,
+   "g": 15.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 1,
+   "at": "MANSOUR",
+   "q": 0.071,
+   "g": 24.3,
    "kazandi": false
   }
  ]
