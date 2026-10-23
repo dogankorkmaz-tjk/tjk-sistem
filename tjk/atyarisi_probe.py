@@ -24,6 +24,11 @@ with sync_playwright() as p:
     out["metin"] = re.sub(r"\s+", " ", pg.inner_text("body"))[:2500]
     out["tablo"] = pg.evaluate("document.querySelectorAll('table').length")
     out["linkler"] = pg.evaluate("[...document.querySelectorAll('a')].map(a=>a.href).filter(h=>/program|hipodrom|kosu|bursa|istanbul/i.test(h)).slice(0,40)")
+    import gzip
+    os.makedirs(os.path.join(KOK, "data", "futbol"), exist_ok=True)
+    open(os.path.join(KOK, "data", "futbol", "atyarisi_gun.txt"), "w").write(pg.inner_text("body"))
+    with gzip.open(os.path.join(KOK, "data", "futbol", "atyarisi_gun.html.gz"), "wt") as f:
+        f.write(pg.content())
     b.close()
 os.makedirs(os.path.join(KOK, "data", "futbol"), exist_ok=True)
 json.dump(out, open(os.path.join(KOK, "data", "futbol", "atyarisi_probe.json"), "w"), ensure_ascii=False, indent=1)
