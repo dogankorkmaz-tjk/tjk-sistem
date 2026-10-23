@@ -1,0 +1,78 @@
+{
+ "https://www.atyarisi.com/at-yarisi/tjk-at-yarisi-istatistikler/galoplar": {
+  "durum": 200,
+  "baslik": "At Yarışı Bülten | At Yarışı Bahis Yap | At Yarışı | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Santa Anita Park ABD 02:00 Ankara (24.10) Bugün İzmir (24.10) Bugün Karma (24.10) Bugün Diyarbakır (24.10) Bugün Selangor Malezya (24.10) Bugün Toowoomba Avustralya (24.10) Bugün Turffontein Guney Afrika (24.10) Bugün Doncaster Birleşik Krallık (24.10) Bugün Belmont Park ABD (24.10) Bugün Keeneland ABD (24.10) Bugün Woodbine Kanada (24.10) Bugün Santa Anita Park ABD (24.10) Bugün İstanbul (25.10) Yarın Karma (25.10) Yarın Adana (25.10) Yarın Ganyan 7 8 7. KOŞU 02:00 7.KOŞU MAIDEN SATIŞ KOŞUSU / 1100 Kum / 3 ve Yukarı İngilizler / Maiden/Dişi Kum: - BahisMuhtemelAGFGaloplar YENİ YorumlarPuan ve NotlarEn İyi DereceSon 2 KoşuAt - JokeyKayıtlar No At / Yaş / Bilgiler Kilo Jokey Orijin Sahip / Antrenör HP Son 6 KGS S20 EİD Ganyan İdman AGF 1 ST:1 QUICK SIP 3y d d 56 JULIEN R. LEPAROUX STAY THIRSTY MAMA RUSH / VERRAZANO - STEVE SWANSON STEVE R. KNAPP 55 7 8 49 - - 7.60 8 - %3.75 2 ST:2 HAYLEY AMBER 5y d k 56,5 EDGAR PAYERAS MR. BIG BABY ZITO / CURLIN - QUEVEDO, RODRIGO AND RIVERA, SALLY SALLY P. RIVERA 61 2 - 3 2 - 8 7 4 77 - - 3.85 4 - %10.57 3 ST:3 IMNOTVANILLASKY 3y a d 56 ABEL LEZCANO MR. BIG SAMBAMZAJAMMIN / HEATSEEKER (IRE) - SAUSALITO PARTNERS, LLC MARK GLATT 59 7 5 7 - 4 56 - - 6.45 7 - %7.59 4 ST:",
+  "istekler": [
+   {
+    "url": "https://www.atyarisi.com/StatisticWebview/GetSeoConfig",
+    "durum": 200,
+    "bas": "\"[{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/\\\",\\\"title\\\":\\\"At Yarışı : atyarışı.com | At Yarışı Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyarışı.com\\u0027a hemen üye ol.\\\",\\\"keyword\\\":\\\"atyarışı, atyarışı.com, TJK anasayfa, tjk\\\"},{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/home\\\",\\\"title\\\":\\\"TJK : atyarışı.com | TJK Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyar"
+   },
+   {
+    "url": "https://content.atyarisi.com/notice/GetGeneralNotice?deviceType=0",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":null,\"el\":null,\"ml\":null}"
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v5/Bulten",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"filters\":{\"cards\":[{\"id\":26449,\"totalDay\":0,\"hippodrome\":{\"place\":\"Santa Anita Park ABD\",\"name\":\"Santa Anita Park\",\"code\":\"SANTAANITA\",\"isForeign\":true,\"date\":\"2026-10-23\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"02:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"\",\"weight\":0}],\"weather\":{\"temperature\":\"\",\"humidity\":\"\",\"text\":\"\",\"type\":1},\"dateEpoch\":1792710000,\"openingHour\":\"23:00\",\"isNightRace\":true,\"beginRaceHour\":\"02:00\",\"beginRaceTooltipMessage\":\"\",\"isSelected\":false,\"raceInfo\":null,\"isCompleted\":false,\"isAntePost\""
+   }
+  ],
+  "iframe": [
+   "https://www.atyarisi.com/tjk-at-yarisi-bulteni"
+  ]
+ },
+ "https://www.atyarisi.com/gallop-sprint-widget": {
+  "durum": 200,
+  "baslik": "",
+  "metin": "United Racing ve veri sağlayıcı firma tarafından sunulan bilgilerde/yayınlarda oluşabilecek kusurlardan atyarışı.com sorumlu değildir.",
+  "istekler": [
+   {
+    "url": "https://www.atyarisi.com/StatisticWebview/GetSeoConfig",
+    "durum": 200,
+    "bas": "\"[{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/\\\",\\\"title\\\":\\\"At Yarışı : atyarışı.com | At Yarışı Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyarışı.com\\u0027a hemen üye ol.\\\",\\\"keyword\\\":\\\"atyarışı, atyarışı.com, TJK anasayfa, tjk\\\"},{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/home\\\",\\\"title\\\":\\\"TJK : atyarışı.com | TJK Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyar"
+   }
+  ],
+  "iframe": []
+ },
+ "https://www.atyarisi.com/at-yarisi/tjk-at-yarisi-istatistikler/en-iyi-derece": {
+  "durum": 200,
+  "baslik": "At Yarışı Bülten | At Yarışı Bahis Yap | At Yarışı | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Santa Anita Park ABD 02:00 Ankara (24.10) Bugün İzmir (24.10) Bugün Karma (24.10) Bugün Diyarbakır (24.10) Bugün Selangor Malezya (24.10) Bugün Toowoomba Avustralya (24.10) Bugün Turffontein Guney Afrika (24.10) Bugün Doncaster Birleşik Krallık (24.10) Bugün Belmont Park ABD (24.10) Bugün Keeneland ABD (24.10) Bugün Woodbine Kanada (24.10) Bugün Santa Anita Park ABD (24.10) Bugün İstanbul (25.10) Yarın Karma (25.10) Yarın Adana (25.10) Yarın Ganyan 7 8 7. KOŞU 02:00 7.KOŞU MAIDEN SATIŞ KOŞUSU / 1100 Kum / 3 ve Yukarı İngilizler / Maiden/Dişi Kum: - BahisMuhtemelAGFGaloplar YENİ YorumlarPuan ve NotlarEn İyi DereceSon 2 KoşuAt - JokeyKayıtlar No At / Yaş / Bilgiler Kilo Jokey Orijin Sahip / Antrenör HP Son 6 KGS S20 EİD Ganyan İdman AGF 1 ST:1 QUICK SIP 3y d d 56 JULIEN R. LEPAROUX STAY THIRSTY MAMA RUSH / VERRAZANO - STEVE SWANSON STEVE R. KNAPP 55 7 8 49 - - 8.85 8 - %3.75 2 ST:2 HAYLEY AMBER 5y d k 56,5 EDGAR PAYERAS MR. BIG BABY ZITO / CURLIN - QUEVEDO, RODRIGO AND RIVERA, SALLY SALLY P. RIVERA 61 2 - 3 2 - 8 7 4 77 - - 4.50 4 - %10.57 3 ST:3 IMNOTVANILLASKY 3y a d 56 ABEL LEZCANO MR. BIG SAMBAMZAJAMMIN / HEATSEEKER (IRE) - SAUSALITO PARTNERS, LLC MARK GLATT 59 7 5 7 - 4 56 - - 7.45 7 - %7.59 4 ST:",
+  "istekler": [
+   {
+    "url": "https://www.atyarisi.com/StatisticWebview/GetSeoConfig",
+    "durum": 200,
+    "bas": "\"[{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/\\\",\\\"title\\\":\\\"At Yarışı : atyarışı.com | At Yarışı Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyarışı.com\\u0027a hemen üye ol.\\\",\\\"keyword\\\":\\\"atyarışı, atyarışı.com, TJK anasayfa, tjk\\\"},{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/home\\\",\\\"title\\\":\\\"TJK : atyarışı.com | TJK Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyar"
+   },
+   {
+    "url": "https://content.atyarisi.com/notice/GetGeneralNotice?deviceType=0",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":[],\"el\":null,\"ml\":null}"
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v5/Bulten",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"filters\":{\"cards\":[{\"id\":26449,\"totalDay\":0,\"hippodrome\":{\"place\":\"Santa Anita Park ABD\",\"name\":\"Santa Anita Park\",\"code\":\"SANTAANITA\",\"isForeign\":true,\"date\":\"2026-10-23\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"02:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"\",\"weight\":0}],\"weather\":{\"temperature\":\"\",\"humidity\":\"\",\"text\":\"\",\"type\":1},\"dateEpoch\":1792710000,\"openingHour\":\"23:00\",\"isNightRace\":true,\"beginRaceHour\":\"02:00\",\"beginRaceTooltipMessage\":\"\",\"isSelected\":false,\"raceInfo\":null,\"isCompleted\":false,\"isAntePost\""
+   }
+  ],
+  "iframe": [
+   "https://www.atyarisi.com/tjk-at-yarisi-bulteni"
+  ]
+ },
+ "https://www.atyarisi.com/tjk-at-yarisi-istatistikler-mobile": {
+  "durum": 200,
+  "baslik": "",
+  "metin": "Koşu Analizi Atlar Jokeyler Bugün İstatistik servislerinde teknik bir hata oluşmuştur. Lütfen daha sonra tekrar deneyiniz.",
+  "istekler": [
+   {
+    "url": "https://www.atyarisi.com/StatisticWebview/GetSeoConfig",
+    "durum": 200,
+    "bas": "\"[{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/\\\",\\\"title\\\":\\\"At Yarışı : atyarışı.com | At Yarışı Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyarışı.com\\u0027a hemen üye ol.\\\",\\\"keyword\\\":\\\"atyarışı, atyarışı.com, TJK anasayfa, tjk\\\"},{\\\"key\\\":\\\"at-anasayfa\\\",\\\"rootPath\\\":\\\"/home\\\",\\\"title\\\":\\\"TJK : atyarışı.com | TJK Anasayfa | At Yarışı | Altılı Ganyan\\\",\\\"desc\\\":\\\"TJK : atyarışı.com at yarışı heyecanı Yeni Bir Seviye ile atyarışı.com\\u0027da altılı ganyan, yarış programları, at yarışı bülteni, tjk tv ve daha fazlası için atyar"
+   }
+  ],
+  "iframe": []
+ }
+}
