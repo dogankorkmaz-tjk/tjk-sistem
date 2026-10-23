@@ -1,0 +1,616 @@
+{
+ "tarih": "2026-10-24",
+ "liste_sc": 200,
+ "hipodromlar": [
+  [
+   26443,
+   "Ankara",
+   false,
+   true
+  ],
+  [
+   26444,
+   "İzmir",
+   false,
+   true
+  ],
+  [
+   26445,
+   "Karma",
+   false,
+   false
+  ],
+  [
+   26442,
+   "Diyarbakır",
+   false,
+   true
+  ]
+ ],
+ "26443": {
+  "probables_sc": 200,
+  "probables_kosu": 0,
+  "probables_bahistipleri": [],
+  "fob_sc": 200,
+  "fob_kosu": 10,
+  "fob_bahistipleri": [
+   1001,
+   1002,
+   1008,
+   1010,
+   1100,
+   1101
+  ],
+  "fob_ornek": {
+   "raceNo": 1,
+   "bilgi": "24.10.2026 / 13:00 /  / Maiden/Dişi, 2 Yaşlı İngilizler, 57 Kg, 1400 Çim",
+   "bets": [
+    {
+     "betTypeId": 1001,
+     "n": 10,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466250,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466251,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466252,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466253,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1002,
+     "n": 10,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466395,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466396,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466397,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466398,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1008,
+     "n": 90,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "2",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466305,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "3",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466306,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "4",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466307,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "5",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466308,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1010,
+     "n": 45,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "2",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466260,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "3",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466261,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "4",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466262,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "5",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466263,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1100,
+     "n": 10,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466405,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466406,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466407,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466408,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1101,
+     "n": 10,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466415,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466416,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466417,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143466418,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    }
+   ]
+  },
+  "fobrace_sc": 200,
+  "fobrace_ham": "{\"sc\": 200, \"d\": {\"filters\": {\"cards\": [{\"id\": 26449, \"totalDay\": 0, \"hippodrome\": {\"place\": \"Santa Anita Park ABD\", \"name\": \"Santa Anita Park\", \"code\": \"SANTAANITA\", \"isForeign\": true, \"date\": \"2026-10-23\", \"isReserveBulletin\": false, \"programDateText\": \"\", \"hasAIHint\": false, \"isAntePost\": false, \"isSelected\": false, \"hasActiveToteBet\": false, \"hasActiveFOBBet\": false}, \"closingHour\": \"02:30\", \"raceCourse\": [{\"type\": \"Kum\", \"status\": \"\", \"weight\": 0}, {\"type\": \"Çim\", \"status\": \"\", \"weight\": 0}], \"weather\": {\"temperature\": \"\", \"humidity\": \"\", \"text\": \"\", \"type\": 1}, \"dateEpoch\": 1792711800, \"openingHour\": \"23:00\", \"isNightRace\": true, \"beginRaceHour\": \"02:30\", \"beginRaceTooltipMessage\": \"\", \"isSelected\": false, \"raceInfo\": null, \"isCompleted\": false, \"isAntePost\": false}, {\"id\": 26443, \"totalDay\": 77, \"hippodrome\": {\"place\": \"Ankara\", \"name\": \"Ankara 75. Yıl Hipodromu\", \"code\": \"ANKARA\", \"isForeign\": false, \"date\": \"2026-10-24\", \"isReserveBulletin\": true, \"programDateText\": \"(24.10)\", \"hasAIHint\": false, \"isAntePost\": false, \"isSelected\": false, \"hasActiveToteBet\": false, \"hasActiveFOBBet\": false}, \"closingHour\": \"17:30\", \"raceCourse\": [{\"type\": \"Kum\", \"status\": \"\", \"weight\": 0}, {\"type\": \"Çim\", \"status\": \"\", \"weight\": 0}], \"weather\": {\"temperature\": \"\", \"humidity\": \"\", \"text\": \"\", \"type\": 1}, \"dateEpoch\": 1792836000, \"openingHour\": \"13:00\", \"isNightRace\": false, \"beginRaceHour\": \"Bugün\", \"beginRaceTooltipMessage\": \"6'lı Ganyan bu koşudan başlamaktadır.\", \"isSelected\": false, \"raceInfo\": null, \"isCompleted\": false, \"isAntePost\": false}, {\"id\": 26444, \"totalDay\": 55, \"hippodrome\": {\"place\": \"İzmir\", \"name\": \"İzmir Şirinyer Hipodromu\", \"code\": \"IZMIR\", \"isForeign\": false, \"date\": \"2026-10-24\", \"isReserveBulletin\": true, \"programDateText\": \"(24.10)\", \"hasAIHint\": false, \"isAntePost\": false, \"isSelected\": false, \"hasActiveToteBet\": false, \"hasActiveFOBBet\": false}, \"closingHour\": \"20:30\", \"raceCourse\": [{\"type\": \"Kum\", \"status\": \"\", \"weight\": 0}, {\"type\": \"Çim\", \"status\": \"\", \"weight\": 0}], \"weather\": {\"temperature\": \"\", \"humidity\": \"\", \"text\": \"\", \"type\": 1}, \"dateEpoch\": 1792845900, \"openingHour\": \"15:45\", \"isNightRace\": true, \"beginRaceHour\": \"Bugün\", \"beginRaceTooltipMessage\": \"6'lı Ganyan bu koşudan başlamaktadır.\", \"isSelected\": false, \"raceInfo\": null, \"isCompleted\": false, \"isAntePost\": false}, {\"id\": 26442, \"totalDay\": 27, \"hippodrome\": {\"place\": \"Diyarbakır\", \"name\": \"Diyarbakır Hipodromu\", \"code\": \"DBAKIR\", \"isForeign\": false, \"date\": \"2026-10-24\","
+ },
+ "26444": {
+  "probables_sc": 200,
+  "probables_kosu": 0,
+  "probables_bahistipleri": [],
+  "fob_sc": 200,
+  "fob_kosu": 10,
+  "fob_bahistipleri": [
+   1001,
+   1002,
+   1008,
+   1010,
+   1100,
+   1101
+  ],
+  "fob_ornek": {
+   "raceNo": 1,
+   "bilgi": "24.10.2026 / 15:45 /  / Maiden/Dişi, 2 Yaşlı İngilizler, 57 Kg, 1200 Kum",
+   "bets": [
+    {
+     "betTypeId": 1001,
+     "n": 11,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472489,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472490,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472491,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472492,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1002,
+     "n": 11,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472665,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472666,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472667,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472668,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1008,
+     "n": 110,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "2",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472555,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "3",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472556,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "4",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472557,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "5",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472558,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1010,
+     "n": 55,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "2",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472500,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "3",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472501,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "4",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472502,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      },
+      {
+       "runner1": "1",
+       "runner2": "5",
+       "ganyan": 0.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472503,
+       "fobPropositionStatus": false,
+       "lastOdd": null
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1100,
+     "n": 11,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472676,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472677,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472678,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472679,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    },
+    {
+     "betTypeId": 1101,
+     "n": 11,
+     "ilk": [
+      {
+       "runner1": "1",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472687,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "2",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472688,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "3",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472689,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      },
+      {
+       "runner1": "4",
+       "runner2": "",
+       "ganyan": 1.0,
+       "resultNoStr": "",
+       "fobPropositionId": 143472690,
+       "fobPropositionStatus": false,
+       "lastOdd": 0
+      }
+     ],
+     "anahtarlar": [
+      "betTypeId"
+     ]
+    }
+   ]
+  },
+  "fobrace_sc": 200,
+  "fobrace_ham": "{\"sc\": 200, \"d\": {\"filters\": {\"cards\": [{\"id\": 26449, \"totalDay\": 0, \"hippodrome\": {\"place\": \"Santa Anita Park ABD\", \"name\": \"Santa Anita Park\", \"code\": \"SANTAANITA\", \"isForeign\": true, \"date\": \"2026-10-23\", \"isReserveBulletin\": false, \"programDateText\": \"\", \"hasAIHint\": false, \"isAntePost\": false, \"isSelected\": false, \"hasActiveToteBet\": false, \"hasActiveFOBBet\": false}, \"closingHour\": \"02:30\", \"raceCourse\": [{\"type\": \"Kum\", \"status\": \"\", \"weight\": 0}, {\"type\": \"Çim\", \"status\": \"\", \"weight\": 0}], \"weather\": {\"temperature\": \"\", \"humidity\": \"\", \"text\": \"\", \"type\": 1}, \"dateEpoch\": 1792711800, \"openingHour\": \"23:00\", \"isNightRace\": true, \"beginRaceHour\": \"02:30\", \"beginRaceTooltipMessage\": \"\", \"isSelected\": false, \"raceInfo\": null, \"isCompleted\": false, \"isAntePost\": false}, {\"id\": 26443, \"totalDay\": 77, \"hippodrome\": {\"place\": \"Ankara\", \"name\": \"Ankara 75. Yıl Hipodromu\", \"code\": \"ANKARA\", \"isForeign\": false, \"date\": \"2026-10-24\", \"isReserveBulletin\": true, \"programDateText\": \"(24.10)\", \"hasAIHint\": false, \"isAntePost\": false, \"isSelected\": false, \"hasActiveToteBet\": false, \"hasActiveFOBBet\": false}, \"closingHour\": \"17:30\", \"raceCourse\": [{\"type\": \"Kum\", \"status\": \"\", \"weight\": 0}, {\"type\": \"Çim\", \"status\": \"\", \"weight\": 0}], \"weather\": {\"temperature\": \"\", \"humidity\": \"\", \"text\": \"\", \"type\": 1}, \"dateEpoch\": 1792836000, \"openingHour\": \"13:00\", \"isNightRace\": false, \"beginRaceHour\": \"Bugün\", \"beginRaceTooltipMessage\": \"6'lı Ganyan bu koşudan başlamaktadır.\", \"isSelected\": false, \"raceInfo\": null, \"isCompleted\": false, \"isAntePost\": false}, {\"id\": 26444, \"totalDay\": 55, \"hippodrome\": {\"place\": \"İzmir\", \"name\": \"İzmir Şirinyer Hipodromu\", \"code\": \"IZMIR\", \"isForeign\": false, \"date\": \"2026-10-24\", \"isReserveBulletin\": true, \"programDateText\": \"(24.10)\", \"hasAIHint\": false, \"isAntePost\": false, \"isSelected\": false, \"hasActiveToteBet\": false, \"hasActiveFOBBet\": false}, \"closingHour\": \"20:30\", \"raceCourse\": [{\"type\": \"Kum\", \"status\": \"\", \"weight\": 0}, {\"type\": \"Çim\", \"status\": \"\", \"weight\": 0}], \"weather\": {\"temperature\": \"\", \"humidity\": \"\", \"text\": \"\", \"type\": 1}, \"dateEpoch\": 1792845900, \"openingHour\": \"15:45\", \"isNightRace\": true, \"beginRaceHour\": \"Bugün\", \"beginRaceTooltipMessage\": \"6'lı Ganyan bu koşudan başlamaktadır.\", \"isSelected\": false, \"raceInfo\": null, \"isCompleted\": false, \"isAntePost\": false}, {\"id\": 26442, \"totalDay\": 27, \"hippodrome\": {\"place\": \"Diyarbakır\", \"name\": \"Diyarbakır Hipodromu\", \"code\": \"DBAKIR\", \"isForeign\": false, \"date\": \"2026-10-24\","
+ }
+}
