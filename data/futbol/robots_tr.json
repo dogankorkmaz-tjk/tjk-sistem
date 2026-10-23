@@ -1,0 +1,62 @@
+{
+ "www.sporx.com": {
+  "durum": 200,
+  "robots": "User-agent: *\n\nDisallow: /_ajax/\nDisallow: /_iframe/\nDisallow: /_login/\nDisallow: /*?cat=*\nDisallow: *?frm_league=*\nDisallow: *?frm_date=*\nDisallow: *interstitial_layer_check*\nDisallow: *country_check*\nDisallow: *consent_check*\nDisallow: /tumhaberler.php\nDisallow: /detail.php\nDisallow: /ara.php\nDisallow: /advertorial/\nDisallow: /*-dk2022-fgy-*\nDisallow: /*-benim-puan-durumum-\nDisallow: /*haber_cnt*\nDisallow: /*video_cnt*\nDisallow: /*?slide=*\nDisallow: */hbr_al.php*\nDisallow: /_ajax/dynamic_bnnrs.php\n\nSitemap: https://www.sporx.com/sitemaps/GaleriSitemap.php\nSitemap: https://www.sporx.com/sitemaps/GoogleNewsSitemap.php\nSitemap: https://www.sporx.com/sitemaps/posts.xml"
+ },
+ "www.atyarisi.com": {
+  "durum": 200,
+  "robots": "ï»¿\r\n# ---------------------------------------------\r\n# llms.txt dosyasÄ± hakkÄ±nda bilgi\r\n# Atyarisi.com tÃ¼m sayfalarÄ± ve /haber/ iÃ§erikleri LLM'ler tarafÄ±ndan kullanÄ±labilir.\r\n# AyrÄ±ntÄ±lar: https://www.atyarisi.com/llms.txt\r\n# ---------------------------------------------\r\n\r\nUser-agent: Googlebot\r\nUser-agent: bingbot\r\nUser-agent: YandexBot\r\n\r\nAllow: /\r\n\r\nSitemap: https://www.atyarisi.com/sitemap.xml\r\n\r\n"
+ },
+ "www.nesine.com": {
+  "durum": 200,
+  "robots": "ï»¿\r\n# ---------------------------------------------\r\n# llms.txt dosyasÄ± hakkÄ±nda bilgi\r\n# Nesine.com tÃ¼m sayfalarÄ± ve /yardim/ iÃ§erikleri LLM'ler tarafÄ±ndan kullanÄ±labilir.\r\n# AyrÄ±ntÄ±lar: https://www.nesine.com/llms.txt\r\n# ---------------------------------------------\r\n\r\nUser-agent: Googlebot\r\nAllow: /\r\n\r\nUser-agent: bingbot\r\nAllow: /\r\nCrawl-delay: 1\r\n\r\nUser-agent: YandexBot\r\nAllow: /\r\nCrawl-delay: 1\r\n\r\nUser-agent: GPTBot\r\nAllow: /\r\nCrawl-delay: 1\r\n\r\nUser-agent: OAI-SearchBot\r\nAllow: /\r\n\r\nUser-agent: ClaudeBot\r\nAllow: /\r\n\r\nUser-agent: anthropic-ai\r\nAllow: /\r\n\r\nUser-agent: PerplexityBot\r\nAllow: /\r\nCrawl-delay: 1\r\n\r\nUser-agent: Google-Extended\r\nAllow: /\r\n\r\nUser-agent: CCBot\r\nAllow: /"
+ },
+ "www.bilyoner.com": {
+  "durum": 200,
+  "robots": "User-agent: *\nAllow: /\n\nContent-Signal: search=yes, ai-train=no, ai-input=yes\n\nDisallow: /race-running\nDisallow: /yaris-detay\n\n# Hesap ve kullanıcı işlemleri\nDisallow: /sifremi-unuttum\nDisallow: /hesabim\nDisallow: /iddaa/favorilerim\n\n# Kişiselleştirilmiş / dinamik bahis listeleme\nDisallow: /iddaa/sana-ozel-maclar\nDisallow: /tribun/takip-ettiklerim\n# Parametreli canlı yayın / canlı skor / popüler / prematch varyasyonları\nDisallow: /*?*islivestream=\nDisallow: /*?*islivescore=\nDisallow: /*?*ispopular=\nDisallow: /*?*isPopular=\nDisallow: /*?*isprematch=\n\n# Auth & kullanici hesabi sayfalar - SSR render maliyeti, SEO degeri yok\nDisallow: /sifremi-unuttum\nDisallow: /cikis-yap\nDisallow: /verify-code\n"
+ },
+ "www.misli.com": {
+  "durum": 200,
+  "robots": "User-agent: *\nDisallow: /hesabim/*\nDisallow: /uyelik/*\nDisallow: /misli-arena/*\nDisallow: /canli-mac-detay/*type\nDisallow: /notlarim*\nDisallow: /sifremi-sifirla/\nDisallow: /siteayarlari*\nDisallow: /iddaa-canli-bahis-detay/*\nDisallow: /iddaa-bahis-detay/*\nDisallow: /paylasilan-kupon/*\nDisallow: /paylasilan-kupon/iddaa/*\nDisallow: /TJKPopupHorse.aspx\nDisallow: /Lottery/\nDisallow: /HorseRace/\nDisallow: /Campaigns/\nDisallow: /Bet/\nDisallow: /FootballPools/\nDisallow: /Account/\nDisallow: */AddMyChoice\nDisallow: /misli-arena/giris\nAllow: /\nSitemap: https://www.misli.com/sitemap.xml\n"
+ },
+ "www.fanatik.com.tr": {
+  "durum": 200,
+  "robots": "User-agent: *\nDisallow: /*yazdir$\nDisallow: /subscription/\nDisallow: /helper/*\nDisallow: /Helper/*\nDisallow: /Livescore/*\nDisallow: /9927946,22420904089/*\nDisallow: /adConfig*\nDisallow: /arama?*\nDisallow: /arama/\nDisallow: /*AnketMerkezi*.htm\nDisallow: /*anketmerkezi*.htm\nDisallow: /*Anketmerkezi*.htm\n\nUser-agent: anthropic-ai\nDisallow: /\n\nUser-agent: ChatGPT-User\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: Claude-Web\nDisallow: /\n\nUser-agent: cohere-ai\nDisallow: /\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: OAI-SearchBot\nDisallow: /\n\nUser-agent: quillbot.com\nDisallow: /\n\nUser-agent: PerplexityBot\nDisallow: /\n\nUser-agent: TurnitinBot\nDisallow: /\n\nUser-agent: AmazonAdBot\nAllow"
+ },
+ "www.hurriyet.com.tr": {
+  "durum": 200,
+  "robots": "User-agent:*\r\nDisallow: /ad/\r\nDisallow: /api/\r\nDisallow: /arkadasimamektup/\r\nDisallow: /okurtemsilcisi/\r\nDisallow: /widgets/\r\nDisallow: /_includes/\r\nDisallow: /_othernews/\r\nDisallow: /_test/\r\nDisallow: /_includescms/\r\nDisallow: /arama/\r\n\r\nUser-agent: Flipboard\r\nUser-agent: FlipboardProxy\r\nAllow: /api/\r\n\r\nUser-agent: GPTBot\r\nDisallow: /\r\n\r\nUser-agent: anthropic-ai\r\nDisallow: /\r\n\r\nUser-agent: ChatGPT-User\r\nDisallow: /\r\n\r\nUser-agent: ClaudeBot\r\nDisallow: /\r\n\r\nUser-agent: Claude-Web\r\nDisallow: /\r\n\r\nUser-agent: cohere-ai\r\nDisallow: /\r\n\r\nUser-agent: OAI-SearchBot\r\nDisallow: /\r\n\r\nUser-agent: quillbot.com\r\nDisallow: /\r\n\r\nUser-agent: PerplexityBot\r\nDisallow: /\r\n\r\nUser-agent: TurnitinBot\r\nDisallow: /\r"
+ },
+ "www.sabah.com.tr": {
+  "durum": 200,
+  "robots": "User-agent: *\r\n\r\nSitemap: https://www.sabah.com.tr/sitemap/news.xml\r\nSitemap: https://www.sabah.com.tr/sitemap/index.xml\r\n\r\nDisallow: /advertorial\r\nDisallow: /arama\r\nDisallow: /bize-ulasin\r\nDisallow: /cizerler\r\nDisallow: /finans/kap-haberleri/*\r\nDisallow: /fotohaber/sayfalama/\r\nDisallow: /get/arama\r\nDisallow: /haber/advertorial\r\nDisallow: /iframe/*\r\nDisallow: /js\r\nDisallow: /json\r\nDisallow: /ajax\r\nDisallow: /partial/\r\nDisallow: /roza/arama\r\nDisallow: /spor/arama/arsiv\r\nDisallow: /video/iframe/*\r\nDisallow: /webtv/iframe/*\r\nDisallow: */infinite/*\r\nDisallow: /roza/infinite/\r\nDisallow: /trend/infinite/\r\nDisallow: /teknokulis/infinite/\r\nDisallow: /get/finans\r\nDisallow: /common.js\r\nDisallow: /visu"
+ },
+ "www.ntvspor.net": {
+  "durum": 200,
+  "robots": "﻿User-agent: *\nAllow: /\nDisallow: /arama/\nSitemap: https://www.ntvspor.net/sitemaps\nSitemap: https://www.ntvspor.net/sitemaps/news-sitemap.xml\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: ChatGPT-User\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: Claude-Web\nDisallow: /\n\nUser-agent: anthropic-ai\nDisallow: /\n\nUser-agent: PerplexityBot\nDisallow: /\n\nUser-agent: TurnitinBot\nDisallow: /\n\nUser-agent: cohere-ai\nDisallow: /\n\nUser-agent: OAI-SearchBot\nDisallow: /\n\nUser-agent: http://quillbot.com \nDisallow: /"
+ },
+ "www.haberturk.com": {
+  "durum": 200,
+  "robots": "User-agent: *\nDisallow: /Flash\nDisallow: /uyelik\nDisallow: /liste/sonhaberler\nDisallow: /dynamics/*\nDisallow: /*/dynamics/*\nDisallow: /chart/*\nDisallow: /globals\nDisallow: /yorumlar\nDisallow: /video/yorumlar\nDisallow: /video/dynamics/*\nDisallow: /galeri/yorumlar\nDisallow: /magazin/yorumlar\nDisallow: /ekonomi/yorumlar\nDisallow: /spor/yorumlar\nDisallow: /haberdetay/tavsiyeHaber\nDisallow: /spor/haberdetay/tavsiyeHaber\nDisallow: /spor/macmerkezi/*\nDisallow: /ekonomi/haberdetay/tavsiyeHaber\nDisallow: /magazin/haberdetay/tavsiyeHaber\nDisallow: /arama/*\nDisallow: /sinema-rehberi/ara\nDisallow: /sinema-rehberi/ara?tr=*\nDisallow: /haber-tuneli/\nDisallow: /etiket/\nDisallow: /general/\nDisallow: /*/infin"
+ },
+ "www.yarisprogrami.com": {
+  "durum": "hata",
+  "robots": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'www.yarisprogrami.com\\', port=443): Max re"
+ },
+ "www.at-yarisi.com": {
+  "durum": 200,
+  "robots": "User-agent: *\nAllow: /\nLLM-Policy: /llms.txt\nSitemap: /sitemap.xml"
+ },
+ "www.tjk.org": {
+  "durum": 200,
+  "robots": "ï»¿# ============================================\r\n# Genel kural - kendine Ã¶zel blok bulunmayan\r\n# tÃ¼m botlar iÃ§in varsayÄ±lan: engelli\r\n# ============================================\r\nUser-agent: *\r\nDisallow: /\r\n\r\n# ============================================\r\n# Google arama - izinli\r\n# ============================================\r\nUser-agent: Googlebot\r\nAllow: /\r\n\r\n# ============================================\r\n# Sosyal medya Ã¶nizleme botlarÄ± - izinli\r\n# (zararsÄ±z, sadece link paylaÅÄ±m kartÄ± iÃ§in)\r\n# ============================================\r\nUser-agent: facebookexternalhit\r\nAllow: /\r\n\r\nUser-agent: Facebot\r\nAllow: /\r\n\r\nUser-agent: Twitterbot\r\nAllow: /\r\n\r\nUser-agent: LinkedIn"
+ },
+ "www.takvim.com.tr": {
+  "durum": 200,
+  "robots": "User-agent: *\r\nSitemap: https://www.takvim.com.tr/sitemap/news.xml\r\nSitemap: https://www.takvim.com.tr/sitemap/post.xml\r\nSitemap: https://www.takvim.com.tr/sitemap/video.xml\r\nSitemap: https://www.takvim.com.tr/sitemap/tags.xml\r\nSitemap: https://www.takvim.com.tr/sitemap/image.xml\r\nSitemap: https://www.takvim.com.tr/sitemap/category.xml\r\nSitemap: https://www.takvim.com.tr/sitemap/iettseferleri.xml\r\nSitemap: https://www.takvim.com.tr/sitemap/namaz-vakitleri.xml\r\n\r\nDisallow: /habergonder*\r\nDisallow: /?web=true*\r\nDisallow: /*?reklam=*\r\nDisallow: /haberadvertorial  \r\n\r\nDisallow: /*json*/\r\nDisallow: /ajax\r\n\r\nDisallow: /get\r\nDisallow: /js\r\nDisallow: /infinite/\r\nDisallow: /crossword/\r\n\r\nDisallow: /w"
+ },
+ "www.milliyet.com.tr": {
+  "durum": 200,
+  "robots": "User-agent: *\nDisallow: /root/*\nDisallow: /arama/\nDisallow: /Milliyet.aspx\n\nUser-agent: AmazonAdBot\nAllow: /\n\nUser-agent: anthropic-ai\nDisallow: /\n\nUser-agent: ChatGPT-User\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: Claude-Web\nDisallow: /\n\nUser-agent: cohere-ai\nDisallow: /\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: OAI-SearchBot\nDisallow: /\n\nUser-agent: quillbot.com\nDisallow: /\n\nUser-agent: PerplexityBot\nDisallow: /\n\nUser-agent: TurnitinBot\nDisallow: /"
+ }
+}
