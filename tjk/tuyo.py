@@ -40,7 +40,7 @@ def guncelle(obj):
 
 
 def ozet_yaz(tarih):
-    n = kaz = ilk3 = 0; geri = 0.0; gun = {}
+    n = kaz = ilk3 = 0; geri = 0.0; gun = {}; grup = {"ust": [0, 0, 0.0], "alt": [0, 0, 0.0]}   # [n, kazanan, geri]
     for y in sorted(glob.glob(os.path.join(VERI, "*.json"))):
         t = os.path.basename(y)[:-5]
         for c in json.load(open(y, encoding="utf-8")).values():
@@ -48,8 +48,12 @@ def ozet_yaz(tarih):
                 continue
             n += 1; kaz += c["sira"] == 1; ilk3 += c["sira"] <= 3
             geri += (c.get("g") or 0) if c["sira"] == 1 else 0
+            if c.get("g") and c.get("pj"):                    # 23 Ekim 2026 ön kaydı: kapanış ganyanı Jason'un adil ganyanından (1/pj) yüksek mi
+                G = grup["ust" if c["g"] >= 1 / c["pj"] else "alt"]
+                G[0] += 1; G[1] += c["sira"] == 1; G[2] += c["g"] if c["sira"] == 1 else 0
     yol = os.path.join(VERI, tarih + ".json")
     bugun = list(json.load(open(yol, encoding="utf-8")).values()) if os.path.exists(yol) else []
     os.makedirs(SITE, exist_ok=True)
-    json.dump({"tarih": tarih, "bugun": bugun, "toplam": {"n": n, "kazanan": kaz, "ilk3": ilk3, "geri_donus": round(geri / n, 3) if n else None}},
+    json.dump({"tarih": tarih, "bugun": bugun, "toplam": {"n": n, "kazanan": kaz, "ilk3": ilk3, "geri_donus": round(geri / n, 3) if n else None,
+                         "grup": {k: {"n": v[0], "kazanan": v[1], "geri_donus": round(v[2] / v[0], 3) if v[0] else None} for k, v in grup.items()}}},
               open(os.path.join(SITE, "tuyo.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
