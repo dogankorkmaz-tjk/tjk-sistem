@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-23 22:10 UTC",
- "kayitli_kosu": 565,
- "eslesmeyen_kosu": 357,
+ "uretim": "2026-10-23 23:20 UTC",
+ "kayitli_kosu": 570,
+ "eslesmeyen_kosu": 359,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 353,
- "kosu": 208,
+ "bahis": 355,
+ "kosu": 211,
  "isabet": 28,
- "roi": 1.29,
+ "roi": 1.282,
  "ga95": [
   0.808,
-  1.855
+  1.831
  ],
  "ulke": {
   "abd": {
-   "bahis": 217,
-   "roi": 1.085
+   "bahis": 219,
+   "roi": 1.076
   },
   "birlesik-krallik": {
    "bahis": 54,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 428,
-  "kosu": 204,
+  "kosu": 207,
   "isabet": 49,
   "roi": 0.862,
   "ga95": [
@@ -45,44 +45,26 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 443,
-  "kosu": 201,
+  "bahis": 444,
+  "kosu": 204,
   "isabet": 57,
-  "roi": 1.065,
+  "roi": 1.063,
   "ga95": [
    0.706,
-   1.475
+   1.468
   ]
  },
  "bahis_t3": {
-  "bahis": 429,
-  "kosu": 197,
-  "isabet": 51,
+  "bahis": 432,
+  "kosu": 200,
+  "isabet": 52,
   "roi": 0.919,
   "ga95": [
    0.534,
-   1.457
+   1.446
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 3,
-   "at": "FREESTYLE DANCE",
-   "q": 0.132,
-   "g": 13.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 4,
-   "at": "JET SET RUN",
-   "q": 0.147,
-   "g": 11.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Fairview",
@@ -424,6 +406,24 @@
    "q": 0.061,
    "g": 21.65,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Santa Anita",
+   "kosu": 5,
+   "at": "PRINCESS SNOW",
+   "q": 0.142,
+   "g": 10.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Santa Anita",
+   "kosu": 7,
+   "at": "MUSTANG KNICKY",
+   "q": 0.198,
+   "g": 7.4,
+   "kazandi": false
   }
  ]
 }
