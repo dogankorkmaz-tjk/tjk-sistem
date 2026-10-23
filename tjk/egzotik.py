@@ -112,18 +112,10 @@ def guncelle(obj):
             c3 = json.load(open(_G1.YOL3)); modeller.append(("G1|", "z6", c3["alfa"], "G1-S", 0.0, ORAN)); GD["G1|"] = (c3["g2"], c3["g3"])
     except Exception as e:
         print("G1-S hatası:", repr(e))
-    import datetime as _dt
+    if GD:
+        _G1.z6_doldur(obj)
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
-            if GD and not k.get("sonuc") and any(a.get("z6") is None for a in k.get("atlar", [])):
-                try:
-                    zz = _G1.z6(k.get("atlar", []), _dt.date.fromisoformat(tarih))
-                    if zz:
-                        for a in k["atlar"]:
-                            if a["no"] in zz:
-                                a["z6"] = round(zz[a["no"]], 4)
-                except Exception as e:
-                    print("G1-S z hatası:", repr(e))
             basladi = bool(k.get("sonuc")) or (simdi is not None and k.get("saat") and simdi >= k["saat"] and obj.get("gecmis") is not True)
             for onek, zk, w0, ad_m, lp2, or_m in modeller:
                 anahtar = f"{onek}{h['id']}|{k['kosu']}"

@@ -74,6 +74,10 @@ def _odeme(tarih):
 
 def guncelle(obj, simdi=None):
     tarih = obj["tarih"]; os.makedirs(VERI, exist_ok=True)
+    try:
+        from . import g1 as _G1; _G1.z6_doldur(obj)
+    except Exception as e:
+        print("z6 hatası:", repr(e))
     yol = os.path.join(VERI, tarih + ".json")
     kay = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
     if simdi is None:

@@ -139,7 +139,16 @@ def _olasiliklar(obj, k):
         l2 = obj.get("lp2_f", 0.0)
         pf = sm([obj["w0_f"] * math.log(max(p, 1e-6)) + l2 * math.log(max(p, 1e-6)) ** 2 + a["z5"] for p, a in zip(pp, at)])
     GG["Jason-S"] = obj.get("a_s") or G_M
-    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"Jason-S": ps} if ps else {}), **({"Jason-F": pf} if pf else {})}
+    pg = None
+    try:                                                   # G1-S (24 Ekim 2026): Benter-G1, ilk 5 ile eğitilmiş; kendi sıra üsleri
+        from . import g1 as _G1
+        if os.path.exists(_G1.YOL3):
+            c3 = json.load(open(_G1.YOL3))
+            if all(a.get("z6") is not None for a in at):
+                pg = sm([c3["alfa"] * math.log(max(p, 1e-6)) + a["z6"] for p, a in zip(pp, at)]); GG["G1-S"] = c3["gam"]
+    except Exception as e:
+        print("G1-S olasılık hatası:", repr(e))
+    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"Jason-S": ps} if ps else {}), **({"Jason-F": pf} if pf else {}), **({"G1-S": pg} if pg else {})}
 
 
 def _modeller(obj, k):
@@ -174,6 +183,10 @@ def _odeme(tarih):
 
 def guncelle(obj, simdi=None):
     tarih = obj["tarih"]; os.makedirs(VERI, exist_ok=True)
+    try:
+        from . import g1 as _G1; _G1.z6_doldur(obj)
+    except Exception as e:
+        print("z6 hatası:", repr(e))
     yol = os.path.join(VERI, tarih + ".json")
     kay = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
     if simdi is None:
@@ -197,8 +210,8 @@ def guncelle(obj, simdi=None):
                     c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "kuponlar": []}
                     Wp, Tp = _W(pp, G_P)
                     for model, p in P.items():
-                        if model == "Jason-S":
-                            continue                  # Jason-S yalnız -G kuponlarla ölçülür
+                        if model in ("Jason-S", "G1-S"):
+                            continue                  # Jason-S ve G1-S yalnız -G kuponlarla ölçülür
                         for B in BUTCELER:
                             kp = kupon(p, B)
                             if not kp:

@@ -533,3 +533,6 @@ Piyasaya yalnız gamma (özellik yok): kazanan −0.0015, sıralı ikili −0.00
 
 ## 2026-10-24 02:40 — G1-S egzotik gölgesi (kâğıt, ön kayıt)
 tjk/g1.py egit3/z6: ilk 3 sıra + sıra üsleriyle eğitilmiş Benter-G1 (g2≈0,80, g3≈0,69; katsayılar data/analiz/g1s_katsayi.json, her gece yenilenir). tjk/egzotik.py: "G1-S" adıyla aynı dondurulmuş kural (model/AGF ≥1,15 ve AGF kombinasyon eşiği) ve kendi üsleriyle sıralı ikili/ikili/üçlü seçer; ayrı sayaç, Bolton/Jason/Jason-S dokunulmadı. Atlara kg/hk (kilo, handikap) alanları eklendi (bugünden itibaren). Karar: ≥300 sonuçlanan koşuda geri dönüş ve isabet Bolton/Jason ile aynı ölçütle karşılaştırılır; aşağıdaki sonuçtan önce kural değişmez. Tabela ve sıralı 5'li bu turda eklenmedi.
+
+## 2026-10-24 03:05 — G1-S tabela ve sıralı 5'li gölgesi (kâğıt, ön kayıt)
+G1-S artık ilk 5 sıra ile eğitiliyor (alfa 0,912; sıra üsleri 1; 0,816; 0,704; 0,623; 0,568; 22.666 koşu; her gece yenilenir). Tabela (≤24 / ≤120 sıralı, sırasız 5/6 at) ve sıralı 5'li (-G kuponlar, bütçeler mevcut) için aynı dondurulmuş kurallarla, ayrı sayaç "G1-S". Egzotik G1-S ise aynı güncel katsayıları kullanır. Karar: sıralı 5'li ve tabelada ≥300 sonuçlanan koşuda Bolton/Jason/Jason-S ile aynı tutma/geri dönüş ölçütüyle karşılaştırılır; o zamana kadar kural değişmez. Kâr kanıtı değil, model kalitesi ölçümü.

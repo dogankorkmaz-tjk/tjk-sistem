@@ -120,7 +120,8 @@ def tahmin(r, t):
 YOL3 = os.path.join(KOK, "data", "analiz", "g1s_katsayi.json")
 
 
-def egit3(l2=30.0):
+def egit3(l2=30.0, adim=5):
+    """İlk 5 sıra (varsa) patlatılmış logit + sıra üsleri g2..g5. Egzotik (≤3 sıra) ve tabela/sıralı 5'li gölgeleri aynı katsayıları kullanır."""
     K = {}
     for r in _satirlar():
         K.setdefault((r["tarih"], r["hipodrom"], int(r["kosu"])), []).append(r)
@@ -128,10 +129,10 @@ def egit3(l2=30.0):
     for key in sorted(K):
         ok = [r for r in K[key] if r["kosmadi"] != "True" and _fl(r["ganyan"], 0) > 1 and _fl(r["sira"], 0) > 0]
         n = len(ok)
-        if n < 4:
+        if n < 6:
             continue
         ok.sort(key=lambda r: _fl(r["sira"]))
-        if [_fl(r["sira"]) for r in ok[:3]] != [1.0, 2.0, 3.0]:
+        if [_fl(r["sira"]) for r in ok[:adim]] != [float(i) for i in range(1, adim + 1)]:
             continue
         inv = np.array([1 / _fl(r["ganyan"]) for r in ok]); pm = inv / inv.sum(); gun = dt.date.fromisoformat(key[0]).toordinal()
         R.append((np.log(pm), _oz(H, J, AJ, ok, pm, gun)))
@@ -143,23 +144,23 @@ def egit3(l2=30.0):
     N = len(R); M = max(len(x[0]) for x in R); LM = np.full((N, M), -1e9); XX = np.zeros((N, M, 9))
     for k, (lm, X) in enumerate(R):
         LM[k, :len(lm)] = lm; XX[k, :len(lm)] = X
-    idx = np.arange(N)
+    idx = np.arange(N); ng = adim - 1
 
     def f(t):
-        a, b, gam = t[0], t[1:10], np.array([1.0, t[10], t[11]]); s = a * LM + XX @ b
-        mask = LM > -1e8; ds = np.zeros_like(s); dg = np.zeros(2); L = l2 * (b @ b)
-        for j in range(3):
+        a, b, gam = t[0], t[1:10], np.r_[1.0, t[10:10 + ng]]; s = a * LM + XX @ b
+        mask = LM > -1e8; ds = np.zeros_like(s); dg = np.zeros(ng); L = l2 * (b @ b)
+        for j in range(adim):
             z = np.where(mask, gam[j] * s, -1e30); z -= z.max(1, keepdims=True); e = np.exp(z); p = e / e.sum(1, keepdims=True)
             L += -np.log(p[idx, j] + 1e-12).sum(); d = p.copy(); d[idx, j] -= 1; ds += gam[j] * d
             if j:
                 dg[j - 1] = (d * np.where(mask, s, 0)).sum()
             mask[idx, j] = False
-        g = np.zeros(12); g[0] = (ds * LM.clip(-50, 0)).sum(); g[1:10] = np.einsum("nm,nmk->k", ds, XX) + 2 * l2 * b; g[10:] = dg
+        g = np.zeros(10 + ng); g[0] = (ds * LM.clip(-50, 0)).sum(); g[1:10] = np.einsum("nm,nmk->k", ds, XX) + 2 * l2 * b; g[10:] = dg
         return L, g
-    t0 = np.zeros(12); t0[0] = 1; t0[10] = t0[11] = 1
+    t0 = np.zeros(10 + ng); t0[0] = 1; t0[10:] = 1
     t = minimize(f, t0, jac=True, method="L-BFGS-B").x
-    out = {"alfa": float(t[0]), "b": [float(x) for x in t[1:10]], "g2": float(t[10]), "g3": float(t[11]), "n_kosu": N,
-           "egitim": dt.date.today().isoformat()}
+    out = {"alfa": float(t[0]), "b": [float(x) for x in t[1:10]], "gam": [1.0] + [float(x) for x in t[10:]], "g2": float(t[10]), "g3": float(t[11]),
+           "n_kosu": N, "egitim": dt.date.today().isoformat()}
     json.dump(out, open(YOL3, "w"), indent=1); return out
 
 
@@ -177,3 +178,22 @@ def z6(atlar, t):
     ok = [{"at": a["at"], "jokey": a["jokey"], "kilo": a.get("kg"), "hnd": a.get("hk")} for a in at]
     X = _oz(H, J, AJ, ok, None, t.toordinal()); z = X @ np.array(c["b"])
     return {a["no"]: float(v) for a, v in zip(at, z)}
+
+
+def z6_doldur(obj):
+    """Başlamamış koşuların atlarına z6 (G1-S puanı) ekler; egzotik, tabela ve sıralı 5'li gölgeleri bunu kullanır. Eksikse sessizce geçer."""
+    try:
+        t = dt.date.fromisoformat(obj["tarih"])
+        if os.path.exists(YOL3):
+            c = json.load(open(YOL3)); obj["w0_g1"] = c["alfa"]; obj["a_g1"] = [round(x, 4) for x in c["gam"]]
+        for h in obj["hipodromlar"]:
+            for k in h["kosular"]:
+                if k.get("sonuc") or all(a.get("z6") is not None for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")):
+                    continue
+                zz = z6(k.get("atlar", []), t)
+                if zz:
+                    for a in k["atlar"]:
+                        if a["no"] in zz:
+                            a["z6"] = round(zz[a["no"]], 4)
+    except Exception as e:
+        print("z6 doldurma hatası:", repr(e))
