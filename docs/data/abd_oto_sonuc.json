@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-23 15:38 UTC",
- "kayitli_kosu": 494,
- "eslesmeyen_kosu": 318,
+ "uretim": "2026-10-23 15:59 UTC",
+ "kayitli_kosu": 498,
+ "eslesmeyen_kosu": 320,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 304,
- "kosu": 176,
+ "bahis": 308,
+ "kosu": 178,
  "isabet": 21,
- "roi": 1.112,
+ "roi": 1.098,
  "ga95": [
-  0.793,
-  1.557
+  0.789,
+  1.478
  ],
  "ulke": {
   "abd": {
@@ -18,16 +18,16 @@
    "roi": 1.016
   },
   "birlesik-krallik": {
-   "bahis": 46,
-   "roi": 1.322
+   "bahis": 48,
+   "roi": 1.267
   },
   "fransa": {
    "bahis": 25,
    "roi": 1.71
   },
   "guney-afrika": {
-   "bahis": 37,
-   "roi": 1.395
+   "bahis": 39,
+   "roi": 1.323
   },
   "irlanda": {
    "bahis": 16,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 368,
-  "kosu": 172,
-  "isabet": 43,
-  "roi": 0.909,
+  "bahis": 374,
+  "kosu": 174,
+  "isabet": 44,
+  "roi": 0.911,
   "ga95": [
-   0.633,
-   1.368
+   0.634,
+   1.354
   ]
  },
  "bahis_t1": {
-  "bahis": 381,
-  "kosu": 169,
-  "isabet": 50,
-  "roi": 0.995,
+  "bahis": 387,
+  "kosu": 171,
+  "isabet": 51,
+  "roi": 0.996,
   "ga95": [
    0.692,
-   1.466
+   1.45
   ]
  },
  "bahis_t3": {
-  "bahis": 378,
-  "kosu": 167,
-  "isabet": 45,
-  "roi": 0.81,
+  "bahis": 382,
+  "kosu": 169,
+  "isabet": 46,
+  "roi": 0.818,
   "ga95": [
    0.531,
-   1.314
+   1.324
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 4,
-   "at": "STANISLAVA",
-   "q": 0.091,
-   "g": 23.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 5,
-   "at": "WHAT A WARRIOR",
-   "q": 0.069,
-   "g": 19.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 5,
-   "at": "TINA LOVELACE",
-   "q": 0.1,
-   "g": 30.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 7,
-   "at": "BLIZZARD QUEST",
-   "q": 0.065,
-   "g": 22.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Turffontein",
@@ -265,6 +229,24 @@
   },
   {
    "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 6,
+   "at": "ART LOVER",
+   "q": 0.11,
+   "g": 11.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 6,
+   "at": "RIKKI TIKI TAVI",
+   "q": 0.092,
+   "g": 27.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
    "pist": "Fairview",
    "kosu": 1,
    "at": "BLUE JASPER",
@@ -423,6 +405,24 @@
    "at": "CHRONICLESOFNANIA",
    "q": 0.068,
    "g": 19.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Greyville",
+   "kosu": 2,
+   "at": "GOLDEN DIADEM",
+   "q": 0.062,
+   "g": 27.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Greyville",
+   "kosu": 2,
+   "at": "THE BIDDER",
+   "q": 0.084,
+   "g": 14.85,
    "kazandi": false
   }
  ]
