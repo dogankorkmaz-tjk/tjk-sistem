@@ -719,6 +719,18 @@ def sonuclari_isle(obj, t, w0=None):
                     s = pd.concat([s, m[~m.kosu.isin(tam)]], ignore_index=True)
         except Exception as e:
             print("muh yedek hatası:", repr(e))
+        # 23 Ekim 2026: atyarisi.com resmî sonuç API'si (agftablosu engelli; CSV yüklemeye gerek kalmasın) - eksik koşuları tamamlar
+        try:
+            from . import atyapi
+            m = atyapi.sonuc_df(t, h["id"])
+            if not m.empty:
+                if s.empty:
+                    s = m
+                else:
+                    tam = set(s[s.ganyan.notna() & (s.ganyan > 0) & s.sira.notna()].kosu)
+                    s = pd.concat([s, m[~m.kosu.isin(tam)]], ignore_index=True)
+        except Exception as e:
+            print("atyarisi sonuç hatası:", repr(e))
         if s.empty:
             continue
         for k in bekleyen:

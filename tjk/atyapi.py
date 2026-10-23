@@ -161,3 +161,43 @@ def agf_uygula(obj, saat):
     if n:
         print("AGF atyarisi API'sinden eklendi:", n, "at")
     return n
+
+
+RESULT = "https://tjkbulten.atyarisi.com/api/v4/RaceResult"
+_SON = {}
+
+
+def sonuc_gun(tarih):
+    """{hipodrom: [API koşu sözlükleri (atlar sıra/derece/kapanış ganyanı + raceMoneys: tüm bahislerin ikramiyesi)]}"""
+    if tarih in _SON:
+        return _SON[tarih]
+    out = {}
+    try:
+        for h in (requests.get(LISTE, params={"date": tarih}, headers=_H, timeout=30).json().get("d") or []):
+            hi = h.get("hippodrome") or {}
+            hid = None if hi.get("isForeign") else (_hip(hi.get("place")) or _hip(hi.get("code")))
+            if not hid or hid not in O.TRH:
+                continue
+            out[hid] = (requests.get(RESULT, params={"programId": h["id"]}, headers=_H, timeout=30).json().get("d") or {}).get("races") or []
+    except Exception as e:
+        print("atyarisi sonuç hatası:", repr(e))
+        return {}
+    if out:
+        _SON[tarih] = out
+    return out
+
+
+def sonuc_df(t, hid):
+    """calistir.muh_sonuc_df ile aynı sütunlar: tarih, hipodrom, kosu, sira, no, ganyan, kosmadi (yalnızca sonucu belli koşular)."""
+    import pandas as pd
+    satir = []
+    for k in sonuc_gun(t.isoformat()).get(hid, []):
+        hs = k.get("horses") or []
+        if not any((a.get("order") or 0) > 0 for a in hs):
+            continue
+        for a in hs:
+            g = a.get("ganyan")
+            if g and (a.get("order") or 0) > 0:
+                satir.append({"tarih": t.isoformat(), "hipodrom": hid, "kosu": int(k["number"]), "sira": int(a["order"]),
+                              "no": int(a["number"]), "ganyan": float(g), "kosmadi": False})
+    return pd.DataFrame(satir)
