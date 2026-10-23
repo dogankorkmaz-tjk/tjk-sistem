@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-23 10:31 UTC",
+ "uretim": "2026-10-23 10:33 UTC",
  "kayitli_kosu": 463,
- "eslesmeyen_kosu": 296,
+ "eslesmeyen_kosu": 295,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 278,
- "kosu": 167,
- "isabet": 18,
- "roi": 0.997,
+ "bahis": 285,
+ "kosu": 168,
+ "isabet": 19,
+ "roi": 1.075,
  "ga95": [
-  0.687,
-  1.285
+  0.762,
+  1.515
  ],
  "ulke": {
   "abd": {
@@ -26,8 +26,8 @@
    "roi": 1.71
   },
   "guney-afrika": {
-   "bahis": 19,
-   "roi": 0.0
+   "bahis": 26,
+   "roi": 1.117
   },
   "irlanda": {
    "bahis": 16,
@@ -35,99 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 340,
-  "kosu": 163,
-  "isabet": 39,
-  "roi": 0.801,
+  "bahis": 346,
+  "kosu": 164,
+  "isabet": 40,
+  "roi": 0.871,
   "ga95": [
-   0.588,
-   1.149
+   0.625,
+   1.342
   ]
  },
  "bahis_t1": {
-  "bahis": 358,
-  "kosu": 161,
-  "isabet": 46,
-  "roi": 0.885,
+  "bahis": 364,
+  "kosu": 162,
+  "isabet": 47,
+  "roi": 0.95,
   "ga95": [
-   0.651,
-   1.188
+   0.678,
+   1.363
   ]
  },
  "bahis_t3": {
-  "bahis": 357,
-  "kosu": 159,
-  "isabet": 41,
-  "roi": 0.684,
+  "bahis": 363,
+  "kosu": 160,
+  "isabet": 42,
+  "roi": 0.752,
   "ga95": [
-   0.468,
-   0.871
+   0.511,
+   1.103
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "SOCK MONKEY",
-   "q": 0.093,
-   "g": 17.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "MARIAMAKESMELAUGH",
-   "q": 0.04,
-   "g": 32.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "SHIFTYINDEPENDENCE",
-   "q": 0.093,
-   "g": 22.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Les Sables",
-   "kosu": 2,
-   "at": "PLUMBAGO",
-   "q": 0.112,
-   "g": 16.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Les Sables",
-   "kosu": 3,
-   "at": "ROBERTO PESTO",
-   "q": 0.056,
-   "g": 23.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Les Sables",
-   "kosu": 5,
-   "at": "NINA JERSEY",
-   "q": 0.114,
-   "g": 12.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Les Sables",
-   "kosu": 6,
-   "at": "MRS HOLIDAY",
-   "q": 0.187,
-   "g": 7.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Les Sables",
@@ -423,6 +360,69 @@
    "at": "SPIRIT BEAR",
    "q": 0.181,
    "g": 9.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 1,
+   "at": "BLUE JASPER",
+   "q": 0.038,
+   "g": 54.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 1,
+   "at": "RADIO REBEL",
+   "q": 0.038,
+   "g": 58.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 1,
+   "at": "POWDER DAY",
+   "q": 0.201,
+   "g": 62.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 1,
+   "at": "PRETTY BOY",
+   "q": 0.038,
+   "g": 97.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 1,
+   "at": "GREEN POINT",
+   "q": 0.073,
+   "g": 29.05,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 1,
+   "at": "NORSE WARRIOR",
+   "q": 0.089,
+   "g": 30.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 1,
+   "at": "AMERICAN GEM",
+   "q": 0.073,
+   "g": 26.85,
    "kazandi": false
   }
  ]
