@@ -1939,17 +1939,21 @@ function besliTest(){
   el.innerHTML=h; try{ BS_HTML=h; if($('s5Takip')) $('s5Takip').innerHTML=h; }catch(e){}
 }
 let BS_HTML='';
-function tuyolar(){
+let TUYO_DON={}, TUYO_YUK=null;
+function tuyoYukle(){ const g=(VERI&&VERI.guncelleme)||''; if(TUYO_YUK===g) return; TUYO_YUK=g;
+  getJSON('data/tuyo.json?'+Date.now()).then(d=>{ const m={}; (d.bugun||[]).forEach(c=>m[c.hipodrom+'|'+c.kosu+'|'+c.no]=c); const e=JSON.stringify(Object.keys(m)); if(e!==JSON.stringify(Object.keys(TUYO_DON))){ TUYO_DON=m; try{oynaCiz();}catch(x){} } else TUYO_DON=m; }).catch(()=>{}); }
+function tuyolar(){ tuyoYukle();
   const R=[]; if(!VERI||GUN!==trBugun()||VERI.w0_aday==null) return R;
   const simdi=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'});
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     // biten koşuda tüyo kaybolmaz: sonuçla karşılaştırılır; saati geçip sonucu gelmemişse "sonuç bekleniyor" yazar
     const out=k.sonuc?null:hesapla(h,k); if(!k.sonuc&&!out) return;
     k.atlar.forEach((a,i)=>{
-      let pj,pp,pm; const so=k.sonuc?k.sonuc[String(a.no)]:null;
-      if(k.sonuc){ if(!so) return; pj=so.pm2; pp=so.pp; pm=so.pm; } else { const x=out.map[i]; if(!x) return; pj=x.pj; pp=x.pp; pm=x.pm; }
+      let pj,pp,pm; const so=k.sonuc?k.sonuc[String(a.no)]:null, don=TUYO_DON[h.id+'|'+k.kosu+'|'+a.no];
+      if(k.sonuc){ if(!so||!don) return; pj=don.pj; pp=don.pp; pm=so.pm; }   // biten koşu: tüyo ilk görüldüğündeki (dondurulmuş) değerle gösterilir
+      else { const x=out.map[i]; if(!x) return; pj=x.pj; pp=x.pp; pm=x.pm; }
       if(pj==null||!(pp>0)) return;
-      const r=pj/pp; if(pj<0.06||r<1.30) return;
+      const r=pj/pp; if(!k.sonuc&&(pj<0.06||r<1.30)) return;
       const c=[`Jason %${pct(pj)} veriyor, piyasa %${pct(pp)} (${f2(r)} kat)`];
       c.push(pm/pp>=1.25?'Bolton da aynı yönde':'sadece Jason görüyor, Bolton piyasayla hemfikir');
       if(a.agf0>0&&a.agf>0){ const d=a.agf/a.agf0; if(d>=1.15) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, para geliyor`); else if(d<=0.85) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, piyasa soğudu`); }
