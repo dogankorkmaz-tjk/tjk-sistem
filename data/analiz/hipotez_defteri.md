@@ -522,3 +522,8 @@ SONUÇ (2026-10-24, data/analiz/ozellik_g1.py; test 2025-01..2026-10, 11.476 ko�
 
 ## 2026-10-24 02:10 — Benter-G1 gölge modeli canlıda (pm5)
 tjk/g1.py: kapanış piyasası ofset + G1 özellikleri; katsayılar data/analiz/g1_katsayi.json (her gece tüm geçmişle yenilenir). Her biten koşuda docs/data/gun/*.json sonuc içine "pm5" yazılır. Bolton/Jason değişmedi. ÖN KAYIT: ≥500 canlı koşuda pm5 − pp farkı (data/analiz/piyasa_tabani.py) gün kümeli GA'sı <0 ise canlıda da doğrulanmış sayılır; aksi halde G1 yalnız geçmiş-veri bulgusu olarak kalır. Geçmiş test (pm5 öncesi): −0.0052 nats/koşu.
+
+## 2026-10-24 02:05 — Model yapısı deneyi 1 (data/analiz/model_yapisi_1.py), walk-forward 2025-01+, 11.457 koşu, 659 gün
+Eğitim hedefi: yalnız kazanan (K=1) / ilk 3 patlatılmış logit (K=3) / K=3 + sıra başına üs gamma2,gamma3. Farklar saf piyasa Harville'ine göre (nats/koşu; kazanan | sıralı ikili | sıralı üçlü):
+K=1: −0.0052 | −0.0041 | +0.0025(GA 0'ı kapsar). K=3: +0.0073 | −0.0114 | −0.0434. K=3+gamma: −0.0039 | −0.0219 | −0.0601 (hepsinin GA'sı 0'ın tek tarafında).
+Bulgu: 2. ve 3. sıralar için Harville fazla dik; öğrenilen gamma2≈0,80, gamma3≈0,69 (alt sıralar daha düz). Yalnız kazanan için eğitilen model sıralı bahislerde işe yaramıyor; ilk üçle eğitmek sıralı ikili/üçlüde belirgin kazanç veriyor, kazanan olasılığında hafif kayıp yok (gamma ile). Not: gamma etkisinin kaç payı özelliklerden, kaç payı yalnız piyasadan geliyor henüz ayrıştırılmadı (sonraki deney).
