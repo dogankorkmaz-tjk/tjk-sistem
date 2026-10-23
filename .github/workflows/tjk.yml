@@ -46,7 +46,7 @@ jobs:
           esac
           echo "mod: $MOD"
           set +e
-          python -m tjk.calistir "$MOD" 2>&1 | tee /tmp/calistir.log
+          python -u -m tjk.calistir "$MOD" 2>&1 | tee /tmp/calistir.log
           RC=${PIPESTATUS[0]}
           echo "$RC" > /tmp/calistir.rc
           python -W ignore -I data/analiz/abd_oto_degerlendir.py || echo "oto değerlendirme atlandı"
@@ -59,7 +59,7 @@ jobs:
           mkdir -p data docs/data data/log
           # hata olduysa ayrıntısı depoya yazılır (Actions günlüğü dışarıdan okunamıyor); olmadıysa eski hata dosyası silinir
           if [ "$(cat /tmp/calistir.rc 2>/dev/null || echo 0)" != "0" ]; then
-            { echo "mod hata kodu: $(cat /tmp/calistir.rc)  $(date -u '+%Y-%m-%d %H:%M') UTC"; tail -n 60 /tmp/calistir.log; } > data/log/son_hata.txt
+            { echo "mod hata kodu: $(cat /tmp/calistir.rc)  $(date -u '+%Y-%m-%d %H:%M') UTC"; grep -n -A30 "Traceback" /tmp/calistir.log | head -80; echo "--- son satırlar ---"; tail -n 25 /tmp/calistir.log; } > data/log/son_hata.txt
           else
             rm -f data/log/son_hata.txt
           fi
