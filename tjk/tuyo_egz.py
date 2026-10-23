@@ -15,7 +15,7 @@ def _odeme(gun):
         od = pd.read_csv(os.path.join(VERI, "odeme", gun[:7] + ".csv.gz"))
     except Exception:
         return {}
-    od = od[(od.tarih == gun) & od.tur.isin(["İKİLİ", "SIRALI İKİLİ"])]
+    od = od[(od.tarih == gun) & od.tur.isin(["İKİLİ", "SIRALI İKİLİ", "ÜÇLÜ BAHİS", "TABELA BAHİS", "TABELA BAHİS SIRASIZ", "SIRALI 5 Lİ BAHİS"])]
     out = {}
     for r in od.itertuples():
         out.setdefault((r.hipodrom, int(r.kosu), r.tur), []).append((str(r.kombo), float(r.tutar)))
@@ -35,9 +35,24 @@ def _tut(od, hip, kosu, tur, kombolar):
     return t
 
 
+# 23 Ekim 2026 ön kayıt eki: kutu bahisleri. T + AGF'nin en yüksek NF atı kutu yapılır (tüm sıralamalar), ödeme T dahil kümenin tam eşleşmesinde;
+# kontrol: AGF'nin ilk NF+1 atı kutu. (tür, NF, birim TL, kombinasyon sayısı); birim: üçlü 2,00, tabela 1,50, sıralı 5'li 1,25 (diğer testlerle aynı)
+KUTU = [("ÜÇLÜ BAHİS", 2, 2.0, 6), ("TABELA BAHİS", 3, 1.5, 24), ("TABELA BAHİS SIRASIZ", 3, 1.5, 1), ("SIRALI 5 Lİ BAHİS", 4, 1.25, 120)]
+
+
+def _kutu_tut(od, hip, kosu, tur, S):
+    t = 0.0
+    for kombo, tutar in od.get((hip, kosu, tur), []):
+        if set(kombo.strip().split("/")) == {str(x) for x in S}:
+            t += tutar
+    return t
+
+
 def hesapla():
     S = {t: {"n": 0, "maliyet": 0.0, "donus": 0.0, "isabet": 0, "gun": {}} for t in ("İKİLİ", "SIRALI İKİLİ")}
     K = {t: {"n": 0, "maliyet": 0.0, "donus": 0.0, "isabet": 0} for t in ("İKİLİ", "SIRALI İKİLİ")}
+    for tur, _nf, _b, _p in KUTU:
+        S[tur] = {"n": 0, "maliyet": 0.0, "donus": 0.0, "isabet": 0, "gun": {}}; K[tur] = {"n": 0, "maliyet": 0.0, "donus": 0.0, "isabet": 0}
     for y in sorted(glob.glob(os.path.join(VERI, "tuyo", "*.json"))):
         gun = os.path.basename(y)[:-5]
         gy = os.path.join(SITE, "gun", gun + ".json")
@@ -60,6 +75,23 @@ def hesapla():
             T = c["no"]
             ik = {"/".join(map(str, sorted([T, x]))) for x in f}
             sr = {f"{T}/{x}" for x in f}
+            for tur, nf, birim, perm in KUTU:
+                if (c["hipodrom"], c["kosu"], tur) not in od:
+                    continue
+                fk = [a["no"] for a in at if a["no"] != T][:nf]
+                if len(fk) < nf:
+                    continue
+                tt = _kutu_tut(od, c["hipodrom"], c["kosu"], tur, [T] + fk)
+                mal = perm * birim
+                s = S[tur]; s["n"] += 1; s["maliyet"] += mal; s["donus"] += tt; s["isabet"] += tt > 0
+                d = s["gun"].setdefault(gun, [0, 0.0, 0.0]); d[0] += 1; d[1] += mal; d[2] += tt
+                kk = (c["hipodrom"], c["kosu"], tur)
+                if kk not in gorulen:
+                    gorulen.add(kk)
+                    top = [a["no"] for a in at[:nf + 1]]
+                    if len(top) == nf + 1:
+                        t2 = _kutu_tut(od, c["hipodrom"], c["kosu"], tur, top)
+                        q = K[tur]; q["n"] += 1; q["maliyet"] += mal; q["donus"] += t2; q["isabet"] += t2 > 0
             for tur, kombolar in (("İKİLİ", ik), ("SIRALI İKİLİ", sr)):
                 if (c["hipodrom"], c["kosu"], tur) not in od:
                     continue                                   # ödeme verisi yoksa değerlendirilmez
