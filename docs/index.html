@@ -1941,18 +1941,27 @@ function besliTest(){
 let BS_HTML='';
 function tuyolar(){
   const R=[]; if(!VERI||GUN!==trBugun()||VERI.w0_aday==null) return R;
+  const simdi=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'});
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
-    if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
-    k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||x.pj==null||!(x.pp>0)) return;
-      const r=x.pj/x.pp; if(x.pj<0.06||r<1.30) return;
-      const c=[`Jason %${pct(x.pj)} veriyor, piyasa %${pct(x.pp)} (${f2(r)} kat)`];
-      c.push(x.pm/x.pp>=1.25?'Bolton da aynı yönde':'sadece Jason görüyor, Bolton piyasayla hemfikir');
+    // biten koşuda tüyo kaybolmaz: sonuçla karşılaştırılır; saati geçip sonucu gelmemişse "sonuç bekleniyor" yazar
+    const out=k.sonuc?null:hesapla(h,k); if(!k.sonuc&&!out) return;
+    k.atlar.forEach((a,i)=>{
+      let pj,pp,pm; const so=k.sonuc?k.sonuc[String(a.no)]:null;
+      if(k.sonuc){ if(!so) return; pj=so.pm2; pp=so.pp; pm=so.pm; } else { const x=out.map[i]; if(!x) return; pj=x.pj; pp=x.pp; pm=x.pm; }
+      if(pj==null||!(pp>0)) return;
+      const r=pj/pp; if(pj<0.06||r<1.30) return;
+      const c=[`Jason %${pct(pj)} veriyor, piyasa %${pct(pp)} (${f2(r)} kat)`];
+      c.push(pm/pp>=1.25?'Bolton da aynı yönde':'sadece Jason görüyor, Bolton piyasayla hemfikir');
       if(a.agf0>0&&a.agf>0){ const d=a.agf/a.agf0; if(d>=1.15) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, para geliyor`); else if(d<=0.85) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, piyasa soğudu`); }
       if(a.jokey) c.push('jokey '+esc(a.jokey)+(a.apr?' (apranti)':''));
-      R.push({s:r*Math.min(1,x.pj/0.15),h:`<div><b>${esc(h.ad)} ${k.kosu}. koşu, ${a.no} numaralı ${esc(a.at)}</b> (${esc(k.saat||'')})<div class="sub">${c.join(' · ')}</div></div>`});
+      let dur='';
+      if(k.sonuc){ const sr=so.sira;
+        dur=sr===1?`<b style="color:var(--good,#3fb950)">✓ KAZANDI</b> (ganyan ${String(so.g).replace('.',',')})`:(sr!=null&&sr<=3?`<b>${sr}. oldu</b> (ilk üçte, kazanmadı)`:`<b style="color:var(--bad,#f85149)">✗ ${sr!=null?sr+'. oldu':'tutmadı'}</b>`); }
+      else if(k.saat&&simdi>=k.saat) dur='<b>⏳ sonuç bekleniyor</b>';
+      R.push({t:(k.saat||'99:99')+String(h.ad), h:`<div><b>${esc(k.saat||'')} · ${esc(h.ad)} ${k.kosu}. koşu, ${a.no} numaralı ${esc(a.at)}</b>${dur?'<div class="sub">'+dur+'</div>':''}<div class="sub">${c.join(' · ')}</div></div>`});
     });
   }));
-  return R.sort((u,v)=>v.s-u.s).slice(0,6).map(x=>x.h);
+  return R.sort((u,v)=>u.t<v.t?-1:u.t>v.t?1:0).slice(0,24).map(x=>x.h);
 }
 let OYNA_L=[], oynaT=null;
 function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
