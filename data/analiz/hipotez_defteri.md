@@ -513,3 +513,9 @@ Script: data/analiz/piyasa_tabani.py (canlı kayıtlı koşular, nats/koşu, gü
 - Kapanış ganyanı (pp) 1.8265, AGF 1.8286, güç-kalibre ganyan 1.8322 (n=280, 16 gün): fark yok; kalibrasyon (alfa≈1.06) fayda sağlamadı.
 - Ortak 172 koşu/10 gün: pm (Bolton) −0.013, pm2 (Jason) −0.012, pm4 −0.001, pm3 +0.025 (pp'ye göre; hepsinin %95 GA'sı 0'ı kapsıyor). Yani modeller piyasadan ayırt edilemez; kanıt yok, yön hafif olumlu.
 - Örneklem küçük; sonuç yorumlanmamalı, veri biriktikçe tekrarlanacak.
+
+## 2026-10-24 01:50 — Özellik mühendisliği, grup 1 (form/dinlenme/jokey/kilo/handikap) — ÖN KAYIT
+Veri: data/sonuclar 2023-01..2026-10 (~24 bin koşu). Model: koşul içi çok terimli logit, ofset = log(kapanış ganyanı marjsız olasılığı) × alfa + özellikler (L2). Walk-forward: her ay, öncesindeki tüm aylarla eğitilip o ay test (2025-01 sonrası). Ölçüt: nats/koşu farkı vs saf piyasa, gün kümeli bootstrap %95 GA.
+Özellikler (yalnız geçmişten): son 3/10 koşu ortalama bitiriş yüzdesi (kısaltmalı), geçmiş piyasaya göre beklenti-aşımı (kazanma − piyasa olasılığı), dinlenme günü (log), koşu içi kilo ve handikap farkı, jokey piyasa-aşımı (kısaltmalı), at-jokey birlikteliği, at sayısı geçmişi.
+Karar kuralı (değişmez): GA'nın tamamı < 0 ise "grup değer katıyor"; GA 0'ı kapsıyorsa "kanıt yok", elenmez, daha çok veriyle tekrar. Not: mesafe/pist/kapı yok (sonuç dosyalarında yok).
+SONUÇ (2026-10-24, data/analiz/ozellik_g1.py; test 2025-01..2026-10, 11.476 koşu, 659 gün; saf kapanış piyasası 1.8137 nats/koşu): piyasa+alfa −0.0015 [−0.0026,−0.0003]; form −0.0030 [−0.0043,−0.0015]; form+kilo/hnd −0.0049 [−0.0066,−0.0032]; jokey −0.0017; hepsi −0.0052 [−0.0069,−0.0035]. Kural gereği: grup, kapanış piyasasına küçük ama istatistiksel olarak ayırt edilir bilgi ekliyor. Ölçek ~%0,3 log-kayıp; kesinti (~%25) aşılamaz, bahis kenarı anlamına gelmez. Katsayılar tüm veride: f10 +0.40, jokey piyasa-aşımı +0.31, f3 +0.19, at-jokey +0.19, dinlenme −0.15, ilk koşu −0.14.
