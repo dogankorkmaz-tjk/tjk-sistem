@@ -18,7 +18,7 @@ DEVIR = re.compile(r"((?:\d+\.\s*)?[A-Za-zÇĞİÖŞÜçğıöşü0-9' ]+?)\(([\
 ODEME = re.compile(r"((?:\d+\.\s*)?[A-Za-zÇĞİÖŞÜçğıöşü0-9' ]+?)\(([\d/,.]+)\)\s*:\s*([\d.]+,\d+)\s*TL")
 
 
-KOD = {"SK", "KG", "DB", "K", "SKG", "GKR", "SGKR", "OF", "ÖG", "YP"}
+KOD = {"SK", "KG", "DB", "K", "SKG", "GKR", "SGKR", "OF", "ÖG", "YP", "BB"}
 _PROG = {}
 
 

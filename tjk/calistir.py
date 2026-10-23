@@ -88,6 +88,14 @@ def sabah(t):
             continue
         programlar[h] = {"saat": O.kosu_saatleri(html), "bilgi": O.kosu_bilgileri(html)}
         satirlar += p
+    csv_agf = {}
+    if not satirlar:
+        try:                                          # program sitesi (agftablosu) engelli/erişilemez: günün programı TJK program CSV'lerinden kurulur
+            satirlar, programlar, csv_agf = C.program_satirlari(tarih)
+            if satirlar:
+                print("program agftablosu yerine TJK CSV'den kuruldu:", sorted(programlar))
+        except Exception as e:
+            print("CSV program hatası:", repr(e)); satirlar, programlar, csv_agf = [], {}, {}
     if not satirlar:
         print("bugün Türkiye'de yarış yok ya da program okunamadı")
         if os.path.exists(gun_yolu(t)):                    # kaynak geçici olarak okunamadıysa eldeki iyi programı SİLME
@@ -165,6 +173,7 @@ def sabah(t):
                         "bilgi": programlar[h]["bilgi"].get(int(kn)), "atlar": atlar})
         obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
     agf_ekle(obj)
+    csv_agf_uygula(obj, csv_agf)
     csv_uygula(obj)
     if os.path.exists(gun_yolu(t)):                       # gün içinde yeniden çalışırsa eldeki sonuçlar kalsın
         eski = json.load(open(gun_yolu(t), encoding="utf-8"))
@@ -499,6 +508,21 @@ def jokey_uygula(obj):
         print("jokey değişikliği işlenemedi:", repr(e))
 
 
+def csv_agf_uygula(obj, csv_agf):
+    """AGF tablosu siteden alınamadıysa TJK program CSV'sindeki AGF yüzdesi (ilk görülen = sabah değeri) atlara yazılır; siteden gelen değere dokunmaz."""
+    if not csv_agf:
+        return
+    n = 0
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            for a in k["atlar"]:
+                v = csv_agf.get((h["id"], k["kosu"], a["no"]))
+                if v is not None and a.get("agf") is None:
+                    a["agf"] = v; a["agf_a1"] = v; a["agf0"] = v; n += 1
+    if n:
+        print("AGF TJK CSV'sinden eklendi:", n, "at")
+
+
 def agf_ekle(obj):
     html = O.getir(O.BASE + "/agf-tablosu")
     if not html:
@@ -725,7 +749,18 @@ def sonuclari_isle(obj, t, w0=None):
 
 def canli(t):
     yol = gun_yolu(t)
-    obj = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else sabah(t)
+    obj = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else None
+    if obj is not None:
+        var = {h["id"] for h in obj.get("hipodromlar", [])}
+        try:
+            eksik = [h for h in C.gunun(t.isoformat()) if h not in var]
+        except Exception:
+            eksik = []
+        if not var or eksik:                               # program boş ya da yeni yüklenen CSV'nin hipodromu programda yok -> programı yeniden kur
+            print("program yeniden kuruluyor; eksik hipodrom:", eksik or "(hepsi)")
+            obj = sabah(t)
+    else:
+        obj = sabah(t)
     if not obj["hipodromlar"]:
         return
     son = max((k.get("saat") or "23:59") for h in obj["hipodromlar"] for k in h["kosular"])

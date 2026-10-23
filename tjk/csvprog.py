@@ -150,3 +150,47 @@ def kaydet(tarih, hip, kosular, atlar, veri_dizin):
         if os.path.exists(yol):
             yeni = pd.concat([pd.read_csv(yol), yeni], ignore_index=True).drop_duplicates(anahtar, keep="last")
         yeni.sort_values(anahtar).to_csv(yol, index=False)
+
+
+def _sayi(x):
+    m = re.match(r"^\s*(\d+)", str(x or ""))
+    return float(m.group(1)) if m else float("nan")
+
+
+def program_satirlari(tarih):
+    """Program siteleri (agftablosu) erişilemezse (Cloudflare engeli, 23 Ekim 2026) günün programı doğrudan TJK program CSV'lerinden kurulur.
+    Döner: (satırlar [parse_prog biçiminde], {hipodrom: {"saat": {koşu: SS:DD}, "bilgi": {koşu: metin}}}, {(hipodrom, koşu, no): AGF %})"""
+    from .sonuccsv import _ad_kod
+    satirlar, programlar, agf = [], {}, {}
+    for yol in sorted(glob.glob(os.path.join(KLASOR, "*.csv"))):
+        try:
+            r = oku_dosya(yol)
+        except Exception as e:
+            print("CSV okunamadı:", yol, e); continue
+        if not r or r[0] != tarih:
+            continue
+        _, hip, kosular, _a, _e = r
+        programlar[hip] = {"saat": {kn: k["saat"] for kn, k in kosular.items()}, "bilgi": {kn: bilgi_metni(k) for kn, k in kosular.items()}}
+        kn = None
+        for x in open(yol, encoding="utf-8-sig").read().replace("\r", "").split("\n")[1:]:
+            m = re.match(r"^(\d+)\.\s*Kosu\s*:", x)
+            if m:
+                kn = int(m.group(1)); continue
+            if not kn or not re.match(r"^\d+;", x):
+                continue
+            f = x.split(";")
+            if len(f) < 14:
+                continue
+            ad, _kod = _ad_kod(f[1])
+            ad = re.sub(r"\(\d+\)\s*$", "", ad).strip()
+            jh = f[6].strip(); apr = bool(re.search(r"\sAP$", jh)); jok = re.sub(r"\sAP$", "", jh).strip()
+            km = re.match(r"^([\d,.]+)", f[5].strip())
+            no = int(f[0])
+            satirlar.append({"tarih": tarih, "hipodrom": hip, "kosu": kn, "no": no, "p_at": ad, "p_jokey": jok, "p_apranti": apr,
+                             "p_kilo": float(km.group(1).replace(",", ".")) if km else None,
+                             "yas_ham": re.sub(r"\s+", " ", f[2]).strip(), "baba": f"{f[3].strip()} - {f[4].strip()}", "sahip": f[7].strip(), "antrenor": f[8].strip(),
+                             "st": _sayi(f[9]), "hk": _sayi(f[11]), "son6": f[12].strip(), "kgs": _sayi(f[13])})
+            ag = re.match(r"^\s*%\s*([\d.,]+)", f[10])
+            if ag:
+                agf[(hip, kn, no)] = float(ag.group(1).replace(",", "."))
+    return satirlar, programlar, agf

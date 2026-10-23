@@ -29,8 +29,14 @@ except Exception:
     _CR = None
 
 
+_ENGEL = False      # agftablosu Cloudflare engeli bu çalışmada görüldüyse ona giden diğer istekler hemen None döner (23 Ekim 2026)
+
+
 def getir(url):
     """Sayfayı indirir. 404 -> ''. Hata -> None (sonra tekrar denenir)."""
+    global _ENGEL
+    if _ENGEL and url.startswith(BASE):
+        return None
     for deneme in range(3):
         try:
             r = _CR.get(url, impersonate="chrome", timeout=30) if _CR else requests.get(url, headers=HEADERS, timeout=30)
@@ -42,7 +48,7 @@ def getir(url):
                         time.sleep(DELAY); return h
                 except Exception as e:
                     print("  tarayıcı yolu yok:", repr(e))
-                print("  Cloudflare engeli:", url); time.sleep(5); continue
+                print("  Cloudflare engeli:", url, "- bu çalışmada agftablosu'na başka istek yapılmayacak"); _ENGEL = True; return None
             time.sleep(DELAY)
             if r.status_code == 404:
                 return ""
