@@ -1,0 +1,224 @@
+{
+ "/tjk-sabit-ihtimalli": {
+  "baslik": "TJK Sabit İhtimalli Bahis | TJK Bülten | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Tüm KOŞULAR Santa Anita Park ABD 02:00 Ankara (24.10) Bugün İzmir (24.10) Bugün Diyarbakır (24.10) Bugün Toowoomba Avustralya (24.10) Bugün Turffontein Guney Afrika (24.10) Bugün Doncaster Birleşik Krallık (24.10) Bugün Belmont Park ABD (24.10) Bugün Keeneland ABD (24.10) Bugün Woodbine Kanada (24.10) Bugün Santa Anita Park ABD (24.10) Bugün 7 8 02:00 7. KOŞU MAIDEN SATIŞ KOŞUSU / 1100 Kum / 3 ve Yukarı İngilizler /",
+  "istekler": [
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v1/FOBRace",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"filters\":{\"cards\":[{\"id\":26449,\"totalDay\":0,\"hippodrome\":{\"place\":\"Santa Anita Park ABD\",\"name\":\"Santa Anita Park\",\"code\":\"SANTAANITA\",\"isForeign\":true,\"date\":\"2026-10-23\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"02:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"\",\"weight\":0}],\"weather\":{\"temperature\":\"\",\"humidity\":\"\",\"tex"
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1h1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792795005124&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1838040333&_eu=AAAAAGAC&_prs=ok&cid=13",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795012368&cv=11&tid=G-K2X9EM3PG6&fst=1792795012368&fmt=8&en=first_visit&gtm=45je6al1h1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795012368&cv=11&tid=G-K2X9EM3PG6&fst=1792795012368&fmt=8&en=session_start&gtm=45je6al1h1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5",
+    "durum": 204,
+    "bas": ""
+   }
+  ]
+ },
+ "/tjk-at-yarisi-muhtemel-agf": {
+  "baslik": "Muhtemel | At Yarışı Muhtemel AGF | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Santa Anita Park ABD 02:00 MuhtemelAGF 1. KOŞU 2. KOŞU 3. KOŞU 4. KOŞU 5. KOŞU 6. KOŞU 7. KOŞU 8. KOŞU Santa Anita Park Hava Durumu:-Nem:-Kum:-Çim:- 01:30 6.KOŞU SATIŞ KOŞUSU / 1600 Kum / 3 ve Yukarı İngilizler / Şartlı İkramiyeler: 1. $17.010 / 2. $6.804 / 3. $3.402 / 4. $1.701 6. ÇİFTE, 2. 3'LÜ GANYAN bu koşudan başlar, GANYAN, İKİLİ, SIRALI İKİLİ, ÜÇLÜ BAHİS, PLASE AT İSMİ GANYAN İKİLİ SIRALI İKİLİ ÇİFTE 7. KOŞU ",
+  "istekler": [
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792795016952&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1272375577&_eu=AAAAAGAC&_prs=ok&cid=5229",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795019949&cv=11&tid=G-K2X9EM3PG6&fst=1792795019949&fmt=8&en=first_visit&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1&d",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795019949&cv=11&tid=G-K2X9EM3PG6&fst=1792795019949&fmt=8&en=session_start&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v1/GetProbablesHippodromes",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":[{\"id\":26449,\"totalDay\":0,\"hippodrome\":{\"place\":\"Santa Anita Park ABD\",\"name\":\"Santa Anita Park\",\"code\":\"SANTAANITA\",\"isForeign\":true,\"date\":\"2026-10-23\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"02:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"\",\"weight\":0}],\"weather\":{\"temperature\":\"\",\"humidity\":\"\",\"text\":\"\",\"type\":0},\"dat"
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v1/Probables?programId=26449",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"races\":[{\"raceNo\":1,\"information\":\"23.10.2026 / 23:00 / MAIDEN SATIŞ KOŞUSU / Maiden, 3 ve Yukarı İngilizler, 1600 Çim\",\"bets\":[{\"betTypeId\":8,\"probables\":[{\"runner1\":\"2\",\"runner2\":\"1\",\"ganyan\":3.00,\"resultNoStr\":\"\",\"fobPropositionId\":0,\"fobPropositionStatus\":false,\"lastOdd\":null},{\"runner1\":\"2\",\"runner2\":\"4\",\"ganyan\":3.00,\"resultNoStr\":\"\",\"fobPropositionId\":0,\"fobPropositionStatus\":false,\"lastOdd\":null},{\"runner1\":\"4\",\"runner2\":\"2\",\"ganyan\":6.15,\"resultNoStr\":\"\",\"fobPropositionI"
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v1/FobProbables?programId=26449",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"races\":[{\"raceNo\":1,\"information\":\"23.10.2026 / 23:00 / MAIDEN SATIŞ KOŞUSU / Maiden, 3 ve Yukarı İngilizler, 1600 Çim\",\"bets\":[{\"betTypeId\":1001,\"probables\":[{\"runner1\":\"2\",\"runner2\":\"\",\"ganyan\":1.26,\"resultNoStr\":\"2\",\"fobPropositionId\":143497678,\"fobPropositionStatus\":false,\"lastOdd\":1.26},{\"runner1\":\"4\",\"runner2\":\"\",\"ganyan\":4.75,\"resultNoStr\":\"1\",\"fobPropositionId\":143497680,\"fobPropositionStatus\":false,\"lastOdd\":4.75},{\"runner1\":\"1\",\"runner2\":\"\",\"ganyan\":5.00,\"resultNoStr\":\""
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xf1&_p=1792795016952&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1272375577&_eu=AAAAAGAC&cid=",
+    "durum": 204,
+    "bas": ""
+   }
+  ]
+ },
+ "/tjk-uzun-vadeli-at-yarisi-bulteni": {
+  "baslik": "Uzun Vadeli At Yarışı | Uzun Vadeli | Atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Çaldıran Koşusu (UV) - 25.10.2026 ORAN HAROLDCOOPER 1.85 BELLEZA 6.50 PYROHAN 6.50 BOZSAH 10.00 GUVENİKA 12.00 HAYRETBİSEY 12.00 ROCK OF BEAUTİFUL 12.00 HEGEMONYA 20.00 SPEED QUEEN 20.00 WİND OF ROMANCE 20.00 SİDE GLORY 25.00 THE LAST DRAGON 25.00 ANTİGONİA 30.00 ELİTE TOUCH Uluslararası Zühtü Erişen Koşusu (UV) - 25.10.2026 ORAN LOCO SUGAR 1.10 INCOME 6.00 GRAY DREAM 7.00 JAEHAERA 12.00 QUEEN AYLA 12.00 ANGEL OF DE",
+  "istekler": [
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v1/AntePostRaces",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"bets\":[{\"type\":1001,\"name\":\"Ganyan (Sabit İhtimalli)\",\"antePostText\":\"KİM KAZANIR? (UV)\",\"minCouponAmount\":20.00,\"maxCouponAmount\":12000.00,\"poolUnit\":100}],\"races\":[{\"number\":1,\"name\":\"Çaldıran Koşusu (UV) - 25.10.2026\",\"dateText\":\"25.10.2026\",\"horses\":[{\"id\":29,\"name\":\"HAROLDCOOPER\",\"odd\":1.85,\"lastOdd\":0,\"status\":true,\"fobPropositionId\":143516094,\"fobPropositionStatus\":true},{\"id\":36,\"name\":\"BELLEZA\",\"odd\":6.5,\"lastOdd\":0,\"status\":true,\"fobPropositionId\":143516101,\"fobProposit"
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792795027781&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=517492771&_eu=AAAAAGAC&_prs=ok&cid=13910",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795031443&cv=11&tid=G-K2X9EM3PG6&fst=1792795031443&fmt=8&en=first_visit&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1&d",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795031443&cv=11&tid=G-K2X9EM3PG6&fst=1792795031443&fmt=8&en=session_start&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xf1&_p=1792795027781&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=517492771&_eu=AAAAAGAC&cid=1",
+    "durum": 204,
+    "bas": ""
+   }
+  ]
+ },
+ "/tjk-at-yarisi-tahminleri": {
+  "baslik": "At Yarışı Tahminleri | Yorumlar | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Hazır Kuponlar Yorumlar 23.10.2026 Bursa Karma İstanbul Cranbourne Avustralya Fairview Guney Afrika Doncaster Birleşik Krallık Greyville Guney Afrika Gulfstream Park ABD Belmont Park ABD Keeneland ABD Santa Anita Park ABD Hakan Genç 1.Koşu 23:00 Uzun bir ara sonrası üç yarış gören MIGHTY TORO, son yarışında aşama kaydeden CORKSCREW ANDY, sürpriz şansları bulunan MARION MAGIC ve FAUSTO kuponlarda bulunması gereken is",
+  "istekler": [
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xf1&_p=1792795038479&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1212116645&_eu=AAAAAGAC&_prs",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795041182&cv=11&tid=G-K2X9EM3PG6&fst=1792795041182&fmt=8&en=first_visit&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xecxf1&gcs=G100&gcd=13",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795041182&cv=11&tid=G-K2X9EM3PG6&fst=1792795041182&fmt=8&en=session_start&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xecxf1&gcs=G100&gcd=",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792795038479&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1212116645&_eu=AAAAAGAC&cid=1263437979.1",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v1/GetCommentsByDate",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"raceDate\":\"2026-10-23\",\"raceDateEpoch\":1792702800,\"hippodromes\":[{\"programId\":26432,\"name\":\"Bursa\",\"isSelected\":false},{\"programId\":26434,\"name\":\"Karma\",\"isSelected\":false},{\"programId\":26433,\"name\":\"İstanbul\",\"isSelected\":false},{\"programId\":26453,\"name\":\"Cranbourne Avustralya\",\"isSelected\":false},{\"programId\":26450,\"name\":\"Fairview Guney Afrika\",\"isSelected\":false},{\"programId\":26451,\"name\":\"Doncaster Birleşik Krallık\",\"isSelected\":false},{\"programId\":26452,\"name\":\"Greyville Gu"
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xf1&_p=1792795038479&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1212116645&_eu=AAAAAGAC&cid=",
+    "durum": 204,
+    "bas": ""
+   }
+  ]
+ },
+ "/tjk-at-yarisi-editor-hazir-kuponlar": {
+  "baslik": "Editör Kuponları | Hazır Kuponlar | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Hazır Kuponlar Yorumlar 23.10.2026 Bursa Karma İstanbul Cranbourne Avustralya Fairview Guney Afrika Doncaster Birleşik Krallık Greyville Guney Afrika Gulfstream Park ABD Belmont Park ABD Keeneland ABD Santa Anita Park ABD 4 Tümü 4 Hakan Genç Tüm Bahisler Koşu Saati (En Erken) Hakan Genç Editör Günün Bahisi Santa Anita Park ABD 6. Koşu 01:30 / İkili Bahis 6. Koşu - 01:30 1. At 2. At 2 6 3 Sonuçlar: - Misli 10 Kupon T",
+  "istekler": [
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xf1&_p=1792795049136&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1586992129&_eu=AAAAAGAC&_prs",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795051945&cv=11&tid=G-K2X9EM3PG6&fst=1792795051945&fmt=8&en=first_visit&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xecxf1&gcs=G100&gcd=13",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792795049136&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1586992129&_eu=AAAAAGAC&cid=1748532025.1",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795051945&cv=11&tid=G-K2X9EM3PG6&fst=1792795051945&fmt=8&en=session_start&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xecxf1&gcs=G100&gcd=",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v6/GetPremadeCoupon",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"hippodromes\":[{\"programId\":26432,\"name\":\"Bursa\",\"isSelected\":false,\"date\":\"2026-10-23\",\"dateEpoch\":1792702800,\"isReserveBulletin\":false,\"programDateText\":\"\",\"playCouponCount\":0},{\"programId\":26434,\"name\":\"Karma\",\"isSelected\":false,\"date\":\"2026-10-23\",\"dateEpoch\":1792702800,\"isReserveBulletin\":false,\"programDateText\":\"\",\"playCouponCount\":0},{\"programId\":26433,\"name\":\"İstanbul\",\"isSelected\":false,\"date\":\"2026-10-23\",\"dateEpoch\":1792702800,\"isReserveBulletin\":false,\"programDateText\""
+   }
+  ]
+ },
+ "/tjk-at-yarisi-ortak-altili": {
+  "baslik": "Ortak Altılı | At Yarışı Oyna | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle 24.10.2026 Greyville Guney Afrika Gulfstream Park ABD Belmont Park ABD Keeneland ABD Santa Anita Park ABD Oynanabilir Tümü Tüm Koşular 1. 6'lı (1-2-3-4-5-6) 2. 6'lı (3-4-5-6-7-8) Filtrele Sırala Sadece Üye Kuponları Ortak 6’lı Nedir? uyeRXKAOPRLYA21 Kalan Pay Sayısı: 0/10 Üye Paylaşma Tarihi: 23.10.2026 15:11:18 Greyville Guney Afrika 1. Koşu 17:37 / 1. 6'lı Ganyan 1. Koşu 17:37 2. Koşu 18:15 3. Koşu 18:50 4. Koşu 1",
+  "istekler": [
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792795060026&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1634869990&_eu=AAAAAGAC&_prs=ok&cid=8544",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795063230&cv=11&tid=G-K2X9EM3PG6&fst=1792795063230&fmt=8&en=first_visit&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1&d",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795063230&cv=11&tid=G-K2X9EM3PG6&fst=1792795063230&fmt=8&en=session_start&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v7/GetPremadeSharedCoupon",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"filter\":{\"races\":[{\"text\":\"1. 6'lı (1-2-3-4-5-6)\",\"raceNo\":1,\"isActive\":false},{\"text\":\"2. 6'lı (3-4-5-6-7-8)\",\"raceNo\":3,\"isActive\":false}],\"playableStatus\":0,\"order\":1,\"isOnlyMemberCoupon\":false,\"shareoutRanges\":[{\"shareoutMin\":50,\"shareoutMax\":75},{\"shareoutMin\":75,\"shareoutMax\":100},{\"shareoutMin\":100,\"shareoutMax\":250},{\"shareoutMin\":250,\"shareoutMax\":500},{\"shareoutMin\":500,\"shareoutMax\":null}],\"liveResult\":null,\"showWithoutSingle\":false,\"raceHorses\":[{\"raceNo\":1,\"isSelecte"
+   }
+  ]
+ },
+ "/tjk-at-yarisi-bulteni": {
+  "baslik": "At Yarışı Bülten | At Yarışı Bahis Yap | At Yarışı | atyarışı.com",
+  "metin": "atyarisi.com YARDIM Giriş Yap Üye Ol AT YARIŞI KAZI KAZAN SANAL OYUNLAR ŞANS OYUNLARI SAYISAL OYUNLAR SANAL YARIŞLAR BAS KAZAN KAMPANYALAR Bahis Yap Sabit İhtimalli Uzun Vadeli Muhtemel & AGF İstatistikler Editörler Ortak 6'lı Ganyan Kulübü Program Sonuçlar Atyarışı TV Canlı İzle Santa Anita Park ABD 02:00 Ankara (24.10) Bugün İzmir (24.10) Bugün Karma (24.10) Bugün Diyarbakır (24.10) Bugün Selangor Malezya (24.10) Bugün Toowoomba Avustralya (24.10) Bugün Turffontein Guney Afrika (24.10) Bugün Doncaster Birleşik Krallık (24.10) Bugün Belmont Park ABD (24.10) Bugün Keeneland ABD (24.10) Bugün Woodbine Kanada (24.10) Bugün Santa Anita Park ABD (24.10) Bugün İstanbul (25.10) Yarın Karma (25.10)",
+  "istekler": [
+   {
+    "url": "https://tjkbulten.atyarisi.com/api/v5/Bulten",
+    "durum": 200,
+    "bas": "{\"sc\":200,\"d\":{\"filters\":{\"cards\":[{\"id\":26449,\"totalDay\":0,\"hippodrome\":{\"place\":\"Santa Anita Park ABD\",\"name\":\"Santa Anita Park\",\"code\":\"SANTAANITA\",\"isForeign\":true,\"date\":\"2026-10-23\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"02:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"\",\"weight\":0}],\"weather\":{\"temperature\":\"\",\"humidity\":\"\",\"tex"
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792795070773&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=804954063&_eu=AAAAAGAC&_prs=ok&cid=17525",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795074728&cv=11&tid=G-K2X9EM3PG6&fst=1792795074728&fmt=8&en=session_start&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792795074728&cv=11&tid=G-K2X9EM3PG6&fst=1792795074728&fmt=8&en=first_visit&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1&d",
+    "durum": 204,
+    "bas": ""
+   },
+   {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xf1&_p=1792795070773&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=804954063&_eu=AAAAAGAC&cid=1",
+    "durum": 204,
+    "bas": ""
+   }
+  ]
+ }
+}
