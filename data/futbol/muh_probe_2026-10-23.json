@@ -1,0 +1,124 @@
+{
+ "gun": "2026-10-23",
+ "run": {
+  "BURSA-1": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-2": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-3": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-5": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "BURSA-7": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
+  ],
+  "ISTANBUL-1": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-2": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-3": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-4": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-5": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-6": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-7": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-8": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-9": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ",
+   "ÇİFTE"
+  ],
+  "ISTANBUL-10": [
+   "GANYAN",
+   "İKİLİ",
+   "SIRALI İKİLİ"
+  ]
+ },
+ "saat": {
+  "BURSA-1": "14:30",
+  "BURSA-2": "15:00",
+  "BURSA-3": "15:30",
+  "BURSA-4": "16:00",
+  "BURSA-5": "16:30",
+  "BURSA-6": "17:00",
+  "BURSA-7": "17:30",
+  "ISTANBUL-1": "16:45",
+  "ISTANBUL-2": "17:15",
+  "ISTANBUL-3": "18:00",
+  "ISTANBUL-4": "18:30",
+  "ISTANBUL-5": "19:00",
+  "ISTANBUL-6": "19:30",
+  "ISTANBUL-7": "20:00",
+  "ISTANBUL-8": "20:30",
+  "ISTANBUL-9": "21:00",
+  "ISTANBUL-10": "21:30"
+ }
+}
