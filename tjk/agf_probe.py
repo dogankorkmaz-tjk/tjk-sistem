@@ -32,7 +32,7 @@ try:
     import time
     t0 = time.time()
     h = TR.getir(O.BASE, bekle=45)
-    out["tarayici_ana"] = {"var": bool(h), "uzunluk": len(h or ""), "sn": round(time.time() - t0, 1)}
+    out["tarayici_ana"] = {"var": bool(h), "uzunluk": len(h or ""), "sn": round(time.time() - t0, 1), "govde": re.sub(r"<script.*?</script>|<style.*?</style>", "", h or "", flags=re.S)[:1500]}
     if h:
         out["tarayici_baglanti"] = sorted(set(re.findall(r"/at-yarisi/[a-z\-]+/[0-9a-z\-]+", h)))[:30]
         h2 = TR.getir(O.prog_url(t, "bursa"), bekle=45)
