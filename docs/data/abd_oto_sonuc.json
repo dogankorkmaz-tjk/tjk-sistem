@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-23 16:46 UTC",
- "kayitli_kosu": 506,
- "eslesmeyen_kosu": 327,
+ "uretim": "2026-10-23 17:16 UTC",
+ "kayitli_kosu": 511,
+ "eslesmeyen_kosu": 330,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 312,
- "kosu": 179,
- "isabet": 21,
- "roi": 1.083,
+ "bahis": 318,
+ "kosu": 181,
+ "isabet": 22,
+ "roi": 1.247,
  "ga95": [
-  0.784,
-  1.419
+  0.808,
+  1.917
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.994
   },
   "birlesik-krallik": {
-   "bahis": 48,
-   "roi": 1.267
+   "bahis": 54,
+   "roi": 2.209
   },
   "fransa": {
    "bahis": 25,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 377,
-  "kosu": 175,
+  "bahis": 378,
+  "kosu": 177,
   "isabet": 44,
-  "roi": 0.904,
+  "roi": 0.901,
   "ga95": [
-   0.634,
-   1.327
+   0.632,
+   1.318
   ]
  },
  "bahis_t1": {
-  "bahis": 390,
-  "kosu": 172,
-  "isabet": 51,
-  "roi": 0.988,
+  "bahis": 392,
+  "kosu": 174,
+  "isabet": 52,
+  "roi": 1.132,
   "ga95": [
-   0.692,
-   1.406
+   0.714,
+   1.96
   ]
  },
  "bahis_t3": {
-  "bahis": 385,
-  "kosu": 170,
-  "isabet": 47,
-  "roi": 0.818,
+  "bahis": 388,
+  "kosu": 172,
+  "isabet": 48,
+  "roi": 0.962,
   "ga95": [
-   0.531,
-   1.307
+   0.534,
+   1.879
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 8,
-   "at": "HAT FURIOUS",
-   "q": 0.134,
-   "g": 20.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 8,
-   "at": "FULL GO",
-   "q": 0.058,
-   "g": 48.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Woodbine",
-   "kosu": 3,
-   "at": "SURFSIDE BEACH",
-   "q": 0.211,
-   "g": 10.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Woodbine",
-   "kosu": 4,
-   "at": "KINZIE GIRL",
-   "q": 0.196,
-   "g": 7.35,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Woodbine",
-   "kosu": 5,
-   "at": "VOICE FROM ABOVE",
-   "q": 0.09,
-   "g": 15.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Woodbine",
-   "kosu": 5,
-   "at": "SPIRIT BEAR",
-   "q": 0.181,
-   "g": 9.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Doncaster",
@@ -207,6 +153,60 @@
    "at": "RIKKI TIKI TAVI",
    "q": 0.092,
    "g": 27.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 8,
+   "at": "NORTH BEACH",
+   "q": 0.046,
+   "g": 29.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 8,
+   "at": "YOU SEXY THING",
+   "q": 0.06,
+   "g": 25.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 8,
+   "at": "FANS FAVOURITE",
+   "q": 0.037,
+   "g": 41.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 8,
+   "at": "REVEUR",
+   "q": 0.03,
+   "g": 58.5,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 8,
+   "at": "NATURALIA",
+   "q": 0.046,
+   "g": 30.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 8,
+   "at": "PERSIAN FLAW",
+   "q": 0.03,
+   "g": 43.3,
    "kazandi": false
   },
   {
