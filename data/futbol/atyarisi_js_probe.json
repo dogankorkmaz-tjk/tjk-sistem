@@ -1,0 +1,27 @@
+{
+ "scriptler": [
+  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/scripts/React/react-app-loader.min.js?v=10979123351",
+  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/CCAll.min.js?v=10979123351",
+  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/libs/lazyload.min.js?v=10979123351"
+ ],
+ "yollar": {
+  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/scripts/React/react-app-loader.min.js?v=10979123351": [
+   "https://lg.atyarisi.com/api/v1",
+   "https://lg.atyarisi.com/api/v1/RaffleTicketPlay",
+   "https://lg.atyarisi.com/api/v1/TicketPlay",
+   "https://log.atyarisi.com/api/v1/"
+  ],
+  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/CCAll.min.js?v=10979123351": [
+   "https://lg.atyarisi.com/api/v1",
+   "https://lg.atyarisi.com/api/v1/RaffleTicketPlay",
+   "https://lg.atyarisi.com/api/v1/TicketPlay",
+   "https://log.atyarisi.com/api/v1/"
+  ],
+  "https://www.atyarisi.com//sc.atyarisi.com/10979123351/www/libs/lazyload.min.js?v=10979123351": [
+   "https://lg.atyarisi.com/api/v1",
+   "https://lg.atyarisi.com/api/v1/RaffleTicketPlay",
+   "https://lg.atyarisi.com/api/v1/TicketPlay",
+   "https://log.atyarisi.com/api/v1/"
+  ]
+ }
+}
