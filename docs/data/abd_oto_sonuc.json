@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-23 18:31 UTC",
- "kayitli_kosu": 532,
- "eslesmeyen_kosu": 343,
+ "uretim": "2026-10-23 19:13 UTC",
+ "kayitli_kosu": 543,
+ "eslesmeyen_kosu": 351,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 327,
- "kosu": 189,
+ "bahis": 331,
+ "kosu": 192,
  "isabet": 24,
- "roi": 1.241,
+ "roi": 1.226,
  "ga95": [
   0.808,
-  1.846
+  1.782
  ],
  "ulke": {
   "abd": {
-   "bahis": 192,
-   "roi": 0.97
+   "bahis": 195,
+   "roi": 0.955
   },
   "birlesik-krallik": {
    "bahis": 54,
@@ -26,8 +26,8 @@
    "roi": 1.71
   },
   "guney-afrika": {
-   "bahis": 40,
-   "roi": 1.44
+   "bahis": 41,
+   "roi": 1.405
   },
   "irlanda": {
    "bahis": 16,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 392,
-  "kosu": 185,
+  "bahis": 400,
+  "kosu": 188,
   "isabet": 46,
-  "roi": 0.898,
+  "roi": 0.88,
   "ga95": [
-   0.634,
-   1.264
+   0.628,
+   1.216
   ]
  },
  "bahis_t1": {
-  "bahis": 408,
-  "kosu": 182,
+  "bahis": 414,
+  "kosu": 185,
   "isabet": 54,
-  "roi": 1.115,
+  "roi": 1.099,
   "ga95": [
-   0.714,
-   1.756
+   0.706,
+   1.67
   ]
  },
  "bahis_t3": {
-  "bahis": 408,
-  "kosu": 180,
+  "bahis": 413,
+  "kosu": 183,
   "isabet": 50,
-  "roi": 0.942,
+  "roi": 0.931,
   "ga95": [
    0.534,
-   1.626
+   1.563
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 4,
-   "at": "FLORAL",
-   "q": 0.214,
-   "g": 9.15,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 4,
-   "at": "TENSHI",
-   "q": 0.057,
-   "g": 63.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 6,
-   "at": "ART LOVER",
-   "q": 0.11,
-   "g": 11.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 6,
-   "at": "RIKKI TIKI TAVI",
-   "q": 0.092,
-   "g": 27.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Doncaster",
@@ -346,6 +310,15 @@
   },
   {
    "gun": "2026-10-23",
+   "pist": "Greyville",
+   "kosu": 8,
+   "at": "STAGE ONE",
+   "q": 0.211,
+   "g": 6.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
    "pist": "Gulfstream",
    "kosu": 1,
    "at": "GOLDEN JOSHUA",
@@ -396,6 +369,33 @@
    "at": "GODDESS OF BEAUTY",
    "q": 0.21,
    "g": 8.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "HIT MUSIC",
+   "q": 0.037,
+   "g": 41.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "SWEET TASTE",
+   "q": 0.142,
+   "g": 10.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "LOYALIST",
+   "q": 0.071,
+   "g": 20.05,
    "kazandi": false
   },
   {
