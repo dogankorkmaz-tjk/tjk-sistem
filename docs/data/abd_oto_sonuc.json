@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-23 17:55 UTC",
- "kayitli_kosu": 522,
- "eslesmeyen_kosu": 339,
+ "uretim": "2026-10-23 18:27 UTC",
+ "kayitli_kosu": 531,
+ "eslesmeyen_kosu": 344,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 320,
- "kosu": 183,
+ "bahis": 324,
+ "kosu": 187,
  "isabet": 23,
- "roi": 1.249,
+ "roi": 1.234,
  "ga95": [
   0.808,
-  1.912
+  1.842
  ],
  "ulke": {
   "abd": {
-   "bahis": 186,
-   "roi": 1.001
+   "bahis": 190,
+   "roi": 0.98
   },
   "birlesik-krallik": {
    "bahis": 54,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 384,
-  "kosu": 179,
-  "isabet": 44,
-  "roi": 0.887,
+  "bahis": 389,
+  "kosu": 183,
+  "isabet": 45,
+  "roi": 0.889,
   "ga95": [
-   0.628,
-   1.261
+   0.629,
+   1.258
   ]
  },
  "bahis_t1": {
-  "bahis": 400,
-  "kosu": 176,
-  "isabet": 52,
-  "roi": 1.11,
+  "bahis": 405,
+  "kosu": 180,
+  "isabet": 53,
+  "roi": 1.109,
   "ga95": [
-   0.706,
-   1.79
+   0.707,
+   1.748
   ]
  },
  "bahis_t3": {
-  "bahis": 397,
-  "kosu": 174,
-  "isabet": 48,
-  "roi": 0.94,
+  "bahis": 404,
+  "kosu": 178,
+  "isabet": 49,
+  "roi": 0.937,
   "ga95": [
    0.534,
-   1.691
+   1.63
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 2,
-   "at": "GOLDMOYNE",
-   "q": 0.138,
-   "g": 13.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 2,
-   "at": "FAHRENHEIT SEVEN",
-   "q": 0.029,
-   "g": 87.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 2,
-   "at": "KODI LION",
-   "q": 0.069,
-   "g": 37.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Doncaster",
-   "kosu": 2,
-   "at": "PILU",
-   "q": 0.045,
-   "g": 45.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Doncaster",
@@ -423,6 +387,42 @@
    "at": "DOROTHY",
    "q": 0.276,
    "g": 6.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 4,
+   "at": "GODDESS OF BEAUTY",
+   "q": 0.21,
+   "g": 8.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "DEVIOUS LADY",
+   "q": 0.111,
+   "g": 14.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "GLAMOUR N GLITZ",
+   "q": 0.049,
+   "g": 47.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 3,
+   "at": "UPSIDE OUT",
+   "q": 0.111,
+   "g": 30.75,
    "kazandi": false
   }
  ]
