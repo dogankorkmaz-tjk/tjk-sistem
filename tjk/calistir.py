@@ -753,12 +753,20 @@ def sonuclari_isle(obj, t, w0=None):
                 z4 = {a["no"]: a.get("z4") for a in k["atlar"]}; r["z4"] = r.no.map(z4)
                 if r.z4.notna().all():
                     r["p_s"] = model_olasilik(r.p_piyasa.values, r.z4.values, obj["w0_s"], obj.get("lp2_s", 0.0))
+            try:                                                  # Benter-G1 gölge modeli (24 Ekim 2026)
+                from . import g1 as _G1
+                pg = _G1.tahmin(r, t)
+                if pg is not None:
+                    r["p_g1"] = pg
+            except Exception as e:
+                print("g1 hatası:", repr(e))
             k["sonuc"] = {str(int(x.no)): {"sira": None if pd.isna(x.sira) else int(x.sira),
                                            "g": float(x.ganyan), "pp": round(float(x.p_piyasa), 5),
                                            "pm": round(float(x.p_model), 5),
                                            **({"pm2": round(float(x.p_aday), 5)} if "p_aday" in r.columns else {}),
                                            **({"pm3": round(float(x.p_k), 5)} if "p_k" in r.columns else {}),
-                                           **({"pm4": round(float(x.p_s), 5)} if "p_s" in r.columns else {})} for x in r.itertuples()}
+                                           **({"pm4": round(float(x.p_s), 5)} if "p_s" in r.columns else {}),
+                                           **({"pm5": round(float(x.p_g1), 5)} if "p_g1" in r.columns else {})} for x in r.itertuples()}
             yeni_sonuc += 1
     obj["guncelleme"] = simdi.strftime("%H:%M")
     return yeni_sonuc
@@ -973,6 +981,11 @@ def gece(bugun):
         print("gölge skor:", GL.skor())
     except Exception as e:
         print("gölge model hatası:", repr(e))
+    try:
+        from . import g1 as _G1                    # Benter-G1: katsayıları her gece tüm geçmişle yenile (8 sn)
+        _G1.egit()
+    except Exception as e:
+        print("g1 eğitim hatası:", repr(e))
     try:
         from . import walkforward as WF            # Bolton/Jason ozellikleri vs piyasa: ceyreklik walk-forward (sonuc docs/data/walkforward.json)
         WF.main()

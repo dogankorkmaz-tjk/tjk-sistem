@@ -20,7 +20,7 @@ for y in sorted(glob.glob(os.path.join(KOK, "docs", "data", "gun", "*.json"))):
             ag = {str(a["no"]): a.get("agf") for a in k["atlar"]}
             d = {"gun": gun, "id": f"{h['id']}|{k['kosu']}", "w": nos.index(kz[0]), "g": np.array([s[n]["g"] for n in nos]),
                  "pp": np.array([s[n]["pp"] for n in nos])}
-            for ad, key in (("pm", "pm"), ("pm2", "pm2"), ("pm3", "pm3"), ("pm4", "pm4")):
+            for ad, key in (("pm", "pm"), ("pm2", "pm2"), ("pm3", "pm3"), ("pm4", "pm4"), ("pm5", "pm5")):
                 if all(s[n].get(key) for n in nos):
                     d[ad] = np.array([s[n][key] for n in nos])
             if all(ag.get(n) for n in nos):
@@ -85,5 +85,5 @@ def rapor(ad, anahtarlar, taban="pp"):
 
 
 rapor("Piyasa varyantları", ["guc", "agf"], "pp")
-rapor("Modeller / kapanış piyasası", ["pm", "pm2", "pm3", "pm4"], "pp")
-rapor("Modeller / kalibre piyasa", ["pm", "pm2", "pm3", "pm4"], "guc")
+rapor("Modeller / kapanış piyasası", ["pm", "pm2", "pm3", "pm4", "pm5"], "pp")
+rapor("Modeller / kalibre piyasa", ["pm", "pm2", "pm3", "pm4", "pm5"], "guc")
