@@ -201,3 +201,42 @@ def sonuc_df(t, hid):
                 satir.append({"tarih": t.isoformat(), "hipodrom": hid, "kosu": int(k["number"]), "sira": int(a["order"]),
                               "no": int(a["number"]), "ganyan": float(g), "kosmadi": False})
     return pd.DataFrame(satir)
+
+
+_TUR = {"GANYAN", "İKİLİ", "SIRALI İKİLİ", "ÜÇLÜ BAHİS", "TABELA BAHİS", "TABELA BAHİS SIRASIZ", "SIRALI 5 Lİ BAHİS", "PLASE", "PLASE İKİLİ"}
+
+
+def odeme_yaz(tarih):
+    """Sonucu belli koşuların bahis ikramiyelerini data/odeme/YYYY-MM.csv.gz içine (TJK CSV'siyle aynı biçimde) ekler; CSV'den gelen satırlara dokunmaz.
+    Böylece egzotik/tabela/sıralı-5 değerlendirmeleri CSV yüklenmeden de çalışır."""
+    import os, pandas as pd
+    from .sonuccsv import _yaz, KOK
+    rows = []
+    for hip, ko in sonuc_gun(tarih).items():
+        for k in ko:
+            if not any((a.get("order") or 0) > 0 for a in (k.get("horses") or [])):
+                continue
+            for m in k.get("raceMoneys") or []:
+                tur = str(m.get("betTypeName") or "").strip().upper().replace("İ", "İ")
+                try:
+                    tutar = float(str(m.get("prizeText") or "0").replace(".", "").replace(",", "."))
+                except ValueError:
+                    continue
+                if tur in _TUR and m.get("result") and tutar > 0:
+                    rows.append({"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tur": tur, "seq": 0, "kombo": str(m["result"]).strip(), "tutar": tutar})
+    if not rows:
+        return 0
+    yol = os.path.join(KOK, "odeme", tarih[:7] + ".csv.gz")
+    if os.path.exists(yol):
+        var = pd.read_csv(yol); var = var[var.tarih == tarih]
+        anahtar = set(zip(var.hipodrom, var.kosu, var.tur))
+        rows = [r for r in rows if (r["hipodrom"], r["kosu"], r["tur"]) not in anahtar]
+    if not rows:
+        return 0
+    # aynı tür birden fazla satırsa (PLASE) seq numaralanır
+    sayac = {}
+    for r in rows:
+        a = (r["hipodrom"], r["kosu"], r["tur"]); r["seq"] = sayac.get(a, 0); sayac[a] = r["seq"] + 1
+    n = _yaz("odeme", pd.DataFrame(rows), ["tarih", "hipodrom", "kosu", "tur", "seq", "kombo"])
+    print("atyarisi ikramiyeleri eklendi:", tarih, n, "satır")
+    return n

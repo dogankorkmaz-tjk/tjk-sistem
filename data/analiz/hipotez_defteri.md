@@ -500,3 +500,9 @@ Not: ilk bakışta canlı skorda z5 ile z2 korelasyonu 0,93 (std 0,36 vs 0,29): 
 - Soru: Jason tüyosunun (pj ≥ %6, pj/pp ≥ 1,30; ilk görüldüğünde dondurulur) kapanış ganyanı Jason'un adil ganyanından (1/pj) YÜKSEK kalan alt kümesi, düşük kalanlara göre daha mı iyi? Piyasa fiyatı Jason'a göre hâlâ uzunsa mı değer var?
 - Gruplar (sonuç görülmeden tanımlı): ÜST = kapanış ganyanı ≥ 1/pj; ALT = kapanış ganyanı < 1/pj. Her ata 1 TL ganyan; ölçüt geri dönüş (ROI) ve isabet. Tanım 23 Ekim 2026 itibarıyla geçerli tüyolar için; öncesi kayıtlar (data/tuyo) bu ayrımla geriye dönük raporlanır ama ön-kayıt sayılmaz.
 - Karar kuralı: her grupta en az 300 tüyo birikmeden hiçbir iddia yok; ROI için gün-kümeli bootstrap %95 GA alt sınırı >1,0 gerekir. Ara bakışlar karar değildir.
+
+## 23 Ekim 2026 14:35 — ÖN KAYIT: Jason tüyosu egzotik bahiste (tjk/tuyo_egz.py), ileriye dönük, para yok
+- Kural (sonuç görülmeden donduruldu): dondurulmuş her tüyo atı T için, sabah AGF'sine (agf0) göre T hariç en yüksek iki at F1, F2. İKİLİ: {T,F1},{T,F2}; SIRALI İKİLİ: T-F1, T-F2 (T birinci). 2 kombinasyon, birim 1 TL. Ödeme: data/odeme (TJK CSV veya atyarisi RaceResult).
+- Kontrol: aynı koşularda yalnız piyasa; AGF'nin ilk 3 atı, İKİLİ kutu (3 komb) ve SIRALI İKİLİ tüm sıralar (6 komb). Ölçüt: geri dönüş farkı (tüyo − kontrol), gün kümeli bootstrap %95 GA.
+- Karar: en az 300 tüyo; GA alt sınırı >0 olmadan iddia yok. Ara bakışlar karar değildir. Kural bu tarihten sonra değişmez.
+- İlk bakış (geriye dönük, 10–22 Ekim, ön kayıt sayılmaz): İKİLİ n=56 geri dönüş 0,976 (kontrol 0,746); SIRALI İKİLİ n=59 geri dönüş 0,615 (kontrol 0,719). Örnek çok küçük.

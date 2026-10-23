@@ -820,7 +820,13 @@ def canli(t):
     except Exception as e:
         print("plase hatası:", repr(e))
     try:
+        from . import atyapi as _AY, tuyo_egz as _TE
+        _AY.odeme_yaz(obj['tarih'])          # atyarisi ikramiyeleri (CSV yüklenmese de)
+    except Exception as e:
+        print('atyarisi ikramiye hatası:', repr(e))
+    try:
         TY.guncelle(obj)
+        _TE.guncelle()
     except Exception as e:
         print("tuyo hatası:", repr(e))
     try:
@@ -911,7 +917,13 @@ def gece(bugun):
             except Exception as e:
                 print("plase hatası:", repr(e))
             try:
+                from . import atyapi as _AY, tuyo_egz as _TE
+                _AY.odeme_yaz(obj['tarih'])          # atyarisi ikramiyeleri (CSV yüklenmese de)
+            except Exception as e:
+                print('atyarisi ikramiye hatası:', repr(e))
+            try:
                 TY.guncelle(obj)
+                _TE.guncelle()
             except Exception as e:
                 print("tuyo hatası:", repr(e))
             try:
