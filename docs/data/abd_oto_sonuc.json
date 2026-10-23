@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-23 21:36 UTC",
- "kayitli_kosu": 560,
- "eslesmeyen_kosu": 356,
+ "uretim": "2026-10-23 22:00 UTC",
+ "kayitli_kosu": 565,
+ "eslesmeyen_kosu": 357,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 350,
- "kosu": 204,
- "isabet": 27,
- "roi": 1.239,
+ "bahis": 353,
+ "kosu": 208,
+ "isabet": 28,
+ "roi": 1.29,
  "ga95": [
   0.808,
-  1.743
+  1.855
  ],
  "ulke": {
   "abd": {
-   "bahis": 214,
-   "roi": 1.0
+   "bahis": 217,
+   "roi": 1.085
   },
   "birlesik-krallik": {
    "bahis": 54,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 423,
-  "kosu": 200,
+  "bahis": 428,
+  "kosu": 204,
   "isabet": 49,
-  "roi": 0.872,
+  "roi": 0.862,
   "ga95": [
-   0.632,
-   1.161
+   0.628,
+   1.137
   ]
  },
  "bahis_t1": {
-  "bahis": 436,
-  "kosu": 197,
+  "bahis": 443,
+  "kosu": 201,
   "isabet": 57,
-  "roi": 1.082,
+  "roi": 1.065,
   "ga95": [
-   0.709,
-   1.544
+   0.706,
+   1.475
   ]
  },
  "bahis_t3": {
-  "bahis": 427,
-  "kosu": 193,
+  "bahis": 429,
+  "kosu": 197,
   "isabet": 51,
-  "roi": 0.923,
+  "roi": 0.919,
   "ga95": [
    0.534,
-   1.478
+   1.457
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 3,
-   "at": "GOOD SHINE",
-   "q": 0.072,
-   "g": 18.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 3,
-   "at": "LADY OF FATE",
-   "q": 0.175,
-   "g": 11.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Fairview",
@@ -400,6 +382,15 @@
   },
   {
    "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 10,
+   "at": "BISCLAVRET",
+   "q": 0.093,
+   "g": 13.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
    "pist": "Santa Anita",
    "kosu": 1,
    "at": "CORKSCREW ANDY",
@@ -424,6 +415,15 @@
    "q": 0.037,
    "g": 47.3,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Santa Anita",
+   "kosu": 4,
+   "at": "NOBLE MINDED",
+   "q": 0.061,
+   "g": 21.65,
+   "kazandi": true
   }
  ]
 }
