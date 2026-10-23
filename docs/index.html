@@ -1958,6 +1958,7 @@ function tuyolar(){ tuyoYukle();
       c.push(pm/pp>=1.25?'Bolton da aynı yönde':'sadece Jason görüyor, Bolton piyasayla hemfikir');
       if(a.agf0>0&&a.agf>0){ const d=a.agf/a.agf0; if(d>=1.15) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, para geliyor`); else if(d<=0.85) c.push(`AGF %${f2(a.agf0)} → %${f2(a.agf)}, piyasa soğudu`); }
       if(a.jokey) c.push('jokey '+esc(a.jokey)+(a.apr?' (apranti)':''));
+      c.push(`Jason'a göre adil ganyan ${f2(1/pj)}: makinede ganyan <b>${f2(1/pj)}</b> ve üstüyse değer var, altındaysa geç`);
       let dur='';
       if(k.sonuc){ const sr=so.sira;
         dur=sr===1?`<b style="color:var(--good,#3fb950)">✓ KAZANDI</b> (ganyan ${String(so.g).replace('.',',')})`:(sr!=null&&sr<=3?`<b>${sr}. oldu</b> (ilk üçte, kazanmadı)`:`<b style="color:var(--bad,#f85149)">✗ ${sr!=null?sr+'. oldu':'tutmadı'}</b>`); }
