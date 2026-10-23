@@ -1,0 +1,23 @@
+{
+ "gun": "2026-10-23",
+ "ana": {
+  "durum": 403,
+  "uzunluk": 5952,
+  "bas": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta nam"
+ },
+ "ana_baglantilar": [],
+ "prog_bursa": {
+  "durum": 403,
+  "uzunluk": 6115,
+  "bas": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta nam",
+  "tablo_say": 0,
+  "url": "https://www.agftablosu.com/at-yarisi/bursa/23-ekim-2026-cuma"
+ },
+ "prog_istanbul": {
+  "durum": 403,
+  "uzunluk": 6124,
+  "bas": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta nam",
+  "tablo_say": 0,
+  "url": "https://www.agftablosu.com/at-yarisi/istanbul/23-ekim-2026-cuma"
+ }
+}
