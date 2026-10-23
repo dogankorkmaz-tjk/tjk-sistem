@@ -1609,6 +1609,7 @@ function egzCiz(){
     const kapali=EGT==='ÜÇLÜ BAHİS'&&ilk.has(c.hipodrom+'|'+c.kosu);
     if(c.sonuc||c.dondu) bit.push(c); else if(kapali) kap.push(c); else oy.push(c);
   });
+  const sk=(a,b)=>((a.saat||'99:99')+a.hipodrom+('0'+a.kosu).slice(-2))<((b.saat||'99:99')+b.hipodrom+('0'+b.kosu).slice(-2))?-1:1; oy.sort(sk); kap.sort(sk); bit.sort(sk);   // saate göre
   const KOMB=(EGT==='SIRALI İKİLİ'||EGT==='ÜÇLÜ BAHİS');
   if(KOMB){ try{ s+=kombEgz(MM(EGM),EGT==='SIRALI İKİLİ'?2:3); }catch(e){ console.error(e); } }
   const tek=`<h2 style="margin-top:8px">Sıradaki koşular</h2>`+(oy.length?oy.map(c=>egzKart(c,'oyna',null)).join(''):'<div class="card empty">Şu an oynanabilir seçim yok.</div>')+(kap.length?`<h2>Bu bahis kapalı</h2>`+kap.map(c=>egzKart(c,'kapali',null)).join(''):'');
