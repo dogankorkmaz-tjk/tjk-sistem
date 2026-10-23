@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-23 13:10 UTC",
- "kayitli_kosu": 480,
+ "uretim": "2026-10-23 13:29 UTC",
+ "kayitli_kosu": 483,
  "eslesmeyen_kosu": 309,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 291,
- "kosu": 171,
- "isabet": 19,
- "roi": 1.053,
+ "bahis": 300,
+ "kosu": 174,
+ "isabet": 20,
+ "roi": 1.096,
  "ga95": [
-  0.753,
-  1.404
+  0.784,
+  1.513
  ],
  "ulke": {
   "abd": {
@@ -18,16 +18,16 @@
    "roi": 1.016
   },
   "birlesik-krallik": {
-   "bahis": 38,
-   "roi": 1.359
+   "bahis": 44,
+   "roi": 1.174
   },
   "fransa": {
    "bahis": 25,
    "roi": 1.71
   },
   "guney-afrika": {
-   "bahis": 32,
-   "roi": 0.908
+   "bahis": 35,
+   "roi": 1.474
   },
   "irlanda": {
    "bahis": 16,
@@ -35,117 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 356,
-  "kosu": 167,
-  "isabet": 41,
-  "roi": 0.851,
+  "bahis": 365,
+  "kosu": 170,
+  "isabet": 42,
+  "roi": 0.891,
   "ga95": [
-   0.622,
-   1.246
+   0.628,
+   1.331
   ]
  },
  "bahis_t1": {
-  "bahis": 374,
-  "kosu": 165,
-  "isabet": 48,
-  "roi": 0.929,
+  "bahis": 378,
+  "kosu": 167,
+  "isabet": 49,
+  "roi": 0.979,
   "ga95": [
-   0.677,
-   1.255
+   0.689,
+   1.417
   ]
  },
  "bahis_t3": {
-  "bahis": 372,
-  "kosu": 163,
-  "isabet": 43,
-  "roi": 0.738,
+  "bahis": 376,
+  "kosu": 165,
+  "isabet": 44,
+  "roi": 0.79,
   "ga95": [
-   0.511,
-   1.015
+   0.529,
+   1.22
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-22",
-   "pist": "Newmarket",
-   "kosu": 5,
-   "at": "ARTANIS",
-   "q": 0.072,
-   "g": 19.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Newmarket",
-   "kosu": 5,
-   "at": "SLACK BOB",
-   "q": 0.12,
-   "g": 13.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Newmarket",
-   "kosu": 7,
-   "at": "SOLAR INVINCIBLE",
-   "q": 0.096,
-   "g": 15.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Newmarket",
-   "kosu": 7,
-   "at": "ALBEGONE",
-   "q": 0.152,
-   "g": 11.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 3,
-   "at": "LANCE ATTACK",
-   "q": 0.063,
-   "g": 24.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 3,
-   "at": "SNOWEDIN",
-   "q": 0.063,
-   "g": 20.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 3,
-   "at": "BUDDY'S DOLL",
-   "q": 0.063,
-   "g": 21.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 4,
-   "at": "BLOOMING LOVELY",
-   "q": 0.126,
-   "g": 13.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-22",
-   "pist": "Turffontein",
-   "kosu": 4,
-   "at": "SAVARA'S PRINCESS",
-   "q": 0.063,
-   "g": 49.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-22",
    "pist": "Turffontein",
@@ -310,6 +229,60 @@
   },
   {
    "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 2,
+   "at": "DARK THIRTY",
+   "q": 0.036,
+   "g": 44.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 2,
+   "at": "GOLDMOYNE",
+   "q": 0.138,
+   "g": 13.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 2,
+   "at": "FAHRENHEIT SEVEN",
+   "q": 0.029,
+   "g": 87.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 2,
+   "at": "KODI LION",
+   "q": 0.069,
+   "g": 37.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 2,
+   "at": "PILU",
+   "q": 0.045,
+   "g": 45.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Doncaster",
+   "kosu": 2,
+   "at": "MUSICAL TOUCH",
+   "q": 0.036,
+   "g": 59.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
    "pist": "Fairview",
    "kosu": 1,
    "at": "BLUE JASPER",
@@ -424,6 +397,33 @@
    "q": 0.107,
    "g": 15.65,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 5,
+   "at": "SAY A PRAYER",
+   "q": 0.391,
+   "g": 4.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 5,
+   "at": "ALESIAN BEAU",
+   "q": 0.075,
+   "g": 17.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Fairview",
+   "kosu": 5,
+   "at": "WORDSWORTH",
+   "q": 0.091,
+   "g": 22.55,
+   "kazandi": true
   }
  ]
 }
