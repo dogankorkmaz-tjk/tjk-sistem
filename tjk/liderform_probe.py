@@ -6,7 +6,7 @@ B = "https://liderform.com.tr"
 out = {}
 for yol in ("/robots.txt", "/llms.txt", "/sitemap.xml"):
     try:
-        r = requests.get(B + yol, headers={"User-Agent": UA}, timeout=30)
+        r = requests.get(B + yol, headers={"User-Agent": UA}, timeout=20)
         out[yol] = {"durum": r.status_code, "metin": r.text[:4000]}
     except Exception as e:
         out[yol] = {"hata": repr(e)}
@@ -31,8 +31,8 @@ if out["izin_galop"] is not False and out["/robots.txt"].get("durum") in (200, 4
             except Exception:
                 pass
         pg.on("response", yanit)
-        pg.goto(B + "/program/galop", wait_until="networkidle", timeout=60000)
-        pg.wait_for_timeout(4000)
+        pg.goto(B + "/program/galop", wait_until="domcontentloaded", timeout=45000)
+        pg.wait_for_timeout(8000)
         out["baslik"] = pg.title()
         out["metin"] = re.sub(r"[ \t]+", " ", pg.inner_text("body"))[:6000]
         out["tablo_say"] = pg.evaluate("document.querySelectorAll('table').length")
