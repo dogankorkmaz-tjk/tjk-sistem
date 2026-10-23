@@ -1,0 +1,90 @@
+{
+ "german-racing.com": {
+  "durum": "hata",
+  "metin": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='german-racing.com', port=443): Max retries exceeded with url: /robots."
+ },
+ "www.german-racing.com": {
+  "durum": "hata",
+  "metin": "SSLError(MaxRetryError(\"HTTPSConnectionPool(host='www.german-racing.com', port=443): Max retries exceeded with url: /rob"
+ },
+ "turf-times.de": {
+  "durum": 200,
+  "metin": "#\n# robots.txt\n#\n# This file is to prevent the crawling and indexing of certain parts\n# of your site by web crawlers and spiders run by sites like Yahoo!\n# and Google. By telling these \"robots\" where not to go on your site,\n# you save bandwidth and server resources.\n#\n# This file will be ignored unless it is at the root of your host:\n# Used:    http://example.com/robots.txt\n# Ignored: http://example.com/site/robots.txt\n#\n# For more information about the robots.txt standard, see:\n# http://www.robotstxt.org/robotstxt.html\n\nUser-agent: *\n# CSS, JS, Images\nAllow: /core/*.css$\nAllow: /core/*.css?\nAllow: /core/*.js$\nAllow: /core/*.js?\nAllow: /core/*.avif\nAllow: /core/*.gif\nAllow: /core/*.jpg\nAllow: /core/*.jpeg\nAllow: /core/*.png\nAllow: /core/*.svg\nAllow: /core/*.webp\nAllow: /profiles/*.css$\nAllow: /profiles/*.css?\nAllow: /profiles/*.js$\nAllow: /profiles/*.js?\nAllow: /profiles/*.avif\nAllow: /profiles/*.gif\nAllow: /profiles/*.jpg\nAllow: /profiles/*.jpeg\nAllow: /profiles/*.png\nAllow: /profiles/*.svg\nAllow: /profiles/*.webp\n# Directories\nDisallow: /core/\nDisallow: /profiles/\n# Files\nDisallow: /README.md\nDisallow: /composer/Metapackage/README.txt\nDisallow: /composer/Plugin/ProjectMessage/README.md\nDisallow: /composer/Plugin/Scaffold/README.md\nDisallow: /composer/Plugin/VendorHardening/README.txt\nDisallow: /composer/Template/README.txt\nDisallow: /modules/README.txt\nDisallow: /sites/README.txt\nDisallow: /themes/README.txt\n# Paths (clean URLs)\nDisallow: /admin/\nDisallow: /comment/reply/\nDisallow: /filter/tips\nDisallow: /node/add/\nDisallow: /search/\nDisallow: /search?\nDisallow: /user/register\nDisallow: /user/password\nDisallow: /user/login\nDisallow: /user/logout\nDisallow: /media/oembed\nDisallow: /*/media/oembed\n# Paths (no clean URLs)\nDisallow: /index.php/admin/\nDisallow: /index.php/c"
+ },
+ "www.turf-times.de": {
+  "durum": 200,
+  "metin": "#\n# robots.txt\n#\n# This file is to prevent the crawling and indexing of certain parts\n# of your site by web crawlers and spiders run by sites like Yahoo!\n# and Google. By telling these \"robots\" where not to go on your site,\n# you save bandwidth and server resources.\n#\n# This file will be ignored unless it is at the root of your host:\n# Used:    http://example.com/robots.txt\n# Ignored: http://example.com/site/robots.txt\n#\n# For more information about the robots.txt standard, see:\n# http://www.robotstxt.org/robotstxt.html\n\nUser-agent: *\n# CSS, JS, Images\nAllow: /core/*.css$\nAllow: /core/*.css?\nAllow: /core/*.js$\nAllow: /core/*.js?\nAllow: /core/*.avif\nAllow: /core/*.gif\nAllow: /core/*.jpg\nAllow: /core/*.jpeg\nAllow: /core/*.png\nAllow: /core/*.svg\nAllow: /core/*.webp\nAllow: /profiles/*.css$\nAllow: /profiles/*.css?\nAllow: /profiles/*.js$\nAllow: /profiles/*.js?\nAllow: /profiles/*.avif\nAllow: /profiles/*.gif\nAllow: /profiles/*.jpg\nAllow: /profiles/*.jpeg\nAllow: /profiles/*.png\nAllow: /profiles/*.svg\nAllow: /profiles/*.webp\n# Directories\nDisallow: /core/\nDisallow: /profiles/\n# Files\nDisallow: /README.md\nDisallow: /composer/Metapackage/README.txt\nDisallow: /composer/Plugin/ProjectMessage/README.md\nDisallow: /composer/Plugin/Scaffold/README.md\nDisallow: /composer/Plugin/VendorHardening/README.txt\nDisallow: /composer/Template/README.txt\nDisallow: /modules/README.txt\nDisallow: /sites/README.txt\nDisallow: /themes/README.txt\n# Paths (clean URLs)\nDisallow: /admin/\nDisallow: /comment/reply/\nDisallow: /filter/tips\nDisallow: /node/add/\nDisallow: /search/\nDisallow: /search?\nDisallow: /user/register\nDisallow: /user/password\nDisallow: /user/login\nDisallow: /user/logout\nDisallow: /media/oembed\nDisallow: /*/media/oembed\n# Paths (no clean URLs)\nDisallow: /index.php/admin/\nDisallow: /index.php/c"
+ },
+ "www.galopp-sport.de": {
+  "durum": "hata",
+  "metin": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='www.galopp-sport.de', port=443): Max retries exceeded with url: "
+ },
+ "www.rennbahn-info.de": {
+  "durum": "hata",
+  "metin": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'www.rennbahn-info.de\\', port=443): Max retries exceeded with u"
+ },
+ "www.racingpost.com": {
+  "durum": 200,
+  "metin": "User-agent: *\n\n#Special Areas of the Page\nDisallow: /results/ugc/\nDisallow: /profile/horse/form/ugc/\nDisallow: /racecards/ugc/\nDisallow: /insightshub/\nDisallow: /Embed/v7.aspx\nDisallow: /api/auth/\nDisallow: /bloodstock/sales/\nDisallow: /profile/horse/*/*/notes\nDisallow: /profile/horse/*/*/quotes\nDisallow: /profile/horse/*/*/stats\nDisallow: /profile/horse/*/*/pedigree\nDisallow: /profile/horse/*/*/entries\nDisallow: /redirect/*\nDisallow: /rss/*\n\n#Parameters\nDisallow: /*?tab=\nDisallow: /*?keyword=\nDisallow: /*?lot=\nDisallow: /auth/\nDisallow: /*?authme=\n\n\n#Sitemaps URLs\nSitemap: https://www.racingpost.com/sitemap.xml\nSitemap: https://www.racingpost.com/sitemaps/news-sitemap.xml\nSitemap: https://www.racingpost.com/profiles/siteindex.xml\nSitemap: https://www.racingpost.com/royal-ascot/sitemap.xml\nSitemap: https://www.racingpost.com/cheltenham-festival/sitemap.xml\nSitemap: https://www.racingpost.com/free-bets/sitemap.xml\n\n#Host URL\nHost: https://www.racingpost.com/"
+ },
+ "www.sportinglife.com": {
+  "durum": 200,
+  "metin": "# Host\nHost: https://www.sportinglife.com\n\n# Sitemaps\nSitemap: https://www.sportinglife.com/sitemap.xml\nSitemap: https://www.sportinglife.com/sitemap-news.xml\n"
+ },
+ "www.timeform.com": {
+  "durum": 200,
+  "metin": "User-agent: *\r\nSitemap: https://www.timeform.com/sitemap.xml\r\n\r\n# Don't index the reroute or error url's\r\nUser-agent: *\r\nDisallow: /something-has-gone-wrong\r\nDisallow: /horse-racing/something-has-gone-wrong\r\nDisallow: /horse-racing/account/sign-in\r\nDisallow: /free-bets/reroute/\r\n\r\n# Block access to whole site for badly behaved crawlers\r\nUser-agent: Yandex\r\nUser-agent: Baiduspider\r\nUser-agent: SemrushBot\r\nUser-agent: PetalBot\r\nUser-agent: MJ12bot\r\nUser-agent: BLEXBot\r\nUser-agent: dotbot\r\nUser-agent: AhrefsBot\r\nUser-agent: GPTBot\r\nDisallow: / "
+ },
+ "www.attheraces.com": {
+  "durum": 200,
+  "metin": "User-agent: bingbot\r\nDisallow: /form/\r\nDisallow: /form-popup/\r\nDisallow: /festivals/*/form*\r\nDisallow: /ajax/\r\nDisallow: /userlogin/\r\nDisallow: /user/login\r\nDisallow: /userprofile\r\nDisallow: *showResult=yes*\r\nSitemap: https://www.attheraces.com/sitemap.xml\r\n\r\nUser-agent: *\r\nDisallow: /ajax/\r\nDisallow: /userlogin/\r\nDisallow: /user/login\r\nDisallow: /userprofile\r\nDisallow: /festivals/*/userprofile*\r\nDisallow: *showResult=yes*\r\nSitemap: https://www.attheraces.com/sitemap.xml"
+ },
+ "www.horseracingnation.com": {
+  "durum": 200,
+  "metin": "# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file\n\nUser-agent: *\nDisallow: /edit\nDisallow: /search.aspx\nDisallow: /forgotpassword.aspx\nDisallow: /Login.aspx\nDisallow: /login.aspx\nDisallow: /signup.aspx\nDisallow: /session\nDisallow: /terms\n\n# AI / ML scrapers\nUser-agent: AI2Bot\nUser-agent: Ai2Bot-Dolma\nUser-agent: Amazonbot\nUser-agent: Applebot\nUser-agent: Applebot-Extended\nUser-agent: Bytespider\nUser-agent: CCBot\nUser-agent: ChatGPT-User\nUser-agent: Claude-Web\nUser-agent: ClaudeBot\nUser-agent: Diffbot\nUser-agent: FacebookBot\nUser-agent: FriendlyCrawler\nUser-agent: GPTBot\nUser-agent: Google-Extended\nUser-agent: GoogleOther\nUser-agent: GoogleOther-Image\nUser-agent: GoogleOther-Video\nUser-agent: ICC-Crawler\nUser-agent: ImagesiftBot\nUser-agent: Meta-ExternalAgent\nUser-agent: Meta-ExternalFetcher\nUser-agent: OAI-SearchBot\nUser-agent: PerplexityBot\nUser-agent: PetalBot\nUser-agent: Scrapy\nUser-agent: The Knowledge AI\nUser-agent: Timpibot\nUser-agent: VelenPublicWebCrawler\nUser-agent: Webzio-Extended\nUser-agent: YouBot\nUser-agent: anthropic-ai\nUser-agent: cohere-ai\nUser-agent: facebookexternalhit\nUser-agent: iaskspider/2.0\nUser-agent: img2dataset\nUser-agent: omgili\nUser-agent: omgilibot\nDisallow: /\n"
+ },
+ "www.sporttrader.de": {
+  "durum": 200,
+  "metin": "User-agent: *\nAllow: /\nDisallow: /"
+ },
+ "www.wettstar.de": {
+  "durum": 200,
+  "metin": "User-agent: *\nDisallow: /wp/wp-admin/\nAllow: /wp/wp-admin/admin-ajax.php\n\nSitemap: https://wettstar.de/sitemap_index.xml"
+ },
+ "www.german-tote.de": {
+  "durum": "hata",
+  "metin": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'www.german-tote.de\\', port=443): Max retries exceeded with url"
+ },
+ "german-tote.de": {
+  "durum": "hata",
+  "metin": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'german-tote.de\\', port=443): Max retries exceeded with url: /r"
+ },
+ "www.pferdewetten.de": {
+  "durum": 200,
+  "metin": "<!doctype html><html lang=\"de\"><head><meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=2,user-scalable=yes,shrink-to-fit=no\"/><meta http-equiv=\"cache-control\" content=\"no-cache, no-store, must-revalidate\"/><meta http-equiv=\"pragma\" content=\"no-cache\"/><meta http-equiv=\"expires\" content=\"0\"/><meta name=\"description\" content=\"pferdewetten.de - 18+ | Erlaubt (Whitelist) | Suchtrisiko | buwei.de\"><title>pferdewetten.de - 18+ | Erlaubt (Whitelist) | Suchtrisiko | buwei.de</title><link rel=\"icon\" href=\"/pfw_favicon.svg\"><script defer=\"defer\" src=\"/bundle/runtime.7ffe764f57650710c252.js\"></script><script defer=\"defer\" src=\"/libs/vendors-react.9e21f6c2a591d4e4f007.js\"></script><script defer=\"defer\" src=\"/libs/vendors.f851e11b5ef5062e2f9a.js\"></script><script defer=\"defer\" src=\"/bundle/state.7fd39e2d88baff303a7d.js\"></script><script defer=\"defer\" src=\"/libs/vendors-lodash.761fa1143b669337b0d9.js\"></script><script defer=\"defer\" src=\"/bundle/translations.9dc841a7ab97738a1bb5.js\"></script><script defer=\"defer\" src=\"/bundle/panels.7b21ff2cc20a106d5ab6.js\"></script><script defer=\"defer\" src=\"/bundle/items.c46e07df662d8e70a168.js\"></script><script defer=\"defer\" src=\"/bundle/helpers.e7de2ab3a35c1da2ecf7.js\"></script><script defer=\"defer\" src=\"/bundle/Modals.e961648a7af7e987015d.js\"></script><script defer=\"defer\" src=\"/bundle/formguide.6f0c851a06174d3e15a4.js\"></script><script defer=\"defer\" src=\"/bundle/portal.31317e6879caecd1c30f.js\"></script><link href=\"/bundle/panels.1bf72a147933a8047496.css\" rel=\"stylesheet\"><link href=\"/bundle/items.046bc3beee3bc4e22e3c.css\" rel=\"stylesheet\"><link href=\"/bundle/portal.832bdeaea81decfbd6fe.css\" rel=\"stylesheet\"></head><body><div id=\"react-portal\"></div><noscript><meta name=\"description\" content=\"p"
+ },
+ "www.equibase.com": {
+  "durum": 200,
+  "metin": "User-agent: Mediapartners-Google*\r\nDisallow:\r\n\r\nUser-agent: 008\r\nDisallow: /\r\n\r\nUser-agent: *\r\nCrawl-delay: 5\r\nDisallow: /absolutebm/\r\nDisallow: /banmanpro/\r\nDisallow: /bcup2001/\r\nDisallow: /bcup2002/\r\nDisallow: /bcup2003/\r\nDisallow: /bcup2004/\r\nDisallow: /bcup2005/\r\nDisallow: /premium/eqbRaceChartCalendar.cfm\r\n\r\n"
+ },
+ "www.rennsport.net": {
+  "durum": 200,
+  "metin": "<!DOCTYPE html><html lang=\"de\" dir=\"ltr\" data-beasties-container><head>\n    <base href=\"/de/\">\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title i18n>rennsport.net steht zum Verkauf</title>\n    <link rel=\"preload\" href=\"/assets/fonts/material-icons/material-icons.woff2?v=1.017\" as=\"font\" crossorigin=\"anonymous\">\n    <link rel=\"preload\" href=\"/assets/fonts/montserrat/Montserrat-Regular.woff2\" as=\"font\" crossorigin=\"anonymous\">\n    <link rel=\"preload\" href=\"/assets/fonts/montserrat/Montserrat-Medium.woff2\" as=\"font\" crossorigin=\"anonymous\">\n    <link rel=\"preload\" href=\"/assets/fonts/montserrat/Montserrat-SemiBold.woff2\" as=\"font\" crossorigin=\"anonymous\">\n    <link rel=\"preload\" href=\"/assets/fonts/montserrat/Montserrat-ExtraBold.woff2\" as=\"font\" crossorigin=\"anonymous\">\n    <link rel=\"preload\" href=\"/assets/fonts/montserrat/Montserrat-Black.woff2\" as=\"font\" crossorigin=\"anonymous\">\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/assets/favicon/sale/apple-touch-icon.png\">\n    <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/assets/favicon/sale/favicon-32x32.png\">\n    <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/assets/favicon/sale/favicon-16x16.png\">\n    <link rel=\"manifest\" href=\"/assets/favicon/sale/site.webmanifest\">\n    <meta name=\"msapplication-TileColor\" content=\"#ffffff\">\n    <meta name=\"theme-color\" content=\"#ffffff\">\n  <style>:root{--e--theme-brand: #22c55e;--e--theme-brand-rgb: 34, 197, 94;--e--theme-key: #008faf;--e--theme-key-rgb: 0, 143, 175;--e--theme-key-contrast: #fff;--e--theme-key-contrast-rgb: 255, 255, 255;--e--theme-fn-warning: #FFA500;--e--theme-fn-warning-rgb: 255, 165, 0;--e--theme-fn-error: #ff3c00;--e--theme-fn-error-rgb: 255, 60, 0}:root{--e--theme-level-solid-1"
+ },
+ "www.pferderennen.de": {
+  "durum": 200,
+  "metin": "<!doctype html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\" />\n        <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n        <title></title>\n        <style>\n            html,\n            body {\n                height: 100%;\n                margin: 0;\n                font-family:\n                    system-ui,\n                    -apple-system,\n                    Segoe UI,\n                    Roboto,\n                    Arial,\n                    sans-serif;\n            }\n            main {\n                height: 100%;\n                display: grid;\n                place-items: center;\n            }\n            small {\n                opacity: 0.6;\n            }\n        </style>\n    </head>\n    <body>\n        <script>\n            var _d = atob;\n            function placeholder() {\n                document.title = location.hostname;\n                document.body.innerHTML =\n                    \"<main><div><div></div><small>No advertisers available</small></div></main>\";\n                document.body.querySelector(\"div div\").textContent = location.hostname;\n            }\n            fetch(\"/__r\" + location.search)\n                .then(function (res) {\n                    if (res.status === 204) {\n                        placeholder();\n                        return;\n                    }\n                    if (res.status !== 200) {\n                        return; \n                    }\n                    return res.text().then(function (t) {\n                        self[_d(\"bG9jYXRpb24=\")][_d(\"cmVwbGFjZQ==\")](_d(t));\n                    });\n                })\n                .catch(function () {});\n        </script>\n    </body>\n</html>\n"
+ },
+ "www.dvr.de": {
+  "durum": 200,
+  "metin": "User-agent: *\r\nDisallow: /typo3/\r\nDisallow: /typo3_src/\r\nDisallow: /suche/\r\nDisallow: /*?tx_solr\r\nAllow: /typo3/sysext/frontend/Resources/Public/*\r\nSitemap: https://www.dvr.de/sitemap.xml\r\n"
+ },
+ "www.pmu.fr": {
+  "durum": 200,
+  "metin": "User-agent: *\n\n# gestion de compte\nDisallow: /compte/approvisionnement*\nDisallow: */mes-paris/*\n\n# eReportPlus\nDisallow: */e-report-plus/*\n\n# url app\nDisallow: */dispatchOS/*\n\n# url non site\nDisallow: */monitoring/pump/*\nDisallow: */casaques/*\nDisallow: */?fromUrl=*\nDisallow: */?ead-publicher=*\nDisallow: */?_ga=*\nDisallow: */pmu_get_all_dispatch?_=*\nDisallow: */actualites/news/*\nDisallow: */[dateOrReunion]/*\nDisallow: */.well-known/*\nDisallow: */sites/online/files/*\nDisallow: */turf/ouverture-compte/hippique/doublequinteboost/*\nDisallow: */ouverture-compte/poker/*\nDisallow: */ouverture-compte/pmusport/*\n\n\nSitemap: https://www.pmu.fr/sitemap.xml"
+ },
+ "racing.hkjc.com": {
+  "durum": 404,
+  "metin": ""
+ }
+}
