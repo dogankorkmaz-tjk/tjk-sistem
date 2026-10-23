@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-23 20:15 UTC",
- "kayitli_kosu": 552,
- "eslesmeyen_kosu": 355,
+ "uretim": "2026-10-23 20:28 UTC",
+ "kayitli_kosu": 553,
+ "eslesmeyen_kosu": 354,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 339,
- "kosu": 197,
- "isabet": 26,
- "roi": 1.25,
+ "bahis": 345,
+ "kosu": 199,
+ "isabet": 27,
+ "roi": 1.257,
  "ga95": [
   0.808,
-  1.809
+  1.8
  ],
  "ulke": {
   "abd": {
-   "bahis": 203,
-   "roi": 1.006
+   "bahis": 209,
+   "roi": 1.023
   },
   "birlesik-krallik": {
    "bahis": 54,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 414,
-  "kosu": 193,
-  "isabet": 48,
-  "roi": 0.868,
+  "bahis": 417,
+  "kosu": 195,
+  "isabet": 49,
+  "roi": 0.884,
   "ga95": [
-   0.628,
-   1.168
+   0.634,
+   1.196
   ]
  },
  "bahis_t1": {
-  "bahis": 428,
-  "kosu": 190,
-  "isabet": 56,
-  "roi": 1.08,
+  "bahis": 430,
+  "kosu": 192,
+  "isabet": 57,
+  "roi": 1.098,
   "ga95": [
-   0.706,
-   1.565
+   0.716,
+   1.601
   ]
  },
  "bahis_t3": {
-  "bahis": 418,
-  "kosu": 187,
-  "isabet": 50,
-  "roi": 0.92,
+  "bahis": 422,
+  "kosu": 189,
+  "isabet": 51,
+  "roi": 0.934,
   "ga95": [
    0.534,
-   1.505
+   1.531
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 1,
-   "at": "RADIO REBEL",
-   "q": 0.038,
-   "g": 58.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 1,
-   "at": "POWDER DAY",
-   "q": 0.201,
-   "g": 62.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 1,
-   "at": "PRETTY BOY",
-   "q": 0.038,
-   "g": 97.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 1,
-   "at": "GREEN POINT",
-   "q": 0.073,
-   "g": 29.05,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 1,
-   "at": "NORSE WARRIOR",
-   "q": 0.089,
-   "g": 30.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 1,
-   "at": "AMERICAN GEM",
-   "q": 0.073,
-   "g": 26.85,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Fairview",
@@ -355,6 +301,15 @@
   },
   {
    "gun": "2026-10-23",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "MOTOWN DIVA",
+   "q": 0.163,
+   "g": 9.65,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-23",
    "pist": "Keeneland",
    "kosu": 3,
    "at": "DEVIOUS LADY",
@@ -396,6 +351,51 @@
    "at": "GALLO DE FUEGO",
    "q": 0.143,
    "g": 10.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "PURE OCTANE",
+   "q": 0.119,
+   "g": 13.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "SPUN LEGACY",
+   "q": 0.093,
+   "g": 31.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "BRAVE PILOT",
+   "q": 0.139,
+   "g": 19.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "GUN BARREL CITY",
+   "q": 0.064,
+   "g": 21.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-23",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "JOY DIVISION",
+   "q": 0.027,
+   "g": 46.6,
    "kazandi": false
   },
   {
