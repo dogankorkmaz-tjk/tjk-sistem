@@ -507,3 +507,9 @@ Not: ilk bakışta canlı skorda z5 ile z2 korelasyonu 0,93 (std 0,36 vs 0,29): 
 - Karar: en az 300 tüyo; GA alt sınırı >0 olmadan iddia yok. Ara bakışlar karar değildir. Kural bu tarihten sonra değişmez.
 - İlk bakış (geriye dönük, 10–22 Ekim, ön kayıt sayılmaz): İKİLİ n=56 geri dönüş 0,976 (kontrol 0,746); SIRALI İKİLİ n=59 geri dönüş 0,615 (kontrol 0,719). Örnek çok küçük.
 - 23 Ekim 2026 14:50 EK (kurallar bu kayıtlardaki sonuçlar görülmeden donduruldu): kutu bahisleri. Tüyo at T + sabah AGF'sine göre T hariç en yüksek NF at kutu yapılır (tüm sıralamalar), ödeme kümenin tam eşleşmesinde: ÜÇLÜ BAHİS (NF=2, 6 komb, birim 2,00 TL), TABELA BAHİS (NF=3, 24 komb, 1,50 TL), TABELA BAHİS SIRASIZ (NF=3, 1 komb, 1,50 TL), SIRALI 5 Lİ BAHİS (NF=4, 120 komb, 1,25 TL). Kontrol: aynı koşularda AGF'nin ilk NF+1 atı kutu. Yalnız ödeme satırı olan koşular (devirli koşular veride yoksa ROI şişkin olabilir). Karar kuralı yukarıdakiyle aynı (≥300 tüyo, gün kümeli bootstrap GA alt sınırı >0). Geriye dönük ilk bakış ön kayıt sayılmaz: üçlü n=29 geri dönüş 0,27 (kontrol 0,72); tabela n=12 ve sıralı 5'li n=14 isabet 0.
+
+## 2026-10-23 — Piyasa tabanı (betimleyici ölçüm, hipotez değil)
+Script: data/analiz/piyasa_tabani.py (canlı kayıtlı koşular, nats/koşu, gün kümeli bootstrap).
+- Kapanış ganyanı (pp) 1.8265, AGF 1.8286, güç-kalibre ganyan 1.8322 (n=280, 16 gün): fark yok; kalibrasyon (alfa≈1.06) fayda sağlamadı.
+- Ortak 172 koşu/10 gün: pm (Bolton) −0.013, pm2 (Jason) −0.012, pm4 −0.001, pm3 +0.025 (pp'ye göre; hepsinin %95 GA'sı 0'ı kapsıyor). Yani modeller piyasadan ayırt edilemez; kanıt yok, yön hafif olumlu.
+- Örneklem küçük; sonuç yorumlanmamalı, veri biriktikçe tekrarlanacak.
