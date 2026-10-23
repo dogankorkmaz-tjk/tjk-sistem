@@ -1,0 +1,163 @@
+"""atyarisi.com (TJK resmî çevrimiçi portalı) program API'si: günün programı, atlar, jokey, kilo, HP, Son 6, AGF, bahis türleri.
+robots.txt izin veriyor, llms.txt otomatik kullanıma açık (23 Ekim 2026). Gün başına hipodrom sayısı kadar küçük istek; süreç içinde önbelleklenir.
+Yalnızca Türkiye hipodromları; CSV yüklemeye gerek bırakmaz, CSV yedek olarak kalır."""
+import re, requests
+from . import ortak as O
+
+LISTE = "https://tjkbulten.atyarisi.com/api/v1/ProgramHippodromes"
+DETAY = "https://tjkbulten.atyarisi.com/api/v2/ProgramDetails"
+_H = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) Chrome/124 Safari/537.36", "Accept": "application/json",
+      "Origin": "https://www.atyarisi.com", "Referer": "https://www.atyarisi.com/"}
+_ONBELLEK = {}
+
+
+def _sn(s):
+    m = re.match(r"^\s*(\d+)[.:](\d{2})[.](\d{1,2})\s*$", str(s or ""))
+    return int(m.group(1)) * 60 + int(m.group(2)) + float("0." + m.group(3)) if m else None
+
+
+def _hip(ad):
+    k = str(ad or "").strip().translate(O.TR).lower()
+    for h, a in O.AD.items():
+        if a.translate(O.TR).lower() == k or h == k:
+            return h
+    return None
+
+
+def gun(tarih, yenile=False):
+    """-> {hipodrom: {"saat0": ..., "kosular": [API koşu sözlükleri]}}; erişilemezse {} (önbellekte boş kalmaz)."""
+    if tarih in _ONBELLEK and not yenile:
+        return _ONBELLEK[tarih]
+    out = {}
+    try:
+        r = requests.get(LISTE, params={"date": tarih}, headers=_H, timeout=30)
+        for h in (r.json().get("d") or []):
+            hi = h.get("hippodrome") or {}
+            if hi.get("isForeign"):
+                continue
+            hid = _hip(hi.get("place")) or _hip(hi.get("code"))
+            if not hid or hid not in O.TRH:
+                continue
+            rr = requests.get(DETAY, params={"programId": h["id"]}, headers=_H, timeout=30)
+            ko = (rr.json().get("d") or {}).get("races") or []
+            if ko:
+                out[hid] = {"kosular": ko}
+    except Exception as e:
+        print("atyarisi API hatası:", repr(e))
+        return {}
+    if out:
+        _ONBELLEK[tarih] = out
+    return out
+
+
+def _pist_harf(p):
+    return {"Kum": "K", "Çim": "Ç", "Sentetik": "S"}.get(p, "K")
+
+
+def program_satirlari(tarih):
+    """csvprog.program_satirlari ile aynı biçim: (satırlar, {hip: {"saat","bilgi"}}, {(hip,kosu,no): AGF %})"""
+    from .csvprog import bilgi_metni
+    satirlar, programlar, agf = [], {}, {}
+    for hip, v in gun(tarih).items():
+        saat, bilgi = {}, {}
+        for k in v["kosular"]:
+            kn = int(k["number"])
+            saat[kn] = k.get("hour"); bilgi[kn] = bilgi_metni(_kosu(k))
+            for a in k.get("horses") or []:
+                no = int(a["number"])
+                j = a.get("jockey") or {}
+                son6 = "".join(_pist_harf(x.get("raceCourseType")) + str(x.get("result", "")) for x in (a.get("last6") or []))
+                p = a.get("parents") or {}
+                satirlar.append({"tarih": tarih, "hipodrom": hip, "kosu": kn, "no": no, "p_at": a["name"].strip(),
+                                 "p_jokey": (j.get("name") or "").strip(), "p_apranti": bool(j.get("apprentice")),
+                                 "p_kilo": a.get("weight"), "yas_ham": re.sub(r"\s+", " ", a.get("age") or "").strip(),
+                                 "baba": f"{(p.get('father') or {}).get('name','')} - {(p.get('mother') or {}).get('name','')}",
+                                 "sahip": (a.get("owner") or {}).get("name", ""), "antrenor": (a.get("coach") or {}).get("name", ""),
+                                 "st": float(a["start"]) if a.get("start") is not None else float("nan"),
+                                 "hk": float(a["handicap"]) if str(a.get("handicap") or "").isdigit() else float("nan"),
+                                 "son6": son6, "kgs": float(a["kgs"]) if a.get("kgs") is not None else float("nan")})
+                ag = _agf(a)
+                if ag is not None:
+                    agf[(hip, kn, no)] = ag
+        programlar[hip] = {"saat": saat, "bilgi": bilgi}
+    return satirlar, programlar, agf
+
+
+def _agf(a):
+    L = a.get("agf") or []
+    return float(L[-1]["percentage"]) if L and L[-1].get("percentage") is not None else None
+
+
+def _kosu(k):
+    b = k.get("bets") or ""
+    pr = k.get("prizes") or []
+    bg = k.get("bestGrade")
+    return {"saat": k.get("hour"), "cins": k.get("typeDescription"), "yas": k.get("groupName"),
+            "mesafe": int(k["distance"]) if str(k.get("distance") or "").isdigit() else None, "pist": k.get("raceCourseType"),
+            "rekor_sn": _sn(bg), "ikramiye1": int(pr[0]) if pr else None,
+            "besli": "SIRALI 5" in b, "uclu": "ÜÇLÜ BAHİS" in b}
+
+
+def gunun(tarih):
+    """csvprog.gunun biçimi: {hip: (kosular, atlar, ekur)}"""
+    out = {}
+    for hip, v in gun(tarih).items():
+        kosular, atlar, ekur = {}, {}, set()
+        for k in v["kosular"]:
+            kn = int(k["number"]); kosular[kn] = _kosu(k); atlar[kn] = {}
+            for a in k.get("horses") or []:
+                no = int(a["number"]); bg = a.get("bestGrade") or {}
+                atlar[kn][no] = {"hnd": int(a["handicap"]) if str(a.get("handicap") or "").isdigit() else None,
+                                 "eid_sn": _sn(bg.get("value") if isinstance(bg, dict) else bg),
+                                 "kilo": a.get("weight"), "kilo_fark": float(a.get("overweight") or 0.0)}
+                if (a.get("stablemate") or 0) > 0:
+                    ekur.add((kn, no))
+        out[hip] = (kosular, atlar, ekur)
+    return out
+
+
+def jokeyler(tarih):
+    out = {}
+    for hip, v in gun(tarih).items():
+        for k in v["kosular"]:
+            for a in k.get("horses") or []:
+                j = a.get("jockey") or {}
+                if j.get("name"):
+                    out[(hip, int(k["number"]), int(a["number"]))] = j["name"].strip() + (" AP" if j.get("apprentice") else "")
+    return out
+
+
+def kosmazlar(tarih):
+    return {(hip, int(k["number"]), int(a["number"])) for hip, v in gun(tarih).items() for k in v["kosular"]
+            for a in k.get("horses") or [] if a.get("status") is False}
+
+
+def agf_uygula(obj, saat):
+    """agftablosu engelliyse güncel AGF'yi API'den atlara yazar (agf = son değer, agf0 = ilk görülen)."""
+    n = 0
+    g = gun(obj["tarih"])
+    for h in obj["hipodromlar"]:
+        v = g.get(h["id"])
+        if not v:
+            continue
+        ko = {int(k["number"]): k for k in v["kosular"]}
+        for k in h["kosular"]:
+            ak = ko.get(k["kosu"])
+            if not ak or k.get("sonuc"):
+                continue
+            haritalar = {int(a["number"]): _agf(a) for a in ak.get("horses") or []}
+            gor = False
+            for a in k["atlar"]:
+                x = haritalar.get(a["no"])
+                if x is None:
+                    continue
+                a["agf"] = x; gor = True; n += 1
+                if a.get("agf0") is None:
+                    a["agf0"] = x
+                if a.get("agf_a1") is None:
+                    a["agf_a1"] = x
+            if gor:
+                k["agf_saat"] = saat; k.setdefault("agf0_saat", saat)
+    if n:
+        print("AGF atyarisi API'sinden eklendi:", n, "at")
+    return n

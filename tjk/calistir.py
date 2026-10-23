@@ -526,6 +526,11 @@ def csv_agf_uygula(obj, csv_agf):
 def agf_ekle(obj):
     html = O.getir(O.BASE + "/agf-tablosu")
     if not html:
+        try:
+            from . import atyapi
+            atyapi.agf_uygula(obj, O.tr_simdi().strftime("%H:%M"))     # agftablosu engelli: AGF atyarisi API'sinden
+        except Exception as e:
+            print("AGF API hatası:", repr(e))
         return
     try:
         agf = O.parse_agf(html)

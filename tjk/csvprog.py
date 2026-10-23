@@ -82,12 +82,24 @@ def gunun(tarih):
             print("CSV okunamadı:", yol, e); continue
         if r and r[0] == tarih:
             out[r[1]] = r[2:]
+    try:
+        from . import atyapi
+        for h, v in atyapi.gunun(tarih).items():
+            out.setdefault(h, v)                      # CSV yoksa program API'sinden (otomatik)
+    except Exception as e:
+        print("atyarisi gunun hatası:", repr(e))
     return out
 
 
 def jokeyler(tarih):
-    """tarih için klasördeki CSV'lerden {(hipodrom, kosu, at_no): jokey_adi} (sonda 'AP' = apranti işareti dahil)."""
+    """tarih için {(hipodrom, kosu, at_no): jokey_adi} (sonda 'AP' = apranti işareti dahil); CSV'ler + program API'si (API güncel, öncelikli)."""
     out = {}
+    api = {}
+    try:
+        from . import atyapi
+        api = atyapi.jokeyler(tarih)
+    except Exception as e:
+        print("atyarisi jokey hatası:", repr(e))
     for yol in glob.glob(os.path.join(KLASOR, "*.csv")):
         try:
             sat = open(yol, encoding="utf-8-sig").read().replace("\r", "").split("\n")
@@ -105,6 +117,7 @@ def jokeyler(tarih):
                         out[(hip, kn, int(f[0]))] = f[6].strip()
         except Exception as e:
             print("CSV jokey okunamadı:", yol, e)
+    out.update(api)
     return out
 
 
@@ -128,6 +141,11 @@ def kosmazlar(tarih):
                         out.add((hip, kn, int(f[0])))
         except Exception as e:
             print("CSV koşmaz okunamadı:", yol, e)
+    try:
+        from . import atyapi
+        out |= atyapi.kosmazlar(tarih)
+    except Exception as e:
+        print("atyarisi koşmaz hatası:", repr(e))
     return out
 
 
@@ -162,6 +180,13 @@ def program_satirlari(tarih):
     Döner: (satırlar [parse_prog biçiminde], {hipodrom: {"saat": {koşu: SS:DD}, "bilgi": {koşu: metin}}}, {(hipodrom, koşu, no): AGF %})"""
     from .sonuccsv import _ad_kod
     satirlar, programlar, agf = [], {}, {}
+    try:
+        from . import atyapi
+        satirlar, programlar, agf = atyapi.program_satirlari(tarih)
+        if satirlar:
+            print("program atyarisi API'sinden kuruldu:", sorted(programlar))
+    except Exception as e:
+        print("atyarisi program hatası:", repr(e)); satirlar, programlar, agf = [], {}, {}
     for yol in sorted(glob.glob(os.path.join(KLASOR, "*.csv"))):
         try:
             r = oku_dosya(yol)
@@ -170,6 +195,8 @@ def program_satirlari(tarih):
         if not r or r[0] != tarih:
             continue
         _, hip, kosular, _a, _e = r
+        if hip in programlar:
+            continue                                   # API'den geldi
         programlar[hip] = {"saat": {kn: k["saat"] for kn, k in kosular.items()}, "bilgi": {kn: bilgi_metni(k) for kn, k in kosular.items()}}
         kn = None
         for x in open(yol, encoding="utf-8-sig").read().replace("\r", "").split("\n")[1:]:
