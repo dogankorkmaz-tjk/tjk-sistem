@@ -25,3 +25,19 @@ for h in ["bursa", "istanbul"]:
 os.makedirs("data/futbol", exist_ok=True)
 json.dump(out, open("data/futbol/agf_probe.json", "w"), ensure_ascii=False, indent=1)
 print(json.dumps(out, ensure_ascii=False)[:2500])
+
+# gerçek tarayıcı yolu
+try:
+    from tjk import tarayici as TR
+    import time
+    t0 = time.time()
+    h = TR.getir(O.BASE, bekle=45)
+    out["tarayici_ana"] = {"var": bool(h), "uzunluk": len(h or ""), "sn": round(time.time() - t0, 1)}
+    if h:
+        out["tarayici_baglanti"] = sorted(set(re.findall(r"/at-yarisi/[a-z\-]+/[0-9a-z\-]+", h)))[:30]
+        h2 = TR.getir(O.prog_url(t, "bursa"), bekle=45)
+        out["tarayici_bursa"] = {"var": bool(h2), "tablo": (h2 or "").count("<table")}
+except Exception as e:
+    out["tarayici_hata"] = repr(e)[:300]
+json.dump(out, open("data/futbol/agf_probe.json", "w"), ensure_ascii=False, indent=1)
+print(json.dumps({k: v for k, v in out.items() if k.startswith("tarayici")}, ensure_ascii=False))
