@@ -1005,10 +1005,10 @@ $('sibDosya').onchange=async e=>{ const f=e.target.files[0]; if(f){ $('sibMetin'
 async function accDurum(){
   const el=$('accDurum'); if(!el) return;
   try{ const d=await getJSON('data/accurace_ozet.json?'+Date.now());
-    const G=Object.keys(d.gunler).sort().reverse(); let h='<b>Accurace yüklenenler</b> <span class="sub">('+d.toplam+' koşu, güncelleme '+esc(d.uretim)+')</span>';
-    if(!G.length){ el.innerHTML=h+'<div class="sub">Henüz yok.</div>'; return; }
+    const G=Object.keys(d.gunler).sort().reverse(); let h='<details><summary><b>Accurace yüklenenler</b> <span class="sub">('+d.toplam+' koşu · detay için dokun)</span></summary><div class="sub" style="margin-top:4px">Güncelleme '+esc(d.uretim)+'</div>';
+    if(!G.length){ el.innerHTML=h+'<div class="sub">Henüz yok.</div></details>'; return; }
     h+=G.slice(0,40).map(t=>'<div style="margin-top:6px"><b>'+esc(t)+'</b> '+Object.entries(d.gunler[t]).map(([hp,v])=>esc(hp)+': '+v.kosu.length+' koşu').join(' · ')+'</div>').join('');
-    el.innerHTML=h;
+    h+='</details>'; el.innerHTML=h;
   }catch(e){ el.innerHTML='<div class="sub">Accurace durumu henüz oluşmadı.</div>'; }
 }
 
