@@ -1204,7 +1204,7 @@ async function kanitYukle(){
       +'<h3 style="margin:10px 0 4px;font-size:14px">Log-kaybı farkı (nats/koşu, negatif = model daha iyi)</h3>'+T(g.logkayip.basliklar,g.logkayip.satirlar)
       +'<h3 style="margin:12px 0 4px;font-size:14px">Kâğıt üstü ROI</h3>'+T(g.roi.basliklar,g.roi.satirlar)+'</div>';
     s+='<div class="card"><b>Sonuç</b><ul style="margin:6px 0 0 18px">'+g.not.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
-    s+='<div class="card"><b>Jason</b><div class="sub">Sürpriz (değerli at) avı için eğitildi: Tüyo takibi ve egzotik çiplerinde kalır, arşivlenmedi. Sıra tahmini odağı G1-S v2'de; Jason ayrı bir amaçla ölçülür.</div></div><div class="card"><b>Yapmayacaklarımız</b><ul style="margin:6px 0 0 18px">'+g.yapmayacaklar.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
+    s+='<div class="card"><b>Jason</b><div class="sub">Sürpriz (değerli at) avı için eğitildi: Tüyo takibi ve egzotik çiplerinde kalır, arşivlenmedi. Sıra tahmini odağı G1-S v2 modelinde; Jason ayrı bir amaçla ölçülür.</div></div><div class="card"><b>Yapmayacaklarımız</b><ul style="margin:6px 0 0 18px">'+g.yapmayacaklar.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
   }
   s+='<h2 style="margin-top:14px">Canlı kâğıt üstü (G1-S)</h2><div id="knCanli" class="card"><div class="sub">Yükleniyor…</div></div>';
   el.innerHTML=s;
