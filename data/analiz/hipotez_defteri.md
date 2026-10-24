@@ -751,3 +751,5 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 - Veri: oos_p.pkl tüm hipodromlar, ≥6 koşucu, ilk 5 sıra eşitliksiz. Fit: ilk %60 gün (hepsi birlikte), test: son %40. Katsayılar testten önce dondurulur.
 - Ölçüt: D−C, 2.–5. sıra log-olabilirlik, gün-bootstrap %95 aralık. Başarı: alt sınır > 0. Hipodrom bazında bakış yalnız betimleyici (BH düzeltmeli), karar toplamdan.
 - İleriye dönük: katsayılar dondurulup 25 Ekim'den sonraki yarışlarda aynı ölçüt (≥300 koşu) birikince raporlanır.
+- SONUÇ (25 Ekim 2026, ~02:15): 13.448 koşu, fit 7.912 / test 5.536 (kesim 2025-10-19). D−C = +0,0116 nats/koşu (2.–5.) [+0,0079, +0,0154] → ölçüt karşılandı (alt sınır > 0). Hipodrom: 10'dan 7'sinde işaret pozitif ve 4'ünde aralık sıfırın üstünde (İzmir +0,021, Bursa +0,016, Şanlıurfa +0,018, İstanbul +0,011); betimleyici. Piyasa katsayısı 2.–5. sırada −0,22…−0,60.
+- Not: "en olası at" isabeti değişmedi (2.: 0,301→0,301, 5.: 0,330→0,328). Kazanç seçimde değil olasılık kalibrasyonunda; kupon kurma/değer ölçümüne etkisi ayrıca ROI ile sınanmalı. Dondurulmuş katsayılar: data/analiz/ilk5_katsayilar.json. Henüz üretime bağlanmadı.
