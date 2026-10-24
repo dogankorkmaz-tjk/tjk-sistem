@@ -745,3 +745,9 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 - KEŞİF (walk-forward zaman bölmesi: ilk %60 gün fit, son %40 test; 1.863 koşu, test 709). Betik: data/analiz/ilk5_ltr_izmir.py. Sıralı Plackett-Luce, her sıra için ayrı katsayı; ölçüt 2.–5. sıra log-olabilirlik.
 - Düz Harville'e göre sıraya özel üs +0,187 nats/koşu (2.–5.); gam üsleri üretimde zaten var, asıl zemin bu. Üstüne piyasa log-olasılığı eklenince +0,018 [+0,008, +0,028] (piyasa katsayısı 2.–5. sırada negatif: piyasanın favori yanlılığı düzeltiliyor). f_k eklenince +0,004 [−0,019, +0,026]: işe yaramadı.
 - Karar: aday = "sıraya özel üs + piyasa terimi" (İzmir dışına ve ileriye dönük test bekliyor). f_k bu testte katkı vermedi (1 Aralık yeniden testi geçerli). 
+
+## Ön-kayıt: ilk-5 "sıraya özel üs + piyasa" kuralı, tüm hipodromlar (25 Ekim 2026, ~02:05)
+- BİRİNCİL. Model D: her sıra s=1..5 için skor = a_s·log p_Jason + b_s·log p_piyasa (L2 hafif), Plackett-Luce. Referans: C (yalnız a_s). 
+- Veri: oos_p.pkl tüm hipodromlar, ≥6 koşucu, ilk 5 sıra eşitliksiz. Fit: ilk %60 gün (hepsi birlikte), test: son %40. Katsayılar testten önce dondurulur.
+- Ölçüt: D−C, 2.–5. sıra log-olabilirlik, gün-bootstrap %95 aralık. Başarı: alt sınır > 0. Hipodrom bazında bakış yalnız betimleyici (BH düzeltmeli), karar toplamdan.
+- İleriye dönük: katsayılar dondurulup 25 Ekim'den sonraki yarışlarda aynı ölçüt (≥300 koşu) birikince raporlanır.
