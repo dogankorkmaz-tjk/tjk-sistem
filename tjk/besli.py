@@ -179,6 +179,61 @@ def _odeme(tarih):
         return pd.DataFrame()
 
 
+_OD_ONBELLEK = {}
+
+
+def _od_ay(ay):
+    if ay not in _OD_ONBELLEK:
+        try:
+            o = pd.read_csv(os.path.join(KOK, "data", "odeme", ay + ".csv.gz")); _OD_ONBELLEK[ay] = o[o.tur.str.contains("SIRALI 5")]
+        except Exception:
+            _OD_ONBELLEK[ay] = pd.DataFrame()
+    return _OD_ONBELLEK[ay]
+
+
+def devir_durum(tarih, hip, kosu, havuz_oncesi):
+    """Bu sıralı 5'li havuzuna devir geliyor mu? (yönetmelik md.11: bilen yoksa tutar aynı hipodromun bir sonraki sıralı 5'li havuzuna eklenir).
+    Önceki havuz = aynı gün bu koşudan önceki son sıralı 5'li koşusu; yoksa önceki 3 günün son sıralı 5'li koşusu. Sonucu henüz yoksa None (bilinmiyor).
+    Dönüş: {'var': True, 'tutar': devir TL, 'kaynak': 'yyyy-aa-gg|kosu'} ya da None."""
+    import datetime as _dt
+    _OD_ONBELLEK.clear()
+    bu = _od_ay(tarih[:7])
+    onc = [x for x in havuz_oncesi if x < kosu]
+    if onc:
+        pk = max(onc); o = bu[(bu.tarih == tarih) & (bu.hipodrom == hip) & (bu.kosu == pk)] if len(bu) else bu
+        if len(o) and o.tur.str.contains("DEVİR").any():
+            return {"var": True, "tutar": round(float(o[o.tur.str.contains("DEVİR")].tutar.max()), 2), "kaynak": f"{tarih}|{pk}"}
+        return None
+    d0 = _dt.date.fromisoformat(tarih)
+    for g in range(1, 4):
+        gun = (d0 - _dt.timedelta(days=g)).isoformat(); od = _od_ay(gun[:7])
+        o = od[(od.tarih == gun) & (od.hipodrom == hip)] if len(od) else od
+        if len(o):
+            sk = int(o.kosu.max()); son = o[o.kosu == sk]
+            if son.tur.str.contains("DEVİR").any():
+                return {"var": True, "tutar": round(float(son[son.tur.str.contains("DEVİR")].tutar.max()), 2), "kaynak": f"{gun}|{sk}"}
+            return None
+    return None
+
+
+def _ekle_devir(c, at, pp, P, simdi):
+    """Devirli havuz: G1-S ile donmuş 'Devir-G1S' kuponları (bütçe 96 ve 150; ön kayıt hipotez_defteri 2026-10-24 19:30)."""
+    if "G1-S" not in P:
+        return
+    Wp, Tp = _W(pp, G_P)
+    for B in (96, 150):
+        if any(q["model"] == "Devir-G1S" and q["butce"] == B for q in c["kuponlar"]):
+            continue
+        kp = kupon_g(P["G1-S"], B, GG.get("G1-S"))
+        if not kp:
+            continue
+        sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
+        c["kuponlar"].append({"model": "Devir-G1S", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
+                              "ayaklar": [[at[i]["no"] for i in s] for s in sets], "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
+                              "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": simdi, "surum": 2,
+                              **({"g1v": G1V["s"]} if G1V["s"] else {})})
+
+
 def guncelle(obj, simdi=None):
     tarih = obj["tarih"]; os.makedirs(VERI, exist_ok=True)
     try:
@@ -223,7 +278,7 @@ def guncelle(obj, simdi=None):
                     _ekle_g(c, at, pp, P, simdi)
                     kay[anahtar] = c
             if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat) and G1V["s"]:
-                _g1e = [q for q in c["kuponlar"] if q["model"] == "G1-S-G" and q.get("g1v") != G1V["s"]]
+                _g1e = [q for q in c["kuponlar"] if q["model"] in ("G1-S-G", "Devir-G1S") and q.get("g1v") != G1V["s"]]
                 if _g1e:                                  # G1-S sürümü değişti (v2 -> v3, 24 Ekim 2026): başlamamış koşuda G1-S kuponları yeni sürümle yenilenir (eksik -G ekleme aşaması üretir)
                     c["kuponlar"] = [q for q in c["kuponlar"] if q not in _g1e]
             if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat):
@@ -236,6 +291,19 @@ def guncelle(obj, simdi=None):
                 r = _olasiliklar(obj, k)                 # henüz başlamamış kayda eksik -G kuponlar eklenir (mevcut kuponlar değişmez)
                 if r:
                     at, pp, P = r; _ekle_g(c, at, pp, P, simdi)
+            if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat):
+                try:
+                    if c.get("devir") is None:
+                        havuz = [x["kosu"] for x in h["kosular"] if x.get("besli") is True]
+                        dv = devir_durum(tarih, h["id"], k["kosu"], havuz)
+                        if dv:
+                            c["devir"] = dv
+                    if c.get("devir"):
+                        r = _olasiliklar(obj, k)
+                        if r:
+                            at, pp, P = r; _ekle_devir(c, at, pp, P, simdi)
+                except Exception as e:
+                    print("devir hatası:", repr(e))
             if c and "sonuc" not in c and k.get("sonuc"):
                 sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None and v["sira"] > 0}
                 ilk5 = [no for no, s in sorted(sira.items(), key=lambda x: x[1])][:5]
