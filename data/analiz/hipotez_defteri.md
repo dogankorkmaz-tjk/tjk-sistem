@@ -645,3 +645,14 @@ Karar: yön beklenene uygun VE %98,3 GA sıfırı dışlıyorsa → v3'e özelli
 Fazla kazanma farkı (bayraklı − bayraksız, piyasa-sırası katmanlı) [%95 GA] / %98,3 GA: HP1 −0,0022 [−0,0053;+0,0010] / [−0,0055;+0,0013] (beklenen <0 → yön uyuyor, anlamsız) | HP2 −0,0039 [−0,0128;+0,0045] (yön uyuyor, anlamsız) | EZ −0,0016 [−0,0078;+0,0049] (beklenen >0 → yön TERS, anlamsız).
 Getiri (1 TL ganyan) farkları: HP1 +0,021 [−0,008;+0,051], HP2 −0,032 [−0,090;+0,027], EZ −0,016 [−0,069;+0,038] — hepsi sıfırı kapsıyor.
 Karar: %98,3 GA hiçbir hipotezde sıfırı dışlamıyor → bu vekillerle zorlanma/korunma etkisi tespit edilmedi; v3'e özellik EKLENMEZ. Sınır: kırbaç sayısı/gerçek zorlanma verisi yok; vekiller zayıf (HP1 ve EZ gürültülü). HP1'in 51 bin örnekte etkiyi ±0,003 (kazanma olasılığı) hassasiyetiyle dışlaması: piyasaya göre >%0,3 puan fark yok. Jokey-özgü (ör. Selim Kaya) ayrımı yapılmadı; jokey bazlı veri ince.
+
+## 2026-10-24 17:45 — Mesafe/pist tercihi (her at farklı mesafe ve pistte iyi) — ÖN KAYIT
+Mevcut v3'te atın mesafe uyumu yalnız f_dp150_m ile (pistten bağımsız çekirdek) var; pist (çim/kum/sentetik) tercihi ve mesafe DEĞİŞİMİ yok. Hipotez: at-özgü pist ve (pist içi) mesafe tercihi ile mesafe değişim yönü, v3'e ek bilgi verir.
+Yeni özellikler (hepsi yalnız önceki koşulardan, artık = piyasa-örtük sıra yüzdeliği − gerçek yüzdelik, [-1,1]): f_ps = atın AYNI pistteki geçmiş artık ortalaması (2 ağırlıklı önsel); f_dpp = aynı pistte mesafe çekirdekli (bant 150 m) artık ortalaması (önsel 2); f_pchg = bu koşunun pisti önceki koşuya göre farklı; f_dup = max(0, ln(mesafe/önceki mesafe)); f_ddn = max(0, −ln(mesafe/önceki mesafe)). Mesafe/pist bilinmiyorsa 0.
+Test: v3 (mevcut ortak model) vs v3x (= v3 + 5 özellik, aynı ridge 50, aynı ileri-yürüyüş 2026-04..10, aylık yeniden eğitim). Ölçüt: kazanan/ikili/üçlü/ilk4/ilk5 log-kaybı, gün kümeli bootstrap. Karar: kazananda VE ilk-3 derinlikte (ikili/üçlü) v3x−v3 GA<0 → özellikler v3'e alınır; aksi halde eklenmez. Özellik/ridge/bant sonuca bakılarak oynanmaz.
+
+## 2026-10-24 — Mesafe/pist tercihi SONUÇ (ön kayıt 17:45)
+v3x (v3 + pist-tercihi, mesafe×pist, pist değişimi, mesafe artış/azalış; f_dp150_m arşivden doldurulmuş mesafeyle iki tarafta da yeniden hesaplandı) − v3, yürüyen test 2026-04..10, 3388 yarış, nat/yarış (negatif = iyi), %98.3 GA:
+kazanan −0.0008 [−0.0023, +0.0008]; ikili −0.0009 [−0.0028, +0.0010]; üçlü −0.0017 [−0.0041, +0.0005]; ilk4 −0.0029 [−0.0053, −0.0005]; ilk5 −0.0050 [−0.0076, −0.0023].
+Karar kuralı (kazanan VE ikili/üçlü GA<0) sağlanmadı → v3'e EKLENMEZ. Not: ilk4/ilk5'te küçük ama anlamlı iyileşme var (tabela/5'li için ilgi çekici); ikinci bir bağımsız dönemde doğrulanmadan eklenmeyecek.
+Script: data/analiz/mesafe_pist_ozellik.py, entegre_v3_mp.py
