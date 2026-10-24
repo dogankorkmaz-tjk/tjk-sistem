@@ -106,14 +106,13 @@ def guncelle(obj):
     if obj.get("w0_s") is not None:                                                            # Jason-S (14 Ekim 2026): aynı dondurulmuş kural, ayrı gölge sayaç
         modeller.append(("JS|", "z4", obj["w0_s"], "Jason-S", obj.get("lp2_s", 0.0), ORAN))
     GD = {}
-    try:                                                                                       # G1-S (24 Ekim 2026): ilk 3 sıra + sıra üsleriyle eğitilmiş Benter-G1; aynı dondurulmuş kural, ayrı gölge sayaç
+    try:                                                                                       # G1-S: önce z6_doldur (obj'ye w0_g1/a_g1 yazar: v3 varsa v3), sonra aynı katsayılarla seçim
         from . import g1 as _G1
-        if os.path.exists(_G1.YOL3):
-            c3 = json.load(open(_G1.YOL3)); modeller.append(("G1|", "z6", c3["alfa"], "G1-S", 0.0, ORAN)); GD["G1|"] = (c3["g2"], c3["g3"])
+        _G1.z6_doldur(obj)
+        if obj.get("w0_g1") is not None and obj.get("a_g1"):
+            modeller.append(("G1|", "z6", obj["w0_g1"], "G1-S", 0.0, ORAN)); GD["G1|"] = (obj["a_g1"][1], obj["a_g1"][2])
     except Exception as e:
         print("G1-S hatası:", repr(e))
-    if GD:
-        _G1.z6_doldur(obj)
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             basladi = bool(k.get("sonuc")) or (simdi is not None and k.get("saat") and simdi >= k["saat"] and obj.get("gecmis") is not True)

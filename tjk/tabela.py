@@ -91,13 +91,20 @@ def guncelle(obj, simdi=None):
         for k in h["kosular"]:
             anahtar = f"{h['id']}|{k['kosu']}"; saat = k.get("saat") or "99:99"
             c = kay.get(anahtar)
-            if c is None and not k.get("sonuc") and (simdi is None or simdi < saat):
+            yen = False
+            if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat) and obj.get("g1_surum"):
+                if any(q["model"] == "G1-S" and q.get("g1v") != obj["g1_surum"] for q in c["kuponlar"]):
+                    c["kuponlar"] = [q for q in c["kuponlar"] if q["model"] != "G1-S"]; yen = True     # G1-S sürümü değişti (v2 -> v3, 24 Ekim 2026): başlamamış koşuda yalnız G1-S kuponları yenilenir
+            if (c is None or yen) and not k.get("sonuc") and (simdi is None or simdi < saat):
                 r = _olasiliklar(obj, k)
                 if r and len(r[0]) >= 6:
                     at, pp, P = r
                     Wp, Tp = _W(pp, G_P)
-                    c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "kuponlar": []}
+                    if c is None:
+                        c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "kuponlar": []}
                     for model, p in P.items():
+                        if yen and model != "G1-S":
+                            continue
                         G = GG.get(model) or G_M
                         for B in BUTCELER:
                             kp = kupon(p, B, G)
@@ -106,7 +113,7 @@ def guncelle(obj, simdi=None):
                             sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli(sets)
                             c["kuponlar"].append({"model": model, "tur": "sirali", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2),
                                                   "ayaklar": [[at[i]["no"] for i in s] for s in sets],
-                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
+                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), **({"g1v": obj.get("g1_surum")} if model == "G1-S" else {})})
                         W, T = _W(p, G)
                         sr = sorted(range(len(p)), key=lambda i: -p[i])
                         for ad, n in (("sirasiz", 5), ("sirasiz+", None)):
@@ -119,7 +126,7 @@ def guncelle(obj, simdi=None):
                             pm_ = _prob(W, T, sets); pq = _prob(Wp, Tp, sets); v = gecerli(sets)
                             c["kuponlar"].append({"model": model, "tur": ad, "butce": v, "kombinasyon": v, "bedel": round(v * BIRIM, 2),
                                                   "ayaklar": [[at[i]["no"] for i in s] for s in sets],
-                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
+                                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), **({"g1v": obj.get("g1_surum")} if model == "G1-S" else {})})
                     kay[anahtar] = c
             if c and "sonuc" not in c and k.get("sonuc"):
                 sira = {int(no): v["sira"] for no, v in k["sonuc"].items() if v.get("sira") is not None and v["sira"] > 0}

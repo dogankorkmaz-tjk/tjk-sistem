@@ -113,6 +113,7 @@ def kupon(p, B):
     return sets, cur
 
 
+G1V = {"s": None}   # G1-S sürümü (v2/v3): -G kuponlara damga, eski sürümlü kuponlar başlamamış koşuda yenilenir
 GG = {}   # model -> sıra üsleri (Jason-S kendi öğrenilmiş ölçeklerini kullanır)
 
 
@@ -140,12 +141,9 @@ def _olasiliklar(obj, k):
         pf = sm([obj["w0_f"] * math.log(max(p, 1e-6)) + l2 * math.log(max(p, 1e-6)) ** 2 + a["z5"] for p, a in zip(pp, at)])
     GG["Jason-S"] = obj.get("a_s") or G_M
     pg = None
-    try:                                                   # G1-S (24 Ekim 2026): Benter-G1, ilk 5 ile eğitilmiş; kendi sıra üsleri
-        from . import g1 as _G1
-        if os.path.exists(_G1.YOL3):
-            c3 = json.load(open(_G1.YOL3))
-            if all(a.get("z6") is not None for a in at):
-                pg = sm([c3["alfa"] * math.log(max(p, 1e-6)) + a["z6"] for p, a in zip(pp, at)]); GG["G1-S"] = c3["gam"]
+    try:                                                   # G1-S: katsayılar obj'den (z6_doldur v3/v2'ye göre yazar; z6 ile aynı sürüm olmalı)
+        if obj.get("w0_g1") is not None and obj.get("a_g1") and all(a.get("z6") is not None for a in at):
+            pg = sm([obj["w0_g1"] * math.log(max(p, 1e-6)) + a["z6"] for p, a in zip(pp, at)]); GG["G1-S"] = obj["a_g1"]
     except Exception as e:
         print("G1-S olasılık hatası:", repr(e))
     return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"Jason-S": ps} if ps else {}), **({"Jason-F": pf} if pf else {}), **({"G1-S": pg} if pg else {})}
@@ -170,7 +168,7 @@ def _ekle_g(c, at, pp, P, simdi, istek=None):
             c["kuponlar"].append({"model": model + "-G", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
                                   "ayaklar": [[at[i]["no"] for i in s] for s in sets],
                                   "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s} for s in sets],
-                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": simdi, "surum": 2})
+                                  "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": simdi, "surum": 2, **({"g1v": G1V["s"]} if model == "G1-S" else {})})
 
 
 def _odeme(tarih):
@@ -187,6 +185,7 @@ def guncelle(obj, simdi=None):
         from . import g1 as _G1; _G1.z6_doldur(obj)
     except Exception as e:
         print("z6 hatası:", repr(e))
+    G1V["s"] = obj.get("g1_surum")
     yol = os.path.join(VERI, tarih + ".json")
     kay = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
     if simdi is None:
@@ -223,6 +222,10 @@ def guncelle(obj, simdi=None):
                                                   "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3)})
                     _ekle_g(c, at, pp, P, simdi)
                     kay[anahtar] = c
+            if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat) and G1V["s"]:
+                _g1e = [q for q in c["kuponlar"] if q["model"] == "G1-S-G" and q.get("g1v") != G1V["s"]]
+                if _g1e:                                  # G1-S sürümü değişti (v2 -> v3, 24 Ekim 2026): başlamamış koşuda G1-S kuponları yeni sürümle yenilenir (eksik -G ekleme aşaması üretir)
+                    c["kuponlar"] = [q for q in c["kuponlar"] if q not in _g1e]
             if c and "sonuc" not in c and not k.get("sonuc") and (simdi is None or simdi < saat):
                 eski = [q for q in c["kuponlar"] if q["model"].endswith("-G") and q.get("surum", 1) < 2]
                 if eski:                                  # sürüm 1 (tek başlangıçlı) -G kuponlar henüz başlamamış koşuda sürüm 2 ile değiştirilir
