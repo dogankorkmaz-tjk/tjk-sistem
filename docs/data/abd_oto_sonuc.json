@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 20:23 UTC",
- "kayitli_kosu": 691,
- "eslesmeyen_kosu": 460,
+ "uretim": "2026-10-24 20:37 UTC",
+ "kayitli_kosu": 698,
+ "eslesmeyen_kosu": 465,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 380,
- "kosu": 231,
- "isabet": 29,
- "roi": 1.228,
+ "bahis": 388,
+ "kosu": 233,
+ "isabet": 31,
+ "roi": 1.295,
  "ga95": [
-  0.758,
-  1.742
+  0.869,
+  1.799
  ],
  "ulke": {
   "abd": {
-   "bahis": 239,
-   "roi": 1.033
+   "bahis": 247,
+   "roi": 1.145
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 462,
-  "kosu": 225,
+  "bahis": 465,
+  "kosu": 227,
   "isabet": 54,
-  "roi": 0.875,
+  "roi": 0.87,
   "ga95": [
-   0.659,
-   1.134
+   0.656,
+   1.127
   ]
  },
  "bahis_t1": {
-  "bahis": 483,
-  "kosu": 222,
+  "bahis": 486,
+  "kosu": 224,
   "isabet": 60,
-  "roi": 1.002,
+  "roi": 0.996,
   "ga95": [
-   0.645,
-   1.398
+   0.639,
+   1.388
   ]
  },
  "bahis_t3": {
-  "bahis": 476,
-  "kosu": 217,
+  "bahis": 479,
+  "kosu": 219,
   "isabet": 58,
-  "roi": 0.903,
+  "roi": 0.898,
   "ga95": [
-   0.558,
-   1.393
+   0.551,
+   1.386
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "JETS RIO",
-   "q": 0.112,
-   "g": 18.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "GALLO DE FUEGO",
-   "q": 0.143,
-   "g": 10.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "PURE OCTANE",
-   "q": 0.119,
-   "g": 13.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "SPUN LEGACY",
-   "q": 0.093,
-   "g": 31.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "BRAVE PILOT",
-   "q": 0.139,
-   "g": 19.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "GUN BARREL CITY",
-   "q": 0.064,
-   "g": 21.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "JOY DIVISION",
-   "q": 0.027,
-   "g": 46.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "ANGEL OF KIRK",
-   "q": 0.342,
-   "g": 4.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Keeneland",
@@ -400,6 +328,42 @@
   },
   {
    "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "RAINBOW LIGHTNING",
+   "q": 0.077,
+   "g": 22.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "A LAST CRACK AT IT",
+   "q": 0.053,
+   "g": 25.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "JOYFUL FLIGHT",
+   "q": 0.139,
+   "g": 9.2,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 7,
+   "at": "CONFIDENCE",
+   "q": 0.043,
+   "g": 30.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
    "pist": "Woodbine",
    "kosu": 5,
    "at": "STROKE OF GENIUS",
@@ -423,6 +387,42 @@
    "at": "TIZ PRACTICAL",
    "q": 0.071,
    "g": 86.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "RADAR WOMAN",
+   "q": 0.037,
+   "g": 49.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "SCOTCH MIST",
+   "q": 0.06,
+   "g": 23.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "GOLDEN HARVEST",
+   "q": 0.049,
+   "g": 26.8,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "WHISKEY OVER WINE",
+   "q": 0.06,
+   "g": 23.1,
    "kazandi": false
   }
  ]
