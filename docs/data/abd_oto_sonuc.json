@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 18:25 UTC",
- "kayitli_kosu": 668,
- "eslesmeyen_kosu": 446,
+ "uretim": "2026-10-24 18:43 UTC",
+ "kayitli_kosu": 673,
+ "eslesmeyen_kosu": 450,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 363,
- "kosu": 222,
+ "bahis": 365,
+ "kosu": 223,
  "isabet": 28,
- "roi": 1.254,
+ "roi": 1.247,
  "ga95": [
-  0.771,
-  1.792
+  0.758,
+  1.781
  ],
  "ulke": {
   "abd": {
-   "bahis": 222,
-   "roi": 1.061
+   "bahis": 224,
+   "roi": 1.052
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 446,
-  "kosu": 216,
+  "bahis": 448,
+  "kosu": 217,
   "isabet": 51,
-  "roi": 0.859,
+  "roi": 0.855,
   "ga95": [
-   0.634,
-   1.127
+   0.631,
+   1.126
   ]
  },
  "bahis_t1": {
-  "bahis": 467,
-  "kosu": 213,
+  "bahis": 469,
+  "kosu": 214,
   "isabet": 58,
-  "roi": 1.015,
+  "roi": 1.011,
   "ga95": [
-   0.646,
-   1.422
+   0.643,
+   1.416
   ]
  },
  "bahis_t3": {
-  "bahis": 457,
-  "kosu": 209,
+  "bahis": 460,
+  "kosu": 210,
   "isabet": 55,
-  "roi": 0.894,
+  "roi": 0.888,
   "ga95": [
-   0.527,
-   1.404
+   0.52,
+   1.395
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Greyville",
-   "kosu": 7,
-   "at": "CHASING GOLD",
-   "q": 0.212,
-   "g": 6.0,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Greyville",
-   "kosu": 8,
-   "at": "STAGE ONE",
-   "q": 0.211,
-   "g": 6.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Gulfstream",
@@ -378,6 +360,24 @@
    "at": "KAY CUP",
    "q": 0.111,
    "g": 15.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "ANNEXPERIENCE",
+   "q": 0.071,
+   "g": 32.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "CHUMMERS",
+   "q": 0.111,
+   "g": 13.5,
    "kazandi": false
   },
   {
