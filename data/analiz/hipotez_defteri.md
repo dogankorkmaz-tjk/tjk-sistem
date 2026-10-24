@@ -727,3 +727,6 @@ Aynı kural sıralı 5'li geç kuponuyla: start'a 3–30 dk kala canlı muhtemel
 
 ## 2026-10-24 20:10 — CORS sondası (altyapı, hipotez değil)
 vhs-medya(-cdn).tjk.org GET 200 veriyor ama Access-Control-Allow-Origin yalnız https://vhs.tjk.org; OPTIONS 405. Sonuç: site tarayıcıdan doğrudan okuyamaz, aracı (Worker/VPS) gerekir. Önbellek max-age=10 sn (veri taze).
+
+## 2026-10-24 20:15 — Geç kupon penceresi uzatıldı (sonuç görülmeden)
+Doğan: start saati geçse bile atların starta girmesi uzuyor, bahis o sürede açık. Geç kupon artık "start'a 3 dk kala donar" yerine, TJK muhtemel durumu AÇIK olduğu sürece (start saatinden en fazla 10 dk sonrasına kadar) son AÇIK anlığıyla güncellenir; bahis kapanınca (durum AÇIK değil) son hesap kalır. Pencere başı değişmedi (30 dk kala).
