@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 17:07 UTC",
- "kayitli_kosu": 648,
- "eslesmeyen_kosu": 429,
+ "uretim": "2026-10-24 17:31 UTC",
+ "kayitli_kosu": 650,
+ "eslesmeyen_kosu": 430,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 362,
- "kosu": 219,
+ "bahis": 363,
+ "kosu": 220,
  "isabet": 28,
- "roi": 1.257,
+ "roi": 1.254,
  "ga95": [
-  0.775,
-  1.798
+  0.771,
+  1.792
  ],
  "ulke": {
   "abd": {
-   "bahis": 221,
-   "roi": 1.066
+   "bahis": 222,
+   "roi": 1.061
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 445,
-  "kosu": 213,
+  "kosu": 214,
   "isabet": 50,
   "roi": 0.856,
   "ga95": [
@@ -45,35 +45,26 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 462,
-  "kosu": 210,
+  "bahis": 466,
+  "kosu": 211,
   "isabet": 57,
-  "roi": 1.022,
+  "roi": 1.013,
   "ga95": [
-   0.652,
-   1.428
+   0.642,
+   1.422
   ]
  },
  "bahis_t3": {
-  "bahis": 453,
-  "kosu": 206,
-  "isabet": 53,
-  "roi": 0.895,
+  "bahis": 456,
+  "kosu": 207,
+  "isabet": 54,
+  "roi": 0.892,
   "ga95": [
-   0.523,
-   1.404
+   0.52,
+   1.403
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Greyville",
-   "kosu": 2,
-   "at": "THE BIDDER",
-   "q": 0.084,
-   "g": 14.85,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Greyville",
@@ -378,6 +369,15 @@
    "at": "DAVIDSON",
    "q": 0.143,
    "g": 9.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "KAY CUP",
+   "q": 0.111,
+   "g": 15.75,
    "kazandi": false
   },
   {
