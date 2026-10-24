@@ -19,10 +19,11 @@ concurrency:
   cancel-in-progress: false
 permissions:
   contents: write
+  actions: write
 jobs:
   a:
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -46,3 +47,15 @@ jobs:
           git add -A data; git diff --cached --quiet && exit 0
           git commit -m "atyarisi arşiv $(date -u '+%Y-%m-%d %H:%M') UTC"
           for i in 1 2 3; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
+      - name: Zincir (geri doldurma bitmediyse sıradaki partiyi başlat)
+        if: always() && inputs.mod == 'geri'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          HEDEF="${{ inputs.bas }}"
+          ILK=$(ls data/atyarisi | sed 's/.json.gz//' | sort | head -1)
+          echo "en eski arşiv günü: $ILK, hedef: $HEDEF"
+          if [ -n "$HEDEF" ] && [[ "$ILK" > "$HEDEF" ]]; then
+            SON=$(date -u -d "$ILK - 1 day" +%F)
+            gh workflow run atyarisi_arsiv.yml -f mod=geri -f bas="$HEDEF" -f bit="$SON" -f max=100
+          fi
