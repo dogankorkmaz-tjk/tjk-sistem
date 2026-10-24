@@ -567,3 +567,16 @@ Veri: data/sonuclar 2023-01.. + galop (2026-01..). Her test ayı için (2026-04.
 - Kazanan: v2−G1-S −0.0050 [−0.0083,−0.0021]; G1-S−piyasa+gamma +0.0008 (anlamsız); v2−piyasa+gamma −0.0042 [−0.0103,+0.0012]
 - Sıralı ikili: v2−pg −0.0222 [−0.0309,−0.0140]; üçlü −0.0403 [−0.0499,−0.0310]; ilk4 −0.0583 [−0.0692,−0.0466]; ilk5 −0.0713 [−0.0829,−0.0594]
 - v2−G1-S her derinlikte GA<0 (−0.005…−0.011). Karar: kriter sağlandı → G1-S v2 geçmiş veride doğrulandı (kazanan-tek ölçütte pg'ye karşı GA sıfırı kapsıyor).
+
+## 2026-10-24 12:00 — Egzotik geriye dönük ROI testi (sıralı ikili, ikili, üçlü) — ÖN KAYIT
+Amaç: log-kaybı kazancının (G1-S v2) havuz ödemelerinde kâğıt üstü kâra dönüşüp dönmediği. Veri: ileri-yürüyüş model olasılıkları (2026-04..10, aylık yeniden eğitim) + data/odeme gerçek ödemeler.
+Kural (egzotik.py ile aynı, DONDURULMUŞ): piyasa kombinasyon olasılığı A = kapanış ganyanından Harville(GAMA .867, DELTA .735); model B = exploded-logit (gam üsleri); seç: A ≥ ESIK[tur] ve B/A ≥ 1.15; bedel BIRIM (1,1,2); kazanç = ödeme satırı 'tutar' (aynı kombinasyon). Ödeme satırı olmayan koşu atlanır.
+Modeller: piyasa+gamma (kontrol), G1-S, G1-S v2. Duyarlılık (kural değil): oran eşiği 1.00(yalnız kontrol)/1.30/1.50. ROI = (kazanç−bedel)/bedel, gün kümeli bootstrap %95 GA.
+Karar: v2'nin ROI GA alt sınırı > −takeout-düzeyi değil, > 0 olursa "kâr kanıtı"; GA sıfırı kapsıyorsa "kanıt yok". Kontrol (piyasa+gamma, oran 1.15) v2'den farksızsa kazanç modelden değil gamma düzeltmesindendir.
+### SONUÇ (2026-10-24) — ileri-yürüyüş 2026-04..10, ana kural oran ≥1.15 (ROI [gün kümeli %95 GA])
+- Sıralı ikili: hepsini al (kontrol) −27,4% | G1-S −19,5% [−27,5;−11,6] | G1-S v2 −6,8% [−15,0;+2,6]
+- Üçlü: hepsini al −28,3% | G1-S −19,0% | v2 −19,2% [−30,8;−7,3]
+- İkili (sırasız): hepsini al −57,0% | G1-S −55,0% | v2 −51,7% [−57,5;−45,5]  (not: ikili ödeme birimi/bedeli doğrulanmalı; taban −57% şüpheli derecede kötü)
+- Duyarlılık: oran 1.50'de sıralı ikili v2 −1,9% [−26,6;+28,4], üçlü v2 +2,5% [−27,1;+33,3] (çok geniş GA).
+- Kontrol piyasa+gamma (özelliksiz) oran 1.15'te neredeyse hiç seçim yapmıyor → kazanç gamma düzeltmesinden değil özelliklerden.
+Karar: hiçbir tür için ROI GA'sının alt sınırı >0 değil → "kâr kanıtı YOK". Model seçimi, körlemesine alıma göre kaybı belirgin azaltıyor (sıralı ikili −27%→−7%) ama takeout'u yenmiyor. Canlı kâğıt üstü devam; ek eşik/oran oynaması yapılmadı (çoklu karşılaştırma).

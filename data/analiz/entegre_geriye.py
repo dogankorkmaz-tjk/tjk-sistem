@@ -15,7 +15,7 @@ for key in sorted(K):
     n = len(ok); inv = np.array([1 / g1._fl(r["ganyan"]) for r in ok]); pm = inv / inv.sum(); gun = dt.date.fromisoformat(key[0]).toordinal()
     X = g1._oz(H, J, AJ, ok, pm, gun)
     F = np.array([g1.galop_f(r["at"], dt.date.fromisoformat(key[0])) for r in ok]) if key[0] >= "2026-02-01" else None
-    R.append(dict(gun=key[0], ay=key[0][:7], lm=np.log(pm), X=X, F=F))
+    R.append(dict(key=key, nos=[int(g1._fl(r['no'],0)) for r in ok], gun=key[0], ay=key[0][:7], lm=np.log(pm), X=X, F=F))
     for i, r in enumerate(ok):
         pct = 1 - (g1._fl(r["sira"]) - 1) / (n - 1); win = 1.0 if i == 0 else 0.0
         H.setdefault(r["at"], []).append((gun, pct, win - pm[i]))
