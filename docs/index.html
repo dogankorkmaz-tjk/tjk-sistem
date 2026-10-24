@@ -1259,7 +1259,7 @@ function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=d
   el.style.display='block'; el.style.background='#14532d'; el.textContent='● CANLI '+LIVES.t+(LIVES.kosu?' · '+LIVES.kosu:''); }
 async function canliTick(){
   if(!VERI||GUN!==trBugun()||document.hidden) return;
-  const hedef=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.sonuc||!k.saat) return; const dk=trDk(k.saat); if(dk<=10&&dk>=-15) hedef.push({h,k,dk}); }));
+  const hedef=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.sonuc||!k.saat) return; const dk=trDk(k.saat); if(dk<=10&&dk>=-10) hedef.push({h,k,dk}); }));
   if(!hedef.length){ LIVES.t=null; LIVES.hata=null; canliPill(); return; }
   try{
     const d=GUN.replace(/-/g,'/'), ck=await (await fetch(`${PROXY}/muhtemeller/s/${d}/checksum.json?cdn=0&_=${Math.floor(Date.now()/5000)}`)).json();
