@@ -770,3 +770,7 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 ## Ön-kayıt: ilk-5 gölge katman v2, canlı izleme (25 Ekim 2026, ~03:00)
 - Kural: D + dinlenme + Jason ek özellikleri (T3+T8), tüm veriyle fit, donduruldu: data/analiz/ilk5_katsayilar_v2.json (betik ilk5_dondur.py). Canlı: tjk/ilk5.py; sabah programda her ata x5 özelliği yazılır, gece döngüsünde biten koşularda 2.–5. sıra log-olabilirliği Jason-Harville / mevcut (G1-S a_g1) / yeni ile karşılaştırılır (docs/data/ilk5_golge.json). Üretim kupon/olasılıklarına dokunmaz.
 - Karar: ≥300 koşuda (25 Ekim sonrası) fark GA alt sınırı > 0 ise sıralama katmanına geçirilir; kupon ROI'si ayrıca raporlanır. Katsayılar bu sürede değişmez.
+
+## Ön-kayıt: LightGBM bağlam testi, ilk-5 (25 Ekim 2026, ~02:55)
+- T9: D+ (T3+T8 özellikleri) skorunu başlangıç (init_score) alıp LightGBM lambdarank ile BAĞLAM DÜZELTMESİ δ öğrenmek. Girdi: D+ özellikleri + alan büyüklüğü, hipodrom, koşu içi sıra/fark/entropi. Son skor: S_s = D+_s + c_s·δ (c_s doğrulama parçasında fit). Bölme: ilk %48 eğitim, sonraki %12 doğrulama (erken durdurma + c_s), son %40 test (T1–T8 ile aynı). Karşılaştırma: D+ (yalnız eğitimle fit) → temiz kıyas; D+ (%60 ile fit) bilgi için.
+- Başarı: 2.–5. sıra log-olabilirlik kazancı GA alt sınırı > 0 (D+ eğitim-yalnız tabanına göre). Hiperparametre sabit (yaprak 7, min 200, lr 0,03, l2=10, ≤600 ağaç, erken durdurma 50); test dönemine bakarak ayar yapılmaz. Betik: data/analiz/ilk5_lgbm.py.
