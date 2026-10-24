@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-24 12:48 UTC",
- "kayitli_kosu": 597,
- "eslesmeyen_kosu": 385,
+ "uretim": "2026-10-24 13:24 UTC",
+ "kayitli_kosu": 600,
+ "eslesmeyen_kosu": 386,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 357,
- "kosu": 212,
+ "bahis": 358,
+ "kosu": 214,
  "isabet": 28,
- "roi": 1.275,
+ "roi": 1.272,
  "ga95": [
-  0.795,
-  1.831
+  0.79,
+  1.82
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 1.076
   },
   "birlesik-krallik": {
-   "bahis": 56,
-   "roi": 2.13
+   "bahis": 57,
+   "roi": 2.093
   },
   "fransa": {
    "bahis": 25,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 428,
-  "kosu": 207,
-  "isabet": 49,
-  "roi": 0.862,
+  "bahis": 430,
+  "kosu": 208,
+  "isabet": 50,
+  "roi": 0.886,
   "ga95": [
-   0.628,
-   1.137
+   0.654,
+   1.199
   ]
  },
  "bahis_t1": {
-  "bahis": 444,
-  "kosu": 204,
+  "bahis": 447,
+  "kosu": 205,
   "isabet": 57,
-  "roi": 1.063,
+  "roi": 1.056,
   "ga95": [
-   0.706,
-   1.468
+   0.688,
+   1.472
   ]
  },
  "bahis_t3": {
-  "bahis": 432,
-  "kosu": 200,
+  "bahis": 436,
+  "kosu": 201,
   "isabet": 52,
-  "roi": 0.919,
+  "roi": 0.91,
   "ga95": [
-   0.534,
-   1.446
+   0.525,
+   1.433
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 5,
-   "at": "ALESIAN BEAU",
-   "q": 0.075,
-   "g": 17.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Fairview",
@@ -423,6 +414,15 @@
    "at": "BOSTON DAN",
    "q": 0.092,
    "g": 22.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Doncaster",
+   "kosu": 2,
+   "at": "BREACHER",
+   "q": 0.079,
+   "g": 27.55,
    "kazandi": false
   }
  ]
