@@ -1,0 +1,764 @@
+{
+"2026-10-18|LEOPARDS-5": {
+"saat": "18:12",
+"acik_son_dk": 2.2,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-18|LEOPARDS-7": {
+"saat": "19:12",
+"acik_son_dk": 0.7,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-18|WOODBINE-1": {
+"saat": "21:11",
+"acik_son_dk": -0.7,
+"kapali_ilk_dk": 3.9,
+"n": 4
+},
+"2026-10-18|WOODBINE-2": {
+"saat": "21:44",
+"acik_son_dk": -2.8,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-10-18|WOODBINE-3": {
+"saat": "22:17",
+"acik_son_dk": -7.7,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-18|WOODBINE-4": {
+"saat": "22:50",
+"acik_son_dk": -1.2,
+"kapali_ilk_dk": 2.6,
+"n": 4
+},
+"2026-10-18|WOODBINE-5": {
+"saat": "23:22",
+"acik_son_dk": 1.7,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-10-18|WOODBINE-6": {
+"saat": "23:55",
+"acik_son_dk": 2.3,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-18|WOODBINE-7": {
+"saat": "00:26",
+"acik_son_dk": 2.3,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-18|WOODBINE-8": {
+"saat": "00:56",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-10-18|ADANA-8": {
+"saat": "21:30",
+"acik_son_dk": -0.1,
+"kapali_ilk_dk": 3.7,
+"n": 3
+},
+"2026-10-19|SANLIURFA-2": {
+"saat": "17:45",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": 2.1,
+"n": 16
+},
+"2026-10-19|SANLIURFA-3": {
+"saat": "18:30",
+"acik_son_dk": 0.2,
+"kapali_ilk_dk": null,
+"n": 14
+},
+"2026-10-19|SANLIURFA-4": {
+"saat": "19:00",
+"acik_son_dk": 1.6,
+"kapali_ilk_dk": null,
+"n": 7
+},
+"2026-10-19|SANLIURFA-5": {
+"saat": "19:30",
+"acik_son_dk": 2.2,
+"kapali_ilk_dk": null,
+"n": 13
+},
+"2026-10-19|SANLIURFA-6": {
+"saat": "20:00",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-19|SANLIURFA-7": {
+"saat": "20:30",
+"acik_son_dk": -6.3,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-19|SANLIURFA-8": {
+"saat": "21:00",
+"acik_son_dk": 3.2,
+"kapali_ilk_dk": null,
+"n": 14
+},
+"2026-10-19|SANLIURFA-9": {
+"saat": "21:30",
+"acik_son_dk": 1.8,
+"kapali_ilk_dk": null,
+"n": 15
+},
+"2026-10-19|GOWRAN-1": {
+"saat": "15:40",
+"acik_son_dk": 2.0,
+"kapali_ilk_dk": null,
+"n": 13
+},
+"2026-10-19|GOWRAN-3": {
+"saat": "16:40",
+"acik_son_dk": 2.1,
+"kapali_ilk_dk": null,
+"n": 12
+},
+"2026-10-19|GOWRAN-5": {
+"saat": "17:40",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": null,
+"n": 16
+},
+"2026-10-19|GOWRAN-6": {
+"saat": "18:10",
+"acik_son_dk": 2.4,
+"kapali_ilk_dk": null,
+"n": 6
+},
+"2026-10-19|GOWRAN-7": {
+"saat": "18:40",
+"acik_son_dk": -5.2,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-19|GOWRAN-8": {
+"saat": "19:10",
+"acik_son_dk": 1.0,
+"kapali_ilk_dk": 3.9,
+"n": 16
+},
+"2026-10-20|ADANA-1": {
+"saat": "14:00",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": 3.4,
+"n": 10
+},
+"2026-10-20|ADANA-2": {
+"saat": "14:30",
+"acik_son_dk": 0.5,
+"kapali_ilk_dk": 1.1,
+"n": 16
+},
+"2026-10-20|ADANA-3": {
+"saat": "15:00",
+"acik_son_dk": 0.6,
+"kapali_ilk_dk": 0.9,
+"n": 10
+},
+"2026-10-20|ADANA-4": {
+"saat": "15:30",
+"acik_son_dk": 0.5,
+"kapali_ilk_dk": 1.2,
+"n": 14
+},
+"2026-10-20|ADANA-6": {
+"saat": "16:30",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 1.3,
+"n": 17
+},
+"2026-10-20|ADANA-8": {
+"saat": "17:30",
+"acik_son_dk": -4.7,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-20|KOCAELI-1": {
+"saat": "17:45",
+"acik_son_dk": -9.8,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-20|KOCAELI-2": {
+"saat": "18:30",
+"acik_son_dk": -7.1,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-20|KOCAELI-3": {
+"saat": "19:00",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 3.3,
+"n": 5
+},
+"2026-10-20|KOCAELI-4": {
+"saat": "19:30",
+"acik_son_dk": 3.1,
+"kapali_ilk_dk": null,
+"n": 5
+},
+"2026-10-20|KOCAELI-5": {
+"saat": "20:00",
+"acik_son_dk": -9.3,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-20|KOCAELI-6": {
+"saat": "20:30",
+"acik_son_dk": -3.2,
+"kapali_ilk_dk": null,
+"n": 6
+},
+"2026-10-20|KOCAELI-7": {
+"saat": "21:00",
+"acik_son_dk": 0.6,
+"kapali_ilk_dk": 1.2,
+"n": 13
+},
+"2026-10-20|KOCAELI-8": {
+"saat": "21:30",
+"acik_son_dk": 1.0,
+"kapali_ilk_dk": 3.9,
+"n": 16
+},
+"2026-10-20|FORTERIE-1": {
+"saat": "19:15",
+"acik_son_dk": 2.8,
+"kapali_ilk_dk": null,
+"n": 17
+},
+"2026-10-20|FORTERIE-2": {
+"saat": "19:43",
+"acik_son_dk": 1.8,
+"kapali_ilk_dk": null,
+"n": 16
+},
+"2026-10-20|FORTERIE-3": {
+"saat": "20:11",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": null,
+"n": 14
+},
+"2026-10-20|FORTERIE-5": {
+"saat": "21:07",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": null,
+"n": 16
+},
+"2026-10-20|FORTERIE-6": {
+"saat": "21:35",
+"acik_son_dk": 1.8,
+"kapali_ilk_dk": null,
+"n": 15
+},
+"2026-10-20|FORTERIE-8": {
+"saat": "22:31",
+"acik_son_dk": -2.3,
+"kapali_ilk_dk": null,
+"n": 8
+},
+"2026-10-20|FORTERIE-9": {
+"saat": "22:59",
+"acik_son_dk": 3.2,
+"kapali_ilk_dk": null,
+"n": 11
+},
+"2026-10-21|BURSA-2": {
+"saat": "12:45",
+"acik_son_dk": 0.6,
+"kapali_ilk_dk": 1.3,
+"n": 16
+},
+"2026-10-21|BURSA-3": {
+"saat": "13:15",
+"acik_son_dk": 0.9,
+"kapali_ilk_dk": 2.3,
+"n": 16
+},
+"2026-10-21|BURSA-4": {
+"saat": "13:45",
+"acik_son_dk": 0.8,
+"kapali_ilk_dk": 1.5,
+"n": 17
+},
+"2026-10-21|BURSA-5": {
+"saat": "14:15",
+"acik_son_dk": 0.2,
+"kapali_ilk_dk": 0.9,
+"n": 17
+},
+"2026-10-21|ISTANBUL-1": {
+"saat": "13:30",
+"acik_son_dk": 1.0,
+"kapali_ilk_dk": 3.2,
+"n": 6
+},
+"2026-10-21|ISTANBUL-2": {
+"saat": "14:00",
+"acik_son_dk": -6.3,
+"kapali_ilk_dk": 3.6,
+"n": 3
+},
+"2026-10-21|ISTANBUL-3": {
+"saat": "14:30",
+"acik_son_dk": -5.2,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-10-21|ISTANBUL-4": {
+"saat": "15:00",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": 1.7,
+"n": 8
+},
+"2026-10-21|ISTANBUL-5": {
+"saat": "15:30",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": 2.0,
+"n": 7
+},
+"2026-10-21|ISTANBUL-6": {
+"saat": "16:00",
+"acik_son_dk": -7.5,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-21|ISTANBUL-7": {
+"saat": "16:30",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": 1.5,
+"n": 16
+},
+"2026-10-21|ISTANBUL-9": {
+"saat": "17:30",
+"acik_son_dk": -4.8,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-21|ISTANBUL-10": {
+"saat": "18:00",
+"acik_son_dk": 0.7,
+"kapali_ilk_dk": 1.3,
+"n": 6
+},
+"2026-10-21|ELAZIG-1": {
+"saat": "18:30",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": 2.9,
+"n": 6
+},
+"2026-10-21|ELAZIG-2": {
+"saat": "19:00",
+"acik_son_dk": -9.7,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-21|ELAZIG-3": {
+"saat": "19:30",
+"acik_son_dk": -0.9,
+"kapali_ilk_dk": null,
+"n": 11
+},
+"2026-10-21|ELAZIG-4": {
+"saat": "20:00",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 3.2,
+"n": 5
+},
+"2026-10-21|ELAZIG-5": {
+"saat": "20:30",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": 3.6,
+"n": 12
+},
+"2026-10-21|ELAZIG-6": {
+"saat": "21:00",
+"acik_son_dk": 3.6,
+"kapali_ilk_dk": null,
+"n": 11
+},
+"2026-10-21|ELAZIG-7": {
+"saat": "21:30",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": 3.0,
+"n": 16
+},
+"2026-10-22|BURSA-2": {
+"saat": "12:45",
+"acik_son_dk": 0.5,
+"kapali_ilk_dk": 1.2,
+"n": 16
+},
+"2026-10-22|BURSA-3": {
+"saat": "13:15",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": null,
+"n": 15
+},
+"2026-10-22|BURSA-5": {
+"saat": "14:15",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": 2.1,
+"n": 16
+},
+"2026-10-22|BURSA-6": {
+"saat": "14:45",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": null,
+"n": 16
+},
+"2026-10-22|BURSA-7": {
+"saat": "15:15",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": null,
+"n": 16
+},
+"2026-10-22|ANKARA-1": {
+"saat": "13:30",
+"acik_son_dk": -1.6,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-10-22|ANKARA-2": {
+"saat": "14:00",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 2.6,
+"n": 5
+},
+"2026-10-22|ANKARA-3": {
+"saat": "14:30",
+"acik_son_dk": -10.0,
+"kapali_ilk_dk": 1.7,
+"n": 2
+},
+"2026-10-22|ANKARA-4": {
+"saat": "15:00",
+"acik_son_dk": -7.7,
+"kapali_ilk_dk": 1.6,
+"n": 3
+},
+"2026-10-22|ANKARA-5": {
+"saat": "15:30",
+"acik_son_dk": 3.0,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-10-22|ANKARA-6": {
+"saat": "16:00",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-22|ANKARA-7": {
+"saat": "16:30",
+"acik_son_dk": -3.2,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-22|ANKARA-8": {
+"saat": "17:00",
+"acik_son_dk": 1.0,
+"kapali_ilk_dk": 2.5,
+"n": 16
+},
+"2026-10-22|ANKARA-9": {
+"saat": "17:30",
+"acik_son_dk": 1.8,
+"kapali_ilk_dk": null,
+"n": 13
+},
+"2026-10-22|IZMIR-1": {
+"saat": "18:00",
+"acik_son_dk": -8.3,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-22|IZMIR-2": {
+"saat": "18:30",
+"acik_son_dk": 3.2,
+"kapali_ilk_dk": null,
+"n": 7
+},
+"2026-10-22|IZMIR-3": {
+"saat": "19:00",
+"acik_son_dk": -2.7,
+"kapali_ilk_dk": null,
+"n": 8
+},
+"2026-10-22|IZMIR-4": {
+"saat": "19:30",
+"acik_son_dk": 2.9,
+"kapali_ilk_dk": null,
+"n": 16
+},
+"2026-10-22|IZMIR-5": {
+"saat": "20:00",
+"acik_son_dk": 3.3,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-22|IZMIR-6": {
+"saat": "20:30",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": null,
+"n": 11
+},
+"2026-10-22|IZMIR-7": {
+"saat": "21:00",
+"acik_son_dk": 3.0,
+"kapali_ilk_dk": null,
+"n": 11
+},
+"2026-10-22|IZMIR-8": {
+"saat": "21:30",
+"acik_son_dk": 2.2,
+"kapali_ilk_dk": null,
+"n": 16
+},
+"2026-10-22|WOODBINE-1": {
+"saat": "22:15",
+"acik_son_dk": 0.9,
+"kapali_ilk_dk": 2.3,
+"n": 15
+},
+"2026-10-22|WOODBINE-3": {
+"saat": "23:20",
+"acik_son_dk": 0.8,
+"kapali_ilk_dk": null,
+"n": 14
+},
+"2026-10-22|WOODBINE-4": {
+"saat": "23:52",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": null,
+"n": 14
+},
+"2026-10-22|WOODBINE-5": {
+"saat": "00:24",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": null,
+"n": 6
+},
+"2026-10-22|WOODBINE-6": {
+"saat": "00:54",
+"acik_son_dk": -8.5,
+"kapali_ilk_dk": 3.6,
+"n": 3
+},
+"2026-10-22|WOODBINE-7": {
+"saat": "01:24",
+"acik_son_dk": 0.8,
+"kapali_ilk_dk": 3.7,
+"n": 12
+},
+"2026-10-22|WOODBINE-8": {
+"saat": "01:54",
+"acik_son_dk": -11.8,
+"kapali_ilk_dk": 1.8,
+"n": 2
+},
+"2026-10-23|BURSA-1": {
+"saat": "14:30",
+"acik_son_dk": 0.3,
+"kapali_ilk_dk": 1.0,
+"n": 8
+},
+"2026-10-23|BURSA-2": {
+"saat": "15:00",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": null,
+"n": 9
+},
+"2026-10-23|BURSA-3": {
+"saat": "15:30",
+"acik_son_dk": 1.9,
+"kapali_ilk_dk": null,
+"n": 15
+},
+"2026-10-23|BURSA-5": {
+"saat": "16:30",
+"acik_son_dk": 0.1,
+"kapali_ilk_dk": null,
+"n": 13
+},
+"2026-10-23|BURSA-7": {
+"saat": "17:30",
+"acik_son_dk": -3.9,
+"kapali_ilk_dk": null,
+"n": 5
+},
+"2026-10-23|ISTANBUL-2": {
+"saat": "17:15",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": 2.2,
+"n": 16
+},
+"2026-10-23|ISTANBUL-3": {
+"saat": "18:00",
+"acik_son_dk": -7.6,
+"kapali_ilk_dk": 3.5,
+"n": 2
+},
+"2026-10-23|ISTANBUL-4": {
+"saat": "18:30",
+"acik_son_dk": -4.7,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-23|ISTANBUL-5": {
+"saat": "19:00",
+"acik_son_dk": -2.7,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-10-23|ISTANBUL-6": {
+"saat": "19:30",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": 2.2,
+"n": 16
+},
+"2026-10-23|ISTANBUL-7": {
+"saat": "20:00",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-23|ISTANBUL-8": {
+"saat": "20:30",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": null,
+"n": 9
+},
+"2026-10-23|ISTANBUL-9": {
+"saat": "21:00",
+"acik_son_dk": 0.7,
+"kapali_ilk_dk": 1.4,
+"n": 12
+},
+"2026-10-23|ISTANBUL-10": {
+"saat": "21:30",
+"acik_son_dk": 0.4,
+"kapali_ilk_dk": 1.0,
+"n": 16
+},
+"2026-10-24|ANKARA-1": {
+"saat": "13:00",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": null,
+"n": 14
+},
+"2026-10-24|ANKARA-2": {
+"saat": "13:30",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": 2.0,
+"n": 16
+},
+"2026-10-24|ANKARA-3": {
+"saat": "14:00",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": 3.6,
+"n": 15
+},
+"2026-10-24|ANKARA-4": {
+"saat": "14:30",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 2.6,
+"n": 16
+},
+"2026-10-24|ANKARA-5": {
+"saat": "15:00",
+"acik_son_dk": 0.8,
+"kapali_ilk_dk": 1.8,
+"n": 11
+},
+"2026-10-24|ANKARA-6": {
+"saat": "15:30",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 2.1,
+"n": 13
+},
+"2026-10-24|ANKARA-8": {
+"saat": "16:30",
+"acik_son_dk": -1.8,
+"kapali_ilk_dk": null,
+"n": 8
+},
+"2026-10-24|ANKARA-9": {
+"saat": "17:00",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 3.5,
+"n": 12
+},
+"2026-10-24|ANKARA-10": {
+"saat": "17:30",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": null,
+"n": 13
+},
+"2026-10-24|IZMIR-1": {
+"saat": "15:45",
+"acik_son_dk": -3.3,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-24|IZMIR-2": {
+"saat": "16:15",
+"acik_son_dk": 1.1,
+"kapali_ilk_dk": 3.6,
+"n": 13
+},
+"2026-10-24|IZMIR-4": {
+"saat": "17:15",
+"acik_son_dk": 3.1,
+"kapali_ilk_dk": null,
+"n": 8
+},
+"2026-10-24|IZMIR-5": {
+"saat": "18:00",
+"acik_son_dk": 2.6,
+"kapali_ilk_dk": null,
+"n": 6
+},
+"2026-10-24|IZMIR-6": {
+"saat": "18:30",
+"acik_son_dk": 3.7,
+"kapali_ilk_dk": null,
+"n": 12
+},
+"2026-10-24|IZMIR-7": {
+"saat": "19:00",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": null,
+"n": 11
+},
+"2026-10-24|IZMIR-8": {
+"saat": "19:30",
+"acik_son_dk": 1.7,
+"kapali_ilk_dk": null,
+"n": 13
+},
+"2026-10-24|IZMIR-9": {
+"saat": "20:00",
+"acik_son_dk": 2.3,
+"kapali_ilk_dk": null,
+"n": 11
+},
+"2026-10-24|IZMIR-10": {
+"saat": "20:30",
+"acik_son_dk": 2.9,
+"kapali_ilk_dk": null,
+"n": 13
+}
+}

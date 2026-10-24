@@ -981,6 +981,10 @@ def gece(bugun):
             except Exception as e:
                 print("tabela hatası:", repr(e))
             try:
+                from . import gecikme as _GK; _GK.main()                      # start gecikmesi kaydı (data/analiz/gecikme.json)
+            except Exception as e:
+                print("gecikme hatası:", repr(e))
+            try:
                 ES.guncelle(obj)
             except Exception as e:
                 print("esnek hatası:", repr(e))
