@@ -598,7 +598,7 @@ function hesapla(h,k,kaynakZorla){
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
   else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ if(!a.kosmaz){ idx.push(i); g.push(NaN); } }); const ham=idx.map(i=>Math.max(atlar[i].agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
   if(!pp||idx.length<2) return null;
-  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(atlar.every(a=>a.z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6),VERI.w0_g1,0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
+  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(idx.every(i=>atlar[i].z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6),VERI.w0_g1,0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
@@ -1593,7 +1593,7 @@ function esnekHtml(){
 function tabelaEgz(){
   // Tabela bahsi (21 Ekim 2026): ilk 4 at; her model için sıralı kombine (sıra başına çok at) ve sırasız kombine (5 at, 120 kombinasyon). Kâğıt üstü, ölçüm/takip yok.
   if(!VERI||GUN!==trBugun()) return '<div class="card empty">Tabela yalnız bugün için gösterilir.</div>';
-  const BIRIM=1.5, MODELLER=['Bolton','Jason','Jason-S','Jason-F','G1-S'], R=[];
+  const BIRIM=1.5, MODELLER=['G1-S','Bolton','Jason','Jason-S','Jason-F'], R=[];
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
     const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
@@ -1609,7 +1609,7 @@ function tabelaEgz(){
       [24,120].forEach(B=>{ const r=besliKupon(P,B,GMm,4,true); if(r) t+=satir(r.sets,'Sıralı ≤'+B); });
       const srt=P.map((v,i)=>i).sort((a,b)=>P[b]-P[a]), kp=S=>besliProb(pW,pT,[S,S,S,S]); const U=srt.slice(0,5), U6=(srt.length>5&&kp(srt.slice(0,6))-kp(U)>=0.05)?srt.slice(0,6):null;
       t+=satir([U,U,U,U],'Sırasız kombine (5 at: '+U.map(no).join(', ')+')')+(U6?satir([U6,U6,U6,U6],'Sırasız +1 at (6 at: '+U6.map(no).join(', ')+')'):'');
-      return `<div style="border-top:1px solid var(--line);padding-top:6px"><b>${m}</b>${t}</div>`;
+      return `<div style="border-top:1px solid var(--line);padding-top:6px"><b>${m==='G1-S'?'G1-S v3 (ana model)':m}</b>${t}</div>`;
     }).join('');
     if(blok) R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${blok}</div>`});
   }));
