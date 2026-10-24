@@ -765,3 +765,4 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 
 ## Ön-kayıt: Jason'un 3 ekstra özelliği, sıraya özel (25 Ekim 2026, ~02:45)
 - T8: f_dp150_m, f_jgen100, f_fig3 (Jason'da Bolton'a ek; golge.EK) tabana (D) sıraya özel katsayıyla eklenir. Aynı bölme (ilk %60 fit/son %40 test), 2.–5. sıra, gün-bootstrap GA, başarı: alt sınır > 0. Üç ayrı (tekli) + ortak + (D+dinlenme tabanına) ortak. Betik: data/analiz/ilk5_jason_ek.py.
+- SONUÇ T8 (25 Ekim 2026, ~03:00), tabana (D) ek kazanç 2.–5. sıra, test 5.536 koşu: f_dp150_m +0,0035 [+0,0015,+0,0053]; f_jgen100 +0,0004 [−0,0000,+0,0009]; f_fig3 +0,0025 [−0,0009,+0,0060]; ortak +0,0055 [+0,0019,+0,0092] (ölçüt karşılandı, kazancın çoğu mesafe uyumundan). Dinlenme + 3 ek birlikte: +0,0228 [+0,0172,+0,0286] (dinlenme tek başına +0,0176). Betik: data/analiz/ilk5_jason_ek.py.
