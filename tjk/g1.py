@@ -177,6 +177,12 @@ def z6(atlar, t):
     H, J, AJ = _ST["h"]; c = json.load(open(YOL3))
     ok = [{"at": a["at"], "jokey": a["jokey"], "kilo": a.get("kg"), "hnd": a.get("hk")} for a in at]
     X = _oz(H, J, AJ, ok, None, t.toordinal()); z = X @ np.array(c["b"])
+    if os.path.exists(YOLG):                                   # galop (idman) özellikleri: G1-S'nin parçası (v2, 24 Ekim 2026 11:30)
+        try:
+            cg = json.load(open(YOLG)); F = (np.array([galop_f(a["at"], t) for a in at]) - np.array(cg["mu"])) / np.array(cg["sd"])
+            z = z + F @ np.array(cg["b"])
+        except Exception as e:
+            print("galop z hatası:", repr(e))
     return {a["no"]: float(v) for a, v in zip(at, z)}
 
 
@@ -197,3 +203,79 @@ def z6_doldur(obj):
                             a["z6"] = round(zz[a["no"]], 4)
     except Exception as e:
         print("z6 doldurma hatası:", repr(e))
+
+
+# ---- Galop (idman) özellikleri: G1-S'nin bir parçası (24 Ekim 2026, ön kayıtlı test: data/analiz/ozellik_galop.py) ----
+YOLG = os.path.join(KOK, "data", "analiz", "g1s_galop.json")
+GFN = ["say30", "gun", "sprint", "rel_son", "rel_en", "yog", "yok"]
+_GT = {"t": None}
+
+
+def _nrm(s):
+    return str(s or "").upper().translate(str.maketrans("İıŞşĞğÜüÖöÇç", "IISSGGUUOOCC")).strip()
+
+
+def _galop():
+    if _GT["t"] is None:
+        import pandas as pd
+        fs = sorted(glob.glob(os.path.join(KOK, "data", "galop", "*.csv.gz")))
+        if not fs:
+            _GT["t"] = {}
+            return _GT["t"]
+        G = pd.concat([pd.read_csv(f) for f in fs])
+        G["atn"] = G["at"].map(_nrm); G["itd"] = pd.to_datetime(G.it); G["p400"] = pd.to_numeric(G.p400, errors="coerce")
+        G["rel"] = (G.p400 - G.groupby(["it", "tur"]).p400.transform("median")).clip(-4, 4)
+        G["yog"] = G.durum.isin(["Çalışarak", "Hafif Çalışarak"]).astype(float); G["spr"] = (G.tur == "Sprint").astype(float)
+        _GT["t"] = {a: x.sort_values("itd") for a, x in G.groupby("atn")}
+    return _GT["t"]
+
+
+def galop_f(ad, t):
+    """t: datetime.date. Yarış gününden ÖNCEKİ 30 gün. Döner 7 özellik (GFN)."""
+    import pandas as pd
+    x = _galop().get(_nrm(ad)); tt = pd.Timestamp(t); f = [0.0, 30.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    if x is not None:
+        y = x[(x.itd < tt) & (x.itd >= tt - pd.Timedelta(days=30))]
+        if len(y):
+            f = [float(len(y)), float((tt - y.itd.max()).days), float(y.spr.sum()), float(y.rel.iloc[-1]) if y.rel.notna().iloc[-1] else 0.0,
+                 float(y.rel.min()) if y.rel.notna().any() else 0.0, float(y.yog.mean()), 0.0]
+    return f
+
+
+def egit_galop(l2=20.0, bas="2026-02-01"):
+    """G1-S ofsetli (alfa*log p + X b), galop katsayıları ridge ile 2026-02+ koşularda; galop tablosu 1 Ocak 2026'dan başlar."""
+    if not os.path.exists(YOL3) or not glob.glob(os.path.join(KOK, "data", "galop", "*.csv.gz")):
+        return None
+    c3 = json.load(open(YOL3)); b1 = np.array(c3["b"]); al = c3["alfa"]
+    K = {}
+    for r in _satirlar():
+        K.setdefault((r["tarih"], r["hipodrom"], int(r["kosu"])), []).append(r)
+    H, J, AJ = {}, {}, {}; S0, FF, W = [], [], []
+    for key in sorted(K):
+        ok = [r for r in K[key] if r["kosmadi"] != "True" and _fl(r["ganyan"], 0) > 1 and _fl(r["sira"], 0) > 0]
+        n = len(ok)
+        if n < 4:
+            continue
+        inv = np.array([1 / _fl(r["ganyan"]) for r in ok]); pm = inv / inv.sum(); gun = dt.date.fromisoformat(key[0]).toordinal()
+        w = [i for i, r in enumerate(ok) if r["sira"] == "1"]
+        if len(w) != 1:
+            continue
+        if key[0] >= bas:
+            X = _oz(H, J, AJ, ok, pm, gun); d = dt.date.fromisoformat(key[0])
+            S0.append(al * np.log(pm) + X @ b1); FF.append(np.array([galop_f(r["at"], d) for r in ok])); W.append(w[0])
+        for i, r in enumerate(ok):
+            pct = 1 - (_fl(r["sira"]) - 1) / (n - 1); win = 1.0 if i == w[0] else 0.0
+            H.setdefault(r["at"], []).append((gun, pct, win - pm[i]))
+            j = J.setdefault(r["jokey"], [0, 0.0]); j[0] += 1; j[1] += win - pm[i]
+            a = AJ.setdefault((r["at"], r["jokey"]), [0, 0.0]); a[0] += 1; a[1] += win - pm[i]
+    N = len(W); M = max(len(s) for s in S0); S = np.full((N, M), -1e9); F = np.zeros((N, M, 7))
+    for k in range(N):
+        S[k, :len(S0[k])] = S0[k]; F[k, :len(S0[k])] = FF[k]
+    msk = S > -1e8; mu = F[msk].mean(0); sd = F[msk].std(0) + 1e-9; Z = (F - mu) / sd; idx = np.arange(N); Wa = np.array(W)
+
+    def f(b):
+        s = S + Z @ b; s -= s.max(1, keepdims=True); e = np.exp(s); p = e / e.sum(1, keepdims=True); d = p.copy(); d[idx, Wa] -= 1
+        return -np.log(p[idx, Wa] + 1e-12).sum() + l2 * (b @ b), np.einsum("nm,nmk->k", d, Z) + 2 * l2 * b
+    b = minimize(f, np.zeros(7), jac=True, method="L-BFGS-B").x
+    out = {"b": [float(x) for x in b], "mu": [float(x) for x in mu], "sd": [float(x) for x in sd], "n_kosu": N, "bas": bas, "egitim": dt.date.today().isoformat(), "fn": GFN}
+    json.dump(out, open(YOLG, "w"), indent=1); return out

@@ -997,6 +997,7 @@ def gece(bugun):
         from . import g1 as _G1                    # Benter-G1: katsayıları her gece tüm geçmişle yenile (8 sn)
         _G1.egit()
         _G1.egit3()
+        _G1.egit_galop()
     except Exception as e:
         print("g1 eğitim hatası:", repr(e))
     try:
