@@ -560,3 +560,10 @@ SONUÇ (2026-10-24, data/analiz/ozellik_galop.py): 4.531 koşu (2026-02+), son-3
 
 ## 2026-10-24 11:30 — Karar: tek entegre model (G1-S v2) — galop eklendi, ayrı gölge model açılmadı
 Gerekçe (kullanıcı): amaç her biri tek özellik taşıyan gölge modeller çoğaltmak değil; doğrulanmış tüm bilgiyi doğru kullanan tek model. Karar: özellik grupları önce GEÇMİŞ VERİDE walk-forward + ön kayıtla (ablasyon) sınanır; geçen gruplar G1-S'ye eklenir; canlıda yalnız entegre model ve mevcut karşılaştırma modelleri ölçülür. G1-S v2 = piyasa ofseti + G1 özellikleri (form, dinlenme, kilo/handikap, jokey) + galop (7 özellik, tjk/g1.py egit_galop; her gece yenilenir). Sürüm geçişi: 24 Ekim 2026 ~11:30 TR; bu saatten önce üretilen G1-S kuponları v1. Sıradaki eklemeler (ön kayıtlı testlerden geçerse): kapı × kısa mesafe, G2 grupları.
+
+## 2026-10-24 11:35 — Entegre model (G1-S v2) geriye dönük ileri-yürüyüş testi — ÖN KAYIT
+Veri: data/sonuclar 2023-01.. + galop (2026-01..). Her test ayı için (2026-04..2026-10): aşama 1 = G1 özellikleri + ilk 5 sıra + sıra üsleri, o aydan ÖNCEKİ tüm koşularla; aşama 2 = galop katsayıları (ridge, kazanan hedefi, aşama-1 ofseti) 2026-02-01..test ayı öncesi koşularla. Karşılaştırma: piyasa+gamma (özellik yok, aynı pencere), G1-S (aşama 1), G1-S v2 (aşama 1+2). Ölçütler: kazanan | sıralı ikili | sıralı üçlü | ilk 4 sıra (tabela) | ilk 5 sıra (sıralı 5'li) log-kaybı (nats/koşu); gün kümeli bootstrap %95 GA. Karar: v2 − G1-S ve G1-S − piyasa+gamma farklarının GA'sı <0 ise ilgili aşama canlı için "geçmiş veride doğrulandı".
+### SONUÇ (2026-10-24) — 3.397 koşu, 204 gün, 2026-04..10 ileri-yürüyüş (nats/koşu, fark [GA])
+- Kazanan: v2−G1-S −0.0050 [−0.0083,−0.0021]; G1-S−piyasa+gamma +0.0008 (anlamsız); v2−piyasa+gamma −0.0042 [−0.0103,+0.0012]
+- Sıralı ikili: v2−pg −0.0222 [−0.0309,−0.0140]; üçlü −0.0403 [−0.0499,−0.0310]; ilk4 −0.0583 [−0.0692,−0.0466]; ilk5 −0.0713 [−0.0829,−0.0594]
+- v2−G1-S her derinlikte GA<0 (−0.005…−0.011). Karar: kriter sağlandı → G1-S v2 geçmiş veride doğrulandı (kazanan-tek ölçütte pg'ye karşı GA sıfırı kapsıyor).
