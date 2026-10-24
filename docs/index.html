@@ -917,14 +917,16 @@ async function yukle(){
         const ir=await fetch(ur,{method:'PUT',headers:ih,body:JSON.stringify({message:'İdman PDF '+ad,content:btoa(bs),branch:'main'})});
         sat.push(ir.ok?`✓ ${esc(f.name)} yüklendi (idman, 1–2 dakikada işlenir)`:`✗ ${esc(f.name)}: hata ${ir.status} ${ir.status===401||ir.status===403||ir.status===404?'(anahtar geçersiz ya da yetkisiz)':''}`); continue;
       }
-      const pm=f.name.toLowerCase().match(/(\d{4})-(\d{2})-(\d{2})-([a-z\-]+?)-(\d+)\.pdf$/);
+      const pm=f.name.toLowerCase().match(/(\d{4})-(\d{2})-(\d{2})-([a-z\-]+?)-(\d+)(?:\s*\(\d+\))?\.pdf$/);   // 'istanbul-9 (1).pdf' gibi kopya adları da kabul
       if(pm){
         const pad=`${pm[1]}-${pm[2]}-${pm[3]}_${pm[4]}_${pm[5]}.png`, purl=`https://api.github.com/repos/${GH}/contents/data/accurace_ham/${pad}`;
         const ph={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
-        const icerik=await accurcePng(f);
-        let psha; const pg=await fetch(purl+'?ref=main',{headers:ph}); if(pg.ok) psha=(await pg.json()).sha;
-        const pr=await fetch(purl,{method:'PUT',headers:ph,body:JSON.stringify({message:'Accurace '+pad,content:icerik,branch:'main',sha:psha})});
-        sat.push(pr.ok?`✓ ${esc(f.name)} yüklendi (Accurace)`:`✗ ${esc(f.name)}: hata ${pr.status}`); continue;
+        const icerik=await accurcePng(f); let pr=null, psha;
+        for(let den=0;den<4&&!(pr&&pr.ok);den++){                                  // 'Failed to fetch' (bağlantı kopması) için 4 deneme
+          try{ if(den) await new Promise(r=>setTimeout(r,1500*den)); psha=undefined; const pg=await fetch(purl+'?ref=main',{headers:ph}); if(pg.ok) psha=(await pg.json()).sha;
+            pr=await fetch(purl,{method:'PUT',headers:ph,body:JSON.stringify({message:'Accurace '+pad,content:icerik,branch:'main',sha:psha})}); if(pr.status===401||pr.status===403||pr.status===404) break; }catch(e){ pr=null; }
+        }
+        sat.push(pr&&pr.ok?`✓ ${esc(f.name)} yüklendi (Accurace)`:`✗ ${esc(f.name)}: ${pr?'hata '+pr.status:'bağlantı koptu, tekrar yükle'}`); continue;
       }
       const t=await metinOku(f); const ad=dosyaAdi(t);
       if(ad&&!ad.kl){ sat.push(`✗ ${esc(f.name)}: bu bir kayıt listesi (jokey ve kesin kadro yok), program değil; yüklemene gerek yok, Günlük Yarış Programı'nı yükle`); continue; }
