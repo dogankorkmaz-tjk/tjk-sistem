@@ -1579,6 +1579,26 @@ function gecKutuC(g,h,k){ const L=canliOran(h,k); if(L) return `<div class="sub"
 function gecKutu(g){ if(!g) return ''; const L=(g.kuponlar||[]).map(x=>`<div class="sub"><b>${esc(x.model)} ≤${x.butce}</b> · ${x.kombinasyon} komb. · <b>${f2(x.kombinasyon*1.25)} TL</b> · tutma %${(x.tutma_model*100).toFixed(2).replace('.',',')} (piyasa %${(x.tutma_piyasa*100).toFixed(2).replace('.',',')}, ×${f2(x.oran)})<br><span style="font-family:monospace">${x.ayaklar.map(a=>a.join(',')).join(' | ')}</span></div>`).join(''); return `<div style="border:1px solid var(--accent,#2f81f7);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:4px"><div class="sub"><b>SON KUPON</b> (${esc(g.kaynak)} ${esc(g.t)}, yarışa ${String(g.dk).replace('.',',')} dk kala hesaplandı; yarışa 15 dk kala canlı mod devreye girer). Sabah AGF kuponundan farklı olabilir: AGF ile ganyan havuzu aynı olasılığı vermiyor.</div>${L}</div>`; }
 function devirRozet(dv){ return dv?`<span class="pill on" style="background:#b45309;color:#fff">DEVİR ${Math.round(dv.d.tutar).toLocaleString('tr-TR')} TL</span>`:''; }
 function devirKutu(dv,k){ if(!dv) return ''; const q=dv.q.map(x=>`<div class="sub"><b>Devir kuponu ≤${x.butce}</b> · ${x.kombinasyon} komb. · <b>${f2(x.kombinasyon*1.25)} TL</b> · tutma %${(x.tutma_model*100).toFixed(2).replace('.',',')} (piyasa %${(x.tutma_piyasa*100).toFixed(2).replace('.',',')}, ×${f2(x.oran)})<br><span style="font-family:monospace">${x.ayaklar.map(a=>a.join(',')).join(' | ')}</span></div>`).join(''); return `<div style="border:1px solid #b45309;border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:4px"><div class="sub"><b>Devirli havuz</b>: önceki sıralı 5'li havuzunda bilen çıkmadı, ${Math.round(dv.d.tutar).toLocaleString('tr-TR')} TL bu havuza eklendi. Geçmişte devirli havuzlarda kalabalık gibi oynamak başa baş çıktı (devirsizde −%34); model kuponu 111 koşuda 6 vuruş verdi, kanıt değil, gözlem.</div>${q||'<div class="sub">Donmuş devir kuponu henüz üretilmedi.</div>'}</div>`; }
+
+// ---- OTO kupon (24 Ekim 2026): bütçeyi model belirler. Kombinasyon başına olasılık oranı (model/piyasa) ortalaması; beklenen geri dönüş ≈ Q × bu ortalama (Q: devirsiz havuz ≈0,66, devirli ≈1,0).
+// Her adımda, yeni kombinasyonların ortalama oranı en yüksek olan (ayak, at) eklenir; ortalama 1/Q'nun altına düşünce ya da 600 kombinasyonda durur. Ön kayıt: hipotez_defteri 2026-10-24 21:00.
+function besliOto(P,pp,GM,GP,Q,vmax){
+  const n=P.length; if(n<5) return null; vmax=vmax||600;
+  const mk=(p,G)=>{ const W=G.slice(0,5).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))); return {W,T:W.map(w=>w.reduce((a,b)=>a+b,0))}; };
+  const M=mk(P,GM), Pq=mk(pp,GP);
+  const pc=(X,t)=>{ let pr=1; for(let k=0;k<5;k++){ let den=X.T[k]; for(let u=0;u<k;u++) den-=X.W[k][t[u]]; if(den<=1e-12) return 0; pr*=X.W[k][t[k]]/den; } return pr; };
+  const ord=P.map((v,i)=>i).sort((a,b)=>P[b]-P[a]), aday=ord.slice(0,Math.min(n,9));
+  const sets=[0,1,2,3,4].map(i=>[ord[i]]); let v=1;
+  const yeni=(k,h)=>{ let sr=0,c=0; const t=[0,0,0,0,0];
+    (function rec(j){ if(j===5){ if(new Set(t).size<5) return; const q=Math.max(pc(Pq,t),1e-12); sr+=pc(M,t)/q; c++; return; }
+      if(j===k){ t[j]=h; rec(j+1); return; } for(const x of sets[j]){ t[j]=x; rec(j+1); } })(0); return {sr,c}; };
+  for(let it=0;it<80;it++){ let best=null;
+    for(let k=0;k<5;k++) for(const h of aday){ if(sets[k].indexOf(h)>=0) continue; const y=yeni(k,h); if(!y.c||v+y.c>vmax) continue; const mo=y.sr/y.c; if(!best||mo>best.mo) best={k,h,mo,c:y.c}; }
+    if(!best||best.mo<1/Q) break; sets[best.k].push(best.h); v+=best.c; }
+  let sr=0,c=0,pm=0,pq=0; const t=[0,0,0,0,0];
+  (function rec(j){ if(j===5){ if(new Set(t).size<5) return; const a=pc(M,t), b=Math.max(pc(Pq,t),1e-12); sr+=a/b; c++; pm+=a; pq+=b; return; } for(const x of sets[j]){ t[j]=x; rec(j+1); } })(0);
+  return {sets,v:c,pm,pq,roi:c?Q*sr/c:0,Q};
+}
 function besliEgz(m){
   if(!VERI||GUN!==trBugun()) return '';
   const R=[];
@@ -1593,6 +1613,7 @@ function besliEgz(m){
       const prP=besliProb(ppW,ppT,r.sets), oran=r.pr/Math.max(prP,1e-9);
       const v=besliGecerli(r.sets);
       return {B,r,prP,oran,h:`<div class="sub"><b>≤${B} komb.</b> · ${v} geçerli komb. · <b>${f2(v*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(oran)}${oran>=1.15?' ★':''})<br>${tahOd(kombSay(r.sets),prP,v*1.25)}<span style="font-family:monospace">${r.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}; }).filter(Boolean);
+    if(m==='G1-S'){ try{ const dvq=devirBilgi(h.id,k.kosu), Q=dvq?1.0:0.66, o=besliOto(P,pp,GM5,G5_P,Q,600); if(o) sat.push({B:0,oran:0,h:`<div class="sub" style="border-top:1px dashed var(--line);padding-top:6px"><b>OTO (bütçeyi model belirler)</b> · ${o.v} geçerli komb. · <b>${f2(o.v*1.25)} TL</b> · tutma %${(o.pm*100).toFixed(2).replace('.',',')} (piyasa %${(o.pq*100).toFixed(2).replace('.',',')}, ×${f2(o.pm/Math.max(o.pq,1e-9))})<br><span class="sub" style="display:block">Modele göre geri dönüş ≈ <b>${f2(o.roi)}</b> (${dvq?'devirli':'devirsiz'} havuz, Q=${String(Q).replace('.',',')}). <b>İyimser:</b> geçmiş testlerde model kuponları aynı bütçeli piyasa kuponlarından fazla kazandırmadı. Kupon, eklenen kombinasyonlar bedelini çıkarmayı bırakınca ya da 600 komb.'de durur.</span><span style="font-family:monospace">${o.sets.map(x=>x.map(i=>k.atlar[idx[i]].no).join(',')).join(' | ')}</span></div>`}); }catch(e){ console.error(e); } }
     if(!sat.length) return;
     const yildiz=sat.some(x=>x.oran>=1.15);
     const dv=devirBilgi(h.id,k.kosu); R.push({t:(k.saat||'')+h.id,dv:dv?(h.ad+' '+k.kosu+'. koşu '+(k.saat||'')+' · '+Math.round(dv.d.tutar).toLocaleString('tr-TR')+' TL'):null,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px${dv?';border:2px solid #b45309':''}"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b><span>${devirRozet(dv)} ${yildiz?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</span></div>${m==='G1-S'?gecKutuC(gecBilgi(h.id,k.kosu),h,k):''}${m==='G1-S'?devirKutu(dv,k):''}${sat.map(x=>x.h).join('')}</div>`});

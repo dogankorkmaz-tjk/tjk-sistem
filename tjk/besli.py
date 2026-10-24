@@ -234,6 +234,55 @@ def _ekle_devir(c, at, pp, P, simdi):
                               **({"g1v": G1V["s"]} if G1V["s"] else {})})
 
 
+def kupon_oto(p, pq, G_m, G_p, Q, vmax=600):
+    """OTO kupon (24 Ekim 2026, ön kayıt): bütçeyi model belirler. Her adımda yeni kombinasyonların ortalama (model/piyasa) olasılık oranı en yüksek (ayak, at) eklenir;
+    ortalama 1/Q altına düşünce ya da vmax'ta durur. Q: devirsiz havuz 0,66, devirli 1,0. Beklenen geri dönüş ≈ Q x ortalama oran (iyimser: model avantajı doğrulanmamış)."""
+    n = len(p)
+    if n < 5:
+        return None
+    W, T = _W(p, G_m); Wq, Tq = _W(pq, G_p)
+
+    def pc(Wx, Tx, t):
+        pr = 1.0
+        for k in range(5):
+            den = Tx[k] - sum(Wx[k][t[u]] for u in range(k))
+            if den <= 1e-12:
+                return 0.0
+            pr *= Wx[k][t[k]] / den
+        return pr
+    ord_ = sorted(range(n), key=lambda i: -p[i]); aday = ord_[:min(n, 9)]
+    sets = [[ord_[i]] for i in range(5)]; v = 1
+
+    def yeni(k, h):
+        sr = 0.0; c = 0
+        for tup in itertools.product(*[(h,) if j == k else sets[j] for j in range(5)]):
+            if len(set(tup)) < 5:
+                continue
+            sr += pc(W, T, tup) / max(pc(Wq, Tq, tup), 1e-12); c += 1
+        return sr, c
+    for _ in range(80):
+        best = None
+        for k in range(5):
+            for h in aday:
+                if h in sets[k]:
+                    continue
+                sr, c = yeni(k, h)
+                if not c or v + c > vmax:
+                    continue
+                mo = sr / c
+                if best is None or mo > best[0]:
+                    best = (mo, k, h, c)
+        if best is None or best[0] < 1 / Q:
+            break
+        sets[best[1]].append(best[2]); v += best[3]
+    sr = pm = pqs = 0.0; c = 0
+    for tup in itertools.product(*sets):
+        if len(set(tup)) < 5:
+            continue
+        a = pc(W, T, tup); b = max(pc(Wq, Tq, tup), 1e-12); sr += a / b; pm += a; pqs += b; c += 1
+    return sets, pm, pqs, (Q * sr / c if c else 0.0)
+
+
 def _kup_gec(model, B, p, at, Wp, Tp, GGm, g1v, sn):
     kp = kupon_g(p, B, GGm)
     if not kp:
@@ -322,6 +371,16 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
                 for B in (96, 150, 600):
                     q = _kup_gec("Devir-G1S (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
                     if q: kup.append(q)
+            try:
+                Q_ = 1.0 if c.get("devir") else 0.66
+                o_ = kupon_oto(p, pm, GGm or G_M, G_P, Q_, 600)
+                if o_:
+                    st_, pm_, pq_, roi_ = o_; v_ = gecerli_say(st_)
+                    kup.append({"model": "G1-S-Oto (geç)", "butce": 600, "kombinasyon": v_, "bedel": round(v_ * BIRIM, 2), "bedel_gecerli": round(v_ * BIRIM, 2),
+                                "ayaklar": [[at[i]["no"] for i in s_] for s_ in st_], "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s_} for s_ in st_],
+                                "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq_, 5), "oran": round(pm_ / max(pq_, 1e-9), 3), "tahmini_gd": round(roi_, 3), "Q": Q_, "eklendi": son["t"], "surum": 2, **({"g1v": g1v} if g1v else {})})
+            except Exception as e:
+                print("oto kupon hatası:", repr(e))
             if kup:
                 c["gec"] = {"t": son["t"], "dk": round(dk, 1), "kaynak": "muhtemel ganyan", "kuponlar": kup, "hesap": ort[4].strftime("%H:%M:%S")}; n += 1
     json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
