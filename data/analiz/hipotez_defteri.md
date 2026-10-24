@@ -677,3 +677,16 @@ KARAR: kapı×mesafe bandı ve jokey×kapı özellikleri entegre modele (v3) ekl
 Özellikler: f_kk, f_ko, f_ku = out×[mesafe bandı <1400 / 1400–1800 / ≥1800], out=(kapı−1)/(n−1) (arşiv start; eksik 0). Beklenen: f_kk katsayısı <0.
 Test: entegre_v3_kapi.py; aynı kod, EXTRA=0 (v3 galopsuz, üretim özellikleri) vs EXTRA=1 (+3 kapı). Test ayları 2025-03..2026-10 (yalnız geçmişle eğitim; hipotez 2023-06..11 örneğinden, doğrulama kalan günlerle yapıldı). Ölçüt: v3k − v3 log-kayıp (nats/koşu), kazanan, ikili, üçlü, ilk4, ilk5; gün kümeli bootstrap %97.5 tek yön.
 Karar: kazanan VE (ikili veya üçlü) GA üst sınırı <0 ise kapı özellikleri v3'e eklenir (üretim g1v3.py, gece eğitimi); aksi halde eklenmez. Sonra jokey×kapı eğimi (f_jk, geçmiş aylardan öğrenilmiş) ayrı ön kayıtla.
+
+## 2026-10-24 19:00 — ÖN KAYIT: devir (havuz yapısı) etkisi, sıralı 5'li
+Teori (yönetmelik md.11, 13/1-a): kazanan çıkmayan sıralı 5'li havuzu aynı hipodromun bir sonraki sıralı 5'li havuzuna eklenir. Kalabalık kombinasyonlara piyasa olasılığı A ile orantılı bahis yaparsa, devirsiz havuzda ödeme×A_kazanan ≈ (1−kesinti); devirli havuzda ≈ (1−kesinti)(S+D)/S.
+Ölçü: Q = (ödeme tutarı/1,25) × A_kazanan (kapanış ganyanından Plackett-Luce, gamma piyasa_gamma). Devirli = bir önceki sıralı 5'li havuzu (aynı hipodrom, ≤3 gün önce) "SIRALI 5 Lİ BAHİS DEVİR" olan koşu.
+Hipotez: ort. Q(devirli) > ort. Q(devirsiz), fark gün-kümeli bootstrap %95 GA'sı >0; ve Q devir tutarıyla artıyor. Karar: devirli havuzda ort. Q > 1,0 ise (kesinti sonrası) "devir fırsatı" gözlemsel kanıtı; ardından bahis kuralı ayrı ön kayıtla. Veri: data/odeme 2025-01+, R (entegre_geriye). Betik data/analiz/devir_etkisi.py.
+
+## 2026-10-24 19:10 — SONUÇ: kapı×mesafe bandı özellikleri v3'e eklenince (yürüyen, 2025-03..2026-10, 9.796 koşu, galopsuz v3, %97.5 tek yön)
+v3k − v3 (nats/koşu): kazanan −0,0003 [−0,0009, +0,0004]; ikili −0,0001 [−0,0010, +0,0007]; üçlü −0,0001 [−0,0012, +0,0008]; ilk4 −0,0005 [−0,0016, +0,0007]; ilk5 −0,0005 [−0,0016, +0,0007].
+Karar kuralı (kazanan VE ikili/üçlü GA üst sınırı <0) sağlanmadı → kapı özellikleri v3'e EKLENMEZ. Not: aylık fark 2025-07 sonrasında çoğunlukla negatif (2026-07..09: −0,0012…−0,0017) ama kümülatif anlamlı değil; kapı etkisi bağımsız örnekte gerçek olmasına rağmen modelin mevcut özellikleri/piyasa bunu zaten büyük ölçüde içeriyor. Jokey×kapı eğimi (f_jk) ayrı ön kayıtla denenebilir; beklenti düşük.
+
+## 2026-10-24 19:20 — SONUÇ: devir etkisi (sıralı 5'li, 2025-01+; devir_etkisi.py)
+1.401 havuz koşusu (devirli 112). Q = ödeme/1,25 × A_kazanan: devirsiz ort 0,664 (n=1289), devirli ort 1,004 (n=112); fark +0,340, gün-kümeli %95 GA [+0,15, +0,545] → hipotez desteklendi. Devir tutarı üçte birlere göre: küçük 0,929 / orta 0,971 / büyük 1,114 (Spearman 0,25). 
+Okuma: piyasa-orantılı (kalabalık gibi) bahis devirsiz havuzda ~−%34 ortalama getirirken devirli havuzda ~%0, büyük devirde ~+%11 (ortalama; ödeme dağılımı çok kuyruklu, n küçük, kesin değil). Model kenarı üstüne eklenmedi. Sonraki: devirli havuzda model-seçimli kupon ROI'si ayrı ön kayıtla; devir sonrası havuz S bilinmediği için kuyruk riski büyük.
