@@ -1,7 +1,6 @@
 """TJK muhtemeller uçları tarayıcıdan (CORS) okunabilir mi? Yalnızca başlıkları kaydeder (24 Ekim 2026)."""
 import json, datetime as dt, requests, os
-from . import ortak as O
-t = O.tr_simdi().date(); u = f"/muhtemeller/s/{t:%Y/%m/%d}/"
+t = (dt.datetime.utcnow() + dt.timedelta(hours=3)).date(); u = f"/muhtemeller/s/{t:%Y/%m/%d}/"
 HEDEF = {"checksum": "https://vhs-medya.tjk.org" + u + "checksum.json", "cdn_kok": "https://vhs-medya-cdn.tjk.org" + u + "checksum.json"}
 rap = {}
 for ad, url in HEDEF.items():
