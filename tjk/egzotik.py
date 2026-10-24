@@ -111,6 +111,7 @@ def guncelle(obj):
         _G1.z6_doldur(obj)
         if obj.get("w0_g1") is not None and obj.get("a_g1"):
             modeller.append(("G1|", "z6", obj["w0_g1"], "G1-S", 0.0, ORAN)); GD["G1|"] = (obj["a_g1"][1], obj["a_g1"][2])
+            modeller.append(("G1G|", "z6", obj["w0_g1"], "G1-S (geç)", 0.0, ORAN))
     except Exception as e:
         print("G1-S hatası:", repr(e))
     for h in obj["hipodromlar"]:
@@ -119,7 +120,9 @@ def guncelle(obj):
             for onek, zk, w0, ad_m, lp2, or_m in modeller:
                 anahtar = f"{onek}{h['id']}|{k['kosu']}"
                 c = kay.get(anahtar)
-                if c is None and not basladi:
+                if onek == "G1G|":
+                    pass                                                           # geç kayıt yalnız gec_guncelle ile üretilir
+                elif c is None and not basladi:
                     s = _uclu_suz(_secim(k.get("atlar", []), w0, zk, lp2, or_m, GD.get(onek)), k)
                     if s is not None:
                         ora = s.pop("_oran", None)
@@ -161,6 +164,37 @@ def guncelle(obj):
     ozet_yaz(tarih)
 
 
+def gec_guncelle(obj):
+    """GEÇ üçlü/ikili seçimi (24 Ekim 2026): yarışa 3-30 dk kala canlı muhtemel ganyanla G1-S v3; 3 dk altında donar. Anahtar 'G1G|<hip>|<koşu>'."""
+    from . import besli as _B
+    ort = _B._gec_ortak(obj)
+    if not ort or not obj.get("a_g1") or obj.get("w0_g1") is None:
+        return 0
+    yol = os.path.join(VERI, "egzotik", obj["tarih"] + ".json")
+    kay = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
+    GD = (obj["a_g1"][1], obj["a_g1"][2]); n = 0
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            if k.get("sonuc") or (f"G1G|{h['id']}|{k['kosu']}" in kay and "sonuc" in kay[f"G1G|{h['id']}|{k['kosu']}"]):
+                continue
+            r = _B.gec_p(obj, h, k, ort)
+            if not r:
+                continue
+            at, atc, pm, p, son, dk = r
+            s = _uclu_suz(_secim(atc, obj["w0_g1"], "z6", 0.0, ORAN, GD), k)
+            if s is None:
+                continue
+            ora = s.pop("_oran", None)
+            kay[f"G1G|{h['id']}|{k['kosu']}"] = {"model": "G1-S (geç)", "hipodrom": h["id"], "kosu": k["kosu"], "saat": k.get("saat"), "uretim": ort[4].strftime("%H:%M"), "veri_t": son["t"],
+                                                  "dk": round(dk, 1), "dondu": True, "secim": s, "oran": ora, "ad": {str(a["no"]): a.get("at") for a in k.get("atlar", [])}}
+            n += 1
+    if n:
+        os.makedirs(os.path.dirname(yol), exist_ok=True)
+        json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+        ozet_yaz(obj["tarih"])
+    return n
+
+
 def h_ad(c):
     return c.get("hipodrom_ad") or c["hipodrom"]
 
@@ -168,7 +202,7 @@ def h_ad(c):
 def ozet_yaz(tarih):
     def bos():
         return {t: {"tur": t, "koşu": 0, "harcama": 0.0, "kazanc": 0.0, "isabetli_kosu": 0, "kosuda_secim": 0} for t in K}
-    tops = {"Bolton": bos(), "Jason": bos(), "Jason-S": bos(), "G1-S": bos(), **{v: bos() for v in VARYANT}}
+    tops = {"Bolton": bos(), "Jason": bos(), "Jason-S": bos(), "G1-S": bos(), "G1-S (geç)": bos(), **{v: bos() for v in VARYANT}}
     ikd = {d: bos() for d in ("düşük", "orta", "yüksek")}
     gun = []
     for y in sorted(glob.glob(os.path.join(VERI, "egzotik", "*.json"))):
@@ -192,7 +226,7 @@ def ozet_yaz(tarih):
             a["harcama"] = round(a["harcama"], 2); a["kazanc"] = round(a["kazanc"], 2)
     os.makedirs(SITE, exist_ok=True)
     json.dump({"tarih": tarih, "kural": {"gama": GAMA, "delta": DELTA, "oran": ORAN, "esik": ESIK, "birim": BIRIM},
-               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_jason_s": list(tops["Jason-S"].values()), "toplam_g1s": list(tops["G1-S"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
+               "bugun": gun, "toplam": list(tops["Bolton"].values()), "toplam_jason": list(tops["Jason"].values()), "toplam_jason_s": list(tops["Jason-S"].values()), "toplam_g1s": list(tops["G1-S"].values()), "toplam_g1s_gec": list(tops["G1-S (geç)"].values()), "toplam_varyant": {v: list(tops[v].values()) for v in VARYANT},
                "toplam_ikramiye": {d: list(v.values()) for d, v in ikd.items()}, "ikramiye_kesim": list(IK_KES)},
               open(os.path.join(SITE, "egzotik.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     try:

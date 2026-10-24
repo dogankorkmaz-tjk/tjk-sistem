@@ -244,19 +244,17 @@ def _kup_gec(model, B, p, at, Wp, Tp, GGm, g1v, sn):
             "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": sn, "surum": 2, **({"g1v": g1v} if g1v else {})}
 
 
-def gec_guncelle(obj, kapanis_dk=3.0, pencere_dk=30.0):
-    """GEÇ KUPON (24 Ekim 2026, Doğan: bayide start'a 5 dk kala oynuyor): yarışa kalan süre [kapanis_dk, pencere_dk] ise, TJK canlı muhtemel ganyanıyla
-    (data/muh, vhs.tjk.org) G1-S v3'ü backtest'teki girdiyle (kapanış ganyanı ~ muhtemel ganyan) yeniden çalıştırır ve c['gec']'e yazar.
-    kapanis_dk altında DONAR (artık güncellenmez). Sabah/AGF kuponu ayrı kalır. Ön kayıt: hipotez_defteri 2026-10-24 21:30."""
+def _gec_ortak(obj):
+    """Geç kupon ortak hazırlık: (kay, M-index, c3, t, simdi_dk, sn) ya da None."""
     import datetime as _dt
     from . import ortak as _O, g1 as _G1, g1v3 as _V3
     tarih = obj["tarih"]; yol = os.path.join(VERI, tarih + ".json"); my = os.path.join(KOK, "data", "muh", tarih + ".json")
     if not (os.path.exists(yol) and os.path.exists(my)):
-        return 0
-    kay = json.load(open(yol, encoding="utf-8")); M = json.load(open(my, encoding="utf-8")); sn = _O.tr_simdi(); simdi_dk = sn.hour * 60 + sn.minute + sn.second / 60
+        return None
+    M = json.load(open(my, encoding="utf-8")); sn = _O.tr_simdi(); simdi_dk = sn.hour * 60 + sn.minute + sn.second / 60
     c3 = _V3.yukle()
     if not c3:
-        return 0
+        return None
     try:
         _G1.z6_doldur(obj)
     except Exception as e:
@@ -266,33 +264,56 @@ def gec_guncelle(obj, kapanis_dk=3.0, pencere_dk=30.0):
         _sl = str(_v.get("slug") or "").split("-")[0]; MI[(_sl, _v.get("kosu"))] = _v
         MI[(str(_v.get("hipodrom") or "").lower(), _v.get("kosu"))] = _v
     MI.update({("diyarbakir", kk[1]): vv for kk, vv in list(MI.items()) if kk[0] in ("dbakir", "diyarbakir")})
-    t = _dt.date.fromisoformat(tarih); g1v = obj.get("g1_surum"); n = 0
+    return MI, c3, _dt.date.fromisoformat(tarih), simdi_dk, sn
+
+
+def gec_p(obj, h, k, ort, kapanis_dk=3.0, pencere_dk=30.0):
+    """Tek koşu için geç olasılıklar: (at, atc, pm, p, son, dk) ya da None. p = G1-S v3 (girdi: canlı muhtemel ganyan)."""
+    from . import g1v3 as _V3
+    MI, c3, t, simdi_dk, sn = ort
+    try:
+        dk = int(k["saat"][:2]) * 60 + int(k["saat"][3:5]) - simdi_dk
+    except Exception:
+        return None
+    if dk < kapanis_dk or dk > pencere_dk:
+        return None
+    m = MI.get((h["id"], k["kosu"]))
+    an = [x for x in (m or {}).get("anlik", []) if x.get("durum") == "AÇIK" and x.get("g")]
+    if not an or an[-1].get("dk") is None or an[-1]["dk"] - dk > 10:
+        return None                                          # anlık yok ya da 10 dk'dan eski
+    son = an[-1]; at = [a for a in k["atlar"] if a.get("agf") and not a.get("kosmaz")]
+    g = [son["g"].get(str(a["no"])) for a in at]
+    if len(at) < 5 or any(x is None or x <= 0 for x in g):
+        return None
+    inv = [1 / x for x in g]; z = sum(inv); pm = [x / z for x in inv]
+    atc = [{**a, "agf": 100 * q} for a, q in zip(at, pm)]
+    zz = _V3.z6(atc, t, c3)
+    if not zz:
+        return None
+    for a in atc:
+        a["z6"] = zz[a["no"]]
+    sc = [obj["w0_g1"] * math.log(max(q, 1e-6)) + zz[a["no"]] for q, a in zip(pm, atc)]
+    mx = max(sc); e = [math.exp(x - mx) for x in sc]; zs = sum(e); p = [x / zs for x in e]
+    return at, atc, pm, p, son, dk
+
+
+def gec_guncelle(obj, kapanis_dk=3.0, pencere_dk=30.0):
+    """GEÇ KUPON (24 Ekim 2026, Doğan: bayide start'a 5 dk kala oynuyor): yarışa kalan süre [kapanis_dk, pencere_dk] ise, TJK canlı muhtemel ganyanıyla
+    (data/muh, vhs.tjk.org) G1-S v3'ü backtest'teki girdiyle (kapanış ganyanı ~ muhtemel ganyan) yeniden çalıştırır ve c['gec']'e yazar.
+    kapanis_dk altında DONAR (artık güncellenmez). Sabah/AGF kuponu ayrı kalır. Ön kayıt: hipotez_defteri 2026-10-24 21:30."""
+    ort = _gec_ortak(obj)
+    if not ort:
+        return 0
+    tarih = obj["tarih"]; yol = os.path.join(VERI, tarih + ".json"); kay = json.load(open(yol, encoding="utf-8")); g1v = obj.get("g1_surum"); n = 0
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             c = kay.get(f"{h['id']}|{k['kosu']}")
             if not c or "sonuc" in c or k.get("sonuc"):
                 continue
-            try:
-                dk = int(k["saat"][:2]) * 60 + int(k["saat"][3:5]) - simdi_dk
-            except Exception:
+            r = gec_p(obj, h, k, ort, kapanis_dk, pencere_dk)
+            if not r:
                 continue
-            if dk < kapanis_dk or dk > pencere_dk:
-                continue
-            m = MI.get((h["id"], k["kosu"]))
-            an = [x for x in (m or {}).get("anlik", []) if x.get("durum") == "AÇIK" and x.get("g")]
-            if not an or an[-1].get("dk") is None or an[-1]["dk"] - dk > 10:
-                continue                                         # anlık yok ya da 10 dk'dan eski
-            son = an[-1]; at = [a for a in k["atlar"] if a.get("agf") and not a.get("kosmaz")]
-            g = [son["g"].get(str(a["no"])) for a in at]
-            if len(at) < 5 or any(x is None or x <= 0 for x in g):
-                continue
-            inv = [1 / x for x in g]; z = sum(inv); pm = [x / z for x in inv]
-            atc = [{**a, "agf": 100 * q} for a, q in zip(at, pm)]
-            zz = _V3.z6(atc, t, c3)
-            if not zz:
-                continue
-            sc = [obj["w0_g1"] * math.log(max(q, 1e-6)) + zz[a["no"]] for q, a in zip(pm, atc)]
-            mx = max(sc); e = [math.exp(x - mx) for x in sc]; zs = sum(e); p = [x / zs for x in e]
+            at, atc, pm, p, son, dk = r
             GGm = obj.get("a_g1"); Wp, Tp = _W(pm, G_P); kup = []
             for B in BUTCELER_G:
                 q = _kup_gec("G1-S-G (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
@@ -302,7 +323,7 @@ def gec_guncelle(obj, kapanis_dk=3.0, pencere_dk=30.0):
                     q = _kup_gec("Devir-G1S (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
                     if q: kup.append(q)
             if kup:
-                c["gec"] = {"t": son["t"], "dk": round(dk, 1), "kaynak": "muhtemel ganyan", "kuponlar": kup, "hesap": sn.strftime("%H:%M:%S")}; n += 1
+                c["gec"] = {"t": son["t"], "dk": round(dk, 1), "kaynak": "muhtemel ganyan", "kuponlar": kup, "hesap": ort[4].strftime("%H:%M:%S")}; n += 1
     json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     if n:
         ozet_yaz(tarih)

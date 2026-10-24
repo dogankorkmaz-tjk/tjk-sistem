@@ -653,6 +653,11 @@ def hizli(t):
         from . import muhtemeller as MUH
         MUH.topla(t.isoformat(), pencere_dk=30, yalniz_yurtdisi=False)      # canlı muhtemel ganyan (yurtiçi dahil) -> geç kupon girdisi
         print("geç kupon:", BS.gec_guncelle(c))
+        try:
+            from . import egzotik as _EG
+            print("geç tabela:", TB.gec_guncelle(c), "geç egzotik:", _EG.gec_guncelle(c))
+        except Exception as e:
+            print("geç tabela/egzotik hatası:", repr(e))
     except Exception as e:
         print("geç kupon hatası:", repr(e))
     try:

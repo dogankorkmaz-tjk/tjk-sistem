@@ -72,6 +72,57 @@ def _odeme(tarih):
         return pd.DataFrame()
 
 
+def _kuponlar(model, p, at, pp_piyasa, g1v=None):
+    """Bir model olasılığı için tüm tabela kuponları (sıralı 24/120, sırasız 5, sırasız+1)."""
+    Wp, Tp = _W(pp_piyasa, G_P); G = GG.get(model.split(" ")[0]) or G_M; out = []
+    ek = {"g1v": g1v} if g1v and model.startswith("G1-S") else {}
+    for B in BUTCELER:
+        kp = kupon(p, B, G)
+        if not kp:
+            continue
+        sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli(sets)
+        out.append({"model": model, "tur": "sirali", "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "ayaklar": [[at[i]["no"] for i in s] for s in sets],
+                    "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), **ek})
+    W, T = _W(p, G); sr = sorted(range(len(p)), key=lambda i: -p[i])
+    for ad, n in (("sirasiz", 5), ("sirasiz+", None)):
+        top = sr[:5]
+        if n is None:
+            if len(sr) <= 5 or _prob(W, T, [sr[:6]] * L) - _prob(W, T, [sr[:5]] * L) < 0.05:
+                continue
+            top = sr[:6]
+        sets = [top] * L; pm_ = _prob(W, T, sets); pq = _prob(Wp, Tp, sets); v = gecerli(sets)
+        out.append({"model": model, "tur": ad, "butce": v, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "ayaklar": [[at[i]["no"] for i in s] for s in sets],
+                    "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), **ek})
+    return out
+
+
+def gec_guncelle(obj):
+    """GEÇ tabela kuponu (24 Ekim 2026): yarışa 3-30 dk kala canlı muhtemel ganyanla G1-S v3; 3 dk altında donar. Sabah kuponu ayrı kalır."""
+    from . import besli as _B
+    ort = _B._gec_ortak(obj)
+    yol = os.path.join(VERI, obj["tarih"] + ".json")
+    if not ort or not os.path.exists(yol):
+        return 0
+    kay = json.load(open(yol, encoding="utf-8")); n = 0
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            c = kay.get(f"{h['id']}|{k['kosu']}")
+            if not c or "sonuc" in c or k.get("sonuc") or len(k.get("atlar", [])) < 6:
+                continue
+            r = _B.gec_p(obj, h, k, ort)
+            if not r:
+                continue
+            at, atc, pm, p, son, dk = r
+            if len(p) < 6:
+                continue
+            c["gec"] = {"t": son["t"], "dk": round(dk, 1), "kaynak": "muhtemel ganyan", "hesap": ort[4].strftime("%H:%M:%S"),
+                        "kuponlar": _kuponlar("G1-S (geç)", p, at, pm, obj.get("g1_surum"))}; n += 1
+    if n:
+        json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+        ozet_yaz(obj["tarih"])
+    return n
+
+
 def guncelle(obj, simdi=None):
     tarih = obj["tarih"]; os.makedirs(VERI, exist_ok=True)
     try:
@@ -143,7 +194,7 @@ def guncelle(obj, simdi=None):
                             continue
                         c["odeme_sirali"] = float(ts.tutar.max()) if len(ts) else 0.0
                         c["odeme_sirasiz"] = float(tz.tutar.max()) if len(tz) else 0.0
-                        for q in c["kuponlar"]:
+                        for q in c["kuponlar"] + (c.get("gec") or {}).get("kuponlar", []):
                             # Ödeme: koşunun ilk 4'ü sıra doğruysa 'TABELA BAHİS', dört at sırasız doğruysa 'TABELA BAHİS SIRASIZ' (24 sıralamadan 23'ü). Kuponun içindeki her sıralama ayrı bilet.
                             ns = q["ayaklar"]
                             npm = sum(1 for t in itertools.product(*ns) if len(set(t)) == L and set(t) == set(ilk4))
@@ -159,7 +210,7 @@ def ozet_yaz(tarih):
         for c in json.load(open(y, encoding="utf-8")).values():
             if not c.get("sonuc") or c.get("oynanmadi"):
                 continue
-            for q in c["kuponlar"]:
+            for q in c["kuponlar"] + (c.get("gec") or {}).get("kuponlar", []):
                 t = top.setdefault(f"{q['model']}-{q['tur']}-{q['butce']}", {"model": q["model"], "tur": q["tur"], "butce": q["butce"], "kosu": 0, "harcama": 0.0, "isabet": 0, "kazanc": 0.0})
                 t["kosu"] += 1; t["harcama"] += q["bedel"]; t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
     for t in top.values():
