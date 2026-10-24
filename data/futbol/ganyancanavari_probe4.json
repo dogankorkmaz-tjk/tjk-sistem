@@ -1,0 +1,1808 @@
+{
+ "yaris-programi.html": {
+  "baslik": "Yarış Programı (At Yarışı Bülteni) | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Yarış Programı (At Yarışı Bülteni) 1.Kosu :13:00 İkramiye: 600.000 1400 Çim Maiden/Dişi 2 Yaşlı İngilizler P No At İsmi /Jokey Kg/ Yaş Klv HP/ KGS Son 6 / S20 / EiD 17 1 OY YAREKG K S.YAZICIOĞLU (AP) 57 2y d d 1 30 28 446448 15 1.26.23 O:SEA SOUND (IRE)-İKSİR / WIN RIVER WIN (USA) S:FERAT ÖZKAN (KK:17 %57) A:M.TEKİNALP Stil Takı Değ. Şehir Değ. Start Sorunu 23 2 SPIRIT OF LUXDB SK SALİH ÇELİK 59 2y d d 8 33 58 83532 17 1.25.70 O:KUZEY KAFKASYALI-KAMILI (IRE) / INVINCIBLE SPIRIT (IRE) S:ONUR DİLBAZ (KK:13 %76) A:İB.B.OĞULLARI Stil Takı Değ. Şehir Değ. Start Sorunu 18 3 CLOVEK DB SK U.TEMUR 57 2y d d 6 0 18 6 19 --- O:BODEMEISTER (USA)-SALLY OBELISK / OKAWANGO (USA) S:VEHPİ GÜZELOCAK (KK:10 %53) A:O.BULUT Stil Takı Değ. Şehir Değ. Start Sorunu 34 4 FLIPENDODB SKG SK M.KESKİN 57 2y d d 9 0 49 6 19 --- O:ELARQAM (GB)-LADY AFRODİT / LUXOR S:M.DİLAN TAN (KK:1 %50) A:Ö.FARUK TAN Stil Takı Değ. Şehir Değ. Start Sorunu 19 5 IMPERIAL GLOIREDB SKG SK E.AKTUĞ 57 2y d d 5 29 28 5275 16 --- O:MYBOYCHARLIE (IRE)-NAIROBI / HALICARNASSUS (IRE) S:SELÇUK DEMİR (KK:2 %67) A:O.BULUT Stil Takı Değ. Şehir Değ. Start Sorunu 142 6 LADY SOVEREIGNK DB SK M.S.ÇELİK 57 2y d d 2 29 35 6543 16 1.26.22 O:T",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/yaris-programi.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/show_bulten.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_No\":1,\"Kosu_NoSaat\":\"1.Kosu :13:00\",\"Kosu_MesafePist\":\"1400 Çim\",\"Kosu_ikramiye\":600000,\"Kosu_Tipi\":\"Maiden\\/Dişi\",\"Kosu_TayCinsleri\":\"2 Yaşlı İngilizler\",\"Kosu_BahisTipi\":\"1. ÇİFTE, 1. 6'LI GANYAN bu koşudan başlar, GANYAN, İKİLİ, SIRALI İKİLİ\",\"Atlar\":[{\"At_No\":1,\"At_Id\":114537,\"At_Unvan\":\"OY YARE<br><small>(SEA SOUND (IRE)-İKSİR \\/ WIN RIVER WIN (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"OY YARE\",\"At_Kosmaz\":\"-\",\"At_Origin\":\"SEA SOUND (IRE)-İKSİR \\/ WIN RIVER WIN (USA)\",\"At_Sahip\":\"FERAT ÖZKAN (KK:17 %57)\",\"At_Antrenor\":\"M.TEKİNALP\",\"At_Puan\":17,\"At_Taki\":\"KG K\",\"At_Ekuri\":\"0\",\"Jokey_Unvan\":\"S.YAZICIOĞLU\",\"Jokey_isApranti\":1,\"At_Kg\":\"57\",\"At_Yas\":\"2y d d\",\"At_Kgs\":\"28\",\"At_S20\":\"15\",\"At_Kulvar\":1,\"At_Handikap\":30,\"At_Forma\":\"20683.jpg\",\"At_EiD\":\"1.26.23\",\"At_EiD_Aciklama\":\"Bu derece Ankara 75. Yıl Hipodromu`nda 10.09.2026 tarihinde yapılmıştır.\",\"isPlus\":\"false\",\"At_Stil\":\"Arka\",\"At_Sehir_Degisikligi\":\"\",\"At_Taki_Degisikligi\":\"Önceki Takılar: SK\",\"At_Start_Sorunu\":\"\",\"At_KosuNo\":1,\"At_son5\":\"446448\",\"At_son5_renkli\":\"C4K4C6C4K4C8\",\"TakipEdiliyor\":\"0\",\"TakipAciklama\":\"24.10.2026 \"},{\"At_No\":2,\"At_Id\":114561,\"At_Unvan\":\"SPIRIT OF LUX<br><small>(KUZEY KAFKASYALI-KAMILI (IRE) \\/ INVINCIBLE SPIRIT (IRE))<\\/small>\",\"At_Unvan_Orjinsiz\":\"SPIRIT OF LUX\",\"At_Kosmaz\":\"-\",\"At_Origin\":\"KUZEY KAFKASYALI-KAMILI (IRE) \\/ INVINCIBLE SPIRIT (IRE)\",\"At_Sahip\":\"ONUR DİLBAZ (KK:13 %76)\",\"At_Antrenor\":\"İB.B.OĞULLARI\",\"At_Puan\":23,\"At_Taki\":\"DB SK\",\"At_Ekuri\":\"0\",\"Jokey_Unvan\":\"SALİH ÇELİK\",\"Jokey_isApranti\":0,\"At_Kg\":\"59\",\"At_Yas\":\"2y d d\",\"At_Kgs\":\"58\",\"At_S20\":\"17\",\"At_Kulvar\":8,\"At_Handikap\":33,\"At_Forma\":\"10726.jpg\",\"At_EiD\":\"1.25.70\",\"At_EiD_Aciklama\":\"Bu derece Ankara 75. Yıl Hipodromu`nda 27.08.2026 tarihinde yapılmıştır.\",\"isPlus\":\"false\",\"At_Stil\":\"Arka\",\"At_Sehir_Degisikligi\":\"\",\"At_Taki_Degisikligi\":\"\",\"At_Start_Sorunu\":\"Son 5 koşuda en az iki kez start sorunu yaşadı\",\"At_KosuNo\":1,\"At_son5\":\"83532\",\"At_son5_renkli\":\"C8C3C5C3C2\",\"TakipEdiliyor\":\"0\",\"TakipAciklama\":\"24.10.2026 \"},{\"At_No\":3,\"At_Id\":117401,\"At_Unvan\":\"CLOVE<br><small>(BODEMEISTER (USA)-SALLY OBELISK \\/ OKAWANGO (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"CLOVE\",\"At_Kosmaz\":\"-\",\"At_Origin\":\"BODEMEISTER (USA)-SALLY OBELISK \\/ OKAWANGO (USA)\",\"At_Sahip\":\"VEHPİ GÜZELOCAK (KK:10 %53)\",\"At_Antrenor\":\"O.BULUT\",\"At_Puan\":18,\"At_Taki\":\"K DB SK\",\"At_Ekuri\":\"0\",\"Jokey_Unvan\":\"U.TEMUR\",\"Jokey_isApranti\":0,\"At_Kg\":\"57\",\"At_Yas\":\"2y d d\",\"At_Kgs\":\"18\",\"At_S20\":\"19\",\"At_Kulvar\":6,\"At_Handikap\":0,\"At_Forma\":\"14190.jpg\",\"At_EiD\":\"---\",\"At_EiD_Aciklama\":\"\",\"isPlus\":\"false\",\"At_Stil\":\"Arka\",\"At_Sehir_Degisikligi\":\"Geldiği Şehir: Kocaeli\",\"At_Taki_Degisikligi\":\"\",\"At_Start_Sorunu\":\"\",\"At_KosuNo\":1,\"At_son5\":\"6\",\"At_son5_renkli\":\"K6\",\"TakipEdiliyor\":\"0\",\"TakipAciklama\":\"24.10.2026 \"},{\"At_No\":4,\"At_Id\":116159,\"At_Unvan\":\"FLIPENDO<br><small>(ELARQAM (GB)-LADY AFRODİT \\/ LUXOR)<\\/small>\",\"At_Unvan_Orjinsiz\":\"FLIPENDO\",\"At_Kosmaz\":\"-\",\"At_Origin\":\"ELARQAM (GB)-LADY AFRODİT \\/ LUXOR\",\"At_Sahip\":\"M.DİLAN TAN (KK:1 %50)\",\"At_Antrenor\":\"Ö.FARUK TAN\",\"At_Puan\":34,\"At_Taki\":\"DB SKG SK\",\"At_Ekuri\":\"0\",\"Jokey_Unvan\":\"M.KESKİN\",\"Jokey_isApranti\":0,\"At_Kg\":\"57\",\"At_Yas\":\"2y d d\",\"At_Kgs\":\"49\",\"At_S20\":\"19\",\"At_Kulvar\":9,\"At_Handikap\":0,\"At_Forma\":\"23666.jpg\",\"At_EiD\":\"---\",\"At_EiD_Aciklama\":\"\",\"isPlus\":\"false\",\"At_Stil\":\"Arka\",\"At_Sehir_Degisikligi\":\"\",\"At_Taki_Degisikligi\":\"Önceki Takılar: DB SK\",\"At_Start_Sorunu\":\"\",\"At_KosuNo\":1,\"At_son5\":\"6\",\"At_son5_renkli\":\"C6\",\"TakipEdiliyor\":\"0\",\"TakipAciklama\":\"24.10.2026 \"},{\"At_No\":5,\"At_Id\":113939,\"At_Unvan\":\"IMPERIAL GLOIRE<br><small>(MYBOYCHARLIE (IRE)-NAIROBI \\/ HALICARNASSUS (IRE))<\\/small>\",\"At_Unvan_Orjinsiz\":\"IMPERIAL GLOIRE\",\"At_Kosmaz\":\"-\",\"At_Origin\":\"MYBOYCHARLIE (IRE)-NAIROBI \\/ HALICARNASSUS (IRE)\",\"At_Sahip\":\"SELÇUK DEMİR (KK:2 %67)\",\"At_Antrenor\":\"O.BULUT\",\"At_Puan\":19,\"At_Taki\":\"DB SKG SK\",\"At_Ekuri\":\"0\",\"Jokey_Unvan\":\"E.AKTUĞ\",\"Jokey_isApranti\":0,\"At_Kg\":\"57\",\"At_Yas\":\"2y d d\",\"At_Kgs\":\"28\",\"At_S20\":\"16\",\"At_Kulvar\":5,\"At_Handikap\":29,\"At_Forma\":\"22084.jpg\",\"At_EiD\":\"---\",\"At_EiD_Aciklama\":\"\",\"isPlus\":\"false\",\"At_Stil\":\"Orta\",\"At_Sehir_Degisikligi\":\"\",\"At_Taki_Degisikligi\":\"Önceki Takılar: DB SK\",\"At_Start_Sorunu\":\"\",\"At_KosuNo\":1,\"At_son5\":\"5275\",\"At_son5_renkli\":\"C5C2C7C5\",\"TakipEdiliyor\":\"0\",\"TakipAciklama\":\"24.10.2026 \"},{\"At_No\":6,\"At_Id\":114562,\"At_Unvan\":\"LADY SOVEREIGN<br><small>(TOROK (IRE)-KRALİÇE ELMAS \\/ KANEKO)<\\/small>\",\"At_Unvan_Orjinsiz\":\"LADY SOVEREIGN\",\"At_Kosmaz\":\"-\",\"At_Origin\":\"TOROK (IRE)-KRALİÇE ELMAS \\/ KANEKO\",\"At_Sahip\":\"ALPER KARA (KK:0 %0)\",\"At_Antrenor\":\"İB.B.OĞULLARI\",\"At_Puan\":142,\"At_Taki\":\"K DB SK\",\"At_Ekuri\":\"0\",\"Jokey_Unvan\":\"M.S.ÇELİK\",\"Jokey_isApranti\":0,\"At_Kg\":\"57\",\"At_Yas\":\"2y d d\",\"At_Kgs\":\"35\",\"At_S20\":\"16\",\"At_Kulvar\":2,\"At_Handikap\":29,\"At_Forma\":\"23462.jpg\",\"At_EiD\":\"1.26.22\",\"At_EiD_Aciklama\":\"Bu derece Ankara 75. Yıl Hipodromu`nda 27.08.2026 tarihinde yapılmıştır.\",\"isPlus\":\"false\",\"At_Stil\":\"Orta\",\"At_Sehir_Degisikligi\":\"\",\"At_Taki_Degisikligi\":\"Önceki Takılar: K DB\""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   }
+  ]
+ },
+ "yaris-sonuclari.html": {
+  "baslik": "Yarış Sonuçları (At Yarışı Sonuçları) | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Yarış Sonuçları (At Yarışı Sonuçları) Yarış Sonuçları Detaylı Sonuçlar Muhtemeller Koşu Kazanan Derece Ganyan Favori(AGF) Altılı Ganyan 1 . 10 2 . 2,6 3 . 1 4 . 1 5 . 2 6 . 4 2.Altılı Ganyan 1 . 2 2 . 7 3 . 5 4 . 5 5 . 4 6 . 1,6 --Parasal Değerler-- 6'LI () - 2.6'LI () - 5'Lİ () - 2.5'Lİ () - 4'LÜ () - 2.4'LÜ () - 3'LÜ () - 2.3'LÜ () - 7'Lİ () - Daha fazlasını keşfedin At Yarışı Sonuçları Yarış Programı At Yarışları Platformu × Profilim Bildirim Ayarları Kullanım Koşulları Bize Ulaşın Engellediklerim Beni Unut ×",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/yaris-sonuclari.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/yaris-sonuclari-ozet.php",
+    "durum": 200,
+    "tam": "<style>.table_main td { line-height:2.2em;}</style>\r\n<script>\r\n\r\n $( document ).ready(function() {\r\n\t \r\n\t $.ajax({\r\n\t  url: '/functions/show_sonuc_ozet.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id},\r\n\t  success: function(data){\r\n\t     $(\"#yukleniyor_yarissonuclari_ozet\").hide();\r\n\t\t\t\r\n\t\t \r\n\t\t if (data==\"\")\r\n\t\t {\r\n\t\t\tvar table = $('<table></table>').addClass('table_main').attr(\"cellspacing\",1);\r\n\t\t\tvar head=$('<thead></thead>');\t \r\n\t\t\tvar yso_body=$('<tbody></tbody>').addClass('table_body');\r\n\t\t\tvar row=$('<tr></tr>').html('<td style=\"height:100px\" colspan=\"5\" align=\"center\"><span style=\"font-weight:bold;color:red\">Koşular henüz başlamamıştır.</span></td>');\r\n\t\t\t\t\tyso_body.append(row);\r\n\t\t\t\t\ttable.append(yso_body);\r\n\t\t\t\t\t$(\"#main_yarissonuclariozet\").append(table);\r\n\t\t\t\t\treturn;\r\n\t\t\t\t\t\r\n\t\t }\r\n\t\t var obj = JSON.parse(data);\r\n\t\t $(\"#yukleniyor_yarissonuclari_ozet\").hide();\r\n\t\t\r\n\t\t    \r\n\t\t\t\r\n\t\t\tvar table = $('<table></table>').addClass('table_main').attr(\"cellspacing\",1);\r\n\t\t\tvar head=$('<thead></thead>');\t\r\n\t\t\tvar head_row_1=$('<tr></tr>').addClass('table_header_1').html('<th align=\"left\" width=\"3%\">Koşu</th><th width=\"40%\" align=\"left\">Kazanan</th><th align=\"left\">Derece</th><th align=\"left\">Ganyan</th><th width=\"4%\" align=\"left\" >Favori(AGF)</th>');\t\r\n\t\t\r\n\t\t\thead.append(head_row_1);\r\n\t\t\r\n\t\t\ttable.append(head);\r\n\t\t\tvar yso_body=$('<tbody></tbody>').addClass('table_body');\r\n\t\t\t$yso_sonuclar=obj.Sonuclar;\r\n\t\t\t\r\n\t\t\t\r\n\t\t\tvar len = $.map($yso_sonuclar, function(n, i) { return i; }).length;\r\n\t\t\tif (len>1)\r\n\t\t\t{\r\n\t\t\t\t$.each($yso_sonuclar, function(i, yso_field)\r\n\t\t\t\t{\r\n\t\t\t\t\t\r\n\t\t\t\t\tvar row=$('<tr></tr>').html('<td >'+yso_field.KosuNo+'</td><td><b>'+yso_field.Kazanan+'</b></td><td>'+yso_field.Derece+'</td><td>'+yso_field.Ganyan+'</td><td>'+yso_field.Favori+'</td>');\r\n\t\t\t\t\tyso_body.append(row);\r\n\t\t\t\t\ttable.append(yso_body);\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\telse\r\n\t\t\t{\r\n\t\t\t\tvar row=$('<tr></tr>').html('<td style=\"height:100px;line-height:2.2em\" colspan=\"5\" align=\"center\"><span style=\"font-weight:bold;color:red\">Koşular henüz başlamamıştır.</span></td>');\r\n\t\t\t\t\tyso_body.append(row);\r\n\t\t\t\t\ttable.append(yso_body);\r\n\t\t\t}\r\n\t\t\t$(\"#main_yarissonuclariozet\").append(table);\t\r\n\t\t\r\n\t  },\r\n\t  error: function(xhr, status, error){\r\n\t  show_hata_dialog(\"Beklenmeyen bir hata oluştu,Lütfen Az sonra tekrar deneyiniz\"); \r\n\t  }\r\n\t});\r\n\r\n});\r\n</script>\r\n\r\n\r\n<div style=\"margin:0 auto;width:200px;text-align:center;color:red;font-weight:bold\" id=\"yukleniyor_yarissonuclari_ozet\"><img src=\"/images/loading.gif\"><br>Yükleniyor..Lütfen Bekleyin</div>\r\n<div id=\"main_yarissonuclariozet\"></div>\r\n \r\n<div class=\"main_panel\">\r\n<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2284976859702512\"\r\n     crossorigin=\"anonymous\"></script>\r\n<!-- Yatay_Responsive -->\r\n<ins class=\"adsbygoogle\"\r\n     style=\"display:block\"\r\n     data-ad-client=\"ca-pub-2284976859702512\"\r\n     data-ad-slot=\"5678796349\"\r\n     data-ad-format=\"auto\"\r\n     data-full-width-responsive=\"true\"></ins>\r\n<script>\r\n     (adsbygoogle = window.adsbygoogle || []).push({});\r\n</script>\r\n</div>\r\n"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/show_sonuc_ozet.php",
+    "durum": 200,
+    "tam": "{\"Sonuclar\":[{\"KosuNo\":\"\",\"Kazanan\":\"Alt\\u0131l\\u0131 Ganyan\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":1,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"10\"},{\"KosuNo\":2,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"2,6\"},{\"KosuNo\":3,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"1\"},{\"KosuNo\":4,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"1\"},{\"KosuNo\":5,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"2\"},{\"KosuNo\":6,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"4\"},{\"KosuNo\":\"\",\"Kazanan\":\"\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"2.Alt\\u0131l\\u0131 Ganyan\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":1,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"2\"},{\"KosuNo\":2,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"7\"},{\"KosuNo\":3,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"5\"},{\"KosuNo\":4,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"5\"},{\"KosuNo\":5,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"4\"},{\"KosuNo\":6,\"Kazanan\":\".\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"1,6\"},{\"KosuNo\":\"\",\"Kazanan\":\"--Parasal De\\u011ferler--\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"\",\"Derece\":\"\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"6'LI ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"2.6'LI ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"5'L\\u0130 ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"2.5'L\\u0130 ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"4'L\\u00dc ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"2.4'L\\u00dc ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"3'L\\u00dc ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"2.3'L\\u00dc ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"},{\"KosuNo\":\"\",\"Kazanan\":\"7'L\\u0130 ()\",\"Derece\":\"-\",\"Ganyan\":\"\",\"Favori\":\"\"}]}"
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.gstatic.com/mysidia/1a6c8d76751db1ca6b691968c556700c.js?tag=engine/client_fast/client_fast_engine",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.gstatic.com/mysidia/6a0c7bdb3315ea68faf01f8065be6610.js?tag=pingback/client/pingback",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.gstatic.com/mysidia/64a7095877924e937e96438d572bae2e.js?tag=unflavored/tandem_end_card_children",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.gstatic.com/mysidia/7a484d2f8d6d36affcbf0560898c17fd.js?tag=unflavored/tandem_end_card_parent",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.gstatic.com/mysidia/aa9d0d79d0a539d6f7620538f4e30544.js?tag=addon/mysidia_one_click_handler_one_afma",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.gstatic.com/mysidia/63c7dec8186d749265b9cbc34457f9b4.js?tag=scream/cartman_vignette_logo_v2",
+    "durum": 200,
+    "tam": ""
+   }
+  ]
+ },
+ "kayitlar.html": {
+  "baslik": "Kayıtlar | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Kayıtlar Tarih Şehir İzmir Koşmaz Gizle Koşu İkramiye: 545000,00 1200 Kum Maiden/Dişi 2 Yaşlı İngilizler S At İsmi Kg/ Yaş HP/ KGS Son 6 / S20 1 CAREFULLY SELECTED (SHARP AZTECA (USA)-STORMY CARESS (USA) / STORMY ATLANTIC (USA)) 57 2y d d 0 21 50 18 2 MAGIC SURPRISE (BLUEGRASS CAT (USA)-SPRING WALTZ / SCARFACE) 59 2y d d 33 23 573524 17 3 CERENITY CAT (BLUEGRASS CAT (USA)-SİBEL SU / SABIRLI) 57 2y a d 31 23 423 17 4 FLOR DA ROSA (RUN AWAY AND HIDE (USA)-KEY TO MY HEART / LION HEART (USA)) 57 2y d d 24 9 609669 11 5 DEVRİM (TOROK (IRE)-FLYING QUEEN / YONAGUSKA (USA)) 57 2y d d 0 23 52 18 6 KUNTA (BODEMEISTER (USA)-ADİSA / BOSPORUS (IRE)) 57 2y d d 28 21 553 17 7 ALBAYRAĞIN AKKUŞU KOŞMAZ (LILBOURNE LAD (IRE)-BOYUT / LION HEART (USA)) 57 2y d d 9 76 5656 16 8 GOLDEN DOLPHIN (TIZWAY (USA)-WINDMILL HILL (USA) / GRAND SLAM (USA)) 57 2y d d 0 9 40 18 9 DO IT FOR LOVE (MİTİCO-TOCC FACE / TOCCET (USA)) 57 2y d d 28 23 4853 16 10 LIFE IS SIMPLE (BODEMEISTER (USA)-İPEKKIZ / VICTORY GALLOP (CAN)) 57 2y d d 0 21 50 18 11 ICE BEAUTY (VOODOO SONG (USA)-BUZ / VICTORY GALLOP (CAN)) 57 2y d d 28 9 72788 15 12 MAYS ARE OURS (MENDIP (USA)-JESSAMINE / WIN RIVER WIN (USA)) 57 2y d d 0 18 7 19 13 ",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/kayitlar.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026",
+    "url": "https://www.ganyancanavari.com.tr/functions/get_kayit_sehir_list.php",
+    "durum": 200,
+    "tam": "{\"Sehirler\":[{\"id\":2,\"Unvan\":\"İzmir\"},{\"id\":5,\"Unvan\":\"Ankara\"},{\"id\":8,\"Unvan\":\"Diyarbakır\"}],\"success\":1,\"tarih\":\"24.10.2026\"}"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=2",
+    "url": "https://www.ganyancanavari.com.tr/functions/show_kayit.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_No\":1,\"Kosu_NoSaat\":\"Koşu\",\"Kosu_MesafePist\":\"1200 Kum\",\"Kosu_ikramiye\":545000,\"Kosu_Tipi\":\"Maiden\\/Dişi\",\"Kosu_TayCinsleri\":\"2 Yaşlı İngilizler\",\"Atlar\":[{\"At_No\":0,\"At_Id\":0,\"At_Unvan\":\"<br><small>(-)<\\/small>\",\"At_Unvan_Orjinsiz\":null,\"At_Kosmaz\":\"-\",\"At_Yedek\":\"\",\"At_Origin\":\"-\",\"At_Sahip\":\"-\",\"At_Antrenor\":null,\"At_Ekuri\":\"0\",\"At_Kg\":\"0\",\"At_Yas\":\"\",\"At_Kgs\":\"\",\"At_S20\":\"\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"\"},{\"At_No\":1,\"At_Id\":116878,\"At_Unvan\":\"CAREFULLY SELECTED<br><small>(SHARP AZTECA (USA)-STORMY CARESS (USA) \\/ STORMY ATLANTIC (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"CAREFULLY SELECTED\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"SHARP AZTECA (USA)-STORMY CARESS (USA) \\/ STORMY ATLANTIC (USA)\",\"At_Sahip\":\"N. ARİ. KURTEL\",\"At_Antrenor\":\"B.GÜL\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"21\",\"At_S20\":\"18\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"50\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K5K0\"},{\"At_No\":2,\"At_Id\":115765,\"At_Unvan\":\"MAGIC SURPRISE<br><small>(BLUEGRASS CAT (USA)-SPRING WALTZ \\/ SCARFACE)<\\/small>\",\"At_Unvan_Orjinsiz\":\"MAGIC SURPRISE\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"BLUEGRASS CAT (USA)-SPRING WALTZ \\/ SCARFACE\",\"At_Sahip\":\"ERA. KOKTAY\",\"At_Antrenor\":\"S.YANIK\",\"At_Ekuri\":\"0\",\"At_Kg\":\"59\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"23\",\"At_S20\":\"17\",\"At_Handikap\":33,\"At_KosuNo\":1,\"At_son5\":\"573524\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K5C7K3K5K2K4\"},{\"At_No\":3,\"At_Id\":116224,\"At_Unvan\":\"CERENITY CAT<br><small>(BLUEGRASS CAT (USA)-SİBEL SU \\/ SABIRLI)<\\/small>\",\"At_Unvan_Orjinsiz\":\"CERENITY CAT\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"BLUEGRASS CAT (USA)-SİBEL SU \\/ SABIRLI\",\"At_Sahip\":\"İ.ÖMÜR GÖKBEL\",\"At_Antrenor\":\"F.ÇELTİK\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y a  d\",\"At_Kgs\":\"23\",\"At_S20\":\"17\",\"At_Handikap\":31,\"At_KosuNo\":1,\"At_son5\":\"423\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K4K2K3\"},{\"At_No\":4,\"At_Id\":114342,\"At_Unvan\":\"FLOR DA ROSA<br><small>(RUN AWAY AND HIDE (USA)-KEY TO MY HEART \\/ LION HEART (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"FLOR DA ROSA\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"RUN AWAY AND HIDE (USA)-KEY TO MY HEART \\/ LION HEART (USA)\",\"At_Sahip\":\"BAK. FELHAN\",\"At_Antrenor\":\"A.C.ATAR\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"9\",\"At_S20\":\"11\",\"At_Handikap\":24,\"At_KosuNo\":1,\"At_son5\":\"609669\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K6K0K9K6K6K9\"},{\"At_No\":5,\"At_Id\":116440,\"At_Unvan\":\"DEVRİM<br><small>(TOROK (IRE)-FLYING QUEEN \\/ YONAGUSKA (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"DEVRİM\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"TOROK (IRE)-FLYING QUEEN \\/ YONAGUSKA (USA)\",\"At_Sahip\":\"ALPER YÜKSEL\",\"At_Antrenor\":\"F.ÇELTİK\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"23\",\"At_S20\":\"18\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"52\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K5K2\"},{\"At_No\":6,\"At_Id\":116652,\"At_Unvan\":\"KUNTA<br><small>(BODEMEISTER (USA)-ADİSA \\/ BOSPORUS (IRE))<\\/small>\",\"At_Unvan_Orjinsiz\":\"KUNTA\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"BODEMEISTER (USA)-ADİSA \\/ BOSPORUS (IRE)\",\"At_Sahip\":\"İLKER İYİKOL\",\"At_Antrenor\":\"S.GÖKÇE\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"21\",\"At_S20\":\"17\",\"At_Handikap\":28,\"At_KosuNo\":1,\"At_son5\":\"553\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K5K5K3\"},{\"At_No\":7,\"At_Id\":116374,\"At_Unvan\":\"ALBAYRAĞIN AKKUŞU<br><small>(LILBOURNE LAD (IRE)-BOYUT \\/ LION HEART (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"ALBAYRAĞIN AKKUŞU\",\"At_Kosmaz\":\"Kosmaz\",\"At_Yedek\":\"false\",\"At_Origin\":\"LILBOURNE LAD (IRE)-BOYUT \\/ LION HEART (USA)\",\"At_Sahip\":\"ABDULLAH AKKUŞ\",\"At_Antrenor\":\"A.ATAŞ\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"76\",\"At_S20\":\"16\",\"At_Handikap\":9,\"At_KosuNo\":1,\"At_son5\":\"5656\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K5K6K5K6\"},{\"At_No\":8,\"At_Id\":116622,\"At_Unvan\":\"GOLDEN DOLPHIN<br><small>(TIZWAY (USA)-WINDMILL HILL (USA) \\/ GRAND SLAM (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"GOLDEN DOLPHIN\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"TIZWAY (USA)-WINDMILL HILL (USA) \\/ GRAND SLAM (USA)\",\"At_Sahip\":\"KORAL KALPAKLIOĞLU\",\"At_Antrenor\":\"S.GÖKÇE\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"9\",\"At_S20\":\"18\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"40\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K4K0\"},{\"At_No\":9,\"At_Id\":115718,\"At_Unvan\":\"DO IT FOR LOVE<br><small>(MİTİCO-TOCC FACE \\/ TOCCET (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"DO IT FOR LOVE\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"MİTİCO-TOCC FACE \\/ TOCCET (USA)\",\"At_Sahip\":\"CANKAT SOYSAL\",\"At_Antrenor\":\"B.ÖZGÜR\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"23\",\"At_S20\":\"16\",\"At_Handikap\":28,\"At_KosuNo\":1,\"At_son5\":\"4853\",\"At_DigerKayitlar\":\"\",\"At_son5_renkli\":\"K4K8K5K3\"},{\"At_No\":10,\"At_Id\":116414,\"At_Unvan\":\"LIFE IS SIMPLE<br><small>(BODEMEISTER (USA)-İPEKKIZ \\/ VICTORY GALLOP (CAN))<\\/small>\",\"At_Unvan_Orjinsiz\":\"LIFE IS SIMPLE\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"BODEMEISTER (US"
+   }
+  ]
+ },
+ "deklareler.html": {
+  "baslik": "Deklareler | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Deklareler Tarih Şehir İzmir Koşmaz Gizle Koşu İkramiye: 545000,00 1200 Kum Maiden/Dişi 2 Yaşlı İngilizler S At İsmi/Jokey Kg/ Yaş HP/ KGS Son 6 / S20 1 CAREFULLY SELECTEDKG DB SK (SHARP AZTECA (USA)-STORMY CARESS (USA) / STORMY ATLANTIC (USA)) M.ÇİÇEK 57 2y d d 0 21 50 18 2 DEVRİMKG K (TOROK (IRE)-FLYING QUEEN / YONAGUSKA (USA)) M.M.BİLGİN 57 2y d d 0 23 52 18 3 DO IT FOR LOVEKG K (MİTİCO-TOCC FACE / TOCCET (USA)) B.M.MIRIK 57 2y d d 28 23 4853 16 4 ES BANAKG K DB (SADLERS JOY (USA)-BANA / KANEKO) GÖKH.GÖKÇE 57 2y d d 0 50 4 19 5 ESENCEKG K DB (HAKEEM (USA)-BLAZING SPEED / BIN AJWAAD (IRE)) A.MEHDİ ALTIN 57 2y d d 33 9 3924 16 6 EYLÜL MASALIDB SK (HAKEEM (USA)-RİTİM / CUVEE (USA)) A.KÜRÜNDÜK 57 2y d d 9 12 978 17 7 LİVİASK (CORINTHIAN (USA)-MISS LİYA / TOCCET (USA)) Y.GÖKÇE 57 2y d d 30 21 42458 16 8 MADAME ADAKG DB SK (GRAYSTORM-SO EASY / UNACCOUNTED FOR (USA)) K.YILMAZ 57 2y a d 18 33 755505 16 9 QUEEN OF MUĞLA (TOCCET (USA)-EASTENDERS / PRESSING (IRE)) N.AVCİ 57 2y a d 0 30 2 19 10 SIDE FIREK (KLUGER (JPN)-OYA / PERFECT STORM) A.METİN 57 2y d d 0 69 7 19 11 TALENT QUEENKG K (BLUEGRASS CAT (USA)-STORY MOMENT / LUXOR) Y.Ş.GÜMÜŞ 57 2y d d 0 20 [ (4)ES BANA (5)ESENCE] Ekurid",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/deklareler.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026",
+    "url": "https://www.ganyancanavari.com.tr/functions/get_deklare_sehir_list.php",
+    "durum": 200,
+    "tam": "{\"Sehirler\":[{\"id\":2,\"Unvan\":\"İzmir\"},{\"id\":5,\"Unvan\":\"Ankara\"},{\"id\":8,\"Unvan\":\"Diyarbakır\"}],\"success\":1,\"tarih\":\"24.10.2026\"}"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=2",
+    "url": "https://www.ganyancanavari.com.tr/functions/show_deklare.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_No\":1,\"Kosu_NoSaat\":\"Koşu\",\"Kosu_MesafePist\":\"1200 Kum\",\"Kosu_ikramiye\":545000,\"Kosu_Tipi\":\"Maiden\\/Dişi\",\"Kosu_TayCinsleri\":\"2 Yaşlı İngilizler\",\"Atlar\":[{\"At_No\":0,\"At_Id\":0,\"At_Unvan\":\"<br><small>(-)<\\/small>\",\"At_Unvan_Orjinsiz\":null,\"At_Kosmaz\":\"-\",\"At_Yedek\":\"\",\"At_Origin\":\"-\",\"At_Sahip\":\"-\",\"At_Antrenor\":null,\"At_Ekuri\":\"0\",\"At_Taki\":\"\",\"At_Kg\":\"0\",\"At_Yas\":\"\",\"At_Kgs\":\"\",\"At_S20\":\"\",\"Jokey_Unvan\":\"\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"\",\"At_son5_renkli\":\"\"},{\"At_No\":1,\"At_Id\":116878,\"At_Unvan\":\"CAREFULLY SELECTED<br><small>(SHARP AZTECA (USA)-STORMY CARESS (USA) \\/ STORMY ATLANTIC (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"CAREFULLY SELECTED\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"SHARP AZTECA (USA)-STORMY CARESS (USA) \\/ STORMY ATLANTIC (USA)\",\"At_Sahip\":\"N. ARİ. KURTEL\",\"At_Antrenor\":\"B.GÜL\",\"At_Ekuri\":\"0\",\"At_Taki\":\"KG DB SK\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"21\",\"At_S20\":\"18\",\"Jokey_Unvan\":\"M.ÇİÇEK\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"50\",\"At_son5_renkli\":\"K5K0\"},{\"At_No\":2,\"At_Id\":116440,\"At_Unvan\":\"DEVRİM<br><small>(TOROK (IRE)-FLYING QUEEN \\/ YONAGUSKA (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"DEVRİM\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"TOROK (IRE)-FLYING QUEEN \\/ YONAGUSKA (USA)\",\"At_Sahip\":\"ALPER YÜKSEL\",\"At_Antrenor\":\"F.ÇELTİK\",\"At_Ekuri\":\"0\",\"At_Taki\":\"KG K\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"23\",\"At_S20\":\"18\",\"Jokey_Unvan\":\"M.M.BİLGİN\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"52\",\"At_son5_renkli\":\"K5K2\"},{\"At_No\":3,\"At_Id\":115718,\"At_Unvan\":\"DO IT FOR LOVE<br><small>(MİTİCO-TOCC FACE \\/ TOCCET (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"DO IT FOR LOVE\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"MİTİCO-TOCC FACE \\/ TOCCET (USA)\",\"At_Sahip\":\"CANKAT SOYSAL\",\"At_Antrenor\":\"B.ÖZGÜR\",\"At_Ekuri\":\"0\",\"At_Taki\":\"KG K\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"23\",\"At_S20\":\"16\",\"Jokey_Unvan\":\"B.M.MIRIK\",\"At_Handikap\":28,\"At_KosuNo\":1,\"At_son5\":\"4853\",\"At_son5_renkli\":\"K4K8K5K3\"},{\"At_No\":4,\"At_Id\":117081,\"At_Unvan\":\"ES BANA<br><small>(SADLERS JOY (USA)-BANA \\/ KANEKO)<\\/small>\",\"At_Unvan_Orjinsiz\":\"ES BANA\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"SADLERS JOY (USA)-BANA \\/ KANEKO\",\"At_Sahip\":\"HÜS. KOLSUZOĞLU\",\"At_Antrenor\":\"S.ŞAHYAZICI\",\"At_Ekuri\":\"1\",\"At_Taki\":\"KG K DB\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"50\",\"At_S20\":\"19\",\"Jokey_Unvan\":\"GÖKH.GÖKÇE\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"4\",\"At_son5_renkli\":\"K4\"},{\"At_No\":5,\"At_Id\":116659,\"At_Unvan\":\"ESENCE<br><small>(HAKEEM (USA)-BLAZING SPEED \\/ BIN AJWAAD (IRE))<\\/small>\",\"At_Unvan_Orjinsiz\":\"ESENCE\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"HAKEEM (USA)-BLAZING SPEED \\/ BIN AJWAAD (IRE)\",\"At_Sahip\":\"HÜS. KOLSUZOĞLU\",\"At_Antrenor\":\"S.ŞAHYAZICI\",\"At_Ekuri\":\"1\",\"At_Taki\":\"KG K DB\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"9\",\"At_S20\":\"16\",\"Jokey_Unvan\":\"A.MEHDİ ALTIN\",\"At_Handikap\":33,\"At_KosuNo\":1,\"At_son5\":\"3924\",\"At_son5_renkli\":\"K3C9K2K4\"},{\"At_No\":6,\"At_Id\":116461,\"At_Unvan\":\"EYLÜL MASALI<br><small>(HAKEEM (USA)-RİTİM \\/ CUVEE (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"EYLÜL MASALI\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"HAKEEM (USA)-RİTİM \\/ CUVEE (USA)\",\"At_Sahip\":\"İLKE BETİR AKBAŞ\",\"At_Antrenor\":\"K.ŞENGEL\",\"At_Ekuri\":\"0\",\"At_Taki\":\"DB SK\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"12\",\"At_S20\":\"17\",\"Jokey_Unvan\":\"A.KÜRÜNDÜK\",\"At_Handikap\":9,\"At_KosuNo\":1,\"At_son5\":\"978\",\"At_son5_renkli\":\"C9K7C8\"},{\"At_No\":7,\"At_Id\":114716,\"At_Unvan\":\"LİVİA<br><small>(CORINTHIAN (USA)-MISS LİYA \\/ TOCCET (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"LİVİA\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"CORINTHIAN (USA)-MISS LİYA \\/ TOCCET (USA)\",\"At_Sahip\":\"MUSTAFA KOYUÖZ\",\"At_Antrenor\":\"N.GÖNÜLTAŞ\",\"At_Ekuri\":\"0\",\"At_Taki\":\"SK\",\"At_Kg\":\"57\",\"At_Yas\":\"2y d  d\",\"At_Kgs\":\"21\",\"At_S20\":\"16\",\"Jokey_Unvan\":\"Y.GÖKÇE\",\"At_Handikap\":30,\"At_KosuNo\":1,\"At_son5\":\"42458\",\"At_son5_renkli\":\"K4K2K4K5K8\"},{\"At_No\":8,\"At_Id\":114542,\"At_Unvan\":\"MADAME ADA<br><small>(GRAYSTORM-SO EASY \\/ UNACCOUNTED FOR (USA))<\\/small>\",\"At_Unvan_Orjinsiz\":\"MADAME ADA\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"GRAYSTORM-SO EASY \\/ UNACCOUNTED FOR (USA)\",\"At_Sahip\":\"İSA EVREN\",\"At_Antrenor\":\"İ.H.BAYDAN\",\"At_Ekuri\":\"0\",\"At_Taki\":\"KG DB SK\",\"At_Kg\":\"57\",\"At_Yas\":\"2y a  d\",\"At_Kgs\":\"33\",\"At_S20\":\"16\",\"Jokey_Unvan\":\"K.YILMAZ\",\"At_Handikap\":18,\"At_KosuNo\":1,\"At_son5\":\"755505\",\"At_son5_renkli\":\"K7C5C5C5C0C5\"},{\"At_No\":9,\"At_Id\":115322,\"At_Unvan\":\"QUEEN OF MUĞLA<br><small>(TOCCET (USA)-EASTENDERS \\/ PRESSING (IRE))<\\/small>\",\"At_Unvan_Orjinsiz\":\"QUEEN OF MUĞLA\",\"At_Kosmaz\":\"-\",\"At_Yedek\":\"false\",\"At_Origin\":\"TOCCET (USA)-EASTENDERS \\/ PRESSING (IRE)\",\"At_Sahip\":\"CEN. ŞAMLI\",\"At_Antrenor\":\"C.ŞAMLI\",\"At_Ekuri\":\"0\",\"At_Taki\":\"\",\"At_Kg\":\"57\",\"At_Yas\":\"2y a  d\",\"At_Kgs\":\"30\",\"At_S20\":\"19\",\"Jokey_Unvan\":\"N.AVCİ\",\"At_Handikap\":0,\"At_KosuNo\":1,\"At_son5\":\"2\",\"At_son5_renkli\":\"K2\"},{\"At_No\":10,\"At_Id\":115929,\"At_Unvan\":\"SIDE FIRE<br><small>(KLUGER (JPN)-OYA \\/ PERFECT STORM)<\\/small>\",\"At_Unvan_Orjinsiz\":\"SIDE FIRE\",\"At_Kosmaz\":\"-\""
+   }
+  ]
+ },
+ "son-kosular.html": {
+  "baslik": "Son Koşular | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Son Koşular KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 (Maiden/Dişi) 1400 Çim 1 OY YARE (KG K) (SEA SOUND (IRE)-İKSİR) S.YAZICIOĞLU (AP) 57 Klv: 1 Tarih/Şehir Mesafe/Pist Sıra Derece/Jokey Kg 26.09.26 Ankara (Maiden/Dişi) 1200 Çim Normal 8 1.13.59 R.KURT (AP) 57 Takı: SK HP: 30 Gny: 20.55 S800: 45.80 Geç: - (1.)SUPER AURA (1:11:01)(Son800 45:80)(10 Boy)(57 Kg)(2.)SUBE LA MAREA (1:12:54)(1 Boy)(57 Kg)(3.)LOK UP LADY (1:12:67)(1,5 Boy)(57 Kg)(4.)MISS TOKOÇİN(57 Kg) Koşu DetayıKoşuyu İzle 17.09.26 Ankara (ŞARTLI 19/Dişi) 1200 Kum Nemli 4 1.15.86 R.KURT (AP) 55 Takı: SK HP: 30 Gny: 17.65 S800: 50.17 Geç: - (1.)PERIWINKLE (1:14:88)(Son800 50:17)(3,5 Boy)(55 Kg)(2.)WELL SUPPORTED (1:15:46)(1,5 Boy)(55 Kg)(3.)ROYAL PRYTANIA (1:15:72)(1 Boy)(55 Kg)(4.)OY YARE(55 Kg) Koşu DetayıKoşuyu İzle 10.09.26 Ankara (Maiden) 1400 Çim Normal 4 1.26.23 R.KURT (AP) 55 Takı: SK HP: 30 Gny: 2.05 S800: 48.90 Geç: - (1.)AFAMIA (1:25:61)(Son800 48:90)(2 Boy)(57 Kg)(2.)YONAGUNI (1:25:90)(2 Boy)(59 Kg)(3.)MEYDAN OKU (1:26:18)(Boyun)(59 Kg)(4.)OY YARE(55 Kg) Koşu DetayıKoşuyu İzle 14.07.26 Ankara (Maiden/Dişi) 1300 Çim Normal 6 1.20.94 SER.ÇELİK (AP) 57 Takı: K HP: 30 Gny: 9 S800: 49.11 Geç: - (1.)KUPA DO",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/son-kosular.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/son-kosular-detay.php?kosu=1",
+    "durum": 200,
+    "tam": "<script>\r\n $( document ).ready(function() {\r\n \r\n\t\t\r\n\t $.ajax({\r\n\t  url: '/functions/sonkosular_detay.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id,kosu_no:selected_kosu_no},\r\n\t  success: function(data){\r\n\t\t\r\n\t\r\n\t\t var obj = JSON.parse(data);\r\n\t\t\r\n\t\t $(\"#yukleniyor_sonkosular_detay\").hide();\r\n\t\t\r\n\t\t$skd_kosular=obj.Kosular;\r\n\t\tvar titlediv = $('<div></div>');\r\n\t\tvar titlediv_kosunosaat=$('<div></div>').addClass('title_div_kosunosaat').text($skd_kosular[0].Kosu_NoSaat);\r\n\t\tvar titlediv_mesafepist=$('<div></div>').addClass('title_div_mesafepist').text($skd_kosular[0].Kosu_MesafePist);\r\n\t\ttitlediv.append(titlediv_kosunosaat);\r\n\t\ttitlediv.append(titlediv_mesafepist);\r\n\t\tif($skd_kosular[0].Kosu_MesafePist.indexOf(\"Çim\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_cim\");\r\n\t\t\t}\r\n\t\t\tif($skd_kosular[0].Kosu_MesafePist.indexOf(\"Kum\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_kum\");\r\n\t\t\t}\r\n\t\t\tif($skd_kosular[0].Kosu_MesafePist.indexOf(\"Sentetik\")>-1 || $skd_kosular[0].Kosu_MesafePist.indexOf(\"Tapeta\")>-1 || $skd_kosular[0].Kosu_MesafePist.indexOf(\"TAPETA\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_sentetik\");\r\n\t\t\t}\r\n\t\ttitlediv.addClass('title_div');\r\n\t\tvar table = $('<table></table>').addClass('table_main').attr(\"cellspacing\",0).attr(\"id\",\"sonkosular_table\");\r\n\t\t$skd_atlar=$skd_kosular[0].Atlar;\r\n\t\t\t\tvar adscount=0;\r\n\t\t\t$.each($skd_atlar, function(i, skd_field_atlar)\r\n\t\t\t{\r\n\t\t\t\tadscount++;\r\n\t\t\t\t\r\n\t\t\t\tvar skd_at_unvan='<b>'+skd_field_atlar.At_Unvan+'</b>';\r\n\t\t\t\tif(skd_field_atlar.At_Kosmaz==\"0\")\r\n\t\t\t\t{\r\n\t\t\t\t\tskd_at_unvan=skd_at_unvan+' <span style=\"color:blue\">(KOŞMAZ)</span>';\r\n\t\t\t\t}\r\n\t\t\t\tif (skd_field_atlar.At_Ekuri>0)\r\n\t\t\t\t{\r\n\t\t\t\t\tskd_at_unvan=skd_at_unvan+' <img src=\"/images/e'+skd_field_atlar.At_Ekuri+'.png\"/>';\r\n\t\t\t\t}\r\n\t\t\t\tvar overflow=\"\";\r\n\t\t\t\tif(skd_field_atlar.At_Kosmaz==\"0\")\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +skd_field_atlar.At_Id +'\" unvan=\"'+ skd_field_atlar.At_Unvan_Orjinsiz +'\" p_kosuno=\"'+skd_field_atlar.At_KosuNo+'\" p_atno=\"'+skd_field_atlar.At_No+'\" class=\"context-menu-two btn btn-neutral\" src=\"/images/ic_action_overflow.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +skd_field_atlar.At_Id +'\" unvan=\"'+ skd_field_atlar.At_Unvan_Orjinsiz +'\" p_kosuno=\"'+skd_field_atlar.At_KosuNo+'\" p_atno=\"'+skd_field_atlar.At_No+'\" class=\"context-menu-one btn btn-neutral\" src=\"/images/ic_action_overflow.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t\tvar row=$('<tr></tr>').addClass('table_header_1').html('<td width=\"3%\"><b>'+skd_field_atlar.At_No+'</b></td><td><b>'+skd_at_unvan+'</b></td><td><b>'+skd_field_atlar.Jokey_Unvan+'</b></td><td>'+skd_field_atlar.At_Kg+'</td><td>Klv: '+skd_field_atlar.At_Kulvar+'</td><td>'+overflow+'</td>');\r\n\t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tif (skd_field_atlar.At_Unvan!=\"\") \r\n\t\t\t\t{\r\n\t\t\t\t\ttable.append(row);\r\n\t\t\t\t\tvar row=$('<tr></tr>');\r\n\t\t\t\t\tvar row_col=$('<td></td>').attr(\"colspan\",\"6\");\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\tvar table_sonkosular = $('<table></table>').attr(\"cellspacing\",0).attr(\"style\",\"width:100%\");\r\n\t\t\t\t\tvar head=$('<thead></thead>');\t\r\n\t\t\t\t\tvar head_row=$('<tr></tr>').addClass('table_header_3').html('<th align=\"left\" width=\"25%\">Tarih/Şehir</th><th width=\"25%\" align=\"left\">Mesafe/Pist</th><th width=\"7%\" align=\"left\">Sıra</th><th align=\"left\">Derece/Jokey</th><th width=\"5%\">Kg</th>');\t\r\n\t\t\t\t\thead.append(head_row);\r\n\t\t\t\t\ttable_sonkosular.append(head);\r\n\t\t\t\t\t\r\n\t\t\t\t\tvar tbody_sonkosular=$('<tbody></tbody>');\t\r\n\t\t\t\t\tvar bg_color=\"#fff\";\r\n\t\t\t\t\t\r\n\t\t\t\t\t$skd_sonkosular=skd_field_atlar.SonKosular;\r\n\t\t\t\t\t$.each($skd_sonkosular, function(i, skd_field_sonkosular)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\tskd_tarihsehirkosutipi=skd_field_sonkosular.Sk_Tarih+\"<br/>\"+skd_field_sonkosular.Sk_Sehir_Unvan_NoKosuTipi+\"<br/><small>(\"+skd_field_sonkosular.Sk_Kosu_Tipi_Unvan+\")</small>\";\r\n\t\t\t\t\t\tif (skd_field_sonkosular.Sk_MesafePist.indexOf('Çim')>=0)\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\tskd_mesafepistpistdurumu=\"<span style='background-color:#82ff7f;border-radius: 3px;'>\"+skd_field_sonkosular.Sk_MesafePist+\"<br/>\"+skd_field_sonkosular.Sk_PistDurumu+\"</span>\";\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\telse\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\tskd_mesafepistpistdurumu=skd_field_sonkosular.Sk_MesafePist+\"<br/>\"+skd_field_sonkosular.Sk_PistDurumu;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tskd_derecejokey=skd_field_sonkosular.Sk_SadeceDerece+\"<br/>\"+skd_field_sonkosular.Sk_Jokey_Unvan_Ganyansiz;\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\tvar row_sonkosular=$('<tr></tr>').attr(\"style\",\"background-color:\"+bg_color).html('<td>'+skd_tarihsehirkosutipi+'</td><td>'+skd_mesafepistpistdurumu+'</td><td>'+skd_field_sonkosular.Sk_Sira+'</td><td>'+skd_derecejokey+'</td><td>'+skd_field_sonkosular.Sk_Kg+'</td>');\r\n\t\t\t\t\t\tif (skd_field_sonkosular.Sk_Sehir_Unvan_NoKosuTipi!=\"\")\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\ttbody_sonkosular.append(row_sonkosular);\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\tvar geccikisstr='<b>Geç:</b> - ';\r\n\t\t\t\t\t\t\tvar takistr='<b>Takı:</b> -';\r\n\t\t\t\t\t\t\tvar son800str='<b>S800:</b> -';\r\n\t\t\t\t\t\t\tif(skd_field_sonkosular.Sk_GecCikis!=\"\" && skd_field_sonkosular.Sk_GecCikis!=null)\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tgeccikisstr='<b>Geç:</b> '+sk"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1",
+    "url": "https://www.ganyancanavari.com.tr/functions/sonkosular_detay.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Atlar\":[{\"At_No\":1,\"At_Unvan\":\"OY YARE (KG K)<br><small>(SEA SOUND (IRE)-İKSİR)<\\/small>\",\"At_Unvan_Orjinsiz\":\"OY YARE\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"Jokey_Unvan\":\"S.YAZICIOĞLU (AP)\",\"Jokey_isApranti\":1,\"At_Kulvar\":1,\"At_Id\":114537,\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"SonKosular\":[{\"Sk_Tarih\":\"26.09.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\\/Dişi\",\"Sk_Mesafe\":\"1200\",\"Sk_MesafePist\":\"1200 Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"45.80\",\"Sk_Sira\":8,\"Sk_SadeceDerece\":\"1.13.59\",\"Sk_Derece\":\"1.13.59\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"R.KURT (AP)<br><small>(Ganyan: 20.55 HP: 30)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"R.KURT (AP)\",\"Sk_Ganyan\":\"20.55 HP: 30\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":20.55,\"Sk_At_Kulvar\":11,\"Sk_HandikapPuani\":30,\"Sk_AtTaki\":\"SK\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":10,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>SUPER AURA (1:11:01)(Son800 45:80)(10 Boy)(57 Kg)<b>(2.)<\\/b>SUBE LA MAREA (1:12:54)(1 Boy)(57 Kg)<b>(3.)<\\/b>LOK UP LADY (1:12:67)(1,5  Boy)(57 Kg)<b>(4.)<\\/b>MISS TOKOÇİN(57 Kg)\"},{\"Sk_Tarih\":\"17.09.26\",\"Sk_Sehir_Unvan\":\"Ankara (ŞARTLI 19\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"ŞARTLI 19\\/Dişi\",\"Sk_Mesafe\":\"1200\",\"Sk_MesafePist\":\"1200 Kum\",\"Sk_PistDurumu\":\"Nemli\",\"Sk_Son800\":\"50.17\",\"Sk_Sira\":4,\"Sk_SadeceDerece\":\"1.15.86\",\"Sk_Derece\":\"1.15.86\",\"Sk_Kg\":\"55\",\"Sk_Jokey_Unvan\":\"R.KURT (AP)<br><small>(Ganyan: 17.65 HP: 30)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"R.KURT (AP)\",\"Sk_Ganyan\":\"17.65 HP: 30\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":17.65,\"Sk_At_Kulvar\":2,\"Sk_HandikapPuani\":30,\"Sk_AtTaki\":\"SK\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":5,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>PERIWINKLE (1:14:88)(Son800 50:17)(3,5 Boy)(55 Kg)<b>(2.)<\\/b>WELL SUPPORTED (1:15:46)(1,5  Boy)(55 Kg)<b>(3.)<\\/b>ROYAL PRYTANIA (1:15:72)(1 Boy)(55 Kg)<b>(4.)<\\/b>OY YARE(55 Kg)\"},{\"Sk_Tarih\":\"10.09.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\",\"Sk_Mesafe\":\"1400\",\"Sk_MesafePist\":\"1400 Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"48.90\",\"Sk_Sira\":4,\"Sk_SadeceDerece\":\"1.26.23\",\"Sk_Derece\":\"1.26.23\",\"Sk_Kg\":\"55\",\"Sk_Jokey_Unvan\":\"R.KURT (AP)<br><small>(Ganyan: 2.05 HP: 30)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"R.KURT (AP)\",\"Sk_Ganyan\":\"2.05 HP: 30\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":2.05,\"Sk_At_Kulvar\":3,\"Sk_HandikapPuani\":30,\"Sk_AtTaki\":\"SK\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":2,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>AFAMIA (1:25:61)(Son800 48:90)(2 Boy)(57 Kg)<b>(2.)<\\/b>YONAGUNI (1:25:90)(2 Boy)(59 Kg)<b>(3.)<\\/b>MEYDAN OKU (1:26:18)(Boyun)(59 Kg)<b>(4.)<\\/b>OY YARE(55 Kg)\"},{\"Sk_Tarih\":\"14.07.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\\/Dişi\",\"Sk_Mesafe\":\"1300\",\"Sk_MesafePist\":\"1300 Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"49.11\",\"Sk_Sira\":6,\"Sk_SadeceDerece\":\"1.20.94\",\"Sk_Derece\":\"1.20.94\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"SER.ÇELİK (AP)<br><small>(Ganyan: 9 HP: 30)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"SER.ÇELİK (AP)\",\"Sk_Ganyan\":\"9 HP: 30\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":9,\"Sk_At_Kulvar\":7,\"Sk_HandikapPuani\":30,\"Sk_AtTaki\":\"K\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":8,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>KUPA DOKUZLUSU (1:19:65)(Son800 49:11)(Burun)(57 Kg)<b>(2.)<\\/b>FURİOSA (1:19:66)(5 Boy)(57 Kg)<b>(3.)<\\/b>SERSİVO (1:20:45)(1,5  Boy)(57 Kg)<b>(4.)<\\/b>CEYHAN SULTANI(57 Kg)\"},{\"Sk_Tarih\":\"04.07.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\\/Dişi\",\"Sk_Mesafe\":\"1200\",\"Sk_MesafePist\":\"1200 Kum\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"53.04\",\"Sk_Sira\":4,\"Sk_SadeceDerece\":\"1.19.88\",\"Sk_Derece\":\"1.19.88\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"M.N.SUNKAR<br><small>(Ganyan: 6.1 HP: 30)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"M.N.SUNKAR\",\"Sk_Ganyan\":\"6.1 HP: 30\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":6.1,\"Sk_At_Kulvar\":6,\"Sk_HandikapPuani\":30,\"Sk_AtTaki\":\"SK\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":4,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>HIDDEN ISLAND (1:17:75)(Son800 53:04)(5,5 Boy)(57 Kg)<b>(2.)<\\/b>MYSTIC RUNNER (1:18:94)(5 Boy)(57 Kg)<b>(3.)<\\/b>AMORES (1:19:85)(Baş)(57 Kg)<b>(4.)<\\/b>OY YARE(57 Kg)\"},{\"Sk_Tarih\":\"18.06.26\",\"Sk_Sehir_Unvan\":\"Ankara (ŞARTLI 19\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"ŞARTLI 19\\/Dişi\",\"Sk_Mesafe\":\"1200\",\"Sk_MesafePist\":\"1200 Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"49.46\",\"Sk_Sira\":4,\"Sk_SadeceDerece\":\"1.15.17\",\"Sk_Derece\":\"1.15.17\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"M.S.ÇELİK<br><small>(Ganyan: 7.5 HP: 30)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"M.S.ÇELİK\",\"Sk_Ganyan\":\"7.5 HP: 30\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":7.5,\"Sk_At_Kulvar\":1,\"Sk_HandikapPuani\":30,\"Sk_AtTaki\":\"K\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":8,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>DRAVION (1:13:99)(Son800 49:46)(1,5  Boy)(57 Kg)<b>(2.)<\\/b>KUPA DOKUZLUSU (1:14:25)(5 Boy)(55 Kg)<b>(3.)<\\/b>FURİOSA (1:15:02)(1 Boy)(55 Kg)<b>(4.)<\\/b>OY YARE(57 Kg)\"}]},{"
+   }
+  ]
+ },
+ "gecmis-dereceler.html": {
+  "baslik": "Geçmiş Dereceler | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Geçmiş Dereceler KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 1400 Çim Mesafe Sıralama Pist Şehir 1400 m En İyi Derece En Yeni Tarih Sadece Çim Sadece Ankara Tarih/Şehir At İsmi Sıra Derece/Jokey Kg 27.08.26 Ankara (Maiden/Dişi) SPIRIT OF LUX (2) 2 1.25.70 SALİH ÇELİK 57 Takı: DB SK HP: 29 Gny: 4.9 S800: 49.32 Geç: - Koşu DetayıKoşuyu İzle 27.08.26 Ankara (Maiden/Dişi) LADY SOVEREIGN (6) 5 1.26.22 MÜS.ÇELİK 57 Takı: KG K DB HP: 0 Gny: 11 S800: 49.32 Geç: - Koşu DetayıKoşuyu İzle 10.09.26 Ankara (Maiden) OY YARE (1) 4 1.26.23 R.KURT (AP) 55 Takı: SK HP: 30 Gny: 2.05 S800: 48.90 Geç: - Koşu DetayıKoşuyu İzle 10.09.26 Ankara (Maiden) LADY SOVEREIGN (6) 4 1.26.47 MÜS.ÇELİK 55 Takı: K DB HP: 0 Gny: 6.85 S800: 48.65 Geç: - Koşu DetayıKoşuyu İzle 13.09.26 İstanbul (Maiden/Dişi) QUEEN Z (9) 4 1.26.86 G.KOCAKAYA 57 Takı: K DB SKG HP: 0 Gny: 3.05 S800: 49.41 Geç: - Koşu DetayıKoşuyu İzle Daha fazlasını keşfedin At Yarışı İstatistikleri At Yarışı Sonuçları Yarış Programı × Profilim Bildirim Ayarları Kullanım Koşulları Bize Ulaşın Engellediklerim Beni Unut × Daha fazlasını keşfedin At Yarışı Tahminleri",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/gecmis-dereceler.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/gecmis-dereceler-detay.php?kosu=1",
+    "durum": 200,
+    "tam": "<script>\r\nvar selected_kosu_no;\r\nvar mesafe=\"\";\r\nfunction mesafe_up()\r\n{\r\n\tif(mesafe<3000)\r\n\t{\r\n\t\t $(\"#yukleniyor_gecmisdereceler_detay\").show();\r\n\t\t $(\"#main_gecmisderecelerdetay\").empty();\r\n\t\tmesafe=Number(mesafe)+100;\r\n\t\t$(\"#gdd_mesafe\").text(mesafe+\" m\");\r\n\t\tgetDereceler();\r\n\t}\r\n\t\r\n}\r\n\r\nfunction mesafe_down()\r\n{\r\n\tif(mesafe>800)\r\n\t{\r\n\t\t $(\"#yukleniyor_gecmisdereceler_detay\").show();\r\n\t\t $(\"#main_gecmisderecelerdetay\").empty();\r\n\t\tmesafe=Number(mesafe)-100;\r\n\t\t$(\"#gdd_mesafe\").text(mesafe+\" m\");\r\n\t\tgetDereceler();\r\n\t}\r\n}\r\n\r\nfunction siralama_change()\r\n{\r\n\t\r\n\t\t selected_siralama=$(\"#gdd_siralama option:selected\").val();\r\n\t\t $(\"#yukleniyor_gecmisdereceler_detay\").show();\r\n\t\t $(\"#main_gecmisderecelerdetay\").empty();\r\n\t\tgetDereceler();\r\n\t\r\n\t\r\n}\r\nfunction pist_change()\r\n{\r\n\tif ($('#gdd_pist').prop('checked')) {\r\n        selected_pist='true';\r\n    }\r\n\telse\r\n\t{\r\n\t\tselected_pist='false';\r\n\t}\r\n\t\t\r\n\t\t $(\"#yukleniyor_gecmisdereceler_detay\").show();\r\n\t\t $(\"#main_gecmisderecelerdetay\").empty();\r\n\t\tgetDereceler();\r\n\t\r\n\t\r\n}\r\nfunction sehir_change()\r\n{\r\n\tif ($('#gdd_sehir').prop('checked')) {\r\n        selected_sehir='true';\r\n    }\r\n\telse\r\n\t{\r\n\t\tselected_sehir='false';\r\n\t}\r\n\t\t $(\"#yukleniyor_gecmisdereceler_detay\").show();\r\n\t\t $(\"#main_gecmisderecelerdetay\").empty();\r\n\t\tgetDereceler();\r\n\t\r\n\t\r\n}\r\nfunction getDereceler()\r\n{\r\n\t\t\r\n\t $.ajax({\r\n\t  url: '/functions/dereceler_detay.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id,kosu_no:selected_kosu_no,filter_mesafe:mesafe,filter_pist:selected_pist,filter_sehir:selected_sehir,siralama:selected_siralama},\r\n\t  success: function(data){\r\n\t\t $(\"#main_gecmisderecelerdetay\").empty();\r\n\t\t var obj = JSON.parse(data);\r\n\t\t \r\n\t\t $(\"#yukleniyor_gecmisdereceler_detay\").hide();\r\n\t\t\r\n\t\t$gdd_kosular=obj.Kosular;\r\n\t\tif (mesafe==\"\")\r\n\t\t{\r\n\t\t\tmesafe=$gdd_kosular[0].Kosu_Mesafe;\r\n\t\t}\r\n\t\tif (selected_siralama==\"\")\r\n\t\t{\r\n\t\t\tselected_siralama=0;\r\n\t\t}\r\n\t\t\r\n\t\tvar titlediv = $('<div></div>');\r\n\t\tvar titlediv_kosunosaat=$('<div></div>').addClass('title_div_kosunosaat').text($gdd_kosular[0].Kosu_NoSaat);\r\n\t\tvar titlediv_mesafepist=$('<div></div>').addClass('title_div_mesafepist').text($gdd_kosular[0].Kosu_Mesafe+\" \"+$gdd_kosular[0].Kosu_Pist);\r\n\t\ttitlediv.append(titlediv_kosunosaat);\r\n\t\ttitlediv.append(titlediv_mesafepist);\r\n\t\tif($gdd_kosular[0].Kosu_Pist.indexOf(\"Çim\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_cim\");\r\n\t\t\t}\r\n\t\t\tif($gdd_kosular[0].Kosu_Pist.indexOf(\"Kum\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_kum\");\r\n\t\t\t}\r\n\t\t\tif($gdd_kosular[0].Kosu_Pist.indexOf(\"Sentetik\")>-1 || $gdd_kosular[0].Kosu_Pist.indexOf(\"Tapeta\")>-1 || $gdd_kosular[0].Kosu_Pist.indexOf(\"TAPETA\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_sentetik\");\r\n\t\t\t}\r\n\t\ttitlediv.addClass('title_div');\r\n\t\tvar mesafetable = $('<table></table>').addClass('mesafetable').attr(\"cellspacing\",1);\r\n\t\tvar mesafetable_head=$('<tr></tr>').addClass('mesafetable_header').html('<th width=\"25%\">Mesafe</th><th width=\"25%\">Sıralama</th><th width=\"25%\">Pist</th><th width=\"25%\">Şehir</th>');\t\r\n\t\tvar mesafetable_row=$('<tr></tr>').addClass('mesafetable_row').html(\"<td><div class='title_div_mesafe'><div class='div_mesafe'><div onClick='mesafe_down();' class='btn_mesafe_back'></div><span id='gdd_mesafe' class='text_mesafe'>\"+mesafe+\" m</span><div onClick='mesafe_up();' class='btn_mesafe_forward'></div></div></div></td><td><select id='gdd_siralama' class='mesafe_select' onChange='siralama_change();' name='gdd_siralama'><option class='mesafe_select_option' value='0'>En İyi Derece</option><option class='mesafe_select_option' value='1'>En Yeni Tarih</option></select></td><td><input type='checkbox' name='gdd_pist' id='gdd_pist' value='1' onClick='pist_change();'><label for='gdd_pist'>Sadece \"+ $gdd_kosular[0].Kosu_Pist +\"</label></td><td><input type='checkbox' name='gdd_sehir' id='gdd_sehir' value='1' onClick='sehir_change();'><label for='gdd_pist'>Sadece \"+ sehirler[selected_sehir_index].Sehir_Unvan +\"</label></td>\");\t\r\n\t\t\r\n\t\tmesafetable.append(mesafetable_head);\r\n\t\tmesafetable.append(mesafetable_row);\r\n\t\t\r\n\t\tvar table = $('<table></table>').addClass('table_main').attr(\"style\",\"width:98% !important\").attr(\"cellspacing\",0);\r\n\t\t$gdd_dereceler=$gdd_kosular[0].Dereceler;\r\n\t\tvar head_row=$('<tr></tr>').addClass('table_header_3').html('<th width=\"15%\" style=\"text-align:left;\">Tarih/Şehir</th><th width=\"25%\" style=\"text-align:left;\">At İsmi</th><th width=\"7%\" style=\"text-align:left;\">Sıra</th><th width=\"25%\" style=\"text-align:left;\">Derece/Jokey</th><th width=\"5%\" style=\"text-align:left;\">Kg</th><th width=\"7%\" style=\"text-align:left;\">&nbsp;</th>');\t\r\n\t\ttable.append(head_row);\r\n\t\tvar bg_color=\"#fff\";\r\n\t\tvar adscount=0;\r\n\t\t\t$.each($gdd_dereceler, function(i, gdd_field_dereceler)\r\n\t\t\t{\r\n\t\t\t\tadscount++;\t\r\n\t\t\t\tvar gdd_at_unvan=gdd_field_dereceler.Sk_AtUnvan;\r\n\t\t\t\tif (gdd_at_unvan!=\"\")\r\n\t\t\t\t{\r\n\t\t\t\t\tif (gdd_field_dereceler.Sk_At_Ekuri>0)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tgdd_at_unvan=gdd_at_unvan+' <img src=\"/images/e'+gdd_field_dereceler.Sk_At_Ekuri+'.png\"/>';\r\n\t\t\t"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1&filter_mesafe=&filter_pist=0&filter_sehir=0&siralama=0",
+    "url": "https://www.ganyancanavari.com.tr/functions/dereceler_detay.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Dereceler\":[{\"Sk_Tarih\":\"27.08.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\\/Dişi\",\"Sk_Mesafe\":\"1400\",\"Sk_Pist\":\"Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"49.32\",\"Sk_AtUnvan\":\"SPIRIT OF LUX (2)\",\"Sk_At_Id\":114561,\"Sk_At_No\":2,\"Sk_HandikapPuani\":29,\"Sk_Ganyan\":4.9,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Sehir_id\":5,\"Sk_SadeceDerece\":\"1.25.70\",\"Sk_AtTaki\":\"DB SK\",\"Sk_GecCikis\":\"\",\"Sk_Sira\":2,\"Sk_At_Kulvar\":4,\"Sk_Derece\":\"1.25.70\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"SALİH ÇELİK\",\"Sk_Kosu_No\":9,\"Sk_Kosu_Detay\":\"\"},{\"Sk_Tarih\":\"27.08.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\\/Dişi\",\"Sk_Mesafe\":\"1400\",\"Sk_Pist\":\"Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"49.32\",\"Sk_AtUnvan\":\"LADY SOVEREIGN (6)\",\"Sk_At_Id\":114562,\"Sk_At_No\":6,\"Sk_HandikapPuani\":0,\"Sk_Ganyan\":11,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Sehir_id\":5,\"Sk_SadeceDerece\":\"1.26.22\",\"Sk_AtTaki\":\"KG K DB\",\"Sk_GecCikis\":\"\",\"Sk_Sira\":5,\"Sk_At_Kulvar\":5,\"Sk_Derece\":\"1.26.22\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"MÜS.ÇELİK\",\"Sk_Kosu_No\":9,\"Sk_Kosu_Detay\":\"\"},{\"Sk_Tarih\":\"10.09.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\",\"Sk_Mesafe\":\"1400\",\"Sk_Pist\":\"Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"48.90\",\"Sk_AtUnvan\":\"OY YARE (1)\",\"Sk_At_Id\":114537,\"Sk_At_No\":1,\"Sk_HandikapPuani\":30,\"Sk_Ganyan\":2.05,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Sehir_id\":5,\"Sk_SadeceDerece\":\"1.26.23\",\"Sk_AtTaki\":\"SK\",\"Sk_GecCikis\":\"\",\"Sk_Sira\":4,\"Sk_At_Kulvar\":3,\"Sk_Derece\":\"1.26.23\",\"Sk_Kg\":\"55\",\"Sk_Jokey_Unvan\":\"R.KURT (AP)\",\"Sk_Kosu_No\":2,\"Sk_Kosu_Detay\":\"\"},{\"Sk_Tarih\":\"10.09.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\",\"Sk_Mesafe\":\"1400\",\"Sk_Pist\":\"Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"48.65\",\"Sk_AtUnvan\":\"LADY SOVEREIGN (6)\",\"Sk_At_Id\":114562,\"Sk_At_No\":6,\"Sk_HandikapPuani\":0,\"Sk_Ganyan\":6.85,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Sehir_id\":5,\"Sk_SadeceDerece\":\"1.26.47\",\"Sk_AtTaki\":\"K DB\",\"Sk_GecCikis\":\"\",\"Sk_Sira\":4,\"Sk_At_Kulvar\":6,\"Sk_Derece\":\"1.26.47\",\"Sk_Kg\":\"55\",\"Sk_Jokey_Unvan\":\"MÜS.ÇELİK\",\"Sk_Kosu_No\":8,\"Sk_Kosu_Detay\":\"\"},{\"Sk_Tarih\":\"13.09.26\",\"Sk_Sehir_Unvan\":\"İstanbul (Maiden\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"İstanbul\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\\/Dişi\",\"Sk_Mesafe\":\"1400\",\"Sk_Pist\":\"Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"49.41\",\"Sk_AtUnvan\":\"QUEEN Z (9)\",\"Sk_At_Id\":114693,\"Sk_At_No\":9,\"Sk_HandikapPuani\":0,\"Sk_Ganyan\":3.05,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Sehir_id\":3,\"Sk_SadeceDerece\":\"1.26.86\",\"Sk_AtTaki\":\"K DB SKG\",\"Sk_GecCikis\":\"\",\"Sk_Sira\":4,\"Sk_At_Kulvar\":11,\"Sk_Derece\":\"1.26.86\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"G.KOCAKAYA\",\"Sk_Kosu_No\":2,\"Sk_Kosu_Detay\":\"\"}]}],\"success\":1}"
+   }
+  ]
+ },
+ "tum-kosular.html": {
+  "baslik": "Tüm Koşular | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Tüm Koşular KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 (Maiden/Dişi) 1400 Çim Mesafe SEÇİLİ Pist SEÇİLİ Şehir SEÇİLİ Sıra TÜMÜ Filtreleri SIFIRLA 1 OY YARE (KG K) (SEA SOUND (IRE)-İKSİR) S.YAZICIOĞLU (AP) 57 Klv: 1 Tarih/Şehir Mesafe/Pist Sıra Derece/Jokey Kg 10.09.26 Ankara (Maiden) 1400 Çim Normal 4 1.26.23 R.KURT (AP) 55 Takı: SK HP: 30 Gny: 2.05 S800: 48.90 Geç: - (1.)AFAMIA (1:25:61)(Son800 48:90)(2 Boy)(57 Kg)(2.)YONAGUNI (1:25:90)(2 Boy)(59 Kg)(3.)MEYDAN OKU (1:26:18)(Boyun)(59 Kg)(4.)OY YARE(55 Kg) Koşu DetayıKoşuyu İzle 2 SPIRIT OF LUX (DB SK) (KUZEY KAFKASYALI-KAMILI (IRE)) SALİH ÇELİK 59 Klv: 8 Tarih/Şehir Mesafe/Pist Sıra Derece/Jokey Kg 27.08.26 Ankara (Maiden/Dişi) 1400 Çim Normal 2 1.25.70 SALİH ÇELİK 57 Takı: DB SK HP: 29 Gny: 4.9 S800: 49.32 Geç: - (1.)STREMTSİ (1:25:44)(Son800 49:32)(2 Boy)(57 Kg)(2.)SPIRIT OF LUX (1:25:70)(1 Boy)(57 Kg)(3.)AURORA NOVA (1:25:87)(Boyun)(57 Kg)(4.)POTOCHNITSA(57 Kg) Koşu DetayıKoşuyu İzle 3 CLOVE (K DB SK) (BODEMEISTER (USA)-SALLY OBELISK) U.TEMUR 57 Klv: 6 Tarih/Şehir Mesafe/Pist Sıra Derece/Jokey Kg 4 FLIPENDO (DB SKG SK) (ELARQAM (GB)-LADY AFRODİT) M.KESKİN 57 Klv: 9 Tarih/Şehir Mesafe/Pist Sıra Derece/Jokey Kg 5 IMPERIAL ",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/tum-kosular.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/tum-kosular-detay.php?kosu=1",
+    "durum": 200,
+    "tam": "<script>\r\n    var firstRun=true;\r\n\tvar filterdiv=$('<div></div>').attr(\"style\",\" width: 90%;height: 35px;padding: 5px;border: 1px solid #3b7993;margin-bottom: 5px;background-color: #d9f8ff;margin:0 auto;\");\r\n\t\tvar mesafeFilterDiv=$('<div></div>').attr(\"style\",\"width:20%;float:left;text-align:center;font-weight:bold\").html(\"Mesafe<br/>\");\r\n\t\tvar btnMesafeFilter=$('<button></button>').addClass(\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\").html(\"<span class='ui-button-text'>TÜMÜ</span>\").attr(\"onClick\",\"show_filter_dialog('TumKosular','Mesafe');\").attr(\"id\",\"btnFilterMesafe\");\r\n\t\tmesafeFilterDiv.append(btnMesafeFilter);\r\n\t\tvar pistFilterDiv=$('<div></div>').attr(\"style\",\"width:20%;float:left;text-align:center;font-weight:bold\").html(\"Pist<br/>\");\r\n\t\tvar btnPistFilter=$('<button></button>').addClass(\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\").html(\"<span class='ui-button-text'>TÜMÜ</span>\").attr(\"onClick\",\"show_filter_dialog('TumKosular','Pist');\").attr(\"id\",\"btnFilterPist\");\r\n\t\tpistFilterDiv.append(btnPistFilter);\r\n\t\tvar sehirFilterDiv=$('<div></div>').attr(\"style\",\"width:20%;float:left;text-align:center;font-weight:bold\").html(\"Şehir<br/>\");;\r\n\t\tvar btnSehirFilter=$('<button></button>').addClass(\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\").html(\"<span class='ui-button-text'>TÜMÜ</span>\").attr(\"onClick\",\"show_filter_dialog('TumKosular','Sehir');\").attr(\"id\",\"btnFilterSehir\");\r\n\t\tsehirFilterDiv.append(btnSehirFilter);\r\n\t\t\r\n\t\tvar siraFilterDiv=$('<div></div>').attr(\"style\",\"width:20%;float:left;text-align:center;font-weight:bold\").html(\"Sıra<br/>\");;\r\n\t\tvar btnSiraFilter=$('<button></button>').addClass(\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\").html(\"<span class='ui-button-text'>TÜMÜ</span>\").attr(\"onClick\",\"show_filter_dialog('TumKosular','Sira');\").attr(\"id\",\"btnFilterSira\");\r\n\t\tsiraFilterDiv.append(btnSiraFilter);\r\n\t\t\r\n\t\tvar sifirlaFilterDiv=$('<div></div>').attr(\"style\",\"width:20%;float:left;text-align:center;font-weight:bold\").html(\"Filtreleri<br/>\");\r\n\t\tvar btnSifirlaFilter=$('<button></button>').addClass(\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\").html(\"<span class='ui-button-text'>SIFIRLA</span>\").attr(\"onClick\",\"filterSifirla();\");\r\n\t\tsifirlaFilterDiv.append(btnSifirlaFilter);\r\n\t\tfilterdiv.append(mesafeFilterDiv);\r\n\t\tfilterdiv.append(pistFilterDiv);\r\n\t\tfilterdiv.append(sehirFilterDiv);\r\n\t\tfilterdiv.append(siraFilterDiv);\r\n\t\tfilterdiv.append(sifirlaFilterDiv);\r\n\t\t\r\n\r\n $( document ).ready(function() {\r\n\tshowTumKosular();\r\n});\r\nfunction filterSifirla()\r\n{\r\n\tfirstRun=true;\r\n\tshowTumKosular();\t\r\n\t \r\n}\r\nfunction getKosuHeader()\r\n{\r\n\t\t\r\n\t $.ajax({\r\n\t  url: '/functions/get_kosu_header.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id,kosu_no:selected_kosu_no},\r\n\t  success: function(data){\r\n\t\t var obj = JSON.parse(data);\r\n\t\t\r\n\t\tvar kosuResult=obj.Kosu;\r\n\t\t\r\n\t\tfilter_mesafe.splice(0,filter_mesafe.length);\r\n\t\tfilter_pist.splice(0,filter_pist.length);\r\n\t\tfilter_sehir.splice(0,filter_sehir.length);\r\n\t\tfilter_mesafe.push(kosuResult[0].mesafe);\t \r\n\t\tfilter_pist.push(kosuResult[0].pist);\t \t\r\n\t\tfilter_sehir.push(kosuResult[0].sehir);\t \r\n\t\tshowTumKosular();\t\t\r\n\t  },\r\n\t  error: function(xhr, status, error){\r\n\t  }\r\n\t});\r\n\t\r\n}\r\nfunction showTumKosular()\r\n{\r\n\tif(firstRun)\r\n\t{\r\n\t\tgetKosuHeader();\r\n\t\tfirstRun=false;\r\n\t\treturn;\r\n\t}\r\n\t$(\"#yukleniyor_tumkosular_detay\").show();\r\n\t$(\"#main_tumkosulardetay\").hide();\r\n\t\r\n\t$(\"#main_tumkosulardetay\").html(\"\");\r\n\t$(\"#main_tumkosulardetay\").append(filterdiv);\r\n\tvar pMesafe=\"TÜMÜ\";\r\n\tif(jQuery.inArray(\"TÜMÜ\", filter_mesafe) == -1) {\r\n\t\tpMesafe = filter_mesafe.join(\"','\");\r\n\t\tpMesafe =\"'\"+pMesafe+\"'\";\r\n\t\t$(\"#btnFilterMesafe\").html(\"<span class='ui-button-text' style='color:red'>SEÇİLİ</span>\");\r\n\t}else\r\n\t{\r\n\t\t$(\"#btnFilterMesafe\").html(\"<span class='ui-button-text'>TÜMÜ</span>\");\r\n\t\t\r\n\t}\r\n\tvar pPist=\"TÜMÜ\";\r\n\tif(jQuery.inArray(\"TÜMÜ\", filter_pist) == -1) {\r\n\t\tpPist = filter_pist.join(\"','\");\r\n\t\tpPist =\"'\"+pPist+\"'\";\r\n\t\t$(\"#btnFilterPist\").html(\"<span class='ui-button-text' style='color:red'>SEÇİLİ</span>\");\r\n\t}else\r\n\t{\r\n\t\t$(\"#btnFilterPist\").html(\"<span class='ui-button-text' >TÜMÜ</span>\");\r\n\t\t\r\n\t}\r\n\tvar pSehir=\"TÜMÜ\";\r\n\tif(jQuery.inArray(\"TÜMÜ\", filter_sehir) == -1) {\r\n\t\tpSehir = filter_sehir.join(\"','\");\r\n\t\tpSehir =\"'\"+pSehir+\"'\";\r\n\t\t$(\"#btnFilterSehir\").html(\"<span class='ui-button-text' style='color:red'>SEÇİLİ</span>\");\r\n\t}else\r\n\t{\r\n\t\t$(\"#btnFilterSehir\").html(\"<span class='ui-button-text' >TÜMÜ</span>\");\r\n\t}\r\n\tvar pSira=\"TÜMÜ\";\r\n\tif(jQuery.inArray(\"TÜMÜ\", filter_sira) == -1) {\r\n\t\tpSira = filter_sira.join(\"','\");\r\n\t\tpSira =\"'\"+pSira+\"'\";\r\n\t\t$(\"#btnFilterSira\").html(\"<span class='ui-button-text' style='color:red'>SEÇİLİ</span>\");\r\n\t}else\r\n\t{\r\n\t\t$(\"#btnFilterSira\").html(\"<span class='ui-button-text' >TÜMÜ</span>\");\r\n\t\t\r\n\t}\t\r\n\t\t\r\n\t $.ajax({\r\n\t  url: '/functions/show_tum_kosular.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,se"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1",
+    "url": "https://www.ganyancanavari.com.tr/functions/get_kosu_header.php",
+    "durum": 200,
+    "tam": "{\"Result\":[],\"Success\":1,\"Kosu\":[{\"mesafe\":\"1400\",\"pist\":\"Çim\",\"sehir\":\"Ankara\"}]}"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1&filterMesafe='1400'&filterPist='%C3%87im'&filterSehir='Ankara'&filterSira=T%C3%9CM%C3%9C&isSite=1",
+    "url": "https://www.ganyancanavari.com.tr/functions/show_tum_kosular.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Atlar\":[{\"At_No\":1,\"At_Unvan\":\"OY YARE (KG K)<br><small>(SEA SOUND (IRE)-İKSİR)<\\/small>\",\"At_Unvan_Orjinsiz\":\"OY YARE\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"Jokey_Unvan\":\"S.YAZICIOĞLU (AP)\",\"Jokey_isApranti\":1,\"At_Kulvar\":1,\"At_Id\":114537,\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"SonKosular\":[{\"Sk_Tarih\":\"10.09.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\",\"Sk_MesafePist\":\"1400 Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"48.90\",\"Sk_Sira\":4,\"Sk_SadeceDerece\":\"1.26.23\",\"Sk_Derece\":\"1.26.23\",\"Sk_Kg\":\"55\",\"Sk_Jokey_Unvan\":\"R.KURT (AP)<br><small>(Ganyan: 2.05 HP: 30)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"R.KURT (AP)\",\"Sk_Ganyan\":\"2.05 HP: 30\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":2.05,\"Sk_HandikapPuani\":30,\"Sk_AtTaki\":\"SK\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":2,\"Sk_At_Kulvar\":3,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>AFAMIA (1:25:61)(Son800 48:90)(2 Boy)(57 Kg)<b>(2.)<\\/b>YONAGUNI (1:25:90)(2 Boy)(59 Kg)<b>(3.)<\\/b>MEYDAN OKU (1:26:18)(Boyun)(59 Kg)<b>(4.)<\\/b>OY YARE(55 Kg)\"}]},{\"At_No\":2,\"At_Unvan\":\"SPIRIT OF LUX (DB SK)<br><small>(KUZEY KAFKASYALI-KAMILI (IRE))<\\/small>\",\"At_Unvan_Orjinsiz\":\"SPIRIT OF LUX\",\"At_Ekuri\":\"0\",\"At_Kg\":\"59\",\"Jokey_Unvan\":\"SALİH ÇELİK\",\"Jokey_isApranti\":0,\"At_Kulvar\":8,\"At_Id\":114561,\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"SonKosular\":[{\"Sk_Tarih\":\"27.08.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden\\/Dişi)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\\/Dişi\",\"Sk_MesafePist\":\"1400 Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"49.32\",\"Sk_Sira\":2,\"Sk_SadeceDerece\":\"1.25.70\",\"Sk_Derece\":\"1.25.70\",\"Sk_Kg\":\"57\",\"Sk_Jokey_Unvan\":\"SALİH ÇELİK<br><small>(Ganyan: 4.9 HP: 29)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"SALİH ÇELİK\",\"Sk_Ganyan\":\"4.9 HP: 29\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":4.9,\"Sk_HandikapPuani\":29,\"Sk_AtTaki\":\"DB SK\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":9,\"Sk_At_Kulvar\":4,\"Sk_Kosu_Detay\":\"<b>(1.)<\\/b>STREMTSİ (1:25:44)(Son800 49:32)(2 Boy)(57 Kg)<b>(2.)<\\/b>SPIRIT OF LUX (1:25:70)(1 Boy)(57 Kg)<b>(3.)<\\/b>AURORA NOVA (1:25:87)(Boyun)(57 Kg)<b>(4.)<\\/b>POTOCHNITSA(57 Kg)\"}]},{\"At_No\":3,\"At_Unvan\":\"CLOVE (K DB SK)<br><small>(BODEMEISTER (USA)-SALLY OBELISK)<\\/small>\",\"At_Unvan_Orjinsiz\":\"CLOVE\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"Jokey_Unvan\":\"U.TEMUR\",\"Jokey_isApranti\":0,\"At_Kulvar\":6,\"At_Id\":117401,\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"SonKosular\":[{\"Sk_Tarih\":\"\",\"Sk_Sehir_Unvan\":\"\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"\",\"Sk_Kosu_Tipi_Unvan\":\"\",\"Sk_MesafePist\":\"\",\"Sk_PistDurumu\":\"\",\"Sk_Son800\":\"\",\"Sk_Sira\":\"\",\"Sk_SadeceDerece\":\"\",\"Sk_Derece\":\"\",\"Sk_Kg\":\"\",\"Sk_Jokey_Unvan\":\"\",\"Sk_Jokey_Unvan_Ganyansiz\":\"\",\"Sk_Ganyan\":\"\",\"Sk_Sehir_id\":\"\",\"Sk_GanyanHPsiz\":\"\",\"Sk_HandikapPuani\":\"\",\"Sk_AtTaki\":\"\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":\"\",\"Sk_At_Kulvar\":\"\",\"Sk_Kosu_Detay\":\"\"}]},{\"At_No\":4,\"At_Unvan\":\"FLIPENDO (DB SKG SK)<br><small>(ELARQAM (GB)-LADY AFRODİT)<\\/small>\",\"At_Unvan_Orjinsiz\":\"FLIPENDO\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"Jokey_Unvan\":\"M.KESKİN\",\"Jokey_isApranti\":0,\"At_Kulvar\":9,\"At_Id\":116159,\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"SonKosular\":[{\"Sk_Tarih\":\"\",\"Sk_Sehir_Unvan\":\"\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"\",\"Sk_Kosu_Tipi_Unvan\":\"\",\"Sk_MesafePist\":\"\",\"Sk_PistDurumu\":\"\",\"Sk_Son800\":\"\",\"Sk_Sira\":\"\",\"Sk_SadeceDerece\":\"\",\"Sk_Derece\":\"\",\"Sk_Kg\":\"\",\"Sk_Jokey_Unvan\":\"\",\"Sk_Jokey_Unvan_Ganyansiz\":\"\",\"Sk_Ganyan\":\"\",\"Sk_Sehir_id\":\"\",\"Sk_GanyanHPsiz\":\"\",\"Sk_HandikapPuani\":\"\",\"Sk_AtTaki\":\"\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":\"\",\"Sk_At_Kulvar\":\"\",\"Sk_Kosu_Detay\":\"\"}]},{\"At_No\":5,\"At_Unvan\":\"IMPERIAL GLOIRE (DB SKG SK)<br><small>(MYBOYCHARLIE (IRE)-NAIROBI)<\\/small>\",\"At_Unvan_Orjinsiz\":\"IMPERIAL GLOIRE\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"Jokey_Unvan\":\"E.AKTUĞ\",\"Jokey_isApranti\":0,\"At_Kulvar\":5,\"At_Id\":113939,\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"SonKosular\":[{\"Sk_Tarih\":\"\",\"Sk_Sehir_Unvan\":\"\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"\",\"Sk_Kosu_Tipi_Unvan\":\"\",\"Sk_MesafePist\":\"\",\"Sk_PistDurumu\":\"\",\"Sk_Son800\":\"\",\"Sk_Sira\":\"\",\"Sk_SadeceDerece\":\"\",\"Sk_Derece\":\"\",\"Sk_Kg\":\"\",\"Sk_Jokey_Unvan\":\"\",\"Sk_Jokey_Unvan_Ganyansiz\":\"\",\"Sk_Ganyan\":\"\",\"Sk_Sehir_id\":\"\",\"Sk_GanyanHPsiz\":\"\",\"Sk_HandikapPuani\":\"\",\"Sk_AtTaki\":\"\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":\"\",\"Sk_At_Kulvar\":\"\",\"Sk_Kosu_Detay\":\"\"}]},{\"At_No\":6,\"At_Unvan\":\"LADY SOVEREIGN (K DB SK)<br><small>(TOROK (IRE)-KRALİÇE ELMAS)<\\/small>\",\"At_Unvan_Orjinsiz\":\"LADY SOVEREIGN\",\"At_Ekuri\":\"0\",\"At_Kg\":\"57\",\"Jokey_Unvan\":\"M.S.ÇELİK\",\"Jokey_isApranti\":0,\"At_Kulvar\":2,\"At_Id\":114562,\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"SonKosular\":[{\"Sk_Tarih\":\"10.09.26\",\"Sk_Sehir_Unvan\":\"Ankara (Maiden)\",\"Sk_Sehir_Unvan_NoKosuTipi\":\"Ankara\",\"Sk_Kosu_Tipi_Unvan\":\"Maiden\",\"Sk_MesafePist\":\"1400 Çim\",\"Sk_PistDurumu\":\"Normal\",\"Sk_Son800\":\"48.65\",\"Sk_Sira\":4,\"Sk_SadeceDerece\":\"1.26.47\",\"Sk_Derece\":\"1.26.47\",\"Sk_Kg\":\"55\",\"Sk_Jokey_Unvan\":\"MÜS.ÇELİK<br><small>(Ganyan: 6.85 HP: 0)<\\/small>\",\"Sk_Jokey_Unvan_Ganyansiz\":\"MÜS.ÇELİK\",\"Sk_Ganyan\":\"6.85 HP: 0\",\"Sk_Sehir_id\":5,\"Sk_GanyanHPsiz\":6.85,\"Sk_HandikapPuani\":0,\"Sk_AtTaki\":\"K DB\",\"Sk_GecCikis\":\"\",\"Sk_Kosu_No\":8"
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://pxl.iqm.com/d/c/sync?reqId=s1RIcOJdZi7voNn4-eLgRw&pId=YWR4",
+    "durum": 302,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://pxl.iqm.com/i/c/redirect?redirectType=DSP_INITIATED&reqId=s1RIcOJdZi7voNn4-eLgRw&pId=YWR4",
+    "durum": 200,
+    "tam": ""
+   }
+  ]
+ },
+ "sart-analizi.html": {
+  "baslik": "Koşu Şartları | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Koşu Şartları KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 1400 Çim Şehir Sadece Ankara No At İsmi Şartlı Handikap Kısa Vade (KV) Grup (G) Açık (A) Tabela Sayısı / Toplam Koşu Sayısı 1 OY YARE 2 / 2 0 / 0 0 / 0 0 / 0 0 / 0 2 SPIRIT OF LUX 0 / 0 0 / 0 0 / 0 0 / 0 0 / 0 3 CLOVE 0 / 1 0 / 0 0 / 0 0 / 0 0 / 0 4 FLIPENDO 0 / 1 0 / 0 0 / 0 0 / 0 0 / 0 5 IMPERIAL GLOIRE 0 / 2 0 / 0 0 / 0 0 / 0 0 / 0 6 LADY SOVEREIGN 0 / 0 0 / 0 0 / 0 0 / 0 0 / 0 7 MY FEARLESS 0 / 1 0 / 0 0 / 0 0 / 0 0 / 0 8 QUEEN OF UNION 0 / 1 0 / 0 0 / 0 0 / 0 0 / 0 9 QUEEN Z 1 / 1 0 / 0 0 / 0 0 / 0 0 / 0 10 WARREN QUEEN 1 / 1 0 / 0 0 / 0 0 / 0 0 / 0 Daha fazlasını keşfedin At Binicilik Keşfet At Yarışı İzle × Profilim Bildirim Ayarları Kullanım Koşulları Bize Ulaşın Engellediklerim Beni Unut × Daha fazlasını keşfedin Yürüyüş Ayakkabısı",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/sart-analizi.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/sart-analizi-detay.php?kosu=1",
+    "durum": 200,
+    "tam": "<script>\r\nvar selected_kosu_no;\r\nfunction sehir_change()\r\n{\r\n\tif ($('#sad_sehir').prop('checked')) {\r\n        selected_sehir='true';\r\n    }\r\n\telse\r\n\t{\r\n\t\tselected_sehir='false';\r\n\t}\r\n\t\t $(\"#yukleniyor_sartanalizi_detay\").show();\r\n\t\t $(\"#main_sartanalizidetay\").empty();\r\n\t\tgetSartlar();\r\n\t\r\n\t\r\n}\r\nfunction getSartlar()\r\n{\r\n\t\t\r\n\t $.ajax({\r\n\t  url: '/functions/sartanalizi_detay.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id,kosu_no:selected_kosu_no,filter_sehir:selected_sehir},\r\n\t  success: function(data){\r\n\t\t\r\n\t\t $(\"#main_sartanalizidetay\").empty();\r\n\t\t var obj = JSON.parse(data);\r\n\t\t \r\n\t\t \r\n\t\t $(\"#yukleniyor_sartanalizi_detay\").hide();\r\n\t\t\r\n\t\t$sad_kosular=obj.Kosular;\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\tvar titlediv = $('<div></div>');\r\n\t\tvar titlediv_kosunosaat=$('<div></div>').addClass('title_div_kosunosaat').text($sad_kosular[0].Kosu_NoSaat);\r\n\t\tvar titlediv_mesafepist=$('<div></div>').addClass('title_div_mesafepist').text($sad_kosular[0].Kosu_Mesafe+\" \"+$sad_kosular[0].Kosu_Pist);\r\n\t\ttitlediv.append(titlediv_kosunosaat);\r\n\t\ttitlediv.append(titlediv_mesafepist);\r\n\t\tif($sad_kosular[0].Kosu_Pist.indexOf(\"Çim\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_cim\");\r\n\t\t\t}\r\n\t\t\tif($sad_kosular[0].Kosu_Pist.indexOf(\"Kum\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_kum\");\r\n\t\t\t}\r\n\t\t\tif($sad_kosular[0].Kosu_Pist.indexOf(\"Sentetik\")>-1 || $sad_kosular[0].Kosu_Pist.indexOf(\"Tapeta\")>-1 || $sad_kosular[0].Kosu_Pist.indexOf(\"TAPETA\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_sentetik\");\r\n\t\t\t}\r\n\t\ttitlediv.addClass('title_div');\r\n\t\tvar mesafetable = $('<table></table>').addClass('mesafetable').attr(\"cellspacing\",1);\r\n\t\tvar mesafetable_head=$('<tr></tr>').addClass('mesafetable_header').html('<th width=\"100%\">Şehir</th>');\t\r\n\t\tvar mesafetable_row=$('<tr></tr>').addClass('mesafetable_row').html(\"<td align='center'><input type='checkbox' name='sad_sehir' id='sad_sehir' value='1' onClick='sehir_change();'><label for='sad_sehir'>Sadece \"+ sehirler[selected_sehir_index].Sehir_Unvan +\"</label></td>\");\t\r\n\t\t\r\n\t\tmesafetable.append(mesafetable_head);\r\n\t\tmesafetable.append(mesafetable_row);\r\n\t\t\r\n\t\tvar table = $('<table></table>').addClass('table_main').attr(\"cellspacing\",0);\r\n\t\t$sad_dereceler=$sad_kosular[0].Dereceler;\r\n\t\tvar head_row=$('<tr></tr>').addClass('table_header_3').html('<th width=\"5%\">No</th><th style=\"text-align:left;\">At İsmi</th><th width=\"12%\" style=\"text-align:left;\">Şartlı</th><th width=\"12%\" style=\"text-align:left;\">Handikap</th><th width=\"12%\" style=\"text-align:left;\">Kısa Vade (KV)</th><th width=\"12%\" style=\"text-align:left;\">Grup (G)</th><th width=\"12%\" style=\"text-align:left;\">Açık (A)</th><th width=\"5%\">&nbsp;</th>');\t\r\n\t\t\r\n\t\ttable.append(head_row);\r\n\t\tvar head_row2=$('<tr></tr>').addClass('table_header_3').html('<td style=\"background-color: #fff;\" colspan=\"2\">&nbsp;</td><td colspan=\"5\" align=\"center\" style=\"font-weight: bold;background-color: #fff;color: red;border: 1px solid;\">Tabela Sayısı / Toplam Koşu Sayısı</td>');\t\r\n\t\t\r\n\t\ttable.append(head_row2);\r\n\t\tvar bg_color=\"#fff\";\r\n\t\t\tvar adscount=0;\r\n\t\t\t$.each($sad_kosular, function(i, sad_field_kosular)\r\n\t\t\t{\r\n\t\t\t\tadscount++;\t\r\n\t\t\t\tvar sad_at_unvan=sad_field_kosular.Sk_AtUnvan;\r\n\t\t\t\tif (sad_at_unvan!=\"\")\r\n\t\t\t\t{\r\n\t\t\t\t\tif (sad_field_kosular.Sk_At_Ekuri>0)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tsad_at_unvan=sad_at_unvan+' <img src=\"/images/e'+sad_field_kosular.Sk_At_Ekuri+'.png\"/>';\r\n\t\t\t\t\t}\r\n\t\t\t\t\t\r\n\t\t\t\t\tif(sad_field_kosular.Sk_At_Kosmaz==\"0\")\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tsad_at_unvan=sad_at_unvan+'<span style=\"color:blue\">(KOŞMAZ)</span>';\r\n\t\t\t\t\t}\r\n\t\t\t\t\t\tvar overflow=\"\";\r\n\t\t\t\t\t\tvar overflow_at_unvan=sad_field_kosular.Sk_AtUnvan;\r\n\t\t\t\t\tif(sad_field_kosular.At_Kosmaz==\"0\")\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\toverflow='<img id=\"'+ +sad_field_kosular.Sk_At_Id +'\" unvan=\"'+ overflow_at_unvan +'\" p_kosuno=\"'+sad_field_kosular.Sk_At_KosuNo+'\" p_atno=\"'+sad_field_kosular.Sk_At_No+'\" class=\"context-menu-two btn btn-neutral\" src=\"/images/ic_action_overflow_dark.png\" style=\"cursor:pointer\"/>';\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\telse\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\toverflow='<img id=\"'+ +sad_field_kosular.Sk_At_Id +'\" unvan=\"'+overflow_at_unvan +'\" p_kosuno=\"'+sad_field_kosular.Sk_At_KosuNo+'\" p_atno=\"'+sad_field_kosular.Sk_At_No+'\" class=\"context-menu-one btn btn-neutral\" src=\"/images/ic_action_overflow_dark.png\" style=\"cursor:pointer\"/>';\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\tvar row=$('<tr></tr>').attr(\"style\",\"background-color:\"+bg_color).html('<td>'+sad_field_kosular.Sk_At_No+'</td><td>'+sad_at_unvan+'</td><td>'+sad_field_kosular.Sk_Sartli+'</td><td>'+sad_field_kosular.Sk_Handikap+'</td><td>'+sad_field_kosular.Sk_KisaVade+'</td><td>'+sad_field_kosular.Sk_Grup+'</td><td>'+sad_field_kosular.Sk_Acik+'</td><td>'+overflow+'</td>');\r\n\t\t\t\t\t\t\ttable.append(row);\r\n\t\r\n\t\r\n\t\t\t\t\t\tif (bg_color==\"#fff\")\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tbg_color=\"#EFEFEF\";\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telse\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tbg_color=\"#fff\";\t\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse\r\n\t\t\t\t\t{\r\n\t\t\t\t\tvar row=$('<tr></tr>').html('<td style=\"height:100px\" colspan=\"5\" align=\"center\"><span style=\"font-weight:bold;col"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1&filter_sehir=0",
+    "url": "https://www.ganyancanavari.com.tr/functions/sartanalizi_detay.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":114537,\"Sk_AtUnvan\":\"OY YARE\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":1,\"Sk_Sartli\":\"2 \\/ 2\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":114561,\"Sk_AtUnvan\":\"SPIRIT OF LUX\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":2,\"Sk_Sartli\":\"0 \\/ 0\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":117401,\"Sk_AtUnvan\":\"CLOVE\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":3,\"Sk_Sartli\":\"0 \\/ 1\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":116159,\"Sk_AtUnvan\":\"FLIPENDO\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":4,\"Sk_Sartli\":\"0 \\/ 1\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":113939,\"Sk_AtUnvan\":\"IMPERIAL GLOIRE\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":5,\"Sk_Sartli\":\"0 \\/ 2\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":114562,\"Sk_AtUnvan\":\"LADY SOVEREIGN\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":6,\"Sk_Sartli\":\"0 \\/ 0\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":115806,\"Sk_AtUnvan\":\"MY FEARLESS\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":7,\"Sk_Sartli\":\"0 \\/ 1\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":113870,\"Sk_AtUnvan\":\"QUEEN OF UNION\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":8,\"Sk_Sartli\":\"0 \\/ 1\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":114693,\"Sk_AtUnvan\":\"QUEEN Z\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":9,\"Sk_Sartli\":\"1 \\/ 1\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1},{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Sk_At_Id\":116169,\"Sk_AtUnvan\":\"WARREN QUEEN\",\"Sk_At_Ekuri\":\"0\",\"Sk_At_Kosmaz\":-1,\"Sk_At_No\":10,\"Sk_Sartli\":\"1 \\/ 1\",\"Sk_Handikap\":\"0 \\/ 0\",\"Sk_KisaVade\":\"0 \\/ 0\",\"Sk_Grup\":\"0 \\/ 0\",\"Sk_Acik\":\"0 \\/ 0\",\"Sk_At_KosuNo\":1}],\"success\":1}"
+   }
+  ]
+ },
+ "idman-pisti.html": {
+  "baslik": "İdman Pisti | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara İdman Pisti KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 1400 Çim 1 OY YARE (KG K) S.YAZICIOĞLU (AP) 57 Klv: 1 22.10.2026 / Ankara- (NORMAL) SAMETCAN YAZICIOĞLU (Galop) 400 600 800 1000 1200 1400 24.00 36.50 - - - - İdmanı İzle 15.09.2026 / Ankara- (NORMAL) ROJHAT KURT (Galop) 400 600 800 1000 1200 1400 26.00 39.00 - - - - İdmanı İzle 06.09.2026 / Ankara- (NORMAL) APRANTİ (Galop) 400 600 800 1000 1200 1400 25.00 - 51.40 - - - İdmanı İzle 02.07.2026 / Ankara- (NORMAL) APRANTİ (Galop) 400 600 800 1000 1200 1400 24.90 38.50 - - - - İdmanı İzle 16.06.2026 / Ankara- (NORMAL) MEHMET ÇELİK (Galop) 400 600 800 1000 1200 1400 24.30 37.30 - - - - Video Açıklaması :İÇ OY YARE DIŞ MEYDAN OKU İdmanı İzle 2 SPIRIT OF LUX (DB SK) SALİH ÇELİK 59 Klv: 8 19.10.2026 / Ankara- (NORMAL) ONUR BOLAT (Galop) 400 600 800 1000 1200 1400 26.00 - - 1.04.90 - - Video Açıklaması :İÇ SPIRIT OF LUX DIŞ THE LAST FORZA İdmanı İzle 24.08.2026 / Ankara- (NORMAL) FATİH SULTAN MEHMET SANSAR (Galop) 400 600 800 1000 1200 1400 24.80 - 50.30 - - - Video Açıklaması :DIŞ SPIRIT OF LUX İÇ DICCI MAN İdmanı İzle 10.08.2026 / Ankara- (NORMAL) MENNAN BAL (Galop) 400 600 800 1000 1200 1400 24.50 - 52.20 - - - İdmanı İzle 06.",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/idman-pisti.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/idman-pisti-detay.php?kosu=1",
+    "durum": 200,
+    "tam": "<script>\r\n\r\n $( document ).ready(function() {\r\n \r\n\t\r\n\t $.ajax({\r\n\t  url: '/functions/show_idmanpisti.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id,kosu_no:selected_kosu_no},\r\n\t  success: function(data){\r\n\t\tconsole.log(data);  \r\n\t\t var obj = JSON.parse(data);\r\n\t\t \r\n\t\t $(\"#yukleniyor_idmanpisti_detay\").hide();\r\n\t\t\r\n\t\t$bkd_kosular=obj.Kosular;\r\n\r\n\t\tvar titlediv = $('<div></div>');\r\n\t\tvar titlediv_kosunosaat=$('<div></div>').addClass('title_div_kosunosaat').text($bkd_kosular[0].Kosu_NoSaat);\r\n\t\tvar titlediv_mesafepist=$('<div></div>').addClass('title_div_mesafepist').text($bkd_kosular[0].Kosu_MesafePist);\r\n\t\ttitlediv.append(titlediv_kosunosaat);\r\n\t\ttitlediv.append(titlediv_mesafepist);\r\n\t\tif($bkd_kosular[0].Kosu_MesafePist.indexOf(\"Çim\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_cim\");\r\n\t\t\t}\r\n\t\t\tif($bkd_kosular[0].Kosu_MesafePist.indexOf(\"Kum\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_kum\");\r\n\t\t\t}\r\n\t\t\tif($bkd_kosular[0].Kosu_MesafePist.indexOf(\"Sentetik\")>-1 || $bkd_kosular[0].Kosu_MesafePist.indexOf(\"Tapeta\")>-1 || $bkd_kosular[0].Kosu_MesafePist.indexOf(\"TAPETA\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_sentetik\");\r\n\t\t\t}\r\n\t\ttitlediv.addClass('title_div');\r\n\t\t\r\n\t\tvar table = $('<table></table>').addClass('table_main').attr(\"cellspacing\",0);\r\n\t\t$bkd_atlar=$bkd_kosular[0].Atlar;\r\n\t\t\tvar adscount=0;\t\t\t\t\r\n\t\t\tvar adsshowcount=0;\r\n\t\r\n\t\t\t$.each($bkd_atlar, function(i, bkd_field_atlar)\r\n\t\t\t{\r\n\t\t\t\tadscount++;\r\n\t\t\t\tvar bkd_at_unvan='<b>'+bkd_field_atlar.At_Unvan+'</b>';\r\n\t\t\t\tif(bkd_field_atlar.At_Kosmaz==\"0\")\r\n\t\t\t\t{\r\n\t\t\t\t\tbkd_at_unvan=bkd_at_unvan+' <span style=\"color:blue\">(KOŞMAZ)</span>';\r\n\t\t\t\t}\r\n\t\t\t\tif (bkd_field_atlar.At_Ekuri>0)\r\n\t\t\t\t{\r\n\t\t\t\t\tbkd_at_unvan=bkd_at_unvan+' <img src=\"/images/e'+bkd_field_atlar.At_Ekuri+'.png\"/>';\r\n\t\t\t\t}\r\n\t\t\t\tvar overflow=\"\";\r\n\t\t\t\tif(bkd_field_atlar.At_Kosmaz==\"0\")\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +bkd_field_atlar.At_Id +'\" unvan=\"'+ bkd_field_atlar.At_Unvan_Orjinsiz +'\" p_kosuno=\"'+bkd_field_atlar.At_KosuNo+'\" p_atno=\"'+bkd_field_atlar.At_No+'\" class=\"context-menu-two btn btn-neutral\" src=\"/images/ic_action_overflow.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +bkd_field_atlar.At_Id +'\" unvan=\"'+ bkd_field_atlar.At_Unvan_Orjinsiz +'\" p_kosuno=\"'+bkd_field_atlar.At_KosuNo+'\" p_atno=\"'+bkd_field_atlar.At_No+'\" class=\"context-menu-one btn btn-neutral\" src=\"/images/ic_action_overflow.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\r\n\t\t\t\tvar row=$('<tr></tr>').addClass('table_header_1').html('<td width=\"3%\"><b>'+bkd_field_atlar.At_No+'</b></td><td><b>'+bkd_at_unvan+'</b></td><td><b>'+bkd_field_atlar.Jokey_Unvan+'</b></td><td>'+bkd_field_atlar.At_Kg+'</td><td>Klv: '+bkd_field_atlar.At_Kulvar+'</td><td>'+overflow+'</td>');\r\n\t\t\t\tif (bkd_field_atlar.At_Unvan!=\"\") \r\n\t\t\t\t{\r\n\t\t\t\t\ttable.append(row);\r\n\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\tvar row=$('<tr></tr>');\r\n\t\t\t\t\tvar row_col=$('<td></td>').attr(\"colspan\",\"6\");\r\n\t\t\t\t\t\r\n\t\t\t\t\tvar table_idmanpisti = $('<table></table>').attr(\"cellspacing\",0).attr(\"width\",\"100%\").addClass(\"tblidmanpisti\");\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t$bkd_idmanpisti=bkd_field_atlar.Galoplar;\r\n\t\t\t\t\tif($bkd_idmanpisti!=\"\")\r\n\t\t\t\t\tvar titlecolor='';\r\n\t\t\t\t\t$.each($bkd_idmanpisti, function(i, bkd_field_idmanpisti)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tif(bkd_field_idmanpisti.gTarih!=undefined && bkd_field_idmanpisti.gTarih!=\"\")\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t    titlecolor=\"#828282\";\r\n\t\t\t\t\t\t\tvar head_row=$('<tr></tr>').html('<td align=\"left\" style=\"background-color:'+titlecolor+';color:white;font-weight:bold\" width=\"60%\">'+bkd_field_idmanpisti.gTarih+' / '+bkd_field_idmanpisti.gSehirUnvan+'-'+bkd_field_idmanpisti.gPist+'</td><td style=\"background-color:'+titlecolor+';color:white;font-weight:bold\" width=\"40%\" align=\"right\">'+bkd_field_idmanpisti.gJokey+' ('+bkd_field_idmanpisti.gTip+')</td>');\t\r\n\t\t\t\t\t\t   table_idmanpisti.append(head_row);\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\tvar table_idmanpisti_galop = $('<table></table>').attr(\"cellspacing\",0).attr(\"width\",\"100%\").addClass(\"tblidmanpisti\");\r\n\t\t\t\r\n\t\t\t\t\t\t\tvar head_row=$('<tr></tr>').attr('style','font-weight:bold;line-height:2em;background-color:#EFEFEF').html('<td align=\"center\" width=\"16%\">400</td><td align=\"center\" width=\"16%\">600</td><td align=\"center\" width=\"16%\">800</td><td align=\"center\" width=\"16%\">1000</td><td align=\"center\" width=\"16%\">1200</td><td align=\"center\" width=\"16%\">1400</td>');\t\r\n\t\t\t\t\t\t   table_idmanpisti_galop.append(head_row);\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\tvar row=$('<tr></tr>').html('<td align=\"center\">'+bkd_field_idmanpisti.m400+'<td align=\"center\">'+bkd_field_idmanpisti.m600+'<td align=\"center\">'+bkd_field_idmanpisti.m800+'<td align=\"center\">'+bkd_field_idmanpisti.m1000+'<td align=\"center\">'+bkd_field_idmanpisti.m1200+'<td align=\"center\">'+bkd_field_idmanpisti.m1400);\t\r\n\t\t\t\t\t\t\trow.attr(\"style\",\"line-height:2em;background-color:white\");\r\n\t\t\t\t\t\t\ttable_idmanpisti_galop.append(row);\r\n\t\t\t\t\t\t\tvar aciklama=bkd_field_idmanpisti.Aciklama;\r\n\t\t\t\t\t\t\tif (aciklama!=\"\"){\t\t\r\n\t\t\t\t\t\t\tvar aciklama_row=$(\"<tr></tr>\").attr('style','line-h"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1",
+    "url": "https://www.ganyancanavari.com.tr/functions/show_idmanpisti.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_MesafePist\":\"1400 Çim\",\"Kosu_Tipi\":\"Maiden\\/Dişi\",\"Kosu_TayCinsleri\":\"2 Yaşlı İngilizler\",\"Atlar\":[{\"At_No\":1,\"At_Id\":114537,\"At_Unvan\":\"OY YARE (KG K)\",\"At_Unvan_Orjinsiz\":\"OY YARE (KG K)\",\"At_Kosmaz\":-1,\"At_Taki\":\"KG K\",\"At_Kulvar\":1,\"At_Kg\":\"57\",\"Jokey_Unvan\":\"S.YAZICIOĞLU (AP)\",\"At_Ekuri\":\"0\",\"At_KosuNo\":1,\"Galoplar\":[{\"gId\":199617,\"gTarih\":\"22.10.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"SAMETCAN YAZICIOĞLU\",\"m200\":\"-\",\"m400\":\"24.00\",\"m600\":\"36.50\",\"m800\":\"-\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/10\\/228149-115184.mp4\"},{\"gId\":192781,\"gTarih\":\"15.09.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"ROJHAT KURT\",\"m200\":\"-\",\"m400\":\"26.00\",\"m600\":\"39.00\",\"m800\":\"-\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/9\\/227442-115184.mp4\"},{\"gId\":190870,\"gTarih\":\"06.09.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"APRANTİ\",\"m200\":\"-\",\"m400\":\"25.00\",\"m600\":\"-\",\"m800\":\"51.40\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/9\\/227310-115184.mp4\"},{\"gId\":175488,\"gTarih\":\"02.07.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"APRANTİ\",\"m200\":\"-\",\"m400\":\"24.90\",\"m600\":\"38.50\",\"m800\":\"-\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/7\\/225964-115184.mp4\"},{\"gId\":171884,\"gTarih\":\"16.06.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"MEHMET ÇELİK\",\"m200\":\"-\",\"m400\":\"24.30\",\"m600\":\"37.30\",\"m800\":\"-\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"İÇ OY YARE\\r\\nDIŞ  MEYDAN OKU\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/6\\/225654-115184.mp4\"}]},{\"At_No\":2,\"At_Id\":114561,\"At_Unvan\":\"SPIRIT OF LUX (DB SK)\",\"At_Unvan_Orjinsiz\":\"SPIRIT OF LUX (DB SK)\",\"At_Kosmaz\":-1,\"At_Taki\":\"DB SK\",\"At_Kulvar\":8,\"At_Kg\":\"59\",\"Jokey_Unvan\":\"SALİH ÇELİK\",\"At_Ekuri\":\"0\",\"At_KosuNo\":1,\"Galoplar\":[{\"gId\":199618,\"gTarih\":\"19.10.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"ONUR BOLAT\",\"m200\":\"-\",\"m400\":\"26.00\",\"m600\":\"-\",\"m800\":\"-\",\"m1000\":\"1.04.90\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"İÇ SPIRIT OF LUX \\r\\nDIŞ THE LAST FORZA\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/10\\/228149-113338.mp4\"},{\"gId\":187633,\"gTarih\":\"24.08.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"FATİH SULTAN MEHMET SANSAR\",\"m200\":\"-\",\"m400\":\"24.80\",\"m600\":\"-\",\"m800\":\"50.30\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"DIŞ SPIRIT OF LUX\\r\\n İÇ DICCI MAN\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/8\\/227015-113338.mp4\"},{\"gId\":184285,\"gTarih\":\"10.08.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"MENNAN BAL\",\"m200\":\"-\",\"m400\":\"24.50\",\"m600\":\"-\",\"m800\":\"52.20\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/8\\/226741-113338.mp4\"},{\"gId\":177757,\"gTarih\":\"06.07.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"MEHMET ALİ AKGÖBEK\",\"m200\":\"-\",\"m400\":\"25.00\",\"m600\":\"-\",\"m800\":\"50.90\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"İÇ SPIRIT OF LUX \\r\\nDIŞ DRAGON BLAZE\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/7\\/226156-113338.mp4\"},{\"gId\":172036,\"gTarih\":\"15.06.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"İSMAİL YILDIRIM\",\"m200\":\"-\",\"m400\":\"24.40\",\"m600\":\"-\",\"m800\":\"50.60\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/6\\/225668-113338.mp4\"}]},{\"At_No\":3,\"At_Id\":117401,\"At_Unvan\":\"CLOVE (K DB SK)\",\"At_Unvan_Orjinsiz\":\"CLOVE (K DB SK)\",\"At_Kosmaz\":-1,\"At_Taki\":\"K DB SK\",\"At_Kulvar\":6,\"At_Kg\":\"57\",\"Jokey_Unvan\":\"U.TEMUR\",\"At_Ekuri\":\"0\",\"At_KosuNo\":1,\"Galoplar\":[{\"gId\":199619,\"gTarih\":\"19.10.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"OZAN BULUT\",\"m200\":\"-\",\"m400\":\"26.50\",\"m600\":\"-\",\"m800\":\"-\",\"m1000\":\"1.05.00\",\"m1200\":\"1.20.00\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/10\\/228149-112604.mp4\"},{\"gId\":195456,\"gTarih\":\"02.10.2026\",\"gSehirUnvan\":\"Ankara\",\"gPist\":\" (NORMAL)\",\"gTip\":\"Galop\",\"gJokey\":\"OZAN BULUT\",\"m200\":\"-\",\"m400\":\"24.80\",\"m600\":\"-\",\"m800\":\"50.50\",\"m1000\":\"-\",\"m1200\":\"-\",\"m1400\":\"-\",\"Aciklama\":\"\",\"VideoLink\":\"https:\\/\\/video-cdn.tjk.org\\/videoftp\\/idmanpisti\\/2026\\/10\\/227814-112604.mp4\"}]},{\"At_No\":4,\"At_Id\":116159,\"At_Unvan\":\"FLIPENDO (DB SKG SK)\",\"At_Unvan_Orjinsiz\":\"FLIPENDO (DB SKG SK)\",\"At_Kosmaz\":-1,\"At_Taki\":\"DB SKG SK\",\"At_Kulvar\":9,\"At_Kg\":\"57\",\"Jokey_Unvan\":\"M.KESKİN\",\"At_Ekuri\":\"0\",\"At_KosuNo\":1,\"Galoplar\":[{\"gId\":199620,"
+   }
+  ]
+ },
+ "jokey-analizi.html": {
+  "baslik": "Jokey Analizleri | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Jokey Analizleri KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 (Maiden/Dişi) 1400 Çim SAMETCAN YAZICIOĞLU (AP) At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (1) OY YARE 0 0 0 0 0 SAMETCAN YAZICIOĞLU (AP),Ankara Şehrinde Son 34 Koşuda; (1)1.lik, (0) 2.lik, (0) 3.lük, (1) 4.lük aldı.. (Bugün Sadece Bu Ata Binecektir) SALİH ÇELİK At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (2) SPIRIT OF LUX 1 0 1 0 0 SALİH ÇELİK,Ankara Şehrinde Son 50 Koşuda; (5)1.lik, (3) 2.lik, (5) 3.lük, (11) 4.lük aldı.. UĞUR TEMUR At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (3) CLOVE 1 0 0 0 0 UĞUR TEMUR,Ankara Şehrinde Son 50 Koşuda; (6)1.lik, (2) 2.lik, (2) 3.lük, (5) 4.lük aldı.. MEHMET KESKİN At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (4) FLIPENDO 0 0 0 0 0 MEHMET KESKİN,Ankara Şehrinde Son 50 Koşuda; (2)1.lik, (6) 2.lik, (2) 3.lük, (2) 4.lük aldı.. ERHAN AKTUĞ At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (5) IMPERIAL GLOIRE 1 0 0 0 0 ERHAN AKTUĞ,Ankara Şehrinde Son 50 Koşuda; (4)1.lik, (4) 2.lik, (2) 3.lük, (3) 4.lük aldı.. MEHMET SALİH ÇELİK At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (6) LADY SOVEREIGN 0 0 0 0 0 MEHMET SALİH ÇELİK,Ankara Şehrinde Son 50 Koşuda; (1)1.lik, (4) 2.lik, (8) 3.lük, (9) 4.lük aldı.. VEDAT ABİŞ At İsmi Topla",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/jokey-analizi.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/jokey-analizi-detay.php?kosu=1",
+    "durum": 200,
+    "tam": "<script>\r\n $( document ).ready(function() {\r\n\t $.ajax({\r\n\t  url: '/functions/jokeyler_detay.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id,kosu_no:selected_kosu_no},\r\n\t  success: function(data){\r\n\t\t var obj = JSON.parse(data);\r\n\t\t $(\"#yukleniyor_jokeyanalizi_detay\").hide();\r\n\t\t \r\n\t\t$ja_kosular=obj.Kosular;\r\n\r\n\t\tvar titlediv = $('<div></div>');\r\n\t\tvar titlediv_kosunosaat=$('<div></div>').addClass('title_div_kosunosaat').text($ja_kosular[0].Kosu_NoSaat);\r\n\t\tvar titlediv_mesafepist=$('<div></div>').addClass('title_div_mesafepist').text($ja_kosular[0].Kosu_MesafePist);\r\n\t\ttitlediv.append(titlediv_kosunosaat);\r\n\t\ttitlediv.append(titlediv_mesafepist);\r\n\t\tif($ja_kosular[0].Kosu_MesafePist.indexOf(\"Çim\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_cim\");\r\n\t\t\t}\r\n\t\t\tif($ja_kosular[0].Kosu_MesafePist.indexOf(\"Kum\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_kum\");\r\n\t\t\t}\r\n\t\t\tif($ja_kosular[0].Kosu_MesafePist.indexOf(\"Sentetik\")>-1 || $ja_kosular[0].Kosu_MesafePist.indexOf(\"Tapeta\")>-1 || $ja_kosular[0].Kosu_MesafePist.indexOf(\"TAPETA\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_sentetik\");\r\n\t\t\t}\r\n\t\ttitlediv.addClass('title_div');\r\n\t\t\r\n\t\tvar table = $('<table></table>').addClass('table_main').attr(\"cellspacing\",0);\r\n\t\t$ja_jokeyler=$ja_kosular[0].Jokeyler;\r\n\t\t\tvar adscount=0;\t\t\t\t\r\n\t\t\t$.each($ja_jokeyler, function(i, ja_field_jokeyler)\r\n\t\t\t{\r\n\t\t\t\tadscount++;\t\r\n\t\t\t\tvar row=$('<tr></tr>').addClass('table_header_1').html('<td colspan=\"7\"><b><img src=\"/images/ic_action_jockey.png\"/>'+ja_field_jokeyler.Jokey_Unvan+'</b></td>');\r\n\t\t\t\tvar row2=$('<tr></tr>').addClass('table_header_3').html('<th align=\"left\" width=\"40%\">At İsmi</th><th width=\"20%\" align=\"left\">Toplam</th><th width=\"10%\" align=\"left\">1.lik</th><th align=\"left\" width=\"10%\">2.lik</th><th align=\"left\" width=\"10%\">3.lük</th><th align=\"left\" width=\"10%\">4.lük</th><th width=\"5%\">&nbsp;</th>');\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tvar ja_at_unvan=ja_field_jokeyler.At_Unvan;\r\n\t\t\t\t\r\n\t\t\t\tif (ja_field_jokeyler.At_Ekuri>0)\r\n\t\t\t\t{\r\n\t\t\t\t\tja_at_unvan=ja_at_unvan+' <img src=\"/images/e'+ja_field_jokeyler.At_Ekuri+'.png\"/>';\r\n\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t\tif(ja_field_jokeyler.At_Kosmaz==\"0\")\r\n\t\t\t\t{\r\n\t\t\t\t\tja_at_unvan=ja_at_unvan+'<span style=\"color:blue\">(KOŞMAZ)</span>';\r\n\t\t\t\t}\r\n\t\t\t\tja_at_unvan='('+ja_field_jokeyler.At_No+') '+ja_at_unvan;\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tvar overflow=\"\";\r\n\t\t\t\t\tvar overflow_at_unvan=ja_field_jokeyler.At_Unvan;\r\n\t\t\t\tif(ja_field_jokeyler.At_Kosmaz==\"0\")\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +ja_field_jokeyler.At_id +'\" unvan=\"'+ overflow_at_unvan +'\" p_kosuno=\"'+ja_field_jokeyler.At_KosuNo+'\" p_atno=\"'+ja_field_jokeyler.At_No+'\" class=\"context-menu-two btn btn-neutral\" src=\"/images/ic_action_overflow_dark.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +ja_field_jokeyler.At_id +'\" unvan=\"'+ overflow_at_unvan +'\" p_kosuno=\"'+ja_field_jokeyler.At_KosuNo+'\" p_atno=\"'+ja_field_jokeyler.At_No+'\" class=\"context-menu-one btn btn-neutral\" src=\"/images/ic_action_overflow_dark.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\t\r\n\t\t\t\t\r\n\t\t\t\tvar row3=$('<tr></tr>').html('<td align=\"left\">'+ja_at_unvan+'</td><td align=\"left\">'+ja_field_jokeyler.toplam+'</td><td align=\"left\">'+ja_field_jokeyler.birinci+'</td><td align=\"left\">'+ja_field_jokeyler.ikinci+'</td><td align=\"left\">'+ja_field_jokeyler.ucuncu+'</td><td align=\"left\">'+ja_field_jokeyler.dorduncu+'</td><td>'+overflow+'</td>');\r\n\t\t\t\tvar row4=$('<tr></tr>').html('<td colspan=\"7\">'+ja_field_jokeyler.Jokey_Detay+'</td>');\r\n\t\t\t\t\r\n\t\t\t\t\ttable.append(row);\t\r\n\t\t\t\t\ttable.append(row2);\t\r\n\t\t\t\t\ttable.append(row3);\t\r\n\t\t\t\t\ttable.append(row4);\t\r\n\t\t\t\t\t\r\n\t\t\t\t\tif(adscount==1 || adscount==3)\r\n\t\t\t\t\t{\t\t\t\r\n\t\t\t\t\t\t\tvar adsrow=$('<tr></tr>');\r\n\t\t\t\t\t\t\tvar adsrow_col=$('<td></td>').attr(\"colspan\",\"8\");\r\n\t\t\t\t\t\t\tvar div_ads=$('<div></div>').attr(\"style\",\"width:95%;margin:0 auto;\");\r\n\t\t\t\t\t\tif($(location).attr('href').indexOf(\"moduler\"))\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\tvar ads=$('<ins></ins>').addClass(\"adsbygoogle\").attr(\"style\",\"display:block\").attr(\"data-ad-client\",\"ca-pub-2284976859702512\").attr(\"data-ad-slot\",\"5678796349\").attr(\"data-ad-format\",\"auto\").attr(\"data-full-width-responsive\",\"true\");\t\r\n\t\t\t\t\t\t\t}else{\r\n\t\t\t\t\t\t\tvar ads=$('<ins></ins>').addClass(\"adsbygoogle\").attr(\"style\",\"display:block;height:120px\").attr(\"data-ad-client\",\"ca-pub-2284976859702512\").attr(\"data-ad-slot\",\"7675076745\").attr(\"data-ad-layout-key\",\"-ef+6k-30-ac+ty\").attr(\"data-ad-format\",\"fluid\");\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\tdiv_ads.append(ads);\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\tadsrow_col.append(div_ads);\r\n\t\t\t\t\t\t\tadsrow.append(adsrow_col);\r\n\t\t\t\t\t\t//\ttable.append(adsrow);\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t});\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t$(\"#main_jokeyanalizidetay\").append(titlediv);\t\r\n\t\t$(\"#main_jokeyanalizidetay\").append(table);\t\r\n\t\t\t//\t\r\n\t\t//\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t  },\r\n\t  error: function(xhr, status, error){\r\n\t  show_hata_dialog(\"Beklenmeyen bir hata oluştu,Lütfen Az sonra tekrar deneyiniz\"); \r\n\t  }\r\n\t});\r\n\r\n});\r\n</script>\r\n<div style=\"margin:0 auto;width:200px;text-align:center;color:red;font-weight:bold\" id=\"yukleniyor_jokeyan"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1",
+    "url": "https://www.ganyancanavari.com.tr/functions/jokeyler_detay.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Jokeyler\":[{\"Jokey_Unvan\":\"SAMETCAN YAZICIOĞLU (AP)\",\"At_Unvan\":\"OY YARE\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":1,\"At_id\":114537,\"Jokey_Detay\":\"<b>SAMETCAN YAZICIOĞLU (AP)<\\/b>,Ankara Şehrinde Son <b>34<\\/b> Koşuda;<p><b>(1)<\\/b>1.lik,<\\/p><p><b>(0)<\\/b> 2.lik,<\\/p><p><b>(0)<\\/b> 3.lük,<\\/p><p><b>(1)<\\/b> 4.lük aldı..<\\/p><p><b><font color=red>(Bugün Sadece Bu Ata Binecektir)<\\/font><\\/b><\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":0},{\"Jokey_Unvan\":\"SALİH ÇELİK\",\"At_Unvan\":\"SPIRIT OF LUX\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":2,\"At_id\":114561,\"Jokey_Detay\":\"<b>SALİH ÇELİK<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(5)<\\/b>1.lik,<\\/p><p><b>(3)<\\/b> 2.lik,<\\/p><p><b>(5)<\\/b> 3.lük,<\\/p><p><b>(11)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":1,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":1},{\"Jokey_Unvan\":\"UĞUR TEMUR\",\"At_Unvan\":\"CLOVE\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":3,\"At_id\":117401,\"Jokey_Detay\":\"<b>UĞUR TEMUR<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(6)<\\/b>1.lik,<\\/p><p><b>(2)<\\/b> 2.lik,<\\/p><p><b>(2)<\\/b> 3.lük,<\\/p><p><b>(5)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":1},{\"Jokey_Unvan\":\"MEHMET KESKİN\",\"At_Unvan\":\"FLIPENDO\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":4,\"At_id\":116159,\"Jokey_Detay\":\"<b>MEHMET KESKİN<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(2)<\\/b>1.lik,<\\/p><p><b>(6)<\\/b> 2.lik,<\\/p><p><b>(2)<\\/b> 3.lük,<\\/p><p><b>(2)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":0},{\"Jokey_Unvan\":\"ERHAN AKTUĞ\",\"At_Unvan\":\"IMPERIAL GLOIRE\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":5,\"At_id\":113939,\"Jokey_Detay\":\"<b>ERHAN AKTUĞ<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(4)<\\/b>1.lik,<\\/p><p><b>(4)<\\/b> 2.lik,<\\/p><p><b>(2)<\\/b> 3.lük,<\\/p><p><b>(3)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":1},{\"Jokey_Unvan\":\"MEHMET SALİH ÇELİK\",\"At_Unvan\":\"LADY SOVEREIGN\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":6,\"At_id\":114562,\"Jokey_Detay\":\"<b>MEHMET SALİH ÇELİK<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(1)<\\/b>1.lik,<\\/p><p><b>(4)<\\/b> 2.lik,<\\/p><p><b>(8)<\\/b> 3.lük,<\\/p><p><b>(9)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":0},{\"Jokey_Unvan\":\"VEDAT ABİŞ\",\"At_Unvan\":\"MY FEARLESS\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":7,\"At_id\":115806,\"Jokey_Detay\":\"<b>VEDAT ABİŞ<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(11)<\\/b>1.lik,<\\/p><p><b>(12)<\\/b> 2.lik,<\\/p><p><b>(6)<\\/b> 3.lük,<\\/p><p><b>(4)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":0},{\"Jokey_Unvan\":\"MEHMET KAYA\",\"At_Unvan\":\"QUEEN OF UNION\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":8,\"At_id\":113870,\"Jokey_Detay\":\"<b>MEHMET KAYA<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(6)<\\/b>1.lik,<\\/p><p><b>(8)<\\/b> 2.lik,<\\/p><p><b>(3)<\\/b> 3.lük,<\\/p><p><b>(8)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":0,\"dorduncu\":0,\"toplam\":1},{\"Jokey_Unvan\":\"AYHAN KURŞUN\",\"At_Unvan\":\"QUEEN Z\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":9,\"At_id\":114693,\"Jokey_Detay\":\"<b>AYHAN KURŞUN<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(7)<\\/b>1.lik,<\\/p><p><b>(9)<\\/b> 2.lik,<\\/p><p><b>(5)<\\/b> 3.lük,<\\/p><p><b>(5)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":1,\"dorduncu\":0,\"toplam\":1},{\"Jokey_Unvan\":\"GÖKHAN KOCAKAYA\",\"At_Unvan\":\"WARREN QUEEN\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":10,\"At_id\":116169,\"Jokey_Detay\":\"<b>GÖKHAN KOCAKAYA<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(11)<\\/b>1.lik,<\\/p><p><b>(6)<\\/b> 2.lik,<\\/p><p><b>(7)<\\/b> 3.lük,<\\/p><p><b>(4)<\\/b> 4.lük aldı..<\\/p>\",\"birinci\":0,\"ikinci\":0,\"ucuncu\":1,\"dorduncu\":0,\"toplam\":1}]}],\"success\":1}"
+   }
+  ]
+ },
+ "antrenor-analizi.html": {
+  "baslik": "Antrenör Analizleri | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Antrenör Analizleri KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 (Maiden/Dişi) 1400 Çim MEHMET TEKİNALP At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (1) OY YARE 3 0 0 0 2 MEHMET TEKİNALP,Ankara Şehrinde Son 30 Koşuda; (4)1.lik, (1) 2.lik, (3) 3.lük, (3) 4.lük aldı. İBRAHİM BEKİROĞULLARI At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (2) SPIRIT OF LUX 4 0 1 1 0 İBRAHİM BEKİROĞULLARI,Ankara Şehrinde Son 50 Koşuda; (9)1.lik, (16) 2.lik, (12) 3.lük, (4) 4.lük aldı. OZAN BULUT At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (3) CLOVE 1 0 0 0 0 OZAN BULUT,Ankara Şehrinde Son 50 Koşuda; (10)1.lik, (9) 2.lik, (4) 3.lük, (4) 4.lük aldı. ÖMER FARUK TAN At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (4) FLIPENDO 0 0 0 0 0 ÖMER FARUK TAN,Ankara Şehrinde Son 50 Koşuda; (5)1.lik, (10) 2.lik, (3) 3.lük, (6) 4.lük aldı. OZAN BULUT At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (5) IMPERIAL GLOIRE 4 0 1 0 0 OZAN BULUT,Ankara Şehrinde Son 50 Koşuda; (10)1.lik, (9) 2.lik, (4) 3.lük, (4) 4.lük aldı. İBRAHİM BEKİROĞULLARI At İsmi Toplam 1.lik 2.lik 3.lük 4.lük (6) LADY SOVEREIGN 4 0 0 1 1 İBRAHİM BEKİROĞULLARI,Ankara Şehrinde Son 50 Koşuda; (9)1.lik, (16) 2.lik, (12) 3.lük, (4) 4.lük aldı. CUMALİ KARATAŞ At İsmi Toplam 1.lik 2.lik 3.lü",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/antrenor-analizi.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/pages/antrenor-analizi-detay.php?kosu=1",
+    "durum": 200,
+    "tam": "<script>\r\n\r\n $( document ).ready(function() {\r\n \r\n\t\r\n\t $.ajax({\r\n\t  url: '/functions/antrenorler_detay.php',\r\n\t  type: \"POST\",\r\n\t  data:{ tarih:tarih,sehir_id:sehir_id,kosu_no:selected_kosu_no},\r\n\t  success: function(data){\r\n\t\t var obj = JSON.parse(data);\r\n\t\t $(\"#yukleniyor_antrenoranalizi_detay\").hide();\r\n\t\t \r\n\t\t$aa_kosular=obj.Kosular;\r\n\r\n\t\tvar titlediv = $('<div></div>');\r\n\t\tvar titlediv_kosunosaat=$('<div></div>').addClass('title_div_kosunosaat').text($aa_kosular[0].Kosu_NoSaat);\r\n\t\tvar titlediv_mesafepist=$('<div></div>').addClass('title_div_mesafepist').text($aa_kosular[0].Kosu_MesafePist);\r\n\t\ttitlediv.append(titlediv_kosunosaat);\r\n\t\ttitlediv.append(titlediv_mesafepist);\r\n\t\tif($aa_kosular[0].Kosu_MesafePist.indexOf(\"Çim\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_cim\");\r\n\t\t\t}\r\n\t\t\tif($aa_kosular[0].Kosu_MesafePist.indexOf(\"Kum\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_kum\");\r\n\t\t\t}\r\n\t\t\tif($aa_kosular[0].Kosu_MesafePist.indexOf(\"Sentetik\")>-1 || $aa_kosular[0].Kosu_MesafePist.indexOf(\"Tapeta\")>-1 || $aa_kosular[0].Kosu_MesafePist.indexOf(\"TAPETA\")>-1)\r\n\t\t\t{\r\n\t\t\t\ttitlediv.addClass(\"table_header_sentetik\");\r\n\t\t\t}\r\n\t\ttitlediv.addClass('title_div');\r\n\t\t\r\n\t\tvar table = $('<table></table>').addClass('table_main').attr(\"cellspacing\",0);\r\n\t\t$aa_antrenorler=$aa_kosular[0].Antrenorler;\r\n\t\t\tvar adscount=0;\t\t\t\t\r\n\t\t\t$.each($aa_antrenorler, function(i, aa_field_antrenorler)\r\n\t\t\t{\r\n\t\t\t\tadscount++;\t\r\n\t\t\t\tvar row=$('<tr></tr>').addClass('table_header_1').html('<td colspan=\"7\"><b><img src=\"/images/ic_action_antrenor.png\"/>'+aa_field_antrenorler.Antrenor_Unvan+'</b></td>');\r\n\t\t\t\tvar row2=$('<tr></tr>').addClass('table_header_3').html('<th align=\"left\" width=\"40%\">At İsmi</th><th width=\"20%\" align=\"left\">Toplam</th><th width=\"10%\" align=\"left\">1.lik</th><th align=\"left\" width=\"10%\">2.lik</th><th align=\"left\" width=\"10%\">3.lük</th><th align=\"left\" width=\"10%\">4.lük</th><th width=\"5%\">&nbsp;</th>');\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tvar aa_at_unvan=aa_field_antrenorler.At_Unvan;\r\n\t\t\t\t\r\n\t\t\t\tif (aa_field_antrenorler.At_Ekuri>0)\r\n\t\t\t\t{\r\n\t\t\t\t\taa_at_unvan=aa_at_unvan+' <img src=\"/images/e'+aa_field_antrenorler.At_Ekuri+'.png\"/>';\r\n\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t\tif(aa_field_antrenorler.At_Kosmaz==\"0\")\r\n\t\t\t\t{\r\n\t\t\t\t\taa_at_unvan=aa_at_unvan+'<span style=\"color:blue\">(KOŞMAZ)</span>';\r\n\t\t\t\t}\r\n\t\t\t\taa_at_unvan='('+aa_field_antrenorler.At_No+') '+aa_at_unvan;\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tvar overflow=\"\";\r\n\t\t\t\t\tvar overflow_at_unvan=aa_field_antrenorler.At_Unvan;\r\n\t\t\t\tif(aa_field_antrenorler.At_Kosmaz==\"0\")\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +aa_field_antrenorler.At_id +'\" unvan=\"'+ overflow_at_unvan +'\" p_kosuno=\"'+aa_field_antrenorler.At_KosuNo+'\" p_atno=\"'+aa_field_antrenorler.At_No+'\" class=\"context-menu-two btn btn-neutral\" src=\"/images/ic_action_overflow_dark.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\toverflow='<img id=\"'+ +aa_field_antrenorler.At_id +'\" unvan=\"'+ overflow_at_unvan +'\" p_kosuno=\"'+aa_field_antrenorler.At_KosuNo+'\" p_atno=\"'+aa_field_antrenorler.At_No+'\" class=\"context-menu-one btn btn-neutral\" src=\"/images/ic_action_overflow_dark.png\" style=\"cursor:pointer\">';\r\n\t\t\t\t\t}\t\r\n\t\t\t\t\r\n\t\t\t\tvar row3=$('<tr></tr>').html('<td align=\"left\">'+aa_at_unvan+'</td><td align=\"left\">'+aa_field_antrenorler.toplam+'</td><td align=\"left\">'+aa_field_antrenorler.birinci+'</td><td align=\"left\">'+aa_field_antrenorler.ikinci+'</td><td align=\"left\">'+aa_field_antrenorler.ucuncu+'</td><td align=\"left\">'+aa_field_antrenorler.dorduncu+'</td><td>'+overflow+'</td>');\r\n\t\t\t\tvar row4=$('<tr></tr>').html('<td colspan=\"7\">'+aa_field_antrenorler.Antrenor_Detay+'</td>');\r\n\t\t\t\t\r\n\t\t\t\t\ttable.append(row);\t\r\n\t\t\t\t\ttable.append(row2);\t\r\n\t\t\t\t\ttable.append(row3);\t\r\n\t\t\t\t\ttable.append(row4);\t\r\n\t\t\t\t\tif(adscount==5 || adscount==7)\r\n\t\t\t\t\t{\t\t\t\r\n\t\t\t\t\t\t\tvar adsrow=$('<tr></tr>');\r\n\t\t\t\t\t\t\tvar adsrow_col=$('<td></td>').attr(\"colspan\",\"8\");\r\n\t\t\t\t\t\t\tvar div_ads=$('<div></div>').attr(\"style\",\"width:95%;margin:0 auto;\");\r\n\t\t\t\t\t\t\tif($(location).attr('href').indexOf(\"moduler\"))\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\tvar ads=$('<ins></ins>').addClass(\"adsbygoogle\").attr(\"style\",\"display:block\").attr(\"data-ad-client\",\"ca-pub-2284976859702512\").attr(\"data-ad-slot\",\"5678796349\").attr(\"data-ad-format\",\"auto\").attr(\"data-full-width-responsive\",\"true\");\t\r\n\t\t\t\t\t\t\t}else{\r\n\t\t\t\t\t\t\tvar ads=$('<ins></ins>').addClass(\"adsbygoogle\").attr(\"style\",\"display:block;height:120px\").attr(\"data-ad-client\",\"ca-pub-2284976859702512\").attr(\"data-ad-slot\",\"7675076745\").attr(\"data-ad-layout-key\",\"-ef+6k-30-ac+ty\").attr(\"data-ad-format\",\"fluid\");\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t//div_ads.append(ads);\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t//adsrow_col.append(div_ads);\r\n\t\t\t\t\t\t\tadsrow.append(adsrow_col);\r\n\t\t\t\t\t\t\ttable.append(adsrow);\r\n\t\t\t\t\t\t}\r\n\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t});\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t$(\"#main_antrenoranalizidetay\").append(titlediv);\t\r\n\t\t$(\"#main_antrenoranalizidetay\").append(table);\t\r\n\t\t\t\t\t\t\r\n\t//\t\r\n\r\n\t\t\r\n\t\t\r\n\t  },\r\n\t  error: function(xhr, status, error){\r\n\t  show_hata_dialog(\"Beklenmeyen bir hata oluştu,Lütfen Az sonra tekrar deneyiniz\"); \r\n\t  }\r\n\t});\r\n\r\n});\r\n\r\n</script>\r\n<div "
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5&kosu_no=1",
+    "url": "https://www.ganyancanavari.com.tr/functions/antrenorler_detay.php",
+    "durum": 200,
+    "tam": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Antrenorler\":[{\"Antrenor_Unvan\":\"MEHMET TEKİNALP\",\"At_Unvan\":\"OY YARE\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":1,\"At_id\":114537,\"Antrenor_Detay\":\"<b>MEHMET TEKİNALP<\\/b>,Ankara Şehrinde Son <b>30<\\/b> Koşuda;<p><b>(4)<\\/b>1.lik,<\\/p><p><b>(1)<\\/b> 2.lik,<\\/p><p><b>(3)<\\/b> 3.lük,<\\/p><p><b>(3)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"0 \",\"ucuncu\":\"0 \",\"dorduncu\":\"2 \",\"toplam\":\"3 \"},{\"Antrenor_Unvan\":\"İBRAHİM BEKİROĞULLARI\",\"At_Unvan\":\"SPIRIT OF LUX\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":2,\"At_id\":114561,\"Antrenor_Detay\":\"<b>İBRAHİM BEKİROĞULLARI<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(9)<\\/b>1.lik,<\\/p><p><b>(16)<\\/b> 2.lik,<\\/p><p><b>(12)<\\/b> 3.lük,<\\/p><p><b>(4)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"1 \",\"ucuncu\":\"1 \",\"dorduncu\":\"0 \",\"toplam\":\"4 \"},{\"Antrenor_Unvan\":\"OZAN BULUT\",\"At_Unvan\":\"CLOVE\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":3,\"At_id\":117401,\"Antrenor_Detay\":\"<b>OZAN BULUT<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(10)<\\/b>1.lik,<\\/p><p><b>(9)<\\/b> 2.lik,<\\/p><p><b>(4)<\\/b> 3.lük,<\\/p><p><b>(4)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"0 \",\"ucuncu\":\"0 \",\"dorduncu\":\"0 \",\"toplam\":\"1 \"},{\"Antrenor_Unvan\":\"ÖMER FARUK TAN\",\"At_Unvan\":\"FLIPENDO\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":4,\"At_id\":116159,\"Antrenor_Detay\":\"<b>ÖMER FARUK TAN<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(5)<\\/b>1.lik,<\\/p><p><b>(10)<\\/b> 2.lik,<\\/p><p><b>(3)<\\/b> 3.lük,<\\/p><p><b>(6)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"0 \",\"ucuncu\":\"0 \",\"dorduncu\":\"0 \",\"toplam\":\"0 \"},{\"Antrenor_Unvan\":\"OZAN BULUT\",\"At_Unvan\":\"IMPERIAL GLOIRE\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":5,\"At_id\":113939,\"Antrenor_Detay\":\"<b>OZAN BULUT<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(10)<\\/b>1.lik,<\\/p><p><b>(9)<\\/b> 2.lik,<\\/p><p><b>(4)<\\/b> 3.lük,<\\/p><p><b>(4)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"1 \",\"ucuncu\":\"0 \",\"dorduncu\":\"0 \",\"toplam\":\"4 \"},{\"Antrenor_Unvan\":\"İBRAHİM BEKİROĞULLARI\",\"At_Unvan\":\"LADY SOVEREIGN\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":6,\"At_id\":114562,\"Antrenor_Detay\":\"<b>İBRAHİM BEKİROĞULLARI<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(9)<\\/b>1.lik,<\\/p><p><b>(16)<\\/b> 2.lik,<\\/p><p><b>(12)<\\/b> 3.lük,<\\/p><p><b>(4)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"0 \",\"ucuncu\":\"1 \",\"dorduncu\":\"1 \",\"toplam\":\"4 \"},{\"Antrenor_Unvan\":\"CUMALİ KARATAŞ\",\"At_Unvan\":\"MY FEARLESS\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":7,\"At_id\":115806,\"Antrenor_Detay\":\"<b>CUMALİ KARATAŞ<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(6)<\\/b>1.lik,<\\/p><p><b>(7)<\\/b> 2.lik,<\\/p><p><b>(5)<\\/b> 3.lük,<\\/p><p><b>(7)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"0 \",\"ucuncu\":\"0 \",\"dorduncu\":\"0 \",\"toplam\":\"1 \"},{\"Antrenor_Unvan\":\"HÜSEYİN KAYA\",\"At_Unvan\":\"QUEEN OF UNION\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":8,\"At_id\":113870,\"Antrenor_Detay\":\"<b>HÜSEYİN KAYA<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(3)<\\/b>1.lik,<\\/p><p><b>(7)<\\/b> 2.lik,<\\/p><p><b>(5)<\\/b> 3.lük,<\\/p><p><b>(9)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"0 \",\"ucuncu\":\"0 \",\"dorduncu\":\"0 \",\"toplam\":\"1 \"},{\"Antrenor_Unvan\":\"İBRAHİM BEKİROĞULLARI\",\"At_Unvan\":\"QUEEN Z\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":9,\"At_id\":114693,\"Antrenor_Detay\":\"<b>İBRAHİM BEKİROĞULLARI<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(9)<\\/b>1.lik,<\\/p><p><b>(16)<\\/b> 2.lik,<\\/p><p><b>(12)<\\/b> 3.lük,<\\/p><p><b>(4)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"0 \",\"ucuncu\":\"1 \",\"dorduncu\":\"1 \",\"toplam\":\"2 \"},{\"Antrenor_Unvan\":\"CANER AKGÜL\",\"At_Unvan\":\"WARREN QUEEN\",\"At_KosuNo\":1,\"At_Kosmaz\":-1,\"At_Ekuri\":\"0\",\"At_No\":10,\"At_id\":116169,\"Antrenor_Detay\":\"<b>CANER AKGÜL<\\/b>,Ankara Şehrinde Son <b>50<\\/b> Koşuda;<p><b>(16)<\\/b>1.lik,<\\/p><p><b>(3)<\\/b> 2.lik,<\\/p><p><b>(7)<\\/b> 3.lük,<\\/p><p><b>(9)<\\/b> 4.lük aldı.<\\/p>\",\"birinci\":\"0 \",\"ikinci\":\"1 \",\"ucuncu\":\"0 \",\"dorduncu\":\"0 \",\"toplam\":\"1 \"}]}],\"success\":1}"
+   }
+  ]
+ },
+ "yazilan-atlar-tablosu.html": {
+  "baslik": "Yazılan Atlar Tablosu | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Yazılan Atlar Tablosu Bu içeriği görmek için giriş yapmalısınız Giriş Yapın Close Lütfen Giriş Yapın Aşağıdaki seçeneklerden biri ile Ganyan Canavarı'na ÜCRETSİZ giriş yapabilirsiniz Ganyan Canavarı Şifrem ile; Google Hesabım ile; Apple Hesabım ile; Facebook Hesabım ile; Ganyan Canavarı şifreniz yok ise; Şimdi ÜCRETSİZ Şifre Al",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/yazilan-atlar-tablosu.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js?_=1792828049118",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/pages/login.php",
+    "durum": 200,
+    "tam": "<script src=\"/js/fingerprint2.min.js\"></script> \r\n\r\n<script>\r\n  var appid=0;\r\n  new Fingerprint2().get(function(result, components){\r\n    appid=result;\r\n    if(appid==null || appid=='' || appid==0)\r\n    {\r\n        appid=\"PCLOGIN_\"+Math.floor(Math.random() * 1000000000);\r\n    }\r\n    $('#login_options').show();\r\n  });\r\nfunction load_gc_login()\r\n{\r\n\t$(\"#login-dialog\").load('/pages/login-gc.php');\r\n}\r\nfunction load_fb_login()\r\n{\r\n\twindow.location='/pages/login-firebase.php?appid='+appid;\r\n}\r\nfunction load_gc_register()\r\n{\r\n\t$(\"#login-dialog\").load('/pages/register-gc.php?appid='+appid);\r\n}\r\nfunction load_google_login()\r\n{\r\n\t$(\"#login-dialog\").load('/pages/login-google.php?appid='+appid);\r\n}\r\nfunction load_apple_login()\r\n{\r\n\twindow.location='/apple/login/?appid='+appid;\r\n}\r\n\r\n</script>\r\n<div id=\"login_options\" style=\"display:none\" class=\"gradient_background\">\r\n<table width=\"100%\" border=\"0\" cellspacing=\"0\">\r\n  <tbody>\r\n    <tr>\r\n      <td align=\"center\"><img  style=\"margin-top:15px\" src=\"/images/icon.png\" alt=\"\"/></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"color:white;font-size:20px;font-weight:bold\">Lütfen Giriş Yapın</td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"color:yellow;font-size:12px;\">Aşağıdaki seçeneklerden biri ile Ganyan Canavarı'na ÜCRETSİZ giriş yapabilirsiniz</td>\r\n    </tr>\r\n    <tr>\r\n      <td>\r\n      <table style=\"border:1px solid #B4B2D9\" width=\"100%\" border=\"0\" cellspacing=\"0\">\r\n  <tbody>\r\n  <tr style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;border-top:1px solid #B4B2D9\"><img src=\"/images/icon.png\" alt=\"\"/></td>\r\n      <td align=\"left\" style=\"color: white;\r\n    font-weight: bold;border-top:1px solid #B4B2D9\" onClick=\"load_gc_login();\">Ganyan Canavarı Şifrem ile;</td>\r\n    </tr>\r\n \r\n    <tr id=\"googleLoginTr\" style=\"cursor:pointer\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/google_icon.png\" alt=\"\"/></td>\r\n      <td id=\"googleLoginBtn\" align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_google_login();\">Google Hesabım ile;</td>\r\n    </tr>\r\n    \r\n    <tr id=\"googleLoginTr\" style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/apple-icon.png\" alt=\"\"/></td>\r\n      <td id=\"googleLoginBtn\" align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_apple_login();\">Apple Hesabım ile;</td>\r\n    </tr>\r\n    \r\n\r\n  <tr style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/facebook_icon.png\" alt=\"\"/></td>\r\n      <td align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_fb_login();\">Facebook Hesabım ile;</td>\r\n    </tr>\r\n    </tbody>\r\n    </table>\r\n   \r\n</td>\r\n    </tr>\r\n    <tr>\r\n      <td><div id=\"login_gc\"></div></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"color:yellow;font-size:12px;\">Ganyan Canavarı şifreniz yok ise;</td>\r\n    </tr>\r\n    <tr>\r\n      <td>\r\n       <table style=\"border:1px solid #B4B2D9\" width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"2\">\r\n  <tbody>\r\n    <tr style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/icon.png\" alt=\"\"/></td>\r\n      <td align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_gc_register();\">Şimdi ÜCRETSİZ Şifre Al</td>\r\n    </tr>\r\n    \r\n    </tbody>\r\n    </table>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n</div>\r\n"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   }
+  ]
+ },
+ "uye-tahminleri.html": {
+  "baslik": "Canavar Tahminler | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Canavar Tahminler Bu içeriği görmek için giriş yapmalısınız Giriş Yapın Close Lütfen Giriş Yapın Aşağıdaki seçeneklerden biri ile Ganyan Canavarı'na ÜCRETSİZ giriş yapabilirsiniz Ganyan Canavarı Şifrem ile; Google Hesabım ile; Apple Hesabım ile; Facebook Hesabım ile; Ganyan Canavarı şifreniz yok ise; Şimdi ÜCRETSİZ Şifre Al",
+  "istekler": [
+   {
+    "tip": "document",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/mobile/uye-tahminleri.html",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "script",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "GET",
+    "veri": "",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js?_=1792828059782",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&last_id=0&deleted_id=0&appid=",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "tam": ""
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/pages/login.php",
+    "durum": 200,
+    "tam": "<script src=\"/js/fingerprint2.min.js\"></script> \r\n\r\n<script>\r\n  var appid=0;\r\n  new Fingerprint2().get(function(result, components){\r\n    appid=result;\r\n    if(appid==null || appid=='' || appid==0)\r\n    {\r\n        appid=\"PCLOGIN_\"+Math.floor(Math.random() * 1000000000);\r\n    }\r\n    $('#login_options').show();\r\n  });\r\nfunction load_gc_login()\r\n{\r\n\t$(\"#login-dialog\").load('/pages/login-gc.php');\r\n}\r\nfunction load_fb_login()\r\n{\r\n\twindow.location='/pages/login-firebase.php?appid='+appid;\r\n}\r\nfunction load_gc_register()\r\n{\r\n\t$(\"#login-dialog\").load('/pages/register-gc.php?appid='+appid);\r\n}\r\nfunction load_google_login()\r\n{\r\n\t$(\"#login-dialog\").load('/pages/login-google.php?appid='+appid);\r\n}\r\nfunction load_apple_login()\r\n{\r\n\twindow.location='/apple/login/?appid='+appid;\r\n}\r\n\r\n</script>\r\n<div id=\"login_options\" style=\"display:none\" class=\"gradient_background\">\r\n<table width=\"100%\" border=\"0\" cellspacing=\"0\">\r\n  <tbody>\r\n    <tr>\r\n      <td align=\"center\"><img  style=\"margin-top:15px\" src=\"/images/icon.png\" alt=\"\"/></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"color:white;font-size:20px;font-weight:bold\">Lütfen Giriş Yapın</td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"color:yellow;font-size:12px;\">Aşağıdaki seçeneklerden biri ile Ganyan Canavarı'na ÜCRETSİZ giriş yapabilirsiniz</td>\r\n    </tr>\r\n    <tr>\r\n      <td>\r\n      <table style=\"border:1px solid #B4B2D9\" width=\"100%\" border=\"0\" cellspacing=\"0\">\r\n  <tbody>\r\n  <tr style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;border-top:1px solid #B4B2D9\"><img src=\"/images/icon.png\" alt=\"\"/></td>\r\n      <td align=\"left\" style=\"color: white;\r\n    font-weight: bold;border-top:1px solid #B4B2D9\" onClick=\"load_gc_login();\">Ganyan Canavarı Şifrem ile;</td>\r\n    </tr>\r\n \r\n    <tr id=\"googleLoginTr\" style=\"cursor:pointer\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/google_icon.png\" alt=\"\"/></td>\r\n      <td id=\"googleLoginBtn\" align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_google_login();\">Google Hesabım ile;</td>\r\n    </tr>\r\n    \r\n    <tr id=\"googleLoginTr\" style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/apple-icon.png\" alt=\"\"/></td>\r\n      <td id=\"googleLoginBtn\" align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_apple_login();\">Apple Hesabım ile;</td>\r\n    </tr>\r\n    \r\n\r\n  <tr style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/facebook_icon.png\" alt=\"\"/></td>\r\n      <td align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_fb_login();\">Facebook Hesabım ile;</td>\r\n    </tr>\r\n    </tbody>\r\n    </table>\r\n   \r\n</td>\r\n    </tr>\r\n    <tr>\r\n      <td><div id=\"login_gc\"></div></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"color:yellow;font-size:12px;\">Ganyan Canavarı şifreniz yok ise;</td>\r\n    </tr>\r\n    <tr>\r\n      <td>\r\n       <table style=\"border:1px solid #B4B2D9\" width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"2\">\r\n  <tbody>\r\n    <tr style=\"cursor:pointer;\" class=\"transparency_background\">\r\n      <td align=\"center\" style=\"width:60px;\"><img src=\"/images/icon.png\" alt=\"\"/></td>\r\n      <td align=\"left\" style=\"color: white;\r\n    font-weight: bold;\" onClick=\"load_gc_register();\">Şimdi ÜCRETSİZ Şifre Al</td>\r\n    </tr>\r\n    \r\n    </tbody>\r\n    </table>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n</div>\r\n"
+   },
+   {
+    "tip": "xhr",
+    "yontem": "POST",
+    "veri": "key=1&tarih=24.10.2026&sehir_id=5",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "tam": ""
+   }
+  ]
+ }
+}
