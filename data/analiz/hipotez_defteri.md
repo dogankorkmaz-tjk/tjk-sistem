@@ -724,3 +724,6 @@ BULGU (Ankara 10, 17:25, simülasyonla): AGF ile muhtemel ganyan piyasası aras�
 
 ## 2026-10-24 22:30 — Geç kupon: tabela ve üçlü/ikili de eklendi (ön kayıt, sonuç görülmeden)
 Aynı kural sıralı 5'li geç kuponuyla: start'a 3–30 dk kala canlı muhtemel ganyanla G1-S v3 yeniden hesaplanır, 3 dk altında donar. Tabela: sıralı ≤24/≤120, sırasız 5, sırasız+1 (model adı "G1-S (geç)"). Egzotik: sıralı ikili/ikili/üçlü, aynı eşik ve Harville düzeltmesi (model "G1-S (geç)"). Sabah/AGF kuponları ayrı sayaçta kalır; karşılaştırma ayrı satırlarda. Karar ölçütü: ≥300 koşu birikince geç vs sabah geri dönüş ve tutma oranı farkı. Simülasyon (Ankara 10, start-8 dk) çalıştı.
+
+## 2026-10-24 20:10 — CORS sondası (altyapı, hipotez değil)
+vhs-medya(-cdn).tjk.org GET 200 veriyor ama Access-Control-Allow-Origin yalnız https://vhs.tjk.org; OPTIONS 405. Sonuç: site tarayıcıdan doğrudan okuyamaz, aracı (Worker/VPS) gerekir. Önbellek max-age=10 sn (veri taze).
