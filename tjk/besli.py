@@ -217,11 +217,11 @@ def devir_durum(tarih, hip, kosu, havuz_oncesi):
 
 
 def _ekle_devir(c, at, pp, P, simdi):
-    """Devirli havuz: G1-S ile donmuş 'Devir-G1S' kuponları (bütçe 96 ve 150; ön kayıt hipotez_defteri 2026-10-24 19:30)."""
+    """Devirli havuz: G1-S ile donmuş 'Devir-G1S' kuponları (bütçe 96, 150 ve 600; ön kayıt hipotez_defteri 2026-10-24 19:30 ve 20:30)."""
     if "G1-S" not in P:
         return
     Wp, Tp = _W(pp, G_P)
-    for B in (96, 150):
+    for B in (96, 150, 600):
         if any(q["model"] == "Devir-G1S" and q["butce"] == B for q in c["kuponlar"]):
             continue
         kp = kupon_g(P["G1-S"], B, GG.get("G1-S"))
