@@ -166,6 +166,12 @@ def egit3(l2=30.0, adim=5):
 
 def z6(atlar, t):
     """Egzotik gölge (G1-S) için at başına puan X·b (alfa*log(p) ayrı eklenir). atlar: {no, at, jokey, kg, hk, agf...}. Veri eksikse None."""
+    try:
+        from . import g1v3 as _V3; c3 = _V3.yukle()           # G1-S v3 (24 Ekim 2026): varsa ana puan bu
+    except Exception as e:
+        print("v3 yükleme hatası:", repr(e)); c3 = None
+    if c3:
+        return _V3.z6(atlar, t, c3)
     if not os.path.exists(YOL3):
         return None
     at = [a for a in atlar if a.get("agf") and not a.get("kosmaz")]
@@ -190,8 +196,15 @@ def z6_doldur(obj):
     """Başlamamış koşuların atlarına z6 (G1-S puanı) ekler; egzotik, tabela ve sıralı 5'li gölgeleri bunu kullanır. Eksikse sessizce geçer."""
     try:
         t = dt.date.fromisoformat(obj["tarih"])
-        if os.path.exists(YOL3):
-            c = json.load(open(YOL3)); obj["w0_g1"] = c["alfa"]; obj["a_g1"] = [round(x, 4) for x in c["gam"]]
+        _c3 = None
+        try:
+            from . import g1v3 as _V3; _c3 = _V3.yukle()
+        except Exception as e:
+            print("v3 yükleme hatası:", repr(e))
+        if _c3:
+            obj["w0_g1"] = _c3["alfa"]; obj["a_g1"] = [round(x, 4) for x in _c3["gam"]]; obj["g1_surum"] = "v3"
+        elif os.path.exists(YOL3):
+            c = json.load(open(YOL3)); obj["w0_g1"] = c["alfa"]; obj["a_g1"] = [round(x, 4) for x in c["gam"]]; obj["g1_surum"] = "v2"
         for h in obj["hipodromlar"]:
             for k in h["kosular"]:
                 if k.get("sonuc") or all(a.get("z6") is not None for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")):

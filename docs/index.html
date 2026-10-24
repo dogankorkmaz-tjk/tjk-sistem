@@ -288,7 +288,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
   <div id="durum" class="note"></div>
 
   <section id="bugun" class="sec">
-    <div class="card" style="padding:12px 14px"><b>Ana model: G1-S v2</b> · odak: sıralı ikili, üçlü, tabela, sıralı 5'li<div class="sub" style="margin:4px 0 8px">Sıra tahmininde piyasadan iyi, takeout'u henüz geçmiyor (kâr kanıtı yok). Jason sürpriz avında devam ediyor.</div><button id="knGit" style="padding:8px 12px;border-radius:10px">Kanıt durumunu aç</button></div>
+    <div class="card" style="padding:12px 14px"><b>Ana model: G1-S v3</b> · odak: sıralı ikili, üçlü, tabela, sıralı 5'li<div class="sub" style="margin:4px 0 8px">Sıra tahmininde piyasadan iyi, takeout'u henüz geçmiyor (kâr kanıtı yok). Jason sürpriz avında devam ediyor.</div><button id="knGit" style="padding:8px 12px;border-radius:10px">Kanıt durumunu aç</button></div>
     <div id="pano"></div>
     <div class="sec" id="oynaKutu"></div>
     <div class="sec" id="guvenKutu"></div>
@@ -1197,13 +1197,14 @@ async function kanitYukle(){
   const el=$('kanitIc'); if(!el) return;
   const T=(b,r)=>'<div style="overflow-x:auto"><table class="t"><tr>'+b.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr>'+r.map(l=>'<tr>'+l.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</table></div>';
   let g=null; try{ g=await getJSON('data/gecmis_test.json'); }catch(e){}
-  let s='<h2>Ana model: G1-S v2</h2><div class="sub">Piyasa + form/dinlenme/kilo/jokey + galop. Ölçüm kâğıt üstü; para iddiası yok.</div>';
+  let s='<h2>Ana model: G1-S v3</h2><div class="sub">Piyasa + form/dinlenme/kilo/jokey + galop. Ölçüm kâğıt üstü; para iddiası yok.</div>';
   if(g){
     s+='<div class="card"><b>Geriye dönük test</b><div class="sub">'+esc(g.donem)+' · '+g.kosu+' koşu · '+g.gun+' gün</div>'
       +'<h3 style="margin:10px 0 4px;font-size:14px">Log-kaybı farkı (nats/koşu, negatif = model daha iyi)</h3>'+T(g.logkayip.basliklar,g.logkayip.satirlar)
       +'<h3 style="margin:12px 0 4px;font-size:14px">Kâğıt üstü ROI</h3>'+T(g.roi.basliklar,g.roi.satirlar)+'</div>';
+    if(g.v3){ s+='<div class="card"><b>'+esc(g.v3.baslik)+'</b><div class="sub">Geriye dönük ileri-yürüyüş</div>'+T(g.v3.logkayip.basliklar,g.v3.logkayip.satirlar)+'<h3 style="margin:12px 0 4px;font-size:14px">Kâğıt üstü ROI</h3>'+T(g.v3.roi.basliklar,g.v3.roi.satirlar)+'<ul style="margin:6px 0 0 18px">'+g.v3.not.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>'; }
     s+='<div class="card"><b>Sonuç</b><ul style="margin:6px 0 0 18px">'+g.not.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
-    s+='<div class="card"><b>Jason</b><div class="sub">Sürpriz (değerli at) avı için eğitildi: Tüyo takibi ve egzotik çiplerinde kalır, arşivlenmedi. Sıra tahmini odağı G1-S v2 modelinde; Jason ayrı bir amaçla ölçülür.</div></div><div class="card"><b>Yapmayacaklarımız</b><ul style="margin:6px 0 0 18px">'+g.yapmayacaklar.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
+    s+='<div class="card"><b>Jason</b><div class="sub">Sürpriz (değerli at) avı için eğitildi: Tüyo takibi ve egzotik çiplerinde kalır, arşivlenmedi. Sıra tahmini odağı G1-S v3 modelinde; Jason ayrı bir amaçla ölçülür.</div></div><div class="card"><b>Yapmayacaklarımız</b><ul style="margin:6px 0 0 18px">'+g.yapmayacaklar.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
   }
   s+='<h2 style="margin-top:14px">Canlı kâğıt üstü (G1-S)</h2><div id="knCanli" class="card"><div class="sub">Yükleniyor…</div></div>';
   el.innerHTML=s;
@@ -1214,7 +1215,7 @@ async function kanitYukle(){
     (e.toplam_g1s||[]).forEach(x=>R.push([x.tur,'seçim kuralı',x['koşu'],f2(x.harcama),f2(x.kazanc),x.isabetli_kosu,fr(x.geri_donus)]));
     (t.toplam||[]).filter(x=>x.model==='G1-S').forEach(x=>R.push(['Tabela',(x.tur==='sirali'?'Sıralı ≤'+x.butce:'Sırasız 5 at'),x.kosu,f2(x.harcama),f2(x.kazanc),x.isabet,fr(x.geri_donus)]));
     (b.toplam||[]).filter(x=>x.model==='G1-S').forEach(x=>R.push(["Sıralı 5'li",'≤'+x.butce+(x.grup==='onerilen'?' (önerilen)':''),x.kosu,f2(x.harcama),f2(x.kazanc),x.isabet,fr(x.geri_donus)]));
-    $('knCanli').innerHTML=R.length?T(['Bahis','Kupon','Koşu','Harcanan','Kazanç','İsabet','Geri dönüş'],R)+'<div class="sub" style="margin-top:6px">Geri dönüş 1,00 üstü = kazandırdı. Kâr kararı için yüzlerce havuz koşusu gerekir; buradaki sayılar henüz küçük.</div>':'<div class="sub">G1-S v2 canlı kayıtları ilk sonuçlanan koşulardan sonra burada görünür.</div>';
+    $('knCanli').innerHTML=R.length?T(['Bahis','Kupon','Koşu','Harcanan','Kazanç','İsabet','Geri dönüş'],R)+'<div class="sub" style="margin-top:6px">Geri dönüş 1,00 üstü = kazandırdı. Kâr kararı için yüzlerce havuz koşusu gerekir; buradaki sayılar henüz küçük.</div>':'<div class="sub">G1-S v3 canlı kayıtları ilk sonuçlanan koşulardan sonra burada görünür.</div>';
   }catch(err){ $('knCanli').innerHTML='<div class="sub">Canlı veri okunamadı.</div>'; }
 }
 function digerAc(ac){ $('digerPanel').hidden=!ac; $('digerOrtu').hidden=!ac; }
@@ -1526,7 +1527,7 @@ function tahOd(nv,prP,bedel){
 }
 function s5Html(){
   if(!VERI) return '<div class="card empty">Yükleniyor…</div>';
-  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sıralı 5'li: ana model G1-S v2 önce, ardından Jason-S / Jason-F</b>
+  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sıralı 5'li: ana model G1-S v3 önce, ardından Jason-S / Jason-F</b>
   <div class="sub">Tek bir kazananı değil, ilk beşin <b>sırasını</b> öğrenen model. Kupon, bütçe dolana kadar tutma olasılığını en çok artıran atı ekleyerek kurulur; AGF'nin ilk beşini yazmaktan farkı bu. Sürpriz için ayrı yer ayıran hibrit kupon geriye dönük testte daha iyi çıkmadı. Dürüst durum: sürprizi bulmak en zor kısım, aşağıdaki canlı takip bunu gösteriyor. Kâr kanıtı yok, kâğıt üstü.</div></div>`;
   try{ s+=besliEgz('G1-S'); }catch(e){ console.error(e); s+='<div class="card empty">Kuponlar hesaplanamadı.</div>'; }
   try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
@@ -1630,7 +1631,7 @@ function egzCiz(){
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   try{ s+=uc3Html(); }catch(e){ console.error(e); }
-  s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'G1-S v2 (ana)':m==='Jason'?'Jason (sürpriz avı)':m}</button>`).join('')}</div>`;
+  s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'G1-S v3 (ana)':m==='Jason'?'Jason (sürpriz avı)':m}</button>`).join('')}</div>`;
   if(EGM==='Esnek'){ try{ s+=esnekHtml(); }catch(e){ console.error(e); }
     el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm3_egm',EGM);egzCiz();}); return; }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).concat(['S5']).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${t==='S5'?'Sıralı 5\'li':EGT_AD[t]}</button>`).join('')}</div>`;

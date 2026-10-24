@@ -116,13 +116,19 @@ def sabah(t):
     temiz = temiz[temiz.tarih < tarih]
     d = hazirla(temiz, prog, M, yeni)
     bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
-    A = GL.yukle(); bz2 = {}
+    A = GL.yukle(); bz2 = {}; bzj = {}
     if A:
         try:
             bugun_m = {(h, int(kn)): GL.MS.bilgiden(b_) for h in programlar for kn, b_ in programlar[h]["bilgi"].items() if GL.MS.bilgiden(b_)}
             d2 = GL.MS.ekle(d, bugun_m) if "f_dp150_m" in A["feat"] else d
             dy = d2[d2.yeni].copy(); dy["z2"] = GL.z2(dy, A)
             bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
+            try:
+                from . import g1v3 as _V3; G3 = _V3.yukle()
+                if G3:
+                    dj = d2[d2.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict()
+            except Exception as e:
+                print("v3 zj hatası:", repr(e)); bzj = {}
         except Exception as e:
             print("aday model hatası:", repr(e)); A = None
     AK = GL.yukle_k(); bz3 = {}
@@ -167,6 +173,7 @@ def sabah(t):
                       **({"kg": float(r.p_kilo)} if pd.notna(getattr(r, "p_kilo", None)) else {}),
                       **({"hk": float(r.hk)} if pd.notna(getattr(r, "hk", None)) else {}),
                       "z": round(float(bz.get((h, kn, int(r.no)), 0.0)), 4),
+                      **({"zj": round(float(bzj[(h, kn, int(r.no))]), 4)} if (h, kn, int(r.no)) in bzj else {}),
                       **({"z2": round(float(bz2.get((h, kn, int(r.no)), 0.0)), 4)} if A else {}),
                       **({"z3": round(float(bz3.get((h, kn, int(r.no)), 0.0)), 4)} if AK else {}),
                       **({"z4": round(float(bz4.get((h, kn, int(r.no)), 0.0)), 4)} if AS else {}),
@@ -319,9 +326,16 @@ def pist_uygula(obj):
         bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
         bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
         d2 = GL.MS.ekle(d, bugun_m) if A and "f_dp150_m" in A["feat"] else d
-        bz2 = bz3 = bz4 = bz5 = {}
+        bz2 = bz3 = bz4 = bz5 = bzj = {}
         if A:
             dy = d2[d2.yeni].copy(); dy["z2"] = GL.z2(dy, A); bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
+            bzj = {}
+            try:
+                from . import g1v3 as _V3; G3 = _V3.yukle()
+                if G3:
+                    dj = d2[d2.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict()
+            except Exception as e:
+                print("v3 zj hatası:", repr(e))
             AK = GL.yukle_k()
             if AK:
                 dk = GL.kapi_ekle(d2); dk = dk[dk.yeni].copy(); dk["z3"] = GL.z2(dk, AK); bz3 = dk.set_index(["hipodrom", "kosu", "no"]).z3.to_dict()
@@ -338,9 +352,10 @@ def pist_uygula(obj):
                     continue
                 for a in k["atlar"]:
                     key = (h["id"], k["kosu"], a["no"])
-                    for ad, bzx in (("z", bz), ("z2", bz2), ("z3", bz3), ("z4", bz4), ("z5", bz5)):
+                    for ad, bzx in (("z", bz), ("z2", bz2), ("z3", bz3), ("z4", bz4), ("z5", bz5), ("zj", bzj)):
                         if key in bzx and ad in a:
                             a[ad] = round(float(bzx[key]), 4)
+                    a.pop("z6", None)                   # G1-S puanı (z6) yeni özelliklerle yeniden hesaplanır
                 k.pop("yeniden_puan", None)
                 n += 1
         print("pist değişikliği işlendi: koşu", n, sorted(hedef))
@@ -998,6 +1013,8 @@ def gece(bugun):
         _G1.egit()
         _G1.egit3()
         _G1.egit_galop()
+        from . import g1v3 as _V3                  # G1-S v3: Jason özellikleri ortak eğitim (~100 sn); başarısız olursa eski v2 dosyaları ve önceki v3 kalır
+        _V3.egit()
     except Exception as e:
         print("g1 eğitim hatası:", repr(e))
     try:
