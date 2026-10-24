@@ -1,0 +1,54 @@
+{
+ "istekler": [
+  {
+   "adim": 0,
+   "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xf1&_p=1792827009641&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=729352973&_eu=AAAAAGAC&_prs=ok&cid=628919531.1792827014&ec_mode=a&frm=",
+   "durum": 204,
+   "bas": ""
+  },
+  {
+   "adim": 0,
+   "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792827013629&cv=11&tid=G-K2X9EM3PG6&fst=1792827013629&fmt=8&en=session_start&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1&dma_cps=-&dma=0&tag_exp=11561",
+   "durum": 204,
+   "bas": ""
+  },
+  {
+   "adim": 0,
+   "url": "https://pagead2.googlesyndication.com/measurement/conversion?random=1792827013629&cv=11&tid=G-K2X9EM3PG6&fst=1792827013629&fmt=8&en=first_visit&gtm=45je6al1v9178285594za20ozb9177579503zd9177579503xecxf1&gcs=G100&gcd=13p3p3p3p5l1&dma_cps=-&dma=0&tag_exp=1156169",
+   "durum": 204,
+   "bas": ""
+  },
+  {
+   "adim": 0,
+   "url": "https://tjkbulten.atyarisi.com/api/v5/Bulten",
+   "durum": 200,
+   "bas": "{\"sc\":200,\"d\":{\"filters\":{\"cards\":[{\"id\":26443,\"totalDay\":77,\"hippodrome\":{\"place\":\"Ankara\",\"name\":\"Ankara 75. Yıl Hipodromu\",\"code\":\"ANKARA\",\"isForeign\":false,\"date\":\"2026-10-24\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"17:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"Normal\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"Çok Yumuşak\",\"weight\":3.8}],\"weather\":{\"temperature\":\"13\",\"humidity\":\"77\",\"text\":\"Puslu\",\"type\":13},\"dateEpoch\":1792836000,\"openingHour\":\"13:00\",\"isNightRace\":false,\"beginRaceHour\":\"13:00\",\"beginRaceTooltipMessage\":\"1.6'lı Ganyan bu koşudan başlamaktadır.\",\"isSel"
+  },
+  {
+   "adim": 1,
+   "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K2X9EM3PG6&gtm=45je6al1v9178285594z89177579503za20gzb9177579503zd9177579503xf1&_p=1792827009641&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=729352973&_eu=AAAAAGAC&cid=628919531.1792827014&frm=0&pscd",
+   "durum": 204,
+   "bas": ""
+  },
+  {
+   "adim": 2,
+   "url": "https://tjkbulten.atyarisi.com/api/v5/Bulten?cardId=26443&betTypeId=18&runId=1",
+   "durum": 200,
+   "bas": "{\"sc\":200,\"d\":{\"filters\":{\"cards\":[{\"id\":26443,\"totalDay\":77,\"hippodrome\":{\"place\":\"Ankara\",\"name\":\"Ankara 75. Yıl Hipodromu\",\"code\":\"ANKARA\",\"isForeign\":false,\"date\":\"2026-10-24\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"17:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"Normal\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"Çok Yumuşak\",\"weight\":3.8}],\"weather\":{\"temperature\":\"13\",\"humidity\":\"77\",\"text\":\"Puslu\",\"type\":13},\"dateEpoch\":1792836000,\"openingHour\":\"13:00\",\"isNightRace\":false,\"beginRaceHour\":\"13:00\",\"beginRaceTooltipMessage\":\"1.6'lı Ganyan bu koşudan başlamaktadır.\",\"isSel"
+  },
+  {
+   "adim": 5,
+   "url": "https://tjkbulten.atyarisi.com/api/v5/Bulten?cardId=26443&betTypeId=18&runId=1",
+   "durum": 200,
+   "bas": "{\"sc\":200,\"d\":{\"filters\":{\"cards\":[{\"id\":26443,\"totalDay\":77,\"hippodrome\":{\"place\":\"Ankara\",\"name\":\"Ankara 75. Yıl Hipodromu\",\"code\":\"ANKARA\",\"isForeign\":false,\"date\":\"2026-10-24\",\"isReserveBulletin\":false,\"programDateText\":\"\",\"hasAIHint\":false,\"isAntePost\":false,\"isSelected\":false,\"hasActiveToteBet\":false,\"hasActiveFOBBet\":false},\"closingHour\":\"17:30\",\"raceCourse\":[{\"type\":\"Kum\",\"status\":\"Normal\",\"weight\":0},{\"type\":\"Çim\",\"status\":\"Çok Yumuşak\",\"weight\":3.8}],\"weather\":{\"temperature\":\"13\",\"humidity\":\"77\",\"text\":\"Puslu\",\"type\":13},\"dateEpoch\":1792836000,\"openingHour\":\"13:00\",\"isNightRace\":false,\"beginRaceHour\":\"13:00\",\"beginRaceTooltipMessage\":\"1.6'lı Ganyan bu koşudan başlamaktadır.\",\"isSel"
+  }
+ ],
+ "adimlar": [
+  "bülten yüklendi",
+  "hipodrom yok Ankara",
+  "hipodrom yok İzmir",
+  "sekme yok Galoplar TimeoutError",
+  "sekme yok İdman TimeoutError",
+  "sekme yok Galop TimeoutError"
+ ]
+}
