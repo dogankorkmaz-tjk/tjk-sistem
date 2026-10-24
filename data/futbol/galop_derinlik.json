@@ -1,0 +1,143 @@
+{
+ "2026-10-17": {
+  "satir": 372,
+  "hip": [
+   "Adana",
+   "Ankara",
+   "Bursa",
+   "Kocaeli",
+   "İstanbul",
+   "İzmir",
+   "Şanlıurfa"
+  ],
+  "ornek": [
+   {
+    "it": "2026-10-17",
+    "hip": "Şanlıurfa",
+    "at_id": 107580,
+    "at": "MONOMOY GIRL",
+    "jokey": "DOĞAN ÜNLÜ",
+    "pist": "Kum",
+    "pdur": "İç",
+    "tur": "Galop",
+    "durum": "Hafif Çalışarak",
+    "p400": 27.4,
+    "p600": null,
+    "p800": 53.9,
+    "p1000": null,
+    "p1200": null,
+    "p1400": null,
+    "video": "https://video-cdn.tjk.org/videoftp/idmanpisti/2026/10/228067-107287.mp4",
+    "aciklama": ""
+   }
+  ]
+ },
+ "2026-09-01": {
+  "satir": 93,
+  "hip": [
+   "-",
+   "Ankara",
+   "Bursa",
+   "Elazığ",
+   "Kocaeli",
+   "İstanbul",
+   "İzmir"
+  ],
+  "ornek": [
+   {
+    "it": "2026-09-01",
+    "hip": "Elazığ",
+    "at_id": 116486,
+    "at": "DURABLE COLT",
+    "jokey": "HACI BECENE",
+    "pist": "Kum",
+    "pdur": null,
+    "tur": "Galop",
+    "durum": "Hafif Çalışarak",
+    "p400": 26.8,
+    "p600": 41.8,
+    "p800": null,
+    "p1000": null,
+    "p1200": null,
+    "p1400": null,
+    "video": "https://video-cdn.tjk.org/videoftp/idmanpisti/2026/9/227236-115847.mp4",
+    "aciklama": ""
+   }
+  ]
+ },
+ "2026-06-01": {
+  "satir": 256,
+  "hip": [
+   "Ankara",
+   "Bursa",
+   "Elazığ",
+   "Kocaeli",
+   "İstanbul",
+   "İzmir",
+   "Şanlıurfa"
+  ],
+  "ornek": [
+   {
+    "it": "2026-06-01",
+    "hip": "Elazığ",
+    "at_id": 116476,
+    "at": "LEYDİ TOPÇU",
+    "jokey": "MEHMET DOĞAN",
+    "pist": "Kum",
+    "pdur": null,
+    "tur": "Galop",
+    "durum": "Çalışarak",
+    "p400": 25.9,
+    "p600": 39.7,
+    "p800": null,
+    "p1000": null,
+    "p1200": null,
+    "p1400": null,
+    "video": null,
+    "aciklama": null
+   }
+  ]
+ },
+ "2026-01-15": {
+  "satir": 409,
+  "hip": [
+   "Adana",
+   "Antalya",
+   "Bursa",
+   "Kocaeli",
+   "İstanbul",
+   "İzmir",
+   "Şanlıurfa"
+  ],
+  "ornek": [
+   {
+    "it": "2026-01-15",
+    "hip": "Adana",
+    "at_id": 113506,
+    "at": "BONITA",
+    "jokey": "HALİL İBRAHİM AKÇAY",
+    "pist": "Kum",
+    "pdur": null,
+    "tur": "Sprint",
+    "durum": "Çalışarak",
+    "p400": 24.2,
+    "p600": null,
+    "p800": null,
+    "p1000": null,
+    "p1200": null,
+    "p1400": null,
+    "video": null,
+    "aciklama": null
+   }
+  ]
+ },
+ "2025-06-01": {
+  "hata": "RuntimeError('success!=1')"
+ },
+ "2024-06-01": {
+  "hata": "RuntimeError('success!=1')"
+ },
+ "2023-06-01": {
+  "hata": "RuntimeError('success!=1')"
+ }
+}
