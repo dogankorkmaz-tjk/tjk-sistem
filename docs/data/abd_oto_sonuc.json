@@ -1,15 +1,15 @@
 {
- "uretim": "2026-10-24 12:07 UTC",
- "kayitli_kosu": 591,
- "eslesmeyen_kosu": 380,
+ "uretim": "2026-10-24 12:29 UTC",
+ "kayitli_kosu": 593,
+ "eslesmeyen_kosu": 381,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 355,
- "kosu": 211,
+ "bahis": 357,
+ "kosu": 212,
  "isabet": 28,
- "roi": 1.282,
+ "roi": 1.275,
  "ga95": [
-  0.808,
+  0.795,
   1.831
  ],
  "ulke": {
@@ -18,8 +18,8 @@
    "roi": 1.076
   },
   "birlesik-krallik": {
-   "bahis": 54,
-   "roi": 2.209
+   "bahis": 56,
+   "roi": 2.13
   },
   "fransa": {
    "bahis": 25,
@@ -65,24 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 4,
-   "at": "MYSTICAL BUTTERFLY",
-   "q": 0.107,
-   "g": 15.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 5,
-   "at": "SAY A PRAYER",
-   "q": 0.391,
-   "g": 4.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Fairview",
@@ -423,6 +405,24 @@
    "at": "MUSTANG KNICKY",
    "q": 0.198,
    "g": 7.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Doncaster",
+   "kosu": 1,
+   "at": "LUNA A INBHIR NIS",
+   "q": 0.092,
+   "g": 23.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Doncaster",
+   "kosu": 1,
+   "at": "BOSTON DAN",
+   "q": 0.092,
+   "g": 22.1,
    "kazandi": false
   }
  ]
