@@ -46,7 +46,7 @@ def fit2S(S0, FF, l2=20.0):
     return minimize(f, np.zeros(7), jac=True, method="L-BFGS-B").x, mu, sd
 def ev(S, gam):
     out, _, _ = steps(S, gam); return np.cumsum(np.array(out), axis=0).T                      # (N, 5)
-aylar = sorted({r["ay"] for r in R}); test = [a for a in aylar if a >= "2026-04"]
+aylar = sorted({r["ay"] for r in R}); test = [a for a in aylar if os.environ.get("TESTBAS","2026-04") <= a <= os.environ.get("TESTSON","9999")]
 RES = {}; OOS = {}                                     # OOS: ay -> (S_v2, zJ-lookup) for stacking c
 for a in test:
     tr = [r for r in R if r["ay"] < a]; te = [r for r in R if r["ay"] == a]
@@ -60,6 +60,7 @@ for a in test:
     trg = [r for r in tr if r["F"] is not None]; S3tr, _, FF3tr = scoreJ(trg, tm); bg3 = fit2S(S3tr, FF3tr); S3g = S3 + ((FF3 - bg3[1]) / bg3[2]) @ bg3[0]
     RES[a] = dict(v2=ev(S2, np.r_[1.0, t1[10:14]]), v3=ev(S3g, g3), v3_galopsuz=ev(S3, g3), gun=[r["gun"] for r in te], S2=S2, S3g=S3g, g3=g3, Z=Z, gam=np.r_[1.0, t1[10:14]], te=te)
     print(a, "tamam", flush=True)
+import pickle; pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_extra%s_%s.pkl" % ("1" if EXTRA else "0", os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA, flush=True); sys.exit(0) if os.environ.get("TESTSON") else None
 def cat(ays, k): return np.concatenate([RES[a][k] for a in ays]) if k != "gun" else sum([RES[a]["gun"] for a in ays], [])
 # yığma (c) 07..10
 st = {}
@@ -81,4 +82,4 @@ rapor(test, "v3_galopsuz", "v2", "v3(galopsuz) − v2", None)
 a7 = [x for x in test if x >= "2026-07"]
 rapor(a7, "v3", "v2", "v3 − v2", None); rapor(a7, "v3", st, "v3 − yığma", None); rapor(a7, st, "v2", "yığma − v2", None)
 
-import pickle; pickle.dump({a: (RES[a]["v3"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_extra%s.pkl" % ("1" if EXTRA else "0"), "wb")); print("kaydedildi", EXTRA)
+import pickle; pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_extra%s_%s.pkl" % ("1" if EXTRA else "0", os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA)

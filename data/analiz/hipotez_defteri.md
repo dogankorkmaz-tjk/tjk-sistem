@@ -656,3 +656,13 @@ v3x (v3 + pist-tercihi, mesafe×pist, pist değişimi, mesafe artış/azalış; 
 kazanan −0.0008 [−0.0023, +0.0008]; ikili −0.0009 [−0.0028, +0.0010]; üçlü −0.0017 [−0.0041, +0.0005]; ilk4 −0.0029 [−0.0053, −0.0005]; ilk5 −0.0050 [−0.0076, −0.0023].
 Karar kuralı (kazanan VE ikili/üçlü GA<0) sağlanmadı → v3'e EKLENMEZ. Not: ilk4/ilk5'te küçük ama anlamlı iyileşme var (tabela/5'li için ilgi çekici); ikinci bir bağımsız dönemde doğrulanmadan eklenmeyecek.
 Script: data/analiz/mesafe_pist_ozellik.py, entegre_v3_mp.py
+
+## 2026-10-24 17:55 — ÖN KAYIT: mesafe/pist ek özellikleri, bağımsız dönem doğrulaması
+Gerekçe: ilk bakış (2026-04..10) ilk4/ilk5'te anlamlı çıktı; kazanan/ikili/üçlü anlamlı değil. Doğrulama dönemi: 2025-03..2026-03 (yürüyen, yalnız geçmişle eğitim; ilk bakış dönemiyle örtüşmez). v3 vs v3x aynı kod (entegre_v3_mp.py, TESTBAS=2025-03, TESTSON=2026-03).
+Hipotez H1: ilk4 ve ilk5 farkı (v3x−v3) <0, %97.5 tek yönlü gün-kümeli bootstrap GA üst sınırı <0 (iki ölçüt, Bonferroni %97.5).
+Not: v3 galop ikinci aşaması 2026-02 öncesi yok; bu doğrulamada galopsuz v3 (v3_galopsuz) kullanılır, iki tarafta aynı. Karar: H1 sağlanırsa v3x yalnız tabela/sıralı 5'li tahminlerinde kullanılır; kazanan/ikili/üçlü v3 kalır. Sağlanmazsa özellikler çöpe.
+
+## 2026-10-24 18:20 — SONUÇ: mesafe/pist ek özellikleri, bağımsız dönem (2025-03..2026-01, 5588 yarış, galopsuz v3 iki tarafta)
+v3x−v3 (nat/yarış, %95 GA): kazanan +0.0007 [−0.0006,+0.0019]; ikili +0.0016 [−0.0001,+0.0032]; üçlü +0.0005 [−0.0013,+0.0024]; ilk4 −0.0005 [−0.0024,+0.0016]; ilk5 −0.0013 [−0.0033,+0.0008].
+H1 (ilk4/ilk5 GA üst sınırı <0) SAĞLANMADI. İlk bakıştaki ilk4/ilk5 kazancı tekrarlanmadı → şans/dönem etkisi. KARAR: mesafe/pist ek özellikleri v3'e ve tabela/5'li'ye EKLENMEZ; konu kapandı.
+(Not: ilk deneme 2026-03 ayında v3 galop aşaması 2026-02 öncesi yok → eski çıktı geçersiz sonuç verdi, düzeltildi.)
