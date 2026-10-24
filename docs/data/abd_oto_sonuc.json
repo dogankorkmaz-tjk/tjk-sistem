@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 19:27 UTC",
- "kayitli_kosu": 682,
+ "uretim": "2026-10-24 19:45 UTC",
+ "kayitli_kosu": 684,
  "eslesmeyen_kosu": 457,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 374,
- "kosu": 225,
+ "bahis": 378,
+ "kosu": 227,
  "isabet": 28,
- "roi": 1.217,
+ "roi": 1.204,
  "ga95": [
-  0.718,
-  1.742
+  0.7,
+  1.733
  ],
  "ulke": {
   "abd": {
-   "bahis": 233,
-   "roi": 1.011
+   "bahis": 237,
+   "roi": 0.994
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 455,
-  "kosu": 219,
+  "bahis": 458,
+  "kosu": 221,
   "isabet": 53,
-  "roi": 0.864,
+  "roi": 0.858,
   "ga95": [
-   0.645,
-   1.127
+   0.64,
+   1.124
   ]
  },
  "bahis_t1": {
-  "bahis": 477,
-  "kosu": 216,
+  "bahis": 480,
+  "kosu": 218,
   "isabet": 60,
-  "roi": 1.015,
+  "roi": 1.009,
   "ga95": [
-   0.663,
-   1.411
+   0.654,
+   1.406
   ]
  },
  "bahis_t3": {
-  "bahis": 468,
-  "kosu": 212,
+  "bahis": 472,
+  "kosu": 214,
   "isabet": 57,
-  "roi": 0.895,
+  "roi": 0.887,
   "ga95": [
-   0.54,
-   1.393
+   0.532,
+   1.382
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "TEDDY BEAR",
-   "q": 0.239,
-   "g": 7.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "JIMBO BAILEY",
-   "q": 0.186,
-   "g": 9.15,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "MOTOWN DIVA",
-   "q": 0.163,
-   "g": 9.65,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "DEVIOUS LADY",
-   "q": 0.111,
-   "g": 14.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Keeneland",
@@ -301,6 +265,15 @@
   },
   {
    "gun": "2026-10-24",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "HAMMERIN HENRY",
+   "q": 0.086,
+   "g": 23.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
    "pist": "Doncaster",
    "kosu": 1,
    "at": "LUNA A INBHIR NIS",
@@ -423,6 +396,33 @@
    "at": "LINCOLN COURT",
    "q": 0.077,
    "g": 20.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 5,
+   "at": "STROKE OF GENIUS",
+   "q": 0.06,
+   "g": 44.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 5,
+   "at": "FLEURY",
+   "q": 0.06,
+   "g": 48.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 5,
+   "at": "TIZ PRACTICAL",
+   "q": 0.071,
+   "g": 86.6,
    "kazandi": false
   }
  ]
