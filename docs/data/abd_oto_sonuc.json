@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 20:52 UTC",
- "kayitli_kosu": 699,
- "eslesmeyen_kosu": 464,
+ "uretim": "2026-10-24 21:35 UTC",
+ "kayitli_kosu": 708,
+ "eslesmeyen_kosu": 470,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 391,
- "kosu": 235,
+ "bahis": 395,
+ "kosu": 238,
  "isabet": 31,
- "roi": 1.285,
+ "roi": 1.272,
  "ga95": [
-  0.866,
-  1.784
+  0.852,
+  1.762
  ],
  "ulke": {
   "abd": {
-   "bahis": 250,
-   "roi": 1.131
+   "bahis": 254,
+   "roi": 1.114
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 467,
-  "kosu": 229,
+  "bahis": 470,
+  "kosu": 232,
   "isabet": 54,
-  "roi": 0.866,
+  "roi": 0.86,
   "ga95": [
-   0.652,
-   1.126
+   0.649,
+   1.118
   ]
  },
  "bahis_t1": {
-  "bahis": 488,
-  "kosu": 226,
+  "bahis": 494,
+  "kosu": 229,
   "isabet": 60,
-  "roi": 0.992,
+  "roi": 0.98,
   "ga95": [
-   0.633,
-   1.386
+   0.612,
+   1.375
   ]
  },
  "bahis_t3": {
-  "bahis": 484,
-  "kosu": 221,
+  "bahis": 494,
+  "kosu": 224,
   "isabet": 59,
-  "roi": 0.891,
+  "roi": 0.873,
   "ga95": [
-   0.549,
-   1.374
+   0.534,
+   1.345
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Santa Anita",
-   "kosu": 1,
-   "at": "BLACK PEARL",
-   "q": 0.037,
-   "g": 47.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Santa Anita",
-   "kosu": 4,
-   "at": "NOBLE MINDED",
-   "q": 0.061,
-   "g": 21.65,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Santa Anita",
-   "kosu": 5,
-   "at": "PRINCESS SNOW",
-   "q": 0.142,
-   "g": 10.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Santa Anita",
-   "kosu": 7,
-   "at": "MUSTANG KNICKY",
-   "q": 0.198,
-   "g": 7.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Belmont Park",
@@ -342,6 +306,42 @@
    "at": "CONFIDENCE",
    "q": 0.043,
    "g": 30.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "ALEXANDER HELIOS",
+   "q": 0.037,
+   "g": 43.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "SAN SIRO",
+   "q": 0.11,
+   "g": 16.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "THIS IS USCAR",
+   "q": 0.07,
+   "g": 20.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "TIZTASTIC",
+   "q": 0.07,
+   "g": 25.6,
    "kazandi": false
   },
   {
