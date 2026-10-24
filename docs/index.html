@@ -1237,7 +1237,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   try{ window.scrollTo(0,0); }catch(e){}
 }
 $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
-$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('abd');
+$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('kanit');
 $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
 {const kg=$('knGit'); if(kg) kg.onclick=()=>sekme('kanit');}
 document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
