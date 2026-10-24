@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 21:55 UTC",
- "kayitli_kosu": 714,
- "eslesmeyen_kosu": 474,
+ "uretim": "2026-10-24 22:08 UTC",
+ "kayitli_kosu": 717,
+ "eslesmeyen_kosu": 476,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 397,
- "kosu": 240,
+ "bahis": 399,
+ "kosu": 241,
  "isabet": 31,
- "roi": 1.266,
+ "roi": 1.259,
  "ga95": [
-  0.85,
-  1.749
+  0.844,
+  1.744
  ],
  "ulke": {
   "abd": {
-   "bahis": 256,
-   "roi": 1.105
+   "bahis": 258,
+   "roi": 1.096
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 473,
-  "kosu": 234,
+  "kosu": 235,
   "isabet": 55,
   "roi": 0.862,
   "ga95": [
@@ -46,7 +46,7 @@
  },
  "bahis_t1": {
   "bahis": 498,
-  "kosu": 231,
+  "kosu": 232,
   "isabet": 61,
   "roi": 0.979,
   "ga95": [
@@ -56,7 +56,7 @@
  },
  "bahis_t3": {
   "bahis": 498,
-  "kosu": 226,
+  "kosu": 227,
   "isabet": 60,
   "roi": 0.873,
   "ga95": [
@@ -65,24 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Belmont Park",
-   "kosu": 3,
-   "at": "KAY CUP",
-   "q": 0.111,
-   "g": 15.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "ANNEXPERIENCE",
-   "q": 0.071,
-   "g": 32.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Belmont Park",
@@ -351,6 +333,24 @@
    "at": "SLICE",
    "q": 0.15,
    "g": 9.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Santa Anita",
+   "kosu": 4,
+   "at": "VODKA VODKA",
+   "q": 0.087,
+   "g": 15.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Santa Anita",
+   "kosu": 4,
+   "at": "INDISPENSABLE",
+   "q": 0.061,
+   "g": 26.9,
    "kazandi": false
   },
   {
