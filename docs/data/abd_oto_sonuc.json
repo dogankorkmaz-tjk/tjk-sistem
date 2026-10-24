@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 18:43 UTC",
+ "uretim": "2026-10-24 19:01 UTC",
  "kayitli_kosu": 673,
- "eslesmeyen_kosu": 450,
+ "eslesmeyen_kosu": 449,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 365,
- "kosu": 223,
+ "bahis": 370,
+ "kosu": 224,
  "isabet": 28,
- "roi": 1.247,
+ "roi": 1.23,
  "ga95": [
-  0.758,
-  1.781
+  0.74,
+  1.749
  ],
  "ulke": {
   "abd": {
-   "bahis": 224,
-   "roi": 1.052
+   "bahis": 229,
+   "roi": 1.029
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 448,
-  "kosu": 217,
-  "isabet": 51,
-  "roi": 0.855,
+  "bahis": 452,
+  "kosu": 218,
+  "isabet": 52,
+  "roi": 0.861,
   "ga95": [
-   0.631,
+   0.639,
    1.126
   ]
  },
  "bahis_t1": {
-  "bahis": 469,
-  "kosu": 214,
-  "isabet": 58,
-  "roi": 1.011,
+  "bahis": 474,
+  "kosu": 215,
+  "isabet": 59,
+  "roi": 1.013,
   "ga95": [
-   0.643,
-   1.416
+   0.653,
+   1.412
   ]
  },
  "bahis_t3": {
-  "bahis": 460,
-  "kosu": 210,
-  "isabet": 55,
-  "roi": 0.888,
+  "bahis": 465,
+  "kosu": 211,
+  "isabet": 56,
+  "roi": 0.892,
   "ga95": [
-   0.52,
-   1.395
+   0.53,
+   1.393
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "GOLDEN JOSHUA",
-   "q": 0.037,
-   "g": 46.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "CHIEF LION",
-   "q": 0.06,
-   "g": 30.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "TANIUS",
-   "q": 0.173,
-   "g": 15.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "MANSOUR",
-   "q": 0.071,
-   "g": 24.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 3,
-   "at": "DOROTHY",
-   "q": 0.276,
-   "g": 6.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Gulfstream",
@@ -423,6 +378,51 @@
    "at": "INVINCIBLE BOY",
    "q": 0.041,
    "g": 37.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "JALILA",
+   "q": 0.092,
+   "g": 37.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "TEMPLE GODDESS",
+   "q": 0.027,
+   "g": 116.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "STIR",
+   "q": 0.075,
+   "g": 33.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "INFINITE SKY",
+   "q": 0.092,
+   "g": 13.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "POWER TO GLORY",
+   "q": 0.016,
+   "g": 218.95,
    "kazandi": false
   }
  ]
