@@ -1,0 +1,42 @@
+name: galop
+on:
+  workflow_dispatch:
+    inputs:
+      mod: {description: "derinlik / gun / geri", default: "derinlik"}
+      bas: {description: "geri: başlangıç (YYYY-MM-DD)", default: ""}
+      bit: {description: "geri: bitiş", default: ""}
+      max: {description: "geri: en çok gün", default: "100"}
+  schedule:
+    - cron: "50 0 * * *"    # 03:50 TR: dünün galopları (nihai)
+    - cron: "25 6 * * *"    # 09:25 TR: bugünün sabah galopları
+concurrency:
+  group: galop
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  g:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pandas
+      - name: Çalıştır
+        run: |
+          set +e
+          case "${{ github.event.schedule }}" in
+            "50 0 * * *") python -u -m tjk.galop gun $(date -u -d 'yesterday' +%F) ;;
+            "25 6 * * *") python -u -m tjk.galop gun $(TZ=Europe/Istanbul date +%F) ;;
+            *) if [ "${{ inputs.mod }}" = "geri" ]; then python -u -m tjk.galop geri "${{ inputs.bas }}" "${{ inputs.bit }}" "${{ inputs.max }}"; elif [ "${{ inputs.mod }}" = "gun" ]; then python -u -m tjk.galop gun; else python -u -m tjk.galop derinlik; fi ;;
+          esac
+          exit 0
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name tjk-bot; git config user.email tjk-bot@users.noreply.github.com
+          git add -A data; git diff --cached --quiet && exit 0
+          git commit -m "galop $(date -u '+%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
