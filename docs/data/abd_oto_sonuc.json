@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 21:35 UTC",
- "kayitli_kosu": 708,
- "eslesmeyen_kosu": 470,
+ "uretim": "2026-10-24 21:39 UTC",
+ "kayitli_kosu": 714,
+ "eslesmeyen_kosu": 474,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 395,
- "kosu": 238,
+ "bahis": 397,
+ "kosu": 240,
  "isabet": 31,
- "roi": 1.272,
+ "roi": 1.266,
  "ga95": [
-  0.852,
-  1.762
+  0.85,
+  1.749
  ],
  "ulke": {
   "abd": {
-   "bahis": 254,
-   "roi": 1.114
+   "bahis": 256,
+   "roi": 1.105
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 470,
-  "kosu": 232,
-  "isabet": 54,
-  "roi": 0.86,
+  "bahis": 473,
+  "kosu": 234,
+  "isabet": 55,
+  "roi": 0.862,
   "ga95": [
-   0.649,
-   1.118
+   0.651,
+   1.117
   ]
  },
  "bahis_t1": {
-  "bahis": 494,
-  "kosu": 229,
-  "isabet": 60,
-  "roi": 0.98,
+  "bahis": 498,
+  "kosu": 231,
+  "isabet": 61,
+  "roi": 0.979,
   "ga95": [
-   0.612,
-   1.375
+   0.616,
+   1.372
   ]
  },
  "bahis_t3": {
-  "bahis": 494,
-  "kosu": 224,
-  "isabet": 59,
+  "bahis": 498,
+  "kosu": 226,
+  "isabet": 60,
   "roi": 0.873,
   "ga95": [
-   0.534,
-   1.345
+   0.539,
+   1.341
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Belmont Park",
-   "kosu": 1,
-   "at": "MIDNIGHTLOVEAFFAIR",
-   "q": 0.196,
-   "g": 7.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Belmont Park",
-   "kosu": 2,
-   "at": "DAVIDSON",
-   "q": 0.143,
-   "g": 9.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Belmont Park",
@@ -346,6 +328,15 @@
   },
   {
    "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "TOUCH OF FIRE",
+   "q": 0.126,
+   "g": 11.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
    "pist": "Santa Anita",
    "kosu": 2,
    "at": "RABID RESPONSE",
@@ -423,6 +414,15 @@
    "at": "WHISKEY OVER WINE",
    "q": 0.06,
    "g": 23.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 9,
+   "at": "BACKSTREET EMMA",
+   "q": 0.111,
+   "g": 15.55,
    "kazandi": false
   }
  ]
