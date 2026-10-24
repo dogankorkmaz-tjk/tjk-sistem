@@ -34,3 +34,10 @@ Test disiplini: her yeni özellik önce buraya/hipotez defterine ön kayıt; wal
 
 ## Çıkarma/kullanmama kararı
 Değeri belirsiz her aday için: yeterli veri çekilir, ön kayıtlı testle ölçülür; yalnızca örnek yeterliyken ve sonuç yokken eleriz. Elenen veri ve gerekçe buraya yazılır.
+
+## Accurace otomatik kaynak araştırması (24 Ekim 2026) — SONUÇ: ücretsiz/izinli otomatik kaynak yok
+- Accurace (accurace.net): TJK ile 10 yıllık münhasır sözleşme; veri "güvenli API, panel, yayın grafiği" olarak yayıncı/bahis operatörü/profesyonellere; halka açık arşiv yok; iletişim/demo ile.
+- tjk.org robots.txt: User-agent * için Disallow: / (yalnız Googlebot ve sosyal önizleme botları izinli) → PDF'leri otomatik çekmek kuralımıza aykırı; elle indirme sürer.
+- UAT Racing (uatracing.com): "gerçek 200 m split", TempoRadar (İlk400/Son400/Son800) gösteriyor; robots arşiv/istatistik/API yollarını engelliyor, üyelik gerekli → kazınmaz.
+- atyarisi API (kullandığımız): RaceResult'ta yalnız last800 (koşu düzeyi), at başına derece/fark; 200 m dilimi yok.
+- Seçenekler: (1) Accurace'a veri lisansı sor; (2) elle PDF yüklemeye devam (1 Aralık'ta f_k/tempo yeniden); (3) kayıt dışı yollar denenmeyecek.
