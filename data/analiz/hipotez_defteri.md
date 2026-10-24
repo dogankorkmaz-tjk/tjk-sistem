@@ -666,3 +666,9 @@ Not: v3 galop ikinci aşaması 2026-02 öncesi yok; bu doğrulamada galopsuz v3 
 v3x−v3 (nat/yarış, %95 GA): kazanan +0.0007 [−0.0006,+0.0019]; ikili +0.0016 [−0.0001,+0.0032]; üçlü +0.0005 [−0.0013,+0.0024]; ilk4 −0.0005 [−0.0024,+0.0016]; ilk5 −0.0013 [−0.0033,+0.0008].
 H1 (ilk4/ilk5 GA üst sınırı <0) SAĞLANMADI. İlk bakıştaki ilk4/ilk5 kazancı tekrarlanmadı → şans/dönem etkisi. KARAR: mesafe/pist ek özellikleri v3'e ve tabela/5'li'ye EKLENMEZ; konu kapandı.
 (Not: ilk deneme 2026-03 ayında v3 galop aşaması 2026-02 öncesi yok → eski çıktı geçersiz sonuç verdi, düzeltildi.)
+
+## 2026-10-24 18:35 — ÖN KAYIT: kapı (kısa mesafe) ve jokey×kapı / jokey×tempo, BAĞIMSIZ DÖNEM (arşivin ilk 162 günü HARİÇ, kalan ~1050 gün)
+Keşif örneği ilk 162 gündü; arşiv tamamlandı. Betikler AYNI (kapi_jokey.py, tempo_jokey.py), yalnız veri [162:] → *_bagimsiz.py. Hiçbir parametre değişmez.
+Kararlar: (a) kısa mesafe (<1400) dış-kapı katsayısı bootstrap %95 GA'nın TAMAMI <0 ise "piyasa kapıyı eksik fiyatlıyor" → G2 adayı (kapı×mesafe bandı özelliği), aksi halde elenir. (b) jokey×dış-kapı ve jokey×tempo eğimlerinin çift/tek gün korelasyonu ≥0,30 ise jokey etkisi gerçek (özellik adayı); <0,15 ise "yok" kapanır; arası belirsiz.
+SONUÇ (2026-10-24 18:45; *_bagimsiz.py, 1056 gün, 17.324 koşu): (a) dış-kapı katsayısı: kısa (<1400) −0,217 [−0,303, −0,115]; orta −0,021 [−0,098, +0,035]; uzun −0,040 [−0,125, +0,068]. Keşif örneğinde −0,30 idi → bağımsız örnekte DOĞRULANDI, kısa mesafede piyasa dış kapıyı eksik fiyatlıyor (ölçüt sağlandı). (b) jokey×dış-kapı: 216 jokey, çift/tek gün eğim korelasyonu 0,401 (keşifte 0,146) ≥0,30 → jokey konum-arama etkisi GERÇEK (ölçüt sağlandı; tutarlı +: O.Yıldız, N.Demir, B.Bülbül; −: Y.Çelikbaş, Y.Cengiz, H.A.Gökçe). Jokey×tempo: korelasyon 0,081 <0,15 → YOK, kapandı.
+KARAR: kapı×mesafe bandı ve jokey×kapı özellikleri entegre modele (v3) eklenme ADAYI; ayrı ön kayıtlı yürüyen test sonraki girdi.
