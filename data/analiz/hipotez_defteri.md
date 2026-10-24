@@ -740,3 +740,8 @@ Ertelemeler 15 dk'yı bulabildiği için "start+10 dk" sınırı kaldırıldı: 
 ## 2026-10-24 21:00 — ÖN KAYIT: OTO kupon (bütçeyi model belirler), sıralı 5'li
 Kural: başlangıç = modelin en yüksek 5 atı (ayak başına 1); her adımda (ayak, at) adaylarından, eklenen kombinasyonların ortalama (model/piyasa) olasılık oranı en yüksek olan eklenir; ortalama < 1/Q olunca ya da 600 geçerli kombinasyonda durur. Q = devirsiz havuz 0,66, devirli 1,0 (devir_etkisi.py ölçümü). Beklenen geri dönüş tahmini = Q x ortalama oran (iyimser: model avantajı doğrulanmadı; 24 Ekim devir testi: model kuponu ≈ piyasa kuponu ROI'si).
 Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: aynı koşularda G1-S-G (geç) 48/96/150 ve Devir-G1S. Karar ölçütü: ≥300 koşuda ROI ve vuruş; tahmini geri dönüş ile gerçekleşen farkı (kalibrasyon) ayrıca raporlanır. Kâr kanıtı yok.
+
+## Eklenen deney: İlk-5 sıralama ön bakışı, İzmir (25 Ekim 2026)
+- KEŞİF (walk-forward zaman bölmesi: ilk %60 gün fit, son %40 test; 1.863 koşu, test 709). Betik: data/analiz/ilk5_ltr_izmir.py. Sıralı Plackett-Luce, her sıra için ayrı katsayı; ölçüt 2.–5. sıra log-olabilirlik.
+- Düz Harville'e göre sıraya özel üs +0,187 nats/koşu (2.–5.); gam üsleri üretimde zaten var, asıl zemin bu. Üstüne piyasa log-olasılığı eklenince +0,018 [+0,008, +0,028] (piyasa katsayısı 2.–5. sırada negatif: piyasanın favori yanlılığı düzeltiliyor). f_k eklenince +0,004 [−0,019, +0,026]: işe yaramadı.
+- Karar: aday = "sıraya özel üs + piyasa terimi" (İzmir dışına ve ileriye dönük test bekliyor). f_k bu testte katkı vermedi (1 Aralık yeniden testi geçerli). 
