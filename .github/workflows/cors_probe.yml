@@ -1,0 +1,20 @@
+name: cors_probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  p:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pandas
+      - run: python -u -m tjk.cors_probe
+      - run: |
+          git config user.name tjk-bot; git config user.email tjk-bot@users.noreply.github.com
+          git add -A docs/data; git diff --cached --quiet && exit 0
+          git commit -m "cors probe"; for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
