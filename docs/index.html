@@ -274,20 +274,22 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
     <button role="tab" id="tabKupon" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 000 4v4H4v-4a2 2 0 000-4z"/></svg>Kuponlar</button>
     <button role="tab" id="tabS5" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m5 9V5m5 13v-6m5 6V8"/></svg>Sıralı 5</button>
-    <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>Yabancı</button>
+    <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Kanıt</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
     <button role="tab" id="tabDiger" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Diğer</button>
   </div>
   <div id="digerOrtu" hidden></div>
   <div id="digerPanel" hidden><div class="ic">
-    <button data-s="bolton"><b>Bolton</b><span>Ana model, tüm atlar</span></button>
-    <button data-s="jason"><b>Jason</b><span>Gölge model, tüm atlar</span></button>
+    <button data-s="bolton"><b>Bolton</b><span>Piyasa-yakın referans</span></button>
+    <button data-s="jason"><b>Jason</b><span>Sürpriz avı modeli</span></button>
+    <button data-s="abd"><b>Yabancı</b><span>Yurt dışı yarışlar</span></button>
     <button data-s="arsiv"><b>Arşiv</b><span>Kanıt dışı kâğıt testler</span></button>
     <button data-s="dosya"><b>Dosya yükle</b><span>CSV, PDF, ekran görüntüsü</span></button>
   </div></div>
   <div id="durum" class="note"></div>
 
   <section id="bugun" class="sec">
+    <div class="card" style="padding:12px 14px"><b>Ana model: G1-S v2</b> · odak: sıralı ikili, üçlü, tabela, sıralı 5'li<div class="sub" style="margin:4px 0 8px">Sıra tahmininde piyasadan iyi, takeout'u henüz geçmiyor (kâr kanıtı yok). Jason sürpriz avında devam ediyor.</div><button id="knGit" style="padding:8px 12px;border-radius:10px">Kanıt durumunu aç</button></div>
     <div id="pano"></div>
     <div class="sec" id="oynaKutu"></div>
     <div class="sec" id="guvenKutu"></div>
@@ -340,6 +342,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <div class="bolum"><h2>Altılı kupon testi</h2><div class="bolum-not">Sistemin her gün kurduğu altılı kuponlar; kâğıt üstü.</div><div id="otoKupon"><div class="card empty">Yükleniyor…</div></div></div>
   </section>
   <section id="s5" class="sec" hidden><div id="s5Ic"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="kanit" class="sec" hidden><div id="kanitIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="abd" class="sec" hidden>
     <div class="card">
       <b>ABD ve Güney Afrika: iki piyasa kuralı</b>
@@ -1188,8 +1191,33 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={s5:'tabS5',abd:'tabAbd',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={s5:'tabS5',kanit:'tabAbd',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
+
+async function kanitYukle(){
+  const el=$('kanitIc'); if(!el) return;
+  const T=(b,r)=>'<div style="overflow-x:auto"><table class="t"><tr>'+b.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr>'+r.map(l=>'<tr>'+l.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</table></div>';
+  let g=null; try{ g=await getJSON('data/gecmis_test.json'); }catch(e){}
+  let s='<h2>Ana model: G1-S v2</h2><div class="sub">Piyasa + form/dinlenme/kilo/jokey + galop. Ölçüm kâğıt üstü; para iddiası yok.</div>';
+  if(g){
+    s+='<div class="card"><b>Geriye dönük test</b><div class="sub">'+esc(g.donem)+' · '+g.kosu+' koşu · '+g.gun+' gün</div>'
+      +'<h3 style="margin:10px 0 4px;font-size:14px">Log-kaybı farkı (nats/koşu, negatif = model daha iyi)</h3>'+T(g.logkayip.basliklar,g.logkayip.satirlar)
+      +'<h3 style="margin:12px 0 4px;font-size:14px">Kâğıt üstü ROI</h3>'+T(g.roi.basliklar,g.roi.satirlar)+'</div>';
+    s+='<div class="card"><b>Sonuç</b><ul style="margin:6px 0 0 18px">'+g.not.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
+    s+='<div class="card"><b>Jason</b><div class="sub">Sürpriz (değerli at) avı için eğitildi: Tüyo takibi ve egzotik çiplerinde kalır, arşivlenmedi. Sıra tahmini odağı G1-S v2'de; Jason ayrı bir amaçla ölçülür.</div></div><div class="card"><b>Yapmayacaklarımız</b><ul style="margin:6px 0 0 18px">'+g.yapmayacaklar.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
+  }
+  s+='<h2 style="margin-top:14px">Canlı kâğıt üstü (G1-S)</h2><div id="knCanli" class="card"><div class="sub">Yükleniyor…</div></div>';
+  el.innerHTML=s;
+  try{
+    const [e,t,b]=await Promise.all([getJSON('data/egzotik.json'),getJSON('data/tabela.json'),getJSON('data/besli.json')]);
+    const fr=x=>x==null?'–':String(x).replace('.',',');
+    const R=[];
+    (e.toplam_g1s||[]).forEach(x=>R.push([x.tur,'seçim kuralı',x['koşu'],f2(x.harcama),f2(x.kazanc),x.isabetli_kosu,fr(x.geri_donus)]));
+    (t.toplam||[]).filter(x=>x.model==='G1-S').forEach(x=>R.push(['Tabela',(x.tur==='sirali'?'Sıralı ≤'+x.butce:'Sırasız 5 at'),x.kosu,f2(x.harcama),f2(x.kazanc),x.isabet,fr(x.geri_donus)]));
+    (b.toplam||[]).filter(x=>x.model==='G1-S').forEach(x=>R.push(["Sıralı 5'li",'≤'+x.butce+(x.grup==='onerilen'?' (önerilen)':''),x.kosu,f2(x.harcama),f2(x.kazanc),x.isabet,fr(x.geri_donus)]));
+    $('knCanli').innerHTML=R.length?T(['Bahis','Kupon','Koşu','Harcanan','Kazanç','İsabet','Geri dönüş'],R)+'<div class="sub" style="margin-top:6px">Geri dönüş 1,00 üstü = kazandırdı. Kâr kararı için yüzlerce havuz koşusu gerekir; buradaki sayılar henüz küçük.</div>':'<div class="sub">G1-S v2 canlı kayıtları ilk sonuçlanan koşulardan sonra burada görünür.</div>';
+  }catch(err){ $('knCanli').innerHTML='<div class="sub">Canlı veri okunamadı.</div>'; }
+}
 function digerAc(ac){ $('digerPanel').hidden=!ac; $('digerOrtu').hidden=!ac; }
 function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   digerAc(false);
@@ -1202,6 +1230,7 @@ function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   if(ad==='ikili') degerYukle();
   if(ad==='tegz') tegzYukle();
   if(ad==='abd'&&!ABD) abdYukle();
+  if(ad==='kanit') kanitYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
   if(ad==='bolton'||ad==='jason') (EGZ?Promise.resolve():egzYukle()).then(tumModel);
   try{ history.replaceState(null,'','#'+ad); }catch(e){}
@@ -1210,6 +1239,7 @@ function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
 $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
 $('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('abd'); $('tabS5').onclick=()=>sekme('s5');
 $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
+{const kg=$('knGit'); if(kg) kg.onclick=()=>sekme('kanit');}
 document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
 document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.dataset.k));
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
@@ -1323,7 +1353,7 @@ otoPlaseYukle();
 otoTuyoYukle();
 besliYukle();
 
-let UC3=null, EGZ=null, KANIT=null, S3=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm2_egm','Bolton');
+let UC3=null, EGZ=null, KANIT=null, S3=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm3_egm','G1-S');
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü','TABELA':'Tabela'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2,'TABELA':1};
 function kanitHtml(){
   if(!KANIT||!KANIT.satirlar) return '';
@@ -1598,9 +1628,9 @@ function egzCiz(){
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   try{ s+=uc3Html(); }catch(e){ console.error(e); }
-  s+=`<div class="chips mchips" style="margin-top:2px">${['Bolton','Jason','Jason-S','G1-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m}</button>`).join('')}</div>`;
+  s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'G1-S v2 (ana)':m==='Jason'?'Jason (sürpriz avı)':m}</button>`).join('')}</div>`;
   if(EGM==='Esnek'){ try{ s+=esnekHtml(); }catch(e){ console.error(e); }
-    el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();}); return; }
+    el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm3_egm',EGM);egzCiz();}); return; }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
   if(EGT==='TABELA'){ try{ s+=tabelaEgz(); }catch(e){ console.error(e); }
     el.innerHTML=s; el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();}); return; }
@@ -1624,7 +1654,7 @@ function egzCiz(){
   try{ s+=besliEgz(MM(EGM)); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
-  el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm2_egm',EGM);egzCiz();});
+  el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm3_egm',EGM);egzCiz();});
 }
 egzYukle();
 
