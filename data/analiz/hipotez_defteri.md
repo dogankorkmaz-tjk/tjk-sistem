@@ -766,3 +766,7 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 ## Ön-kayıt: Jason'un 3 ekstra özelliği, sıraya özel (25 Ekim 2026, ~02:45)
 - T8: f_dp150_m, f_jgen100, f_fig3 (Jason'da Bolton'a ek; golge.EK) tabana (D) sıraya özel katsayıyla eklenir. Aynı bölme (ilk %60 fit/son %40 test), 2.–5. sıra, gün-bootstrap GA, başarı: alt sınır > 0. Üç ayrı (tekli) + ortak + (D+dinlenme tabanına) ortak. Betik: data/analiz/ilk5_jason_ek.py.
 - SONUÇ T8 (25 Ekim 2026, ~03:00), tabana (D) ek kazanç 2.–5. sıra, test 5.536 koşu: f_dp150_m +0,0035 [+0,0015,+0,0053]; f_jgen100 +0,0004 [−0,0000,+0,0009]; f_fig3 +0,0025 [−0,0009,+0,0060]; ortak +0,0055 [+0,0019,+0,0092] (ölçüt karşılandı, kazancın çoğu mesafe uyumundan). Dinlenme + 3 ek birlikte: +0,0228 [+0,0172,+0,0286] (dinlenme tek başına +0,0176). Betik: data/analiz/ilk5_jason_ek.py.
+
+## Ön-kayıt: ilk-5 gölge katman v2, canlı izleme (25 Ekim 2026, ~03:00)
+- Kural: D + dinlenme + Jason ek özellikleri (T3+T8), tüm veriyle fit, donduruldu: data/analiz/ilk5_katsayilar_v2.json (betik ilk5_dondur.py). Canlı: tjk/ilk5.py; sabah programda her ata x5 özelliği yazılır, gece döngüsünde biten koşularda 2.–5. sıra log-olabilirliği Jason-Harville / mevcut (G1-S a_g1) / yeni ile karşılaştırılır (docs/data/ilk5_golge.json). Üretim kupon/olasılıklarına dokunmaz.
+- Karar: ≥300 koşuda (25 Ekim sonrası) fark GA alt sınırı > 0 ise sıralama katmanına geçirilir; kupon ROI'si ayrıca raporlanır. Katsayılar bu sürede değişmez.

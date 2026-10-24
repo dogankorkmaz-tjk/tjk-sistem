@@ -149,6 +149,12 @@ def sabah(t):
             print("Jason-F hatası:", repr(e)); AF = None
     else:
         AF = None
+    bx5 = {}
+    try:
+        from . import ilk5 as _I5
+        bx5 = _I5.ozellik(d2, temiz, tarih)
+    except Exception as e:
+        print("ilk5 özellik hatası:", repr(e))
     AS = GL.yukle_s(); bz4 = {}
     if AS and A:
         try:
@@ -177,7 +183,8 @@ def sabah(t):
                       **({"z2": round(float(bz2.get((h, kn, int(r.no)), 0.0)), 4)} if A else {}),
                       **({"z3": round(float(bz3.get((h, kn, int(r.no)), 0.0)), 4)} if AK else {}),
                       **({"z4": round(float(bz4.get((h, kn, int(r.no)), 0.0)), 4)} if AS else {}),
-                      **({"z5": round(float(bz5.get((h, kn, int(r.no)), 0.0)), 4)} if AF else {})} for r in kg.itertuples()]
+                      **({"z5": round(float(bz5.get((h, kn, int(r.no)), 0.0)), 4)} if AF else {}),
+                      **({"x5": bx5[(h, kn, int(r.no))]} if (h, kn, int(r.no)) in bx5 else {})} for r in kg.itertuples()]
             kos.append({"kosu": int(kn), "saat": programlar[h]["saat"].get(int(kn)),
                         "bilgi": programlar[h]["bilgi"].get(int(kn)), "atlar": atlar})
         obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
@@ -980,6 +987,10 @@ def gece(bugun):
                 TB.guncelle(obj)
             except Exception as e:
                 print("tabela hatası:", repr(e))
+            try:
+                from . import ilk5 as _I5; print("ilk5 gölge:", _I5.olc())
+            except Exception as e:
+                print("ilk5 gölge hatası:", repr(e))
             try:
                 from . import gecikme as _GK; _GK.main()                      # start gecikmesi kaydı (data/analiz/gecikme.json)
             except Exception as e:
