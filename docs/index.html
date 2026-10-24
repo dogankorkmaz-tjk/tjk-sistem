@@ -273,7 +273,6 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Bugün</button>
     <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
     <button role="tab" id="tabKupon" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 000 4v4H4v-4a2 2 0 000-4z"/></svg>Kuponlar</button>
-    <button role="tab" id="tabS5" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18V9m5 9V5m5 13v-6m5 6V8"/></svg>Sıralı 5</button>
     <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Kanıt</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
     <button role="tab" id="tabDiger" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Diğer</button>
@@ -1191,7 +1190,7 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={s5:'tabS5',kanit:'tabAbd',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={s5:'tabKupon',kanit:'tabAbd',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
 
 async function kanitYukle(){
@@ -1219,13 +1218,13 @@ async function kanitYukle(){
   }catch(err){ $('knCanli').innerHTML='<div class="sub">Canlı veri okunamadı.</div>'; }
 }
 function digerAc(ac){ $('digerPanel').hidden=!ac; $('digerOrtu').hidden=!ac; }
-function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
+function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
+  if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   digerAc(false);
   const btn=TABS[ad];
-  ['tabBugun','tabKosu','tabKupon','tabS5','tabAbd','tabSkor','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
+  ['tabBugun','tabKosu','tabKupon','tabAbd','tabSkor','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
   Object.keys(TABS).forEach(k=>{ $(k).hidden=k!==ad; });
   if(btn==='tabKupon'){ SON_KUPON=ad; sv('gm2_kupsek',ad); document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===ad)); }
-  if(ad==='s5') s5Ciz(0);
   if(ad==='egz') egzYukle();
   if(ad==='ikili') degerYukle();
   if(ad==='tegz') tegzYukle();
@@ -1237,7 +1236,7 @@ function sekme(ad){if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   try{ window.scrollTo(0,0); }catch(e){}
 }
 $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
-$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('abd'); $('tabS5').onclick=()=>sekme('s5');
+$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('abd');
 $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
 {const kg=$('knGit'); if(kg) kg.onclick=()=>sekme('kanit');}
 document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
@@ -1525,16 +1524,15 @@ function tahOd(nv,prP,bedel){
   const med=base*0.91, lo=base*0.32, hi=base*2.39, kat=med/bedel;
   return `<span class="sub" style="display:block">Tutarsa tahmini ödeme ≈ <b>${kT(med)} TL</b> (olası aralık ${kT(lo)}–${kT(hi)}), bedelin ≈ ${kat>=10?Math.round(kat):kat.toFixed(1).replace('.',',')} katı. Kaba tahmin: piyasa olasılığından hesaplanır, havuz/devir bilinmez.</span>`;
 }
-function s5Ciz(n){
-  const el=$('s5Ic'); if(!el) return;
-  if(!VERI){ if(n<12) setTimeout(()=>{ if(!$('s5').hidden) s5Ciz(n+1); },1200); return; }
-  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sıralı 5'li: özel model (Jason-S)</b>
+function s5Html(){
+  if(!VERI) return '<div class="card empty">Yükleniyor…</div>';
+  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sıralı 5'li: ana model G1-S v2 önce, ardından Jason-S / Jason-F</b>
   <div class="sub">Tek bir kazananı değil, ilk beşin <b>sırasını</b> öğrenen model. Kupon, bütçe dolana kadar tutma olasılığını en çok artıran atı ekleyerek kurulur; AGF'nin ilk beşini yazmaktan farkı bu. Sürpriz için ayrı yer ayıran hibrit kupon geriye dönük testte daha iyi çıkmadı. Dürüst durum: sürprizi bulmak en zor kısım, aşağıdaki canlı takip bunu gösteriyor. Kâr kanıtı yok, kâğıt üstü.</div></div>`;
-  try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); s+='<div class="card empty">Kuponlar hesaplanamadı.</div>'; }
+  try{ s+=besliEgz('G1-S'); }catch(e){ console.error(e); s+='<div class="card empty">Kuponlar hesaplanamadı.</div>'; }
+  try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
   try{ s+=besliEgz('Jason-F'); }catch(e){ console.error(e); }
-  try{ s+=besliEgz('G1-S'); }catch(e){ console.error(e); }
   s+=`<h2 style="margin-top:14px">Canlı takip (dondurulmuş kuponlar)</h2><div id="s5Takip">${BS_HTML||'<div class="card empty">Yükleniyor…</div>'}</div>`;
-  el.innerHTML=s;
+  return s;
 }
 function besliGecerli(sets){ let n=0; (function rec(k,u){ if(k===5){ n++; return; } for(const h of sets[k]){ if(u.has(h)) continue; u.add(h); rec(k+1,u); u.delete(h); } })(0,new Set()); return n; }
 function besliEgz(m){
@@ -1621,6 +1619,10 @@ function tabelaEgz(){
 function egzCiz(){
   const el=$('egzIc'); if(!el) return;
   if(!EGZ){ el.innerHTML='<div class="card empty">Egzotik seçim verisi henüz yok. İlk koşulardan önce oluşur.</div>'; return; }
+  if(EGT==='S5'){ if(!VERI){ el.innerHTML='<div class="card empty">Yükleniyor…</div>'; setTimeout(egzCiz,1200); return; }
+    let h5=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).concat(['S5']).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${t==='S5'?'Sıralı 5\'li':EGT_AD[t]}</button>`).join('')}</div>`;
+    try{ h5+=s5Html(); }catch(e){ console.error(e); }
+    el.innerHTML=h5; el.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();}); return; }
   const d=EGZ, ilk=egzIlkAyak(); const eski=d.tarih!==GUN;
   let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>Nasıl okunur</b>
     <div class="sub">1) Model, piyasanın düşük fiyatladığını düşündüğü kombinasyonları seçer. Hepsini birlikte almak gerekir.</div>
@@ -1631,7 +1633,7 @@ function egzCiz(){
   s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'G1-S v2 (ana)':m==='Jason'?'Jason (sürpriz avı)':m}</button>`).join('')}</div>`;
   if(EGM==='Esnek'){ try{ s+=esnekHtml(); }catch(e){ console.error(e); }
     el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm3_egm',EGM);egzCiz();}); return; }
-  s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${EGT_AD[t]}</button>`).join('')}</div>`;
+  s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).concat(['S5']).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${t==='S5'?'Sıralı 5\'li':EGT_AD[t]}</button>`).join('')}</div>`;
   if(EGT==='TABELA'){ try{ s+=tabelaEgz(); }catch(e){ console.error(e); }
     el.innerHTML=s; el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();}); return; }
   if(eski) s+=`<div class="note">Seçimler ${esc(d.tarih)} gününe ait. Seçili gün farklı.</div>`;
