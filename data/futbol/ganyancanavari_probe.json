@@ -1,0 +1,305 @@
+{
+ "gunluk-galoplar.html": {
+  "baslik": "Günlük Galoplar | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Günlük Galoplar Tarih Şehir İdman Tipi Cins Takip Listem HEPSİ Adana Ankara Antalya Bursa Diyarbakır Elazığ İstanbul İzmir Kocaeli HEPSİ Galop Sprint Kenter HEPSİ Arap İngiliz Sadece Takip Listem VICTORY MARIA MEHMET EMİN DOĞAN Şanlıurfa / Kum İç / Galop Hafif Çalışarak 400 600 800 1000 1200 1400 27.10 - 55.50 - - - KING ATEROK REMZİ DOĞAN Şanlıurfa / Kum İç / Sprint Rahat 400 600 800 1000 1200 1400 28.00 - - - - - BENDENİZ MEHMET ŞAKİR Şanlıurfa / Kum / Sprint Rahat 400 600 800 1000 1200 1400 32.00 - - - - - MONOMOY GIRL DOĞAN ÜNLÜ Şanlıurfa / Kum İç / Sprint Rahat 400 600 800 1000 1200 1400 27.00 - - - - - AMİRSOYLU SERGEN ALTIN Şanlıurfa / Kum İç / Galop Hafif Çalışarak 400 600 800 1000 1200 1400 29.50 - 58.00 - - - KAFKAS YÜREKLİ METİN MERT KARABULUT İzmir / Kum / Galop Rahat 400 600 800 1000 1200 1400 28.50 42.50 - - - - EL LEON FERHAT TOPRAK Şanlıurfa / Kum / Galop Rahat 400 600 800 1000 1200 1400 27.50 - 55.00 - - - DEEP WOODS AHMET HASAN BAYAR Şanlıurfa / Kum İç / Galop Hafif Çalışarak 400 600 800 1000 1200 1400 26.10 - 52.80 - - - CELESTARA SAİT ÇELİK Şanlıurfa / Kum İç / Galop Hafif Çalışarak 400 600 800 1000 1200 1400 26.10 - 52.80 - - - VICTORY MARSEILLE MERTCAN ÇELİK İzmir / Kum / Galop Rahat 400 600 800 1000 1200 1400 27.00 40.50 - - - - STAR GIRL SERGEN ALTIN Şanlıurfa / Kum / Sprint Rahat 400 600 800 1000 1200 1400 30.00 - - - - - LADY ALİS AZİZ AKDEMİR Şanlıurfa / Kum İç / Galop Rahat 400 600 800 1000 1200 1400 27.00 - 53.00 - - - ASİLSİMA YUNUS ÇELİKBAŞ Şanlıurfa / Kum İç / Galop Hafif Çalışarak 400 600 800 1000 1200 1400 30.00 - 59.00 - - - ADNANHAN MEHMET ALİ SUNKAR Şanlıurfa / Kum İç / Galop Çalışarak 400 600 800 1000 1200 1400 32.30 - 1.06.00 - - - BİRİNCİSOY SAİT ÇELİK Şanlıurfa / Kum İç / Galop Çalışarak 400 600 800 1000 1200 1400 33.80 - 1.03.50 - - - BEYZA SU ALİ ŞENBAHAR Şanlıurfa / Kum İç / Galop Çalışarak 400 600 800 1000 1200 1400 31.80 - 1.01.00 - - - HOLY ALİ MEHDİ ALTIN İzmir / Kum / Galop Rahat 400 600 800 1000 1200 1400 25.50 - - 1.04.50 - - PAPA CLAS ABDULLAH ÇANKAYA Şanlıurfa / Kum / Galop Hafif Çalışarak 400 600 800 1000 1200 1400 28.00 42.00 - - - - BANDIERA ROSSA RAHMİ CANPOLAT İzmir / Kum / Galop Çalışarak 400 600 800 1000 1200 1400 25.00 - - 1.02.50 - - SANPMAN BARAN DOĞAN Şanlıurfa / Kum İç / Galop Çok Rahat 400 600 800 1000 1200 1400 33.00 - 1.03.80 - - - RING RANG RONG HÜSEYİN TOPSAKAL İzmir / Kum / Galop Çalışarak 400 600 800 1000 1200 1400 25.00 - - 1.02.50 - - ÜNYE BEYİ NEŞET DOĞAN Şanlıurfa / Kum İç /",
+  "istekler": [
+   {
+    "tip": "document",
+    "url": "https://www.ganyancanavari.com.tr/mobile/gunluk-galoplar.html",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "bas": "{\"0\":[],\"Count\":\"0\",\"Last\":21409217,\"Deleted\":\"0\",\"Bildirim\":[]}"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "bas": "{\"success\":\"1\",\"isSession\":\"false\",\"pistdurumu\":\"<small><font color:white><b>Hava:</b> Puslu,13°C<br><b>Çim Pist:</b> Çok Yumuşak<br><b>Kum Pist:</b> Normal<br></font></small>\",\"degisiklik_at\":\"Koşmayan At Bulunmamaktadır\",\"degisiklik_jokey\":\"<font color:white>Jokey Değişikliği Bulunmamaktadır</font>\"}"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/functions/galoplar_gunluk.php",
+    "durum": 200,
+    "bas": "{\"success\":1,\"Galoplar\":[{\"Tarih\":\"24.10.2026\",\"Sehir\":\"Şanlıurfa\",\"At_id\":115036,\"At_Unvan\":\"VICTORY MARIA\",\"Jokey\":\"MEHMET EMİN DOĞAN\",\"Pist\":\"Kum İç\",\"Durum\":\"Hafif Çalışarak\",\"Tip\":\"Galop\",\"p400\":\"27.10\",\"p600\":\"-\",\"p800\":\"55.50\",\"p1000\":\"-\",\"p1200\":\"-\",\"p1400\":\"-\",\"VideoLink\":\"\",\"Aciklama\":null},{\"Tarih\":\"24.10.2026\",\"Sehir\":\"Şanlıurfa\",\"At_id\":117117,\"At_Unvan\":\"KING ATEROK\",\"Jokey\":\"REMZİ DOĞAN\",\"Pist\":\"Kum İç\",\"Durum\":\"Rahat\",\"Tip\":\"Sprint\",\"p400\":\"28.00\",\"p600\":\"-\",\"p800\":\"-\",\"p1000\":\"-\",\"p1200\":\"-\",\"p1400\":\"-\",\"VideoLink\":\"\",\"Aciklama\":null},{\"Tarih\":\"24.10.2026\",\"Sehir\":\"Şanlıurfa\","
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "bas": "{\"Bahisler\":[{\"Bahis_id\":0,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"SABİT İHTİMALLİ\",\"Bahis_KosuNo\":1,\"Bahis_KosuSayisi\":0,\"Bahis_BirimFiyat_1\":0,\"Bahis_BirimFiyat_2\":0,\"Bahis_BirimFiyat_3\":0},{\"Bahis_id\":6,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"7'Lİ GANYAN\",\"Bahis_KosuNo\":4,\"Bahis_KosuSayisi\":7,\"Bahis_BirimFiyat_1\":2,\"Bahis_BirimFiyat_2\":2,\"Bahis_BirimFiyat_3\":2},{\"Bahis_id\":7,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"7'Lİ PLASE\",\"Bahis_KosuNo\":4,\"Bahis_KosuSayisi\":7,\"Bahis_BirimFiyat_1\":2,\"Bahis_BirimFiyat_2\":2,\"Bahis_BirimFiyat_3\":2},{\"Bahis_id\":1,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"6'LI GANYAN\",\"Bahis_KosuN"
+   }
+  ],
+  "html_bas": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html lang=\"tr\"><head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"cache-control\" content=\"no-cache\">\n<meta http-equiv=\"pragma\" content=\"no-cache\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#606060\">\n<meta name=\"google-site-verification\" content=\"gfJlHsUxQRcGd0ewOqdkhzZsxPJ49JeOUa-p7T-MJO8\">\n<meta name=\"yandex-verification\" content=\"9af71449e20c94c2\">\n<link rel=\"shortcut icon\" href=\"/favicon.ico\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/images/apple-touch-icon.png\">\n<link rel=\"manifest\" href=\"/manifest.json\">\n<title>Günlük Galoplar | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu</title>\n<meta property=\"fb:page_id\" content=\"343732565826347\">\n<meta property=\"fb:app_id\" content=\"354723691404461\">\n<meta property=\"og:site_name\" content=\"Ganyan Canavarı\">\n<meta property=\"og:title\" content=\"Ganyan Canavarı\">\n<meta property=\"og:type\" content=\"article\">\n<meta property=\"og:url\" content=\"https://www.ganyancanavari.com.tr/\">\n<meta property=\"og:image\" content=\"https://www.ganyancanavari.com.tr/images/gc-logo-yeni.jpg\">\n<meta property=\"og:description\" content=\"24.10.2026 tarihli Ankara at yarışlarına at Günlük Galoplar bilgilerini içerir.\">\n<meta name=\"twitter:card\" content=\"summary\">\n<meta name=\"twitter:site\" content=\"@GanyanCanavari\">\n<meta name=\"twitter:title\" content=\"Ganyan Canavarı\">\n<meta name=\"twitter:description\" content=\"At yarışları hakkında her gün güncellenen detaylı istatistik,at takip sistemi,üye yorumları ve tahminleri Ganyan Canavarı'nda!\">\n<meta name=\"twitter:image\" content=\"https://www.ganyancanavari.com.tr/images/gc-logo-yeni.jpg\">\n<meta name=\"copyright\" content=\"Copyright (c) 2026 Ganyan Canavarı\">\n<meta name=\"description\" content=\"24.10.2026 tarihli Ankara at yarışlarına ait Günlük Galoplar bilgilerini içerir.\">\n<meta name=\"keywords\" content=\"24.10.2026,Ankara at yarışları,Günlük Galoplar,\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/navigation.css?ver=143\">\n<link href=\"/css/jquery-ui.min.css\" rel=\"stylesheet\">\n<link href=\"/css/gc.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/w3.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/mobile_index/css/main_new.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/jquery.contextMenu.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/gcmobile.css?ver=143\" rel=\"stylesheet\">\n\n<script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-0QT2R0WN4F&amp;cx=c&amp;_slc=1\"></script><script async=\"\" src=\"https://www.google-analytics.com/analytics.js\"></script><script src=\"https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202610200101/show_ads_impl_fy2021.js\" fetchpriority=\"high\"></script><script src=\"/js/jquery.min.js\"></script>\n<script src=\"/js/jquery-ui.min2.js\"></script>\n\n<script src=\"/js/fingerprint2.min.js\"></script>\n<script src=\"/js/jquery.contextMenu.js?ver=143\"></sc"
+ },
+ "galoplar.html": {
+  "baslik": "Galoplar | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Galoplar KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 1400 Çim Mesafe Sıralama 400 m En İyi Derece En Yeni Tarih Tarih/Şehir At İsmi Derece/Jokey Durum/Kg 24.04.26 Ankara (Kum ()) LADY SOVEREIGN (6) 23.50 SADETTİN ULUTAŞ Rahat 07.09.26 Ankara (Kum ()) QUEEN Z (9) 23.50 MENEN BAL Rahat 18.10.26 Ankara (Kum ()) OY YARE (1) 24.00 APRANTİ Rahat 22.10.26 Ankara (Kum ()) OY YARE (1) 24.00 SAMETCAN YAZICIOĞLU Rahat Video Açıklaması: 17.09.26 Ankara (Kum ()) LADY SOVEREIGN (6) 24.00 HALİL İBRAHİM YILDIRIM Rahat Video Açıklaması: 21.08.26 Ankara (Kum ()) MY FEARLESS (7) 24.00 MEHMET KESKİN Rahat 18.09.26 Ankara (Kum ()) MY FEARLESS (7) 24.00 BURHAN KILINÇ Rahat 15.03.26 Antalya (Kum (İç)) IMPERIAL GLOIRE (5) 24.10 SERKAN YILDIZ Rahat 01.04.26 Antalya (Kum (İç)) OY YARE (1) 24.20 ORHAN BOZYEL Rahat 05.06.26 Ankara (Kum ()) OY YARE (1) 24.20 FATİH SULTAN MEHMET SANSAR Rahat 22.03.26 Ankara (Kum ()) SPIRIT OF LUX (2) 24.20 ONUR BOLAT Rahat 22.03.26 Ankara (Kum ()) LADY SOVEREIGN (6) 24.20 CUMALİ AVLİ Rahat 03.07.26 Ankara (Kum ()) QUEEN Z (9) 24.20 HALİL İBRAHİM YILDIRIM Rahat 22.10.26 Ankara (Kum ()) FLIPENDO (4) 24.20 SAMETCAN YAZICIOĞLU Rahat Video Açıklaması: 16.06.26 Ankara (Kum ()) OY YARE (1) 24.30 MEHMET ÇELİK Rahat Video Açıklaması: İÇ OY YARE DIŞ MEYDAN OKU 29.06.26 Ankara (Kum ()) QUEEN Z (9) 24.30 APRANTİ Rahat 08.03.26 Antalya (Kum (İç)) IMPERIAL GLOIRE (5) 24.40 SERKAN YILDIZ Rahat 15.06.26 Ankara (Kum ()) SPIRIT OF LUX (2) 24.40 İSMAİL YILDIRIM Rahat Video Açıklaması: 06.03.26 Antalya (Kum (İç)) IMPERIAL GLOIRE (5) 24.50 SERKAN YILDIZ Rahat 06.04.26 Antalya (Kum (İç)) IMPERIAL GLOIRE (5) 24.50 OZAN BULUT Rahat 30.04.26 Ankara (Kum ()) IMPERIAL GLOIRE (5) 24.50 OZAN BULUT Rahat 11.09.26 Ankara (Kum ()) IMPERIAL GLOIRE (5) 24.50 MÜSLÜM BAYDAN Rahat 18.04.26 Antalya (Kum (İç)) OY YARE (1) 24.50 MUSTAFA BARIŞ Rahat 24.04.26 Ankara (Kum ()) OY YARE (1) 24.50 İSA YILDIRIM Rahat 01.05.26 Ankara (Kum ()) OY YARE (1) 24.50 NİHAT BAYDAN Rahat 07.05.26 Ankara (Kum ()) OY YARE (1) 24.50 MEHMET ALİ AKGÖBEK Rahat 10.08.26 Ankara (Kum ()) SPIRIT OF LUX (2) 24.50 MENNAN BAL Rahat Video Açıklaması: 13.08.26 Ankara (Kum ()) QUEEN Z (9) 24.50 SALİH ÇELİK Rahat 23.08.26 Ankara (Kum ()) MY FEARLESS (7) 24.50 BURHAN KILINÇ Rahat 08.10.26 Ankara (Kum ()) FLIPENDO (4) 24.50 MEHMET KESKİN Rahat 05.06.26 Ankara (Kum ()) WARREN QUEEN (10) 24.50 ONUR FİDAN Rahat 11.07.26 Ankara (Kum ()) QUEEN Z (9) 24.60 HALİL İBRAHİM YILDIRIM Rahat 03.08.26 Ankara (Kum ()) QUEEN Z (9) 24.60 ",
+  "istekler": [
+   {
+    "tip": "document",
+    "url": "https://www.ganyancanavari.com.tr/mobile/galoplar.html",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "bas": "{\"success\":\"1\",\"isSession\":\"false\",\"pistdurumu\":\"<small><font color:white><b>Hava:</b> Puslu,13°C<br><b>Çim Pist:</b> Çok Yumuşak<br><b>Kum Pist:</b> Normal<br></font></small>\",\"degisiklik_at\":\"Koşmayan At Bulunmamaktadır\",\"degisiklik_jokey\":\"<font color:white>Jokey Değişikliği Bulunmamaktadır</font>\"}"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "bas": "{\"0\":[],\"Count\":\"0\",\"Last\":21409217,\"Deleted\":\"0\",\"Bildirim\":[]}"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/pages/galoplar-detay.php?kosu=1",
+    "durum": 200,
+    "bas": "<script>\r\nvar selected_kosu_no;\r\nvar galop_mesafe=\"\";\r\nfunction galop_mesafe_up()\r\n{\r\n\tif(galop_mesafe<1400)\r\n\t{\r\n\t\t $(\"#yukleniyor_galoplar_detay\").show();\r\n\t\t $(\"#main_galoplardetay\").empty();\r\n\t\tgalop_mesafe=Number(galop_mesafe)+200;\r\n\t\t$(\"#galoplar_mesafe\").text(galop_mesafe+\" m\");\r\n\t\tgetGaloplar();\r\n\t}\r\n\t\r\n}\r\n\r\nfunction galop_mesafe_down()\r\n{\r\n\tif(galop_mesafe>400)\r\n\t{\r\n\t\t $(\"#yukleniyor_galoplar_detay\").show();\r\n\t\t $(\"#main_galoplardetay\").empty();\r\n\t\tgalop_mesafe=Number(galop_mesafe)-200;\r\n\t\t$(\"#galoplar_mesafe\").text(galop_mesafe+\" m\");\r\n\t\tgetGaloplar();\r\n\t}\r\n}\r\n\r\nfunction galop_sirala"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "bas": "{\"Bahisler\":[{\"Bahis_id\":0,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"SABİT İHTİMALLİ\",\"Bahis_KosuNo\":1,\"Bahis_KosuSayisi\":0,\"Bahis_BirimFiyat_1\":0,\"Bahis_BirimFiyat_2\":0,\"Bahis_BirimFiyat_3\":0},{\"Bahis_id\":6,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"7'Lİ GANYAN\",\"Bahis_KosuNo\":4,\"Bahis_KosuSayisi\":7,\"Bahis_BirimFiyat_1\":2,\"Bahis_BirimFiyat_2\":2,\"Bahis_BirimFiyat_3\":2},{\"Bahis_id\":7,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"7'Lİ PLASE\",\"Bahis_KosuNo\":4,\"Bahis_KosuSayisi\":7,\"Bahis_BirimFiyat_1\":2,\"Bahis_BirimFiyat_2\":2,\"Bahis_BirimFiyat_3\":2},{\"Bahis_id\":1,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"6'LI GANYAN\",\"Bahis_KosuN"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/functions/galoplar_detay.php",
+    "durum": 200,
+    "bas": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Kosu_Pist\":\"Çim\",\"Galoplar\":[{\"Sk_Tarih\":\"24.04.26\",\"Sk_Sehir_Unvan\":\"Ankara\",\"Sk_Mesafe\":\"400\",\"Sk_PistDurumu\":\"Kum ()\",\"Sk_AtUnvan\":\"LADY SOVEREIGN (6)\",\"Sk_At_Id\":114562,\"Sk_At_No\":6,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Durum\":\"Rahat\",\"Sk_Derece\":\"23.50\",\"Sk_Kg\":\"\",\"Sk_Jokey_Unvan\":\"SADETTİN ULUTAŞ\",\"Sk_Kosu_Detay\":\"\",\"Sk_VideoLink\":\"\",\"Sk_Aciklama\":null},{\"Sk_Tarih\":\"07.09.26\",\"Sk_Sehir_Unvan\":\"Ankara\",\"Sk_Mesafe\":\"400\",\"Sk_PistDurumu\":\"Kum ()\",\"Sk_AtUnvan\":\"QUEE"
+   }
+  ],
+  "html_bas": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html lang=\"tr\"><head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"cache-control\" content=\"no-cache\">\n<meta http-equiv=\"pragma\" content=\"no-cache\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#606060\">\n<meta name=\"google-site-verification\" content=\"gfJlHsUxQRcGd0ewOqdkhzZsxPJ49JeOUa-p7T-MJO8\">\n<meta name=\"yandex-verification\" content=\"9af71449e20c94c2\">\n<link rel=\"shortcut icon\" href=\"/favicon.ico\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/images/apple-touch-icon.png\">\n<link rel=\"manifest\" href=\"/manifest.json\">\n<title>Galoplar | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu</title>\n<meta property=\"fb:page_id\" content=\"343732565826347\">\n<meta property=\"fb:app_id\" content=\"354723691404461\">\n<meta property=\"og:site_name\" content=\"Ganyan Canavarı\">\n<meta property=\"og:title\" content=\"Ganyan Canavarı\">\n<meta property=\"og:type\" content=\"article\">\n<meta property=\"og:url\" content=\"https://www.ganyancanavari.com.tr/\">\n<meta property=\"og:image\" content=\"https://www.ganyancanavari.com.tr/images/gc-logo-yeni.jpg\">\n<meta property=\"og:description\" content=\"24.10.2026 tarihli Ankara at yarışlarına at Galoplar bilgilerini içerir.\">\n<meta name=\"twitter:card\" content=\"summary\">\n<meta name=\"twitter:site\" content=\"@GanyanCanavari\">\n<meta name=\"twitter:title\" content=\"Ganyan Canavarı\">\n<meta name=\"twitter:description\" content=\"At yarışları hakkında her gün güncellenen detaylı istatistik,at takip sistemi,üye yorumları ve tahminleri Ganyan Canavarı'nda!\">\n<meta name=\"twitter:image\" content=\"https://www.ganyancanavari.com.tr/images/gc-logo-yeni.jpg\">\n<meta name=\"copyright\" content=\"Copyright (c) 2026 Ganyan Canavarı\">\n<meta name=\"description\" content=\"24.10.2026 tarihli Ankara at yarışlarına ait Galoplar bilgilerini içerir.\">\n<meta name=\"keywords\" content=\"24.10.2026,Ankara at yarışları,Galoplar,\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/navigation.css?ver=143\">\n<link href=\"/css/jquery-ui.min.css\" rel=\"stylesheet\">\n<link href=\"/css/gc.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/w3.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/mobile_index/css/main_new.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/jquery.contextMenu.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/gcmobile.css?ver=143\" rel=\"stylesheet\">\n\n<script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-0QT2R0WN4F&amp;cx=c&amp;_slc=1\"></script><script src=\"https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202610200101/show_ads_impl_fy2021.js\" fetchpriority=\"high\"></script><script async=\"\" src=\"https://www.google-analytics.com/analytics.js\"></script><script src=\"/js/jquery.min.js\"></script>\n<script src=\"/js/jquery-ui.min2.js\"></script>\n\n<script src=\"/js/fingerprint2.min.js\"></script>\n<script src=\"/js/jquery.contextMenu.js?ver=143\"></script>\n<script src=\"/js/jquer"
+ },
+ "galoplar-ozet.html": {
+  "baslik": "Ortalama Galoplar | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu",
+  "metin": "Ankara Ortalama Galoplar KOŞULAR 1 2 3 4 5 6 7 8 9 10 1.Koşu :13:00 1400 Çim Ortalama Periyodu Şehir Son 5 Galop Son 10 Galop Son 15 Galop Son 20 Galop Sadece Ankara No At İsmi 400 600 800 1000 1200 1 OY YARE 25.00 37.62 51.08 1.04.00 - 2 SPIRIT OF LUX 25.56 39.07 50.76 1.04.58 - 3 CLOVE 25.56 39.00 51.00 1.04.75 1.20.00 4 FLIPENDO 25.28 38.36 51.40 1.05.95 - 5 IMPERIAL GLOIRE 25.48 38.94 49.76 1.06.50 1.21.50 6 LADY SOVEREIGN 25.70 39.02 51.84 1.04.92 1.20.00 7 MY FEARLESS 25.86 38.64 51.50 1.05.05 - 8 QUEEN OF UNION 25.54 39.43 51.77 - - 9 QUEEN Z 25.08 38.60 50.94 1.03.98 - 10 WARREN QUEEN 25.76 38.35 51.70 1.04.97 - Daha fazlasını keşfedin Yarış Programı At İstatistikleri Jokey Analizi × Profilim Bildirim Ayarları Kullanım Koşulları Bize Ulaşın Engellediklerim Beni Unut × Daha fazlasını keşfedin At Yarışı Tahminleri Canlı Yarış İzle",
+  "istekler": [
+   {
+    "tip": "document",
+    "url": "https://www.ganyancanavari.com.tr/mobile/galoplar-ozet.html",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/fingerprint2.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.contextMenu.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.tablesorter.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/actions.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jscookie.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/mobile.js?ver=143",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://static.cdn.admatic.com.tr/showad/showad.min.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://www.ganyancanavari.com.tr/js/jquery-ui.min2.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "script",
+    "url": "https://cdn.ampproject.org/v0/amp-ad-0.1.js",
+    "durum": 200,
+    "bas": ""
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/user/user_get_bildirim.php",
+    "durum": 200,
+    "bas": "{\"0\":[],\"Count\":\"0\",\"Last\":21409217,\"Deleted\":\"0\",\"Bildirim\":[]}"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/functions/update_details.php",
+    "durum": 200,
+    "bas": "{\"success\":\"1\",\"isSession\":\"false\",\"pistdurumu\":\"<small><font color:white><b>Hava:</b> Puslu,13°C<br><b>Çim Pist:</b> Çok Yumuşak<br><b>Kum Pist:</b> Normal<br></font></small>\",\"degisiklik_at\":\"Koşmayan At Bulunmamaktadır\",\"degisiklik_jokey\":\"<font color:white>Jokey Değişikliği Bulunmamaktadır</font>\"}"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/pages/galoplar-ozet-detay.php?kosu=1",
+    "durum": 200,
+    "bas": "<script>\r\nvar selected_kosu_no;\r\nvar mesafe=\"\";\r\n\r\nfunction periyod_change()\r\n{\r\n\t\r\n\t\t selected_periyod=$(\"#god_periyod option:selected\").val();\r\n\t\t $(\"#yukleniyor_galoplarozet_detay\").show();\r\n\t\t $(\"#main_galoplarozetdetay\").empty();\r\n\t\tgetGaloplarOzetDetay();\r\n\t\r\n\t\r\n}\r\n\r\nfunction sehir_change()\r\n{\r\n\tif ($('#god_sehir').prop('checked')) {\r\n        selected_sehir='true';\r\n    }\r\n\telse\r\n\t{\r\n\t\tselected_sehir='false';\r\n\t}\r\n\t\t $(\"#yukleniyor_galoplarozet_detay\").show();\r\n\t\t $(\"#main_galoplarozetdetay\").empty();\r\n\t\tgetGaloplarOzetDetay();\r\n\t\r\n\t\r\n}\r\nfunction getGaloplarOzetDetay()\r\n{\r\n\t\t\r\n\t $.ajax({"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/user/user_bahis_get.php",
+    "durum": 200,
+    "bas": "{\"Bahisler\":[{\"Bahis_id\":0,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"SABİT İHTİMALLİ\",\"Bahis_KosuNo\":1,\"Bahis_KosuSayisi\":0,\"Bahis_BirimFiyat_1\":0,\"Bahis_BirimFiyat_2\":0,\"Bahis_BirimFiyat_3\":0},{\"Bahis_id\":6,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"7'Lİ GANYAN\",\"Bahis_KosuNo\":4,\"Bahis_KosuSayisi\":7,\"Bahis_BirimFiyat_1\":2,\"Bahis_BirimFiyat_2\":2,\"Bahis_BirimFiyat_3\":2},{\"Bahis_id\":7,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"7'Lİ PLASE\",\"Bahis_KosuNo\":4,\"Bahis_KosuSayisi\":7,\"Bahis_BirimFiyat_1\":2,\"Bahis_BirimFiyat_2\":2,\"Bahis_BirimFiyat_3\":2},{\"Bahis_id\":1,\"Bahis_Altili_id\":1,\"Bahis_Unvan\":\"6'LI GANYAN\",\"Bahis_KosuN"
+   },
+   {
+    "tip": "xhr",
+    "url": "https://www.ganyancanavari.com.tr/functions/galoplar_ozet_detay.php",
+    "durum": 200,
+    "bas": "{\"Kosular\":[{\"Kosu_NoSaat\":\"1.Koşu :13:00\",\"Kosu_Mesafe\":\"1400\",\"Kosu_Pist\":\"Çim\",\"Kosu_MesafePist\":\"(Maiden\\/Dişi) 1400 Çim\",\"Galoplar\":[{\"Sk_AtUnvan\":\"OY YARE\",\"Sk_At_Id\":114537,\"Sk_At_No\":1,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Derece_400\":\"25.00\",\"Sk_Derece_600\":\"37.62\",\"Sk_Derece_800\":\"51.08\",\"Sk_Derece_1000\":\"1.04.00\",\"Sk_Derece_1200\":\"-\",\"Sk_Derece_1400\":\"-\"},{\"Sk_AtUnvan\":\"SPIRIT OF LUX\",\"Sk_At_Id\":114561,\"Sk_At_No\":2,\"Sk_At_Kosmaz\":-1,\"Sk_At_Ekuri\":\"0\",\"Sk_At_KosuNo\":1,\"Sk_Derece_400\":\"25.56\",\"Sk_Derece_600\":\"39.07\",\"Sk_Derece_800\":\"50.76\",\"Sk_Derece_1000\":\"1.04.58\""
+   }
+  ],
+  "html_bas": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html lang=\"tr\"><head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"cache-control\" content=\"no-cache\">\n<meta http-equiv=\"pragma\" content=\"no-cache\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"theme-color\" content=\"#606060\">\n<meta name=\"google-site-verification\" content=\"gfJlHsUxQRcGd0ewOqdkhzZsxPJ49JeOUa-p7T-MJO8\">\n<meta name=\"yandex-verification\" content=\"9af71449e20c94c2\">\n<link rel=\"shortcut icon\" href=\"/favicon.ico\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/images/apple-touch-icon.png\">\n<link rel=\"manifest\" href=\"/manifest.json\">\n<title>Ortalama Galoplar | Ganyan Canavarı - Türkiye'nin At Yarışları Platformu</title>\n<meta property=\"fb:page_id\" content=\"343732565826347\">\n<meta property=\"fb:app_id\" content=\"354723691404461\">\n<meta property=\"og:site_name\" content=\"Ganyan Canavarı\">\n<meta property=\"og:title\" content=\"Ganyan Canavarı\">\n<meta property=\"og:type\" content=\"article\">\n<meta property=\"og:url\" content=\"https://www.ganyancanavari.com.tr/\">\n<meta property=\"og:image\" content=\"https://www.ganyancanavari.com.tr/images/gc-logo-yeni.jpg\">\n<meta property=\"og:description\" content=\"24.10.2026 tarihli Ankara at yarışlarına at Ortalama Galoplar bilgilerini içerir.\">\n<meta name=\"twitter:card\" content=\"summary\">\n<meta name=\"twitter:site\" content=\"@GanyanCanavari\">\n<meta name=\"twitter:title\" content=\"Ganyan Canavarı\">\n<meta name=\"twitter:description\" content=\"At yarışları hakkında her gün güncellenen detaylı istatistik,at takip sistemi,üye yorumları ve tahminleri Ganyan Canavarı'nda!\">\n<meta name=\"twitter:image\" content=\"https://www.ganyancanavari.com.tr/images/gc-logo-yeni.jpg\">\n<meta name=\"copyright\" content=\"Copyright (c) 2026 Ganyan Canavarı\">\n<meta name=\"description\" content=\"24.10.2026 tarihli Ankara at yarışlarına ait Ortalama Galoplar bilgilerini içerir.\">\n<meta name=\"keywords\" content=\"24.10.2026,Ankara at yarışları,Ortalama Galoplar,\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/navigation.css?ver=143\">\n<link href=\"/css/jquery-ui.min.css\" rel=\"stylesheet\">\n<link href=\"/css/gc.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/w3.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/mobile_index/css/main_new.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/jquery.contextMenu.css?ver=143\" rel=\"stylesheet\">\n<link href=\"/css/gcmobile.css?ver=143\" rel=\"stylesheet\">\n\n<script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-0QT2R0WN4F&amp;cx=c&amp;_slc=1\"></script><script src=\"https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202610200101/show_ads_impl_fy2021.js?bust=122881778\" fetchpriority=\"high\"></script><script async=\"\" src=\"https://www.google-analytics.com/analytics.js\"></script><script src=\"/js/jquery.min.js\"></script>\n<script src=\"/js/jquery-ui.min2.js\"></script>\n\n<script src=\"/js/fingerprint2.min.js\"></script>\n<script src=\"/js/jquery.conte"
+ }
+}
