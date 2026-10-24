@@ -1,2 +1,16 @@
-{"not": "Kaynakta (TJK/Accurace) verisi olmayan koşular; eksik listesinden çıkarılır. Doğan bildirdi.",
- "yok": {"2026-06-07": {"izmir": [3]}}}
+{
+ "not": "Kaynakta (TJK/Accurace) verisi olmayan koşular; eksik listesinden çıkarılır. Doğan bildirdi.",
+ "yok": {
+  "2026-06-07": {
+   "izmir": [
+    3
+   ]
+  },
+  "2026-07-11": {
+   "izmir": [
+    2,
+    4
+   ]
+  }
+ }
+}
