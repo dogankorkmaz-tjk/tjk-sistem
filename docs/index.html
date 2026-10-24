@@ -1005,8 +1005,7 @@ async function accDurum(){
   try{ const d=await getJSON('data/accurace_ozet.json?'+Date.now());
     const G=Object.keys(d.gunler).sort().reverse(); let h='<b>Accurace yüklenenler</b> <span class="sub">('+d.toplam+' koşu, güncelleme '+esc(d.uretim)+')</span>';
     if(!G.length){ el.innerHTML=h+'<div class="sub">Henüz yok.</div>'; return; }
-    h+=G.slice(0,40).map(t=>'<div style="margin-top:6px"><b>'+esc(t)+'</b> '+Object.entries(d.gunler[t]).map(([hp,v])=>esc(hp)+': '+v.kosu.length+' koşu'+(v.sorunlu.length?' <span style="color:var(--hot)" title="'+esc(v.sorunlu.map(x=>x.kosu+'. koşu: '+x.sorun).join(' | '))+'">⚠ '+v.sorunlu.length+' sorunlu ('+v.sorunlu.map(x=>x.kosu).join(',')+')</span>':' ✓')).join(' · ')+'</div>').join('');
-    h+='<div class="sub" style="margin-top:8px">⚠ = at sayısı ya da numara eksik/yinelenen. Sorunlu koşular testte kullanılmaz; sayısı azsa önemli değil.</div>';
+    h+=G.slice(0,40).map(t=>'<div style="margin-top:6px"><b>'+esc(t)+'</b> '+Object.entries(d.gunler[t]).map(([hp,v])=>esc(hp)+': '+v.kosu.length+' koşu').join(' · ')+'</div>').join('');
     el.innerHTML=h;
   }catch(e){ el.innerHTML='<div class="sub">Accurace durumu henüz oluşmadı.</div>'; }
 }
