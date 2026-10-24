@@ -54,7 +54,7 @@ for a in test:
     tm = fitJ(tr); S3, g3, FF3 = scoreJ(te, tm)
     # v3: galop ikinci aşama, ofset = Jason-dahil v3 aşama 1 (galop dönemi koşular, kendi eğitim ofseti)
     trg = [r for r in tr if r["F"] is not None]; S3tr, _, FF3tr = scoreJ(trg, tm); bg3 = fit2S(S3tr, FF3tr); S3g = S3 + ((FF3 - bg3[1]) / bg3[2]) @ bg3[0]
-    RES[a] = dict(v2=ev(S2, np.r_[1.0, t1[10:14]]), v3=ev(S3g, g3), v3_galopsuz=ev(S3, g3), gun=[r["gun"] for r in te], S2=S2, Z=Z, gam=np.r_[1.0, t1[10:14]], te=te)
+    RES[a] = dict(v2=ev(S2, np.r_[1.0, t1[10:14]]), v3=ev(S3g, g3), v3_galopsuz=ev(S3, g3), gun=[r["gun"] for r in te], S2=S2, S3g=S3g, g3=g3, Z=Z, gam=np.r_[1.0, t1[10:14]], te=te)
     print(a, "tamam", flush=True)
 def cat(ays, k): return np.concatenate([RES[a][k] for a in ays]) if k != "gun" else sum([RES[a]["gun"] for a in ays], [])
 # yığma (c) 07..10
