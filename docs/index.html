@@ -596,10 +596,11 @@ function hesapla(h,k,kaynakZorla){
   const elleSay=elle.filter(x=>!isNaN(x)).length;
   let kaynak=null, idx=[], g=[], pp=null;
   if(kaynakZorla!=='agf' && elleSay>=2){ kaynak='elle'; atlar.forEach((a,i)=>{ if(!isNaN(elle[i])&&!a.kosmaz){idx.push(i);g.push(elle[i]);} }); pp=piyasa(g); }
+  else if(kaynakZorla!=='agf' && !k.sonuc && canliOran(h,k)){ const L=canliOran(h,k); kaynak='canli'; atlar.forEach((a,i)=>{ if(!a.kosmaz && L.g[a.no]>0){idx.push(i);g.push(L.g[a.no]);} }); pp=piyasa(g); }
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
   else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ if(!a.kosmaz){ idx.push(i); g.push(NaN); } }); const ham=idx.map(i=>Math.max(atlar[i].agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
   if(!pp||idx.length<2) return null;
-  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(idx.every(i=>atlar[i].z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6),VERI.w0_g1,0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
+  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(idx.every(i=>atlar[i].z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6b!=null?atlar[i].z6b:atlar[i].z6),VERI.w0_g1,idx.every(i=>atlar[i].z6b!=null)?(VERI.lp2_g1||0):0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
@@ -607,7 +608,7 @@ function hesapla(h,k,kaynakZorla){
   });
   return out;
 }
-const KAYNAK={elle:['Senin girdiğin oranlar','on'],kapanis:['Kapanış ganyanları','on'],agf:['AGF (altılı oynanma yüzdesi)','hot']};
+const KAYNAK={canli:['Canlı muhtemel ganyan (TJK)','on'],elle:['Senin girdiğin oranlar','on'],kapanis:['Kapanış ganyanları','on'],agf:['AGF (altılı oynanma yüzdesi)','hot']};
 
 function renderKosu(){
   const h=hipBul(sel.hip), k=h&&h.kosular.find(x=>x.kosu===sel.kosu); cur={h,k}; if(!k){$('kosuAlani').innerHTML='';return}
@@ -656,7 +657,7 @@ function renderKosu(){
 }
 function hesapGoster(){
   const {h,k}=cur; const out=hesapla(h,k); curOut=out;
-  { const bx=$('b5'); if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==h.id+'|'+k.kosu){ bx.dataset.k=h.id+'|'+k.kosu; try{ bx.innerHTML=out&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
+  { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0); if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
   $('kaynak').innerHTML=out?`<span class="pill ${KAYNAK[out.kaynak][1]}">Piyasa: ${KAYNAK[out.kaynak][0]}${out.kaynak==='agf'&&k.agf_saat?' · '+esc(k.agf_saat):''}</span>${out.kaynak==='agf'?' <span class="note">AGF ganyan oranı değildir; EV hesaplanmaz. Güncel ganyanı girersen EV çıkar.</span>':''}`:'<span class="pill">Piyasa verisi yok</span> <span class="note">Ganyanları girince model çalışır.</span>';
   const sira=[];
   k.atlar.forEach((a,i)=>{
@@ -1247,6 +1248,38 @@ document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.datase
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 
 gunYukle(null);
+
+// ---- CANLI MOD (24 Ekim 2026): TJK muhtemel ganyanını Cloudflare Worker üzerinden 10 sn'de bir okur; model oranla yeniden hesaplanır ----
+const PROXY='https://tjk-proxy.dqnkrkmz.workers.dev', LIVE={}, LIVES={t:null,n:0,hata:null,kosu:''};
+const HIPKEY={diyarbakir:'DBAKIR'};
+function canliOran(h,k){ const L=LIVE[h.id+'|'+k.kosu]; if(!L||Date.now()-L.ts>150000) return null; const gerek=k.atlar.filter(a=>!a.kosmaz&&a.agf>0); if(gerek.length<5||gerek.some(a=>!(L.g[a.no]>0))) return null; return L; }
+function trDk(saat){ const n=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Istanbul'})); return parseInt(saat.slice(0,2))*60+parseInt(saat.slice(3,5))-(n.getHours()*60+n.getMinutes()+n.getSeconds()/60); }
+function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=document.createElement('div'); el.id='canliPill'; el.style.cssText='position:fixed;left:8px;bottom:8px;z-index:50;background:#14532d;color:#fff;border-radius:999px;padding:5px 11px;font-size:12px;opacity:.93;pointer-events:none'; document.body.appendChild(el); }
+  if(!LIVES.t){ el.style.display=LIVES.hata?'block':'none'; el.style.background='#7f1d1d'; el.textContent=LIVES.hata?'Canlı oran alınamadı':''; return; }
+  el.style.display='block'; el.style.background='#14532d'; el.textContent='● CANLI '+LIVES.t+(LIVES.kosu?' · '+LIVES.kosu:''); }
+async function canliTick(){
+  if(!VERI||GUN!==trBugun()||document.hidden) return;
+  const hedef=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.sonuc||!k.saat) return; const dk=trDk(k.saat); if(dk<=45&&dk>=-15) hedef.push({h,k,dk}); }));
+  if(!hedef.length){ LIVES.t=null; LIVES.hata=null; canliPill(); return; }
+  try{
+    const d=GUN.replace(/-/g,'/'), ck=await (await fetch(`${PROXY}/muhtemeller/s/${d}/checksum.json?cdn=0&_=${Math.floor(Date.now()/5000)}`)).json();
+    let degisti=false;
+    await Promise.all(hedef.map(async ({h,k,dk})=>{
+      const key=(HIPKEY[h.id]||h.id.toUpperCase())+'-'+k.kosu, r=(ck.runs||{})[key]; if(!r) return;
+      const j=await (await fetch(`${PROXY}/muhtemeller/s/${d}/${key}-${r[0]}.json`)).json(); const m=(j.data||{}).muhtemeller||{}; const g={};
+      (m.bahisler||[]).forEach(b=>{ if(b.isGanyan) (b.muhtemeller||[]).forEach(x=>{ const v=parseFloat(String(x.G).replace(',','.')); if(!x.K&&v>0) g[parseInt(x.S1)]=v; }); });
+      if(!Object.keys(g).length) return;
+      const onc=LIVE[h.id+'|'+k.kosu]; if(!onc||JSON.stringify(onc.g)!==JSON.stringify(g)) degisti=true;
+      LIVE[h.id+'|'+k.kosu]={g,durum:m.DURUM,ts:Date.now()};
+    }));
+    const yak=hedef.slice().sort((a,b)=>Math.abs(a.dk)-Math.abs(b.dk))[0], L=LIVE[yak.h.id+'|'+yak.k.kosu];
+    LIVES.t=new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'}); LIVES.hata=null; LIVES.kosu=L?`${yak.h.ad} ${yak.k.kosu}. koşu · ${L.durum==='AÇIK'?'bahis açık':'bahis '+String(L.durum||'?').toLowerCase()}`:'';
+    canliPill();
+    if(degisti){ const a=document.activeElement; if(a&&a.classList&&a.classList.contains('oran')) return;
+      try{ if(cur&&cur.k) hesapGoster(); }catch(e){} try{ renderSecim(); }catch(e){} try{ tumModel(); }catch(e){} try{ if(typeof egzCiz==='function') egzCiz(); }catch(e){} try{ besliYukle(); }catch(e){} }
+  }catch(e){ LIVES.hata=String(e); LIVES.t=null; canliPill(); }
+}
+setInterval(canliTick,10000); setTimeout(canliTick,3000);
 setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){

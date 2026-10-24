@@ -201,19 +201,24 @@ def z6_doldur(obj):
             from . import g1v3 as _V3; _c3 = _V3.yukle()
         except Exception as e:
             print("v3 yükleme hatası:", repr(e))
+        c2 = None
         if _c3:
             obj["w0_g1"] = _c3["alfa"]; obj["a_g1"] = [round(x, 4) for x in _c3["gam"]]; obj["g1_surum"] = "v3"
+            ii = _c3["i_lp2"]; c2 = _c3["wJ"][ii] / _c3["sdJ"][ii]; obj["lp2_g1"] = round(c2, 6)      # canlı mod: z6b = z6 - c2*log(p_agf)^2; tarayıcı güncel oranla w0*l + c2*l^2 + z6b hesaplar
         elif os.path.exists(YOL3):
             c = json.load(open(YOL3)); obj["w0_g1"] = c["alfa"]; obj["a_g1"] = [round(x, 4) for x in c["gam"]]; obj["g1_surum"] = "v2"
         for h in obj["hipodromlar"]:
             for k in h["kosular"]:
-                if k.get("sonuc") or all(a.get("z6") is not None for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")):
+                if k.get("sonuc") or all(a.get("z6") is not None and (c2 is None or a.get("z6b") is not None) for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")):
                     continue
                 zz = z6(k.get("atlar", []), t)
                 if zz:
+                    at_ = [a for a in k["atlar"] if a.get("agf") and not a.get("kosmaz")]; tot_ = sum(a["agf"] for a in at_)
                     for a in k["atlar"]:
                         if a["no"] in zz:
                             a["z6"] = round(zz[a["no"]], 4)
+                            if c2 is not None:
+                                a["z6b"] = round(zz[a["no"]] - c2 * math.log(max(a["agf"] / tot_, 1e-6)) ** 2, 4)
     except Exception as e:
         print("z6 doldurma hatası:", repr(e))
 

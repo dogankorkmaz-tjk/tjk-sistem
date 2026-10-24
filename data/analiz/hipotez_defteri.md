@@ -730,3 +730,6 @@ vhs-medya(-cdn).tjk.org GET 200 veriyor ama Access-Control-Allow-Origin yalnız 
 
 ## 2026-10-24 20:15 — Geç kupon penceresi uzatıldı (sonuç görülmeden)
 Doğan: start saati geçse bile atların starta girmesi uzuyor, bahis o sürede açık. Geç kupon artık "start'a 3 dk kala donar" yerine, TJK muhtemel durumu AÇIK olduğu sürece (start saatinden en fazla 10 dk sonrasına kadar) son AÇIK anlığıyla güncellenir; bahis kapanınca (durum AÇIK değil) son hesap kalır. Pencere başı değişmedi (30 dk kala).
+
+## 2026-10-24 20:40 — Canlı mod (altyapı)
+Site, TJK muhtemel ganyanını Cloudflare Worker (tjk-proxy) üzerinden start'a 45 dk kala – 15 dk sonrasına kadar 10 sn'de bir okur; G1-S v3 puanı z6b (oranlardan bağımsız kısım, sabah hesaplanır) + w0·log p + lp2·log p² ile telefonda yeniden hesaplanır (python karşılaştırması: fark 1e-5). Kupon/tabela/üçlü ekranları bu olasılığı kullanır. Model kuralı değişmedi; yalnız girdi sabah AGF yerine canlı ganyan.
