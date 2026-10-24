@@ -632,3 +632,16 @@ Kullanıcı sıralı 5'li ekranında eski G1-S'yi gördü. Neden: (1) besli._ola
 
 ## 2026-10-24 14:30 — Site hatası: G1-S (ana model) tabela/5'li ekranlarında görünmüyordu
 Neden: hesapla() G1-S olasılığını yalnız koşudaki TÜM atlar (koşmayan/AGF'siz dahil) z6 taşıyorsa üretiyordu; koşmayan at z6 almadığı için bu koşularda G1-S bloğu hiç çizilmiyordu (ör. Ankara 3: 11 attan 1'i). Düzeltme: koşan atlar (idx) için z6 yeterli. Ayrıca tabela ekranında G1-S bloğu en üste alındı ve "G1-S v3 (ana model)" etiketlendi. Sunucu tarafı (kuponlar, ölçüm) bu hatadan etkilenmedi; yalnızca sitedeki gösterim.
+
+## 2026-10-24 17:30 — "Zorlanma/korunma" hipotezi (jokey röportajı) — ÖN KAYIT
+Hipotez (jokey Selim Kaya): (H1) son düzlükte çok kırbaç/zorlanma → atın SONRAKİ koşusu beklenenden kötü; (H2) şansı bittiğinde zorlanmayan (korunan) at → sonraki koşusu beklenenden iyi; piyasa bunu eksik fiyatlar.
+Veri: data/sonuclar (2023-01..2026-10, temiz koşular), derece_sn zamanı. Doğrudan kırbaç/split verisi YOK → vekil göstergeler (önceden yazıldı):
+ HP1 (sıkı bitiş): atın önündeki veya arkasındaki atla zaman farkı ≤0,10 sn (iki taraftan en küçüğü).
+ HP2 (dar galibiyet): kazananın 2. ata farkı ≤0,15 sn (yalnız kazanan at).
+ EZ (korunma adayı): piyasa sırası ≤3 VE sıra ≥5 VE kazanandan zaman kaybı ≥%1,5.
+Sonuç ölçütü (atın sonraki başlangıcı, ≤90 gün içinde): fazla kazanma = kazandi − p_piyasa(kapanış); ek: ganyan 1 TL getiri−1. Karşılaştırma: aynı önceki-koşu piyasa sırası (1,2,3,4-6,7+) katmanları içinde bayraklı − bayraksız ortalama fark; gün kümeli bootstrap (800); 3 birincil hipotez → %98,3 GA (Bonferroni) de raporlanır. Beklenen yönler: HP1 <0, HP2 <0, EZ >0. Eşikler sonuca bakılarak değiştirilmez. Ek betimleme (karar dışı): sürekli sıkılık ve zaman kaybı eğrileri.
+Karar: yön beklenene uygun VE %98,3 GA sıfırı dışlıyorsa → v3'e özellik adayı (ayrıca ileri-yürüyüş log-kaybı testi); aksi halde eklenmez.
+### SONUÇ (2026-10-24) — 170.456 önceki→sonraki başlangıç çifti (2023-2026, ≤90 gün); bayrak sayıları HP1 51.054, HP2 6.023, EZ 11.172
+Fazla kazanma farkı (bayraklı − bayraksız, piyasa-sırası katmanlı) [%95 GA] / %98,3 GA: HP1 −0,0022 [−0,0053;+0,0010] / [−0,0055;+0,0013] (beklenen <0 → yön uyuyor, anlamsız) | HP2 −0,0039 [−0,0128;+0,0045] (yön uyuyor, anlamsız) | EZ −0,0016 [−0,0078;+0,0049] (beklenen >0 → yön TERS, anlamsız).
+Getiri (1 TL ganyan) farkları: HP1 +0,021 [−0,008;+0,051], HP2 −0,032 [−0,090;+0,027], EZ −0,016 [−0,069;+0,038] — hepsi sıfırı kapsıyor.
+Karar: %98,3 GA hiçbir hipotezde sıfırı dışlamıyor → bu vekillerle zorlanma/korunma etkisi tespit edilmedi; v3'e özellik EKLENMEZ. Sınır: kırbaç sayısı/gerçek zorlanma verisi yok; vekiller zayıf (HP1 ve EZ gürültülü). HP1'in 51 bin örnekte etkiyi ±0,003 (kazanma olasılığı) hassasiyetiyle dışlaması: piyasaya göre >%0,3 puan fark yok. Jokey-özgü (ör. Selim Kaya) ayrımı yapılmadı; jokey bazlı veri ince.
