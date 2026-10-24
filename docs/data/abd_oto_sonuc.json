@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-24 16:10 UTC",
- "kayitli_kosu": 629,
- "eslesmeyen_kosu": 413,
+ "uretim": "2026-10-24 16:26 UTC",
+ "kayitli_kosu": 636,
+ "eslesmeyen_kosu": 418,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 359,
- "kosu": 216,
+ "bahis": 361,
+ "kosu": 218,
  "isabet": 28,
- "roi": 1.268,
+ "roi": 1.261,
  "ga95": [
-  0.786,
-  1.814
+  0.779,
+  1.803
  ],
  "ulke": {
   "abd": {
-   "bahis": 219,
-   "roi": 1.076
+   "bahis": 220,
+   "roi": 1.071
   },
   "birlesik-krallik": {
-   "bahis": 58,
-   "roi": 2.057
+   "bahis": 59,
+   "roi": 2.022
   },
   "fransa": {
    "bahis": 25,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 437,
-  "kosu": 210,
+  "bahis": 442,
+  "kosu": 212,
   "isabet": 50,
-  "roi": 0.872,
+  "roi": 0.862,
   "ga95": [
-   0.645,
-   1.151
+   0.636,
+   1.13
   ]
  },
  "bahis_t1": {
-  "bahis": 454,
-  "kosu": 207,
+  "bahis": 459,
+  "kosu": 209,
   "isabet": 57,
-  "roi": 1.04,
+  "roi": 1.028,
   "ga95": [
-   0.676,
-   1.445
+   0.661,
+   1.436
   ]
  },
  "bahis_t3": {
-  "bahis": 444,
-  "kosu": 203,
-  "isabet": 52,
-  "roi": 0.894,
+  "bahis": 450,
+  "kosu": 205,
+  "isabet": 53,
+  "roi": 0.901,
   "ga95": [
-   0.5,
+   0.528,
    1.408
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 8,
-   "at": "BLOOD OF EDEN",
-   "q": 0.099,
-   "g": 12.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Fairview",
-   "kosu": 8,
-   "at": "CHRONICLESOFNANIA",
-   "q": 0.068,
-   "g": 19.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Greyville",
@@ -391,6 +373,15 @@
   },
   {
    "gun": "2026-10-24",
+   "pist": "Belmont Park",
+   "kosu": 1,
+   "at": "MIDNIGHTLOVEAFFAIR",
+   "q": 0.196,
+   "g": 7.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
    "pist": "Doncaster",
    "kosu": 1,
    "at": "LUNA A INBHIR NIS",
@@ -423,6 +414,15 @@
    "at": "CAVOLO NERO",
    "q": 0.098,
    "g": 12.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Doncaster",
+   "kosu": 8,
+   "at": "INVINCIBLE BOY",
+   "q": 0.041,
+   "g": 37.5,
    "kazandi": false
   }
  ]
