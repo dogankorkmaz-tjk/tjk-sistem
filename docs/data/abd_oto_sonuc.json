@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 19:55 UTC",
- "kayitli_kosu": 684,
- "eslesmeyen_kosu": 457,
+ "uretim": "2026-10-24 20:08 UTC",
+ "kayitli_kosu": 689,
+ "eslesmeyen_kosu": 459,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 378,
- "kosu": 227,
- "isabet": 28,
- "roi": 1.204,
+ "bahis": 380,
+ "kosu": 230,
+ "isabet": 29,
+ "roi": 1.228,
  "ga95": [
-  0.7,
-  1.733
+  0.758,
+  1.742
  ],
  "ulke": {
   "abd": {
-   "bahis": 237,
-   "roi": 0.994
+   "bahis": 239,
+   "roi": 1.033
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 458,
-  "kosu": 221,
-  "isabet": 53,
-  "roi": 0.858,
+  "bahis": 462,
+  "kosu": 224,
+  "isabet": 54,
+  "roi": 0.875,
   "ga95": [
-   0.64,
-   1.124
+   0.659,
+   1.134
   ]
  },
  "bahis_t1": {
-  "bahis": 480,
-  "kosu": 218,
+  "bahis": 482,
+  "kosu": 221,
   "isabet": 60,
-  "roi": 1.009,
+  "roi": 1.004,
   "ga95": [
-   0.654,
-   1.406
+   0.648,
+   1.4
   ]
  },
  "bahis_t3": {
-  "bahis": 472,
-  "kosu": 214,
-  "isabet": 57,
-  "roi": 0.887,
+  "bahis": 476,
+  "kosu": 217,
+  "isabet": 58,
+  "roi": 0.903,
   "ga95": [
-   0.532,
-   1.382
+   0.558,
+   1.393
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "GLAMOUR N GLITZ",
-   "q": 0.049,
-   "g": 47.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Keeneland",
-   "kosu": 3,
-   "at": "UPSIDE OUT",
-   "q": 0.111,
-   "g": 30.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Keeneland",
@@ -397,6 +379,24 @@
    "q": 0.077,
    "g": 20.25,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 6,
+   "at": "GRAND YAUPON",
+   "q": 0.281,
+   "g": 6.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 6,
+   "at": "JUST FOR PIPA",
+   "q": 0.112,
+   "g": 11.3,
+   "kazandi": true
   },
   {
    "gun": "2026-10-24",
