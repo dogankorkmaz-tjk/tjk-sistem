@@ -1259,7 +1259,7 @@ function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=d
   el.style.display='block'; el.style.background='#14532d'; el.textContent='● CANLI '+LIVES.t+(LIVES.kosu?' · '+LIVES.kosu:''); }
 async function canliTick(){
   if(!VERI||GUN!==trBugun()||document.hidden) return;
-  const hedef=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.sonuc||!k.saat) return; const dk=trDk(k.saat); if(dk<=15&&dk>=-10) hedef.push({h,k,dk}); }));
+  const hedef=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.sonuc||!k.saat) return; const dk=trDk(k.saat); { const L0=LIVE[h.id+'|'+k.kosu]; if(dk<=15&&dk>=-60&&!(L0&&L0.durum&&L0.durum!=='AÇIK'&&dk<0)) hedef.push({h,k,dk}); } }));
   if(!hedef.length){ LIVES.t=null; LIVES.hata=null; canliPill(); return; }
   const sira=hedef.filter(x=>x.dk<=5||!(LIVE[x.h.id+'|'+x.k.kosu]&&Date.now()-LIVE[x.h.id+'|'+x.k.kosu].ts<55000));   // 15-5 dk: dakikada bir, son 5 dk ve sonrası: 10 sn
   if(!sira.length) return;

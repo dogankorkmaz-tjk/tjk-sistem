@@ -267,7 +267,7 @@ def _gec_ortak(obj):
     return MI, c3, _dt.date.fromisoformat(tarih), simdi_dk, sn
 
 
-def gec_p(obj, h, k, ort, kapanis_dk=-10.0, pencere_dk=30.0):
+def gec_p(obj, h, k, ort, kapanis_dk=-60.0, pencere_dk=30.0):
     """Tek koşu için geç olasılıklar: (at, atc, pm, p, son, dk) ya da None. p = G1-S v3 (girdi: canlı muhtemel ganyan)."""
     from . import g1v3 as _V3
     MI, c3, t, simdi_dk, sn = ort
@@ -297,7 +297,7 @@ def gec_p(obj, h, k, ort, kapanis_dk=-10.0, pencere_dk=30.0):
     return at, atc, pm, p, son, dk
 
 
-def gec_guncelle(obj, kapanis_dk=-10.0, pencere_dk=30.0):
+def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
     """GEÇ KUPON (24 Ekim 2026, Doğan: bayide start'a 5 dk kala oynuyor): yarışa kalan süre [kapanis_dk, pencere_dk] ise, TJK canlı muhtemel ganyanıyla
     (data/muh, vhs.tjk.org) G1-S v3'ü backtest'teki girdiyle (kapanış ganyanı ~ muhtemel ganyan) yeniden çalıştırır ve c['gec']'e yazar.
     kapanis_dk altında DONAR (artık güncellenmez). Sabah/AGF kuponu ayrı kalır. Ön kayıt: hipotez_defteri 2026-10-24 21:30."""

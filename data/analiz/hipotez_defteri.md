@@ -733,3 +733,6 @@ Doğan: start saati geçse bile atların starta girmesi uzuyor, bahis o sürede 
 
 ## 2026-10-24 20:40 — Canlı mod (altyapı)
 Site, TJK muhtemel ganyanını Cloudflare Worker (tjk-proxy) üzerinden start'a 45 dk kala – 15 dk sonrasına kadar 10 sn'de bir okur; G1-S v3 puanı z6b (oranlardan bağımsız kısım, sabah hesaplanır) + w0·log p + lp2·log p² ile telefonda yeniden hesaplanır (python karşılaştırması: fark 1e-5). Kupon/tabela/üçlü ekranları bu olasılığı kullanır. Model kuralı değişmedi; yalnız girdi sabah AGF yerine canlı ganyan.
+
+## 2026-10-24 20:45 — Geç kupon/canlı mod penceresi: süre sınırı yok, bahis kapanınca durur
+Ertelemeler 15 dk'yı bulabildiği için "start+10 dk" sınırı kaldırıldı: izleme bahis AÇIK olduğu sürece sürer (güvenlik tavanı start+60 dk), durum AÇIK dışına geçince durur. Kural girdisi/model değişmedi.

@@ -117,8 +117,10 @@ def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
                         kay["sonuc"] = {"sira": {str(n): s for n, s in r.items()}, "ganyan": {str(n): v for n, v in g.items()}}
                         yazilan += 1
                 continue
-            if dk is None or not (-12 <= dk <= pencere_dk):
+            if dk is None or not (-60 <= dk <= pencere_dk):
                 continue
+            if dk < 0 and kay["anlik"] and kay["anlik"][-1].get("durum") not in ("AÇIK", None):
+                continue                                     # bahis kapandı: izlemeyi bırak (ertelemelerde 15 dk'yı bulabilir; açık kaldığı sürece sürer)
             run = _json(f"{CDN}{yol}/{key}-{runs[0]}.json")
             if run and run.get("success"):
                 g, r, dr, fav = _ganyan(run)
