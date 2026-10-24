@@ -650,6 +650,12 @@ def hizli(t):
     agf_ekle(c)
     print("agf_zaman satırı:", agf_zaman_yaz(c))
     try:
+        from . import muhtemeller as MUH
+        MUH.topla(t.isoformat(), pencere_dk=30, yalniz_yurtdisi=False)      # canlı muhtemel ganyan (yurtiçi dahil) -> geç kupon girdisi
+        print("geç kupon:", BS.gec_guncelle(c))
+    except Exception as e:
+        print("geç kupon hatası:", repr(e))
+    try:
         from . import piyasa_zaman as PZ
         print("piyasa_zaman satırı:", PZ.topla(t.isoformat()))
     except Exception as e:

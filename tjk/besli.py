@@ -234,6 +234,81 @@ def _ekle_devir(c, at, pp, P, simdi):
                               **({"g1v": G1V["s"]} if G1V["s"] else {})})
 
 
+def _kup_gec(model, B, p, at, Wp, Tp, GGm, g1v, sn):
+    kp = kupon_g(p, B, GGm)
+    if not kp:
+        return None
+    sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
+    return {"model": model, "butce": B, "kombinasyon": v, "bedel": round(v * BIRIM, 2), "bedel_gecerli": round(v * BIRIM, 2),
+            "ayaklar": [[at[i]["no"] for i in s_] for s_ in sets], "isimler": [{str(at[i]["no"]): at[i]["at"] for i in s_} for s_ in sets],
+            "tutma_model": round(pm_, 5), "tutma_piyasa": round(pq, 5), "oran": round(pm_ / max(pq, 1e-9), 3), "eklendi": sn, "surum": 2, **({"g1v": g1v} if g1v else {})}
+
+
+def gec_guncelle(obj, kapanis_dk=3.0, pencere_dk=30.0):
+    """GEÇ KUPON (24 Ekim 2026, Doğan: bayide start'a 5 dk kala oynuyor): yarışa kalan süre [kapanis_dk, pencere_dk] ise, TJK canlı muhtemel ganyanıyla
+    (data/muh, vhs.tjk.org) G1-S v3'ü backtest'teki girdiyle (kapanış ganyanı ~ muhtemel ganyan) yeniden çalıştırır ve c['gec']'e yazar.
+    kapanis_dk altında DONAR (artık güncellenmez). Sabah/AGF kuponu ayrı kalır. Ön kayıt: hipotez_defteri 2026-10-24 21:30."""
+    import datetime as _dt
+    from . import ortak as _O, g1 as _G1, g1v3 as _V3
+    tarih = obj["tarih"]; yol = os.path.join(VERI, tarih + ".json"); my = os.path.join(KOK, "data", "muh", tarih + ".json")
+    if not (os.path.exists(yol) and os.path.exists(my)):
+        return 0
+    kay = json.load(open(yol, encoding="utf-8")); M = json.load(open(my, encoding="utf-8")); sn = _O.tr_simdi(); simdi_dk = sn.hour * 60 + sn.minute + sn.second / 60
+    c3 = _V3.yukle()
+    if not c3:
+        return 0
+    try:
+        _G1.z6_doldur(obj)
+    except Exception as e:
+        print("z6 hatası (geç):", repr(e))
+    MI = {}
+    for _k, _v in M.items():
+        _sl = str(_v.get("slug") or "").split("-")[0]; MI[(_sl, _v.get("kosu"))] = _v
+        MI[(str(_v.get("hipodrom") or "").lower(), _v.get("kosu"))] = _v
+    MI.update({("diyarbakir", kk[1]): vv for kk, vv in list(MI.items()) if kk[0] in ("dbakir", "diyarbakir")})
+    t = _dt.date.fromisoformat(tarih); g1v = obj.get("g1_surum"); n = 0
+    for h in obj["hipodromlar"]:
+        for k in h["kosular"]:
+            c = kay.get(f"{h['id']}|{k['kosu']}")
+            if not c or "sonuc" in c or k.get("sonuc"):
+                continue
+            try:
+                dk = int(k["saat"][:2]) * 60 + int(k["saat"][3:5]) - simdi_dk
+            except Exception:
+                continue
+            if dk < kapanis_dk or dk > pencere_dk:
+                continue
+            m = MI.get((h["id"], k["kosu"]))
+            an = [x for x in (m or {}).get("anlik", []) if x.get("durum") == "AÇIK" and x.get("g")]
+            if not an or an[-1].get("dk") is None or an[-1]["dk"] - dk > 10:
+                continue                                         # anlık yok ya da 10 dk'dan eski
+            son = an[-1]; at = [a for a in k["atlar"] if a.get("agf") and not a.get("kosmaz")]
+            g = [son["g"].get(str(a["no"])) for a in at]
+            if len(at) < 5 or any(x is None or x <= 0 for x in g):
+                continue
+            inv = [1 / x for x in g]; z = sum(inv); pm = [x / z for x in inv]
+            atc = [{**a, "agf": 100 * q} for a, q in zip(at, pm)]
+            zz = _V3.z6(atc, t, c3)
+            if not zz:
+                continue
+            sc = [obj["w0_g1"] * math.log(max(q, 1e-6)) + zz[a["no"]] for q, a in zip(pm, atc)]
+            mx = max(sc); e = [math.exp(x - mx) for x in sc]; zs = sum(e); p = [x / zs for x in e]
+            GGm = obj.get("a_g1"); Wp, Tp = _W(pm, G_P); kup = []
+            for B in BUTCELER_G:
+                q = _kup_gec("G1-S-G (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
+                if q: kup.append(q)
+            if c.get("devir"):
+                for B in (96, 150, 600):
+                    q = _kup_gec("Devir-G1S (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
+                    if q: kup.append(q)
+            if kup:
+                c["gec"] = {"t": son["t"], "dk": round(dk, 1), "kaynak": "muhtemel ganyan", "kuponlar": kup, "hesap": sn.strftime("%H:%M:%S")}; n += 1
+    json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    if n:
+        ozet_yaz(tarih)
+    return n
+
+
 def guncelle(obj, simdi=None):
     tarih = obj["tarih"]; os.makedirs(VERI, exist_ok=True)
     try:
@@ -315,7 +390,7 @@ def guncelle(obj, simdi=None):
                         kazanan = o[~o.tur.str.contains("DEVİR")]
                         odeme = float(kazanan.tutar.max()) if len(kazanan) else 0.0
                         c["ilk5"] = ilk5; c["odeme"] = odeme; c["sonuc"] = True
-                        for q in c["kuponlar"]:
+                        for q in c["kuponlar"] + (c.get("gec") or {}).get("kuponlar", []):
                             q["isabet"] = all(ilk5[i] in q["ayaklar"][i] for i in range(5))
                             q["kazanc"] = odeme if q["isabet"] else 0.0
     json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
@@ -328,7 +403,9 @@ def ozet_yaz(tarih):
         for c in json.load(open(y, encoding="utf-8")).values():
             if not c.get("sonuc"):
                 continue
-            for q in c["kuponlar"]:
+            for q in c["kuponlar"] + (c.get("gec") or {}).get("kuponlar", []):
+                if "isabet" not in q:
+                    continue
                 for grup in ("hepsi", "onerilen"):
                     if grup == "onerilen" and q["oran"] < ESIK_ORAN:
                         continue
