@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 19:15 UTC",
- "kayitli_kosu": 677,
- "eslesmeyen_kosu": 453,
+ "uretim": "2026-10-24 19:27 UTC",
+ "kayitli_kosu": 682,
+ "eslesmeyen_kosu": 457,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 370,
- "kosu": 224,
+ "bahis": 374,
+ "kosu": 225,
  "isabet": 28,
- "roi": 1.23,
+ "roi": 1.217,
  "ga95": [
-  0.74,
-  1.749
+  0.718,
+  1.742
  ],
  "ulke": {
   "abd": {
-   "bahis": 229,
-   "roi": 1.029
+   "bahis": 233,
+   "roi": 1.011
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 452,
-  "kosu": 218,
-  "isabet": 52,
-  "roi": 0.861,
+  "bahis": 455,
+  "kosu": 219,
+  "isabet": 53,
+  "roi": 0.864,
   "ga95": [
-   0.639,
-   1.126
+   0.645,
+   1.127
   ]
  },
  "bahis_t1": {
-  "bahis": 474,
-  "kosu": 215,
-  "isabet": 59,
-  "roi": 1.013,
+  "bahis": 477,
+  "kosu": 216,
+  "isabet": 60,
+  "roi": 1.015,
   "ga95": [
-   0.653,
-   1.412
+   0.663,
+   1.411
   ]
  },
  "bahis_t3": {
-  "bahis": 465,
-  "kosu": 211,
-  "isabet": 56,
-  "roi": 0.892,
+  "bahis": 468,
+  "kosu": 212,
+  "isabet": 57,
+  "roi": 0.895,
   "ga95": [
-   0.53,
+   0.54,
    1.393
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 4,
-   "at": "GODDESS OF BEAUTY",
-   "q": 0.21,
-   "g": 8.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "HIT MUSIC",
-   "q": 0.037,
-   "g": 41.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "SWEET TASTE",
-   "q": 0.142,
-   "g": 10.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-23",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "LOYALIST",
-   "q": 0.071,
-   "g": 20.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-23",
    "pist": "Gulfstream",
@@ -423,6 +387,42 @@
    "at": "POWER TO GLORY",
    "q": 0.016,
    "g": 218.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 5,
+   "at": "MACY'S MISCHIEF",
+   "q": 0.065,
+   "g": 48.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 5,
+   "at": "GIOVANNI ALFONSO",
+   "q": 0.04,
+   "g": 41.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 5,
+   "at": "SANGARETTE",
+   "q": 0.121,
+   "g": 15.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Keeneland",
+   "kosu": 5,
+   "at": "LINCOLN COURT",
+   "q": 0.077,
+   "g": 20.25,
    "kazandi": false
   }
  ]
