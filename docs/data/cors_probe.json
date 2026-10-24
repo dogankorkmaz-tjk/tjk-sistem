@@ -1,0 +1,78 @@
+{
+ "checksum|https://example.com|GET": {
+  "kod": 200,
+  "cors": {
+   "Content-Type": "application/json",
+   "Vary": "Accept-Encoding",
+   "Access-Control-Allow-Origin": "https://vhs.tjk.org",
+   "Access-Control-Max-Age": "86400",
+   "Cache-Control": "public, must-revalidate, proxy-revalidate, max-age=10s"
+  },
+  "boyut": 3582
+ },
+ "checksum|https://example.com|OPTIONS": {
+  "kod": 405,
+  "cors": {
+   "Content-Type": "text/html"
+  },
+  "boyut": 166
+ },
+ "checksum|https://github.io|GET": {
+  "kod": 200,
+  "cors": {
+   "Content-Type": "application/json",
+   "Vary": "Accept-Encoding",
+   "Access-Control-Allow-Origin": "https://vhs.tjk.org",
+   "Access-Control-Max-Age": "86400",
+   "Cache-Control": "public, must-revalidate, proxy-revalidate, max-age=10s"
+  },
+  "boyut": 3582
+ },
+ "checksum|https://github.io|OPTIONS": {
+  "kod": 405,
+  "cors": {
+   "Content-Type": "text/html"
+  },
+  "boyut": 166
+ },
+ "cdn_kok|https://example.com|GET": {
+  "kod": 200,
+  "cors": {
+   "Content-Type": "application/json",
+   "vary": "Accept-Encoding",
+   "access-control-allow-origin": "https://vhs.tjk.org",
+   "access-control-max-age": "86400",
+   "cache-control": "public, must-revalidate, proxy-revalidate, max-age=10s",
+   "Server": "MerlinCDN"
+  },
+  "boyut": 3582
+ },
+ "cdn_kok|https://example.com|OPTIONS": {
+  "kod": 405,
+  "cors": {
+   "Content-Type": "text/html",
+   "Server": "MerlinCDN"
+  },
+  "boyut": 166
+ },
+ "cdn_kok|https://github.io|GET": {
+  "kod": 200,
+  "cors": {
+   "Content-Type": "application/json",
+   "vary": "Accept-Encoding",
+   "access-control-allow-origin": "https://vhs.tjk.org",
+   "access-control-max-age": "86400",
+   "cache-control": "public, must-revalidate, proxy-revalidate, max-age=10s",
+   "Server": "MerlinCDN"
+  },
+  "boyut": 3582
+ },
+ "cdn_kok|https://github.io|OPTIONS": {
+  "kod": 405,
+  "cors": {
+   "Content-Type": "text/html",
+   "Server": "MerlinCDN"
+  },
+  "boyut": 166
+ }
+}
