@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-25 19:53 UTC",
- "kayitli_kosu": 792,
- "eslesmeyen_kosu": 534,
+ "uretim": "2026-10-25 20:10 UTC",
+ "kayitli_kosu": 798,
+ "eslesmeyen_kosu": 537,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 417,
- "kosu": 258,
+ "bahis": 421,
+ "kosu": 261,
  "isabet": 31,
- "roi": 1.205,
+ "roi": 1.194,
  "ga95": [
-  0.778,
-  1.679
+  0.761,
+  1.67
  ],
  "ulke": {
   "abd": {
-   "bahis": 272,
-   "roi": 1.04
+   "bahis": 276,
+   "roi": 1.025
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 505,
-  "kosu": 252,
+  "bahis": 506,
+  "kosu": 255,
   "isabet": 58,
-  "roi": 0.864,
+  "roi": 0.862,
   "ga95": [
-   0.655,
-   1.106
+   0.654,
+   1.105
   ]
  },
  "bahis_t1": {
-  "bahis": 534,
-  "kosu": 249,
+  "bahis": 535,
+  "kosu": 252,
   "isabet": 65,
-  "roi": 0.969,
+  "roi": 0.967,
   "ga95": [
-   0.65,
+   0.648,
    1.336
   ]
  },
  "bahis_t3": {
-  "bahis": 530,
-  "kosu": 243,
+  "bahis": 532,
+  "kosu": 246,
   "isabet": 66,
-  "roi": 0.889,
+  "roi": 0.886,
   "ga95": [
-   0.574,
-   1.323
+   0.57,
+   1.321
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 6,
-   "at": "JUST FOR PIPA",
-   "q": 0.112,
-   "g": 11.3,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "RAINBOW LIGHTNING",
-   "q": 0.077,
-   "g": 22.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "A LAST CRACK AT IT",
-   "q": 0.053,
-   "g": 25.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "JOYFUL FLIGHT",
-   "q": 0.139,
-   "g": 9.2,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-24",
    "pist": "Keeneland",
@@ -423,6 +387,42 @@
    "at": "CHARLATAN SUCCESS",
    "q": 0.093,
    "g": 17.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "AWESOME BEAT",
+   "q": 0.226,
+   "g": 5.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "NAVY STREET",
+   "q": 0.061,
+   "g": 22.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "BOWMAN'S RUN",
+   "q": 0.088,
+   "g": 20.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "HOLIDAY SNOOZE",
+   "q": 0.176,
+   "g": 9.8,
    "kazandi": false
   }
  ]
