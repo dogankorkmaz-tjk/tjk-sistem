@@ -61,9 +61,36 @@ def _nll_sira(S, sira_idx):
     return out
 
 
+def _kupon_yeni(BS, S, B):
+    """S: (5,n) sıra başına skor; besli.kupon_g'yi bu sıra ağırlıklarıyla çalıştırır (_W geçici olarak değiştirilir, her durumda geri alınır)."""
+    W = [list(np.exp(S[k] - S[k].max())) for k in range(5)]; T = [sum(w) for w in W]
+    p = W[0] / T[0]; orig = BS._W
+    BS._W = lambda p_, G=None: (W, T)
+    try:
+        return BS.kupon_g(list(p), B)
+    finally:
+        BS._W = orig
+
+
+def _kupon_karsilastir(BS, o, at, lg, S, idx):
+    """5'li kupon: mevcut G1-S (a_g1 üsleri) ve yeni sıra ağırlıkları, 48/96/150 geçerli kombinasyon bütçesi. Döner {B: [mevcut(pred,cost,hit), yeni(...)]}"""
+    out = {}
+    for B in (48, 96, 150):
+        r = []
+        for kp in (BS.kupon_g(list(np.exp(lg)), B, o["a_g1"]), _kupon_yeni(BS, S, B)):
+            if not kp: r = None; break
+            sets, pr = kp; hit = all(idx[j] in sets[j] for j in range(5))
+            r.append([round(float(pr), 5), BS.gecerli_say(sets), bool(hit)])
+        if r: out[str(B)] = r
+    return out
+
+
 def olc():
     """BASLA sonrası biten koşularda: Jason-Harville, mevcut G1-S (a_g1 üsleri), yeni D+ ; 2.–5. sıra NLL (nats/koşu)."""
-    satir = []
+    satir = []; kpy = os.path.join(KOK, "data", "ilk5", "kupon_onbellek.json"); os.makedirs(os.path.dirname(kpy), exist_ok=True)
+    try: KP = json.load(open(kpy, encoding="utf-8"))
+    except Exception: KP = {}
+    from . import besli as BS
     for y in sorted(glob.glob(os.path.join(SITE, "gun", "*.json"))):
         o = json.load(open(y, encoding="utf-8"))
         if o["tarih"] < BASLA or o.get("w0_aday") is None or not o.get("a_g1"):
@@ -92,6 +119,13 @@ def olc():
                         y3 = sum(_nll_sira(np.array([X3 @ TH3[s_] for s_ in range(5)]), idx)[1:])
                     except Exception:
                         y3 = float("nan")
+                kk = f'{o["tarih"]}|{h["id"]}|{k["kosu"]}'
+                if kk not in KP:
+                    try:
+                        Sx = np.array([X3 @ TH3[s_] for s_ in range(5)]) if not np.isnan(y3) else yeni
+                        KP[kk] = {"v": 3 if not np.isnan(y3) else 2, "k": _kupon_karsilastir(BS, o, at, lg, Sx, idx)}
+                    except Exception as e:
+                        KP[kk] = {"hata": repr(e)[:80]}
                 satir.append((o["tarih"], h["id"], k["kosu"], sum(_nll_sira(har, idx)[1:]), sum(_nll_sira(mev, idx)[1:]), sum(_nll_sira(yeni, idx)[1:]), y3))
     d = pd.DataFrame(satir, columns=["tarih", "hip", "kosu", "harville", "mevcut", "yeni", "yeni3"])
     out = {"not": "2.–5. sıra negatif log-olabilirlik toplamı (düşük iyi). fark = mevcut − yeni (+ yeni daha iyi). Ön-kayıt: 25 Ekim 2026.", "kosu": int(len(d))}
@@ -101,6 +135,14 @@ def olc():
         for _ in range(2000):
             t = s.iloc[rng.integers(0, len(s), len(s))]; b.append(t["sum"].sum() / t["n"].sum())
         out["fark"] = round(float(f.mean()), 4); out["ga"] = [round(float(np.percentile(b, 2.5)), 4), round(float(np.percentile(b, 97.5)), 4)]; out["gun"] = int(d.tarih.nunique())
+    json.dump(KP, open(kpy, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    kup = {}
+    for kk, v in KP.items():
+        for B, r in (v.get("k") or {}).items():
+            a = kup.setdefault(B, {"kosu": 0, "pred": [0.0, 0.0], "isabet": [0, 0], "maliyet": [0, 0]})
+            a["kosu"] += 1
+            for j in (0, 1): a["pred"][j] += r[j][0]; a["isabet"][j] += int(r[j][2]); a["maliyet"][j] += r[j][1]
+    out["kupon_5li"] = {B: {"kosu": a["kosu"], "mevcut": {"tutma_beklenen": round(a["pred"][0], 3), "tutan": a["isabet"][0], "ort_kombinasyon": round(a["maliyet"][0] / a["kosu"], 1)}, "yeni": {"tutma_beklenen": round(a["pred"][1], 3), "tutan": a["isabet"][1], "ort_kombinasyon": round(a["maliyet"][1] / a["kosu"], 1)}} for B, a in kup.items()}
     d3 = d.dropna(subset=["yeni3"])
     if len(d3):
         out["v3"] = {"kosu": int(len(d3)), "ort": {c: round(float(d3[c].mean()), 4) for c in ("mevcut", "yeni", "yeni3")}}
