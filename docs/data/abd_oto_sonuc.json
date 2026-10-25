@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-25 17:25 UTC",
- "kayitli_kosu": 773,
- "eslesmeyen_kosu": 525,
+ "uretim": "2026-10-25 17:56 UTC",
+ "kayitli_kosu": 777,
+ "eslesmeyen_kosu": 526,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 410,
- "kosu": 248,
+ "bahis": 413,
+ "kosu": 251,
  "isabet": 31,
- "roi": 1.226,
+ "roi": 1.217,
  "ga95": [
-  0.802,
-  1.701
+  0.792,
+  1.691
  ],
  "ulke": {
   "abd": {
-   "bahis": 265,
-   "roi": 1.067
+   "bahis": 268,
+   "roi": 1.055
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 491,
-  "kosu": 242,
-  "isabet": 56,
-  "roi": 0.871,
+  "bahis": 495,
+  "kosu": 245,
+  "isabet": 57,
+  "roi": 0.876,
   "ga95": [
-   0.657,
-   1.118
+   0.667,
+   1.12
   ]
  },
  "bahis_t1": {
-  "bahis": 518,
-  "kosu": 239,
-  "isabet": 62,
-  "roi": 0.98,
+  "bahis": 522,
+  "kosu": 242,
+  "isabet": 63,
+  "roi": 0.983,
   "ga95": [
-   0.652,
-   1.357
+   0.666,
+   1.358
   ]
  },
  "bahis_t3": {
-  "bahis": 521,
-  "kosu": 234,
-  "isabet": 63,
-  "roi": 0.888,
+  "bahis": 525,
+  "kosu": 237,
+  "isabet": 65,
+  "roi": 0.895,
   "ga95": [
-   0.563,
-   1.328
+   0.58,
+   1.333
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "INFINITE SKY",
-   "q": 0.092,
-   "g": 13.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "POWER TO GLORY",
-   "q": 0.016,
-   "g": 218.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "MACY'S MISCHIEF",
-   "q": 0.065,
-   "g": 48.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Keeneland",
@@ -378,6 +351,33 @@
    "at": "ELUSIVE YAUPON",
    "q": 0.071,
    "g": 23.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Belmont Park",
+   "kosu": 1,
+   "at": "PURLOIN",
+   "q": 0.13,
+   "g": 9.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Belmont Park",
+   "kosu": 2,
+   "at": "BENEDICTION",
+   "q": 0.077,
+   "g": 16.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Belmont Park",
+   "kosu": 2,
+   "at": "COL DE LA LOZE",
+   "q": 0.189,
+   "g": 10.4,
    "kazandi": false
   },
   {
