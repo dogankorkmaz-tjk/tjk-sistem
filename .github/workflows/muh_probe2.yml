@@ -1,0 +1,28 @@
+name: muh_probe2
+on:
+  workflow_dispatch:
+concurrency:
+  group: futbol-probe
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  calis:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests curl_cffi
+      - run: python -m tjk.muh_probe22
+      - name: Kaydet
+        run: |
+          git config user.name "tjk-bot"
+          git config user.email "tjk-bot@users.noreply.github.com"
+          git add -A data/futbol
+          if git diff --cached --quiet; then echo "değişiklik yok"; exit 0; fi
+          git commit -m "futbol probe $(date -u '+%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
+          exit 1
