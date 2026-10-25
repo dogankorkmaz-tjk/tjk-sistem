@@ -794,3 +794,6 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 - Özellik: sıralı ikili havuzundan 2. sıra marjinali s2(j)=Σ_i 1/G(i,j) (listelenen kombinasyonlar), koşu içi normalize log; ikili havuzundan ilk-2 kümesi marjinali sq(j)=Σ 1/G; listelenmeyen atlara küçük sabit. Taban D (logJason, logPiyasa; sıraya özel). Eklenen: log s2, log sq (sıraya özel katsayı).
 - BİRİNCİL: 2. sıra NLL kazancı (taban D → D+havuz), ilk %60 gün fit / son %40 test, gün-bootstrap %95 GA, alt sınır > 0. İKİNCİL: 2.–5. toplam kazanç.
 - Uyarı: kapanış havuz bilgisi yarıştan hemen önce vardır; kullanım penceresi = kapanışa yakın canlı bahis. Betik: data/analiz/egz_havuz_t13.py.
+
+## Ön-kayıt: T14 sınıf/mesafe/yüzey geçişi (25 Ekim 2026, ~04:05)
+- Taban D+ (lj, lm, dinlenme, ilk, f_dp150_m, f_jgen100, f_fig3). Eklenen (atın önceki koşusuna göre): Δmesafe=(m−m_önceki)/200 [−5,5], pist değişimi bayrağı (kum↔çim), Δhnd=(hnd−hnd_önceki)/5 [−6,6] (sınıf vekili; ikramiye/cins geçmişi elimizde yok), Δkilo [−6,6]; eksik→0. Üç test: yalnız mesafe+pist, yalnız hnd+kilo, hepsi. Bölme/ölçüt T1–T11 ile aynı (ilk %60 fit/son %40 test; 2.–5. sıra; gün-bootstrap; başarı: alt sınır>0). Betik: data/analiz/ilk5_t14.py.
