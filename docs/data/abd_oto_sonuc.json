@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-25 16:06 UTC",
- "kayitli_kosu": 761,
- "eslesmeyen_kosu": 515,
+ "uretim": "2026-10-25 16:26 UTC",
+ "kayitli_kosu": 765,
+ "eslesmeyen_kosu": 518,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 407,
- "kosu": 246,
+ "bahis": 409,
+ "kosu": 247,
  "isabet": 31,
- "roi": 1.235,
+ "roi": 1.229,
  "ga95": [
-  0.814,
-  1.716
+  0.806,
+  1.704
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 2.022
   },
   "fransa": {
-   "bahis": 27,
-   "roi": 1.583
+   "bahis": 29,
+   "roi": 1.474
   },
   "guney-afrika": {
    "bahis": 41,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 486,
-  "kosu": 240,
+  "bahis": 489,
+  "kosu": 241,
   "isabet": 56,
-  "roi": 0.88,
+  "roi": 0.875,
   "ga95": [
-   0.667,
-   1.127
+   0.662,
+   1.123
   ]
  },
  "bahis_t1": {
-  "bahis": 512,
-  "kosu": 237,
+  "bahis": 515,
+  "kosu": 238,
   "isabet": 62,
-  "roi": 0.991,
+  "roi": 0.985,
   "ga95": [
-   0.667,
-   1.38
+   0.66,
+   1.368
   ]
  },
  "bahis_t3": {
-  "bahis": 516,
-  "kosu": 232,
+  "bahis": 518,
+  "kosu": 233,
   "isabet": 63,
-  "roi": 0.896,
+  "roi": 0.893,
   "ga95": [
-   0.571,
-   1.343
+   0.567,
+   1.336
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "JALILA",
-   "q": 0.092,
-   "g": 37.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "TEMPLE GODDESS",
-   "q": 0.027,
-   "g": 116.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Keeneland",
@@ -423,6 +405,24 @@
    "at": "NANCY DES PLACES",
    "q": 0.121,
    "g": 15.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Saint-Cloud",
+   "kosu": 8,
+   "at": "WASABI",
+   "q": 0.189,
+   "g": 6.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Saint-Cloud",
+   "kosu": 8,
+   "at": "ILUMINE PRECIEUSE",
+   "q": 0.168,
+   "g": 7.85,
    "kazandi": false
   }
  ]
