@@ -1,0 +1,122 @@
+{
+ "2026-09-01": {
+  "ck": true,
+  "gj": true,
+  "kosu": 72,
+  "run_ornek": {
+   "key": "ANKARA-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ },
+ "2026-07-01": {
+  "ck": true,
+  "gj": true,
+  "kosu": 57,
+  "run_ornek": {
+   "key": "ISTANBUL-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ },
+ "2026-04-01": {
+  "ck": true,
+  "gj": true,
+  "kosu": 55,
+  "run_ornek": {
+   "key": "ISTANBUL-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ },
+ "2026-01-15": {
+  "ck": true,
+  "gj": true,
+  "kosu": 54,
+  "run_ornek": {
+   "key": "IZMIR-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ },
+ "2025-10-15": {
+  "ck": true,
+  "gj": true,
+  "kosu": 55,
+  "run_ornek": {
+   "key": "ISTANBUL-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ },
+ "2025-06-15": {
+  "ck": true,
+  "gj": true,
+  "kosu": 52,
+  "run_ornek": {
+   "key": "ISTANBUL-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ },
+ "2025-01-15": {
+  "ck": true,
+  "gj": true,
+  "kosu": 46,
+  "run_ornek": {
+   "key": "ISTANBUL-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ },
+ "2024-06-15": {
+  "ck": true,
+  "gj": true,
+  "kosu": 47,
+  "run_ornek": {
+   "key": "ANKARA-1",
+   "var": true,
+   "turler": [
+    "GANYAN",
+    "İKİLİ",
+    "SIRALI İKİLİ",
+    "ÇİFTE"
+   ]
+  }
+ }
+}
