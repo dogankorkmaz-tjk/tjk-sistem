@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-25 19:27 UTC",
- "kayitli_kosu": 789,
+ "uretim": "2026-10-25 19:52 UTC",
+ "kayitli_kosu": 792,
  "eslesmeyen_kosu": 533,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 416,
- "kosu": 256,
+ "bahis": 417,
+ "kosu": 259,
  "isabet": 31,
- "roi": 1.208,
+ "roi": 1.205,
  "ga95": [
-  0.783,
-  1.681
+  0.778,
+  1.679
  ],
  "ulke": {
   "abd": {
-   "bahis": 271,
-   "roi": 1.044
+   "bahis": 272,
+   "roi": 1.04
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 504,
-  "kosu": 250,
+  "bahis": 505,
+  "kosu": 253,
   "isabet": 58,
-  "roi": 0.865,
+  "roi": 0.864,
   "ga95": [
-   0.656,
-   1.108
+   0.655,
+   1.106
   ]
  },
  "bahis_t1": {
-  "bahis": 533,
-  "kosu": 247,
+  "bahis": 534,
+  "kosu": 250,
   "isabet": 65,
-  "roi": 0.971,
+  "roi": 0.969,
   "ga95": [
-   0.652,
-   1.34
+   0.65,
+   1.336
   ]
  },
  "bahis_t3": {
-  "bahis": 529,
-  "kosu": 241,
+  "bahis": 530,
+  "kosu": 244,
   "isabet": 66,
-  "roi": 0.891,
+  "roi": 0.889,
   "ga95": [
-   0.577,
-   1.325
+   0.574,
+   1.323
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 6,
-   "at": "GRAND YAUPON",
-   "q": 0.281,
-   "g": 6.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Keeneland",
@@ -351,6 +342,15 @@
    "at": "COL DE LA LOZE",
    "q": 0.189,
    "g": 10.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "EMBLAZE",
+   "q": 0.144,
+   "g": 8.8,
    "kazandi": false
   },
   {
