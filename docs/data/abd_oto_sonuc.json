@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-24 22:08 UTC",
- "kayitli_kosu": 717,
- "eslesmeyen_kosu": 476,
+ "uretim": "2026-10-25 02:12 UTC",
+ "kayitli_kosu": 724,
+ "eslesmeyen_kosu": 479,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 399,
- "kosu": 241,
+ "bahis": 405,
+ "kosu": 245,
  "isabet": 31,
- "roi": 1.259,
+ "roi": 1.241,
  "ga95": [
-  0.844,
-  1.744
+  0.832,
+  1.733
  ],
  "ulke": {
   "abd": {
-   "bahis": 258,
-   "roi": 1.096
+   "bahis": 264,
+   "roi": 1.071
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 473,
-  "kosu": 235,
-  "isabet": 55,
-  "roi": 0.862,
+  "bahis": 483,
+  "kosu": 239,
+  "isabet": 56,
+  "roi": 0.885,
   "ga95": [
-   0.651,
-   1.117
+   0.675,
+   1.132
   ]
  },
  "bahis_t1": {
-  "bahis": 498,
-  "kosu": 232,
-  "isabet": 61,
-  "roi": 0.979,
+  "bahis": 508,
+  "kosu": 236,
+  "isabet": 62,
+  "roi": 0.999,
   "ga95": [
-   0.616,
-   1.372
+   0.674,
+   1.383
   ]
  },
  "bahis_t3": {
-  "bahis": 498,
-  "kosu": 227,
-  "isabet": 60,
-  "roi": 0.873,
+  "bahis": 512,
+  "kosu": 231,
+  "isabet": 63,
+  "roi": 0.903,
   "ga95": [
-   0.539,
-   1.341
+   0.576,
+   1.361
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "CHUMMERS",
-   "q": 0.111,
-   "g": 13.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "HAMMERIN HENRY",
-   "q": 0.086,
-   "g": 23.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Belmont Park",
-   "kosu": 9,
-   "at": "BOLD JOURNEY",
-   "q": 0.141,
-   "g": 10.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Doncaster",
-   "kosu": 1,
-   "at": "LUNA A INBHIR NIS",
-   "q": 0.092,
-   "g": 23.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Doncaster",
-   "kosu": 1,
-   "at": "BOSTON DAN",
-   "q": 0.092,
-   "g": 22.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Doncaster",
-   "kosu": 2,
-   "at": "BREACHER",
-   "q": 0.079,
-   "g": 27.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Doncaster",
@@ -423,6 +369,60 @@
    "at": "BACKSTREET EMMA",
    "q": 0.111,
    "g": 15.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "EL CAPO",
+   "q": 0.113,
+   "g": 15.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "CASH THE MONEY",
+   "q": 0.198,
+   "g": 10.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 11,
+   "at": "FORESTERS EXEC",
+   "q": 0.071,
+   "g": 19.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 11,
+   "at": "SOUPER SPORTY",
+   "q": 0.157,
+   "g": 15.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 11,
+   "at": "THANK YOU INDIA",
+   "q": 0.071,
+   "g": 23.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-24",
+   "pist": "Woodbine",
+   "kosu": 11,
+   "at": "ELUSIVE YAUPON",
+   "q": 0.071,
+   "g": 23.85,
    "kazandi": false
   }
  ]
