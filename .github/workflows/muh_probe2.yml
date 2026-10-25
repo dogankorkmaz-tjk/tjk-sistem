@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests curl_cffi
-      - run: python -m tjk.muh_probe22
+      - run: python -m tjk.muh_probe2
       - name: Kaydet
         run: |
           git config user.name "tjk-bot"
