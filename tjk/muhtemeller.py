@@ -67,6 +67,16 @@ def _ganyan(run):
     return g, r, m.get("DURUM"), fav
 
 
+def _havuz(run):
+    """run JSON -> {'si': [[S1,S2,G],...], 'ik': [...]} (sıralı ikili / ikili ilk-22 kombinasyon muhtemeli; ilk-5 gölge v3 girdisi)"""
+    m = (run.get("data") or {}).get("muhtemeller") or {}; o = {}
+    for b in m.get("bahisler", []):
+        t = b.get("B")
+        if t in ("SIRALI İKİLİ", "İKİLİ"):
+            o["si" if t == "SIRALI İKİLİ" else "ik"] = [[x.get("S1"), x.get("S2"), x.get("G")] for x in (b.get("muhtemeller") or [])]
+    return o
+
+
 def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
     """Bir döngü: günün gününü okur, kaydı data/muh/<gün>.json'a ekler. Döner: yazılan snapshot sayısı."""
     simdi = _tr_simdi()
@@ -127,6 +137,12 @@ def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
                 if g:
                     kay["anlik"].append({"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "durum": dr, "g": {str(n): v for n, v in g.items()}, "fav": fav})
                     kay["anlik"] = kay["anlik"][-40:]
+                    try:
+                        hv = _havuz(run)
+                        if hv.get("si") and hv.get("ik"):
+                            kay["havuz"] = {"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "durum": dr, **hv}   # yalnız son durum (ilk5 gölge v3)
+                    except Exception:
+                        pass
                     yazilan += 1
     json.dump(D, open(dosya, "w", encoding="utf-8"), ensure_ascii=False)
     print("muh:", gun, "yazılan", yazilan, "koşu", len(D))

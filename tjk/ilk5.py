@@ -10,6 +10,29 @@ SITE = os.path.join(KOK, "docs", "data")
 BASLA = "2026-10-25"
 _K = json.load(open(os.path.join(KOK, "data", "analiz", "ilk5_katsayilar_v2.json"), encoding="utf-8"))
 TH = np.array(_K["th"]); MS = _K["ek_mu_sd"]
+_K3 = json.load(open(os.path.join(KOK, "data", "analiz", "ilk5_katsayilar_v3.json"), encoding="utf-8")); TH3 = np.array(_K3["th"])
+
+
+def _asc(x):
+    import unicodedata
+    return unicodedata.normalize("NFKD", str(x).replace("İ", "I").replace("ı", "i")).encode("ascii", "ignore").decode().lower().strip()
+
+
+def _havuz_oku(tarih):
+    """data/muh/<gün>.json -> {(hipodrom_ascii, kosu): {'si':..,'ik':..}} (tjk.muhtemeller son AÇIK/KAPALI durum)"""
+    yol = os.path.join(KOK, "data", "muh", tarih + ".json")
+    try: D = json.load(open(yol, encoding="utf-8"))
+    except Exception: return {}
+    return {(_asc(v.get("hipodrom", k.rsplit("-", 1)[0])), int(v.get("kosu"))): v["havuz"] for k, v in D.items() if v.get("havuz")}
+
+
+def _havuz_ozellik(at, hv):
+    """at: koşu atları (sırayla); hv: {'si','ik'} -> (log s2n, log sqn) dizileri"""
+    ix = {int(a["no"]): i for i, a in enumerate(at)}; n = len(at); s2 = np.zeros(n); sq = np.zeros(n)
+    for a, b, G in hv["si"]: s2[ix[int(b)]] += 1 / float(G)
+    for a, b, G in hv["ik"]: sq[ix[int(a)]] += 1 / float(G); sq[ix[int(b)]] += 1 / float(G)
+    f = lambda v: np.log((v + 1e-3 * v.mean()) / (v + 1e-3 * v.mean()).sum())
+    return f(s2), f(sq)
 
 
 def ozellik(d2, temiz, tarih):
@@ -45,6 +68,7 @@ def olc():
         o = json.load(open(y, encoding="utf-8"))
         if o["tarih"] < BASLA or o.get("w0_aday") is None or not o.get("a_g1"):
             continue
+        hvz = _havuz_oku(o["tarih"])
         for h in o["hipodromlar"]:
             for k in h["kosular"]:
                 s = k.get("sonuc")
@@ -60,8 +84,16 @@ def olc():
                 X = np.array([_x(a, lj[i], lm[i]) for i, a in enumerate(at)])
                 idx = list(np.argsort(sr)[:5])
                 yeni = np.array([X @ TH[s_] for s_ in range(5)]); mev = np.array([o["a_g1"][s_] * lg for s_ in range(5)]); har = np.array([lj for _ in range(5)])
-                satir.append((o["tarih"], h["id"], k["kosu"], sum(_nll_sira(har, idx)[1:]), sum(_nll_sira(mev, idx)[1:]), sum(_nll_sira(yeni, idx)[1:])))
-    d = pd.DataFrame(satir, columns=["tarih", "hip", "kosu", "harville", "mevcut", "yeni"])
+                y3 = float("nan")
+                hv = hvz.get((_asc(h["id"]), int(k["kosu"])))
+                if hv:
+                    try:
+                        f2, fq = _havuz_ozellik(at, hv); X3 = np.hstack([X, f2[:, None], fq[:, None]])
+                        y3 = sum(_nll_sira(np.array([X3 @ TH3[s_] for s_ in range(5)]), idx)[1:])
+                    except Exception:
+                        y3 = float("nan")
+                satir.append((o["tarih"], h["id"], k["kosu"], sum(_nll_sira(har, idx)[1:]), sum(_nll_sira(mev, idx)[1:]), sum(_nll_sira(yeni, idx)[1:]), y3))
+    d = pd.DataFrame(satir, columns=["tarih", "hip", "kosu", "harville", "mevcut", "yeni", "yeni3"])
     out = {"not": "2.–5. sıra negatif log-olabilirlik toplamı (düşük iyi). fark = mevcut − yeni (+ yeni daha iyi). Ön-kayıt: 25 Ekim 2026.", "kosu": int(len(d))}
     if len(d):
         out["ort"] = {c: round(float(d[c].mean()), 4) for c in ("harville", "mevcut", "yeni")}
@@ -69,5 +101,13 @@ def olc():
         for _ in range(2000):
             t = s.iloc[rng.integers(0, len(s), len(s))]; b.append(t["sum"].sum() / t["n"].sum())
         out["fark"] = round(float(f.mean()), 4); out["ga"] = [round(float(np.percentile(b, 2.5)), 4), round(float(np.percentile(b, 97.5)), 4)]; out["gun"] = int(d.tarih.nunique())
+    d3 = d.dropna(subset=["yeni3"])
+    if len(d3):
+        out["v3"] = {"kosu": int(len(d3)), "ort": {c: round(float(d3[c].mean()), 4) for c in ("mevcut", "yeni", "yeni3")}}
+        for ad, a_, b_ in (("fark3_mevcut", d3.mevcut, d3.yeni3), ("fark3_v2", d3.yeni, d3.yeni3)):
+            f = a_ - b_; ss = pd.DataFrame({"sum": f.groupby(d3.tarih).sum(), "n": d3.groupby("tarih").size()}); rng = np.random.default_rng(2); b = []
+            for _ in range(2000):
+                t = ss.iloc[rng.integers(0, len(ss), len(ss))]; b.append(t["sum"].sum() / t["n"].sum())
+            out["v3"][ad] = [round(float(f.mean()), 4), round(float(np.percentile(b, 2.5)), 4), round(float(np.percentile(b, 97.5)), 4)]
     json.dump(out, open(os.path.join(SITE, "ilk5_golge.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return out
