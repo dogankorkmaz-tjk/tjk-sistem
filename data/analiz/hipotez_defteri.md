@@ -819,3 +819,6 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 ## Ön-kayıt: ilk-5 gölge katman v3 canlı izleme (25 Ekim 2026, ~12:10)
 - Kural: v2 + havuz özellikleri (s2, sq), tüm havuz verili koşularla fit, donduruldu: data/analiz/ilk5_katsayilar_v3.json (betik ilk5_dondur_v3.py). Canlı: tjk/muhtemeller.py her anlık okumada sıralı ikili ve ikili ilk-22'yi koşunun "havuz" alanına (yalnız son durum) yazar; tjk/ilk5.py olc() biten koşularda mevcut / v2 / v3 NLL'ini karşılaştırır (docs/data/ilk5_golge.json → "v3": fark3_mevcut, fark3_v2). Uyarı: canlı havuz kapanıştan önceki son okumadır; eğitimde nihai (kapanış sonrası) G kullanıldı — ince bir fark, ölçüm bunu yakalar.
 - Karar: ≥300 koşu (25 Ekim sonrası, havuz verili) ve fark3_mevcut GA alt sınırı > 0 ise sıralama katmanına geçirilir; kupon/ROI ayrıca raporlanır. Katsayılar değişmez.
+
+## Ön-kayıt: T18 havuz özellikleri kazanan (1. sıra) olasılığını iyileştiriyor mu? (25 Ekim 2026, ~12:45)
+- T17 ile aynı veri/bölme (havuz verili 8.627 koşu; ilk %60 fit / son %40 test); taban D+ → D+ + (s2, sq); ölçüt 1. sıra NLL kazancı, gün-bootstrap %95 GA; başarı alt sınır > 0. Ek betimleyici: D → D+ kazancı 1. sıra. Betik: data/analiz/ilk5_t18.py.
