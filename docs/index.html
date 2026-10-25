@@ -279,6 +279,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button role="tab" id="tabKupon" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 000 4v4H4v-4a2 2 0 000-4z"/></svg>Kuponlar</button>
     <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Kanıt</button>
     <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
+    <button role="tab" id="tabCanli" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 000 11.4M17.7 6.3a8 8 0 010 11.4"/></svg>Canlı</button>
     <button role="tab" id="tabDiger" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Diğer</button>
   </div>
   <div id="digerOrtu" hidden></div>
@@ -333,6 +334,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
       <div id="oyBox"><div class="card empty">Yükleniyor…</div></div>
     </div>
   </section>
+  <section id="canli" class="sec" hidden><div id="canliIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="bolton" class="sec" hidden><div id="bolIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="jason" class="sec" hidden><div id="jasIc"><div class="card empty">Yükleniyor…</div></div></section>
 
@@ -1197,7 +1199,7 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={s5:'tabKupon',kanit:'tabAbd',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabAbd',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
 
 async function kanitYukle(){
@@ -1231,9 +1233,10 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   digerAc(false);
   const btn=TABS[ad];
-  ['tabBugun','tabKosu','tabKupon','tabAbd','tabSkor','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
+  ['tabBugun','tabKosu','tabKupon','tabAbd','tabSkor','tabCanli','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
   Object.keys(TABS).forEach(k=>{ $(k).hidden=k!==ad; });
   if(btn==='tabKupon'){ SON_KUPON=ad; sv('gm2_kupsek',ad); document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===ad)); }
+  if(ad==='canli') canliCiz();
   if(ad==='egz') egzYukle();
   if(ad==='ikili') degerYukle();
   if(ad==='tegz') tegzYukle();
@@ -1246,7 +1249,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
 }
 $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
 $('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('kanit');
-$('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
+$('tabCanli').onclick=()=>sekme('canli'); $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
 {const kg=$('knGit'); if(kg) kg.onclick=()=>sekme('kanit');}
 document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
 document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.dataset.k));
@@ -1259,7 +1262,7 @@ const PROXY='https://tjk-proxy.dqnkrkmz.workers.dev', LIVE={}, LIVES={t:null,n:0
 const HIPKEY={diyarbakir:'DBAKIR'};
 function canliOran(h,k){ const L=LIVE[h.id+'|'+k.kosu]; if(!L||Date.now()-L.ts>150000) return null; const gerek=k.atlar.filter(a=>!a.kosmaz&&a.agf>0); if(gerek.length<5||gerek.some(a=>!(L.g[a.no]>0))) return null; return L; }
 function trDk(saat){ const n=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Istanbul'})); return parseInt(saat.slice(0,2))*60+parseInt(saat.slice(3,5))-(n.getHours()*60+n.getMinutes()+n.getSeconds()/60); }
-function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=document.createElement('div'); el.id='canliPill'; el.style.cssText='position:fixed;left:8px;bottom:8px;z-index:50;background:#14532d;color:#fff;border-radius:999px;padding:5px 11px;font-size:12px;opacity:.93;pointer-events:none'; document.body.appendChild(el); }
+function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=document.createElement('div'); el.id='canliPill'; el.style.cssText='position:fixed;left:8px;bottom:8px;z-index:50;background:#14532d;color:#fff;border-radius:999px;padding:5px 11px;font-size:12px;opacity:.93;cursor:pointer'; el.onclick=()=>{ if(LIVES.t) { CANLI_SEC=LIVES.hedef||CANLI_SEC; sekme('canli'); } }; document.body.appendChild(el); }
   if(!LIVES.t){ el.style.display=LIVES.hata?'block':'none'; el.style.background='#7f1d1d'; el.textContent=LIVES.hata?'Canlı oran alınamadı':''; return; }
   el.style.display='block'; el.style.background='#14532d'; el.textContent='● CANLI '+LIVES.t+(LIVES.kosu?' · '+LIVES.kosu:''); }
 async function canliTick(){
@@ -1277,14 +1280,64 @@ async function canliTick(){
       (m.bahisler||[]).forEach(b=>{ if(b.isGanyan) (b.muhtemeller||[]).forEach(x=>{ const v=parseFloat(String(x.G).replace(',','.')); if(!x.K&&v>0) g[parseInt(x.S1)]=v; }); });
       if(!Object.keys(g).length) return;
       const onc=LIVE[h.id+'|'+k.kosu]; if(!onc||JSON.stringify(onc.g)!==JSON.stringify(g)) degisti=true;
-      LIVE[h.id+'|'+k.kosu]={g,durum:m.DURUM,ts:Date.now(),t:new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'})};
+      const hv={si:[],ik:[]}; (m.bahisler||[]).forEach(b=>{ const tur=b.B==='SIRALI İKİLİ'?'si':b.B==='İKİLİ'?'ik':null; if(tur) (b.muhtemeller||[]).forEach(x=>{ const v=parseFloat(String(x.G).replace(',','.')); if(v>0&&!x.K) hv[tur].push([parseInt(x.S1),parseInt(x.S2),v]); }); });
+      LIVE[h.id+'|'+k.kosu]={g,hv,durum:m.DURUM,ts:Date.now(),t:new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'})};
     }));
     const yak=hedef.slice().sort((a,b)=>Math.abs(a.dk)-Math.abs(b.dk))[0], L=LIVE[yak.h.id+'|'+yak.k.kosu];
-    LIVES.t=new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'}); LIVES.hata=null; LIVES.kosu=L?`${yak.h.ad} ${yak.k.kosu}. koşu · ${L.durum==='AÇIK'?'bahis açık':'bahis '+String(L.durum||'?').toLowerCase()}`:'';
+    LIVES.t=new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'}); LIVES.hata=null; LIVES.hedef=yak.h.id+'|'+yak.k.kosu; LIVES.kosu=L?`${yak.h.ad} ${yak.k.kosu}. koşu · ${L.durum==='AÇIK'?'bahis açık':'bahis '+String(L.durum||'?').toLowerCase()}`:'';
     canliPill();
     if(degisti){ const a=document.activeElement; if(a&&a.classList&&a.classList.contains('oran')) return;
-      try{ if(cur&&cur.k) hesapGoster(); }catch(e){} try{ renderSecim(); }catch(e){} try{ tumModel(); }catch(e){} try{ if(typeof egzCiz==='function') egzCiz(); }catch(e){} try{ besliYukle(); }catch(e){} }
+      try{ if(cur&&cur.k) hesapGoster(); }catch(e){} try{ renderSecim(); }catch(e){} try{ tumModel(); }catch(e){} try{ if(typeof egzCiz==='function') egzCiz(); }catch(e){} try{ besliYukle(); }catch(e){} try{ if(!$('canli').hidden) canliCiz(); }catch(e){} }
   }catch(e){ LIVES.hata=String(e); LIVES.t=null; canliPill(); }
+}
+
+// ---- CANLI SEKME: seçili koşuda oynanabilecek tüm sıralı/sırasız bahisler (model olasılığı; ikili havuzlarda canlı ödeme + birleşim). Bilgi amaçlı, tavsiye değil. ----
+let CANLI_SEC=null;
+const CB={si:{taban:0.753,C:[0.441,0.397,0.716]},ik:{taban:0.729,C:[0.570,0.442,0.711]}};   // T22 birleşim katsayıları (yaklaşık: bugün v3 özellikleri yok, G1-S olasılığı kullanılır)
+function plOlas(W,T,sira){ let pr=1,den=0; const kul=[]; for(let k=0;k<sira.length;k++){ den=T[k]; for(const u of kul) den-=W[k][u]; if(den<=1e-12) return 0; pr*=W[k][sira[k]]/den; kul.push(sira[k]); } return pr; }
+function permler(a){ if(a.length<=1) return [a]; const o=[]; a.forEach((x,i)=>permler(a.filter((_,j)=>j!==i)).forEach(r=>o.push([x,...r]))); return o; }
+function kombler(a,n){ if(n===0) return [[]]; const o=[]; for(let i=0;i<=a.length-n;i++) kombler(a.slice(i+1),n-1).forEach(r=>o.push([a[i],...r])); return o; }
+function canliCiz(){
+  const el=$('canliIc'); if(!el||!VERI) return;
+  const sig=s=>1/(1+Math.exp(-s));
+  const liste=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.saat&&!k.sonuc){ const L=LIVE[h.id+'|'+k.kosu]; liste.push({h,k,key:h.id+'|'+k.kosu,dk:trDk(k.saat),L}); } }));
+  if(GUN!==trBugun()||!liste.length){ el.innerHTML='<div class="card empty">Bugün için bitmemiş koşu yok. Canlı sekme yalnız bugünün koşularında çalışır.</div>'; return; }
+  liste.sort((a,b)=>Math.abs(a.dk)-Math.abs(b.dk));
+  const canlilar=liste.filter(x=>x.L&&Date.now()-x.L.ts<150000);
+  if(!CANLI_SEC||!liste.some(x=>x.key===CANLI_SEC)) CANLI_SEC=(canlilar[0]||liste[0]).key;
+  const cs=liste.find(x=>x.key===CANLI_SEC), {h,k,L}=cs;
+  const opt=liste.slice().sort((a,b)=>a.dk-b.dk).map(x=>`<option value="${esc(x.key)}"${x.key===CANLI_SEC?' selected':''}>${x.L&&Date.now()-x.L.ts<150000?'● ':''}${esc(x.h.ad)} ${x.k.kosu}. koşu · ${esc(x.k.saat)}</option>`).join('');
+  let s=`<div class="card"><label class="sub" for="canliSel">Koşu seç (● = canlı oran geliyor)</label><select id="canliSel" class="alan" style="width:100%">${opt}</select></div>`;
+  const live=L&&Date.now()-L.ts<150000, hs=live?hesapla(h,k):null;
+  if(!hs||hs.kaynak!=='canli'){ s+=`<div class="card empty">${esc(h.ad)} ${k.kosu}. koşu için canlı muhtemel ganyan henüz yok (TJK oranları koşuya ~15 dk kala akmaya başlar). Koşuya yaklaşınca bu sayfa kendiliğinden dolar.</div>`; el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; return; }
+  const idxs=Object.keys(hs.map).map(Number).filter(i=>hs.map[i].pg!=null), pg=idxs.map(i=>hs.map[i].pg), tp=pg.reduce((a,b)=>a+b,0);
+  const p=pg.map(v=>v/tp), a5=GMO('G1-S'), W=a5.slice(0,5).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
+  const no=j=>k.atlar[idxs[j]].no, ad=j=>k.atlar[idxs[j]].at;
+  const noj=Object.fromEntries(idxs.map((i,j)=>[k.atlar[i].no,j]));
+  const ord=p.map((v,j)=>j).sort((a,b)=>p[b]-p[a]), top=ord.slice(0,Math.min(8,p.length));
+  const rozet=(arr,sr)=>arr.map(j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`).join(sr?'<span style="color:var(--muted);margin:0 3px">›</span>':'<span style="color:var(--muted);margin:0 3px">+</span>');
+  const satir=(rows,havuz)=>`<div class="tablo"><table style="width:100%;border-collapse:collapse;font-size:13px"><tr style="text-align:left;color:var(--muted)"><th>Kombinasyon</th><th>Model</th>${havuz?'<th>Canlı ödeme</th><th>Birleşik</th><th>EV</th>':''}</tr>${rows.map(r=>`<tr style="border-top:1px solid var(--line)"><td style="padding:4px 0">${r.lbl}</td><td>${(r.p*100).toFixed(r.p<0.01?2:1)}%</td>${havuz?`<td>${r.G?r.G.toFixed(1):'—'}</td><td>${r.c!=null?(r.c*100).toFixed(1)+'%':'—'}</td><td>${r.ev!=null?r.ev.toFixed(2):'—'}</td>`:''}</tr>`).join('')}</table></div>`;
+  const kart=(baslik,not,govde)=>`<div class="card"><b>${baslik}</b><div class="sub" style="margin:2px 0 6px">${not}</div>${govde}</div>`;
+  // ikili havuzlar
+  const havuzSatir=(tur,sirali)=>{ const q={}; ((L.hv||{})[tur]||[]).forEach(([a,b,g])=>{ q[a+'-'+b]=g; });
+    const C=CB[tur].C, tab=CB[tur].taban; const rows=[];
+    kombler(top,2).forEach(c=>{ const perms=sirali?permler(c):[c]; const lst=sirali?perms:[c];
+      lst.forEach(pr=>{ const mp=sirali?plOlas(W,T,pr):plOlas(W,T,[pr[0],pr[1]])+plOlas(W,T,[pr[1],pr[0]]);
+        let G=null; if(sirali) G=q[no(pr[0])+'-'+no(pr[1])]; else G=q[no(pr[0])+'-'+no(pr[1])]||q[no(pr[1])+'-'+no(pr[0])];
+        let c2=null,ev=null; if(G){ const lq=Math.log(Math.min(Math.max(mp,1e-6),0.999)), lh=Math.log(Math.min(Math.max(tab/G,1e-6),0.999)); c2=sig(C[0]+C[1]*lq+C[2]*lh); ev=c2*G; }
+        rows.push({lbl:rozet(pr,sirali),p:mp,G,c:c2,ev}); }); });
+    rows.sort((a,b)=>(b.ev??-1)-(a.ev??-1)||b.p-a.p); return rows.slice(0,10); };
+  const havVar=((L.hv||{}).si||[]).length>0;
+  s+=`<div class="card yk"><div class="ykbas"><div class="ykno"><small>Koşu</small><b>${k.kosu}</b></div><div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat)} · güncelleme ${esc(L.t||'')} · ${esc(String(L.durum||'').toLocaleLowerCase('tr'))}</span></div></div><div class="sub">Model: G1-S olasılıkları, canlı ganyanla her 10 sn yenilenir. Bilgi amaçlıdır, bahis tavsiyesi değildir; hiçbir kural henüz kâr kanıtlamadı.</div></div>`;
+  s+=kart('Sıralı ikili (1.→2.)','Havuzdaki canlı ödeme (1 TL başına) + model×havuz birleşimi (T22, yaklaşık). EV = birleşik olasılık × ödeme; 1,00 altı beklenen kayıp.',havVar?satir(havuzSatir('si',true),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
+  s+=kart('Sırasız ikili (ilk 2, sırasız)','Aynı yöntem, “İKİLİ” havuzu.',((L.hv||{}).ik||[]).length?satir(havuzSatir('ik',false),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
+  const mod=(n,sirali)=>{ const rows=[]; kombler(top,n).forEach(c=>{ let pr=0; permler(c).forEach(pm=>{ pr+=plOlas(W,T,pm); if(sirali) rows.push({lbl:rozet(pm,1),p:plOlas(W,T,pm)}); }); if(!sirali) rows.push({lbl:rozet(c),p:pr}); }); rows.sort((a,b)=>b.p-a.p); return rows.slice(0,8); };
+  s+=kart('Sıralı üçlü (1.-2.-3.)','Yalnız model; TJK’nın bu havuzu için canlı ödeme verisi yok.',satir(mod(3,true),false));
+  s+=kart('Sırasız üçlü (ilk 3, sırasız)','Yalnız model.',satir(mod(3,false),false));
+  s+=kart('Tabela (ilk 4, sırasız)','Yalnız model.',satir(mod(4,false),false));
+  s+=kart('Sıralı 5’li','Yalnız model; çok küçük olasılıklar — kombine kupon için yukarıdaki sıralamalara bak.',satir((()=>{ const rows=[]; kombler(top,5).forEach(c=>permler(c).forEach(pm=>rows.push({lbl:rozet(pm,1),p:plOlas(W,T,pm)}))); rows.sort((a,b)=>b.p-a.p); return rows.slice(0,6); })(),false));
+  s+=`<div class="card"><b>Atlar (canlı ganyan → model)</b>${ord.map(j=>`<div class="sub" style="display:flex;gap:8px;align-items:center"><span class="no c${(no(j)-1)%16+1}">${no(j)}</span><span style="flex:1">${esc(ad(j))}</span><span>${(L.g[no(j)]||0).toFixed(1)}</span><b>${(p[j]*100).toFixed(1)}%</b></div>`).join('')}</div>`;
+  el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();};
 }
 setInterval(canliTick,10000); setTimeout(canliTick,3000);
 setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
