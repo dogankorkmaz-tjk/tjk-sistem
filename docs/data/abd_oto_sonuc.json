@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-25 21:32 UTC",
- "kayitli_kosu": 808,
- "eslesmeyen_kosu": 541,
+ "uretim": "2026-10-25 21:44 UTC",
+ "kayitli_kosu": 811,
+ "eslesmeyen_kosu": 542,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 424,
- "kosu": 267,
+ "bahis": 427,
+ "kosu": 269,
  "isabet": 31,
- "roi": 1.185,
+ "roi": 1.177,
  "ga95": [
-  0.75,
-  1.659
+  0.735,
+  1.655
  ],
  "ulke": {
   "abd": {
-   "bahis": 279,
-   "roi": 1.014
+   "bahis": 282,
+   "roi": 1.003
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,18 +35,18 @@
   }
  },
  "bahis_ani": {
-  "bahis": 511,
-  "kosu": 261,
+  "bahis": 514,
+  "kosu": 263,
   "isabet": 58,
-  "roi": 0.853,
+  "roi": 0.848,
   "ga95": [
-   0.643,
-   1.098
+   0.638,
+   1.096
   ]
  },
  "bahis_t1": {
   "bahis": 540,
-  "kosu": 258,
+  "kosu": 260,
   "isabet": 65,
   "roi": 0.958,
   "ga95": [
@@ -55,43 +55,16 @@
   ]
  },
  "bahis_t3": {
-  "bahis": 539,
-  "kosu": 252,
+  "bahis": 540,
+  "kosu": 254,
   "isabet": 66,
-  "roi": 0.875,
+  "roi": 0.873,
   "ga95": [
-   0.558,
-   1.309
+   0.557,
+   1.307
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "THIS IS USCAR",
-   "q": 0.07,
-   "g": 20.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "TIZTASTIC",
-   "q": 0.07,
-   "g": 25.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "TOUCH OF FIRE",
-   "q": 0.126,
-   "g": 11.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Santa Anita",
@@ -301,6 +274,24 @@
   },
   {
    "gun": "2026-10-25",
+   "pist": "Belmont Park",
+   "kosu": 8,
+   "at": "LIFE'S DYNAMIC",
+   "q": 0.143,
+   "g": 8.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Belmont Park",
+   "kosu": 8,
+   "at": "GREEN SENSE",
+   "q": 0.061,
+   "g": 26.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
    "pist": "Gulfstream",
    "kosu": 1,
    "at": "BABY GUN",
@@ -423,6 +414,15 @@
    "at": "GOING PLATINUM",
    "q": 0.194,
    "g": 6.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Woodbine",
+   "kosu": 9,
+   "at": "SOUPED UP",
+   "q": 0.071,
+   "g": 18.0,
    "kazandi": false
   }
  ]
