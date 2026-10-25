@@ -822,3 +822,4 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 
 ## Ön-kayıt: T18 havuz özellikleri kazanan (1. sıra) olasılığını iyileştiriyor mu? (25 Ekim 2026, ~12:45)
 - T17 ile aynı veri/bölme (havuz verili 8.627 koşu; ilk %60 fit / son %40 test); taban D+ → D+ + (s2, sq); ölçüt 1. sıra NLL kazancı, gün-bootstrap %95 GA; başarı alt sınır > 0. Ek betimleyici: D → D+ kazancı 1. sıra. Betik: data/analiz/ilk5_t18.py.
+- SONUÇ T18 (25 Ekim 2026, ~12:55), 3.491 test koşusu, 1. sıra NLL kazancı: D+ − D −0,0004 [−0,0013,+0,0005] (dinlenme/Jason ekleri kazanan için ek bilgi vermiyor, beklenen: zaten ana modelde); D+ + s2 +0,0020 [+0,0007,+0,0033]; D+ + sq +0,0055 [+0,0028,+0,0082]; D+ + s2+sq +0,0055 [+0,0026,+0,0082] → ölçüt KARŞILANDI (küçük ama anlamlı): havuz özellikleri kazananı da biraz iyileştiriyor. Betik: data/analiz/ilk5_t18.py.
