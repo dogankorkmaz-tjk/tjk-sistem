@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-25 18:25 UTC",
- "kayitli_kosu": 781,
- "eslesmeyen_kosu": 530,
+ "uretim": "2026-10-25 18:49 UTC",
+ "kayitli_kosu": 785,
+ "eslesmeyen_kosu": 532,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 413,
- "kosu": 251,
+ "bahis": 414,
+ "kosu": 253,
  "isabet": 31,
- "roi": 1.217,
+ "roi": 1.214,
  "ga95": [
-  0.792,
-  1.691
+  0.789,
+  1.686
  ],
  "ulke": {
   "abd": {
-   "bahis": 268,
-   "roi": 1.055
+   "bahis": 269,
+   "roi": 1.051
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 495,
-  "kosu": 245,
+  "bahis": 496,
+  "kosu": 247,
   "isabet": 57,
-  "roi": 0.876,
+  "roi": 0.874,
   "ga95": [
-   0.667,
-   1.12
+   0.665,
+   1.118
   ]
  },
  "bahis_t1": {
-  "bahis": 522,
-  "kosu": 242,
-  "isabet": 63,
+  "bahis": 524,
+  "kosu": 244,
+  "isabet": 64,
   "roi": 0.983,
   "ga95": [
    0.666,
-   1.358
+   1.357
   ]
  },
  "bahis_t3": {
-  "bahis": 525,
-  "kosu": 237,
-  "isabet": 65,
-  "roi": 0.895,
+  "bahis": 527,
+  "kosu": 239,
+  "isabet": 66,
+  "roi": 0.894,
   "ga95": [
-   0.58,
-   1.333
+   0.581,
+   1.331
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "GIOVANNI ALFONSO",
-   "q": 0.04,
-   "g": 41.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Keeneland",
@@ -423,6 +414,15 @@
    "at": "ILUMINE PRECIEUSE",
    "q": 0.168,
    "g": 7.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "CHARLATAN SUCCESS",
+   "q": 0.093,
+   "g": 17.45,
    "kazandi": false
   }
  ]
