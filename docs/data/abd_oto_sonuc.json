@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-25 14:28 UTC",
- "kayitli_kosu": 744,
+ "uretim": "2026-10-25 14:31 UTC",
+ "kayitli_kosu": 745,
  "eslesmeyen_kosu": 499,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 405,
- "kosu": 245,
+ "bahis": 407,
+ "kosu": 246,
  "isabet": 31,
- "roi": 1.241,
+ "roi": 1.235,
  "ga95": [
-  0.832,
-  1.733
+  0.814,
+  1.716
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 2.022
   },
   "fransa": {
-   "bahis": 25,
-   "roi": 1.71
+   "bahis": 27,
+   "roi": 1.583
   },
   "guney-afrika": {
    "bahis": 41,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 483,
-  "kosu": 239,
+  "bahis": 486,
+  "kosu": 240,
   "isabet": 56,
-  "roi": 0.885,
+  "roi": 0.88,
   "ga95": [
-   0.675,
-   1.132
+   0.667,
+   1.127
   ]
  },
  "bahis_t1": {
-  "bahis": 508,
-  "kosu": 236,
+  "bahis": 512,
+  "kosu": 237,
   "isabet": 62,
-  "roi": 0.999,
+  "roi": 0.991,
   "ga95": [
-   0.674,
-   1.383
+   0.667,
+   1.38
   ]
  },
  "bahis_t3": {
-  "bahis": 512,
-  "kosu": 231,
+  "bahis": 516,
+  "kosu": 232,
   "isabet": 63,
-  "roi": 0.903,
+  "roi": 0.896,
   "ga95": [
-   0.576,
-   1.361
+   0.571,
+   1.343
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Doncaster",
-   "kosu": 5,
-   "at": "CAVOLO NERO",
-   "q": 0.098,
-   "g": 12.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Doncaster",
-   "kosu": 8,
-   "at": "INVINCIBLE BOY",
-   "q": 0.041,
-   "g": 37.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Keeneland",
@@ -423,6 +405,24 @@
    "at": "ELUSIVE YAUPON",
    "q": 0.071,
    "g": 23.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Saint-Cloud",
+   "kosu": 5,
+   "at": "MAIA STAR",
+   "q": 0.134,
+   "g": 10.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Saint-Cloud",
+   "kosu": 5,
+   "at": "NANCY DES PLACES",
+   "q": 0.121,
+   "g": 15.25,
    "kazandi": false
   }
  ]
