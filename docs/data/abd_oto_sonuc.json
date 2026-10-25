@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-25 20:20 UTC",
- "kayitli_kosu": 798,
- "eslesmeyen_kosu": 537,
+ "uretim": "2026-10-25 20:43 UTC",
+ "kayitli_kosu": 803,
+ "eslesmeyen_kosu": 538,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 421,
- "kosu": 261,
+ "bahis": 423,
+ "kosu": 265,
  "isabet": 31,
- "roi": 1.194,
+ "roi": 1.188,
  "ga95": [
-  0.761,
-  1.67
+  0.754,
+  1.662
  ],
  "ulke": {
   "abd": {
-   "bahis": 276,
-   "roi": 1.025
+   "bahis": 278,
+   "roi": 1.017
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 506,
-  "kosu": 255,
+  "bahis": 510,
+  "kosu": 259,
   "isabet": 58,
-  "roi": 0.862,
+  "roi": 0.855,
   "ga95": [
-   0.654,
-   1.105
+   0.647,
+   1.099
   ]
  },
  "bahis_t1": {
-  "bahis": 535,
-  "kosu": 252,
+  "bahis": 539,
+  "kosu": 256,
   "isabet": 65,
-  "roi": 0.967,
+  "roi": 0.96,
   "ga95": [
-   0.648,
-   1.336
+   0.639,
+   1.326
   ]
  },
  "bahis_t3": {
-  "bahis": 532,
-  "kosu": 246,
+  "bahis": 537,
+  "kosu": 250,
   "isabet": 66,
-  "roi": 0.886,
+  "roi": 0.878,
   "ga95": [
-   0.57,
-   1.321
+   0.563,
+   1.312
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 7,
-   "at": "CONFIDENCE",
-   "q": 0.043,
-   "g": 30.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "ALEXANDER HELIOS",
-   "q": 0.037,
-   "g": 43.9,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Keeneland",
@@ -346,6 +328,15 @@
   },
   {
    "gun": "2026-10-25",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "AMASIA",
+   "q": 0.147,
+   "g": 11.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
    "pist": "Saint-Cloud",
    "kosu": 5,
    "at": "MAIA STAR",
@@ -423,6 +414,15 @@
    "at": "HOLIDAY SNOOZE",
    "q": 0.176,
    "g": 9.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "GOING PLATINUM",
+   "q": 0.194,
+   "g": 6.65,
    "kazandi": false
   }
  ]
