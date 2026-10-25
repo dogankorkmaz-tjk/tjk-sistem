@@ -1262,7 +1262,7 @@ const PROXY='https://tjk-proxy.dqnkrkmz.workers.dev', LIVE={}, LIVES={t:null,n:0
 const HIPKEY={diyarbakir:'DBAKIR'};
 function canliOran(h,k){ const L=LIVE[h.id+'|'+k.kosu]; if(!L||Date.now()-L.ts>150000) return null; const gerek=k.atlar.filter(a=>!a.kosmaz&&a.agf>0); if(gerek.length<5||gerek.some(a=>!(L.g[a.no]>0))) return null; return L; }
 function trDk(saat){ const n=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Istanbul'})); return parseInt(saat.slice(0,2))*60+parseInt(saat.slice(3,5))-(n.getHours()*60+n.getMinutes()+n.getSeconds()/60); }
-function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=document.createElement('div'); el.id='canliPill'; el.style.cssText='position:fixed;left:8px;bottom:8px;z-index:50;background:#14532d;color:#fff;border-radius:999px;padding:5px 11px;font-size:12px;opacity:.93;cursor:pointer'; el.onclick=()=>{ if(LIVES.t) { CANLI_SEC=LIVES.hedef||CANLI_SEC; sekme('canli'); } }; document.body.appendChild(el); }
+function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=document.createElement('div'); el.id='canliPill'; el.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:50;white-space:nowrap;background:#14532d;color:#fff;border-radius:999px;padding:5px 11px;font-size:12px;opacity:.93;cursor:pointer'; el.onclick=()=>{ if(LIVES.t) { CANLI_SEC=LIVES.hedef||CANLI_SEC; sekme('canli'); } }; document.body.appendChild(el); }
   if(!LIVES.t){ el.style.display=LIVES.hata?'block':'none'; el.style.background='#7f1d1d'; el.textContent=LIVES.hata?'Canlı oran alınamadı':''; return; }
   el.style.display='block'; el.style.background='#14532d'; el.textContent='● CANLI '+LIVES.t+(LIVES.kosu?' · '+LIVES.kosu:''); }
 async function canliTick(){
@@ -1331,11 +1331,19 @@ function canliCiz(){
   s+=`<div class="card yk"><div class="ykbas"><div class="ykno"><small>Koşu</small><b>${k.kosu}</b></div><div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat)} · güncelleme ${esc(L.t||'')} · ${esc(String(L.durum||'').toLocaleLowerCase('tr'))}</span></div></div><div class="sub">Model: G1-S olasılıkları, canlı ganyanla her 10 sn yenilenir. Bilgi amaçlıdır, bahis tavsiyesi değildir; hiçbir kural henüz kâr kanıtlamadı.</div></div>`;
   s+=kart('Sıralı ikili (1.→2.)','Havuzdaki canlı ödeme (1 TL başına) + model×havuz birleşimi (T22, yaklaşık). Sıralama birleşik olasılığa göre. Gri EV (olasılık × ödeme) yalnız bilgi: kâr kanıtı yok.',havVar?satir(havuzSatir('si',true),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
   s+=kart('Sırasız ikili (ilk 2, sırasız)','Aynı yöntem, “İKİLİ” havuzu.',((L.hv||{}).ik||[]).length?satir(havuzSatir('ik',false),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
-  const mod=(n,sirali)=>{ const rows=[]; kombler(top,n).forEach(c=>{ let pr=0; permler(c).forEach(pm=>{ pr+=plOlas(W,T,pm); if(sirali) rows.push({lbl:rozet(pm,1),p:plOlas(W,T,pm)}); }); if(!sirali) rows.push({lbl:rozet(c),p:pr}); }); rows.sort((a,b)=>b.p-a.p); return rows.slice(0,8); };
-  s+=kart('Sıralı üçlü (1.-2.-3.)','Yalnız model; TJK’nın bu havuzu için canlı ödeme verisi yok.',satir(mod(3,true),false));
-  s+=kart('Sırasız üçlü (ilk 3, sırasız)','Yalnız model.',satir(mod(3,false),false));
-  s+=kart('Tabela (ilk 4, sırasız)','Yalnız model.',satir(mod(4,false),false));
-  s+=kart('Sıralı 5’li','Yalnız model; çok küçük olasılıklar — kombine kupon için yukarıdaki sıralamalara bak.',satir((()=>{ const rows=[]; kombler(top,5).forEach(c=>permler(c).forEach(pm=>rows.push({lbl:rozet(pm,1),p:plOlas(W,T,pm)}))); rows.sort((a,b)=>b.p-a.p); return rows.slice(0,6); })(),false));
+  // kombine kuponlar: her sıraya birden fazla at; bütçeye göre genişletilir (besliKupon), tutma olasılığı model ve piyasa için
+  const ppAll=idxs.map(i=>hs.map[i].pp), GP=G5_P;
+  const kupSatir=(sets,L,birim,etiket)=>{ const n=kombSay(sets), pW=a5.slice(0,L).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), pT=pW.map(w=>w.reduce((a,b)=>a+b,0));
+    const mW=GP.slice(0,L).map(g=>ppAll.map(v=>Math.pow(Math.max(v,1e-9),g))), mT=mW.map(w=>w.reduce((a,b)=>a+b,0));
+    const prM=besliProb(pW,pT,sets), prP=besliProb(mW,mT,sets), fx=(v)=>(v*100).toFixed(v<0.1?2:1).replace('.',',');
+    return `<div style="border-top:1px solid var(--line);padding:6px 0"><div><b>${etiket}</b> · ${n} komb. · <b>${f2(n*birim)} TL</b></div><div class="sub">Tutma %${fx(prM)} (piyasa %${fx(prP)}, ×${f2(prM/Math.max(prP,1e-9))})</div>`+sets.map((x,q)=>`<div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:34px">${q+1}. at</span>${x.map(j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`).join('')}</div>`).join('')+'</div>'; };
+  const kupKart=(baslik,L,birim,butceler,sirasizN,not)=>{ let g='';
+    butceler.forEach(B=>{ const r=besliKupon(p,B,a5,L,true); if(r) g+=kupSatir(r.sets,L,birim,'Sıralı kombine ≤'+B); });
+    if(sirasizN&&p.length>=sirasizN){ const U=ord.slice(0,sirasizN); g+=kupSatir(Array.from({length:L},()=>U),L,birim,'Sırasız kombine ('+sirasizN+' at, her sıraya aynı)'); }
+    return kart(baslik,not,g||'<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>'); };
+  s+=kupKart('Sıralı üçlü kupon',3,2,[24,60],4,'Her sıraya birden fazla at yazılır; tüm kombinasyonlar birlikte oynanır. Birim 2 TL. Yalnız model: TJK bu havuzun canlı ödemesini yayınlamıyor. Sırasız kupon: aynı atlar her sırada, tüm sıralamalar ayrı bilet.');
+  s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[24,120],5,'Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız: 5 at, her sıraya aynı.');
+  s+=kupKart('Sıralı 5’li kupon',5,1.25,[48,96],0,'Birim 1,25 TL. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.');
   s+=`<div class="card"><b>Atlar (canlı ganyan → model)</b>${ord.map(j=>`<div class="sub" style="display:flex;gap:8px;align-items:center"><span class="no c${(no(j)-1)%16+1}">${no(j)}</span><span style="flex:1">${esc(ad(j))}</span><span>${(L.g[no(j)]||0).toFixed(1)}</span><b>${(p[j]*100).toFixed(1)}%</b></div>`).join('')}</div>`;
   el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();};
 }
