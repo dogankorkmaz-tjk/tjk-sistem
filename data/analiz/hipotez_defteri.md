@@ -814,3 +814,4 @@ Takip: geç kupon yolunda "G1-S-Oto (geç)" (tavan 600). Karşılaştırma: ayn�
 
 ## Ön-kayıt: T17 D+ ve havuz özellikleri birlikte (gölge v3 adayı) (25 Ekim 2026, ~11:45)
 - Taban D+ (T3+T8 özellikleri). Eklenen: log s2 (sıralı ikili 2. sıra marjinali), log sq (ikili ilk-2 marjinali), sıraya özel katsayı; yalnız havuz verili koşular (T13 ile aynı kural). Bölme T13'ün: ilk %60 gün fit / son %40 test; ölçüt 2.–5. sıra ve ayrıca 2. sıra, gün-bootstrap. Başarı: 2.–5. toplam alt sınır > 0 (birincil), 2. sıra betimleyici. Betik: data/analiz/ilk5_t17.py.
+- SONUÇ T17 (25 Ekim 2026, ~11:55), D+ tabanına havuz özellikleri eklenince (3.491 test koşusu, kesim 2026-01-31): 2.–5. sıra kazanç s2 +0,0263 [+0,0196,+0,0330]; sq +0,0274 [+0,0193,+0,0350]; s2+sq +0,0323 [+0,0244,+0,0405] → ölçüt KARŞILANDI (D+ ve havuz sinyalleri üst üste binmiyor, toplanıyor). 2. sıra yalnız: +0,0042 [−0,0002,+0,0084] (sınırda). Betik: data/analiz/ilk5_t17.py.
