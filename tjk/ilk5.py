@@ -10,6 +10,7 @@ SITE = os.path.join(KOK, "docs", "data")
 BASLA = "2026-10-25"
 _K = json.load(open(os.path.join(KOK, "data", "analiz", "ilk5_katsayilar_v2.json"), encoding="utf-8"))
 TH = np.array(_K["th"]); MS = _K["ek_mu_sd"]
+_KB = json.load(open(os.path.join(KOK, "data", "analiz", "ilk5_birlesim_katsayilar.json"), encoding="utf-8"))
 _K3 = json.load(open(os.path.join(KOK, "data", "analiz", "ilk5_katsayilar_v3.json"), encoding="utf-8")); TH3 = np.array(_K3["th"])
 
 
@@ -59,6 +60,31 @@ def _nll_sira(S, sira_idx):
         sc = S[s][kalan]; m = sc.max(); lz = m + math.log(np.exp(sc - m).sum())
         out.append(-(S[s][sira_idx[s]] - lz)); kalan.remove(sira_idx[s])
     return out
+
+
+def _sm(v):
+    e = np.exp(v - v.max()); return e / e.sum()
+
+
+def _egz_kayip(at, X3, hv, idx):
+    """sıralı ikili / ikili ilk-22: yeniden kalibre havuz (P) ve model×havuz birleşimi (C) log-kaybı. Döner {tur: [toplamP, toplamC, adet]}"""
+    n = len(at); ix = {int(a["no"]): i for i, a in enumerate(at)}
+    p1 = _sm(X3 @ TH3[0]); Q = np.zeros((n, n)); s2 = X3 @ TH3[1]
+    for a in range(n):
+        rs = [j for j in range(n) if j != a]; p2 = _sm(s2[rs])
+        for k, b in enumerate(rs): Q[a, b] = p1[a] * p2[k]
+    o = {}
+    for tur in ("si", "ik"):
+        kb = _KB[tur]; tp = tc = 0.0; m = 0
+        for a, b, G in hv[tur]:
+            a_, b_, G = ix[int(a)], ix[int(b)], float(G)
+            if tur == "si": hit = (a_ == idx[0] and b_ == idx[1]); q3 = Q[a_, b_]
+            else: hit = ({a_, b_} == {idx[0], idx[1]}); q3 = Q[a_, b_] + Q[b_, a_]
+            lq = math.log(min(max((1 / G) * kb["taban"], 1e-6), 0.999)); l3 = math.log(min(max(q3, 1e-6), 0.999)); y = float(hit)
+            zp = kb["P"][0] + kb["P"][1] * lq; zc = kb["C"][0] + kb["C"][1] * l3 + kb["C"][2] * lq
+            tp += float(np.logaddexp(0, zp) - y * zp); tc += float(np.logaddexp(0, zc) - y * zc); m += 1
+        o[tur] = [round(tp, 5), round(tc, 5), m]
+    return o
 
 
 def _kupon_yeni(BS, S, B):
@@ -124,6 +150,9 @@ def olc():
                     try:
                         Sx = np.array([X3 @ TH3[s_] for s_ in range(5)]) if not np.isnan(y3) else yeni
                         KP[kk] = {"v": 3 if not np.isnan(y3) else 2, "k": _kupon_karsilastir(BS, o, at, lg, Sx, idx)}
+                        if not np.isnan(y3):
+                            try: KP[kk]["egz"] = _egz_kayip(at, X3, hv, idx)
+                            except Exception as e2: KP[kk]["egz_hata"] = repr(e2)[:80]
                     except Exception as e:
                         KP[kk] = {"hata": repr(e)[:80]}
                 satir.append((o["tarih"], h["id"], k["kosu"], sum(_nll_sira(har, idx)[1:]), sum(_nll_sira(mev, idx)[1:]), sum(_nll_sira(yeni, idx)[1:]), y3))
@@ -143,6 +172,18 @@ def olc():
             a["kosu"] += 1
             for j in (0, 1): a["pred"][j] += r[j][0]; a["isabet"][j] += int(r[j][2]); a["maliyet"][j] += r[j][1]
     out["kupon_5li"] = {B: {"kosu": a["kosu"], "mevcut": {"tutma_beklenen": round(a["pred"][0], 3), "tutan": a["isabet"][0], "ort_kombinasyon": round(a["maliyet"][0] / a["kosu"], 1)}, "yeni": {"tutma_beklenen": round(a["pred"][1], 3), "tutan": a["isabet"][1], "ort_kombinasyon": round(a["maliyet"][1] / a["kosu"], 1)}} for B, a in kup.items()}
+    eg = {}
+    for kk, v in KP.items():
+        for tur, (tp, tc, m) in (v.get("egz") or {}).items():
+            a = eg.setdefault(tur, {"gun": {}, "kosu": 0, "bahis": 0})
+            g_ = a["gun"].setdefault(kk.split("|")[0], [0.0, 0.0, 0]); g_[0] += tp; g_[1] += tc; g_[2] += m; a["kosu"] += 1; a["bahis"] += m
+    out["egz"] = {}
+    for tur, a in eg.items():
+        sm_ = pd.DataFrame(a["gun"], index=["P", "C", "n"]).T; rng = np.random.default_rng(3); b = []
+        for _ in range(2000):
+            t = sm_.iloc[rng.integers(0, len(sm_), len(sm_))]; b.append((t.P.sum() - t.C.sum()) / t.n.sum())
+        out["egz"][tur] = {"kosu": a["kosu"], "bahis": a["bahis"], "kayip_P": round(float(sm_.P.sum() / sm_.n.sum()), 5), "kayip_C": round(float(sm_.C.sum() / sm_.n.sum()), 5),
+                           "fark_P_eksi_C": round(float((sm_.P.sum() - sm_.C.sum()) / sm_.n.sum()), 6), "ga": [round(float(np.percentile(b, 2.5)), 6), round(float(np.percentile(b, 97.5)), 6)]}
     d3 = d.dropna(subset=["yeni3"])
     if len(d3):
         out["v3"] = {"kosu": int(len(d3)), "ort": {c: round(float(d3[c].mean()), 4) for c in ("mevcut", "yeni", "yeni3")}}
