@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-26 11:55 UTC",
+ "uretim": "2026-10-26 12:40 UTC",
  "kayitli_kosu": 824,
- "eslesmeyen_kosu": 549,
+ "eslesmeyen_kosu": 548,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 430,
- "kosu": 275,
+ "bahis": 434,
+ "kosu": 276,
  "isabet": 31,
- "roi": 1.169,
+ "roi": 1.158,
  "ga95": [
-  0.723,
-  1.651
+  0.707,
+  1.644
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 2.022
   },
   "fransa": {
-   "bahis": 29,
-   "roi": 1.474
+   "bahis": 33,
+   "roi": 1.295
   },
   "guney-afrika": {
    "bahis": 41,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 525,
-  "kosu": 269,
+  "bahis": 529,
+  "kosu": 270,
   "isabet": 58,
-  "roi": 0.831,
+  "roi": 0.824,
   "ga95": [
-   0.61,
-   1.083
+   0.592,
+   1.072
   ]
  },
  "bahis_t1": {
-  "bahis": 550,
-  "kosu": 266,
+  "bahis": 554,
+  "kosu": 267,
   "isabet": 65,
-  "roi": 0.941,
+  "roi": 0.934,
   "ga95": [
-   0.611,
-   1.311
+   0.599,
+   1.301
   ]
  },
  "bahis_t3": {
-  "bahis": 551,
-  "kosu": 260,
+  "bahis": 555,
+  "kosu": 261,
   "isabet": 66,
-  "roi": 0.856,
+  "roi": 0.849,
   "ga95": [
-   0.536,
-   1.281
+   0.521,
+   1.265
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Santa Anita",
-   "kosu": 4,
-   "at": "INDISPENSABLE",
-   "q": 0.061,
-   "g": 26.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 5,
-   "at": "STROKE OF GENIUS",
-   "q": 0.06,
-   "g": 44.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 5,
-   "at": "FLEURY",
-   "q": 0.06,
-   "g": 48.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 5,
-   "at": "TIZ PRACTICAL",
-   "q": 0.071,
-   "g": 86.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Woodbine",
@@ -423,6 +387,42 @@
    "at": "SOUPED UP",
    "q": 0.071,
    "g": 18.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 2,
+   "at": "SYDNEY MOON",
+   "q": 0.295,
+   "g": 16.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 2,
+   "at": "AROK ATAO",
+   "q": 0.263,
+   "g": 7.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 2,
+   "at": "CORAL COVE",
+   "q": 0.113,
+   "g": 11.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 2,
+   "at": "LA CARMEN",
+   "q": 0.148,
+   "g": 12.95,
    "kazandi": false
   }
  ]
