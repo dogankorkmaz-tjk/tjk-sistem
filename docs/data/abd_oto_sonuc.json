@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-26 17:22 UTC",
- "kayitli_kosu": 846,
- "eslesmeyen_kosu": 565,
+ "uretim": "2026-10-26 17:59 UTC",
+ "kayitli_kosu": 848,
+ "eslesmeyen_kosu": 563,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 450,
- "kosu": 281,
+ "bahis": 453,
+ "kosu": 285,
  "isabet": 32,
- "roi": 1.178,
+ "roi": 1.17,
  "ga95": [
-  0.761,
-  1.647
+  0.754,
+  1.633
  ],
  "ulke": {
   "abd": {
-   "bahis": 285,
-   "roi": 0.992
+   "bahis": 288,
+   "roi": 0.982
   },
   "birlesik-krallik": {
    "bahis": 71,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 538,
-  "kosu": 275,
+  "bahis": 544,
+  "kosu": 279,
   "isabet": 61,
-  "roi": 0.833,
+  "roi": 0.824,
   "ga95": [
-   0.612,
-   1.078
+   0.604,
+   1.064
   ]
  },
  "bahis_t1": {
-  "bahis": 562,
-  "kosu": 272,
+  "bahis": 568,
+  "kosu": 275,
   "isabet": 66,
-  "roi": 0.927,
+  "roi": 0.917,
   "ga95": [
-   0.597,
-   1.292
+   0.584,
+   1.275
   ]
  },
  "bahis_t3": {
-  "bahis": 564,
-  "kosu": 266,
-  "isabet": 69,
+  "bahis": 571,
+  "kosu": 269,
+  "isabet": 71,
   "roi": 0.85,
   "ga95": [
-   0.533,
-   1.259
+   0.539,
+   1.256
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-25",
-   "pist": "Belmont Park",
-   "kosu": 8,
-   "at": "LIFE'S DYNAMIC",
-   "q": 0.143,
-   "g": 8.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Belmont Park",
-   "kosu": 8,
-   "at": "GREEN SENSE",
-   "q": 0.061,
-   "g": 26.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "BABY GUN",
-   "q": 0.133,
-   "g": 11.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-25",
    "pist": "Gulfstream",
@@ -319,6 +292,24 @@
   },
   {
    "gun": "2026-10-26",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "RACHEL'S ROCK",
+   "q": 0.23,
+   "g": 8.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Finger Lakes",
+   "kosu": 2,
+   "at": "GEMELLO",
+   "q": 0.139,
+   "g": 18.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
    "pist": "Leicester",
    "kosu": 3,
    "at": "NORTHERN EXPOSURE",
@@ -360,6 +351,15 @@
    "at": "GOOD FIGHTER",
    "q": 0.1,
    "g": 25.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Mahoning Valley",
+   "kosu": 3,
+   "at": "DIAMONDS N DEW",
+   "q": 0.194,
+   "g": 11.6,
    "kazandi": false
   },
   {
