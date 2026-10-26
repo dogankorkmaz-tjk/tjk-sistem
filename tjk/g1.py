@@ -209,6 +209,19 @@ def z6_doldur(obj):
             c = json.load(open(YOL3)); obj["w0_g1"] = c["alfa"]; obj["a_g1"] = [round(x, 4) for x in c["gam"]]; obj["g1_surum"] = "v2"
         for h in obj["hipodromlar"]:
             for k in h["kosular"]:
+                _kos = [a for a in k.get("atlar", []) if not a.get("kosmaz")]
+                if not k.get("sonuc") and c2 is not None and len([a for a in _kos if a.get("agf")]) < 5 and len(_kos) >= 5:
+                    # AGF'si olmayan koşu (altılı dışı, örn. 1. koşu): puan eşit yer tutucu AGF ile hesaplanır, quadratic piyasa terimi çıkarılarak z6b elde edilir;
+                    # tarayıcı canlı oranla w0*l + c2*l^2 + z6b hesaplar (26 Ekim 2026)
+                    if all(a.get("z6b") is not None for a in _kos):
+                        continue
+                    zz = z6([{**a, "agf": 1.0} for a in k["atlar"]], t)
+                    if zz:
+                        lq = math.log(1.0 / len(_kos)) ** 2
+                        for a in k["atlar"]:
+                            if a["no"] in zz:
+                                a["z6b"] = round(zz[a["no"]] - c2 * lq, 4); a["z6"] = a["z6b"]
+                    continue
                 if k.get("sonuc") or all(a.get("z6") is not None and (c2 is None or a.get("z6b") is not None) for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")):
                     continue
                 zz = z6(k.get("atlar", []), t)

@@ -1314,7 +1314,8 @@ function canliCiz(){
   let s=`<div class="card"><label class="sub" for="canliSel">Koşu seç (● = canlı oran geliyor)</label><select id="canliSel" class="alan" style="width:100%">${opt}</select></div>`;
   const live=L&&Date.now()-L.ts<150000, hs=live?hesapla(h,k):null;
   if(!hs||hs.kaynak!=='canli'){ s+=`<div class="card empty">${esc(h.ad)} ${k.kosu}. koşu için canlı muhtemel ganyan henüz yok (TJK oranları koşuya ~15 dk kala akmaya başlar). Koşuya yaklaşınca bu sayfa kendiliğinden dolar.</div>`; el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; return; }
-  const idxs=Object.keys(hs.map).map(Number).filter(i=>hs.map[i].pg!=null), pg=idxs.map(i=>hs.map[i].pg), tp=pg.reduce((a,b)=>a+b,0);
+  const mx=i=>{ const m=hs.map[i]; return m.pg!=null?m.pg:(m.pj!=null?m.pj:m.pm); }, gYok=Object.keys(hs.map).some(i=>hs.map[i].pg==null);   // G1-S puanı yoksa (henüz hesaplanmadıysa) Jason, o da yoksa Bolton
+  const idxs=Object.keys(hs.map).map(Number).filter(i=>mx(i)!=null), pg=idxs.map(i=>mx(i)), tp=pg.reduce((a,b)=>a+b,0);
   const p=pg.map(v=>v/tp), a5=GMO('G1-S'), W=a5.slice(0,5).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
   const no=j=>k.atlar[idxs[j]].no, ad=j=>k.atlar[idxs[j]].at;
   const noj=Object.fromEntries(idxs.map((i,j)=>[k.atlar[i].no,j]));
@@ -1332,7 +1333,7 @@ function canliCiz(){
         rows.push({lbl:rozet(pr,sirali),p:mp,G,c:c2,ev}); }); });
     rows.sort((a,b)=>(b.c??b.p)-(a.c??a.p)); return rows.slice(0,10); };
   const havVar=((L.hv||{}).si||[]).length>0;
-  s+=`<div class="card yk"><div class="ykbas"><div class="ykno"><small>Koşu</small><b>${k.kosu}</b></div><div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat)} · güncelleme ${esc(L.t||'')} · ${esc(String(L.durum||'').toLocaleLowerCase('tr'))}</span>${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}</div></div><div class="sub">Model: G1-S olasılıkları, canlı ganyanla her 10 sn yenilenir. Bilgi amaçlıdır, bahis tavsiyesi değildir; hiçbir kural henüz kâr kanıtlamadı.</div></div>`;
+  s+=`<div class="card yk"><div class="ykbas"><div class="ykno"><small>Koşu</small><b>${k.kosu}</b></div><div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat)} · güncelleme ${esc(L.t||'')} · ${esc(String(L.durum||'').toLocaleLowerCase('tr'))}</span>${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}</div></div><div class="sub">Model: ${gYok?'<b>Jason (G1-S puanı bu koşu için henüz hesaplanmadı)</b>':'G1-S'} olasılıkları, canlı ganyanla her 10 sn yenilenir. Bilgi amaçlıdır, bahis tavsiyesi değildir; hiçbir kural henüz kâr kanıtlamadı.</div></div>`;
   s+=kart('Sıralı ikili (1.→2.)','Havuzdaki canlı ödeme (1 TL başına) + model×havuz birleşimi (T22, yaklaşık). Sıralama birleşik olasılığa göre. Gri EV (olasılık × ödeme) yalnız bilgi: kâr kanıtı yok.',havVar?satir(havuzSatir('si',true),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
   s+=kart('Sırasız ikili (ilk 2, sırasız)','Aynı yöntem, “İKİLİ” havuzu.',((L.hv||{}).ik||[]).length?satir(havuzSatir('ik',false),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
   // kombine kuponlar: her sıraya birden fazla at; bütçeye göre genişletilir (besliKupon), tutma olasılığı model ve piyasa için
