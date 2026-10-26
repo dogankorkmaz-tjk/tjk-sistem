@@ -529,7 +529,10 @@ let GUN=null, VERI=null, SKOR=null;
 let ODDS=ld('gm2_odds',{}), sel=ld('gm2_sel',{hip:null,kosu:null}), KUP=ld('gm2_kupon',{bas:null,son:null,k:{},sur:false,fiyat:''});
 let cur=null, curOut=null;
 
-async function getJSON(u){const r=await fetch(u+(u.includes('?')?'&':'?')+'v='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(r.status); return r.json();}
+async function getJSON(u){const r=await fetch(u+(u.includes('?')?'&':'?')+'v='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(r.status); const d=await r.json();
+  // dünün kupon dosyaları gün dönünce bugünün gibi görünmesin: tarihi eski ise 'bugun' listesi boş sayılır (toplam/istatistik kalır)
+  try{ if(d&&typeof d==='object'&&typeof d.tarih==='string'&&Array.isArray(d.bugun)&&typeof GUN==='string'&&GUN&&d.tarih<GUN&&/^data\/(?!gun)/.test(u)) d.bugun=[]; }catch(e){}
+  return d;}
 
 // ---------- veri yükleme ----------
 async function gunYukle(t){
