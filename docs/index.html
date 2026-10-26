@@ -1264,7 +1264,8 @@ gunYukle(null);
 const PROXY='https://tjk-proxy.dqnkrkmz.workers.dev', LIVE={}, LIVES={t:null,n:0,hata:null,kosu:''};
 const HIPKEY={diyarbakir:'DBAKIR'};
 function canliOran(h,k){ const L=LIVE[h.id+'|'+k.kosu]; if(!L||Date.now()-L.ts>150000) return null; let gerek=k.atlar.filter(a=>!a.kosmaz&&a.agf>0); if(gerek.length<5) gerek=k.atlar.filter(a=>!a.kosmaz);   // AGF'si olmayan koşu (altılının dışında kalan, örn. 1. koşu) da canlı oranla çalışır
-  if(gerek.length<5||gerek.some(a=>!(L.g[a.no]>0))) return null; return L; }
+  const eksik=gerek.filter(a=>!(L.g[a.no]>0)).length;   // TJK'nın muhtemelinde olmayan at = son dakika koşmaz (program henüz yenilenmemiş olabilir); en çok 2'ye tolerans
+  if(gerek.length-eksik<5||eksik>2) return null; return L; }
 function trDk(saat){ const n=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Istanbul'})); return parseInt(saat.slice(0,2))*60+parseInt(saat.slice(3,5))-(n.getHours()*60+n.getMinutes()+n.getSeconds()/60); }
 function canliPill(){ let el=document.getElementById('canliPill'); if(!el){ el=document.createElement('div'); el.id='canliPill'; el.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:50;white-space:nowrap;background:#14532d;color:#fff;border-radius:999px;padding:5px 11px;font-size:12px;opacity:.93;cursor:pointer'; el.onclick=()=>{ if(LIVES.t) { CANLI_SEC=LIVES.hedef||CANLI_SEC; sekme('canli'); } }; document.body.appendChild(el); }
   if(!LIVES.t){ el.style.display=LIVES.hata?'block':'none'; el.style.background='#7f1d1d'; el.textContent=LIVES.hata?'Canlı oran alınamadı':''; return; }
