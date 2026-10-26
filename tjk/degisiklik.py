@@ -90,7 +90,7 @@ def notlar(obj):
             L = []
             pk = PD.get((h["id"], str(k["kosu"])))
             if pk:
-                L.append(f"Pist {pk}'e alındı (model puanları yenilendi)")
+                L.append("Pist " + {"Kum": "kuma", "Çim": "çime", "Sentetik": "sentetiğe"}.get(pk, pk) + " alındı (model puanları yenilendi)")
             nm = {a["no"]: a for a in k["atlar"]}
             for a in ar.get("horses") or []:
                 no = int(a["number"]); x = nm.get(no)
