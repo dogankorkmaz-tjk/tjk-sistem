@@ -1368,8 +1368,14 @@ function canliCiz(){
   }
   s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[150],5,'Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: 5 at (6. at 250 kombinasyonu aştığı için eklenmez).',0.05);
   s+=kupKart('Sıralı 5’li kupon',5,1.25,[150,190,400],5,'Birim 1,25 TL. Sırasız kombine 5 at = 120 komb. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.',0.01);
+  s+=`<div class="card" id="ucDegerKart"><b>İleriye dönük takip: değer odaklı vs kapsama (sıralı üçlü)</b><div class="sub" id="ucDegerIc">Yükleniyor…</div></div>`;
   s+=`<div class="card"><b>Atlar (canlı ganyan → model)</b>${ord.map(j=>`<div class="sub" style="display:flex;gap:8px;align-items:center"><span class="no c${(no(j)-1)%16+1}">${no(j)}</span><span style="flex:1">${esc(ad(j))}</span><span>${(L.g[no(j)]||0).toFixed(1)}</span><b>${(p[j]*100).toFixed(1)}%</b></div>`).join('')}</div>`;
-  el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();};
+  el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; ucDegerYukle();
+}
+async function ucDegerYukle(){ const el=$('ucDegerIc'); if(!el) return;
+  try{ const d=await getJSON('data/uc_deger.json'); const T=d.toplam||[], f=x=>x==null?'–':String(x).replace('.',',');
+    el.innerHTML=T.length?`<table class="t" style="margin-top:4px"><tr><th>Kupon</th><th class="n">Koşu</th><th class="n">Tuttu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>${T.map(t=>`<tr><td>${t.tur==='deger'?'Değer':'Kapsama'} ${t.butce}</td><td class="n">${t.kosu}</td><td class="n">${t.isabet}</td><td class="n">${f(t.harcama)}</td><td class="n">${f(t.kazanc)}</td><td class="n">${f(t.geri_donus)}</td></tr>`).join('')}</table><div class="sub" style="margin-top:6px">Kuponlar yarışa son 15 dakikadaki canlı muhtemelle dondurulur, koşu bitince ÜÇLÜ ödemesiyle değerlendirilir. Karar için en az 300 koşu gerekir; şimdiki sayılar yalnızca bilgi.</div>`:'Henüz değerlendirilmiş koşu yok. Takip 26 Ekim 2026’da başladı; karar için en az 300 koşu gerekir.';
+  }catch(e){ el.textContent='Henüz veri yok (takip başladı, ilk koşular bitince dolacak).'; }
 }
 setInterval(canliTick,10000); setTimeout(canliTick,3000);
 setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);

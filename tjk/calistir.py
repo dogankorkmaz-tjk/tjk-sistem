@@ -14,6 +14,7 @@ from . import tuyo as TY
 from . import besli as BS
 from . import tabela as TB
 from . import sirali3 as S3
+from . import uc_deger as UD
 from . import deger as DG
 from . import kombine as KB
 from . import uyandir as UY
@@ -665,6 +666,10 @@ def hizli(t):
         MUH.topla(t.isoformat(), pencere_dk=30, yalniz_yurtdisi=False)      # canlı muhtemel ganyan (yurtiçi dahil) -> geç kupon girdisi
         print("geç kupon:", BS.gec_guncelle(c))
         try:
+            UD.guncelle(c)           # hızlı modda da dondur (yarışa son dakikalardaki görüntü)
+        except Exception as e:
+            print("uc_deger (hızlı) hatası:", repr(e))
+        try:
             from . import egzotik as _EG
             print("geç tabela:", TB.gec_guncelle(c), "geç egzotik:", _EG.gec_guncelle(c))
         except Exception as e:
@@ -912,6 +917,10 @@ def canli(t):
         S3.guncelle(obj)
     except Exception as e:
         print("sıralı 3'lü kolon kuponu hatası:", repr(e))
+    try:
+        UD.guncelle(obj)             # T25: sıralı üçlü değer odaklı vs kapsama (ileriye dönük gölge; yarışa son 15 dk'daki canlı muhtemel ile dondurulur)
+    except Exception as e:
+        print("uc_deger hatası:", repr(e))
     try:
         ES.guncelle(obj)
     except Exception as e:
