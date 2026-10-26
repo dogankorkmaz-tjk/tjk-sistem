@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-26 16:22 UTC",
+ "uretim": "2026-10-26 16:32 UTC",
  "kayitli_kosu": 836,
- "eslesmeyen_kosu": 556,
+ "eslesmeyen_kosu": 555,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 445,
- "kosu": 280,
- "isabet": 31,
- "roi": 1.129,
+ "bahis": 450,
+ "kosu": 281,
+ "isabet": 32,
+ "roi": 1.178,
  "ga95": [
-  0.675,
-  1.604
+  0.761,
+  1.647
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.992
   },
   "birlesik-krallik": {
-   "bahis": 66,
-   "roi": 1.808
+   "bahis": 71,
+   "roi": 2.067
   },
   "fransa": {
    "bahis": 37,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 537,
-  "kosu": 274,
+  "bahis": 538,
+  "kosu": 275,
   "isabet": 61,
-  "roi": 0.835,
+  "roi": 0.833,
   "ga95": [
-   0.613,
-   1.081
+   0.612,
+   1.078
   ]
  },
  "bahis_t1": {
-  "bahis": 561,
-  "kosu": 271,
+  "bahis": 562,
+  "kosu": 272,
   "isabet": 66,
-  "roi": 0.929,
+  "roi": 0.927,
   "ga95": [
-   0.598,
-   1.294
+   0.597,
+   1.292
   ]
  },
  "bahis_t3": {
-  "bahis": 563,
-  "kosu": 265,
+  "bahis": 564,
+  "kosu": 266,
   "isabet": 69,
-  "roi": 0.851,
+  "roi": 0.85,
   "ga95": [
-   0.534,
-   1.26
+   0.533,
+   1.259
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-25",
-   "pist": "Belmont Park",
-   "kosu": 1,
-   "at": "PURLOIN",
-   "q": 0.13,
-   "g": 9.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Belmont Park",
-   "kosu": 2,
-   "at": "BENEDICTION",
-   "q": 0.077,
-   "g": 16.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Belmont Park",
-   "kosu": 2,
-   "at": "COL DE LA LOZE",
-   "q": 0.189,
-   "g": 10.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "EMBLAZE",
-   "q": 0.144,
-   "g": 8.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "CENTRAL TO SUCCESS",
-   "q": 0.175,
-   "g": 9.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-25",
    "pist": "Belmont Park",
@@ -423,6 +378,51 @@
    "at": "ROWLF",
    "q": 0.253,
    "g": 6.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Redcar",
+   "kosu": 8,
+   "at": "BEAUTY CHOICE",
+   "q": 0.06,
+   "g": 27.45,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Redcar",
+   "kosu": 8,
+   "at": "SHOWTIME MAHOMES",
+   "q": 0.129,
+   "g": 9.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Redcar",
+   "kosu": 8,
+   "at": "RUN THIS WAY",
+   "q": 0.071,
+   "g": 21.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Redcar",
+   "kosu": 8,
+   "at": "ONE OF OUR OWN",
+   "q": 0.052,
+   "g": 24.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Redcar",
+   "kosu": 8,
+   "at": "TOO MUCH",
+   "q": 0.046,
+   "g": 29.5,
    "kazandi": false
   }
  ]
