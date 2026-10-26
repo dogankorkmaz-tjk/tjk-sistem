@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-25 22:08 UTC",
- "kayitli_kosu": 813,
- "eslesmeyen_kosu": 542,
+ "uretim": "2026-10-26 02:52 UTC",
+ "kayitli_kosu": 821,
+ "eslesmeyen_kosu": 546,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 427,
- "kosu": 271,
+ "bahis": 430,
+ "kosu": 275,
  "isabet": 31,
- "roi": 1.177,
+ "roi": 1.169,
  "ga95": [
-  0.735,
-  1.655
+  0.723,
+  1.651
  ],
  "ulke": {
   "abd": {
-   "bahis": 282,
-   "roi": 1.003
+   "bahis": 285,
+   "roi": 0.992
   },
   "birlesik-krallik": {
    "bahis": 59,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 517,
-  "kosu": 265,
+  "bahis": 525,
+  "kosu": 269,
   "isabet": 58,
-  "roi": 0.844,
+  "roi": 0.831,
   "ga95": [
-   0.631,
-   1.092
+   0.61,
+   1.083
   ]
  },
  "bahis_t1": {
-  "bahis": 542,
-  "kosu": 262,
+  "bahis": 550,
+  "kosu": 266,
   "isabet": 65,
-  "roi": 0.955,
+  "roi": 0.941,
   "ga95": [
-   0.632,
-   1.318
+   0.611,
+   1.311
   ]
  },
  "bahis_t3": {
-  "bahis": 543,
-  "kosu": 256,
+  "bahis": 551,
+  "kosu": 260,
   "isabet": 66,
-  "roi": 0.868,
+  "roi": 0.856,
   "ga95": [
-   0.55,
-   1.299
+   0.536,
+   1.281
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Santa Anita",
-   "kosu": 2,
-   "at": "RABID RESPONSE",
-   "q": 0.092,
-   "g": 14.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Santa Anita",
-   "kosu": 2,
-   "at": "SLICE",
-   "q": 0.15,
-   "g": 9.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Santa Anita",
-   "kosu": 4,
-   "at": "VODKA VODKA",
-   "q": 0.087,
-   "g": 15.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-24",
    "pist": "Santa Anita",
@@ -360,6 +333,33 @@
    "at": "ILUMINE PRECIEUSE",
    "q": 0.168,
    "g": 7.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Santa Anita",
+   "kosu": 5,
+   "at": "D'S FOUR THUMBS UP",
+   "q": 0.072,
+   "g": 17.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Santa Anita",
+   "kosu": 8,
+   "at": "SIGMA BOY",
+   "q": 0.134,
+   "g": 10.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-25",
+   "pist": "Santa Anita",
+   "kosu": 8,
+   "at": "LOW TOX",
+   "q": 0.115,
+   "g": 12.8,
    "kazandi": false
   },
   {
