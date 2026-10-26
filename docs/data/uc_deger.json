@@ -1,1 +1,1 @@
-{"toplam":[],"kosu":0,"son":[]}
+{"toplam":[{"tur":"deger","butce":24,"kosu":1,"harcama":48.0,"isabet":0,"kazanc":0.0,"geri_donus":0.0},{"tur":"kapsama","butce":24,"kosu":1,"harcama":48.0,"isabet":0,"kazanc":0.0,"geri_donus":0.0},{"tur":"deger","butce":48,"kosu":1,"harcama":96.0,"isabet":0,"kazanc":0.0,"geri_donus":0.0},{"tur":"kapsama","butce":48,"kosu":1,"harcama":96.0,"isabet":0,"kazanc":0.0,"geri_donus":0.0}],"kosu":1,"son":[{"hipodrom":"sanliurfa","kosu":3,"ilk3":[2,7,8],"kapsama24":[false,0],"kapsama48":[false,0],"deger24":[false,0],"deger48":[false,0]}]}
