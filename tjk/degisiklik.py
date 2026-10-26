@@ -70,6 +70,13 @@ def notlar(obj):
     if not g:
         return 0
     n = 0
+    PD = {}
+    yol = os.path.join(VERI, "pist_degisiklik.csv")
+    if os.path.exists(yol):
+        for l in open(yol, encoding="utf-8").read().split("\n")[1:]:
+            p = l.split(",")
+            if len(p) >= 4 and p[0] == t:
+                PD[(p[1], p[2])] = p[3].strip()
     for h in obj["hipodromlar"]:
         v = g.get(h["id"])
         if not v:
@@ -81,10 +88,9 @@ def notlar(obj):
             if not ar or _basladi(k, simdi):
                 continue
             L = []
-            m = re.search(r"(\d{3,4})\s*m?\s*(Kum|Çim|Sentetik)", k.get("bilgi") or "")
-            api_p = _norm(ar.get("raceCourseType"))
-            if m and api_p and m.group(2) != api_p:
-                L.append(f"Pist {m.group(2).lower()} → {api_p.lower()}")
+            pk = PD.get((h["id"], str(k["kosu"])))
+            if pk:
+                L.append(f"Pist {pk}'e alındı (model puanları yenilendi)")
             nm = {a["no"]: a for a in k["atlar"]}
             for a in ar.get("horses") or []:
                 no = int(a["number"]); x = nm.get(no)
