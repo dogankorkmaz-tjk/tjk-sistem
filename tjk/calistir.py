@@ -843,8 +843,17 @@ def canli(t):
     csv_uygula(obj)
     jokey_uygula(obj)
     s_doldur(obj)
+    try:
+        from . import degisiklik as _DG
+        _DG.pist_yaz(obj)                  # API'de pist türü değiştiyse pist_degisiklik.csv'ye otomatik yaz (26 Ekim 2026)
+    except Exception as e:
+        print("otomatik pist hatası:", repr(e))
     pist_uygula(obj)
     kosmaz_isle(obj)
+    try:
+        _DG.notlar(obj)                    # koşuya 'degisiklik' notları (pist/jokey/koşmaz/kilo)
+    except Exception as e:
+        print("değişiklik notu hatası:", repr(e))
     try:
         from . import muhtemeller as MUH
         MUH.topla(t.isoformat(), yalniz_yurtdisi=False)       # vhs.tjk.org: resmî sıra + ganyan (agftablosu gecikirse yedek)
