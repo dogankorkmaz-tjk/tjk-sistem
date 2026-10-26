@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-26 20:16 UTC",
- "kayitli_kosu": 861,
- "eslesmeyen_kosu": 571,
+ "uretim": "2026-10-26 20:52 UTC",
+ "kayitli_kosu": 865,
+ "eslesmeyen_kosu": 573,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 462,
- "kosu": 290,
+ "bahis": 465,
+ "kosu": 292,
  "isabet": 32,
- "roi": 1.147,
+ "roi": 1.14,
  "ga95": [
-  0.735,
-  1.605
+  0.726,
+  1.596
  ],
  "ulke": {
   "abd": {
-   "bahis": 297,
-   "roi": 0.952
+   "bahis": 300,
+   "roi": 0.943
   },
   "birlesik-krallik": {
    "bahis": 71,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 564,
-  "kosu": 284,
+  "bahis": 566,
+  "kosu": 286,
   "isabet": 62,
-  "roi": 0.805,
+  "roi": 0.802,
   "ga95": [
-   0.583,
-   1.047
+   0.58,
+   1.043
   ]
  },
  "bahis_t1": {
-  "bahis": 589,
-  "kosu": 280,
+  "bahis": 592,
+  "kosu": 282,
   "isabet": 67,
-  "roi": 0.894,
+  "roi": 0.89,
   "ga95": [
-   0.562,
-   1.257
+   0.555,
+   1.254
   ]
  },
  "bahis_t3": {
-  "bahis": 589,
-  "kosu": 273,
+  "bahis": 592,
+  "kosu": 275,
   "isabet": 72,
-  "roi": 0.833,
+  "roi": 0.829,
   "ga95": [
-   0.525,
-   1.234
+   0.522,
+   1.226
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-25",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "LOW TOX",
-   "q": 0.115,
-   "g": 12.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Woodbine",
-   "kosu": 3,
-   "at": "CHARLATAN SUCCESS",
-   "q": 0.093,
-   "g": 17.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "AWESOME BEAT",
-   "q": 0.226,
-   "g": 5.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-25",
    "pist": "Woodbine",
@@ -238,6 +211,24 @@
   },
   {
    "gun": "2026-10-26",
+   "pist": "Finger Lakes",
+   "kosu": 7,
+   "at": "NOT FOR HIRE",
+   "q": 0.13,
+   "g": 13.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Finger Lakes",
+   "kosu": 7,
+   "at": "SPECIALAGENTJONSON",
+   "q": 0.087,
+   "g": 15.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
    "pist": "Horseshoe Indianapolis",
    "kosu": 1,
    "at": "TAY",
@@ -261,6 +252,15 @@
    "at": "MY CHICKADEE",
    "q": 0.212,
    "g": 8.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "INNISFREE LASS",
+   "q": 0.138,
+   "g": 11.7,
    "kazandi": false
   },
   {
