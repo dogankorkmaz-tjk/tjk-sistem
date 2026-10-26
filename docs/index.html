@@ -1344,9 +1344,9 @@ function canliCiz(){
       while(N<sirasizN+1&&N<p.length&&KS(N+1)<=250&&kp(N+1)-kp(N)>=0.05) N++;   // model: taban at sayısı, +1 at kapsamayı ≥5 puan artırıyorsa ve ≤250 komb. ise ekle
       const U=ord.slice(0,N); g+=kupSatir(Array.from({length:L},()=>U),L,birim,'Sırasız kombine · modelin seçtiği '+N+' at'+(N>sirasizN?' (taban '+sirasizN+', kapsama için +'+(N-sirasizN)+')':'')); }
     return kart(baslik,not,g||'<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>'); };
-  s+=kupKart('Sıralı üçlü kupon',3,2,[24,60],4,'Her sıraya birden fazla at yazılır; tüm kombinasyonlar birlikte oynanır. Birim 2 TL. Yalnız model: TJK bu havuzun canlı ödemesini yayınlamıyor. Sırasız kombine: model 4 atla başlar, 5. at kapsamayı ≥5 puan artırıyorsa ve 250 kombinasyonu aşmıyorsa ekler; aynı atlar her sırada, her sıralama ayrı bilet.');
-  s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[24,120],5,'Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: model 5 atla başlar, +1 at kapsamayı ≥5 puan artırıyorsa ve 250 kombinasyonu aşmıyorsa ekler.');
-  s+=kupKart('Sıralı 5’li kupon',5,1.25,[96],5,'Birim 1,25 TL. Sırasız kombine 5 at = 120 komb. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.');
+  s+=kupKart('Sıralı üçlü kupon',3,2,[96],4,'Her sıraya birden fazla at yazılır; tüm kombinasyonlar birlikte oynanır. Birim 2 TL. Yalnız model: TJK bu havuzun canlı ödemesini yayınlamıyor. Sırasız kombine: model 4 atla başlar, 5. at kapsamayı ≥5 puan artırıyorsa ve 250 kombinasyonu aşmıyorsa ekler; aynı atlar her sırada, her sıralama ayrı bilet.');
+  s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[150],5,'Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: model 5 atla başlar, +1 at kapsamayı ≥5 puan artırıyorsa ve 250 kombinasyonu aşmıyorsa ekler.');
+  s+=kupKart('Sıralı 5’li kupon',5,1.25,[150,190,400],5,'Birim 1,25 TL. Sırasız kombine 5 at = 120 komb. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.');
   s+=`<div class="card"><b>Atlar (canlı ganyan → model)</b>${ord.map(j=>`<div class="sub" style="display:flex;gap:8px;align-items:center"><span class="no c${(no(j)-1)%16+1}">${no(j)}</span><span style="flex:1">${esc(ad(j))}</span><span>${(L.g[no(j)]||0).toFixed(1)}</span><b>${(p[j]*100).toFixed(1)}%</b></div>`).join('')}</div>`;
   el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();};
 }
