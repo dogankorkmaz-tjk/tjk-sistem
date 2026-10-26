@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-26 13:57 UTC",
- "kayitli_kosu": 826,
- "eslesmeyen_kosu": 550,
+ "uretim": "2026-10-26 15:27 UTC",
+ "kayitli_kosu": 830,
+ "eslesmeyen_kosu": 551,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 434,
- "kosu": 276,
+ "bahis": 445,
+ "kosu": 279,
  "isabet": 31,
- "roi": 1.158,
+ "roi": 1.129,
  "ga95": [
-  0.707,
-  1.644
+  0.675,
+  1.604
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.992
   },
   "birlesik-krallik": {
-   "bahis": 59,
-   "roi": 2.022
+   "bahis": 66,
+   "roi": 1.808
   },
   "fransa": {
-   "bahis": 33,
-   "roi": 1.295
+   "bahis": 37,
+   "roi": 1.155
   },
   "guney-afrika": {
    "bahis": 41,
@@ -35,135 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 529,
-  "kosu": 270,
-  "isabet": 58,
-  "roi": 0.824,
+  "bahis": 536,
+  "kosu": 273,
+  "isabet": 60,
+  "roi": 0.832,
   "ga95": [
-   0.592,
-   1.072
+   0.609,
+   1.078
   ]
  },
  "bahis_t1": {
-  "bahis": 554,
-  "kosu": 267,
-  "isabet": 65,
-  "roi": 0.934,
+  "bahis": 561,
+  "kosu": 270,
+  "isabet": 66,
+  "roi": 0.929,
   "ga95": [
-   0.599,
-   1.301
+   0.598,
+   1.294
   ]
  },
  "bahis_t3": {
-  "bahis": 555,
-  "kosu": 261,
-  "isabet": 66,
-  "roi": 0.849,
+  "bahis": 562,
+  "kosu": 264,
+  "isabet": 68,
+  "roi": 0.848,
   "ga95": [
-   0.521,
-   1.265
+   0.527,
+   1.259
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "RADAR WOMAN",
-   "q": 0.037,
-   "g": 49.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "SCOTCH MIST",
-   "q": 0.06,
-   "g": 23.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "GOLDEN HARVEST",
-   "q": 0.049,
-   "g": 26.8,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "WHISKEY OVER WINE",
-   "q": 0.06,
-   "g": 23.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 9,
-   "at": "BACKSTREET EMMA",
-   "q": 0.111,
-   "g": 15.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "EL CAPO",
-   "q": 0.113,
-   "g": 15.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "CASH THE MONEY",
-   "q": 0.198,
-   "g": 10.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 11,
-   "at": "FORESTERS EXEC",
-   "q": 0.071,
-   "g": 19.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 11,
-   "at": "SOUPER SPORTY",
-   "q": 0.157,
-   "g": 15.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 11,
-   "at": "THANK YOU INDIA",
-   "q": 0.071,
-   "g": 23.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-24",
-   "pist": "Woodbine",
-   "kosu": 11,
-   "at": "ELUSIVE YAUPON",
-   "q": 0.071,
-   "g": 23.85,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-25",
    "pist": "Belmont Park",
@@ -423,6 +324,105 @@
    "at": "LA CARMEN",
    "q": 0.148,
    "g": 12.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "MOON RIDER",
+   "q": 0.142,
+   "g": 15.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "D DAY MAN",
+   "q": 0.087,
+   "g": 21.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "WOODBRIDGE",
+   "q": 0.054,
+   "g": 27.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "GENTILESCHI",
+   "q": 0.06,
+   "g": 27.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Leicester",
+   "kosu": 3,
+   "at": "NORTHERN EXPOSURE",
+   "q": 0.089,
+   "g": 17.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Leicester",
+   "kosu": 3,
+   "at": "BLUE SIGN",
+   "q": 0.114,
+   "g": 14.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Leicester",
+   "kosu": 3,
+   "at": "SECRET RIVAL",
+   "q": 0.106,
+   "g": 15.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Leicester",
+   "kosu": 3,
+   "at": "TIDAL FORCE",
+   "q": 0.061,
+   "g": 24.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Leicester",
+   "kosu": 3,
+   "at": "GOOD FIGHTER",
+   "q": 0.1,
+   "g": 25.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Redcar",
+   "kosu": 4,
+   "at": "THE RESDEV TYKE",
+   "q": 0.068,
+   "g": 29.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Redcar",
+   "kosu": 4,
+   "at": "ROWLF",
+   "q": 0.253,
+   "g": 6.85,
    "kazandi": false
   }
  ]
