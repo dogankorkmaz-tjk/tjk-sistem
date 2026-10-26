@@ -326,6 +326,8 @@ def pist_uygula(obj):
             j = cj.get((r.hipodrom, int(r.kosu), int(r.no)))
             if j:
                 pr.at[i, "p_jokey"] = _jn(j); pr.at[i, "p_apranti"] = j.strip().endswith("AP")
+        for (_h, _k, _n), _kg in (obj.get("_kilo") or {}).items():            # API'deki güncel kilo (program sayfası eski kalabilir)
+            pr.loc[(pr.hipodrom == _h) & (pr.kosu == _k) & (pr.no == _n), "p_kilo"] = _kg
         yeni = pr.rename(columns={"p_at": "at", "p_jokey": "jokey", "p_apranti": "apranti", "p_kilo": "kilo"})
         yeni["hnd"] = yeni.hk; yeni["kosmadi"] = False; yeni["ganyan"] = 10.0
         M = yukle_model(); A = GL.yukle()
@@ -366,6 +368,7 @@ def pist_uygula(obj):
                 k.pop("yeniden_puan", None)
                 n += 1
         print("pist değişikliği işlendi: koşu", n, sorted(hedef))
+        obj.pop("_kilo", None)
     except Exception as e:
         print("pist değişikliği hatası:", repr(e))
 
@@ -526,6 +529,7 @@ def jokey_uygula(obj):
                         a["z4"] = round(float(bz4[key]), 4)
                     if key in bz5 and "z5" in a:
                         a["z5"] = round(float(bz5[key]), 4)
+                    a.pop("z6", None); a.pop("z6b", None)   # G1-S puanı yeni jokeyle yeniden hesaplanır (z6_doldur)
                 n += 1
         print("jokey değişikliği işlendi:", {h: len(L) for h, L in deg.items()}, "| koşu yenilendi:", n)
     except Exception as e:
@@ -846,9 +850,13 @@ def canli(t):
     try:
         from . import degisiklik as _DG
         _DG.pist_yaz(obj)                  # API'de pist türü değiştiyse pist_degisiklik.csv'ye otomatik yaz (26 Ekim 2026)
+        _DG.kilo_isaretle(obj)             # API kilosu değiştiyse koşuyu yeniden puanlamaya işaretle
     except Exception as e:
         print("otomatik pist hatası:", repr(e))
-    pist_uygula(obj)
+    try:
+        pist_uygula(obj)
+    finally:
+        obj.pop("_kilo", None)            # tuple anahtarlı geçici sözlük JSON'a yazılmasın
     kosmaz_isle(obj)
     try:
         _DG.notlar(obj)                    # koşuya 'degisiklik' notları (pist/jokey/koşmaz/kilo)

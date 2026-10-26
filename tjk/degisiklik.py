@@ -113,3 +113,41 @@ def notlar(obj):
     if n:
         print("son dakika değişiklik notu:", n)
     return n
+
+
+def kilo_isaretle(obj):
+    """API'deki kilo programdakinden >=0,5 kg farklıysa atın kilosunu günceller ve koşuyu 'yeniden_puan' ile işaretler:
+    calistir.pist_uygula bu koşunun z/z2/z3/z4/z5/zj puanlarını (API kilosuyla) yeniden hesaplar, z6 sonra doldurulur. Başlamış koşulara dokunmaz."""
+    t = obj["tarih"]; simdi = O.tr_simdi().strftime("%H:%M")
+    g = atyapi.gun(t)
+    if not g:
+        return 0
+    obj["_kilo"] = {}
+    n = 0
+    for h in obj["hipodromlar"]:
+        v = g.get(h["id"])
+        if not v:
+            continue
+        ak = {int(k["number"]): k for k in v["kosular"]}
+        for k in h["kosular"]:
+            ar = ak.get(k["kosu"])
+            if not ar or _basladi(k, simdi):
+                continue
+            nm = {a["no"]: a for a in k["atlar"]}
+            ch = False
+            for a in ar.get("horses") or []:
+                x = nm.get(int(a["number"]))
+                if x is None or a.get("status") is False:
+                    continue
+                try:
+                    kg = float(a.get("weight"))
+                except Exception:
+                    continue
+                if x.get("kg") and abs(float(x["kg"]) - kg) >= 0.5:
+                    obj["_kilo"][(h["id"], k["kosu"], x["no"])] = kg
+                    x["kg"] = kg; ch = True; n += 1
+            if ch:
+                k["yeniden_puan"] = True
+    if n:
+        print("kilo değişikliği (otomatik):", n)
+    return n
