@@ -1351,6 +1351,21 @@ function canliCiz(){
       const U=ord.slice(0,N); g+=kupSatir(Array.from({length:L},()=>U),L,birim,'Sırasız kombine · modelin seçtiği '+N+' at'+(N>sirasizN?' (taban '+sirasizN+', kapsama için +'+(N-sirasizN)+')':'')); }
     return kart(baslik,not,g||'<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>'); };
   s+=kupKart('Sıralı üçlü kupon',3,2,[24,48],4,'Her sıraya birden fazla at yazılır; tüm kombinasyonlar birlikte oynanır. Birim 2 TL. Yalnız model: TJK bu havuzun canlı ödemesini yayınlamıyor. Sırasız kombine: model 4 atla başlar; üçlüde kupon küçük tutulur (sırasızda 4 at = 24 kombinasyon): geniş kuponda tutma yüksek ama tutanların %63’ü yatırılan parayı çıkarmıyor (T23). Aynı atlar her sırada, her sıralama ayrı bilet.',0.2,24);
+  // değer odaklı sıralı üçlü kupon (T24, 26 Ekim 2026): skor = model olasılığı / piyasa olasılığı^0,5; ilk 8 at, 336 sıralı kombinasyon; aynı maliyette kapsama kuponundan +0,06–0,10 ROI (hâlâ <1)
+  {
+    const qn=ppAll.map(v=>Math.max(v,1e-9)), qs=qn.reduce((a,b)=>a+b,0), qd=qn.map(v=>v/qs), qW=GP.slice(0,3).map(g=>qd.map(v=>Math.pow(v,g))), qT=qW.map(w=>w.reduce((a,b)=>a+b,0));
+    const pW3=a5.slice(0,3).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), pT3=pW3.map(w=>w.reduce((a,b)=>a+b,0));
+    const cand=p.map((v,j)=>j).sort((a,b)=>(p[b]+qd[b])-(p[a]+qd[a])).slice(0,8), rows=[];
+    kombler(cand,3).forEach(c=>permler(c).forEach(pm=>{ const pr=plOlas(pW3,pT3,pm), qr=Math.max(plOlas(qW,qT,pm),1e-9); rows.push({pm,pr,qr,sk:pr/Math.sqrt(qr)}); }));
+    rows.sort((a,b)=>b.sk-a.sk);
+    let g='';
+    [24,48].forEach(n=>{ const sel=rows.slice(0,n), pm_=sel.reduce((a,r)=>a+r.pr,0), pq_=sel.reduce((a,r)=>a+r.qr,0), grp={};
+      sel.forEach(r=>{ const k2=r.pm[0]+'>'+r.pm[1]; (grp[k2]=grp[k2]||[]).push(r.pm[2]); });
+      const chip=j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`;
+      g+=`<div style="border-top:1px solid var(--line);padding:6px 0"><div><b>Değer odaklı · ${n} komb.</b> · <b>${f2(n*2)} TL</b></div><div class="sub">Tutma %${(pm_*100).toFixed(1).replace('.',',')} (piyasa %${(pq_*100).toFixed(1).replace('.',',')}, ×${f2(pm_/Math.max(pq_,1e-9))})</div>`
+        +Object.keys(grp).map(k2=>{ const [a1,b1]=k2.split('>').map(Number); return `<div style="display:flex;align-items:center;gap:4px;margin-top:3px;flex-wrap:wrap">${chip(a1)}<span style="color:var(--muted)">›</span>${chip(b1)}<span style="color:var(--muted)">›</span>${grp[k2].map(chip).join('')}</div>`; }).join('')+'</div>'; });
+    s+=kart('Sıralı üçlü · değer odaklı kupon (ayrı)','Aynı maliyette, yalnız tutma olasılığına değil “olasılık / piyasa fiyatı”na bakarak kurulur: favorileri bırakmadan modelin piyasadan değerli gördüğü kombinasyonlar öne çıkar. Geçmişte (1.429 koşu) kapsama kuponundan +0,06–0,10 ROI (T24); yine de ROI 1’in altında, kâr kanıtı yok.',g);
+  }
   s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[150],5,'Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: 5 at (6. at 250 kombinasyonu aştığı için eklenmez).',0.05);
   s+=kupKart('Sıralı 5’li kupon',5,1.25,[150,190,400],5,'Birim 1,25 TL. Sırasız kombine 5 at = 120 komb. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.',0.01);
   s+=`<div class="card"><b>Atlar (canlı ganyan → model)</b>${ord.map(j=>`<div class="sub" style="display:flex;gap:8px;align-items:center"><span class="no c${(no(j)-1)%16+1}">${no(j)}</span><span style="flex:1">${esc(ad(j))}</span><span>${(L.g[no(j)]||0).toFixed(1)}</span><b>${(p[j]*100).toFixed(1)}%</b></div>`).join('')}</div>`;
