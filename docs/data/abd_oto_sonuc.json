@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-26 21:48 UTC",
+ "uretim": "2026-10-26 22:05 UTC",
  "kayitli_kosu": 866,
- "eslesmeyen_kosu": 572,
+ "eslesmeyen_kosu": 571,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 467,
- "kosu": 294,
+ "bahis": 470,
+ "kosu": 295,
  "isabet": 32,
- "roi": 1.135,
+ "roi": 1.128,
  "ga95": [
-  0.721,
-  1.591
+  0.712,
+  1.585
  ],
  "ulke": {
   "abd": {
-   "bahis": 302,
-   "roi": 0.937
+   "bahis": 305,
+   "roi": 0.927
   },
   "birlesik-krallik": {
    "bahis": 71,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 568,
-  "kosu": 288,
-  "isabet": 63,
-  "roi": 0.808,
+  "bahis": 572,
+  "kosu": 289,
+  "isabet": 64,
+  "roi": 0.813,
   "ga95": [
-   0.592,
-   1.047
+   0.604,
+   1.048
   ]
  },
  "bahis_t1": {
-  "bahis": 595,
-  "kosu": 284,
+  "bahis": 596,
+  "kosu": 285,
   "isabet": 68,
-  "roi": 0.894,
+  "roi": 0.892,
   "ga95": [
    0.565,
    1.254
   ]
  },
  "bahis_t3": {
-  "bahis": 596,
-  "kosu": 277,
+  "bahis": 597,
+  "kosu": 278,
   "isabet": 73,
-  "roi": 0.832,
+  "roi": 0.831,
   "ga95": [
-   0.532,
-   1.226
+   0.531,
+   1.224
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-25",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "HOLIDAY SNOOZE",
-   "q": 0.176,
-   "g": 9.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "GOING PLATINUM",
-   "q": 0.194,
-   "g": 6.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Woodbine",
-   "kosu": 9,
-   "at": "SOUPED UP",
-   "q": 0.071,
-   "g": 18.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Chantilly",
@@ -261,6 +234,33 @@
    "at": "DAUWE",
    "q": 0.108,
    "g": 15.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "WHITE LILACS",
+   "q": 0.063,
+   "g": 20.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "AIRO DINERO",
+   "q": 0.091,
+   "g": 29.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 7,
+   "at": "CAUSE IMA ROSE",
+   "q": 0.039,
+   "g": 35.0,
    "kazandi": false
   },
   {
