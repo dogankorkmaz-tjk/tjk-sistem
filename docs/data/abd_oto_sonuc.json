@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-26 18:58 UTC",
+ "uretim": "2026-10-26 19:35 UTC",
  "kayitli_kosu": 854,
- "eslesmeyen_kosu": 567,
+ "eslesmeyen_kosu": 566,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 458,
- "kosu": 287,
+ "bahis": 459,
+ "kosu": 288,
  "isabet": 32,
- "roi": 1.157,
+ "roi": 1.155,
  "ga95": [
-  0.744,
-  1.616
+  0.741,
+  1.614
  ],
  "ulke": {
   "abd": {
-   "bahis": 293,
-   "roi": 0.965
+   "bahis": 294,
+   "roi": 0.962
   },
   "birlesik-krallik": {
    "bahis": 71,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 557,
-  "kosu": 281,
+  "bahis": 559,
+  "kosu": 282,
   "isabet": 62,
-  "roi": 0.815,
+  "roi": 0.812,
   "ga95": [
-   0.597,
-   1.053
+   0.592,
+   1.051
   ]
  },
  "bahis_t1": {
-  "bahis": 581,
-  "kosu": 277,
+  "bahis": 584,
+  "kosu": 278,
   "isabet": 67,
-  "roi": 0.906,
+  "roi": 0.902,
   "ga95": [
-   0.577,
-   1.265
+   0.569,
+   1.26
   ]
  },
  "bahis_t3": {
-  "bahis": 584,
-  "kosu": 271,
+  "bahis": 586,
+  "kosu": 272,
   "isabet": 72,
-  "roi": 0.84,
+  "roi": 0.838,
   "ga95": [
-   0.534,
-   1.244
+   0.533,
+   1.24
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-25",
-   "pist": "Saint-Cloud",
-   "kosu": 8,
-   "at": "WASABI",
-   "q": 0.189,
-   "g": 6.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-25",
    "pist": "Saint-Cloud",
@@ -261,6 +252,15 @@
    "at": "GEMELLO",
    "q": 0.139,
    "g": 18.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Finger Lakes",
+   "kosu": 4,
+   "at": "BURN INDY BURN",
+   "q": 0.118,
+   "g": 12.4,
    "kazandi": false
   },
   {
