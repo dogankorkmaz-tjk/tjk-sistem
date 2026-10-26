@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-26 18:04 UTC",
- "kayitli_kosu": 849,
- "eslesmeyen_kosu": 564,
+ "uretim": "2026-10-26 18:39 UTC",
+ "kayitli_kosu": 854,
+ "eslesmeyen_kosu": 567,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 453,
- "kosu": 285,
+ "bahis": 458,
+ "kosu": 287,
  "isabet": 32,
- "roi": 1.17,
+ "roi": 1.157,
  "ga95": [
-  0.754,
-  1.633
+  0.744,
+  1.616
  ],
  "ulke": {
   "abd": {
-   "bahis": 288,
-   "roi": 0.982
+   "bahis": 293,
+   "roi": 0.965
   },
   "birlesik-krallik": {
    "bahis": 71,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 544,
-  "kosu": 279,
-  "isabet": 61,
-  "roi": 0.824,
+  "bahis": 557,
+  "kosu": 281,
+  "isabet": 62,
+  "roi": 0.815,
   "ga95": [
-   0.604,
-   1.064
+   0.597,
+   1.053
   ]
  },
  "bahis_t1": {
-  "bahis": 568,
-  "kosu": 275,
-  "isabet": 66,
-  "roi": 0.917,
+  "bahis": 581,
+  "kosu": 277,
+  "isabet": 67,
+  "roi": 0.906,
   "ga95": [
-   0.584,
-   1.275
+   0.577,
+   1.265
   ]
  },
  "bahis_t3": {
-  "bahis": 571,
-  "kosu": 269,
-  "isabet": 71,
-  "roi": 0.85,
+  "bahis": 584,
+  "kosu": 271,
+  "isabet": 72,
+  "roi": 0.84,
   "ga95": [
-   0.539,
-   1.256
+   0.534,
+   1.244
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-25",
-   "pist": "Gulfstream",
-   "kosu": 6,
-   "at": "KING OF LEGENDS",
-   "q": 0.132,
-   "g": 12.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Gulfstream",
-   "kosu": 6,
-   "at": "JUSTIFIED JOURNEY",
-   "q": 0.113,
-   "g": 18.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "AMASIA",
-   "q": 0.147,
-   "g": 11.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Saint-Cloud",
-   "kosu": 5,
-   "at": "MAIA STAR",
-   "q": 0.134,
-   "g": 10.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-25",
-   "pist": "Saint-Cloud",
-   "kosu": 5,
-   "at": "NANCY DES PLACES",
-   "q": 0.121,
-   "g": 15.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-25",
    "pist": "Saint-Cloud",
@@ -310,6 +265,24 @@
   },
   {
    "gun": "2026-10-26",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 1,
+   "at": "TAY",
+   "q": 0.041,
+   "g": 31.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 1,
+   "at": "LAVENDER EARL",
+   "q": 0.041,
+   "g": 38.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
    "pist": "Leicester",
    "kosu": 3,
    "at": "NORTHERN EXPOSURE",
@@ -360,6 +333,33 @@
    "at": "DIAMONDS N DEW",
    "q": 0.194,
    "g": 11.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Mahoning Valley",
+   "kosu": 5,
+   "at": "DRIVEN FOR SUCCESS",
+   "q": 0.142,
+   "g": 11.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Mahoning Valley",
+   "kosu": 5,
+   "at": "KAT TRAX",
+   "q": 0.156,
+   "g": 8.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-26",
+   "pist": "Mahoning Valley",
+   "kosu": 5,
+   "at": "BE KOZY",
+   "q": 0.087,
+   "g": 27.05,
    "kazandi": false
   },
   {
