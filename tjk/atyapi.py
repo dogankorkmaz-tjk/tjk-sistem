@@ -9,6 +9,7 @@ DETAY = "https://tjkbulten.atyarisi.com/api/v2/ProgramDetails"
 _H = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) Chrome/124 Safari/537.36", "Accept": "application/json",
       "Origin": "https://www.atyarisi.com", "Referer": "https://www.atyarisi.com/"}
 _ONBELLEK = {}
+_LISTE = {}          # {tarih: {hipodrom: {'raceCourse': [{type,status,weight}], 'weather': {...}}}} (pist durumu ve hava; gun() ile birlikte alınır)
 
 
 def _sn(s):
@@ -38,6 +39,7 @@ def gun(tarih, yenile=False):
             hid = _hip(hi.get("place")) or _hip(hi.get("code"))
             if not hid or hid not in O.TRH:
                 continue
+            _LISTE.setdefault(tarih, {})[hid] = {"raceCourse": h.get("raceCourse") or [], "weather": h.get("weather") or {}}
             rr = requests.get(DETAY, params={"programId": h["id"]}, headers=_H, timeout=30)
             ko = (rr.json().get("d") or {}).get("races") or []
             if ko:
@@ -240,3 +242,14 @@ def odeme_yaz(tarih):
     n = _yaz("odeme", pd.DataFrame(rows), ["tarih", "hipodrom", "kosu", "tur", "seq", "kombo"])
     print("atyarisi ikramiyeleri eklendi:", tarih, n, "satır")
     return n
+
+
+def pist_durumlari(tarih):
+    """-> {hipodrom: [{"pist": "Çim", "durum": "Yumuşak", "agirlik": 3.4}]} (yalnız durumu yazılmış pistler); gun() çağrılmış olmalı."""
+    gun(tarih)
+    out = {}
+    for hid, v in (_LISTE.get(tarih) or {}).items():
+        L = [{"pist": c.get("type"), "durum": str(c.get("status") or "").strip(), "agirlik": c.get("weight")} for c in v["raceCourse"] if str(c.get("status") or "").strip()]
+        if L:
+            out[hid] = L
+    return out

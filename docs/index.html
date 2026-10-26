@@ -625,7 +625,7 @@ function renderKosu(){
   const bitti=!!k.sonuc;
   const podyum=bitti?k.atlar.filter(a=>k.sonuc[a.no]&&k.sonuc[a.no].sira<=3).sort((x,y)=>k.sonuc[x.no].sira-k.sonuc[y.no].sira):[];
   let s=`<div class="card yk"><div class="kbas"><div class="ykbas"><div class="ykno"><small>Koşu</small><b>${k.kosu}</b></div>
-      <div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat||'')}${bitti?' · bitti':''}</span>${k.bilgi?`<span class="note">${esc(k.bilgi)}</span>`:''}${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}</div></div>
+      <div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat||'')}${bitti?' · bitti':''}</span>${k.bilgi?`<span class="note">${esc(k.bilgi)}</span>`:''}${(((VERI.pist_durumu||{})[h.id])||[]).map(c=>`<span class="note">Pist durumu: ${esc(c.pist)} ${esc(String(c.durum||'').toLocaleLowerCase('tr'))}${c.agirlik?' '+String(c.agirlik).replace('.',','):''}</span>`).join('')}${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}</div></div>
     <div id="kaynak"></div></div>
     ${podyum.length?'<div class="podyum">'+podyum.map(a=>`<div class="p${k.sonuc[a.no].sira}"><small>${k.sonuc[a.no].sira}.</small><span class="no c${(a.no-1)%16+1}">${a.no}</span><b>${esc(a.at)}</b></div>`).join('')+'</div>':''}
     <div class="rkbas">Model sırası</div><div class="rank" id="rank"></div>

@@ -88,6 +88,10 @@ def notlar(obj):
             if not ar or _basladi(k, simdi):
                 continue
             L = []
+            if str(ar.get("raceCourseChanged") or "").strip():
+                L.append("Pist değişti: " + str(ar.get("raceCourseChanged")).strip())
+            if str(ar.get("distanceChanged") or "").strip():
+                L.append("Mesafe değişti: " + str(ar.get("distanceChanged")).strip())
             pk = PD.get((h["id"], str(k["kosu"])))
             if pk:
                 L.append("Pist " + {"Kum": "kuma", "Çim": "çime", "Sentetik": "sentetiğe"}.get(pk, pk) + " alındı (model puanları yenilendi)")
@@ -151,3 +155,41 @@ def kilo_isaretle(obj):
     if n:
         print("kilo değişikliği (otomatik):", n)
     return n
+
+
+def pist_durum_yaz(obj):
+    """Pist durumu (ağır/yumuşak/nemli... + ağırlık, örn. Çim Yumuşak 3,4): API'den okur, obj['pist_durumu']'na yazar (UI) ve data/pist_durum.csv'ye yeni değerleri ekler.
+    Model şimdilik kullanmıyor (kayıt/analiz amaçlı)."""
+    t = obj["tarih"]; simdi = O.tr_simdi().strftime("%H:%M")
+    try:
+        pdur = atyapi.pist_durumlari(t)
+    except Exception as e:
+        print("pist durumu hatası:", repr(e)); return 0
+    obj["pist_durumu"] = pdur
+    if not pdur:
+        return 0
+    yol = os.path.join(VERI, "pist_durum.csv")
+    var = set()
+    if os.path.exists(yol):
+        for l in open(yol, encoding="utf-8").read().split("\n")[1:]:
+            p = l.split(",")
+            if len(p) >= 4 and p[0] == t:
+                var.add((p[1].lower(), p[2].lower().replace("ç", "c"), p[3].strip().lower()))
+    TR = str.maketrans("ÇçİıŞşĞğÜüÖö", "CcIiSsGgUuOo")
+    yeni = []
+    for hid, L in pdur.items():
+        for c in L:
+            durum = f"{c['durum']} {c['agirlik']}".strip() if c.get("agirlik") else c["durum"]
+            key = (hid.translate(TR).lower(), str(c["pist"]).translate(TR).lower(), durum.translate(TR).lower())
+            if any(key[0] == v[0] and key[1] == v[1] and key[2] == v[2] for v in var):
+                continue
+            var.add(key)
+            yeni.append(f"{t},{hid.capitalize()},{str(c['pist']).translate(TR)},{durum.translate(TR)},otomatik atyarisi API,{simdi}")
+    if yeni:
+        yeni_dosya = not os.path.exists(yol)
+        with open(yol, "a", encoding="utf-8") as fh:
+            if yeni_dosya:
+                fh.write("tarih,hipodrom,pist,durum,bildiren,saat_tr\n")
+            fh.write("\n".join(yeni) + "\n")
+        print("pist durumu (otomatik):", yeni)
+    return len(yeni)
