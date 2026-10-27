@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-27 17:58 UTC",
+ "uretim": "2026-10-27 18:26 UTC",
  "kayitli_kosu": 905,
- "eslesmeyen_kosu": 599,
+ "eslesmeyen_kosu": 597,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 497,
- "kosu": 306,
+ "bahis": 498,
+ "kosu": 308,
  "isabet": 33,
- "roi": 1.084,
+ "roi": 1.082,
  "ga95": [
-  0.651,
-  1.515
+  0.649,
+  1.513
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.909
   },
   "birlesik-krallik": {
-   "bahis": 82,
-   "roi": 1.895
+   "bahis": 83,
+   "roi": 1.872
   },
   "fransa": {
    "bahis": 47,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 595,
-  "kosu": 300,
+  "bahis": 599,
+  "kosu": 302,
   "isabet": 65,
-  "roi": 0.784,
+  "roi": 0.779,
   "ga95": [
-   0.568,
-   1.007
+   0.558,
+   1.003
   ]
  },
  "bahis_t1": {
-  "bahis": 621,
-  "kosu": 296,
+  "bahis": 624,
+  "kosu": 298,
   "isabet": 69,
-  "roi": 0.859,
+  "roi": 0.854,
   "ga95": [
-   0.546,
-   1.196
+   0.544,
+   1.191
   ]
  },
  "bahis_t3": {
-  "bahis": 623,
-  "kosu": 287,
-  "isabet": 74,
-  "roi": 0.805,
+  "bahis": 627,
+  "kosu": 289,
+  "isabet": 75,
+  "roi": 0.804,
   "ga95": [
-   0.512,
-   1.18
+   0.514,
+   1.176
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Mahoning Valley",
-   "kosu": 3,
-   "at": "DIAMONDS N DEW",
-   "q": 0.194,
-   "g": 11.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Mahoning Valley",
@@ -423,6 +414,15 @@
    "at": "CONSTELLA",
    "q": 0.149,
    "g": 8.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 4,
+   "at": "SAISONS D'OR",
+   "q": 0.107,
+   "g": 70.5,
    "kazandi": false
   }
  ]
