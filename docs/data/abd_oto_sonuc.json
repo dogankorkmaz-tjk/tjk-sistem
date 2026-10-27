@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-27 17:32 UTC",
- "kayitli_kosu": 901,
- "eslesmeyen_kosu": 596,
+ "uretim": "2026-10-27 17:58 UTC",
+ "kayitli_kosu": 905,
+ "eslesmeyen_kosu": 599,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 496,
- "kosu": 305,
+ "bahis": 497,
+ "kosu": 306,
  "isabet": 33,
- "roi": 1.086,
+ "roi": 1.084,
  "ga95": [
-  0.654,
+  0.651,
   1.515
  ],
  "ulke": {
   "abd": {
-   "bahis": 310,
-   "roi": 0.912
+   "bahis": 311,
+   "roi": 0.909
   },
   "birlesik-krallik": {
    "bahis": 82,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 594,
-  "kosu": 299,
+  "bahis": 595,
+  "kosu": 300,
   "isabet": 65,
-  "roi": 0.785,
+  "roi": 0.784,
   "ga95": [
-   0.569,
-   1.008
+   0.568,
+   1.007
   ]
  },
  "bahis_t1": {
-  "bahis": 620,
-  "kosu": 295,
+  "bahis": 621,
+  "kosu": 296,
   "isabet": 69,
-  "roi": 0.86,
+  "roi": 0.859,
   "ga95": [
-   0.547,
+   0.546,
    1.196
   ]
  },
  "bahis_t3": {
-  "bahis": 622,
-  "kosu": 286,
+  "bahis": 623,
+  "kosu": 287,
   "isabet": 74,
-  "roi": 0.806,
+  "roi": 0.805,
   "ga95": [
-   0.514,
-   1.181
+   0.512,
+   1.18
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Leicester",
-   "kosu": 3,
-   "at": "GOOD FIGHTER",
-   "q": 0.1,
-   "g": 25.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Mahoning Valley",
@@ -414,6 +405,15 @@
    "at": "DREAMWIFEDREAMLIFE",
    "q": 0.088,
    "g": 24.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Mahoning Valley",
+   "kosu": 4,
+   "at": "MISS FOXANN",
+   "q": 0.139,
+   "g": 10.45,
    "kazandi": false
   },
   {
