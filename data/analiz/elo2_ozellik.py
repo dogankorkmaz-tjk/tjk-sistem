@@ -55,5 +55,25 @@ def ekle(d, var):
                 a_[i] = min(len(S - P), 3); c_[i] = min(len(P - S), 3); i_[i] = float(len(S - seen[a]) > 0 and len(seen[a]) > 0)
             hist[a] = S; seen[a] |= S
         d["f_ek_ekle"] = a_; d["f_ek_cikar"] = c_; d["f_ek_ilk"] = i_
+    elif var == "MS":                                    # marjlı Elo + sınıf değişimi (T30)
+        e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
+        T = pd.read_pickle("/tmp/claude-0/sinifp.pkl"); T["dt"] = pd.to_datetime(T.tarih)
+        gm = T.groupby("dt").prize1.median().sort_index(); med = {}
+        for t_ in gm.index:
+            w = T[(T.dt < t_) & (T.dt >= t_ - pd.Timedelta(days=60))].prize1
+            med[t_] = w.median() if len(w) >= 50 else T[T.dt.dt.to_period("M") == t_.to_period("M")].prize1.median()
+        T["sn"] = np.log(T.prize1 / T.dt.map(med)).clip(-2, 2)
+        d = d.merge(T[["tarih", "hipodrom", "kosu", "sn"]], on=["tarih", "hipodrom", "kosu"], how="left"); d = d.sort_values(["tarih", "hipodrom", "kosu", "no"]).reset_index(drop=True)
+        hist = collections.defaultdict(list); f1 = np.zeros(len(d)); f3 = np.zeros(len(d)); gun = d.tarih.astype(str).values; atn = d["at"].astype(str).values; sn = d.sn.values
+        pend = []; cur = None
+        for i in range(len(d)):
+            if gun[i] != cur:
+                for a_, v_ in pend: hist[a_].append(v_)
+                pend = []; cur = gun[i]
+            if np.isfinite(sn[i]):
+                h = hist[atn[i]]
+                if h: f1[i] = np.clip(sn[i] - h[-1], -2, 2); f3[i] = np.clip(sn[i] - np.mean(h[-3:]), -2, 2)
+                pend.append((atn[i], sn[i]))
+        d["f_sf"] = f1; d["f_sf3"] = f3
     return d
-FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
+FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
