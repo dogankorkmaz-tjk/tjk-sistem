@@ -61,6 +61,8 @@ def egit(l2=30.0, lj=50.0, adim=5, bas_galop="2026-02-01", l2g=20.0):
     from .calistir import yukle_model
     M = yukle_model(); FEAT = M["feat"] + GL.EK + GL.LPEK; NJ = len(FEAT)
     d = GL.MS.ekle(hazirla(GL._oku("temiz"), GL._oku("program"), M)); d["f_lp2"] = np.log(d.p_piyasa.clip(lower=1e-6)) ** 2
+    from . import elo as EL                                    # rakip gücü (Elo) özellikleri, 28 Ekim 2026 (T27, ön kayıtlı ablasyon iki dönemde geçti)
+    d = EL.ekle(d); FEAT = FEAT + EL.EXTRA_FEAT; NJ = len(FEAT)
     JD = {}
     for key, g in d.groupby(["tarih", "hipodrom", "kosu"], sort=False):
         JD[key] = (g.no.astype(int).values, np.nan_to_num(g[FEAT].values.astype(float)))

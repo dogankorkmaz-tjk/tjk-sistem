@@ -127,7 +127,7 @@ def sabah(t):
             try:
                 from . import g1v3 as _V3; G3 = _V3.yukle()
                 if G3:
-                    dj = d2[d2.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict()
+                    from . import elo as _EL; dj = _EL.ekle(d2); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict()
             except Exception as e:
                 print("v3 zj hatası:", repr(e)); bzj = {}
         except Exception as e:
@@ -343,7 +343,7 @@ def pist_uygula(obj):
             try:
                 from . import g1v3 as _V3; G3 = _V3.yukle()
                 if G3:
-                    dj = d2[d2.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict()
+                    from . import elo as _EL; dj = _EL.ekle(d2); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict()
             except Exception as e:
                 print("v3 zj hatası:", repr(e))
             AK = GL.yukle_k()
