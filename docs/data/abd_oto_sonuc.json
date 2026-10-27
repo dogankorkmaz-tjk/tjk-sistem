@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-27 17:12 UTC",
+ "uretim": "2026-10-27 17:32 UTC",
  "kayitli_kosu": 901,
- "eslesmeyen_kosu": 598,
+ "eslesmeyen_kosu": 596,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 492,
- "kosu": 303,
+ "bahis": 496,
+ "kosu": 305,
  "isabet": 33,
- "roi": 1.095,
+ "roi": 1.086,
  "ga95": [
-  0.663,
-  1.522
+  0.654,
+  1.515
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.912
   },
   "birlesik-krallik": {
-   "bahis": 81,
-   "roi": 1.919
+   "bahis": 82,
+   "roi": 1.895
   },
   "fransa": {
-   "bahis": 44,
-   "roi": 0.972
+   "bahis": 47,
+   "roi": 0.91
   },
   "guney-afrika": {
    "bahis": 41,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 590,
-  "kosu": 297,
+  "bahis": 594,
+  "kosu": 299,
   "isabet": 65,
-  "roi": 0.791,
+  "roi": 0.785,
   "ga95": [
-   0.576,
-   1.011
+   0.569,
+   1.008
   ]
  },
  "bahis_t1": {
-  "bahis": 615,
-  "kosu": 293,
-  "isabet": 68,
-  "roi": 0.865,
+  "bahis": 620,
+  "kosu": 295,
+  "isabet": 69,
+  "roi": 0.86,
   "ga95": [
-   0.55,
-   1.202
+   0.547,
+   1.196
   ]
  },
  "bahis_t3": {
-  "bahis": 619,
-  "kosu": 284,
+  "bahis": 622,
+  "kosu": 286,
   "isabet": 74,
-  "roi": 0.81,
+  "roi": 0.806,
   "ga95": [
-   0.519,
-   1.184
+   0.514,
+   1.181
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Leicester",
-   "kosu": 3,
-   "at": "NORTHERN EXPOSURE",
-   "q": 0.089,
-   "g": 17.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Leicester",
-   "kosu": 3,
-   "at": "BLUE SIGN",
-   "q": 0.114,
-   "g": 14.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Leicester",
-   "kosu": 3,
-   "at": "SECRET RIVAL",
-   "q": 0.106,
-   "g": 15.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Leicester",
-   "kosu": 3,
-   "at": "TIDAL FORCE",
-   "q": 0.061,
-   "g": 24.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Leicester",
@@ -382,6 +346,33 @@
   },
   {
    "gun": "2026-10-27",
+   "pist": "Deauville",
+   "kosu": 8,
+   "at": "PAINTELLO",
+   "q": 0.047,
+   "g": 32.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Deauville",
+   "kosu": 8,
+   "at": "CAMBREMER",
+   "q": 0.098,
+   "g": 13.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Deauville",
+   "kosu": 8,
+   "at": "QUARTZ DU HOULEY",
+   "q": 0.298,
+   "g": 6.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
    "pist": "Finger Lakes",
    "kosu": 1,
    "at": "MATURATION",
@@ -423,6 +414,15 @@
    "at": "DREAMWIFEDREAMLIFE",
    "q": 0.088,
    "g": 24.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 2,
+   "at": "CONSTELLA",
+   "q": 0.149,
+   "g": 8.95,
    "kazandi": false
   }
  ]
