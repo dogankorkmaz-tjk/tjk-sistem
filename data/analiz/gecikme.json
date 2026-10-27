@@ -1000,5 +1000,59 @@
 "acik_son_dk": -9.6,
 "kapali_ilk_dk": 4.7,
 "n": 2
+},
+"2026-10-26|BURSA-1": {
+"saat": "14:30",
+"acik_son_dk": 1.4,
+"kapali_ilk_dk": 4.4,
+"n": 15
+},
+"2026-10-26|BURSA-6": {
+"saat": "17:00",
+"acik_son_dk": 1.6,
+"kapali_ilk_dk": 4.9,
+"n": 14
+},
+"2026-10-26|SANLIURFA-1": {
+"saat": "17:15",
+"acik_son_dk": -3.8,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-10-26|SANLIURFA-4": {
+"saat": "19:00",
+"acik_son_dk": 1.7,
+"kapali_ilk_dk": null,
+"n": 13
+},
+"2026-10-26|SANLIURFA-5": {
+"saat": "19:30",
+"acik_son_dk": 3.3,
+"kapali_ilk_dk": 6.6,
+"n": 2
+},
+"2026-10-26|SANLIURFA-6": {
+"saat": "20:00",
+"acik_son_dk": -8.8,
+"kapali_ilk_dk": 11.0,
+"n": 2
+},
+"2026-10-26|SANLIURFA-7": {
+"saat": "20:30",
+"acik_son_dk": 1.3,
+"kapali_ilk_dk": 3.1,
+"n": 14
+},
+"2026-10-26|SANLIURFA-8": {
+"saat": "21:00",
+"acik_son_dk": 1.9,
+"kapali_ilk_dk": 5.2,
+"n": 2
+},
+"2026-10-26|SANLIURFA-9": {
+"saat": "21:30",
+"acik_son_dk": -5.7,
+"kapali_ilk_dk": 4.2,
+"n": 3
 }
 }
