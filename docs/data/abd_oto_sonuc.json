@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-27 14:48 UTC",
- "kayitli_kosu": 885,
- "eslesmeyen_kosu": 588,
+ "uretim": "2026-10-27 15:34 UTC",
+ "kayitli_kosu": 891,
+ "eslesmeyen_kosu": 592,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 476,
- "kosu": 297,
- "isabet": 32,
- "roi": 1.113,
+ "bahis": 483,
+ "kosu": 299,
+ "isabet": 33,
+ "roi": 1.115,
  "ga95": [
-  0.671,
-  1.548
+  0.684,
+  1.541
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.927
   },
   "birlesik-krallik": {
-   "bahis": 75,
-   "roi": 1.957
+   "bahis": 80,
+   "roi": 1.943
   },
   "fransa": {
-   "bahis": 39,
-   "roi": 1.096
+   "bahis": 41,
+   "roi": 1.043
   },
   "guney-afrika": {
    "bahis": 41,
@@ -35,99 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 582,
-  "kosu": 291,
+  "bahis": 584,
+  "kosu": 293,
   "isabet": 64,
-  "roi": 0.799,
+  "roi": 0.796,
   "ga95": [
-   0.585,
-   1.02
+   0.582,
+   1.016
   ]
  },
  "bahis_t1": {
-  "bahis": 607,
-  "kosu": 287,
+  "bahis": 609,
+  "kosu": 289,
   "isabet": 68,
-  "roi": 0.876,
+  "roi": 0.873,
   "ga95": [
-   0.561,
-   1.216
+   0.56,
+   1.212
   ]
  },
  "bahis_t3": {
-  "bahis": 605,
-  "kosu": 279,
+  "bahis": 607,
+  "kosu": 281,
   "isabet": 73,
-  "roi": 0.82,
+  "roi": 0.817,
   "ga95": [
-   0.526,
-   1.202
+   0.522,
+   1.196
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "WOODBRIDGE",
-   "q": 0.054,
-   "g": 27.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "GENTILESCHI",
-   "q": 0.06,
-   "g": 27.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "RACHEL'S ROCK",
-   "q": 0.23,
-   "g": 8.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Finger Lakes",
-   "kosu": 2,
-   "at": "GEMELLO",
-   "q": 0.139,
-   "g": 18.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Finger Lakes",
-   "kosu": 4,
-   "at": "BURN INDY BURN",
-   "q": 0.118,
-   "g": 12.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Finger Lakes",
-   "kosu": 7,
-   "at": "NOT FOR HIRE",
-   "q": 0.13,
-   "g": 13.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Finger Lakes",
-   "kosu": 7,
-   "at": "SPECIALAGENTJONSON",
-   "q": 0.087,
-   "g": 15.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Horseshoe Indianapolis",
@@ -409,6 +346,51 @@
   },
   {
    "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 5,
+   "at": "MARCHING MAC",
+   "q": 0.214,
+   "g": 8.65,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 5,
+   "at": "BELSITO",
+   "q": 0.095,
+   "g": 19.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 5,
+   "at": "HOMESTRAIT",
+   "q": 0.171,
+   "g": 10.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 5,
+   "at": "AZURE ZAIN",
+   "q": 0.066,
+   "g": 26.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 5,
+   "at": "QUERCUS",
+   "q": 0.033,
+   "g": 45.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
    "pist": "Deauville",
    "kosu": 1,
    "at": "SWEET CHOP",
@@ -423,6 +405,24 @@
    "at": "FOU FURIEUX",
    "q": 0.104,
    "g": 12.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Deauville",
+   "kosu": 4,
+   "at": "ACCLAM",
+   "q": 0.05,
+   "g": 44.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Deauville",
+   "kosu": 4,
+   "at": "MON COMEDIEN",
+   "q": 0.323,
+   "g": 5.2,
    "kazandi": false
   }
  ]
