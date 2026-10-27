@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-27 18:55 UTC",
- "kayitli_kosu": 909,
- "eslesmeyen_kosu": 601,
+ "uretim": "2026-10-27 19:10 UTC",
+ "kayitli_kosu": 911,
+ "eslesmeyen_kosu": 600,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 498,
- "kosu": 308,
- "isabet": 33,
- "roi": 1.082,
+ "bahis": 504,
+ "kosu": 311,
+ "isabet": 34,
+ "roi": 1.116,
  "ga95": [
-  0.649,
-  1.513
+  0.711,
+  1.527
  ],
  "ulke": {
   "abd": {
-   "bahis": 311,
-   "roi": 0.909
+   "bahis": 313,
+   "roi": 0.904
   },
   "birlesik-krallik": {
-   "bahis": 83,
-   "roi": 1.872
+   "bahis": 87,
+   "roi": 2.063
   },
   "fransa": {
    "bahis": 47,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 599,
-  "kosu": 302,
+  "bahis": 606,
+  "kosu": 305,
   "isabet": 65,
-  "roi": 0.779,
+  "roi": 0.77,
   "ga95": [
-   0.558,
-   1.003
+   0.545,
+   0.997
   ]
  },
  "bahis_t1": {
-  "bahis": 624,
-  "kosu": 298,
+  "bahis": 631,
+  "kosu": 301,
   "isabet": 69,
-  "roi": 0.854,
+  "roi": 0.845,
   "ga95": [
-   0.544,
-   1.191
+   0.533,
+   1.179
   ]
  },
  "bahis_t3": {
-  "bahis": 627,
-  "kosu": 289,
+  "bahis": 634,
+  "kosu": 292,
   "isabet": 75,
-  "roi": 0.804,
+  "roi": 0.795,
   "ga95": [
-   0.514,
-   1.176
+   0.505,
+   1.164
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Mahoning Valley",
-   "kosu": 5,
-   "at": "DRIVEN FOR SUCCESS",
-   "q": 0.142,
-   "g": 11.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Mahoning Valley",
-   "kosu": 5,
-   "at": "KAT TRAX",
-   "q": 0.156,
-   "g": 8.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Mahoning Valley",
-   "kosu": 5,
-   "at": "BE KOZY",
-   "q": 0.087,
-   "g": 27.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Mahoning Valley",
-   "kosu": 8,
-   "at": "ROLLIN IN SPIDERS",
-   "q": 0.139,
-   "g": 12.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Mahoning Valley",
-   "kosu": 8,
-   "at": "KILLA CREED",
-   "q": 0.11,
-   "g": 13.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Redcar",
-   "kosu": 4,
-   "at": "THE RESDEV TYKE",
-   "q": 0.068,
-   "g": 29.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Redcar",
@@ -382,6 +328,24 @@
   },
   {
    "gun": "2026-10-27",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "STELLA'S MISCHIEF",
+   "q": 0.13,
+   "g": 17.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "MY KID'S SAID NO",
+   "q": 0.3,
+   "g": 5.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
    "pist": "Mahoning Valley",
    "kosu": 2,
    "at": "LADY MIDSHIPMAN",
@@ -423,6 +387,42 @@
    "at": "SAISONS D'OR",
    "q": 0.107,
    "g": 70.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 5,
+   "at": "BOY STAR",
+   "q": 0.068,
+   "g": 36.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 5,
+   "at": "TWITCH",
+   "q": 0.093,
+   "g": 24.05,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 5,
+   "at": "TEN CLUB",
+   "q": 0.079,
+   "g": 26.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 5,
+   "at": "LADY DELILA",
+   "q": 0.128,
+   "g": 35.05,
    "kazandi": false
   }
  ]
