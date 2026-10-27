@@ -22,6 +22,16 @@ def zj(d, c):
     return ((X - mu[keep]) / sd[keep]) @ w[keep]
 
 
+def ze(d, c):
+    """Elo (rakip gücü) özelliklerinin zj'ye katkısı (T27 ileri gölge: z6 - ze = Elo'suz puan). Elo özelliği modelde yoksa 0."""
+    fe = c["featJ"]; ix = [i for i, f in enumerate(fe) if f in ("f_elo", "f_rak3")]
+    if not ix or any(fe[i] not in d.columns for i in ix):
+        return np.zeros(len(d))
+    mu = np.array(c["muJ"]); sd = np.array(c["sdJ"]); w = np.array(c["wJ"])
+    X = np.nan_to_num(d[[fe[i] for i in ix]].values.astype(float))
+    return ((X - mu[ix]) / sd[ix]) @ w[ix]
+
+
 def z6(atlar, t, c):
     """At başına tam v3 puanı (alfa·log p hariç). atlar: no, at, jokey, kg, hk, agf, zj. zj eksikse None."""
     at = [a for a in atlar if a.get("agf") and not a.get("kosmaz")]
