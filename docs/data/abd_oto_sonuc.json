@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-27 12:49 UTC",
- "kayitli_kosu": 877,
- "eslesmeyen_kosu": 582,
+ "uretim": "2026-10-27 13:36 UTC",
+ "kayitli_kosu": 880,
+ "eslesmeyen_kosu": 583,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 470,
- "kosu": 295,
+ "bahis": 476,
+ "kosu": 297,
  "isabet": 32,
- "roi": 1.128,
+ "roi": 1.113,
  "ga95": [
-  0.712,
-  1.585
+  0.671,
+  1.548
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.927
   },
   "birlesik-krallik": {
-   "bahis": 71,
-   "roi": 2.067
+   "bahis": 75,
+   "roi": 1.957
   },
   "fransa": {
-   "bahis": 37,
-   "roi": 1.155
+   "bahis": 39,
+   "roi": 1.096
   },
   "guney-afrika": {
    "bahis": 41,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 572,
-  "kosu": 289,
+  "bahis": 582,
+  "kosu": 291,
   "isabet": 64,
-  "roi": 0.813,
+  "roi": 0.799,
   "ga95": [
-   0.604,
-   1.048
+   0.585,
+   1.02
   ]
  },
  "bahis_t1": {
-  "bahis": 596,
-  "kosu": 285,
+  "bahis": 607,
+  "kosu": 287,
   "isabet": 68,
-  "roi": 0.892,
+  "roi": 0.876,
   "ga95": [
-   0.565,
-   1.254
+   0.561,
+   1.216
   ]
  },
  "bahis_t3": {
-  "bahis": 597,
-  "kosu": 278,
+  "bahis": 605,
+  "kosu": 279,
   "isabet": 73,
-  "roi": 0.831,
+  "roi": 0.82,
   "ga95": [
-   0.531,
-   1.224
+   0.526,
+   1.202
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 2,
-   "at": "SYDNEY MOON",
-   "q": 0.295,
-   "g": 16.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 2,
-   "at": "AROK ATAO",
-   "q": 0.263,
-   "g": 7.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 2,
-   "at": "CORAL COVE",
-   "q": 0.113,
-   "g": 11.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 2,
-   "at": "LA CARMEN",
-   "q": 0.148,
-   "g": 12.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "MOON RIDER",
-   "q": 0.142,
-   "g": 15.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "D DAY MAN",
-   "q": 0.087,
-   "g": 21.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Chantilly",
@@ -423,6 +369,60 @@
    "at": "TOO MUCH",
    "q": 0.046,
    "g": 29.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 1,
+   "at": "CYBERSPACE",
+   "q": 0.423,
+   "g": 4.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 1,
+   "at": "CLASSYFIED",
+   "q": 0.154,
+   "g": 18.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 1,
+   "at": "KUMHARAS",
+   "q": 0.141,
+   "g": 12.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Catterick",
+   "kosu": 1,
+   "at": "VALENTINA BONITA",
+   "q": 0.056,
+   "g": 30.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Deauville",
+   "kosu": 1,
+   "at": "SWEET CHOP",
+   "q": 0.149,
+   "g": 9.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Deauville",
+   "kosu": 1,
+   "at": "FOU FURIEUX",
+   "q": 0.104,
+   "g": 12.25,
    "kazandi": false
   }
  ]
