@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-27 21:29 UTC",
- "kayitli_kosu": 924,
+ "uretim": "2026-10-27 21:38 UTC",
+ "kayitli_kosu": 925,
  "eslesmeyen_kosu": 606,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 513,
- "kosu": 318,
+ "bahis": 514,
+ "kosu": 319,
  "isabet": 34,
- "roi": 1.097,
+ "roi": 1.095,
  "ga95": [
-  0.692,
-  1.515
+  0.691,
+  1.513
  ],
  "ulke": {
   "abd": {
-   "bahis": 320,
-   "roi": 0.884
+   "bahis": 321,
+   "roi": 0.881
   },
   "birlesik-krallik": {
    "bahis": 89,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 618,
-  "kosu": 312,
+  "bahis": 620,
+  "kosu": 313,
   "isabet": 65,
-  "roi": 0.755,
+  "roi": 0.753,
   "ga95": [
-   0.518,
+   0.516,
    0.991
   ]
  },
  "bahis_t1": {
-  "bahis": 644,
-  "kosu": 307,
+  "bahis": 646,
+  "kosu": 308,
   "isabet": 69,
-  "roi": 0.828,
+  "roi": 0.825,
   "ga95": [
-   0.51,
-   1.164
+   0.507,
+   1.162
   ]
  },
  "bahis_t3": {
-  "bahis": 648,
-  "kosu": 298,
+  "bahis": 650,
+  "kosu": 299,
   "isabet": 76,
-  "roi": 0.782,
+  "roi": 0.779,
   "ga95": [
-   0.492,
-   1.144
+   0.491,
+   1.141
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 1,
-   "at": "VALENTINA BONITA",
-   "q": 0.056,
-   "g": 30.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Catterick",
@@ -315,6 +306,15 @@
    "at": "CROATOAN",
    "q": 0.132,
    "g": 10.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 6,
+   "at": "WOODCOCK FLIGHT",
+   "q": 0.124,
+   "g": 10.3,
    "kazandi": false
   },
   {
