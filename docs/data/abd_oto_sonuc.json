@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-27 20:00 UTC",
- "kayitli_kosu": 917,
- "eslesmeyen_kosu": 601,
+ "uretim": "2026-10-27 20:33 UTC",
+ "kayitli_kosu": 921,
+ "eslesmeyen_kosu": 604,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 509,
- "kosu": 316,
+ "bahis": 511,
+ "kosu": 317,
  "isabet": 34,
- "roi": 1.105,
+ "roi": 1.101,
  "ga95": [
-  0.7,
-  1.52
+  0.696,
+  1.516
  ],
  "ulke": {
   "abd": {
-   "bahis": 316,
-   "roi": 0.895
+   "bahis": 318,
+   "roi": 0.889
   },
   "birlesik-krallik": {
    "bahis": 89,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 614,
-  "kosu": 310,
+  "bahis": 617,
+  "kosu": 311,
   "isabet": 65,
-  "roi": 0.76,
+  "roi": 0.756,
   "ga95": [
-   0.525,
-   0.994
+   0.52,
+   0.991
   ]
  },
  "bahis_t1": {
-  "bahis": 640,
-  "kosu": 305,
+  "bahis": 643,
+  "kosu": 306,
   "isabet": 69,
-  "roi": 0.833,
+  "roi": 0.829,
   "ga95": [
-   0.516,
+   0.512,
    1.165
   ]
  },
  "bahis_t3": {
-  "bahis": 643,
-  "kosu": 296,
+  "bahis": 646,
+  "kosu": 297,
   "isabet": 76,
-  "roi": 0.788,
+  "roi": 0.784,
   "ga95": [
-   0.5,
-   1.152
+   0.494,
+   1.147
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Redcar",
-   "kosu": 8,
-   "at": "TOO MUCH",
-   "q": 0.046,
-   "g": 29.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 1,
-   "at": "CYBERSPACE",
-   "q": 0.423,
-   "g": 4.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Catterick",
@@ -315,6 +297,24 @@
    "at": "MY KID'S SAID NO",
    "q": 0.3,
    "g": 5.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "MY AWESOME GOLD",
+   "q": 0.113,
+   "g": 11.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "CROATOAN",
+   "q": 0.132,
+   "g": 10.55,
    "kazandi": false
   },
   {
