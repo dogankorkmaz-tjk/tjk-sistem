@@ -1,4 +1,6 @@
 """Jason-S + h2h testi (ön kayıt: hipotez_defteri.md 14 Ekim 2026 01:20). Çalıştır: cd /home/claude/tjk-sistem && python3 -m data.analiz... yerine: python3 data/analiz/siralama_modeli.py"""
+import sys
+Q0=sys.argv[1] if len(sys.argv)>1 else "2025Q1";Q1=sys.argv[2] if len(sys.argv)>2 else "2099Q4"
 import sys,os,numpy as np,pandas as pd
 sys.path.insert(0,'/home/claude/tjk-sistem')
 from scipy.optimize import minimize
@@ -80,7 +82,7 @@ def fit_s(tr,lam,th0,a0):
     return r.x[:1+nf],np.r_[1.0,r.x[1+nf:]],mu,sd
 d["q"]=pd.PeriodIndex(pd.to_datetime(d.tarih),freq="Q").astype(str)
 rows=[]
-for q in [x for x in sorted(d.q.unique()) if x>="2025Q1"]:
+for q in [x for x in sorted(d.q.unique()) if x>=Q0 and x<=Q1]:
     te=d[d.q==q].copy();tr=d[d.tarih<te.tarih.min()]
     if tr.rid.nunique()<5000 or te.rid.nunique()<50: continue
     thA0,muA0,sdA0,_=_fit(tr.assign(kazandi=(tr.sr==1).astype(float)),feat,M.get("lam",100.0))
