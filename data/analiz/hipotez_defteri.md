@@ -904,3 +904,9 @@ ENTEGRASYON (2026-10-28 01:40): tjk/elo.py (ekle), g1v3.egit'e f_elo/f_rak3 ekle
 
 ## 2026-10-28 02:10 — ÖN KAYIT: T27 ileri gölge (Elo'lu vs Elo'suz G1-S), ileriye dönük
 Her at için ze (Elo özelliklerinin zj'ye katkısı) saklanır (calistir; gün dosyalarında). Elo'suz puan = z6 − ze (aynı eğitilmiş ağırlıklarla Elo terimi çıkarılmış; Elo lehine muhafazakâr, çünkü ağırlıklar Elo ile birlikte eğitildi). Başlangıç: 2026-10-29 (ze'li ilk gün). Ölçü: ilk-5 Plackett-Luce log-olabilirlik farkı (Elo − Elo'suz), AGF'li >=6 atlı, ilk 5 çözülmüş koşular, gün kümeli bootstrap; betik data/analiz/elo_ileri.py. Karar: >=300 koşuda ilk4/ilk5 GA alt sınırı > 0 -> Elo kalır; GA'nın tamamı < 0 -> geri alınır; aksi halde kanıt yok, izlemeye devam (silme yok). Geriye dönük sonuçlar bağlayıcı değil, ileri test bağlayıcı.
+
+## 2026-10-28 02:40 — ÖN KAYIT: Elo varyantları (1: pist/mesafe hücreli Elo, 3: yenilgi süresi/marjlı Elo), v3+Elo tabanına ek
+Taban B = G1-S v3 (galopsuz) + f_elo,f_rak3 (T27, geçti). Kod: data/analiz/elo2_ozellik.py, entegre_v3_elo2.py. Taban sonuçları: v3_elo1_{2025-03,2026-04}.pkl (aynı kodla önceki koşu).
+Varyant C (1): (at, pist, mesafe bandı <1300/1300-1700/1700-2100/≥2100) hücresine özgü Elo; özellikler f_elo_c (hücre puanı − alan ort.), f_nc (hücre deneyimi min(n,5)/5). Varyant M (3): sıra yerine bitiş süresi farkıyla Elo (S_ij = σ((rel_j − rel_i)/0,4), rel = saniye/km geride; süre yoksa sıra), özellikler f_elo_m, f_rak3_m. Sabit: K=0,6; tek seferde seçildi, ayar yok.
+Dönemler: (A) 2025-03..2026-03, (B) 2026-04..2026-10; ölçü: kazanan/ikili/üçlü/ilk4/ilk5 farkı (varyant − taban, nats/koşu, negatif=iyi), gün kümeli bootstrap %95 GA.
+Karar (değişmez, iki varyant ayrı sınanır): ilk4 VE ilk5 GA üst sınırı < 0 iki dönemde de, kazanan/ikili/üçlü'de zarar yok (üst sınır ≤ +0,003) -> o varyant G1-S'ye eklenir. Aksi halde kapanır. İki varyant sınandığı için sonuçlar çoklu karşılaştırma notuyla raporlanır.
