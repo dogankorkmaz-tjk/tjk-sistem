@@ -82,6 +82,17 @@ def ekle(d, var):
                 a_[i] = min(len(S - P), 3); c_[i] = min(len(P - S), 3); i_[i] = float(len(S - seen[a]) > 0 and len(seen[a]) > 0)
             hist[a] = S; seen[a] |= S
         d["f_ek_ekle"] = a_; d["f_ek_cikar"] = c_; d["f_ek_ilk"] = i_
+    elif var == "MD":                                    # marjlı Elo + dil bağı (DB) eklendi/çıkarıldı (T33)
+        e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
+        T = pd.read_pickle("/tmp/claude-0/ekip.pkl").drop_duplicates(["tarih", "hipodrom", "kosu", "no"])
+        d = d.merge(T, on=["tarih", "hipodrom", "kosu", "no"], how="left"); d = d.sort_values(["tarih", "hipodrom", "kosu", "no"]).reset_index(drop=True)
+        hist = {}; a_ = np.zeros(len(d)); c_ = np.zeros(len(d))
+        for i, (a, e) in enumerate(zip(d["at"].astype(str).values, d.ekip.values)):
+            if not isinstance(e, str): continue
+            db = "DB" in e.split()
+            if a in hist: a_[i] = float(db and not hist[a]); c_[i] = float(hist[a] and not db)
+            hist[a] = db
+        d["f_db_ekle"] = a_; d["f_db_cikar"] = c_
     elif var == "MJ":                                    # marjlı Elo + ortak (at+jokey+antrenör) Elo; f_jel, f_tel (T32)
         e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
         d["f_jel"], d["f_tel"] = _ortak(d)
@@ -106,4 +117,4 @@ def ekle(d, var):
                 pend.append((atn[i], sn[i]))
         d["f_sf"] = f1; d["f_sf3"] = f3
     return d
-FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MJ": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
+FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MD": ["f_elo_m", "f_rak3_m", "f_db_ekle", "f_db_cikar"], "MJ": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
