@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-27 16:37 UTC",
- "kayitli_kosu": 896,
- "eslesmeyen_kosu": 595,
+ "uretim": "2026-10-27 17:12 UTC",
+ "kayitli_kosu": 901,
+ "eslesmeyen_kosu": 598,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 487,
- "kosu": 301,
+ "bahis": 492,
+ "kosu": 303,
  "isabet": 33,
- "roi": 1.106,
+ "roi": 1.095,
  "ga95": [
-  0.675,
-  1.533
+  0.663,
+  1.522
  ],
  "ulke": {
   "abd": {
-   "bahis": 305,
-   "roi": 0.927
+   "bahis": 310,
+   "roi": 0.912
   },
   "birlesik-krallik": {
    "bahis": 81,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 587,
-  "kosu": 295,
-  "isabet": 64,
-  "roi": 0.792,
+  "bahis": 590,
+  "kosu": 297,
+  "isabet": 65,
+  "roi": 0.791,
   "ga95": [
    0.576,
-   1.013
+   1.011
   ]
  },
  "bahis_t1": {
-  "bahis": 612,
-  "kosu": 291,
+  "bahis": 615,
+  "kosu": 293,
   "isabet": 68,
-  "roi": 0.869,
+  "roi": 0.865,
   "ga95": [
-   0.554,
-   1.208
+   0.55,
+   1.202
   ]
  },
  "bahis_t3": {
-  "bahis": 611,
-  "kosu": 282,
+  "bahis": 619,
+  "kosu": 284,
   "isabet": 74,
-  "roi": 0.821,
+  "roi": 0.81,
   "ga95": [
-   0.531,
-   1.198
+   0.519,
+   1.184
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 6,
-   "at": "MORNING POWER",
-   "q": 0.108,
-   "g": 15.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 6,
-   "at": "DAUWE",
-   "q": 0.108,
-   "g": 15.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "WHITE LILACS",
-   "q": 0.063,
-   "g": 20.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "AIRO DINERO",
-   "q": 0.091,
-   "g": 29.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 7,
-   "at": "CAUSE IMA ROSE",
-   "q": 0.039,
-   "g": 35.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Leicester",
@@ -423,6 +378,51 @@
    "at": "IRISHKAMAYA",
    "q": 0.049,
    "g": 31.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "MATURATION",
+   "q": 0.163,
+   "g": 9.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "BEACH INVASION",
+   "q": 0.233,
+   "g": 5.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "SHORTSINTHEWINTER",
+   "q": 0.074,
+   "g": 26.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Mahoning Valley",
+   "kosu": 2,
+   "at": "LADY MIDSHIPMAN",
+   "q": 0.046,
+   "g": 29.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Mahoning Valley",
+   "kosu": 2,
+   "at": "DREAMWIFEDREAMLIFE",
+   "q": 0.088,
+   "g": 24.8,
    "kazandi": false
   }
  ]
