@@ -43,5 +43,17 @@ def ekle(d, var):
         e, _, n = _elo(d, keys, "sira"); d["f_elo_c"] = e; d["f_nc"] = n
     elif var == "M":
         e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
+    elif var == "ME":                                    # marjlı Elo + ekipman değişimi (T29)
+        e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
+        T = pd.read_pickle("/tmp/claude-0/ekip.pkl").drop_duplicates(["tarih", "hipodrom", "kosu", "no"])
+        d = d.merge(T, on=["tarih", "hipodrom", "kosu", "no"], how="left"); d = d.sort_values(["tarih", "hipodrom", "kosu", "no"]).reset_index(drop=True)
+        ek = d.ekip.values; hist = {}; seen = collections.defaultdict(set); a_ = np.zeros(len(d)); c_ = np.zeros(len(d)); i_ = np.zeros(len(d))
+        for i, (a, e) in enumerate(zip(d["at"].astype(str).values, ek)):
+            if not isinstance(e, str): continue
+            S = set(e.split()); P = hist.get(a)
+            if P is not None:
+                a_[i] = min(len(S - P), 3); c_[i] = min(len(P - S), 3); i_[i] = float(len(S - seen[a]) > 0 and len(seen[a]) > 0)
+            hist[a] = S; seen[a] |= S
+        d["f_ek_ekle"] = a_; d["f_ek_cikar"] = c_; d["f_ek_ilk"] = i_
     return d
-FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"]}
+FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
