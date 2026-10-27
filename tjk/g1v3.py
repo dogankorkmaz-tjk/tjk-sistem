@@ -24,7 +24,7 @@ def zj(d, c):
 
 def ze(d, c):
     """Elo (rakip gücü) özelliklerinin zj'ye katkısı (T27 ileri gölge: z6 - ze = Elo'suz puan). Elo özelliği modelde yoksa 0."""
-    fe = c["featJ"]; ix = [i for i, f in enumerate(fe) if f in ("f_elo", "f_rak3", "f_elo_m", "f_rak3_m")]
+    fe = c["featJ"]; ix = [i for i, f in enumerate(fe) if f in ("f_elo", "f_rak3", "f_elo_m", "f_rak3_m", "f_jel", "f_tel")]
     if not ix or any(fe[i] not in d.columns for i in ix):
         return np.zeros(len(d))
     mu = np.array(c["muJ"]); sd = np.array(c["sdJ"]); w = np.array(c["wJ"])
