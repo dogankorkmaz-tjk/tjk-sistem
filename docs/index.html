@@ -2128,16 +2128,28 @@ function guvenCiz(){
   const L=[]; let n=0,kz=0,bek=0;
   VERI.hipodromlar.forEach(h=>h.kosular.forEach(k=>{
     const out=hesapla(h,k); if(!out) return;
+    const bitti=!!k.sonuc, S=[];
     k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x) return;
-      const pb=x.pm, pj=x.pj, mx=Math.max(pb||0,pj||0); if(mx<GUVEN_ESIK) return;
-      const bol=pb>=GUVEN_ESIK, jas=pj!=null&&pj>=GUVEN_ESIK;
-      const r=k.sonuc&&k.sonuc[String(a.no)]; const bitti=!!k.sonuc;
-      if(bitti){ n++; bek+=(pb!=null&&pj!=null)?(pb+pj)/2:mx; if(r&&r.sira===1) kz++; }
-      L.push({bitti,t:(k.saat||''),h:`<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-top:1px solid var(--line)"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:140px"><b>${esc(a.at)}</b><small class="sub" style="display:block">${esc(h.ad)} ${k.kosu}. koşu ${esc(k.saat||'')}${x.pp>0?' · piyasa %'+pct(x.pp):''}</small></span><span class="num">${bol?'Bolton %'+pct(pb):''}${bol&&jas?' · ':''}${jas?'Jason %'+pct(pj):''}${(!bol&&pb!=null)?'<small class="sub"> (Bolton %'+pct(pb)+')</small>':''}${(!jas&&pj!=null&&bol)?'<small class="sub"> (Jason %'+pct(pj)+')</small>':''}</span>${bitti?(r&&r.sira===1?' <span class="tag ev">kazandı</span>':` <span class="sub">${r&&r.sira?r.sira+'. oldu':'–'}</span>`):''}</div>`});
+      const pa=x.pg!=null?x.pg:x.pm, pj=x.pj; if(pa==null) return;
+      S.push({a,x,pa,pj});
     });
+    if(!S.length) return;
+    const ana=S.some(s=>s.x.pg!=null)?'Ana model':'Bolton';
+    const sec=S.filter(s=>s.pa>=GUVEN_ESIK||(s.pj!=null&&s.pj>=GUVEN_ESIK));
+    if(!sec.length) return;
+    const top=S.slice().sort((p,q)=>q.pa-p.pa).slice(0,3).sort((p,q)=>p.a.no-q.a.no);
+    const sat=sec.sort((p,q)=>q.pa-p.pa).map(({a,x,pa,pj})=>{
+      const r=k.sonuc&&k.sonuc[String(a.no)];
+      if(bitti){ n++; bek+=(pj!=null)?(pa+pj)/2:pa; if(r&&r.sira===1) kz++; }
+      const aH=pa>=GUVEN_ESIK, jH=pj!=null&&pj>=GUVEN_ESIK;
+      return `<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-top:1px solid var(--line)"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:120px"><b>${esc(a.at)}</b>${x.pp>0?'<small class="sub" style="display:block">piyasa %'+pct(x.pp)+'</small>':''}</span><span class="num">${aH?'<b>':'<small class="sub">'}${ana} %${pct(pa)}${aH?'</b>':'</small>'}${pj!=null?(' · '+(jH?'':'<small class="sub">')+'Jason %'+pct(pj)+(jH?'':'</small>')):''}</span>${bitti?(r&&r.sira===1?' <span class="tag ev">kazandı</span>':` <span class="sub">${r&&r.sira?r.sira+'. oldu':'–'}</span>`):''}</div>`; }).join('');
+    const kom=top.map(s=>s.a.no).join('-'), kp=top.reduce((t,s)=>t+s.pa,0);
+    let ok='';
+    if(bitti){ const w=top.filter(s=>{const r=k.sonuc[String(s.a.no)];return r&&r.sira&&r.sira<=3;}).length; ok=` · ilk 3'te ${w}/3`; }
+    L.push({bitti,t:(k.saat||''),h:`<div style="padding:8px 0;border-top:2px solid var(--line)"><b>${esc(h.ad)} ${k.kosu}. koşu</b> <span class="sub">${esc(k.saat&&k.saat!=='99:99'?k.saat:'')}</span>${sat}<div class="sub" style="margin-top:4px">Sırasız kombine (${ana} ilk 3): <b>${kom}</b> · toplam kazanma ihtimali %${pct(kp)}${ok}</div></div>`});
   }));
   L.sort((p,q)=>(p.bitti-q.bitti)||(p.t<q.t?-1:1));
-  el.innerHTML='<h2>Modellerin en çok güvendiği atlar</h2><div class="card">'+(L.length?L.map(x=>x.h).join(''):'<div class="sub">Bugün iki modelin de %'+Math.round(GUVEN_ESIK*100)+' üstü güvendiği at yok.</div>')+`<div class="sub" style="margin-top:8px">Bolton ya da Jason'un kazanma ihtimali %${Math.round(GUVEN_ESIK*100)} ve üstü verdiği atlar. Bugün biten: ${n} işaretli at, ${kz} kazandı${n?` (modellerin beklediği ≈ ${bek.toFixed(1).replace('.',',')})`:''}. Yüksek güven kazanacağı garanti etmez; 10 koşuda 3 kez yanılması normaldir.</div></div>`;
+  el.innerHTML='<h2>Modellerin en çok güvendiği atlar</h2><div class="card">'+(L.length?L.map(x=>x.h).join(''):'<div class="sub">Bugün iki modelin de %'+Math.round(GUVEN_ESIK*100)+' üstü güvendiği at yok.</div>')+`<div class="sub" style="margin-top:8px">Ana model ya da Jason'un kazanma ihtimali %${Math.round(GUVEN_ESIK*100)} ve üstü verdiği atlar. Altta her koşunun ana modele göre en güvenilen 3 atı sırasız kombine olarak. Bugün biten: ${n} işaretli at, ${kz} kazandı${n?` (modellerin beklediği ≈ ${bek.toFixed(1).replace('.',',')})`:''}. Yüksek güven kazanacağı garanti etmez.</div></div>`;
 }
 let BS=null;
 async function besliYukle(){ try{ BS=await getJSON('data/besli.json?'+Date.now()); }catch(e){ BS=null; } try{ oynaCiz(); }catch(e){} try{ besliTest(); }catch(e){} }
