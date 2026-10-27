@@ -1,25 +1,25 @@
 {
- "uretim": "2026-10-27 19:10 UTC",
- "kayitli_kosu": 911,
- "eslesmeyen_kosu": 600,
+ "uretim": "2026-10-27 20:00 UTC",
+ "kayitli_kosu": 917,
+ "eslesmeyen_kosu": 601,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 504,
- "kosu": 311,
+ "bahis": 509,
+ "kosu": 316,
  "isabet": 34,
- "roi": 1.116,
+ "roi": 1.105,
  "ga95": [
-  0.711,
-  1.527
+  0.7,
+  1.52
  ],
  "ulke": {
   "abd": {
-   "bahis": 313,
-   "roi": 0.904
+   "bahis": 316,
+   "roi": 0.895
   },
   "birlesik-krallik": {
-   "bahis": 87,
-   "roi": 2.063
+   "bahis": 89,
+   "roi": 2.016
   },
   "fransa": {
    "bahis": 47,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 606,
-  "kosu": 305,
+  "bahis": 614,
+  "kosu": 310,
   "isabet": 65,
-  "roi": 0.77,
+  "roi": 0.76,
   "ga95": [
-   0.545,
-   0.997
+   0.525,
+   0.994
   ]
  },
  "bahis_t1": {
-  "bahis": 631,
-  "kosu": 301,
+  "bahis": 640,
+  "kosu": 305,
   "isabet": 69,
-  "roi": 0.845,
+  "roi": 0.833,
   "ga95": [
-   0.533,
-   1.179
+   0.516,
+   1.165
   ]
  },
  "bahis_t3": {
-  "bahis": 634,
-  "kosu": 292,
-  "isabet": 75,
-  "roi": 0.795,
+  "bahis": 643,
+  "kosu": 296,
+  "isabet": 76,
+  "roi": 0.788,
   "ga95": [
-   0.505,
-   1.164
+   0.5,
+   1.152
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-26",
-   "pist": "Redcar",
-   "kosu": 4,
-   "at": "ROWLF",
-   "q": 0.253,
-   "g": 6.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Redcar",
-   "kosu": 8,
-   "at": "BEAUTY CHOICE",
-   "q": 0.06,
-   "g": 27.45,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Redcar",
-   "kosu": 8,
-   "at": "SHOWTIME MAHOMES",
-   "q": 0.129,
-   "g": 9.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Redcar",
-   "kosu": 8,
-   "at": "RUN THIS WAY",
-   "q": 0.071,
-   "g": 21.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-26",
-   "pist": "Redcar",
-   "kosu": 8,
-   "at": "ONE OF OUR OWN",
-   "q": 0.052,
-   "g": 24.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-26",
    "pist": "Redcar",
@@ -328,6 +283,24 @@
   },
   {
    "gun": "2026-10-27",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "RED BURGUNDY",
+   "q": 0.229,
+   "g": 7.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "WORLD BANK",
+   "q": 0.102,
+   "g": 12.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
    "pist": "Horseshoe Indianapolis",
    "kosu": 2,
    "at": "STELLA'S MISCHIEF",
@@ -369,6 +342,15 @@
    "at": "MISS FOXANN",
    "q": 0.139,
    "g": 10.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Mahoning Valley",
+   "kosu": 8,
+   "at": "RIVER CAPTAIN",
+   "q": 0.081,
+   "g": 23.45,
    "kazandi": false
   },
   {
@@ -423,6 +405,24 @@
    "at": "LADY DELILA",
    "q": 0.128,
    "g": 35.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 7,
+   "at": "DREAM HARDER",
+   "q": 0.064,
+   "g": 23.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Wolverhampton",
+   "kosu": 7,
+   "at": "PRODIGAL SON",
+   "q": 0.238,
+   "g": 9.9,
    "kazandi": false
   }
  ]
