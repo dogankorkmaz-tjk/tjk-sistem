@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-27 20:33 UTC",
- "kayitli_kosu": 921,
- "eslesmeyen_kosu": 604,
+ "uretim": "2026-10-27 20:56 UTC",
+ "kayitli_kosu": 924,
+ "eslesmeyen_kosu": 606,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 511,
- "kosu": 317,
+ "bahis": 513,
+ "kosu": 318,
  "isabet": 34,
- "roi": 1.101,
+ "roi": 1.097,
  "ga95": [
-  0.696,
-  1.516
+  0.692,
+  1.515
  ],
  "ulke": {
   "abd": {
-   "bahis": 318,
-   "roi": 0.889
+   "bahis": 320,
+   "roi": 0.884
   },
   "birlesik-krallik": {
    "bahis": 89,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 617,
-  "kosu": 311,
+  "bahis": 618,
+  "kosu": 312,
   "isabet": 65,
-  "roi": 0.756,
+  "roi": 0.755,
   "ga95": [
-   0.52,
+   0.518,
    0.991
   ]
  },
  "bahis_t1": {
-  "bahis": 643,
-  "kosu": 306,
+  "bahis": 644,
+  "kosu": 307,
   "isabet": 69,
-  "roi": 0.829,
+  "roi": 0.828,
   "ga95": [
-   0.512,
-   1.165
+   0.51,
+   1.164
   ]
  },
  "bahis_t3": {
-  "bahis": 646,
-  "kosu": 297,
+  "bahis": 648,
+  "kosu": 298,
   "isabet": 76,
-  "roi": 0.784,
+  "roi": 0.782,
   "ga95": [
-   0.494,
-   1.147
+   0.492,
+   1.144
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 1,
-   "at": "CLASSYFIED",
-   "q": 0.154,
-   "g": 18.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 1,
-   "at": "KUMHARAS",
-   "q": 0.141,
-   "g": 12.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Catterick",
@@ -279,6 +261,24 @@
    "at": "WORLD BANK",
    "q": 0.102,
    "g": 12.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Finger Lakes",
+   "kosu": 8,
+   "at": "GRAND LADY INDY",
+   "q": 0.143,
+   "g": 11.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-27",
+   "pist": "Finger Lakes",
+   "kosu": 8,
+   "at": "THIN LEGS",
+   "q": 0.19,
+   "g": 9.65,
    "kazandi": false
   },
   {
