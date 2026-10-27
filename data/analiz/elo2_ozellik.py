@@ -34,6 +34,33 @@ def _elo(d, keys, mode):
             for qq, q in enumerate(ok):
                 i = idx[q]; HIST[keys[i]].append((rr.sum() - rr[qq]) / (n - 1)); R[keys[i]] = R.get(keys[i], 0.0) + dl[qq]; N[keys[i]] += 1
     return f_e, f_r, f_n
+def _ortak(d, KH=0.6, KJ=0.1, KT=0.1):
+    """Güç = r_at + r_jokey + r_antrenör (marjlı skor); hepsi aynı artıkla güncellenir. Döner: jokey ve antrenör puanı − alan ortalaması (günün başındaki puanlar)."""
+    rid = d.groupby(["tarih", "hipodrom", "kosu"]).ngroup().values; tar = d.tarih.astype(str).values
+    sr0 = pd.to_numeric(d.sira, errors="coerce").fillna(0).values
+    mes = d.mesafe.values.astype(float) if "mesafe" in d else np.full(len(d), np.nan)
+    rs = d.rel_sure.values.astype(float) if "rel_sure" in d else np.full(len(d), np.nan)
+    wt = d.groupby(["tarih", "hipodrom", "kosu"]).derece_sn.transform("min").values.astype(float) if "derece_sn" in d else np.full(len(d), np.nan)
+    rel = np.where(np.isnan(mes), rs / wt * 60.0, rs / mes * 1000.0)
+    at = d["at"].astype(str).values; jk = d["jokey"].astype(str).values; an = d["antrenor"].astype(str).values
+    RH, RJ, RT = {}, {}, {}; fj = np.zeros(len(d)); ft = np.zeros(len(d))
+    gun = pd.Series(np.arange(len(d))).groupby(tar).apply(lambda x: (x.min(), x.max() + 1))
+    for t, (i0, i1) in gun.items():
+        r_ = rid[i0:i1]; bas = np.r_[0, np.nonzero(np.diff(r_))[0] + 1, len(r_)]; kos = [list(range(i0 + x, i0 + y)) for x, y in zip(bas[:-1], bas[1:])]; upd = []
+        for idx in kos:
+            h = np.array([RH.get(at[i], 0.0) for i in idx]); j = np.array([RJ.get(jk[i], 0.0) for i in idx]); tt = np.array([RT.get(an[i], 0.0) for i in idx])
+            fj[idx] = j - j.mean(); ft[idx] = tt - tt.mean(); upd.append((idx, h, j, tt))
+        for idx, h, j, tt in upd:
+            ok = [q for q, i in enumerate(idx) if sr0[i] > 0]; n = len(ok)
+            if n < 3: continue
+            st = (h + j + tt)[ok]; sr = np.array([sr0[idx[q]] for q in ok]); tm = np.array([rel[idx[q]] for q in ok])
+            E = 1 / (1 + np.exp(-(st[:, None] - st[None, :]))); np.fill_diagonal(E, 0)
+            if np.isfinite(tm).all(): S = 1 / (1 + np.exp(-(tm[None, :] - tm[:, None]) / TAU))
+            else: S = (sr[None, :] > sr[:, None]).astype(float) + 0.5 * (sr[None, :] == sr[:, None])
+            np.fill_diagonal(S, 0); dl = (S.sum(1) - E.sum(1)) / (n - 1)
+            for qq, q in enumerate(ok):
+                i = idx[q]; RH[at[i]] = RH.get(at[i], 0.0) + KH * dl[qq]; RJ[jk[i]] = RJ.get(jk[i], 0.0) + KJ * dl[qq]; RT[an[i]] = RT.get(an[i], 0.0) + KT * dl[qq]
+    return fj, ft
 def ekle(d, var):
     d = d.sort_values(["tarih", "hipodrom", "kosu", "no"]).reset_index(drop=True)
     at = d["at"].astype(str).values
@@ -55,6 +82,9 @@ def ekle(d, var):
                 a_[i] = min(len(S - P), 3); c_[i] = min(len(P - S), 3); i_[i] = float(len(S - seen[a]) > 0 and len(seen[a]) > 0)
             hist[a] = S; seen[a] |= S
         d["f_ek_ekle"] = a_; d["f_ek_cikar"] = c_; d["f_ek_ilk"] = i_
+    elif var == "MJ":                                    # marjlı Elo + ortak (at+jokey+antrenör) Elo; f_jel, f_tel (T32)
+        e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
+        d["f_jel"], d["f_tel"] = _ortak(d)
     elif var == "MS":                                    # marjlı Elo + sınıf değişimi (T30)
         e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
         T = pd.read_pickle("/tmp/claude-0/sinifp.pkl"); T["dt"] = pd.to_datetime(T.tarih)
@@ -76,4 +106,4 @@ def ekle(d, var):
                 pend.append((atn[i], sn[i]))
         d["f_sf"] = f1; d["f_sf3"] = f3
     return d
-FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
+FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MJ": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
