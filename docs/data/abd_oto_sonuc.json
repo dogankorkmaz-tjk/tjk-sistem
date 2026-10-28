@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-28 14:25 UTC",
- "kayitli_kosu": 953,
- "eslesmeyen_kosu": 629,
+ "uretim": "2026-10-28 15:17 UTC",
+ "kayitli_kosu": 959,
+ "eslesmeyen_kosu": 632,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 517,
- "kosu": 324,
- "isabet": 36,
- "roi": 1.129,
+ "bahis": 527,
+ "kosu": 327,
+ "isabet": 37,
+ "roi": 1.127,
  "ga95": [
-  0.747,
-  1.573
+  0.752,
+  1.561
  ],
  "ulke": {
   "abd": {
@@ -18,143 +18,53 @@
    "roi": 0.881
   },
   "birlesik-krallik": {
-   "bahis": 89,
-   "roi": 2.016
+   "bahis": 92,
+   "roi": 1.951
   },
   "fransa": {
    "bahis": 47,
    "roi": 0.91
   },
   "guney-afrika": {
-   "bahis": 44,
-   "roi": 1.789
+   "bahis": 48,
+   "roi": 1.848
   },
   "irlanda": {
-   "bahis": 16,
+   "bahis": 19,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 624,
-  "kosu": 318,
+  "bahis": 631,
+  "kosu": 321,
   "isabet": 67,
-  "roi": 0.763,
+  "roi": 0.754,
   "ga95": [
-   0.536,
-   0.985
+   0.528,
+   0.976
   ]
  },
  "bahis_t1": {
-  "bahis": 653,
-  "kosu": 313,
-  "isabet": 71,
-  "roi": 0.831,
+  "bahis": 660,
+  "kosu": 316,
+  "isabet": 72,
+  "roi": 0.837,
   "ga95": [
-   0.503,
-   1.17
+   0.512,
+   1.173
   ]
  },
  "bahis_t3": {
-  "bahis": 660,
-  "kosu": 304,
+  "bahis": 666,
+  "kosu": 307,
   "isabet": 78,
-  "roi": 0.782,
+  "roi": 0.775,
   "ga95": [
-   0.486,
-   1.146
+   0.481,
+   1.138
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 5,
-   "at": "AZURE ZAIN",
-   "q": 0.066,
-   "g": 26.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 5,
-   "at": "QUERCUS",
-   "q": 0.033,
-   "g": 45.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 7,
-   "at": "MASTERPIECE",
-   "q": 0.024,
-   "g": 63.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 1,
-   "at": "SWEET CHOP",
-   "q": 0.149,
-   "g": 9.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 1,
-   "at": "FOU FURIEUX",
-   "q": 0.104,
-   "g": 12.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 4,
-   "at": "ACCLAM",
-   "q": 0.05,
-   "g": 44.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 4,
-   "at": "MON COMEDIEN",
-   "q": 0.323,
-   "g": 5.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 6,
-   "at": "SIGHISH",
-   "q": 0.039,
-   "g": 32.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 6,
-   "at": "GRIGNETTE",
-   "q": 0.045,
-   "g": 31.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 6,
-   "at": "IRISHKAMAYA",
-   "q": 0.049,
-   "g": 31.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Deauville",
@@ -400,6 +310,33 @@
   },
   {
    "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 2,
+   "at": "BELLA COLOMBIA",
+   "q": 0.12,
+   "g": 11.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 2,
+   "at": "GLITTER AND GLORY",
+   "q": 0.076,
+   "g": 31.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 2,
+   "at": "SELECTIVE POWER",
+   "q": 0.049,
+   "g": 28.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
    "pist": "Durbanville",
    "kosu": 2,
    "at": "KELP FOREST",
@@ -424,6 +361,69 @@
    "q": 0.241,
    "g": 6.1,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Durbanville",
+   "kosu": 7,
+   "at": "LANDSEER",
+   "q": 0.12,
+   "g": 15.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Durbanville",
+   "kosu": 7,
+   "at": "OLD HARRY ROCKS",
+   "q": 0.187,
+   "g": 6.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Durbanville",
+   "kosu": 7,
+   "at": "WEHAVEASITUATION",
+   "q": 0.187,
+   "g": 10.0,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Durbanville",
+   "kosu": 7,
+   "at": "CHRISTMAS ROSE",
+   "q": 0.141,
+   "g": 11.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Nottingham",
+   "kosu": 5,
+   "at": "FLASH OF COLOUR",
+   "q": 0.256,
+   "g": 6.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Nottingham",
+   "kosu": 5,
+   "at": "HIGH SOCIETY",
+   "q": 0.104,
+   "g": 13.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Nottingham",
+   "kosu": 5,
+   "at": "PLAYHOUSE",
+   "q": 0.139,
+   "g": 13.55,
+   "kazandi": false
   }
  ]
 }
