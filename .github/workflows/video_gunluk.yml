@@ -26,6 +26,8 @@ jobs:
           python-version: "3.12"
       - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg tesseract-ocr >/dev/null && pip -q install numpy pillow scipy pandas
       - name: İşle
+        env:
+          OMP_THREAD_LIMIT: "1"
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then B=$(date -d yesterday +%F); S=$B; else B="${{ github.event.inputs.baslangic }}"; S="${{ github.event.inputs.bitis }}"; fi
           D="$B"; L=""; while [ "$D" != "$(date -d "$S +1 day" +%F)" ]; do L="$L $D"; D=$(date -d "$D +1 day" +%F); done
