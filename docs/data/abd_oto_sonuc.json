@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-28 15:20 UTC",
- "kayitli_kosu": 959,
- "eslesmeyen_kosu": 632,
+ "uretim": "2026-10-28 16:19 UTC",
+ "kayitli_kosu": 963,
+ "eslesmeyen_kosu": 635,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 527,
- "kosu": 327,
+ "bahis": 529,
+ "kosu": 328,
  "isabet": 37,
- "roi": 1.127,
+ "roi": 1.122,
  "ga95": [
-  0.752,
-  1.561
+  0.749,
+  1.549
  ],
  "ulke": {
   "abd": {
@@ -30,59 +30,41 @@
    "roi": 1.848
   },
   "irlanda": {
-   "bahis": 19,
+   "bahis": 21,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 631,
-  "kosu": 321,
+  "bahis": 632,
+  "kosu": 322,
   "isabet": 67,
-  "roi": 0.754,
+  "roi": 0.753,
   "ga95": [
-   0.528,
-   0.976
+   0.526,
+   0.975
   ]
  },
  "bahis_t1": {
-  "bahis": 660,
-  "kosu": 316,
+  "bahis": 661,
+  "kosu": 317,
   "isabet": 72,
-  "roi": 0.837,
+  "roi": 0.836,
   "ga95": [
    0.512,
-   1.173
+   1.172
   ]
  },
  "bahis_t3": {
-  "bahis": 666,
-  "kosu": 307,
+  "bahis": 668,
+  "kosu": 308,
   "isabet": 78,
-  "roi": 0.775,
+  "roi": 0.772,
   "ga95": [
-   0.481,
-   1.138
+   0.479,
+   1.135
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 8,
-   "at": "PAINTELLO",
-   "q": 0.047,
-   "g": 32.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 8,
-   "at": "CAMBREMER",
-   "q": 0.098,
-   "g": 13.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Deauville",
@@ -333,6 +315,24 @@
    "at": "SELECTIVE POWER",
    "q": 0.049,
    "g": 28.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 4,
+   "at": "EUCALYPTUS",
+   "q": 0.158,
+   "g": 15.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 4,
+   "at": "QUINN BLUE",
+   "q": 0.03,
+   "g": 58.3,
    "kazandi": false
   },
   {
