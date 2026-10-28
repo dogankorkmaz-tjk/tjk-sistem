@@ -1,0 +1,27 @@
+name: video_derinlik
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  derinlik:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Eski tarihlerde CDN'de video var mı (kod 0-9, koşu 1-3)
+        run: |
+          : > data/video_derinlik.txt
+          for G in 260901 260801 260701 260601 260501 260401 260301 260201 260101 251201 251101 251001 250901 250701 250501 250301 250101 241101 240901 240701 240501 240301 240101 231101 230901 230701; do
+            Y="20${G:0:2}/${G:2:2}"; bul=""
+            for D in $(seq 0 6); do GG=$(date -d "20${G:0:2}-${G:2:2}-${G:4:2} +$D day" +%y%m%d); YY="20${GG:0:2}/${GG:2:2}"
+              for h in 0 1 2 3 4 5 6 7 8 9; do for k in 1 2; do
+                c=$(curl -s -o /dev/null -m 15 -w "%{http_code}" -I "https://video-cdn.tjk.org/videoftp/$YY/${GG}${h}${k}_m.mp4"); [ "$c" = "200" ] && bul="$bul $GG$h$k"; sleep 0.05
+              done; done
+            done
+            echo "$G: ${bul:-yok}" | tee -a data/video_derinlik.txt
+          done
+      - name: Kaydet
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/video_derinlik.txt && git commit -qm "video derinlik sonucu" && git pull --rebase -q && git push -q
