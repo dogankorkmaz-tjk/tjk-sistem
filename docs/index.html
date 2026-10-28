@@ -1298,7 +1298,7 @@ async function canliTick(){
 
 // ---- CANLI SEKME: seçili koşuda oynanabilecek tüm sıralı/sırasız bahisler (model olasılığı; ikili havuzlarda canlı ödeme + birleşim). Bilgi amaçlı, tavsiye değil. ----
 let CANLI_SEC=null, SAATD={}; try{ fetch('data/saat_duzeltme.json?'+Date.now()).then(r=>r.ok?r.json():{}).then(j=>{SAATD=j||{}}).catch(()=>{}); }catch(e){}
-function saatDuz(h,k){ const d=(SAATD[GUN]||{})[h.id]; return (d&&d[k.kosu])||k.saat; }
+function saatDuz(h,k){ const d=(SAATD[GUN]||{})[h.id]; if(d==='ertelendi') return null; return (d&&d[k.kosu])||k.saat; }
 const CB={si:{taban:0.753,C:[0.441,0.397,0.716]},ik:{taban:0.729,C:[0.570,0.442,0.711]}};   // T22 birleşim katsayıları (yaklaşık: bugün v3 özellikleri yok, G1-S olasılığı kullanılır)
 function plOlas(W,T,sira){ let pr=1,den=0; const kul=[]; for(let k=0;k<sira.length;k++){ den=T[k]; for(const u of kul) den-=W[k][u]; if(den<=1e-12) return 0; pr*=W[k][sira[k]]/den; kul.push(sira[k]); } return pr; }
 function permler(a){ if(a.length<=1) return [a]; const o=[]; a.forEach((x,i)=>permler(a.filter((_,j)=>j!==i)).forEach(r=>o.push([x,...r]))); return o; }
@@ -1306,7 +1306,7 @@ function kombler(a,n){ if(n===0) return [[]]; const o=[]; for(let i=0;i<=a.lengt
 function canliCiz(){
   const el=$('canliIc'); if(!el||!VERI) return;
   const sig=s=>1/(1+Math.exp(-s));
-  const liste=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.saat&&!k.sonuc){ const L=LIVE[h.id+'|'+k.kosu]; const sd=saatDuz(h,k); liste.push({h,k:{...k,saat:sd},key:h.id+'|'+k.kosu,dk:trDk(sd),L}); } }));
+  const liste=[]; (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{ if(k.saat&&!k.sonuc){ const L=LIVE[h.id+'|'+k.kosu]; const sd=saatDuz(h,k); if(!sd) return; liste.push({h,k:{...k,saat:sd},key:h.id+'|'+k.kosu,dk:trDk(sd),L}); } }));
   if(GUN!==trBugun()||!liste.length){ el.innerHTML='<div class="card empty">Bugün için bitmemiş koşu yok. Canlı sekme yalnız bugünün koşularında çalışır.</div>'; return; }
   liste.sort((a,b)=>Math.abs(a.dk)-Math.abs(b.dk));
   const canlilar=liste.filter(x=>x.L&&Date.now()-x.L.ts<150000);
@@ -2210,7 +2210,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793202799';   // commit öncesi otomatik güncellenir
+const BUILD='1793203278';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
