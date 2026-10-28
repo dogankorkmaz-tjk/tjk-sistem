@@ -1,0 +1,28 @@
+name: video_indir_test
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: indir
+        run: |
+          mkdir -p data/video_ornek /tmp/v
+          U="https://video-cdn.tjk.org/videoftp/2026/10/26102792_m.mp4"
+          {
+          echo "== GET başlık"; curl -s -D - -o /dev/null -m 60 -r 0-1023 "$U" | head -15
+          echo "== tam indirme (UA tarayıcı)"; curl -s -m 150 -A "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36" -e "https://www.tjk.org/" -o /tmp/v/o.mp4 -w "kod=%{http_code} boyut=%{size_download} sure=%{time_total}\n" "$U"
+          ls -l /tmp/v/o.mp4
+          which ffprobe ffmpeg tesseract || (sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg tesseract-ocr >/dev/null; which ffprobe)
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of default=nw=1 /tmp/v/o.mp4
+          } 2>&1 | tee data/video_ornek/indir_test.txt
+          ffmpeg -v error -y -ss 3 -i /tmp/v/o.mp4 -frames:v 1 data/video_ornek/kare_baslangic.png || true
+          ffmpeg -v error -y -ss 70 -i /tmp/v/o.mp4 -frames:v 1 data/video_ornek/kare_orta.png || true
+      - name: kaydet
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/video_ornek && git commit -qm "video indirme testi" && git pull --rebase -q && git push -q
