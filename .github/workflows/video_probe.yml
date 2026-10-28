@@ -5,13 +5,17 @@ on:
       gun:
         description: "yyaagg"
         default: "261027"
+permissions:
+  contents: write
 jobs:
   probe:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
+      - uses: actions/checkout@v4
       - name: HEAD denemesi (video-cdn.tjk.org kalıbı)
         run: |
+          exec > >(tee data/video_probe.txt) 2>&1
           G="${{ github.event.inputs.gun }}"; Y="20${G:0:2}/${G:2:2}"
           echo "bilinen örnek (Kocaeli 2. koşu 27 Ekim):"; curl -s -o /dev/null -m 20 -w "%{http_code} %{size_download} %header{content-length}\n" -I "https://video-cdn.tjk.org/videoftp/2026/10/26102791_m.mp4"
           for h in 0 1 2 3 4 5 6 7 8 9; do for k in 1 2 3 4 5 6 7 8 9 10 11 12; do
@@ -20,3 +24,7 @@ jobs:
             sleep 0.2
           done; done
           echo bitti
+      - name: Sonucu kaydet
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/video_probe.txt && git commit -qm "video_probe sonucu" && git pull --rebase -q && git push -q
