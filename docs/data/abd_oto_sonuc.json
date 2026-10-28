@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-28 18:53 UTC",
+ "uretim": "2026-10-28 19:03 UTC",
  "kayitli_kosu": 986,
- "eslesmeyen_kosu": 650,
+ "eslesmeyen_kosu": 649,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 543,
- "kosu": 336,
+ "bahis": 546,
+ "kosu": 337,
  "isabet": 37,
- "roi": 1.093,
+ "roi": 1.087,
  "ga95": [
-  0.728,
-  1.502
+  0.721,
+  1.495
  ],
  "ulke": {
   "abd": {
-   "bahis": 327,
-   "roi": 0.865
+   "bahis": 330,
+   "roi": 0.857
   },
   "birlesik-krallik": {
    "bahis": 92,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 652,
-  "kosu": 330,
+  "kosu": 331,
   "isabet": 68,
   "roi": 0.743,
   "ga95": [
@@ -46,7 +46,7 @@
  },
  "bahis_t1": {
   "bahis": 682,
-  "kosu": 325,
+  "kosu": 326,
   "isabet": 74,
   "roi": 0.826,
   "ga95": [
@@ -55,43 +55,16 @@
   ]
  },
  "bahis_t3": {
-  "bahis": 685,
-  "kosu": 315,
+  "bahis": 686,
+  "kosu": 316,
   "isabet": 80,
-  "roi": 0.77,
+  "roi": 0.768,
   "ga95": [
-   0.484,
-   1.121
+   0.483,
+   1.119
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Mahoning Valley",
-   "kosu": 2,
-   "at": "DREAMWIFEDREAMLIFE",
-   "q": 0.088,
-   "g": 24.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Mahoning Valley",
-   "kosu": 4,
-   "at": "MISS FOXANN",
-   "q": 0.139,
-   "g": 10.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Mahoning Valley",
-   "kosu": 8,
-   "at": "RIVER CAPTAIN",
-   "q": 0.081,
-   "g": 23.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Wolverhampton",
@@ -396,6 +369,33 @@
    "at": "MARQUITOS M",
    "q": 0.053,
    "g": 26.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Mahoning Valley",
+   "kosu": 6,
+   "at": "STEADY MY HEART",
+   "q": 0.237,
+   "g": 13.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Mahoning Valley",
+   "kosu": 6,
+   "at": "CHARISMA IN MOTION",
+   "q": 0.097,
+   "g": 22.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Mahoning Valley",
+   "kosu": 6,
+   "at": "FLORIDA GAL",
+   "q": 0.213,
+   "g": 7.65,
    "kazandi": false
   },
   {
