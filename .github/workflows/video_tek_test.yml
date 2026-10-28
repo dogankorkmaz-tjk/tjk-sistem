@@ -1,0 +1,42 @@
+name: video_tek_test
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      OMP_THREAD_LIMIT: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg tesseract-ocr >/dev/null && pip -q install numpy pillow scipy pandas
+      - name: zamanlı tek video
+        run: |
+          mkdir -p /tmp/v data/video_ornek
+          curl -s -m 150 -A "Mozilla/5.0" -e "https://www.tjk.org/" -o /tmp/v/o.mp4 "https://video-cdn.tjk.org/videoftp/2026/10/26102792_m.mp4"
+          nproc | tee data/video_ornek/tek_test.txt
+          python3 - <<'P' 2>&1 | tee -a data/video_ornek/tek_test.txt
+          import time,tempfile,glob,os
+          from PIL import Image
+          from tjk import video_seyir as V
+          t=time.time()
+          with tempfile.TemporaryDirectory() as k:
+              fr=V._kareler("/tmp/v/o.mp4",k,2); print("kareler",len(fr),round(time.time()-t,1)); t=time.time()
+              pal,ay=V._palet(fr,10); print("palet",round(ay,2),round(time.time()-t,1)); t=time.time()
+              n=0
+              for f in fr[:40]:
+                  im=Image.open(f); s=V._sira(im,pal,10,0.9); n+=1
+              print("40 sira",round(time.time()-t,1)); t=time.time()
+              for f in fr[100:104]: V._mesafe(Image.open(f))
+              print("4 mesafe",round(time.time()-t,1)); t=time.time()
+          b=V.bolum_oku("/tmp/v/o.mp4"); print("bolum",b,round(time.time()-t,1))
+          P
+      - name: kaydet
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/video_ornek && git commit -qm "tek video zaman ölçümü" && git pull --rebase -q && git push -q
