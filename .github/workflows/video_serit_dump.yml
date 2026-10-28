@@ -1,0 +1,27 @@
+name: video_serit_dump
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  d:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
+      - name: şerit kareleri (video-dev dalına)
+        run: |
+          mkdir -p /tmp/out /tmp/v
+          for V in 26101431 26101432 26101433 26101434 26101435 26101436 26101437 26101438 26101391 26101392 26101393 26101241 26101242 26101243; do
+            Y="20${V:0:2}/${V:2:2}"
+            curl -s -m 120 -A "Mozilla/5.0" -e "https://www.tjk.org/" -o /tmp/v/x.mp4 "https://video-cdn.tjk.org/videoftp/$Y/${V}_m.mp4" || continue
+            mkdir -p /tmp/out/$V
+            ffmpeg -v error -y -i /tmp/v/x.mp4 -vf "fps=2,crop=730:36:62:374" /tmp/out/$V/s_%04d.png
+            ffmpeg -v error -y -i /tmp/v/x.mp4 -vf "fps=1,crop=190:62:650:22" /tmp/out/$V/b_%04d.png
+          done
+          du -sh /tmp/out
+      - name: video-dev dalına yaz
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          cd /tmp/out && git init -q -b video-dev && git add -A && git commit -qm "şerit kareleri" && git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" && git push -f -q origin video-dev
