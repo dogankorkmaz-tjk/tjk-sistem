@@ -1,0 +1,16 @@
+tarih,hip,kosu,durum,at_sayisi,kare,gecerli_kare,bolum_n,son_top1,son_top3kume,sn
+2026-06-28,izmir,4,tamam,9,196,130,5,1,1,29
+2026-06-28,izmir,3,tamam,10,222,150,6,1,0,29
+2026-06-28,izmir,2,tamam,14,270,168,7,1,0,33
+2026-06-28,izmir,1,tamam,11,292,226,9,1,1,39
+2026-06-28,izmir,5,video_yok,7,,,,,,
+2026-06-28,istanbul,1,tamam,9,193,125,0,1,1,19
+2026-06-28,izmir,6,tamam,16,223,135,5,1,1,24
+2026-06-28,istanbul,3,tamam,17,226,137,0,1,0,27
+2026-06-28,istanbul,4,tamam,13,236,132,0,0,1,25
+2026-06-28,istanbul,2,tamam,12,349,185,0,0,0,37
+2026-06-28,istanbul,5,tamam,18,314,145,0,0,0,40
+2026-06-28,istanbul,7,tamam,9,236,160,0,1,1,26
+2026-06-28,istanbul,8,tamam,13,227,104,0,1,1,26
+2026-06-28,istanbul,6,tamam,22,348,168,0,0,0,39
+2026-06-28,istanbul,9,tamam,14,280,124,0,1,0,20
