@@ -1,0 +1,19 @@
+bilinen örnek (Kocaeli 2. koşu 27 Ekim):
+200 0 24285878
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102711_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102712_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102713_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102714_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102715_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102716_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102717_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102718_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102791_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102792_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102793_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102794_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102795_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102796_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102797_m.mp4
+VAR https://video-cdn.tjk.org/videoftp/2026/10/26102798_m.mp4
+bitti
