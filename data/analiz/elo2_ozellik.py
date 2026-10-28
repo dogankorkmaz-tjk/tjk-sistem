@@ -104,6 +104,10 @@ def ekle(d, var):
         e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
         d["f_jel"], d["f_tel"] = _ortak(d)
         import jokey_asinalik; d = jokey_asinalik.ekle(d, var == "MJB2")
+    elif var == "MJM":                                   # MJ + soy–mesafe (T38)
+        e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
+        d["f_jel"], d["f_tel"] = _ortak(d)
+        import soy_mesafe; d = soy_mesafe.ekle(d)
     elif var == "MS":                                    # marjlı Elo + sınıf değişimi (T30)
         e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
         T = pd.read_pickle("/tmp/claude-0/sinifp.pkl"); T["dt"] = pd.to_datetime(T.tarih)
@@ -125,4 +129,4 @@ def ekle(d, var):
                 pend.append((atn[i], sn[i]))
         d["f_sf"] = f1; d["f_sf3"] = f3
     return d
-FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MD": ["f_elo_m", "f_rak3_m", "f_db_ekle", "f_db_cikar"], "MJ": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel"], "MJB": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1"], "MJB2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1", "f_jat"], "MJK": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13"], "MJK2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13", "f_kh"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
+FEAT = {"C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MD": ["f_elo_m", "f_rak3_m", "f_db_ekle", "f_db_cikar"], "MJ": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel"], "MJM": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_sm", "f_sd"], "MJB": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1"], "MJB2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1", "f_jat"], "MJK": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13"], "MJK2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13", "f_kh"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
