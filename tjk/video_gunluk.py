@@ -9,7 +9,7 @@ KOK = gelen.KOK
 CDN = "https://video-cdn.tjk.org/videoftp/{y}/{a}/{g}{h}{k}_m.mp4"
 SERITSIZ = {"6", "7", "8"}      # Şanlıurfa, Elazığ, Diyarbakır yayınında tam sıra şeridi yok (yalnız öndeki 1-3 numara): şimdilik atlanır
 UA = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36"
-RAPOR = os.path.join(KOK, "data", "video_seyir", "_rapor.csv")
+RAPOR = os.path.join(os.path.dirname(os.path.join(KOK, "data", "video_seyir", "_rapor.csv")), "_rapor_" + os.environ.get("RAPOR_AD", "gunluk") + ".csv")
 BASLIK = ["tarih", "hip", "kosu", "durum", "at_sayisi", "kare", "gecerli_kare", "bolum_n", "son_top1", "son_top3kume", "sn"]
 
 
