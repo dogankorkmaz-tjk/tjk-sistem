@@ -1,0 +1,39 @@
+name: video_kesif
+on:
+  workflow_dispatch:
+    inputs:
+      gun_sayisi:
+        description: "kaç gün geriye"
+        default: "21"
+permissions:
+  contents: write
+jobs:
+  kesif:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Örnek video, çözünürlük ve kare
+        run: |
+          mkdir -p data/video_ornek /tmp/v
+          curl -s -m 120 -o /tmp/v/o.mp4 "https://video-cdn.tjk.org/videoftp/2026/10/26102792_m.mp4"; ls -l /tmp/v/o.mp4
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,duration -of default=nw=1 /tmp/v/o.mp4 | tee data/video_ornek/ffprobe.txt
+          ffmpeg -v error -y -ss 3 -i /tmp/v/o.mp4 -frames:v 1 data/video_ornek/kare_baslangic.png || true
+          ffmpeg -v error -y -ss 60 -i /tmp/v/o.mp4 -frames:v 1 data/video_ornek/kare_orta.png || true
+      - name: Kod haritası (geçmiş günlerde hangi hipodrom kodu + koşu var)
+        run: |
+          : > data/video_kod_harita.txt
+          for i in $(seq 1 ${{ github.event.inputs.gun_sayisi }}); do
+            G=$(date -d "-$i day" +%y%m%d); Y="20${G:0:2}/${G:2:2}"; S=""
+            for h in 0 1 2 3 4 5 6 7 8 9; do n=0
+              for k in $(seq 1 14); do
+                c=$(curl -s -o /dev/null -m 15 -w "%{http_code}" -I "https://video-cdn.tjk.org/videoftp/$Y/${G}${h}${k}_m.mp4"); if [ "$c" = "200" ]; then n=$((n+1)); else [ $k -gt 3 ] && break; fi; sleep 0.1
+              done
+              [ $n -gt 0 ] && S="$S $h:$n"
+            done
+            echo "20$G$S" | tee -a data/video_kod_harita.txt
+          done
+      - name: Kaydet
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/video_ornek data/video_kod_harita.txt && git commit -qm "video keşif sonucu" && git pull --rebase -q && git push -q
