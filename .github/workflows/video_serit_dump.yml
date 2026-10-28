@@ -15,22 +15,16 @@ jobs:
           set +e
           mkdir -p /tmp/out /tmp/v
           : > /tmp/dump_log.txt
-          for V in 26101431 26101432 26101433 26101434 26101435 26101436 26101437 26101438 26101391 26101392 26101393 26101241 26101242 26101243; do
+          for V in 26101431 26101432 26101433 26101434 26101436 26101437 26101391 26101392 26101241 26101242; do
             Y="20${V:0:2}/${V:2:2}"
             curl -s -m 120 -A "Mozilla/5.0" -e "https://www.tjk.org/" -o /tmp/v/x.mp4 "https://video-cdn.tjk.org/videoftp/$Y/${V}_m.mp4" || continue
             mkdir -p /tmp/out/$V
-            ls -l /tmp/v/x.mp4 >> /tmp/dump_log.txt; ffmpeg -v error -y -i /tmp/v/x.mp4 -vf "fps=2,crop=730:36:62:374" /tmp/out/$V/s_%04d.png 2>> /tmp/dump_log.txt
-            ffmpeg -v error -y -i /tmp/v/x.mp4 -vf "fps=1,crop=190:62:650:22" /tmp/out/$V/b_%04d.png
+            ls -l /tmp/v/x.mp4 >> /tmp/dump_log.txt; ffmpeg -v error -y -i /tmp/v/x.mp4 -vf "fps=2,crop=730:36:62:374" -q:v 3 /tmp/out/$V/s_%04d.jpg 2>> /tmp/dump_log.txt
+            ffmpeg -v error -y -i /tmp/v/x.mp4 -vf "fps=1,crop=190:62:650:22" -q:v 3 /tmp/out/$V/b_%04d.jpg
           done
           du -sh /tmp/out >> /tmp/dump_log.txt
-      - name: video-dev dalına yaz
-        if: always()
-        run: |
-          set +e
-          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
-          cd /tmp/out && git init -q -b video-dev && git add -A && git commit -qm "şerit kareleri" && git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" && git push -f -q origin video-dev
       - name: günlük
         if: always()
         run: |
           git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
-          cp /tmp/dump_log.txt data/video_ornek/dump_log.txt; git add data/video_ornek/dump_log.txt; git commit -qm "dump log"; git pull --rebase -q; git push -q
+          cp /tmp/dump_log.txt data/video_ornek/dump_log.txt; mkdir -p data/video_dev; cp -r /tmp/out/* data/video_dev/; git add data/video_ornek/dump_log.txt data/video_dev; git commit -qm "dump log"; git pull --rebase -q; git push -q
