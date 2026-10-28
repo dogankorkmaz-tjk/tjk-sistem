@@ -17,9 +17,23 @@ KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOL0, ARALIK = 348, 124.5            # ilk kutunun sol kenarı ve kutular arası mesafe (şerit kırpımında)
 
 
+def _genislik(video):
+    r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width", "-of", "csv=p=0", video], capture_output=True, text=True)
+    try:
+        return int(r.stdout.strip().split()[0])
+    except Exception:
+        return 1920
+
+
 def _kareler(video, klasor, fps=2):
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},scale=1920:1080:flags=lanczos,crop=1640:80:140:840",
-                    os.path.join(klasor, "k_%04d.png")], check=True)
+    """Şerit kırpımı (1640x80, 1920x1080 koordinatlarında x140,y840). 854 piksel genişlikli mobil videoda önce şerit kırpılır, sonra büyütülür (hızlı)."""
+    w = _genislik(video)
+    if w >= 1900:
+        vf = f"fps={fps},crop=1640:80:140:840"
+    else:
+        f = w / 1920.0
+        vf = f"fps={fps},crop={int(round(1640 * f))}:{int(round(80 * f))}:{int(round(140 * f))}:{int(round(840 * f))},scale=1640:80:flags=lanczos"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", vf, os.path.join(klasor, "k_%04d.png")], check=True)
     return sorted(glob.glob(os.path.join(klasor, "k_*.png")))
 
 
@@ -128,7 +142,7 @@ def isle(video, n, ad=None, fps=2):
     return cikti
 
 
-def bolum_oku(video, fps=2):
+def bolum_oku(video, fps=1):
     """Yayında sağ üstte görünen 'NNN M 00'SS"CC' ara sürelerini (kalan mesafeden bitişe süre) okur.
     Dönen: {"800": 51.27, "600": 39.76, ...} (en sık okunan değer). Koordinatlar 854x480 kare içindir; kare önce 854 genişliğe ölçeklenir."""
     import collections

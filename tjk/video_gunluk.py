@@ -82,7 +82,7 @@ if __name__ == "__main__":
             w.writerow(BASLIK)
         for t in gunler:
             isler = gun_isleri(t)
-            with Pool(3) as p:
+            with Pool(max(1, os.cpu_count() or 1)) as p:
                 for r in p.imap_unordered(isle, isler):
                     w.writerow(r); f.flush()
             print(t, len(isler), "video", flush=True)
