@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-28 17:21 UTC",
- "kayitli_kosu": 969,
- "eslesmeyen_kosu": 639,
+ "uretim": "2026-10-28 18:10 UTC",
+ "kayitli_kosu": 978,
+ "eslesmeyen_kosu": 645,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 536,
- "kosu": 330,
+ "bahis": 538,
+ "kosu": 333,
  "isabet": 37,
- "roi": 1.108,
+ "roi": 1.104,
  "ga95": [
-  0.742,
-  1.526
+  0.74,
+  1.518
  ],
  "ulke": {
   "abd": {
@@ -30,59 +30,41 @@
    "roi": 1.848
   },
   "irlanda": {
-   "bahis": 27,
+   "bahis": 29,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 640,
-  "kosu": 324,
+  "bahis": 645,
+  "kosu": 327,
   "isabet": 68,
-  "roi": 0.757,
+  "roi": 0.751,
   "ga95": [
-   0.536,
-   0.976
+   0.53,
+   0.965
   ]
  },
  "bahis_t1": {
-  "bahis": 670,
-  "kosu": 319,
+  "bahis": 673,
+  "kosu": 322,
   "isabet": 73,
-  "roi": 0.837,
+  "roi": 0.833,
   "ga95": [
-   0.516,
-   1.169
+   0.515,
+   1.165
   ]
  },
  "bahis_t3": {
-  "bahis": 674,
-  "kosu": 310,
+  "bahis": 678,
+  "kosu": 313,
   "isabet": 79,
-  "roi": 0.778,
+  "roi": 0.773,
   "ga95": [
-   0.489,
-   1.137
+   0.486,
+   1.131
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Finger Lakes",
-   "kosu": 8,
-   "at": "THIN LEGS",
-   "q": 0.19,
-   "g": 9.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 2,
-   "at": "STELLA'S MISCHIEF",
-   "q": 0.13,
-   "g": 17.2,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Horseshoe Indianapolis",
@@ -324,6 +306,24 @@
    "at": "GLEN BREEZE",
    "q": 0.087,
    "g": 15.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 8,
+   "at": "BATTLING SIKI",
+   "q": 0.045,
+   "g": 28.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 8,
+   "at": "COZONE",
+   "q": 0.023,
+   "g": 55.6,
    "kazandi": false
   },
   {
