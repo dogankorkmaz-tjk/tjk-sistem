@@ -167,3 +167,11 @@ tarih,hip,kosu,durum,at_sayisi,kare,gecerli_kare,bolum_n,son_top1,son_top3kume,s
 2026-09-13,adana,8,tamam,15,210,130,5,1,1,27
 2026-09-13,istanbul,4,tamam,12,260,191,8,1,1,37
 2026-09-13,istanbul,1,tamam,11,310,241,12,1,0,49
+2026-09-14,bursa,1,video_yok,11,,,,,,
+2026-09-14,bursa,2,tamam,14,260,179,6,1,1,57
+2026-09-14,bursa,3,tamam,12,260,176,8,1,1,57
+2026-09-14,bursa,4,tamam,14,260,179,6,1,0,57
+2026-09-14,bursa,8,video_yok,15,,,,,,
+2026-09-14,bursa,5,tamam,9,360,283,11,1,0,74
+2026-09-14,bursa,7,tamam,7,200,134,6,1,0,36
+2026-09-14,bursa,6,tamam,9,320,253,13,1,0,50
