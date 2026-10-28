@@ -185,3 +185,11 @@ tarih,hip,kosu,durum,at_sayisi,kare,gecerli_kare,bolum_n,son_top1,son_top3kume,s
 2026-09-15,kocaeli,6,tamam,8,240,103,3,0,0,31
 2026-09-15,kocaeli,8,tamam,14,250,173,5,1,1,37
 2026-09-15,kocaeli,7,tamam,11,270,185,7,1,1,39
+2026-09-16,istanbul,4,video_yok,8,,,,,,
+2026-09-16,istanbul,2,tamam,9,200,137,4,1,1,40
+2026-09-16,istanbul,3,tamam,7,180,127,4,1,1,40
+2026-09-16,istanbul,1,tamam,9,210,143,4,1,1,43
+2026-09-16,istanbul,5,tamam,10,210,139,4,1,0,40
+2026-09-16,istanbul,7,video_yok,7,,,,,,
+2026-09-16,istanbul,8,video_yok,15,,,,,,
+2026-09-16,istanbul,6,tamam,12,340,265,8,1,1,46
