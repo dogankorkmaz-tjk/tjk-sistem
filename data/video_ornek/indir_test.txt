@@ -1,0 +1,37 @@
+== GET başlık
+HTTP/2 206 
+server: openresty
+date: Wed, 28 Oct 2026 01:44:38 GMT
+content-type: video/mp4
+content-length: 1024
+last-modified: Tue, 27 Oct 2026 15:38:19 GMT
+access-control-allow-origin: *
+t1: 403
+cache-control: private
+cache-control: no-cache
+x1: HIT
+uri: /videoftp/2026/10/26102792_m.mp4
+content-range: bytes 0-1023/23334309
+
+== tam indirme (UA tarayıcı)
+kod=200 boyut=23334309 sure=2.396206
+-rw-r--r-- 1 runner runner 23334309 Oct 28 01:44 /tmp/v/o.mp4
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+/usr/bin/ffprobe
+codec_name=h264
+width=854
+height=480
+r_frame_rate=25/1
+duration=140.000000
+codec_name=aac
+r_frame_rate=0/0
+duration=140.011000
