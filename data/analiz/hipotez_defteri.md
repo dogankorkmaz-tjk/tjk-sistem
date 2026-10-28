@@ -994,3 +994,10 @@ SONUÇ T38 (2026-10-28 04:30; soy–mesafe, taban MJ; entegre_v3_elo2.py VAR=MJM
 
 ## 2026-10-28 04:30 — Video kaynağı bulundu (altyapı notu)
 TJK yarış videoları herkese açık CDN'de: https://video-cdn.tjk.org/videoftp/YYYY/AA/YYAAGG<h><k>_m.mp4 (h=hipodrom kodu 1 hane, k=koşu no). GitHub Actions'tan HEAD ile doğrulandı (27 Ekim: h=1 → k=1..8, h=9 → k=1..8, 24 MB). Buradan (bulut ortam) erişilemez, yalnız Actions'tan. Sonraki adım: günlük indirme + tjk.video_seyir ile otomatik işleme; hipodrom kodu→ad eşlemesi doğrulanmalı. Betik: .github/workflows/video_probe.yml; sonuç data/video_probe.txt.
+
+## 2026-10-28 12:58 — ÖN KAYIT T41 video özellikleri; T42 kör etiket testi
+Veri: data/video_seyir/*.json (rakam okuyucu "rakam1"; Şanlıurfa/Elazığ/Diyarbakır şeritsiz, kapsam dışı). Geriye dönük okuma 2025-10..2026-10 (video aylık klasör sıfırsız: .../2026/9/...). Tüm kararlar, özellikler hesaplanmadan ÖNCE bu kayıtla sabitlenir.
+T41 özellikleri (her at, KOŞU ÖNCESİ bilgiyle, yalnız önceki koşulardan, büzmeli n/(n+K), K=5):
+ f_v1 stil = önceki koşularda erken sıra (erken dilim ort. sıra / at sayısı); f_v2 kapanış = (orta−geç) sıra kazancı; f_v3 yer kaybı = (geç−erken); f_v4 tempo = ara süre son 400 m farkı (bölüm 400 vs 800'den bitişe), mesafe/pist bandına göre z; koşu düzeyi f_v5 = koşudaki önden gidici sayısı (f_v1<0,3 olan at sayısı) × atın stili etkileşimi.
+Test: taban MJ; MJV = MJ + f_v1..f_v5. Video verisi 2025-10'dan başladığı için ayrı yürüyüş: ÖNCE 2025-10..2026-03 ısınma/eğitim, TEST 2026-04..2026-10 (B). Tek pencere: kural, B'de kazanan VE ilk5 GA üst <0 ve zarar yok (ikili/üçlü üst >+0,003); 2025-12..2026-03 yarı-dönemde aynı yön. Hâlâ yetersizse karar 2027-04'te daha fazla veriyle. Kural sağlanmazsa EKLENMEZ.
+T42 (kör etiket): video örneklemesi 100 koşu (rastgele tohum 42, 2026-10 videoları); at bazında "şanssız/normal/şanslı" etiketini sonuçlara BAKMADAN koyarım; sonra etiketin sonraki koşudaki piyasaya göre bitiş artığını öngörüp öngörmediği (Spearman, bootstrap) ölçülür. Sadece T41 bir şey gösterirse yapılır; sinyal yoksa kapatılır.
