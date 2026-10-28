@@ -52,3 +52,11 @@ tarih,hip,kosu,durum,at_sayisi,kare,gecerli_kare,bolum_n,son_top1,son_top3kume,s
 2026-09-01,kocaeli,5,video_yok,11,,,,,,
 2026-09-01,kocaeli,6,video_yok,10,,,,,,
 2026-09-01,kocaeli,3,tamam,10,330,243,8,0,0,55
+2026-09-02,istanbul,1,video_yok,11,,,,,,
+2026-09-02,istanbul,4,tamam,12,230,161,6,1,0,57
+2026-09-02,istanbul,2,tamam,15,240,171,7,0,0,61
+2026-09-02,istanbul,6,tamam,8,230,162,7,0,1,55
+2026-09-02,istanbul,8,video_yok,10,,,,,,
+2026-09-02,istanbul,5,tamam,12,380,306,10,1,1,85
+2026-09-02,istanbul,7,tamam,6,230,162,7,1,0,39
+2026-09-02,istanbul,9,tamam,13,330,257,11,0,1,54
