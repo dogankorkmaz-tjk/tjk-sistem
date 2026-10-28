@@ -32,3 +32,9 @@ tarih,hip,kosu,durum,at_sayisi,kare,gecerli_kare,bolum_n,son_top1,son_top3kume,s
 2026-08-30,istanbul,8,tamam,9,210,162,0,1,1,40
 2026-08-30,istanbul,9,tamam,16,250,178,0,1,1,47
 2026-08-30,istanbul,7,tamam,5,330,251,0,1,1,55
+2026-08-31,bursa,1,tamam,13,210,147,6,1,0,51
+2026-08-31,bursa,3,tamam,15,210,148,5,1,0,51
+2026-08-31,bursa,4,tamam,15,230,148,6,1,1,54
+2026-08-31,bursa,5,tamam,11,340,265,9,0,0,74
+2026-08-31,bursa,7,tamam,9,190,14,5,0,0,28
+2026-08-31,bursa,6,tamam,14,210,144,5,1,1,36
