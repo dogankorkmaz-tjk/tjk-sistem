@@ -956,3 +956,13 @@ SONUÇ T34 (2026-10-28 04:50; data/analiz/ekur_bolusum.py; 2025Q1–2026Q3 yür�
 `data/analiz/ekur_havuz.py`: kazanan kombinasyonun ödemesi, L=log(ödeme×Harville_piyasa), ekür atının Jason-bölüşüm payı s (θ=3.7) için L ~ a + b·log(2s) + kontrol. b=0 fiyatlanmamış, b=−1 tam fiyatlanmış.
 Sonuç (928 ekürlü kazanan kombo): ikili −0.46 [−0.59,−0.32], üçlü −0.50 [−0.76,−0.28], tabela −0.54 [−0.88,−0.20], sıralı 5'li −0.41 [−0.71,−0.16], hepsi −0.48 [−0.63,−0.33].
 Yorum: sıralı havuzlar bölüşümü yaklaşık YARISINA kadar fiyatlıyor; kalan kenar ganyan karşısında ölçtüğümün kabaca yarısı. Karar kuralı (ileri gölge ≥100 ekür koşusu) değişmedi; sıralı kupon ürettiğimiz için asıl ölçüt havuz-karşılaştırmalı olmalı.
+
+## 2026-10-28 03:35 — ÖN KAYIT T35: kapı ≤1300 ve hipodrom×mesafe hücresi (kullanıcı önerisi)
+Gözlem (ham): iç kapı (1–2) kazanma oranı dış kapıdan ≤1100 m'de +4,3, 1200 m'de +3,1, 1300 m'de +0,9 puan; 1200'de iç kapı piyasaya göre +1,6 puan [≈3σ], Jason'a göre +1,3. 24 Ekim kapı×bant testi (f_kk <1400 tek bant) v3'te kural sağlanmadı (−0,0005, GA 0'ı kapsıyor).
+Özellikler (taban = üretim v3 = MJ: Elo+marjlı Elo+ortak Elo): A) f_k13 = (kapı konumu−0,5)×[D≤1300]; B) A + f_kh = (hipodrom,mesafe,pist,kapı grubu iç/orta/dış) hücresinin ÖNCEKİ günlerdeki ortalama (kazandı−p_piyasa), n/(n+300) büzmeli, ×10 (yalnız ≤1300).
+Test: entegre_v3_elo2.py VAR=MJK / MJK2, taban VAR=MJ, dönemler A 2025-03..2026-03, B 2026-04..2026-10, C 2024-04..2024-12, gün-kümeli bootstrap.
+Karar kuralı: kazanan VE ilk5 GA üst sınırı <0 (A ve B'de, C'de aynı yön) → eklenir; aksi halde kapatılır. Harici zarar (ikili/üçlü üst sınır > +0,003) varsa eklenmez. Kısa mesafe alt kümesi ayrı raporlanır (keşif).
+SONUÇ T35 (2026-10-28; data/analiz/kapi13.py, k13_karsilastir.py; fark = varyant − MJ, nats/koşu, negatif=iyi):
+- MJK (yalnız f_k13): A ilk5 −0,0006 [−0,0020,+0,0007]; B +0,0002 [−0,0017,+0,0021]; C −0,0015 [−0,0037,+0,0005]. Kanıt yok.
+- MJK2 (f_k13 + hipodrom×mesafe hücresi f_kh): A kazanan −0,0006 [−0,0020,+0,0008], ilk4 −0,0021 [−0,0042,+0,0002], ilk5 −0,0021 [−0,0046,+0,0002]; B kazanan −0,0019 [−0,0041,−0,0000], ikili −0,0034, üçlü −0,0041, ilk4 −0,0050, ilk5 −0,0054 [−0,0091,−0,0019]; C kazanan −0,0012 [−0,0032,+0,0007], ikili −0,0028, üçlü −0,0046, ilk4 −0,0055, ilk5 −0,0053 [−0,0089,−0,0020].
+Karar (kural değişmez): A döneminde kazanan ve ilk5 üst sınırı >0 → kural sağlanmadı, ana modele EKLENMEZ. Not: üç dönemde de nokta tahmin negatif, B ve C'de ilk4/ilk5 anlamlı, A sınırda (+0,0002); etki küçük (≈0,002–0,005 nat/koşu). Aday olarak tutulur: ileri gölge (Ocak 2027'de yeniden test, ≥2 ek ay veri) — yeni ön kayıt gerekir.
