@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-28 18:14 UTC",
- "kayitli_kosu": 978,
- "eslesmeyen_kosu": 644,
+ "uretim": "2026-10-28 18:53 UTC",
+ "kayitli_kosu": 986,
+ "eslesmeyen_kosu": 650,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 539,
- "kosu": 334,
+ "bahis": 543,
+ "kosu": 336,
  "isabet": 37,
- "roi": 1.102,
+ "roi": 1.093,
  "ga95": [
-  0.737,
-  1.516
+  0.728,
+  1.502
  ],
  "ulke": {
   "abd": {
-   "bahis": 323,
-   "roi": 0.876
+   "bahis": 327,
+   "roi": 0.865
   },
   "birlesik-krallik": {
    "bahis": 92,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 647,
-  "kosu": 328,
+  "bahis": 652,
+  "kosu": 330,
   "isabet": 68,
-  "roi": 0.748,
+  "roi": 0.743,
   "ga95": [
-   0.528,
-   0.962
+   0.517,
+   0.959
   ]
  },
  "bahis_t1": {
-  "bahis": 677,
-  "kosu": 323,
+  "bahis": 682,
+  "kosu": 325,
   "isabet": 74,
-  "roi": 0.833,
+  "roi": 0.826,
   "ga95": [
-   0.516,
-   1.162
+   0.512,
+   1.156
   ]
  },
  "bahis_t3": {
-  "bahis": 682,
-  "kosu": 314,
+  "bahis": 685,
+  "kosu": 315,
   "isabet": 80,
-  "roi": 0.773,
+  "roi": 0.77,
   "ga95": [
-   0.487,
-   1.128
+   0.484,
+   1.121
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 5,
-   "at": "MY AWESOME GOLD",
-   "q": 0.113,
-   "g": 11.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 5,
-   "at": "CROATOAN",
-   "q": 0.132,
-   "g": 10.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 6,
-   "at": "WOODCOCK FLIGHT",
-   "q": 0.124,
-   "g": 10.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Mahoning Valley",
-   "kosu": 2,
-   "at": "LADY MIDSHIPMAN",
-   "q": 0.046,
-   "g": 29.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Mahoning Valley",
@@ -198,6 +162,15 @@
    "at": "PRODIGAL SON",
    "q": 0.238,
    "g": 9.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "STORY OF RORY",
+   "q": 0.182,
+   "g": 7.45,
    "kazandi": false
   },
   {
@@ -378,6 +351,33 @@
    "at": "CHRISTMAS ROSE",
    "q": 0.141,
    "g": 11.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 3,
+   "at": "ASTERIA",
+   "q": 0.19,
+   "g": 9.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 3,
+   "at": "BIJOU BABY",
+   "q": 0.209,
+   "g": 6.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 3,
+   "at": "RAZZLE RED",
+   "q": 0.08,
+   "g": 19.0,
    "kazandi": false
   },
   {
