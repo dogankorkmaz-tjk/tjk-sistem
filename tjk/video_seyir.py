@@ -102,7 +102,7 @@ def isle(video, n, ad=None, fps=2):
             im = Image.open(f)
             s = _sira(im, palet, kutu, esik=0.9 if len(pal_num) == n else 0.5)
             s = [pal_num[x - 1] for x in s] if s else None
-            zaman.append({"t": round(i / fps, 1), "sira": s, "mesafe": _mesafe(im) if s else None})
+            zaman.append({"t": round(i / fps, 1), "sira": s, "mesafe": _mesafe(im) if (s and i % 6 == 0) else None})
     gecerli = [z for z in zaman if z["sira"]]
     kapi = numaralar                                  # koşu öncesi şerit 1..N sırasıyla durur: o kareleri at
     while gecerli and gecerli[0]["sira"] == kapi:
