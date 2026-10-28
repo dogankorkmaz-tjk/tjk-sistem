@@ -169,3 +169,7 @@ tarih,hip,kosu,durum,at_sayisi,kare,gecerli_kare,bolum_n,son_top1,son_top3kume,s
 2026-10-15,izmir,5,tamam,10,300,222,8,1,0,40
 2026-10-15,izmir,8,tamam,13,220,130,5,1,0,30
 2026-10-15,izmir,7,tamam,12,280,202,6,1,1,39
+2026-10-16,istanbul,1,tamam,5,190,124,4,1,1,30
+2026-10-16,istanbul,2,tamam,4,210,180,5,1,1,32
+2026-10-16,istanbul,4,tamam,14,240,164,6,0,0,38
+2026-10-16,istanbul,3,tamam,10,320,255,9,1,0,51
