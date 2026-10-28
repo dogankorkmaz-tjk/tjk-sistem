@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-28 12:16 UTC",
- "kayitli_kosu": 945,
- "eslesmeyen_kosu": 624,
+ "uretim": "2026-10-28 13:26 UTC",
+ "kayitli_kosu": 947,
+ "eslesmeyen_kosu": 625,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 516,
- "kosu": 321,
- "isabet": 35,
- "roi": 1.119,
+ "bahis": 517,
+ "kosu": 322,
+ "isabet": 36,
+ "roi": 1.129,
  "ga95": [
-  0.74,
-  1.565
+  0.747,
+  1.573
  ],
  "ulke": {
   "abd": {
@@ -26,8 +26,8 @@
    "roi": 0.91
   },
   "guney-afrika": {
-   "bahis": 43,
-   "roi": 1.688
+   "bahis": 44,
+   "roi": 1.789
   },
   "irlanda": {
    "bahis": 16,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 623,
-  "kosu": 315,
+  "kosu": 316,
   "isabet": 66,
   "roi": 0.757,
   "ga95": [
@@ -45,35 +45,26 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 649,
-  "kosu": 310,
+  "bahis": 650,
+  "kosu": 311,
   "isabet": 70,
-  "roi": 0.829,
+  "roi": 0.828,
   "ga95": [
-   0.499,
-   1.172
+   0.498,
+   1.17
   ]
  },
  "bahis_t3": {
-  "bahis": 655,
-  "kosu": 301,
+  "bahis": 656,
+  "kosu": 302,
   "isabet": 77,
-  "roi": 0.781,
+  "roi": 0.78,
   "ga95": [
    0.482,
-   1.147
+   1.146
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 5,
-   "at": "HOMESTRAIT",
-   "q": 0.171,
-   "g": 10.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Catterick",
@@ -424,6 +415,15 @@
    "q": 0.316,
    "g": 4.6,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Durbanville",
+   "kosu": 3,
+   "at": "GIMME PERFECT",
+   "q": 0.241,
+   "g": 6.1,
+   "kazandi": true
   }
  ]
 }
