@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-28 11:30 UTC",
- "kayitli_kosu": 942,
- "eslesmeyen_kosu": 622,
+ "uretim": "2026-10-28 12:07 UTC",
+ "kayitli_kosu": 945,
+ "eslesmeyen_kosu": 624,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 514,
- "kosu": 320,
- "isabet": 34,
- "roi": 1.095,
+ "bahis": 516,
+ "kosu": 321,
+ "isabet": 35,
+ "roi": 1.119,
  "ga95": [
-  0.691,
-  1.513
+  0.74,
+  1.565
  ],
  "ulke": {
   "abd": {
@@ -26,8 +26,8 @@
    "roi": 0.91
   },
   "guney-afrika": {
-   "bahis": 41,
-   "roi": 1.405
+   "bahis": 43,
+   "roi": 1.688
   },
   "irlanda": {
    "bahis": 16,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 621,
-  "kosu": 314,
+  "bahis": 623,
+  "kosu": 315,
   "isabet": 66,
-  "roi": 0.76,
+  "roi": 0.757,
   "ga95": [
-   0.531,
-   0.992
+   0.528,
+   0.979
   ]
  },
  "bahis_t1": {
-  "bahis": 647,
-  "kosu": 309,
+  "bahis": 649,
+  "kosu": 310,
   "isabet": 70,
-  "roi": 0.832,
+  "roi": 0.829,
   "ga95": [
-   0.521,
-   1.165
+   0.499,
+   1.172
   ]
  },
  "bahis_t3": {
-  "bahis": 652,
-  "kosu": 300,
+  "bahis": 655,
+  "kosu": 301,
   "isabet": 77,
-  "roi": 0.785,
+  "roi": 0.781,
   "ga95": [
-   0.502,
-   1.145
+   0.482,
+   1.147
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 5,
-   "at": "MARCHING MAC",
-   "q": 0.214,
-   "g": 8.65,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Catterick",
-   "kosu": 5,
-   "at": "BELSITO",
-   "q": 0.095,
-   "g": 19.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Catterick",
@@ -423,6 +405,24 @@
    "at": "PRODIGAL SON",
    "q": 0.238,
    "g": 9.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Durbanville",
+   "kosu": 2,
+   "at": "KELP FOREST",
+   "q": 0.137,
+   "g": 15.0,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Durbanville",
+   "kosu": 2,
+   "at": "MARCUS AURELIUS",
+   "q": 0.316,
+   "g": 4.6,
    "kazandi": false
   }
  ]
