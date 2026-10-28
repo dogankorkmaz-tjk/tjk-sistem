@@ -1,0 +1,22 @@
+name: video_probe
+on:
+  workflow_dispatch:
+    inputs:
+      gun:
+        description: "yyaagg"
+        default: "261027"
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: HEAD denemesi (video-cdn.tjk.org kalıbı)
+        run: |
+          G="${{ github.event.inputs.gun }}"; Y="20${G:0:2}/${G:2:2}"
+          echo "bilinen örnek (Kocaeli 2. koşu 27 Ekim):"; curl -s -o /dev/null -m 20 -w "%{http_code} %{size_download} %header{content-length}\n" -I "https://video-cdn.tjk.org/videoftp/2026/10/26102791_m.mp4"
+          for h in 0 1 2 3 4 5 6 7 8 9; do for k in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            u="https://video-cdn.tjk.org/videoftp/$Y/${G}${h}${k}_m.mp4"
+            c=$(curl -s -o /dev/null -m 15 -w "%{http_code}" -I "$u"); [ "$c" = "200" ] && echo "VAR $u"
+            sleep 0.2
+          done; done
+          echo bitti
