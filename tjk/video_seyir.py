@@ -97,26 +97,33 @@ def _mesafe(im):
     return int(m.group(1)) if m else None
 
 
-def isle(video, n, ad=None, fps=2):
+def isle(video, n, ad=None, fps=2, esik=0.80):
+    """Şerit okuma: her karede ilk 10 kutunun at numarası RAKAM şekliyle okunur (tjk.video_okuma). Renk paleti kullanılmaz
+    (11+ numaralı atlarda ve renk kayması olan karelerde yanlış at yazıyordu)."""
+    from . import video_okuma as VO
     numaralar = list(n) if isinstance(n, (list, tuple)) else list(range(1, n + 1))   # koşmayan at varsa numaralar 1..N olmaz
     n = len(numaralar)
     tum = numaralar
-    kutu = min(n, 10)          # yayın şeridi yalnızca ilk 10 sırayı gösterir; 11+ atlı koşularda sonrası şeritte görünmez
+    kutu = min(n, 10)          # yayın şeridi yalnızca ilk 10 sırayı gösterir
     numaralar = tum[:kutu]
+    kume = set(tum)
     with tempfile.TemporaryDirectory() as k:
         fr = _kareler(video, k, fps)
-        palet, ayrim = _palet(fr, kutu)
-        G = _global_palet()
-        ek = [(a, G[a]) for a in tum[kutu:] if a in G]          # ilk 10 dışındaki, rengi bilinen atlar
-        if ek:
-            palet = np.vstack([palet] + [c[None, :] for _, c in ek])
-        pal_num = numaralar + [a for a, _ in ek]
         zaman = []
         for i, f in enumerate(fr):
             im = Image.open(f)
-            s = _sira(im, palet, kutu, esik=0.9 if len(pal_num) == n else 0.5)
-            s = [pal_num[x - 1] for x in s] if s else None
-            zaman.append({"t": round(i / fps, 1), "sira": s, "mesafe": _mesafe(im) if (s and i % 6 == 0) else None})
+            s = []
+            for j in range(kutu):
+                num, c = VO.numara(im, j)
+                if num is None and c == 0.0:
+                    break                                  # şerit soldan dolar: ilk boş kutudan sonrası yok
+                if num is None or not (1 <= num <= 30) or c < esik:
+                    s = None; break
+                s.append(num)
+            ok = bool(s) and len(s) >= min(kutu, 4) and len(set(s)) == len(s)
+            zaman.append({"t": round(i / fps, 1), "sira": s if ok else None, "mesafe": _mesafe(im) if (ok and i % 6 == 0) else None})
+    gecerli = [z for z in zaman if z["sira"]]
+    ayrim = 1.0
     gecerli = [z for z in zaman if z["sira"]]
     kapi = numaralar                                  # koşu öncesi şerit 1..N sırasıyla durur: o kareleri at
     while gecerli and gecerli[0]["sira"] == kapi:
@@ -134,7 +141,7 @@ def isle(video, n, ad=None, fps=2):
         bol = bolum_oku(video)
     except Exception as e:
         bol = {}
-    cikti = {"bolum": bol, "video": os.path.basename(video), "at_sayisi": n, "kutu": kutu, "numaralar": tum, "palet_ayrimi": round(float(ayrim), 1),
+    cikti = {"okuyucu": "rakam1", "bolum": bol, "video": os.path.basename(video), "at_sayisi": n, "kutu": kutu, "numaralar": tum, "palet_ayrimi": ayrim,
              "kare": len(zaman), "gecerli_kare": len(gecerli), "ozet": ozet, "zaman": zaman}
     yol = os.path.join(KOK, "data", "video_seyir", (ad or os.path.splitext(os.path.basename(video))[0]) + ".json")
     os.makedirs(os.path.dirname(yol), exist_ok=True)
