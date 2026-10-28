@@ -51,7 +51,7 @@ def isle(args):
     g = tarih[2:4] + tarih[5:7] + tarih[8:10]
     with tempfile.TemporaryDirectory() as k:
         yol = os.path.join(k, "v.mp4")
-        if not _indir(CDN.format(y=tarih[:4], a=tarih[5:7], g=g, h=hip_kod, k=kosu), yol):
+        if not _indir(CDN.format(y=tarih[:4], a=str(int(tarih[5:7])), g=g, h=hip_kod, k=kosu), yol):
             return [tarih, hip, kosu, "video_yok", len(atlar), "", "", "", "", "", ""]
         try:
             c = video_seyir.isle(yol, atlar, ad)
@@ -69,7 +69,7 @@ def gun_isleri(tarih):
         if h in SERITSIZ:
             continue
         for k in range(1, 15):
-            u = CDN.format(y=tarih[:4], a=tarih[5:7], g=g, h=h, k=k)
+            u = CDN.format(y=tarih[:4], a=str(int(tarih[5:7])), g=g, h=h, k=k)
             c = subprocess.run(["curl", "-s", "-o", "/dev/null", "-I", "-m", "15", "-w", "%{http_code}", u], capture_output=True, text=True).stdout.strip()
             if c == "200":
                 isler.append((tarih, h, k))
