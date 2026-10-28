@@ -970,3 +970,8 @@ Karar (kural değişmez): A döneminde kazanan ve ilk5 üst sınırı >0 → kur
 ## 2026-10-28 03:55 — ÖN KAYIT T36: jokeyin ata aşinalığı (kaçıncı biniş) (kullanıcı önerisi)
 Mevcut: yalnız f_jdeg (jokey son koşudakinden farklı mı). Yeni: A) MJB = MJ + f_jn=log1p(bu jokeyin bu ata önceki biniş sayısı) + f_j1=[ilk kez biniyor ∧ atın geçmişi var]; B) MJB2 = MJB + f_jat = (jokey,at) çiftinin önceki günlerdeki ort. (kazandı−p_piyasa), n/(n+5) büzmeli ×10. Sayım arşivden (2023-06+); erken dönemde sayımlar eksik kesik olabilir (test 2024-04+).
 Test ve karar kuralı T35 ile aynı: taban MJ; dönemler A 2025-03..2026-03, B 2026-04..2026-10, C 2024-04..2024-12; kazanan VE ilk5 GA üst sınırı <0 (A ve B'de, C aynı yön), zarar (ikili/üçlü üst >+0,003) yok → eklenir; aksi halde eklenmez. Betikler: jokey_asinalik.py, entegre_v3_elo2.py VAR=MJB/MJB2, k13_karsilastir.py MJB MJB2.
+
+## 2026-10-28 04:05 — T37 (hızlı keşif): ıslak kum pistte soy (baba) etkisi
+Veri: kron kum pist durumu (Nemli/Sulu/Islak) Oca 2026+; ıslak-gün koşular Şub–Eki 2026 (436 koşu). Özellik: babanın ÖNCEKİ ıslak-gün yavrularının piyasaya göre bitiş artığı ort., K=10; tek parametreli ek terim (islak_pist_testi.py ile aynı yapı). Betik data/analiz/islak_soy_testi.py.
+SONUÇ: β=+0,68, kazanç 0,0004 nats/koşu, LR=0,32, p≈0,57 → kanıt yok (güç düşük: soyun ıslak geçmişi de yalnız 2026'dan). Karar: eklenmedi. 1 Mart 2027'de ıslak-at testiyle birlikte yeniden bakılacak.
+Not (kullanıcı isteği): pist durumu (çim yumuşak/ağır + ağırlık, kum nemli/sulu/ıslak) kaydı `calistir.pist_durum_yaz` ile her gün data/pist_durum.csv ve obj['pist_durumu']'na yazılıyor; kron sayfaları da arşivleniyor. Çim durumu kron'dan ayrıştırılamıyor (alan karışık) — 2027 testi için çim durum ayrıştırıcısı gerekir.
