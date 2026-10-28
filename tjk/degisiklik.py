@@ -157,6 +157,32 @@ def kilo_isaretle(obj):
     return n
 
 
+def ekur_isaretle(obj):
+    """Ekür (aynı sahibin ortak oranlı atları) grup numarasını atlara 'ek' olarak yazar (atyarisi 'stablemate'); T34 ileri gölge için kayıt amaçlı, model kullanmaz."""
+    g = atyapi.gun(obj["tarih"])
+    if not g:
+        return 0
+    n = 0
+    for h in obj["hipodromlar"]:
+        v = g.get(h["id"])
+        if not v:
+            continue
+        ak = {int(k["number"]): k for k in v["kosular"]}
+        for k in h["kosular"]:
+            ar = ak.get(k["kosu"])
+            if not ar:
+                continue
+            nm = {a["no"]: a for a in k["atlar"]}
+            for a in ar.get("horses") or []:
+                try:
+                    sm = int(a.get("stablemate") or 0); x = nm.get(int(a["number"]))
+                except Exception:
+                    continue
+                if x is not None and sm > 0 and x.get("ek") != sm:
+                    x["ek"] = sm; n += 1
+    return n
+
+
 def pist_durum_yaz(obj):
     """Pist durumu (ağır/yumuşak/nemli... + ağırlık, örn. Çim Yumuşak 3,4): API'den okur, obj['pist_durumu']'na yazar (UI) ve data/pist_durum.csv'ye yeni değerleri ekler.
     Model şimdilik kullanmıyor (kayıt/analiz amaçlı)."""

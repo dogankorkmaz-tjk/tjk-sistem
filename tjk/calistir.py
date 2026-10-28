@@ -857,6 +857,10 @@ def canli(t):
         from . import degisiklik as _DG
         _DG.pist_yaz(obj)                  # API'de pist türü değiştiyse pist_degisiklik.csv'ye otomatik yaz (26 Ekim 2026)
         _DG.kilo_isaretle(obj)             # API kilosu değiştiyse koşuyu yeniden puanlamaya işaretle
+        try:
+            _DG.ekur_isaretle(obj)         # T34: ekür grup numarası (kayıt, model kullanmaz)
+        except Exception as _e:
+            print("ekür işaretleme hatası:", repr(_e))
         _DG.pist_durum_yaz(obj)            # pist durumu (yumuşak/ağır + ağırlık) -> obj['pist_durumu'] + data/pist_durum.csv
     except Exception as e:
         print("otomatik pist hatası:", repr(e))
