@@ -9,7 +9,7 @@ import os, re, sys, json, glob, gzip, csv, unicodedata
 import pandas as pd
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-KOD = {"5": "ankara"}
+KOD = {"1": "adana", "2": "izmir", "3": "istanbul", "4": "bursa", "5": "ankara", "6": "sanliurfa", "7": "elazig", "8": "diyarbakir", "9": "kocaeli"}
 
 
 def _ascii(s):

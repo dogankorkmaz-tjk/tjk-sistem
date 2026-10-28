@@ -1,0 +1,36 @@
+name: video_gunluk
+on:
+  workflow_dispatch:
+    inputs:
+      baslangic:
+        description: "YYYY-MM-DD (dahil)"
+        default: "2026-10-13"
+      bitis:
+        description: "YYYY-MM-DD (dahil)"
+        default: "2026-10-15"
+  schedule:
+    - cron: "20 1 * * *"      # 04:20 TR: dünün videoları
+permissions:
+  contents: write
+concurrency:
+  group: video-gunluk
+  cancel-in-progress: false
+jobs:
+  isle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg tesseract-ocr >/dev/null && pip -q install numpy pillow scipy pandas
+      - name: İşle
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then B=$(date -d yesterday +%F); S=$B; else B="${{ github.event.inputs.baslangic }}"; S="${{ github.event.inputs.bitis }}"; fi
+          D="$B"; L=""; while [ "$D" != "$(date -d "$S +1 day" +%F)" ]; do L="$L $D"; D=$(date -d "$D +1 day" +%F); done
+          for G in $L; do
+            python3 -m tjk.video_gunluk $G
+            git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+            git add data/video_seyir && git commit -qm "video seyir $G" && git pull --rebase -q && git push -q || true
+          done

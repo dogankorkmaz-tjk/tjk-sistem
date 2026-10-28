@@ -6,7 +6,8 @@ Kullanım:  python3 -m tjk.video_seyir <video.mp4> <at_sayisi veya 1,2,4,5,...> 
 Yöntem: şerit (1920x1080 karede x140..1480, y840..920) her saniye kırpılır; her kutunun renginden at numarası bulunur.
 Renk paleti videonun kendisinden öğrenilir: koşu başında şerit 1..N sırasıyla gösterilir.
 Kutu soldan sağa ilerlerken ön sıradan geriye doğru dizilir. Kalan mesafe halkadan okunur (tesseract, kısmen güvenilir).
-Yarış videosu elle indirilip yüklenir; bu araç hiçbir siteye bağlanmaz.
+Video herhangi bir çözünürlükte olabilir (480p mobil sürüm dahil): kareler 1920x1080'e ölçeklenir.
+Yarış videosu elle indirilip yüklenir ya da tjk.video_gunluk ile (GitHub Actions) indirilir; bu modül hiçbir siteye bağlanmaz.
 """
 import os, sys, re, json, glob, subprocess, tempfile
 import numpy as np
@@ -17,7 +18,7 @@ SOL0, ARALIK = 348, 124.5            # ilk kutunun sol kenarı ve kutular arası
 
 
 def _kareler(video, klasor, fps=2):
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},crop=1640:80:140:840",
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},scale=1920:1080:flags=lanczos,crop=1640:80:140:840",
                     os.path.join(klasor, "k_%04d.png")], check=True)
     return sorted(glob.glob(os.path.join(klasor, "k_*.png")))
 
@@ -115,12 +116,40 @@ def isle(video, n, ad=None, fps=2):
         elif m is not None:
             son = m
     ozet = _ozet(gecerli, tum, numaralar)
-    cikti = {"video": os.path.basename(video), "at_sayisi": n, "kutu": kutu, "numaralar": tum, "palet_ayrimi": round(float(ayrim), 1),
+    try:
+        bol = bolum_oku(video)
+    except Exception as e:
+        bol = {}
+    cikti = {"bolum": bol, "video": os.path.basename(video), "at_sayisi": n, "kutu": kutu, "numaralar": tum, "palet_ayrimi": round(float(ayrim), 1),
              "kare": len(zaman), "gecerli_kare": len(gecerli), "ozet": ozet, "zaman": zaman}
     yol = os.path.join(KOK, "data", "video_seyir", (ad or os.path.splitext(os.path.basename(video))[0]) + ".json")
     os.makedirs(os.path.dirname(yol), exist_ok=True)
     json.dump(cikti, open(yol, "w", encoding="utf-8"), ensure_ascii=False)
     return cikti
+
+
+def bolum_oku(video, fps=2):
+    """Yayında sağ üstte görünen 'NNN M 00'SS"CC' ara sürelerini (kalan mesafeden bitişe süre) okur.
+    Dönen: {"800": 51.27, "600": 39.76, ...} (en sık okunan değer). Koordinatlar 854x480 kare içindir; kare önce 854 genişliğe ölçeklenir."""
+    import collections
+    ok = collections.defaultdict(collections.Counter)
+    with tempfile.TemporaryDirectory() as k:
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},scale=854:480,crop=190:62:650:22,scale=760:248:flags=lanczos,format=gray",
+                        os.path.join(k, "b_%04d.png")], check=True)
+        for f in sorted(glob.glob(os.path.join(k, "b_*.png"))):
+            im = Image.open(f)
+            a = np.array(im)
+            if (a > 200).mean() < 0.02:         # yazı yoksa (beyaz piksel yok) atla
+                continue
+            im2 = im.point(lambda p: 255 if p > 170 else 0)
+            im2.save(f)
+            s = subprocess.run(["tesseract", f, "-", "--psm", "6", "-c", "tessedit_char_whitelist=0123456789M'\\\" "],
+                               capture_output=True, text=True).stdout
+            for ln in s.splitlines():
+                m = re.search(r"(\d{3,4})\s*M\s*(\d{1,2})\D{1,3}(\d{2})\D{1,3}(\d{2})", ln)
+                if m:
+                    ok[m.group(1)][round(int(m.group(2)) * 60 + int(m.group(3)) + int(m.group(4)) / 100.0, 2)] += 1
+    return {m: c.most_common(1)[0][0] for m, c in ok.items() if c.most_common(1)[0][1] >= 2}
 
 
 def _ozet(gecerli, numaralar, gorunen=None):
