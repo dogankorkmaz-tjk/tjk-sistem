@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-28 16:19 UTC",
- "kayitli_kosu": 963,
- "eslesmeyen_kosu": 635,
+ "uretim": "2026-10-28 17:16 UTC",
+ "kayitli_kosu": 969,
+ "eslesmeyen_kosu": 639,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 529,
- "kosu": 328,
+ "bahis": 536,
+ "kosu": 330,
  "isabet": 37,
- "roi": 1.122,
+ "roi": 1.108,
  "ga95": [
-  0.749,
-  1.549
+  0.742,
+  1.526
  ],
  "ulke": {
   "abd": {
-   "bahis": 321,
-   "roi": 0.881
+   "bahis": 322,
+   "roi": 0.878
   },
   "birlesik-krallik": {
    "bahis": 92,
@@ -30,104 +30,41 @@
    "roi": 1.848
   },
   "irlanda": {
-   "bahis": 21,
+   "bahis": 27,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 632,
-  "kosu": 322,
-  "isabet": 67,
-  "roi": 0.753,
+  "bahis": 640,
+  "kosu": 324,
+  "isabet": 68,
+  "roi": 0.757,
   "ga95": [
-   0.526,
-   0.975
+   0.536,
+   0.976
   ]
  },
  "bahis_t1": {
-  "bahis": 661,
-  "kosu": 317,
-  "isabet": 72,
-  "roi": 0.836,
+  "bahis": 670,
+  "kosu": 319,
+  "isabet": 73,
+  "roi": 0.837,
   "ga95": [
-   0.512,
-   1.172
+   0.516,
+   1.169
   ]
  },
  "bahis_t3": {
-  "bahis": 668,
-  "kosu": 308,
-  "isabet": 78,
-  "roi": 0.772,
+  "bahis": 674,
+  "kosu": 310,
+  "isabet": 79,
+  "roi": 0.778,
   "ga95": [
-   0.479,
-   1.135
+   0.489,
+   1.137
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Deauville",
-   "kosu": 8,
-   "at": "QUARTZ DU HOULEY",
-   "q": 0.298,
-   "g": 6.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "MATURATION",
-   "q": 0.163,
-   "g": 9.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "BEACH INVASION",
-   "q": 0.233,
-   "g": 5.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "SHORTSINTHEWINTER",
-   "q": 0.074,
-   "g": 26.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Finger Lakes",
-   "kosu": 6,
-   "at": "RED BURGUNDY",
-   "q": 0.229,
-   "g": 7.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Finger Lakes",
-   "kosu": 6,
-   "at": "WORLD BANK",
-   "q": 0.102,
-   "g": 12.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Finger Lakes",
-   "kosu": 8,
-   "at": "GRAND LADY INDY",
-   "q": 0.143,
-   "g": 11.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Finger Lakes",
@@ -337,6 +274,60 @@
   },
   {
    "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "EXPOUND",
+   "q": 0.052,
+   "g": 32.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "ALL HAIL",
+   "q": 0.131,
+   "g": 26.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "WHISTLING JAMESIE",
+   "q": 0.105,
+   "g": 15.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "SHAMANKA",
+   "q": 0.052,
+   "g": 32.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "JAZZY DANCER",
+   "q": 0.052,
+   "g": 33.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "GLEN BREEZE",
+   "q": 0.087,
+   "g": 15.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
    "pist": "Durbanville",
    "kosu": 2,
    "at": "KELP FOREST",
@@ -396,6 +387,15 @@
    "at": "CHRISTMAS ROSE",
    "q": 0.141,
    "g": 11.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-28",
+   "pist": "Mahoning Valley",
+   "kosu": 2,
+   "at": "ASK ARTHUR",
+   "q": 0.158,
+   "g": 10.4,
    "kazandi": false
   },
   {
