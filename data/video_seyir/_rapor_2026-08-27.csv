@@ -115,3 +115,8 @@ tarih,hip,kosu,durum,at_sayisi,kare,gecerli_kare,bolum_n,son_top1,son_top3kume,s
 2026-09-08,ankara,6,tamam,8,230,163,6,1,1,51
 2026-09-08,kocaeli,2,tamam,8,200,131,5,1,0,45
 2026-09-08,kocaeli,3,tamam,8,300,226,7,1,0,39
+2026-09-09,istanbul,1,video_yok,10,,,,,,
+2026-09-09,istanbul,2,tamam,10,220,156,5,1,1,55
+2026-09-09,istanbul,5,tamam,11,220,155,5,1,1,58
+2026-09-09,istanbul,4,tamam,4,300,20,8,1,1,69
+2026-09-09,istanbul,6,tamam,13,280,264,8,1,1,60
