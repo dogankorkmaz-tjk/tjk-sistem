@@ -1,8 +1,9 @@
-"""T35 karşılaştırma: VAR (MJK/MJK2) − MJ. python3 data/analiz/k13_karsilastir.py"""
+"""T35/T36 karşılaştırma: VAR (MJK/MJK2) − MJ. python3 data/analiz/k13_karsilastir.py"""
 import pickle,numpy as np,random
 random.seed(3)
 def yukle(v,b): return pickle.load(open(f"/tmp/claude-0/v3_elo2{v}_{b}.pkl","rb"))
-for v in ["MJK","MJK2"]:
+import sys
+for v in sys.argv[1:]:
   for ad,b,son in [("A","2025-03","2026-03"),("B","2026-04","9999"),("C","2024-04","2024-12")]:
     try: X=yukle(v,b);Y=yukle("MJ",b)
     except Exception as e: print(v,ad,"yok");continue
