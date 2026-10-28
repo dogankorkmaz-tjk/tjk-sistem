@@ -981,3 +981,11 @@ T38: taban MJ; MJM = MJ + f_sm (baba×mesafe bandı ≤1200/1300–1500/1600–1
 T39 (keşif, ön kayıt): "sürpriz" = kazananın kapanış ganyanı ≥ 15 (piyasa p ≲ %6). Soru: (a) uzun oranlı atlar (piyasa p<0,08) arasında Jason/piyasa oranı yüksek olanların gerçek kazanma oranı piyasadan yüksek mi (OOS 2024-04+, gün kümeli bootstrap); (b) Jason'ın sürpriz kazananlara verdiği p piyasaya göre ortalama kaç kat. Karar yok, tanımlayıcı.
 T40 (keşif, ön kayıt): dil bağı eklenen at (f_db_ekle=1) ∧ son 21 günde galop verisi olan atlar: piyasaya göre bitiş artığı, DB eklenmeyen eşleşmiş atlarla karşılaştırma. Galop verisi 2026-01+ olduğu için örnek küçük; n<60 ise yalnız sayım raporlanır, test yapılmaz.
 Tempo: yeni veri yok (Accurace 2026-06+); f_k yeniden testi 1 Aralık 2026 ön kaydı geçerli, bugün yeni test yapılmaz.
+
+SONUÇ T36 (2026-10-28 04:15; jokey–at aşinalığı, taban MJ; MJB/MJB2; çökmüş iki koşu MJB-C ve MJB2-B yeniden çalıştırılmadı, kural A'da zaten sağlanmadı):
+MJB A: kazanan +0,0000 [−0,0008,+0,0007], ilk5 −0,0004 [−0,0018,+0,0009]; B: kazanan +0,0005, ilk5 −0,0010 [−0,0024,+0,0005]. MJB2 A: kazanan +0,0000, ilk5 −0,0004 [−0,0018,+0,0012]; C: kazanan −0,0003, ilk5 −0,0010 [−0,0028,+0,0010].
+Karar: kural sağlanmadı (GA hepsinde 0'ı kapsıyor, nokta tahminler ≈0) → jokey–at aşinalığı EKLENMEZ, fikir kapatıldı. Not: f_jdeg (jokey değişti) zaten modelde.
+
+SONUÇ T39 (sürpriz bulma, data/analiz/surpriz_analiz.py, OOS 2024-04+, 137.437 at): uzun oranlı atlarda (piyasa p<0,08) Jason/piyasa oranı beşlikleri: üst beşlik kazanma−piyasa +1,02 puan [+0,67,+1,39], alt −1,19 [−1,33,−1,03] → Jason uzun oranlılar arasında iyiyi kötüden ayırıyor. Sürpriz kazananlara (ganyan≥15, koşuların %15'i) Jason ort. 0,93× piyasa p veriyor → tek tek sürpriz seçilemiyor. Tanımlayıcı, karar yok.
+
+SONUÇ T40 (galopta dil bağı, galop_dilbagi.py, 2026-01-15+): piyasaya göre kazanma farkı (ex) — DB eklendi+galop var n=1885: −0,0001 [−0,0111,+0,0114]; DB değişmedi n=40297: +0,0001; DB eklendi+galop yok n=103: −0,0377 [−0,0537,−0,0141] (küçük örnek). Bitiş artığı (res): DB eklendi +0,0304, DB çıkarıldı +0,0452, değişmedi +0,0025 → EKİPMAN DEĞİŞİMİ (iki yönde de) piyasaya göre sıralamada hafif fayda gibi, ama kazanma farkı yok; T29/T33'teki "kapalı" kararını değiştirmez, keşif. Karar yok.
