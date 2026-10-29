@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-29 19:14 UTC",
- "kayitli_kosu": 1050,
- "eslesmeyen_kosu": 705,
+ "uretim": "2026-10-29 19:35 UTC",
+ "kayitli_kosu": 1054,
+ "eslesmeyen_kosu": 707,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 565,
- "kosu": 345,
+ "bahis": 572,
+ "kosu": 347,
  "isabet": 39,
- "roi": 1.075,
+ "roi": 1.062,
  "ga95": [
-  0.721,
-  1.46
+  0.708,
+  1.449
  ],
  "ulke": {
   "abd": {
-   "bahis": 345,
-   "roi": 0.859
+   "bahis": 352,
+   "roi": 0.842
   },
   "birlesik-krallik": {
    "bahis": 96,
@@ -35,99 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 670,
-  "kosu": 339,
+  "bahis": 676,
+  "kosu": 341,
   "isabet": 70,
-  "roi": 0.743,
+  "roi": 0.736,
   "ga95": [
-   0.524,
-   0.951
+   0.518,
+   0.943
   ]
  },
  "bahis_t1": {
-  "bahis": 703,
-  "kosu": 333,
+  "bahis": 709,
+  "kosu": 335,
   "isabet": 76,
-  "roi": 0.821,
+  "roi": 0.814,
   "ga95": [
-   0.522,
-   1.126
+   0.515,
+   1.121
   ]
  },
  "bahis_t3": {
-  "bahis": 707,
-  "kosu": 323,
+  "bahis": 711,
+  "kosu": 325,
   "isabet": 82,
-  "roi": 0.758,
+  "roi": 0.754,
   "ga95": [
-   0.473,
-   1.076
+   0.469,
+   1.071
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "GLEN BREEZE",
-   "q": 0.087,
-   "g": 15.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 8,
-   "at": "BATTLING SIKI",
-   "q": 0.045,
-   "g": 28.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 8,
-   "at": "COZONE",
-   "q": 0.023,
-   "g": 55.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Durbanville",
-   "kosu": 2,
-   "at": "KELP FOREST",
-   "q": 0.137,
-   "g": 15.0,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Durbanville",
-   "kosu": 2,
-   "at": "MARCUS AURELIUS",
-   "q": 0.316,
-   "g": 4.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Durbanville",
-   "kosu": 3,
-   "at": "GIMME PERFECT",
-   "q": 0.241,
-   "g": 6.1,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Durbanville",
-   "kosu": 7,
-   "at": "LANDSEER",
-   "q": 0.12,
-   "g": 15.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Durbanville",
@@ -364,6 +301,24 @@
   },
   {
    "gun": "2026-10-29",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 3,
+   "at": "SWEET SAINT",
+   "q": 0.178,
+   "g": 10.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 3,
+   "at": "WHEN'S FOREVER",
+   "q": 0.127,
+   "g": 10.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
    "pist": "Laurel Park",
    "kosu": 2,
    "at": "MR. HANDSOME",
@@ -423,6 +378,51 @@
    "at": "PAYNTER'S PRODIGY",
    "q": 0.203,
    "g": 10.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 6,
+   "at": "A G DIAMOND",
+   "q": 0.049,
+   "g": 31.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 6,
+   "at": "DAUFUSKIE ISLAND",
+   "q": 0.025,
+   "g": 64.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 6,
+   "at": "BOAT'S A ROCKIN",
+   "q": 0.13,
+   "g": 9.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 6,
+   "at": "FRYE ISLAND",
+   "q": 0.087,
+   "g": 17.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 6,
+   "at": "ISLAND D'LITE",
+   "q": 0.025,
+   "g": 55.7,
    "kazandi": false
   }
  ]
