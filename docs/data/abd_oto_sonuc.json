@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-29 15:39 UTC",
- "kayitli_kosu": 1027,
- "eslesmeyen_kosu": 688,
+ "uretim": "2026-10-29 16:27 UTC",
+ "kayitli_kosu": 1033,
+ "eslesmeyen_kosu": 693,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 549,
- "kosu": 339,
+ "bahis": 550,
+ "kosu": 340,
  "isabet": 37,
- "roi": 1.082,
+ "roi": 1.08,
  "ga95": [
-  0.716,
-  1.475
+  0.715,
+  1.474
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.857
   },
   "birlesik-krallik": {
-   "bahis": 95,
-   "roi": 1.889
+   "bahis": 96,
+   "roi": 1.869
   },
   "fransa": {
    "bahis": 47,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 653,
-  "kosu": 333,
+  "bahis": 656,
+  "kosu": 334,
   "isabet": 68,
-  "roi": 0.742,
+  "roi": 0.738,
   "ga95": [
-   0.516,
-   0.955
+   0.512,
+   0.951
   ]
  },
  "bahis_t1": {
-  "bahis": 685,
-  "kosu": 328,
+  "bahis": 689,
+  "kosu": 329,
   "isabet": 74,
-  "roi": 0.823,
+  "roi": 0.818,
   "ga95": [
-   0.514,
-   1.138
+   0.508,
+   1.131
   ]
  },
  "bahis_t3": {
-  "bahis": 696,
-  "kosu": 318,
+  "bahis": 698,
+  "kosu": 319,
   "isabet": 81,
-  "roi": 0.764,
+  "roi": 0.762,
   "ga95": [
-   0.479,
-   1.086
+   0.474,
+   1.082
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Wolverhampton",
-   "kosu": 5,
-   "at": "TWITCH",
-   "q": 0.093,
-   "g": 24.05,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-27",
    "pist": "Wolverhampton",
@@ -423,6 +414,15 @@
    "at": "DUE TO HENRY",
    "q": 0.151,
    "g": 8.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Bath",
+   "kosu": 7,
+   "at": "KEN BRULEE",
+   "q": 0.037,
+   "g": 40.1,
    "kazandi": false
   }
  ]
