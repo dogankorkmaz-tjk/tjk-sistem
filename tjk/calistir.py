@@ -23,6 +23,7 @@ from . import egzotik as EG
 from . import uc_at as UA
 from . import golge as GL
 from . import esnek as ES
+from . import supriz as _SUP
 from . import bildir as BL
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -116,6 +117,10 @@ def sabah(t):
     temiz, prog = oku("temiz"), oku("program")
     temiz = temiz[temiz.tarih < tarih]
     d = hazirla(temiz, prog, M, yeni)
+    try:
+        print("süpriz skor:", _SUP.skor_yaz(temiz))
+    except Exception as e:
+        print("süpriz skor hatası:", repr(e))
     bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
     A = GL.yukle(); bz2 = {}; bzj = {}; bze = {}; bzn = {}
     if A:
@@ -127,7 +132,7 @@ def sabah(t):
             try:
                 from . import g1v3 as _V3; G3 = _V3.yukle()
                 if G3:
-                    from . import elo as _EL; dj = _EL.ekle(d2); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
+                    from . import elo as _EL; dj = _EL.ekle(d2); _SUP.ozellik_yaz(dj, tarih); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
             except Exception as e:
                 print("v3 zj hatası:", repr(e)); bzj = {}
         except Exception as e:
@@ -345,7 +350,7 @@ def pist_uygula(obj):
             try:
                 from . import g1v3 as _V3; G3 = _V3.yukle()
                 if G3:
-                    from . import elo as _EL; dj = _EL.ekle(d2); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
+                    from . import elo as _EL; dj = _EL.ekle(d2); _SUP.ozellik_yaz(dj, t.isoformat()); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
             except Exception as e:
                 print("v3 zj hatası:", repr(e))
             AK = GL.yukle_k()
@@ -667,6 +672,7 @@ def hizli(t):
         from . import muhtemeller as MUH
         MUH.topla(t.isoformat(), pencere_dk=30, yalniz_yurtdisi=False)      # canlı muhtemel ganyan (yurtiçi dahil) -> geç kupon girdisi
         print("geç kupon:", BS.gec_guncelle(c))
+        print("süpriz bayrak:", _SUP.bayrak_guncelle(c))
         try:
             UD.guncelle(c)           # hızlı modda da dondur (yarışa son dakikalardaki görüntü)
         except Exception as e:
@@ -846,6 +852,10 @@ def canli(t):
             agf_zaman_yaz(obj)
         except Exception as e:
             print("agf_zaman hatası:", repr(e))
+        try:
+            print("süpriz bayrak:", _SUP.bayrak_guncelle(obj))
+        except Exception as e:
+            print("süpriz bayrak hatası:", repr(e))
     try:
         from . import piyasa_zaman as PZ              # sabit ihtimalli + muhtemel oran zaman serisi (24 Ekim 2026)
         PZ.topla(t.isoformat())
