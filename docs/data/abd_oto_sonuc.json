@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-29 22:30 UTC",
+ "uretim": "2026-10-29 22:45 UTC",
  "kayitli_kosu": 1067,
- "eslesmeyen_kosu": 714,
+ "eslesmeyen_kosu": 713,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 581,
- "kosu": 353,
+ "bahis": 583,
+ "kosu": 354,
  "isabet": 39,
- "roi": 1.045,
+ "roi": 1.042,
  "ga95": [
-  0.685,
-  1.433
+  0.681,
+  1.431
  ],
  "ulke": {
   "abd": {
-   "bahis": 361,
-   "roi": 0.821
+   "bahis": 363,
+   "roi": 0.816
   },
   "birlesik-krallik": {
    "bahis": 96,
@@ -65,24 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-28",
-   "pist": "Mahoning Valley",
-   "kosu": 6,
-   "at": "CHARISMA IN MOTION",
-   "q": 0.097,
-   "g": 22.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Mahoning Valley",
-   "kosu": 6,
-   "at": "FLORIDA GAL",
-   "q": 0.213,
-   "g": 7.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Nottingham",
@@ -423,6 +405,24 @@
    "at": "TANZANITE LILY",
    "q": 0.087,
    "g": 17.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "MISTY EYED",
+   "q": 0.176,
+   "g": 7.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "GIZMO'S B F F",
+   "q": 0.072,
+   "g": 19.3,
    "kazandi": false
   }
  ]
