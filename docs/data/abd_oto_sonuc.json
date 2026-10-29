@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-29 21:21 UTC",
- "kayitli_kosu": 1063,
- "eslesmeyen_kosu": 712,
+ "uretim": "2026-10-29 21:28 UTC",
+ "kayitli_kosu": 1064,
+ "eslesmeyen_kosu": 711,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 580,
- "kosu": 351,
+ "bahis": 581,
+ "kosu": 353,
  "isabet": 39,
- "roi": 1.047,
+ "roi": 1.045,
  "ga95": [
-  0.687,
+  0.685,
   1.433
  ],
  "ulke": {
   "abd": {
-   "bahis": 360,
-   "roi": 0.823
+   "bahis": 361,
+   "roi": 0.821
   },
   "birlesik-krallik": {
    "bahis": 96,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 689,
-  "kosu": 345,
+  "bahis": 690,
+  "kosu": 347,
   "isabet": 72,
-  "roi": 0.75,
+  "roi": 0.749,
   "ga95": [
-   0.537,
-   0.953
+   0.536,
+   0.951
   ]
  },
  "bahis_t1": {
-  "bahis": 722,
-  "kosu": 339,
+  "bahis": 723,
+  "kosu": 341,
   "isabet": 78,
-  "roi": 0.826,
+  "roi": 0.825,
   "ga95": [
    0.536,
-   1.123
+   1.122
   ]
  },
  "bahis_t3": {
-  "bahis": 718,
-  "kosu": 329,
+  "bahis": 719,
+  "kosu": 331,
   "isabet": 83,
-  "roi": 0.749,
+  "roi": 0.748,
   "ga95": [
-   0.468,
-   1.064
+   0.466,
+   1.062
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-28",
-   "pist": "Mahoning Valley",
-   "kosu": 6,
-   "at": "STEADY MY HEART",
-   "q": 0.237,
-   "g": 13.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Mahoning Valley",
@@ -234,6 +225,15 @@
    "at": "MAYBE YES MAYBE NO",
    "q": 0.086,
    "g": 36.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "CAPANAPARO",
+   "q": 0.119,
+   "g": 14.0,
    "kazandi": false
   },
   {
