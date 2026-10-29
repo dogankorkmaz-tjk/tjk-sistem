@@ -1,0 +1,25 @@
+name: video_mayis
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
+      - name: kareler
+        run: |
+          mkdir -p data/video_mayis /tmp/v
+          for V in 2026/5/26051033 2026/5/26052033 2026/6/26061033 2026/7/26071033 2026/4/26041033; do
+            N=$(basename $V); curl -s -m 120 -A "Mozilla/5.0" -e "https://www.tjk.org/" -o /tmp/v/x.mp4 "https://video-cdn.tjk.org/videoftp/${V}_m.mp4" || continue
+            ffprobe -v error -show_entries stream=width,height,r_frame_rate,codec_name -show_entries format=duration -of csv=p=0 /tmp/v/x.mp4 > data/video_mayis/${N}_probe.txt 2>&1
+            D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/v/x.mp4)
+            for T in 20 30 40 50; do S=$(python3 -c "print(max(0,float('$D')-$T))"); ffmpeg -v error -y -ss $S -i /tmp/v/x.mp4 -frames:v 1 -vf scale=854:480 data/video_mayis/${N}_s$T.jpg || true; done
+          done
+      - name: kaydet
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/video_mayis && git commit -qm "mayıs video teşhis kareleri" && git pull --rebase -q && git push -q
