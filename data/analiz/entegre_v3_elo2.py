@@ -58,6 +58,9 @@ def ev(S, gam):
 aylar = sorted({r["ay"] for r in R}); test = [a for a in aylar if os.environ.get("TESTBAS","2026-04") <= a <= os.environ.get("TESTSON","9999")]
 RES = {}; OOS = {}                                     # OOS: ay -> (S_v2, zJ-lookup) for stacking c
 for a in test:
+    _cp = "/tmp/claude-0/cache_%s_%s.pkl" % ((VAR or "0") + ("N" if NOLP else ""), a)      # ortam yeniden başlayınca kaldığı aydan devam
+    if os.path.exists(_cp) and os.environ.get("NOCACHE", "0") != "1":
+        import pickle as _pk; RES[a] = _pk.load(open(_cp, "rb")); print(a, "önbellekten", flush=True); continue
     tr = [r for r in R if r["ay"] < a]; te = [r for r in R if r["ay"] == a]
     t1 = fit1(tr, 30.0); bg = fit2([r for r in tr if r["F"] is not None], t1)
     LMt, XXt, FFt = pack(te, True); S2 = np.where(LMt > -1e8, t1[0] * LMt + XXt @ t1[1:10] + ((FFt - bg[1]) / bg[2]) @ bg[0], -1e9)
@@ -70,6 +73,7 @@ for a in test:
     RES[a] = dict(v2=ev(S2, np.r_[1.0, t1[10:14]]), v3=ev(S3g, g3), v3_galopsuz=ev(S3, g3), gun=[r["gun"] for r in te], S2=S2, S3g=S3g, g3=g3, Z=Z, gam=np.r_[1.0, t1[10:14]], te=te)
     if NOLP:                                            # piyasasız model: referanslar (piyasa-only ve eşit olasılık) aynı koşular için
         L0 = _pack0(te)[0]; RES[a]["ref_mkt"] = ev(L0, np.ones(5)); RES[a]["ref_uni"] = ev(np.where(L0 > -1e8, 0.0, -1e9), np.ones(5))
+    import pickle as _pk; _pk.dump({k_: RES[a][k_] for k_ in ("v3_galopsuz", "gun", "ref_mkt", "ref_uni") if k_ in RES[a]}, open(_cp, "wb"))
     print(a, "tamam", flush=True)
 import pickle; (pickle.dump({a: (RES[a]["ref_mkt"], RES[a]["ref_uni"]) for a in test}, open("/tmp/claude-0/v3_nolp_ref_%s.pkl" % os.environ.get("TESTBAS","2026-04"), "wb")) if NOLP else None); pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_elo2%s_%s.pkl" % ((VAR or "0") + ("N" if NOLP else ""), os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA, flush=True); sys.exit(0) if os.environ.get("TESTSON") else None
 def cat(ays, k): return np.concatenate([RES[a][k] for a in ays]) if k != "gun" else sum([RES[a]["gun"] for a in ays], [])
