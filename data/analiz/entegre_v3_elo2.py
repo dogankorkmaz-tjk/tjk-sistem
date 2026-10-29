@@ -74,7 +74,7 @@ for a in test:
     if NOLP:                                            # piyasasız model: referanslar (piyasa-only ve eşit olasılık) aynı koşular için
         L0 = _pack0(te)[0]; RES[a]["ref_mkt"] = ev(L0, np.ones(5)); RES[a]["ref_uni"] = ev(np.where(L0 > -1e8, 0.0, -1e9), np.ones(5))
     RES[a]["L0"] = (_pack0 if NOLP else pack)(te)[0]    # T52: ham log-piyasa (koşu başına, maske -1e9)
-    import pickle as _pk; _pk.dump({k_: RES[a][k_] for k_ in ("v3_galopsuz", "gun", "ref_mkt", "ref_uni", "S3", "keys", "nos", "L0") if k_ in RES[a]}, open(_cp, "wb"))
+    import pickle as _pk; _pk.dump({k_: RES[a][k_] for k_ in ("v3_galopsuz", "gun", "ref_mkt", "ref_uni", "S3", "keys", "nos", "L0", "g3") if k_ in RES[a]}, open(_cp, "wb"))
     print(a, "tamam", flush=True)
 import pickle; (pickle.dump({a: (RES[a]["ref_mkt"], RES[a]["ref_uni"]) for a in test}, open("/tmp/claude-0/v3_nolp_ref_%s.pkl" % os.environ.get("TESTBAS","2026-04"), "wb")) if NOLP else None); pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_elo2%s_%s.pkl" % ((VAR or "0") + ("N" if NOLP else ""), os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA, flush=True); sys.exit(0) if os.environ.get("TESTSON") else None
 def cat(ays, k): return np.concatenate([RES[a][k] for a in ays]) if k != "gun" else sum([RES[a]["gun"] for a in ays], [])
