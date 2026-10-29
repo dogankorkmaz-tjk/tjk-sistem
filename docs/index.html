@@ -598,7 +598,7 @@ $('kosuChips').onclick=e=>{const b=e.target.closest('button');if(!b)return;sel.k
 
 // ---------- bir koşunun hesabı ----------
 const okey=(h,k)=>GUN+'|'+h+'|'+k;
-function hesapla(h,k,kaynakZorla){
+function hesapla(h,k,kaynakZorla,yedek){
   // kaynak önceliği: senin oranın > kapanış ganyanı (koşu bittiyse) > AGF
   const atlar=k.atlar, o=ODDS[okey(h.id,k.kosu)]||{}, w0=VERI.w0??1;
   const elle=atlar.map(a=>parseOran(o[a.no]));
@@ -608,6 +608,10 @@ function hesapla(h,k,kaynakZorla){
   else if(kaynakZorla!=='agf' && !k.sonuc && canliOran(h,k)){ const L=canliOran(h,k); kaynak='canli'; atlar.forEach((a,i)=>{ if(!a.kosmaz && L.g[a.no]>0){idx.push(i);g.push(L.g[a.no]);} }); pp=piyasa(g); }
   else if(kaynakZorla!=='agf' && k.sonuc){ kaynak='kapanis'; atlar.forEach((a,i)=>{ const s=k.sonuc[a.no]; if(s&&s.g>0){idx.push(i);g.push(s.g);} }); pp=piyasa(g); }
   else if(atlar.some(a=>a.agf>0)){ kaynak='agf'; atlar.forEach((a,i)=>{ if(!a.kosmaz){ idx.push(i); g.push(NaN); } }); const ham=idx.map(i=>Math.max(atlar[i].agf||0,0.3)); const s=ham.reduce((x,y)=>x+y,0); pp=ham.map(x=>x/s); pp.grp=ham.map(()=>-1); }
+  if(!pp&&yedek&&!k.sonuc){ // piyasa verisi (elle/canlı/AGF) yok: piyasasız model (z7) yedeği — yalnız koşu ekranında, gri bilgi
+    const ix=[]; atlar.forEach((a,i)=>{ if(!a.kosmaz) ix.push(i); });
+    if(ix.length>=5&&ix.every(i=>atlar[i].z7!=null)){ const zz=ix.map(i=>atlar[i].z7), mx=Math.max(...zz), e=zz.map(v=>Math.exp(v-mx)), t=e.reduce((x,y)=>x+y,0), pn=e.map(v=>v/t);
+      const out={kaynak:'model',map:{}}; ix.forEach((i,j)=>{ out.map[i]={pn:pn[j],pm:pn[j],pj:null,pp:null,ev:null}; }); return out; } }
   if(!pp||idx.length<2) return null;
   const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(idx.every(i=>atlar[i].z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6b!=null?atlar[i].z6b:atlar[i].z6),VERI.w0_g1,idx.every(i=>atlar[i].z6b!=null)?(VERI.lp2_g1||0):0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
   const out={kaynak,map:{}};
@@ -617,7 +621,7 @@ function hesapla(h,k,kaynakZorla){
   });
   return out;
 }
-const KAYNAK={canli:['Canlı muhtemel ganyan (TJK)','on'],elle:['Senin girdiğin oranlar','on'],kapanis:['Kapanış ganyanları','on'],agf:['AGF (altılı oynanma yüzdesi)','hot']};
+const KAYNAK={canli:['Canlı muhtemel ganyan (TJK)','on'],elle:['Senin girdiğin oranlar','on'],kapanis:['Kapanış ganyanları','on'],agf:['AGF (altılı oynanma yüzdesi)','hot'],model:['YOK — gri: piyasasız tahmin (yalnız at, jokey ve geçmiş verisi; AGF/canlı oran gelince değişir)','']};
 
 function renderKosu(){
   const h=hipBul(sel.hip), k=h&&h.kosular.find(x=>x.kosu===sel.kosu); cur={h,k}; if(!k){$('kosuAlani').innerHTML='';return}
@@ -665,8 +669,8 @@ function renderKosu(){
   hesapGoster();
 }
 function hesapGoster(){
-  const {h,k}=cur; const out=hesapla(h,k); curOut=out;
-  { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0); if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
+  const {h,k}=cur; const out=hesapla(h,k,undefined,true); const yed=!!(out&&out.kaynak==='model'); curOut=yed?null:out;
+  { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0); if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!yed&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
   $('kaynak').innerHTML=out?`<span class="pill ${KAYNAK[out.kaynak][1]}">Piyasa: ${KAYNAK[out.kaynak][0]}${out.kaynak==='agf'&&k.agf_saat?' · '+esc(k.agf_saat):''}</span>${out.kaynak==='agf'?' <span class="note">AGF ganyan oranı değildir; EV hesaplanmaz. Güncel ganyanı girersen EV çıkar.</span>':''}`:'<span class="pill">Piyasa verisi yok</span> <span class="note">Ganyanları girince model çalışır.</span>';
   const sira=[];
   k.atlar.forEach((a,i)=>{
@@ -674,7 +678,8 @@ function hesapGoster(){
     $('m'+i).textContent=x?pct(x.pm)+'%':'–';
     const ev=$('e'+i); ev.textContent=x&&x.ev!=null?f2(x.ev):'–'; ev.style.color=x&&x.ev>=1?'var(--good)':'';
     let t='';
-    if(x){
+    if(x&&yed){ sira.push(i); t=`<span class="note">piyasasız tahmin %${(x.pn*100).toFixed(1).replace('.',',')} (gri bilgi; Bolton alanı bu değeri gösterir)</span>`; }
+    else if(x){
       sira.push(i);
       const f3=x.i3m/x.i3p;
       if(x.pj!=null) t+=`<span>Jason ${pct(x.pj)}%${x.ejv!=null?' · EV '+f2(x.ejv):''}</span>`;
@@ -696,7 +701,7 @@ function hesapGoster(){
   sira.sort((a,b)=>out.map[b].pm-out.map[a].pm);
   clearTimeout(oynaT); oynaT=setTimeout(oynaCiz,500);
   $('rank').innerHTML=out?sira.map(i=>`<span class="rk"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${pct(out.map[i].pm)}%</span>`).join(''):'<span class="note">Model sıralaması piyasa verisi gelince çıkar.</span>';
-  renderKombo(out); renderKupon();
+  renderKombo(yed?null:out); renderKupon();
 }
 
 // ---------- kombinasyonlar ----------
@@ -2210,7 +2215,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793307971';   // commit öncesi otomatik güncellenir
+const BUILD='1793308493';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>

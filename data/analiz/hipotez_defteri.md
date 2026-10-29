@@ -1078,3 +1078,8 @@ Soru: Ekür çiftlerinde (aynı ganyanı paylaşan iki at; ekur.pkl'de ekur≥1)
 Karar: B'de GA üst <0 VE H'de nokta tahmin ≤0 (zarar yok) → ekür gölge takibinde (ekur_ileri.py) çift-içi bölüşüm olarak MJV hazır olduğunda MJV kullanılır (üretime ekleme T41 kuralına tabi). Aksi halde mevcut Jason bölüşümü kalır. Betik ekur_video.py; harness skorları aylık önbellekte (cache_*).
 
 SONUÇ T51 (2026-10-30 00:55; ekür çift-içi bölüşüm, ekur_video.py): H (2025-12..2026-03; 408 çift): MJ kayıp 0,6026, MJV 0,6060, MJV−MJ +0,0034 [−0,0017;+0,0089], isabet MJ %69,4 / MJV %67,6. B (2026-04..2026-10; 714 çift): MJ 0,6035, MJV 0,6017, MJV−MJ −0,0017 [−0,0048;+0,0013], isabet MJ %68,2 / MJV %69,0. Karar: kural sağlanmadı (B'de GA üst >0; H'de nokta >0) → ekür bölüşümünde MJV'nin faydası gösterilemedi; mevcut Jason bölüşümü kalır. Güç düşük (toplam 1.122 çift; ±0,003–0,005 duyarlılık). Yeniden bakış: ekür çifti sayısı ≥2.000 olunca (≈2027 Mart) aynı betikle.
+
+### T49 uygulama notu (2026-10-29): piyasasız model yedeği üretimde
+- `g1v3.egit(nolp=True)` her gece `g1v3_nolp_katsayi.json` eğitir; `z7` atlara yazılır (`z7_doldur`).
+- Uygulamada YALNIZ elle/canlı/AGF oranı yoksa ve koşu bitmemişse gri "piyasasız tahmin" gösterilir (≥5 koşan, hepsinde z7).
+- Kupon/EV/Bolton bağlantısı YOK (bilgi amaçlı). Offline: favori isabeti %28 (piyasa %36), 202 koşu.

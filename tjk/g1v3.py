@@ -8,10 +8,57 @@ from . import g1 as G
 
 KOK = G.KOK
 YOL = os.path.join(KOK, "data", "analiz", "g1v3_katsayi.json")
+YOL_N = os.path.join(KOK, "data", "analiz", "g1v3_nolp_katsayi.json")      # piyasasız (bugünün oranı olmadan) model, T49 (29 Ekim 2026)
 
 
 def yukle():
     return json.load(open(YOL)) if os.path.exists(YOL) else None
+
+
+def yukle_n():
+    return json.load(open(YOL_N)) if os.path.exists(YOL_N) else None
+
+
+def zn(d, c):
+    """Piyasasız model: Jason özelliklerinin doğrusal kısmı (tüm özellikler; f_lp2 yok)."""
+    fe = c["featJ"]; mu = np.array(c["muJ"]); sd = np.array(c["sdJ"]); w = np.array(c["wJ"])
+    X = np.nan_to_num(d[fe].values.astype(float))
+    return ((X - mu) / sd) @ w
+
+
+def z7(atlar, t, c):
+    """At başına piyasasız puan: G1 özellikleri X·b + zn (bugünün oranı/AGF YOK). Koşan en az 5 at ve hepsinde zn gerekir."""
+    at = [a for a in atlar if not a.get("kosmaz")]
+    if len(at) < 5 or any(a.get("zn") is None for a in at):
+        return None
+    anahtar = t.isoformat()
+    if G._ST["son"] != anahtar:
+        G._ST["son"] = anahtar; G._ST["h"] = G._gecmis(G._satirlar(), anahtar)
+    H, J, AJ = G._ST["h"]
+    ok = [{"at": a["at"], "jokey": a["jokey"], "kilo": a.get("kg"), "hnd": a.get("hk")} for a in at]
+    X = G._oz(H, J, AJ, ok, None, t.toordinal())
+    z = X @ np.array(c["b"]) + np.array([a["zn"] for a in at])
+    return {a["no"]: float(v) for a, v in zip(at, z)}
+
+
+def z7_doldur(obj):
+    """Başlamamış koşuların atlarına z7 (piyasasız puan) ekler. Hata olursa sessizce geçer; ana akışı bozmaz."""
+    try:
+        c = yukle_n()
+        if not c:
+            return
+        t = dt.date.fromisoformat(obj["tarih"])
+        for h in obj["hipodromlar"]:
+            for k in h["kosular"]:
+                if k.get("sonuc") or not k.get("atlar"):
+                    continue
+                zz = z7(k["atlar"], t, c)
+                if zz:
+                    for a in k["atlar"]:
+                        if a["no"] in zz:
+                            a["z7"] = round(zz[a["no"]], 4)
+    except Exception as e:
+        print("z7 hatası:", repr(e))
 
 
 def zj(d, c):
@@ -65,11 +112,11 @@ def _steps(s, gam, nstep=5):
     return sum(out), ds, dg
 
 
-def egit(l2=30.0, lj=50.0, adim=5, bas_galop="2026-02-01", l2g=20.0):
+def egit(l2=30.0, lj=50.0, adim=5, bas_galop="2026-02-01", l2g=20.0, nolp=False):
     from . import golge as GL
     from .ozellik import hazirla
     from .calistir import yukle_model
-    M = yukle_model(); FEAT = M["feat"] + GL.EK + GL.LPEK; NJ = len(FEAT)
+    M = yukle_model(); FEAT = M["feat"] + GL.EK + ([] if nolp else GL.LPEK); NJ = len(FEAT)
     d = GL.MS.ekle(hazirla(GL._oku("temiz"), GL._oku("program"), M)); d["f_lp2"] = np.log(d.p_piyasa.clip(lower=1e-6)) ** 2
     from . import elo as EL                                    # rakip gücü (Elo) özellikleri, 28 Ekim 2026 (T27, ön kayıtlı ablasyon iki dönemde geçti)
     d = EL.ekle(d); FEAT = FEAT + EL.EXTRA_FEAT; NJ = len(FEAT)
@@ -105,6 +152,8 @@ def egit(l2=30.0, lj=50.0, adim=5, bas_galop="2026-02-01", l2g=20.0):
         m = len(r["lm"]); LM[k, :m] = r["lm"]; XX[k, :m] = r["X"]; XJ[k, :m] = r["XJ"]
         if r["F"] is not None:
             FF[k, :m] = r["F"]; gv[k] = True
+    if nolp:
+        LM = np.where(LM > -1e8, 0.0, LM)                       # piyasasız: bugünün oranı yok
     msk = LM > -1e8; mu = XJ[msk].mean(0); sd = XJ[msk].std(0) + 1e-9; Z = np.where(msk[..., None], (XJ - mu) / sd, 0.0)
 
     def f(t):
@@ -115,9 +164,11 @@ def egit(l2=30.0, lj=50.0, adim=5, bas_galop="2026-02-01", l2g=20.0):
     t = minimize(f, t0, jac=True, method="L-BFGS-B", options={"maxiter": 400}).x
     S0 = np.where(msk, t[0] * LM + XX @ t[1:10] + Z @ t[10:10 + NJ], -1e9)
     out = {"alfa": float(t[0]), "b": [float(x) for x in t[1:10]], "gam": [1.0] + [float(x) for x in t[10 + NJ:]], "featJ": FEAT, "muJ": [float(x) for x in mu], "sdJ": [float(x) for x in sd],
-           "wJ": [float(x) for x in t[10:10 + NJ]], "i_lp2": FEAT.index("f_lp2"), "n_kosu": N, "egitim": dt.date.today().isoformat()}
+           "wJ": [float(x) for x in t[10:10 + NJ]], "i_lp2": (None if nolp else FEAT.index("f_lp2")), "n_kosu": N, "egitim": dt.date.today().isoformat()}
     # galop ikinci aşama (ofset = v3 aşama 1)
     sel = np.where(gv)[0]
+    if nolp:
+        json.dump(out, open(YOL_N, "w"), indent=1); return out      # galop ikinci aşaması piyasasız modelde yok (T49 yalnız galopsuz)
     if len(sel) > 200:
         S = S0[sel]; F = FF[sel]; mk = S > -1e8; fmu = F[mk].mean(0); fsd = F[mk].std(0) + 1e-9; Zg = (F - fmu) / fsd; n2 = len(sel); idx = np.arange(n2)
 
