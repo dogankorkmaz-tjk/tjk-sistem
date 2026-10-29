@@ -24,6 +24,10 @@ def ekle(d):
     V = _yukle(); d = d.drop(columns=[c for c in ["f_v1", "f_v2", "f_v3", "f_v4", "f_v5"] if c in d])
     d = d.sort_values(["tarih", "hipodrom", "kosu", "no"]).reset_index(drop=True)
     V = V.merge(d[["tarih", "hipodrom", "kosu", "no", "at"]], on=["tarih", "hipodrom", "kosu", "no"], how="inner")
+    if os.environ.get("PLACEBO"):                      # plasebo: aynı gün içinde video satırlarının at kimliği karıştırılır (özellikler değişmez)
+        rg = np.random.default_rng(12345); V = V.copy()
+        for t_, ix_ in V.groupby("tarih").indices.items():
+            V.iloc[ix_, V.columns.get_loc("at")] = rg.permutation(V["at"].values[ix_])
     H = collections.defaultdict(lambda: np.zeros(5)); Vk = V.sort_values("tarih"); pend = collections.defaultdict(list)
     bygun = {t: g for t, g in Vk.groupby("tarih")}
     gunler = sorted(set(d.tarih))
