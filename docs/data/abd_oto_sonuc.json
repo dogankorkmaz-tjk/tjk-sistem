@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-29 17:34 UTC",
- "kayitli_kosu": 1038,
- "eslesmeyen_kosu": 697,
+ "uretim": "2026-10-29 18:14 UTC",
+ "kayitli_kosu": 1044,
+ "eslesmeyen_kosu": 700,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 555,
- "kosu": 341,
- "isabet": 37,
- "roi": 1.07,
+ "bahis": 561,
+ "kosu": 344,
+ "isabet": 39,
+ "roi": 1.082,
  "ga95": [
-  0.701,
-  1.46
+  0.73,
+  1.464
  ],
  "ulke": {
   "abd": {
-   "bahis": 335,
-   "roi": 0.844
+   "bahis": 341,
+   "roi": 0.869
   },
   "birlesik-krallik": {
    "bahis": 96,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 661,
-  "kosu": 335,
-  "isabet": 68,
-  "roi": 0.733,
+  "bahis": 666,
+  "kosu": 338,
+  "isabet": 70,
+  "roi": 0.747,
   "ga95": [
-   0.506,
-   0.944
+   0.527,
+   0.958
   ]
  },
  "bahis_t1": {
-  "bahis": 694,
-  "kosu": 330,
-  "isabet": 74,
-  "roi": 0.812,
+  "bahis": 703,
+  "kosu": 333,
+  "isabet": 76,
+  "roi": 0.821,
   "ga95": [
-   0.503,
-   1.122
+   0.522,
+   1.126
   ]
  },
  "bahis_t3": {
-  "bahis": 703,
-  "kosu": 320,
-  "isabet": 81,
-  "roi": 0.757,
+  "bahis": 707,
+  "kosu": 323,
+  "isabet": 82,
+  "roi": 0.758,
   "ga95": [
-   0.469,
+   0.473,
    1.076
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 2,
-   "at": "BELLA COLOMBIA",
-   "q": 0.12,
-   "g": 11.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 2,
-   "at": "GLITTER AND GLORY",
-   "q": 0.076,
-   "g": 31.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 2,
-   "at": "SELECTIVE POWER",
-   "q": 0.049,
-   "g": 28.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 4,
-   "at": "EUCALYPTUS",
-   "q": 0.158,
-   "g": 15.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 4,
-   "at": "QUINN BLUE",
-   "q": 0.03,
-   "g": 58.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "EXPOUND",
-   "q": 0.052,
-   "g": 32.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Dundalk",
@@ -382,6 +328,42 @@
   },
   {
    "gun": "2026-10-29",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 1,
+   "at": "AIN'T DERE NO MO",
+   "q": 0.08,
+   "g": 29.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 1,
+   "at": "PATTERN APPROACH",
+   "q": 0.05,
+   "g": 39.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 1,
+   "at": "BOLD STAND",
+   "q": 0.373,
+   "g": 3.9,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 1,
+   "at": "QUIET EMPIRE",
+   "q": 0.034,
+   "g": 119.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
    "pist": "Laurel Park",
    "kosu": 2,
    "at": "MR. HANDSOME",
@@ -423,6 +405,24 @@
    "at": "LOVER BOY NESS",
    "q": 0.112,
    "g": 20.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 4,
+   "at": "RAPIDITY",
+   "q": 0.136,
+   "g": 9.55,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 4,
+   "at": "PAYNTER'S PRODIGY",
+   "q": 0.203,
+   "g": 10.3,
    "kazandi": false
   }
  ]
