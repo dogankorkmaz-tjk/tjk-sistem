@@ -1083,3 +1083,15 @@ SONUÇ T51 (2026-10-30 00:55; ekür çift-içi bölüşüm, ekur_video.py): H (2
 - `g1v3.egit(nolp=True)` her gece `g1v3_nolp_katsayi.json` eğitir; `z7` atlara yazılır (`z7_doldur`).
 - Uygulamada YALNIZ elle/canlı/AGF oranı yoksa ve koşu bitmemişse gri "piyasasız tahmin" gösterilir (≥5 koşan, hepsinde z7).
 - Kupon/EV/Bolton bağlantısı YOK (bilgi amaçlı). Offline: favori isabeti %28 (piyasa %36), 202 koşu.
+
+## 2026-10-30 00:25 — ÖN KAYIT T52 piyasasız modelle süpriz bulma (kullanıcı: "sadece süpriz bulmak için kullansak")
+Fikir: piyasasız model (PM0) bir ata piyasadan çok daha yüksek olasılık veriyorsa (özellikle uzun oranlı) piyasa o atı hafife alıyor olabilir.
+Tanım (koşu içi softmax): p_m = piyasa (L0), p_f = PM0 aşama-1 (S3, NOLP), p_j = ana model MJ (piyasalı, galopsuz; S3). Bayrak: p_f/p_m ≥ 1,5 VE p_m ≤ 0,10 (oran ≈ ≥8). Yalnız bitiren atlar (nos), yürüyen test.
+Ölçü (A 2025-03..2026-03 ve B 2026-04..2026-10 ayrı): bayraklı atlarda gerçek kazanma oranı − ortalama p_m  (ex_m) ve − ortalama p_j  (ex_j); gün kümeli bootstrap %95 GA. Kontrol: aynı filtre p_j/p_m ≥ 1,5 ile (ana modelin kendi süprizi).
+Karar: PM0 süpriz bayrağı değer katar ⇔ iki dönemde de ex_m GA alt >0 VE ex_j GA alt >0 (ana modelin üstünde ek bilgi). Yalnız ex_m>0 ama ex_j≤0 ise: ana model zaten kapsıyor, ayrı dedektör gerekmez. Hiçbiri ise piyasa bu atlarda doğru fiyatlıyor. ROI ölçülmez (kapanış oranı önbellekte yok); sonuç olumluysa ayrı ROI testi ön kaydedilir.
+Kod: entegre_v3_elo2.py önbelleğe 'L0' eklendi; NOLP VAR=MJ yeniden (NOCACHE=1) çalıştırılır; analiz surpriz_t52.py.
+
+SONUÇ T52 (2026-10-30 00:50; surpriz_t52.py; bayrak: q/p_m≥1,5 ve p_m≤0,10; kazanma oranı − beklenen, pp):
+PM0 bayrağı: A (15.035 at) ex_m +0,58 [+0,25;+0,92]; B (8.307 at) ex_m +0,72 [+0,30;+1,16]; H (3.528 at) ex_m +0,02 [−0,52;+0,61]. Ana modele göre (MJ önbelleği yalnız 2025-12'den başladığı için H ve B'de): ex_j H −1,31 [−1,89;−0,79], B −0,57 [−0,99;−0,16] (ana model bu atlara gerçekte kazandıklarından yüksek olasılık veriyor; A'da MJ önbelleği yok, ex_j hesaplanamadı).
+Kontrol (ana modelin kendi süprizi, p_j/p_m≥1,5): B 1.770 at, kazanma %8,87 vs piyasa %5,86 → ex_m +3,01 [+1,91;+4,14]; ex_j −1,46 [−2,63;−0,31]; H 765 at ex_m +1,25 [−0,49;+3,18].
+KARAR (kural: iki dönemde ex_m>0 VE ex_j>0, GA alt >0): SAĞLANMADI. PM0 süprizi piyasadan hafif iyi (A,B'de +0,6–0,7 pp, H'de 0) ama ana modelin üstüne ek bilgi vermiyor (ex_j negatif) → ayrı süpriz dedektörü yok. Gerçek sinyal ana modelin kendi süprizi (B'de piyasanın +3 pp üstü); bu zaten kullanılıyor. Not: bayraklı seçimde kazananın laneti nedeniyle p_j kendi seçilen atlarda fazla iyimser (ex_j<0 kontrolde de); bu yüzden ex_j kuralı katı bir ölçü. ROI ölçülmedi.
