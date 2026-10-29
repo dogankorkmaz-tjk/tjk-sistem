@@ -100,7 +100,7 @@ def ekle(d, var):
         e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
         d["f_jel"], d["f_tel"] = _ortak(d)
         import kapi13; d = kapi13.ekle(d, var == "MJK2")
-    elif var in ("MJV", "MJVP"):                                   # MJ + video özellikleri (T41)
+    elif var in ("MJV", "MJVP", "MJV2"):                                   # MJ + video özellikleri (T41)
         e, r, _ = _elo(d, at, "sure"); d["f_elo_m"] = e; d["f_rak3_m"] = r
         d["f_jel"], d["f_tel"] = _ortak(d)
         import os as _os
@@ -139,4 +139,4 @@ def ekle(d, var):
                 pend.append((atn[i], sn[i]))
         d["f_sf"] = f1; d["f_sf3"] = f3
     return d
-FEAT = {"MJVP": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_v1", "f_v2", "f_v3", "f_v4", "f_v5"], "MJV": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_v1", "f_v2", "f_v3", "f_v4", "f_v5"], "MJG": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_gi"], "MJW": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_lpk", "f_lpb", "f_lpkm", "f_lpum"], "C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MD": ["f_elo_m", "f_rak3_m", "f_db_ekle", "f_db_cikar"], "MJ": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel"], "MJM": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_sm", "f_sd"], "MJB": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1"], "MJB2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1", "f_jat"], "MJK": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13"], "MJK2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13", "f_kh"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
+FEAT = {"MJV2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_v1", "f_v2", "f_v3", "f_v4", "f_v5", "f_v6", "f_v7", "f_v8"], "MJVP": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_v1", "f_v2", "f_v3", "f_v4", "f_v5"], "MJV": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_v1", "f_v2", "f_v3", "f_v4", "f_v5"], "MJG": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_gi"], "MJW": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_lpk", "f_lpb", "f_lpkm", "f_lpum"], "C": ["f_elo_c", "f_nc"], "M": ["f_elo_m", "f_rak3_m"], "MD": ["f_elo_m", "f_rak3_m", "f_db_ekle", "f_db_cikar"], "MJ": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel"], "MJM": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_sm", "f_sd"], "MJB": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1"], "MJB2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_jn", "f_j1", "f_jat"], "MJK": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13"], "MJK2": ["f_elo_m", "f_rak3_m", "f_jel", "f_tel", "f_k13", "f_kh"], "MS": ["f_elo_m", "f_rak3_m", "f_sf", "f_sf3"], "ME": ["f_elo_m", "f_rak3_m", "f_ek_ekle", "f_ek_cikar", "f_ek_ilk"]}
