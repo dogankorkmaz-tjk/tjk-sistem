@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-29 16:38 UTC",
- "kayitli_kosu": 1034,
- "eslesmeyen_kosu": 694,
+ "uretim": "2026-10-29 17:25 UTC",
+ "kayitli_kosu": 1037,
+ "eslesmeyen_kosu": 696,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 550,
- "kosu": 340,
+ "bahis": 555,
+ "kosu": 341,
  "isabet": 37,
- "roi": 1.08,
+ "roi": 1.07,
  "ga95": [
-  0.715,
-  1.474
+  0.701,
+  1.46
  ],
  "ulke": {
   "abd": {
-   "bahis": 330,
-   "roi": 0.857
+   "bahis": 335,
+   "roi": 0.844
   },
   "birlesik-krallik": {
    "bahis": 96,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 656,
-  "kosu": 334,
+  "bahis": 661,
+  "kosu": 335,
   "isabet": 68,
-  "roi": 0.738,
+  "roi": 0.733,
   "ga95": [
-   0.512,
-   0.951
+   0.506,
+   0.944
   ]
  },
  "bahis_t1": {
-  "bahis": 689,
-  "kosu": 329,
+  "bahis": 694,
+  "kosu": 330,
   "isabet": 74,
-  "roi": 0.818,
+  "roi": 0.812,
   "ga95": [
-   0.508,
-   1.131
+   0.503,
+   1.122
   ]
  },
  "bahis_t3": {
-  "bahis": 698,
-  "kosu": 319,
+  "bahis": 703,
+  "kosu": 320,
   "isabet": 81,
-  "roi": 0.762,
+  "roi": 0.757,
   "ga95": [
-   0.474,
-   1.082
+   0.469,
+   1.076
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Wolverhampton",
-   "kosu": 5,
-   "at": "TEN CLUB",
-   "q": 0.079,
-   "g": 26.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Wolverhampton",
-   "kosu": 5,
-   "at": "LADY DELILA",
-   "q": 0.128,
-   "g": 35.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Wolverhampton",
-   "kosu": 7,
-   "at": "DREAM HARDER",
-   "q": 0.064,
-   "g": 23.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Wolverhampton",
-   "kosu": 7,
-   "at": "PRODIGAL SON",
-   "q": 0.238,
-   "g": 9.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Belmont Park",
-   "kosu": 3,
-   "at": "STORY OF RORY",
-   "q": 0.182,
-   "g": 7.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Dundalk",
@@ -423,6 +378,51 @@
    "at": "KEN BRULEE",
    "q": 0.037,
    "g": 40.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 2,
+   "at": "MR. HANDSOME",
+   "q": 0.087,
+   "g": 34.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 2,
+   "at": "WRAP AND SEND",
+   "q": 0.143,
+   "g": 14.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 2,
+   "at": "INNO HURRY EARLY",
+   "q": 0.157,
+   "g": 9.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 2,
+   "at": "ST PETE'S PASSION",
+   "q": 0.143,
+   "g": 20.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 2,
+   "at": "LOVER BOY NESS",
+   "q": 0.112,
+   "g": 20.05,
    "kazandi": false
   }
  ]
