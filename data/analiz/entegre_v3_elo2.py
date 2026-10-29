@@ -6,7 +6,7 @@ import pandas as pd
 from tjk import golge as GL
 from tjk.calistir import yukle_model
 from scipy.optimize import minimize, minimize_scalar
-Mm = yukle_model(); FEAT = Mm["feat"] + GL.EK + GL.LPEK; NJ = len(FEAT)
+Mm = yukle_model(); NOLP = os.environ.get("NOLP", "0") == "1"; FEAT = Mm["feat"] + GL.EK + ([] if NOLP else GL.LPEK); NJ = len(FEAT)
 d = pd.read_pickle("/tmp/claude-0/jason_d.pkl"); d["f_lp2"] = np.log(d.p_piyasa.clip(lower=1e-6)) ** 2
 import sys as _s, os as _o; _s.path.insert(0, "data/analiz"); import mesafe_pist_ozellik as MP
 EXTRA = _o.environ.get("EXTRA", "0") == "1"
@@ -28,6 +28,10 @@ for r in R:
     if any(n not in ix for n in r["nos"]): continue
     r["XJ"] = q[1][[ix[n] for n in r["nos"]]]; keep.append(r)
 R = keep; print("Jason özellikli koşu", len(R), flush=True)
+if NOLP:                                                # piyasa olasılığı (LM) ve f_lp2 çıkarılır; geçmiş-piyasa artığı özellikleri (yalnız önceki koşular) kalır
+    _pack0 = pack
+    def pack(rl, F=False):
+        LM, XX, FF = _pack0(rl, F); return np.where(LM > -1e8, 0.0, LM), XX, FF
 def packJ(rl):
     LM, XX, FF = pack(rl, True); XJ = np.zeros((len(rl), M, NJ))
     for k, r in enumerate(rl): XJ[k, :len(r["lm"])] = r["XJ"]
@@ -64,8 +68,10 @@ for a in test:
     # v3: galop ikinci aşama, ofset = Jason-dahil v3 aşama 1 (galop dönemi koşular, kendi eğitim ofseti)
     trg = [r for r in tr if r["F"] is not None]; S3tr, _, FF3tr = scoreJ(trg, tm); bg3 = fit2S(S3tr, FF3tr); S3g = S3 + ((FF3 - bg3[1]) / bg3[2]) @ bg3[0]
     RES[a] = dict(v2=ev(S2, np.r_[1.0, t1[10:14]]), v3=ev(S3g, g3), v3_galopsuz=ev(S3, g3), gun=[r["gun"] for r in te], S2=S2, S3g=S3g, g3=g3, Z=Z, gam=np.r_[1.0, t1[10:14]], te=te)
+    if NOLP:                                            # piyasasız model: referanslar (piyasa-only ve eşit olasılık) aynı koşular için
+        L0 = _pack0(te)[0]; RES[a]["ref_mkt"] = ev(L0, np.ones(5)); RES[a]["ref_uni"] = ev(np.where(L0 > -1e8, 0.0, -1e9), np.ones(5))
     print(a, "tamam", flush=True)
-import pickle; pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_elo2%s_%s.pkl" % (VAR or "0", os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA, flush=True); sys.exit(0) if os.environ.get("TESTSON") else None
+import pickle; (pickle.dump({a: (RES[a]["ref_mkt"], RES[a]["ref_uni"]) for a in test}, open("/tmp/claude-0/v3_nolp_ref_%s.pkl" % os.environ.get("TESTBAS","2026-04"), "wb")) if NOLP else None); pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_elo2%s_%s.pkl" % ((VAR or "0") + ("N" if NOLP else ""), os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA, flush=True); sys.exit(0) if os.environ.get("TESTSON") else None
 def cat(ays, k): return np.concatenate([RES[a][k] for a in ays]) if k != "gun" else sum([RES[a]["gun"] for a in ays], [])
 # yığma (c) 07..10
 st = {}
@@ -87,4 +93,4 @@ rapor(test, "v3_galopsuz", "v2", "v3(galopsuz) − v2", None)
 a7 = [x for x in test if x >= "2026-07"]
 rapor(a7, "v3", "v2", "v3 − v2", None); rapor(a7, "v3", st, "v3 − yığma", None); rapor(a7, st, "v2", "yığma − v2", None)
 
-import pickle; pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_elo2%s_%s.pkl" % (VAR or "0", os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA)
+import pickle; (pickle.dump({a: (RES[a]["ref_mkt"], RES[a]["ref_uni"]) for a in test}, open("/tmp/claude-0/v3_nolp_ref_%s.pkl" % os.environ.get("TESTBAS","2026-04"), "wb")) if NOLP else None); pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_elo2%s_%s.pkl" % ((VAR or "0") + ("N" if NOLP else ""), os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA)
