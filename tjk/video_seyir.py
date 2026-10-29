@@ -155,7 +155,7 @@ def bolum_oku(video, fps=1):
     import collections
     ok = collections.defaultdict(collections.Counter)
     with tempfile.TemporaryDirectory() as k:
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},scale=854:480,crop=190:62:650:22,scale=760:248:flags=lanczos,format=gray",
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", video, "-vf", f"fps={fps},scale=854:480,crop=190:115:650:22,scale=760:460:flags=lanczos,format=gray",
                         os.path.join(k, "b_%04d.png")], check=True)
         for f in sorted(glob.glob(os.path.join(k, "b_*.png"))):
             im = Image.open(f)
