@@ -55,7 +55,7 @@ def ozellik_yaz(dj, tarih):
         if not M:
             return 0
         d = dj.sort_values(["tarih", "hipodrom", "kosu", "no"]).reset_index(drop=True)
-        d["_key"] = d["at"].astype(str) + "|" + d["baba"].astype(str)
+        d["_key"] = d["at"].astype(str)           # canlı satırlarda baba boş olabiliyor; yalnız at adı (eğitimde at|baba, fark ihmal edilebilir)
         g = d.groupby("_key", sort=False)
         d["on_ganyan"] = g.ganyan.shift(1); d["on_kapi"] = g.st.shift(1) / g.n_at.shift(1); d["on_hnd"] = g.hnd.shift(1)
         d["kapi"] = d.st / d.n_at; d["kapi_iy"] = d.on_kapi - d.kapi
