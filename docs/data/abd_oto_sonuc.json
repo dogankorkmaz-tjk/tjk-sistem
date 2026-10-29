@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-29 18:28 UTC",
- "kayitli_kosu": 1045,
- "eslesmeyen_kosu": 701,
+ "uretim": "2026-10-29 19:14 UTC",
+ "kayitli_kosu": 1050,
+ "eslesmeyen_kosu": 705,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 561,
- "kosu": 344,
+ "bahis": 565,
+ "kosu": 345,
  "isabet": 39,
- "roi": 1.082,
+ "roi": 1.075,
  "ga95": [
-  0.73,
-  1.464
+  0.721,
+  1.46
  ],
  "ulke": {
   "abd": {
-   "bahis": 341,
-   "roi": 0.869
+   "bahis": 345,
+   "roi": 0.859
   },
   "birlesik-krallik": {
    "bahis": 96,
@@ -35,13 +35,13 @@
   }
  },
  "bahis_ani": {
-  "bahis": 666,
-  "kosu": 338,
+  "bahis": 670,
+  "kosu": 339,
   "isabet": 70,
-  "roi": 0.747,
+  "roi": 0.743,
   "ga95": [
-   0.527,
-   0.958
+   0.524,
+   0.951
   ]
  },
  "bahis_t1": {
@@ -65,42 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "ALL HAIL",
-   "q": 0.131,
-   "g": 26.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "WHISTLING JAMESIE",
-   "q": 0.105,
-   "g": 15.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "SHAMANKA",
-   "q": 0.052,
-   "g": 32.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "JAZZY DANCER",
-   "q": 0.052,
-   "g": 33.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Dundalk",
@@ -324,6 +288,42 @@
    "at": "KEN BRULEE",
    "q": 0.037,
    "g": 40.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "SARA'S SHAMAN",
+   "q": 0.155,
+   "g": 10.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "KOLOMIO",
+   "q": 0.13,
+   "g": 14.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "CHIEF LIAM",
+   "q": 0.194,
+   "g": 8.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "EXPENSIVE CUT",
+   "q": 0.111,
+   "g": 13.4,
    "kazandi": false
   },
   {
