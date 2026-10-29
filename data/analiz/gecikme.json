@@ -1144,5 +1144,125 @@
 "acik_son_dk": 1.4,
 "kapali_ilk_dk": 3.8,
 "n": 5
+},
+"2026-10-28|ISTANBUL-1": {
+"saat": "14:00",
+"acik_son_dk": -5.0,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-10-28|ISTANBUL-2": {
+"saat": "14:30",
+"acik_son_dk": -7.5,
+"kapali_ilk_dk": 0.7,
+"n": 3
+},
+"2026-10-28|ISTANBUL-3": {
+"saat": "15:00",
+"acik_son_dk": -8.1,
+"kapali_ilk_dk": 4.2,
+"n": 3
+},
+"2026-10-28|ISTANBUL-4": {
+"saat": "15:30",
+"acik_son_dk": 0.6,
+"kapali_ilk_dk": 1.7,
+"n": 13
+},
+"2026-10-28|ISTANBUL-6": {
+"saat": "16:30",
+"acik_son_dk": 3.1,
+"kapali_ilk_dk": 6.2,
+"n": 7
+},
+"2026-10-28|ISTANBUL-7": {
+"saat": "17:00",
+"acik_son_dk": -7.6,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-28|ISTANBUL-8": {
+"saat": "17:30",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": 2.5,
+"n": 13
+},
+"2026-10-28|ELAZIG-1": {
+"saat": "17:45",
+"acik_son_dk": 0.2,
+"kapali_ilk_dk": null,
+"n": 10
+},
+"2026-10-28|ELAZIG-2": {
+"saat": "19:00",
+"acik_son_dk": 40.9,
+"kapali_ilk_dk": null,
+"n": 24
+},
+"2026-10-28|ELAZIG-3": {
+"saat": "19:30",
+"acik_son_dk": 58.3,
+"kapali_ilk_dk": null,
+"n": 21
+},
+"2026-10-28|ELAZIG-4": {
+"saat": "20:00",
+"acik_son_dk": 41.2,
+"kapali_ilk_dk": null,
+"n": 8
+},
+"2026-10-28|ELAZIG-5": {
+"saat": "20:30",
+"acik_son_dk": 59.9,
+"kapali_ilk_dk": null,
+"n": 23
+},
+"2026-10-28|ELAZIG-6": {
+"saat": "21:00",
+"acik_son_dk": 47.6,
+"kapali_ilk_dk": null,
+"n": 9
+},
+"2026-10-28|ELAZIG-7": {
+"saat": "21:30",
+"acik_son_dk": 58.4,
+"kapali_ilk_dk": null,
+"n": 18
+},
+"2026-10-28|ELAZIG-8": {
+"saat": "22:00",
+"acik_son_dk": 44.5,
+"kapali_ilk_dk": null,
+"n": 9
+},
+"2026-10-28|DUNDALK-1": {
+"saat": "17:00",
+"acik_son_dk": -7.6,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-10-28|DUNDALK-2": {
+"saat": "17:30",
+"acik_son_dk": 0.8,
+"kapali_ilk_dk": 1.5,
+"n": 12
+},
+"2026-10-28|DUNDALK-4": {
+"saat": "18:30",
+"acik_son_dk": 1.0,
+"kapali_ilk_dk": 4.1,
+"n": 14
+},
+"2026-10-28|DUNDALK-6": {
+"saat": "19:30",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": 4.5,
+"n": 15
+},
+"2026-10-28|DUNDALK-8": {
+"saat": "20:30",
+"acik_son_dk": 0.5,
+"kapali_ilk_dk": 1.6,
+"n": 13
 }
 }

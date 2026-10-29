@@ -1,98 +1,98 @@
 {
  "not": "2.–5. sıra negatif log-olabilirlik toplamı (düşük iyi). fark = mevcut − yeni (+ yeni daha iyi). Ön-kayıt: 25 Ekim 2026.",
- "kosu": 41,
+ "kosu": 48,
  "ort": {
-  "harville": 6.9634,
-  "mevcut": 6.8442,
-  "yeni": 6.9015
+  "harville": 6.9856,
+  "mevcut": 6.845,
+  "yeni": 6.8704
  },
- "fark": -0.0574,
+ "fark": -0.0254,
  "ga": [
-  -0.1691,
-  0.0856
+  -0.1243,
+  0.1124
  ],
- "gun": 3,
+ "gun": 4,
  "kupon_5li": {
   "48": {
-   "kosu": 41,
+   "kosu": 48,
    "mevcut": {
-    "tutma_beklenen": 3.331,
+    "tutma_beklenen": 4.004,
     "tutan": 3,
     "ort_kombinasyon": 47.8
    },
    "yeni": {
-    "tutma_beklenen": 3.695,
+    "tutma_beklenen": 4.501,
     "tutan": 6,
     "ort_kombinasyon": 47.9
    }
   },
   "96": {
-   "kosu": 41,
+   "kosu": 48,
    "mevcut": {
-    "tutma_beklenen": 5.231,
-    "tutan": 6,
-    "ort_kombinasyon": 94.2
-   },
-   "yeni": {
-    "tutma_beklenen": 5.691,
+    "tutma_beklenen": 6.274,
     "tutan": 6,
     "ort_kombinasyon": 94.5
+   },
+   "yeni": {
+    "tutma_beklenen": 6.888,
+    "tutan": 7,
+    "ort_kombinasyon": 94.2
    }
   },
   "150": {
-   "kosu": 41,
+   "kosu": 48,
    "mevcut": {
-    "tutma_beklenen": 6.346,
+    "tutma_beklenen": 7.623,
     "tutan": 7,
-    "ort_kombinasyon": 140.6
+    "ort_kombinasyon": 140.4
    },
    "yeni": {
-    "tutma_beklenen": 6.877,
-    "tutan": 7,
-    "ort_kombinasyon": 136.6
+    "tutma_beklenen": 8.358,
+    "tutan": 8,
+    "ort_kombinasyon": 136.8
    }
   }
  },
  "egz": {
   "si": {
-   "kosu": 31,
-   "bahis": 682,
-   "kayip_P": 0.11513,
-   "kayip_C": 0.11516,
-   "fark_P_eksi_C": -3.2e-05,
+   "kosu": 36,
+   "bahis": 792,
+   "kayip_P": 0.11768,
+   "kayip_C": 0.11765,
+   "fark_P_eksi_C": 2.8e-05,
    "ga": [
-    -0.002431,
-    0.000828
+    -0.001311,
+    0.000744
    ]
   },
   "ik": {
-   "kosu": 31,
-   "bahis": 671,
-   "kayip_P": 0.13785,
-   "kayip_C": 0.13812,
-   "fark_P_eksi_C": -0.000275,
+   "kosu": 36,
+   "bahis": 773,
+   "kayip_P": 0.14336,
+   "kayip_C": 0.14357,
+   "fark_P_eksi_C": -0.000204,
    "ga": [
-    -0.003227,
-    0.0011
+    -0.001928,
+    0.000847
    ]
   }
  },
  "v3": {
-  "kosu": 31,
+  "kosu": 36,
   "ort": {
-   "mevcut": 7.0584,
-   "yeni": 7.1151,
-   "yeni3": 7.1741
+   "mevcut": 6.9393,
+   "yeni": 6.9712,
+   "yeni3": 7.0225
   },
   "fark3_mevcut": [
-   -0.1157,
-   -0.288,
-   0.0165
+   -0.0832,
+   -0.2099,
+   0.0483
   ],
   "fark3_v2": [
-   -0.059,
-   -0.0688,
-   -0.0553
+   -0.0513,
+   -0.0636,
+   -0.0262
   ]
  }
 }
