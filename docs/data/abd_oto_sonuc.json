@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-29 14:43 UTC",
- "kayitli_kosu": 1020,
- "eslesmeyen_kosu": 682,
+ "uretim": "2026-10-29 15:28 UTC",
+ "kayitli_kosu": 1025,
+ "eslesmeyen_kosu": 686,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 547,
- "kosu": 338,
+ "bahis": 549,
+ "kosu": 339,
  "isabet": 37,
- "roi": 1.085,
+ "roi": 1.082,
  "ga95": [
-  0.719,
-  1.482
+  0.716,
+  1.475
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.857
   },
   "birlesik-krallik": {
-   "bahis": 93,
-   "roi": 1.93
+   "bahis": 95,
+   "roi": 1.889
   },
   "fransa": {
    "bahis": 47,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 652,
-  "kosu": 332,
+  "bahis": 653,
+  "kosu": 333,
   "isabet": 68,
-  "roi": 0.743,
+  "roi": 0.742,
   "ga95": [
-   0.517,
-   0.959
+   0.516,
+   0.955
   ]
  },
  "bahis_t1": {
-  "bahis": 684,
-  "kosu": 327,
+  "bahis": 685,
+  "kosu": 328,
   "isabet": 74,
-  "roi": 0.824,
+  "roi": 0.823,
   "ga95": [
-   0.515,
-   1.139
+   0.514,
+   1.138
   ]
  },
  "bahis_t3": {
-  "bahis": 688,
-  "kosu": 317,
-  "isabet": 80,
-  "roi": 0.766,
+  "bahis": 696,
+  "kosu": 318,
+  "isabet": 81,
+  "roi": 0.764,
   "ga95": [
-   0.474,
-   1.092
+   0.479,
+   1.086
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-27",
-   "pist": "Wolverhampton",
-   "kosu": 4,
-   "at": "SAISONS D'OR",
-   "q": 0.107,
-   "g": 70.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-27",
-   "pist": "Wolverhampton",
-   "kosu": 5,
-   "at": "BOY STAR",
-   "q": 0.068,
-   "g": 36.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-27",
    "pist": "Wolverhampton",
@@ -423,6 +405,24 @@
    "at": "Q T BOY",
    "q": 0.2,
    "g": 8.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Bath",
+   "kosu": 5,
+   "at": "BELFRINA",
+   "q": 0.082,
+   "g": 19.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Bath",
+   "kosu": 5,
+   "at": "DUE TO HENRY",
+   "q": 0.151,
+   "g": 8.4,
    "kazandi": false
   }
  ]
