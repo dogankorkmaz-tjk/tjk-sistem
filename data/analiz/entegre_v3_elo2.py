@@ -70,10 +70,10 @@ for a in test:
     tm = fitJ(tr); S3, g3, FF3 = scoreJ(te, tm)
     # v3: galop ikinci aşama, ofset = Jason-dahil v3 aşama 1 (galop dönemi koşular, kendi eğitim ofseti)
     trg = [r for r in tr if r["F"] is not None]; S3tr, _, FF3tr = scoreJ(trg, tm); bg3 = fit2S(S3tr, FF3tr); S3g = S3 + ((FF3 - bg3[1]) / bg3[2]) @ bg3[0]
-    RES[a] = dict(v2=ev(S2, np.r_[1.0, t1[10:14]]), v3=ev(S3g, g3), v3_galopsuz=ev(S3, g3), gun=[r["gun"] for r in te], S2=S2, S3g=S3g, g3=g3, Z=Z, gam=np.r_[1.0, t1[10:14]], te=te)
+    RES[a] = dict(v2=ev(S2, np.r_[1.0, t1[10:14]]), v3=ev(S3g, g3), v3_galopsuz=ev(S3, g3), S3=S3, keys=[r["key"] for r in te], nos=[r["nos"] for r in te], gun=[r["gun"] for r in te], S2=S2, S3g=S3g, g3=g3, Z=Z, gam=np.r_[1.0, t1[10:14]], te=te)
     if NOLP:                                            # piyasasız model: referanslar (piyasa-only ve eşit olasılık) aynı koşular için
         L0 = _pack0(te)[0]; RES[a]["ref_mkt"] = ev(L0, np.ones(5)); RES[a]["ref_uni"] = ev(np.where(L0 > -1e8, 0.0, -1e9), np.ones(5))
-    import pickle as _pk; _pk.dump({k_: RES[a][k_] for k_ in ("v3_galopsuz", "gun", "ref_mkt", "ref_uni") if k_ in RES[a]}, open(_cp, "wb"))
+    import pickle as _pk; _pk.dump({k_: RES[a][k_] for k_ in ("v3_galopsuz", "gun", "ref_mkt", "ref_uni", "S3", "keys", "nos") if k_ in RES[a]}, open(_cp, "wb"))
     print(a, "tamam", flush=True)
 import pickle; (pickle.dump({a: (RES[a]["ref_mkt"], RES[a]["ref_uni"]) for a in test}, open("/tmp/claude-0/v3_nolp_ref_%s.pkl" % os.environ.get("TESTBAS","2026-04"), "wb")) if NOLP else None); pickle.dump({a: (RES[a]["v3_galopsuz"], RES[a]["gun"]) for a in test}, open("/tmp/claude-0/v3_elo2%s_%s.pkl" % ((VAR or "0") + ("N" if NOLP else ""), os.environ.get("TESTBAS","2026-04")), "wb")); print("kaydedildi", EXTRA, flush=True); sys.exit(0) if os.environ.get("TESTSON") else None
 def cat(ays, k): return np.concatenate([RES[a][k] for a in ays]) if k != "gun" else sum([RES[a]["gun"] for a in ays], [])
