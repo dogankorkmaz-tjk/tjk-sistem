@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-29 20:04 UTC",
- "kayitli_kosu": 1058,
- "eslesmeyen_kosu": 711,
+ "uretim": "2026-10-29 20:27 UTC",
+ "kayitli_kosu": 1060,
+ "eslesmeyen_kosu": 709,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 572,
- "kosu": 347,
+ "bahis": 580,
+ "kosu": 351,
  "isabet": 39,
- "roi": 1.062,
+ "roi": 1.047,
  "ga95": [
-  0.708,
-  1.449
+  0.687,
+  1.433
  ],
  "ulke": {
   "abd": {
-   "bahis": 352,
-   "roi": 0.842
+   "bahis": 360,
+   "roi": 0.823
   },
   "birlesik-krallik": {
    "bahis": 96,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 676,
-  "kosu": 341,
-  "isabet": 70,
-  "roi": 0.736,
+  "bahis": 689,
+  "kosu": 345,
+  "isabet": 72,
+  "roi": 0.75,
   "ga95": [
-   0.518,
-   0.943
+   0.537,
+   0.953
   ]
  },
  "bahis_t1": {
-  "bahis": 709,
-  "kosu": 335,
-  "isabet": 76,
-  "roi": 0.814,
+  "bahis": 722,
+  "kosu": 339,
+  "isabet": 78,
+  "roi": 0.826,
   "ga95": [
-   0.515,
-   1.121
+   0.536,
+   1.123
   ]
  },
  "bahis_t3": {
-  "bahis": 711,
-  "kosu": 325,
-  "isabet": 82,
-  "roi": 0.754,
+  "bahis": 718,
+  "kosu": 329,
+  "isabet": 83,
+  "roi": 0.749,
   "ga95": [
-   0.469,
-   1.071
+   0.468,
+   1.064
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-28",
-   "pist": "Durbanville",
-   "kosu": 7,
-   "at": "OLD HARRY ROCKS",
-   "q": 0.187,
-   "g": 6.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Durbanville",
-   "kosu": 7,
-   "at": "WEHAVEASITUATION",
-   "q": 0.187,
-   "g": 10.0,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Durbanville",
-   "kosu": 7,
-   "at": "CHRISTMAS ROSE",
-   "q": 0.141,
-   "g": 11.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "ASTERIA",
-   "q": 0.19,
-   "g": 9.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "BIJOU BABY",
-   "q": 0.209,
-   "g": 6.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "RAZZLE RED",
-   "q": 0.08,
-   "g": 19.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Mahoning Valley",
-   "kosu": 2,
-   "at": "ASK ARTHUR",
-   "q": 0.158,
-   "g": 10.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Mahoning Valley",
-   "kosu": 4,
-   "at": "MARQUITOS M",
-   "q": 0.053,
-   "g": 26.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Mahoning Valley",
@@ -261,6 +189,51 @@
    "at": "EXPENSIVE CUT",
    "q": 0.111,
    "g": 13.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "JACKPOT JUDY",
+   "q": 0.086,
+   "g": 20.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "UNDERWOOD",
+   "q": 0.141,
+   "g": 10.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "BROCCOLI RABE",
+   "q": 0.071,
+   "g": 24.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "SHE SAID SO",
+   "q": 0.111,
+   "g": 20.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "MAYBE YES MAYBE NO",
+   "q": 0.086,
+   "g": 36.2,
    "kazandi": false
   },
   {
@@ -423,6 +396,33 @@
    "at": "ISLAND D'LITE",
    "q": 0.025,
    "g": 55.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Laurel Park",
+   "kosu": 9,
+   "at": "SHE'S A TWELVE",
+   "q": 0.158,
+   "g": 7.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Woodbine",
+   "kosu": 2,
+   "at": "GOT A COMPLEX",
+   "q": 0.196,
+   "g": 11.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-29",
+   "pist": "Woodbine",
+   "kosu": 2,
+   "at": "TANZANITE LILY",
+   "q": 0.087,
+   "g": 17.4,
    "kazandi": false
   }
  ]
