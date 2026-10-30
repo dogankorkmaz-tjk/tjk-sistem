@@ -1304,7 +1304,17 @@ async function canliTick(){
     canliPill();
     if(degisti){ const a=document.activeElement; if(a&&a.classList&&a.classList.contains('oran')) return;
       try{ if(cur&&cur.k) hesapGoster(); }catch(e){} try{ renderSecim(); }catch(e){} try{ tumModel(); }catch(e){} try{ if(typeof egzCiz==='function') egzCiz(); }catch(e){} try{ besliYukle(); }catch(e){} try{ if(!$('canli').hidden) canliCiz(); }catch(e){} }
-  }catch(e){ LIVES.hata=String(e); LIVES.t=null; canliPill(); }
+  }catch(e){
+    // proxy (vhs.tjk.org) 504/erişilemez: sunucu tarafı toplanan son oranlara düş (muh_canli.json, ~3 dk eski)
+    try{
+      const mc=await (await fetch('data/muh_canli.json?'+Date.now())).json(); let n=0, kz='';
+      hedef.forEach(({h,k})=>{ const key=(HIPKEY[h.id]||h.id.toUpperCase())+'-'+k.kosu, r=mc[key]; if(!r||!r.g||!Object.keys(r.g).length||!r.utc||Date.now()-Date.parse(r.utc)>600000) return;
+        const g={}; Object.entries(r.g).forEach(([a,b])=>{ g[parseInt(a)]=b; });
+        LIVE[h.id+'|'+k.kosu]={g,hv:{si:[],ik:[]},durum:'AÇIK',ts:Date.now(),t:new Date(r.utc).toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'})+' (yedek)'}; n++; kz=h.ad+' '+k.kosu+'. koşu'; });
+      if(n){ LIVES.t=new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'}); LIVES.hata=null; LIVES.kosu=kz+' · yedek kaynak'; canliPill();
+        try{ if(cur&&cur.k) hesapGoster(); }catch(e3){} try{ renderSecim(); }catch(e3){} try{ if(!$('canli').hidden) canliCiz(); }catch(e3){} return; }
+    }catch(e2){}
+    LIVES.hata=String(e); LIVES.t=null; canliPill(); }
 }
 
 // ---- CANLI SEKME: seçili koşuda oynanabilecek tüm sıralı/sırasız bahisler (model olasılığı; ikili havuzlarda canlı ödeme + birleşim). Bilgi amaçlı, tavsiye değil. ----
@@ -2249,7 +2259,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793358341';   // commit öncesi otomatik güncellenir
+const BUILD='1793368562';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
