@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-30 20:15 UTC",
- "kayitli_kosu": 1134,
- "eslesmeyen_kosu": 772,
+ "uretim": "2026-10-30 20:36 UTC",
+ "kayitli_kosu": 1140,
+ "eslesmeyen_kosu": 777,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 603,
- "kosu": 362,
+ "bahis": 605,
+ "kosu": 363,
  "isabet": 40,
- "roi": 1.021,
+ "roi": 1.018,
  "ga95": [
-  0.679,
-  1.397
+  0.677,
+  1.394
  ],
  "ulke": {
   "abd": {
-   "bahis": 381,
-   "roi": 0.8
+   "bahis": 383,
+   "roi": 0.796
   },
   "birlesik-krallik": {
    "bahis": 98,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 715,
-  "kosu": 355,
+  "bahis": 722,
+  "kosu": 356,
   "isabet": 76,
-  "roi": 0.748,
+  "roi": 0.741,
   "ga95": [
-   0.554,
-   0.945
+   0.548,
+   0.937
   ]
  },
  "bahis_t1": {
-  "bahis": 747,
-  "kosu": 349,
+  "bahis": 754,
+  "kosu": 350,
   "isabet": 82,
-  "roi": 0.822,
+  "roi": 0.815,
   "ga95": [
-   0.552,
-   1.121
+   0.546,
+   1.11
   ]
  },
  "bahis_t3": {
-  "bahis": 745,
-  "kosu": 339,
+  "bahis": 753,
+  "kosu": 340,
   "isabet": 87,
-  "roi": 0.746,
+  "roi": 0.738,
   "ga95": [
-   0.488,
-   1.066
+   0.48,
+   1.056
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 1,
-   "at": "QUIET EMPIRE",
-   "q": 0.034,
-   "g": 119.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "SWEET SAINT",
-   "q": 0.178,
-   "g": 10.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-29",
    "pist": "Horseshoe Indianapolis",
@@ -405,6 +387,24 @@
    "at": "TAKE A PICTURE",
    "q": 0.109,
    "g": 14.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "ALWAYSANANGEL",
+   "q": 0.048,
+   "g": 27.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Keeneland",
+   "kosu": 8,
+   "at": "SCOMMESSA SICURA",
+   "q": 0.025,
+   "g": 89.65,
    "kazandi": false
   },
   {
