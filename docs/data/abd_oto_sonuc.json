@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-30 20:47 UTC",
- "kayitli_kosu": 1140,
- "eslesmeyen_kosu": 777,
+ "uretim": "2026-10-30 21:31 UTC",
+ "kayitli_kosu": 1145,
+ "eslesmeyen_kosu": 781,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 605,
- "kosu": 363,
- "isabet": 40,
- "roi": 1.018,
+ "bahis": 608,
+ "kosu": 364,
+ "isabet": 41,
+ "roi": 1.02,
  "ga95": [
-  0.677,
-  1.394
+  0.683,
+  1.395
  ],
  "ulke": {
   "abd": {
-   "bahis": 383,
-   "roi": 0.796
+   "bahis": 386,
+   "roi": 0.802
   },
   "birlesik-krallik": {
    "bahis": 98,
@@ -35,28 +35,28 @@
   }
  },
  "bahis_ani": {
-  "bahis": 722,
-  "kosu": 356,
-  "isabet": 76,
-  "roi": 0.741,
+  "bahis": 724,
+  "kosu": 357,
+  "isabet": 77,
+  "roi": 0.745,
   "ga95": [
-   0.548,
-   0.937
+   0.553,
+   0.94
   ]
  },
  "bahis_t1": {
-  "bahis": 754,
-  "kosu": 350,
+  "bahis": 756,
+  "kosu": 351,
   "isabet": 82,
-  "roi": 0.815,
+  "roi": 0.812,
   "ga95": [
-   0.546,
-   1.11
+   0.544,
+   1.106
   ]
  },
  "bahis_t3": {
   "bahis": 753,
-  "kosu": 340,
+  "kosu": 341,
   "isabet": 87,
   "roi": 0.738,
   "ga95": [
@@ -65,33 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "WHEN'S FOREVER",
-   "q": 0.127,
-   "g": 10.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 2,
-   "at": "MR. HANDSOME",
-   "q": 0.087,
-   "g": 34.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 2,
-   "at": "WRAP AND SEND",
-   "q": 0.143,
-   "g": 14.9,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-29",
    "pist": "Laurel Park",
@@ -351,6 +324,33 @@
    "at": "SANTAL",
    "q": 0.071,
    "g": 18.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "TELL ME SOME LIES",
+   "q": 0.284,
+   "g": 4.7,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "LADY RIVER LILY",
+   "q": 0.155,
+   "g": 9.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "DEL MAR SUNRISE",
+   "q": 0.095,
+   "g": 15.6,
    "kazandi": false
   },
   {
