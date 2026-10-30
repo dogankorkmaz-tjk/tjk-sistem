@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-30 19:17 UTC",
- "kayitli_kosu": 1127,
- "eslesmeyen_kosu": 767,
+ "uretim": "2026-10-30 20:04 UTC",
+ "kayitli_kosu": 1134,
+ "eslesmeyen_kosu": 772,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 601,
- "kosu": 360,
+ "bahis": 603,
+ "kosu": 362,
  "isabet": 40,
- "roi": 1.024,
+ "roi": 1.021,
  "ga95": [
-  0.683,
-  1.401
+  0.679,
+  1.397
  ],
  "ulke": {
   "abd": {
-   "bahis": 379,
-   "roi": 0.804
+   "bahis": 381,
+   "roi": 0.8
   },
   "birlesik-krallik": {
    "bahis": 98,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 712,
-  "kosu": 353,
+  "bahis": 715,
+  "kosu": 355,
   "isabet": 76,
-  "roi": 0.751,
+  "roi": 0.748,
   "ga95": [
-   0.556,
-   0.949
+   0.554,
+   0.945
   ]
  },
  "bahis_t1": {
-  "bahis": 744,
-  "kosu": 347,
+  "bahis": 747,
+  "kosu": 349,
   "isabet": 82,
-  "roi": 0.826,
+  "roi": 0.822,
   "ga95": [
-   0.555,
-   1.126
+   0.552,
+   1.121
   ]
  },
  "bahis_t3": {
-  "bahis": 741,
-  "kosu": 337,
+  "bahis": 745,
+  "kosu": 339,
   "isabet": 87,
-  "roi": 0.75,
+  "roi": 0.746,
   "ga95": [
-   0.492,
-   1.07
+   0.488,
+   1.066
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 1,
-   "at": "PATTERN APPROACH",
-   "q": 0.05,
-   "g": 39.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 1,
-   "at": "BOLD STAND",
-   "q": 0.373,
-   "g": 3.9,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-29",
    "pist": "Horseshoe Indianapolis",
@@ -306,6 +288,24 @@
    "at": "VEKOMA DREAM",
    "q": 0.088,
    "g": 24.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "CALL ATTENDANT",
+   "q": 0.092,
+   "g": 23.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "LIKE A ROCK",
+   "q": 0.109,
+   "g": 13.45,
    "kazandi": false
   },
   {
