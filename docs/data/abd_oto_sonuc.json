@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-30 15:52 UTC",
- "kayitli_kosu": 1102,
+ "uretim": "2026-10-30 16:08 UTC",
+ "kayitli_kosu": 1103,
  "eslesmeyen_kosu": 748,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 583,
- "kosu": 354,
+ "bahis": 585,
+ "kosu": 355,
  "isabet": 39,
- "roi": 1.042,
+ "roi": 1.038,
  "ga95": [
-  0.681,
-  1.431
+  0.686,
+  1.416
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.816
   },
   "birlesik-krallik": {
-   "bahis": 96,
-   "roi": 1.869
+   "bahis": 98,
+   "roi": 1.831
   },
   "fransa": {
    "bahis": 47,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 690,
-  "kosu": 347,
-  "isabet": 72,
-  "roi": 0.749,
+  "bahis": 693,
+  "kosu": 348,
+  "isabet": 73,
+  "roi": 0.751,
   "ga95": [
-   0.536,
-   0.951
+   0.551,
+   0.956
   ]
  },
  "bahis_t1": {
-  "bahis": 723,
-  "kosu": 341,
-  "isabet": 78,
-  "roi": 0.825,
+  "bahis": 726,
+  "kosu": 342,
+  "isabet": 79,
+  "roi": 0.826,
   "ga95": [
-   0.536,
-   1.122
+   0.547,
+   1.135
   ]
  },
  "bahis_t3": {
-  "bahis": 719,
-  "kosu": 331,
-  "isabet": 83,
-  "roi": 0.748,
+  "bahis": 722,
+  "kosu": 332,
+  "isabet": 84,
+  "roi": 0.75,
   "ga95": [
-   0.466,
-   1.062
+   0.48,
+   1.077
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-28",
-   "pist": "Nottingham",
-   "kosu": 5,
-   "at": "FLASH OF COLOUR",
-   "q": 0.256,
-   "g": 6.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-28",
-   "pist": "Nottingham",
-   "kosu": 5,
-   "at": "HIGH SOCIETY",
-   "q": 0.104,
-   "g": 13.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-28",
    "pist": "Nottingham",
@@ -423,6 +405,24 @@
    "at": "GIZMO'S B F F",
    "q": 0.072,
    "g": 19.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Newmarket",
+   "kosu": 8,
+   "at": "I KNOW YOU BY NOW",
+   "q": 0.146,
+   "g": 25.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Newmarket",
+   "kosu": 8,
+   "at": "LIVORNO",
+   "q": 0.067,
+   "g": 60.2,
    "kazandi": false
   }
  ]
