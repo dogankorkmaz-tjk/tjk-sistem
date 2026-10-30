@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-30 21:31 UTC",
+ "uretim": "2026-10-30 21:33 UTC",
  "kayitli_kosu": 1145,
- "eslesmeyen_kosu": 781,
+ "eslesmeyen_kosu": 779,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 608,
- "kosu": 364,
+ "bahis": 612,
+ "kosu": 366,
  "isabet": 41,
- "roi": 1.02,
+ "roi": 1.014,
  "ga95": [
-  0.683,
-  1.395
+  0.677,
+  1.386
  ],
  "ulke": {
   "abd": {
-   "bahis": 386,
-   "roi": 0.802
+   "bahis": 390,
+   "roi": 0.793
   },
   "birlesik-krallik": {
    "bahis": 98,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 724,
-  "kosu": 357,
-  "isabet": 77,
-  "roi": 0.745,
+  "bahis": 730,
+  "kosu": 358,
+  "isabet": 78,
+  "roi": 0.743,
   "ga95": [
-   0.553,
-   0.94
+   0.552,
+   0.937
   ]
  },
  "bahis_t1": {
-  "bahis": 756,
-  "kosu": 351,
-  "isabet": 82,
-  "roi": 0.812,
+  "bahis": 762,
+  "kosu": 352,
+  "isabet": 83,
+  "roi": 0.81,
   "ga95": [
    0.544,
-   1.106
+   1.104
   ]
  },
  "bahis_t3": {
-  "bahis": 753,
-  "kosu": 341,
-  "isabet": 87,
-  "roi": 0.738,
+  "bahis": 759,
+  "kosu": 342,
+  "isabet": 88,
+  "roi": 0.736,
   "ga95": [
    0.48,
-   1.056
+   1.053
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 2,
-   "at": "INNO HURRY EARLY",
-   "q": 0.157,
-   "g": 9.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 2,
-   "at": "ST PETE'S PASSION",
-   "q": 0.143,
-   "g": 20.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 2,
-   "at": "LOVER BOY NESS",
-   "q": 0.112,
-   "g": 20.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 4,
-   "at": "RAPIDITY",
-   "q": 0.136,
-   "g": 9.55,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-29",
    "pist": "Laurel Park",
@@ -355,6 +319,15 @@
   },
   {
    "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 9,
+   "at": "ALL TO WIN",
+   "q": 0.222,
+   "g": 7.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
    "pist": "Keeneland",
    "kosu": 2,
    "at": "AT FULL SAIL",
@@ -423,6 +396,33 @@
    "at": "LIVORNO",
    "q": 0.067,
    "g": 60.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Santa Anita",
+   "kosu": 3,
+   "at": "TYPHOON TOMMY",
+   "q": 0.025,
+   "g": 77.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Santa Anita",
+   "kosu": 3,
+   "at": "JIMMY BLUE JEANS",
+   "q": 0.131,
+   "g": 11.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Santa Anita",
+   "kosu": 3,
+   "at": "UNPRETENTIOUS",
+   "q": 0.112,
+   "g": 15.05,
    "kazandi": false
   }
  ]
