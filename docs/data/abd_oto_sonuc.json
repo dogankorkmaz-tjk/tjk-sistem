@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-30 18:27 UTC",
- "kayitli_kosu": 1124,
- "eslesmeyen_kosu": 766,
+ "uretim": "2026-10-30 19:12 UTC",
+ "kayitli_kosu": 1127,
+ "eslesmeyen_kosu": 767,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 594,
- "kosu": 358,
+ "bahis": 601,
+ "kosu": 360,
  "isabet": 40,
- "roi": 1.036,
+ "roi": 1.024,
  "ga95": [
-  0.69,
-  1.409
+  0.683,
+  1.401
  ],
  "ulke": {
   "abd": {
-   "bahis": 372,
-   "roi": 0.819
+   "bahis": 379,
+   "roi": 0.804
   },
   "birlesik-krallik": {
    "bahis": 98,
@@ -35,99 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 705,
-  "kosu": 351,
-  "isabet": 74,
-  "roi": 0.75,
+  "bahis": 712,
+  "kosu": 353,
+  "isabet": 76,
+  "roi": 0.751,
   "ga95": [
-   0.553,
-   0.95
+   0.556,
+   0.949
   ]
  },
  "bahis_t1": {
-  "bahis": 737,
-  "kosu": 345,
-  "isabet": 80,
-  "roi": 0.825,
+  "bahis": 744,
+  "kosu": 347,
+  "isabet": 82,
+  "roi": 0.826,
   "ga95": [
-   0.55,
-   1.129
+   0.555,
+   1.126
   ]
  },
  "bahis_t3": {
-  "bahis": 733,
-  "kosu": 335,
-  "isabet": 85,
+  "bahis": 741,
+  "kosu": 337,
+  "isabet": 87,
   "roi": 0.75,
   "ga95": [
-   0.487,
-   1.073
+   0.492,
+   1.07
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "JACKPOT JUDY",
-   "q": 0.086,
-   "g": 20.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "UNDERWOOD",
-   "q": 0.141,
-   "g": 10.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "BROCCOLI RABE",
-   "q": 0.071,
-   "g": 24.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "SHE SAID SO",
-   "q": 0.111,
-   "g": 20.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "MAYBE YES MAYBE NO",
-   "q": 0.086,
-   "g": 36.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "CAPANAPARO",
-   "q": 0.119,
-   "g": 14.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 1,
-   "at": "AIN'T DERE NO MO",
-   "q": 0.08,
-   "g": 29.9,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-29",
    "pist": "Horseshoe Indianapolis",
@@ -391,6 +328,51 @@
   },
   {
    "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "ARAUCANO",
+   "q": 0.112,
+   "g": 22.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "EL MUHEET",
+   "q": 0.157,
+   "g": 13.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "VALIANT WINTER",
+   "q": 0.071,
+   "g": 52.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "LOVE HATE",
+   "q": 0.049,
+   "g": 43.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "SANTAL",
+   "q": 0.071,
+   "g": 18.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
    "pist": "Keeneland",
    "kosu": 2,
    "at": "AT FULL SAIL",
@@ -405,6 +387,24 @@
    "at": "MAXIMUM CAPITAL",
    "q": 0.04,
    "g": 43.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Keeneland",
+   "kosu": 5,
+   "at": "FUSTA",
+   "q": 0.093,
+   "g": 13.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Keeneland",
+   "kosu": 5,
+   "at": "TAKE A PICTURE",
+   "q": 0.109,
+   "g": 14.0,
    "kazandi": false
   },
   {
