@@ -295,6 +295,20 @@ def _jn(j):
     return re.sub(r"\s*AP$", "", str(j or "")).strip()
 
 
+def _prog_satir(t, hid):
+    """Program satırları: önce program sitesi (HTML), erişilemezse atyarisi API'si (aynı sütunlar; 30 Ekim 2026: site engelliyken puan yenilenmiyordu)."""
+    html = O.getir(O.prog_url(datetime.date.fromisoformat(t), hid))
+    sr = O.parse_prog(html, t, hid) if html else []
+    if not sr:
+        try:
+            from . import atyapi as _AP
+            sr = [x for x in _AP.program_satirlari(t)[0] if x["hipodrom"] == hid]
+            if sr: print("program API'den okundu:", hid, len(sr))
+        except Exception as e:
+            print("program API yedeği hatası:", repr(e))
+    return sr
+
+
 def pist_uygula(obj):
     """data/pist_degisiklik.csv (tarih,hipodrom,kosu,pist,...): resmi pist türü değişen başlamamış koşuların bilgi metnini düzeltir ve
     o koşulardaki tüm atların model puanlarını (z, z2, z3, z4) yeni pist türüyle yeniden hesaplar (14 Ekim 2026: İstanbul çim -> sentetik)."""
@@ -339,8 +353,7 @@ def pist_uygula(obj):
         cj = C.jokeyler(t) or {}
         satirlar = []
         for hid in {x[0] for x in hedef}:
-            html = O.getir(O.prog_url(datetime.date.fromisoformat(t), hid))
-            satirlar += O.parse_prog(html, t, hid) if html else []
+            satirlar += _prog_satir(t, hid)
         if not satirlar:
             print("pist değişikliği: program okunamadı, puanlar yenilenmedi"); return
         pr = pd.DataFrame(satirlar).dropna(subset=["no"]); pr["no"] = pr.no.astype(int)
@@ -407,8 +420,7 @@ def s_doldur(obj):
         cj = C.jokeyler(t) or {}
         satirlar = []
         for h in obj["hipodromlar"]:
-            html = O.getir(O.prog_url(datetime.date.fromisoformat(t), h["id"]))
-            satirlar += O.parse_prog(html, t, h["id"]) if html else []
+            satirlar += _prog_satir(t, h["id"])
         if not satirlar:
             print("Jason-S doldurma: program okunamadı"); return
         pr = pd.DataFrame(satirlar).dropna(subset=["no"]); pr["no"] = pr.no.astype(int)
@@ -483,8 +495,7 @@ def jokey_uygula(obj):
     try:
         satirlar = []
         for hid in deg:
-            html = O.getir(O.prog_url(datetime.date.fromisoformat(t), hid))
-            satirlar += O.parse_prog(html, t, hid) if html else []
+            satirlar += _prog_satir(t, hid)
         if not satirlar:
             print("jokey değişikliği: program yeniden okunamadı, puanlar yenilenmedi (jokey adı yazıldı, puan_eski işaretlendi)")
             for h in obj["hipodromlar"]:
