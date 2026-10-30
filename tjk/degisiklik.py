@@ -63,6 +63,49 @@ def pist_yaz(obj):
     return len(yeni)
 
 
+def mesafe_yaz(obj):
+    """API'deki mesafe programdakinden (bilgi metni) farklıysa data/mesafe_degisiklik.csv'ye yazar (30 Ekim 2026). Elle (kullanici) kayıt öncelikli.
+    calistir.pist_uygula bu dosyayı da okur: bilgi metnindeki mesafeyi düzeltir, model puanlarını yeniler. Döner: yazılan satır sayısı."""
+    t = obj["tarih"]; simdi = O.tr_simdi().strftime("%H:%M")
+    g = atyapi.gun(t)
+    if not g:
+        return 0
+    yol = os.path.join(VERI, "mesafe_degisiklik.csv")
+    var = {}
+    if os.path.exists(yol):
+        for l in open(yol, encoding="utf-8").read().split("\n")[1:]:
+            p = l.split(",")
+            if len(p) >= 4 and p[0] == t:
+                var[(p[1], p[2])] = (p[3].strip(), l)
+    yeni = []
+    for h in obj["hipodromlar"]:
+        v = g.get(h["id"])
+        if not v:
+            continue
+        ak = {int(k["number"]): k for k in v["kosular"]}
+        for k in h["kosular"]:
+            if _basladi(k, simdi) or k["kosu"] not in ak:
+                continue
+            d = str(ak[k["kosu"]].get("distance") or "").strip()
+            m = re.search(r"(\d{3,4})\s*m?\s*(Kum|Çim|Sentetik)", k.get("bilgi") or "")
+            if not d.isdigit() or not m:
+                continue
+            kayit = var.get((h["id"], str(k["kosu"])))
+            if kayit:
+                if "otomatik" not in kayit[1] or kayit[0] == d:
+                    continue
+            if d != m.group(1):
+                yeni.append(f"{t},{h['id']},{k['kosu']},{d},otomatik atyarisi API ({m.group(1)} -> {d}),{simdi}")
+    if yeni:
+        yeni_dosya = not os.path.exists(yol)
+        with open(yol, "a", encoding="utf-8") as fh:
+            if yeni_dosya:
+                fh.write("tarih,hipodrom,kosu,mesafe,bildiren,saat_tr\n")
+            fh.write("\n".join(yeni) + "\n")
+        print("mesafe değişikliği (otomatik):", len(yeni), yeni)
+    return len(yeni)
+
+
 def notlar(obj):
     """Her başlamamış koşu için 'degisiklik' listesi (UI'da gösterilir): pist, jokey, koşmaz, kilo."""
     t = obj["tarih"]; simdi = O.tr_simdi().strftime("%H:%M")

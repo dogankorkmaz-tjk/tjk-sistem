@@ -307,15 +307,29 @@ def pist_uygula(obj):
         p = l.split(",")
         if len(p) >= 4 and p[0] == t:
             degis[(p[1], int(p[2]))] = p[3].strip()
+    mdeg = {}
+    ym = os.path.join(VERI, "mesafe_degisiklik.csv")
+    if os.path.exists(ym):
+        for l in open(ym, encoding="utf-8").read().split("\n")[1:]:
+            p = l.split(",")
+            if len(p) >= 4 and p[0] == t and p[3].strip().isdigit():
+                mdeg[(p[1], int(p[2]))] = p[3].strip()
     hedef = set()
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             if k.get("yeniden_puan") and not k.get("sonuc") and not (k.get("saat") and simdi >= k["saat"]):
                 hedef.add((h["id"], k["kosu"]))
-            yp = degis.get((h["id"], k["kosu"]))
-            if not yp or k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
+            yp = degis.get((h["id"], k["kosu"])); ym_ = mdeg.get((h["id"], k["kosu"]))
+            if (not yp and not ym_) or k.get("sonuc") or (k.get("saat") and simdi >= k["saat"]):
                 continue
             b = k.get("bilgi") or ""
+            if ym_:
+                mm = re.search(r"(\d{3,4})(\s*m?\s*(?:Kum|Çim|Sentetik))", b)
+                if mm and mm.group(1) != ym_:
+                    b = b[:mm.start(1)] + ym_ + b[mm.end(1):]; k["bilgi"] = b; hedef.add((h["id"], k["kosu"]))
+                    if k.get("mesafe"): k["mesafe"] = int(ym_)
+            if not yp:
+                continue
             m = re.search(r"(\d{3,4})\s*m?\s*(Kum|Çim|Sentetik)", b)
             if m and m.group(2) != yp:
                 k["bilgi"] = b[:m.start(2)] + yp + b[m.end(2):]; hedef.add((h["id"], k["kosu"]))
@@ -866,6 +880,7 @@ def canli(t):
     s_doldur(obj)
     try:
         from . import degisiklik as _DG
+        _DG.mesafe_yaz(obj)                # API'de mesafe değiştiyse mesafe_degisiklik.csv'ye otomatik yaz (30 Ekim 2026)
         _DG.pist_yaz(obj)                  # API'de pist türü değiştiyse pist_degisiklik.csv'ye otomatik yaz (26 Ekim 2026)
         _DG.kilo_isaretle(obj)             # API kilosu değiştiyse koşuyu yeniden puanlamaya işaretle
         try:
