@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-30 17:31 UTC",
- "kayitli_kosu": 1117,
- "eslesmeyen_kosu": 761,
+ "uretim": "2026-10-30 17:40 UTC",
+ "kayitli_kosu": 1119,
+ "eslesmeyen_kosu": 762,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 587,
- "kosu": 356,
- "isabet": 39,
- "roi": 1.034,
+ "bahis": 589,
+ "kosu": 357,
+ "isabet": 40,
+ "roi": 1.045,
  "ga95": [
-  0.684,
-  1.411
+  0.698,
+  1.426
  ],
  "ulke": {
   "abd": {
-   "bahis": 365,
-   "roi": 0.812
+   "bahis": 367,
+   "roi": 0.83
   },
   "birlesik-krallik": {
    "bahis": 98,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 697,
-  "kosu": 349,
-  "isabet": 73,
-  "roi": 0.746,
+  "bahis": 701,
+  "kosu": 350,
+  "isabet": 74,
+  "roi": 0.754,
   "ga95": [
-   0.546,
-   0.948
+   0.556,
+   0.957
   ]
  },
  "bahis_t1": {
-  "bahis": 730,
-  "kosu": 343,
-  "isabet": 79,
-  "roi": 0.821,
+  "bahis": 732,
+  "kosu": 344,
+  "isabet": 80,
+  "roi": 0.831,
   "ga95": [
-   0.544,
-   1.128
+   0.555,
+   1.138
   ]
  },
  "bahis_t3": {
-  "bahis": 726,
-  "kosu": 333,
-  "isabet": 84,
-  "roi": 0.746,
+  "bahis": 728,
+  "kosu": 334,
+  "isabet": 85,
+  "roi": 0.755,
   "ga95": [
-   0.478,
-   1.073
+   0.493,
+   1.08
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Bath",
-   "kosu": 5,
-   "at": "BELFRINA",
-   "q": 0.082,
-   "g": 19.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Bath",
-   "kosu": 5,
-   "at": "DUE TO HENRY",
-   "q": 0.151,
-   "g": 8.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-29",
    "pist": "Bath",
@@ -388,6 +370,24 @@
    "q": 0.072,
    "g": 19.3,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 3,
+   "at": "BARJOUJ",
+   "q": 0.256,
+   "g": 8.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Gulfstream",
+   "kosu": 3,
+   "at": "DAUNTING",
+   "q": 0.275,
+   "g": 8.4,
+   "kazandi": true
   },
   {
    "gun": "2026-10-30",
