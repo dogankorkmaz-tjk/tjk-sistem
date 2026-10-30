@@ -1,0 +1,20 @@
+name: yorumcu_probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  p:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests curl_cffi==0.7.4
+      - run: python -u tjk/yorumcu_probe.py
+      - run: |
+          git config user.name tjk-bot; git config user.email tjk-bot@users.noreply.github.com
+          git add -A data/yorumcu_ham; git diff --cached --quiet && exit 0
+          git commit -m "yorumcu sonda"; for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
