@@ -1153,3 +1153,9 @@ Model DONDURULDU: data/supriz/model_n.json (LightGBM N, eğitim 2023-06..2026-03
 Karar (RESMİ bayraklarla, 2026-11-01..2027-02-28, tüm oran≥15 atlar): (a) log-kayıp iyileşmesi (taban−model) gün kümeli bootstrap GA alt >0 VE (b) bayraklı atlarda kazanma − taban beklentisi (pp) GA alt >0. İkisi sağlanırsa 'süpriz seçimi gerçek'; ardından ayrı ve ön kayıtlı ROI testi (en büyük 3 ödeme çıkarılmış). Aksi halde gölge kaldırılır. ROI karar ölçütü değildir; yalnız bilgi.
 Not: CANLI ve RESMİ bayrak farklılıkları (oran okuma zamanı) ayrıca raporlanır (canlı bayrak ∩ resmi bayrak oranı).
 Uygulama: Bugün sekmesi 'Süpriz adayları', Koşu satırında 'süpriz adayı ×' etiketi, Kanıt sekmesinde son sonuçlar. Kupon/EV bağlantısı YOK.
+
+## 2026-10-30 13:10 — ÖN KAYIT T58 ücretli yorumcunun altılı seçimleri (Doğan: "bir yorumcunun tahminlerini yazdım, parayla kupon satıyormuş")
+Veri: data/yorumcu/<gün>.json (yarıştan ÖNCE kaydedilir; kaynak aynı kişi → tutarlı gözlemci). İlk gün: 30 Ekim Bursa 2–7. Yazım biçimi ('-' vs '/') belirsiz → her koşuda yazılan tüm numaralar seçim kümesi.
+Ölçüler (koşu başına, küme boyutu k eşleştirilmiş): (a) kazanan kümede mi; (b) aynı k için AGF ilk-k kümesi ve model (z4) ilk-k kümesi isabeti; (c) altılının hepsi tutma sayısı ve kupon maliyeti (küme boyutları çarpımı) ile eşleştirilmiş AGF/model kuponları. Süpriz katkısı: kümedeki AGF sırası ≥6 atların kazanma payı.
+Karar: ≥150 koşu (≈25 altılı gün) birikene kadar karar yok. Kural: yorumcu (a) isabeti, aynı boyutlu AGF-ilk-k ve model-ilk-k'dan GA alt >0 farkla iyiyse VEYA süpriz seçimleri (AGF sırası ≥6) kazanma payı AGF beklentisinin GA alt >0 üstündeyse → yorumcunun bilgisi modelde olmayan bir şey taşıyor, hangi türde olduğuna bakılır. Aksi halde 'ek bilgi yok'.
+Not: Satılan kupon/tahmin vaadi ayrı; burada yalnız isabet ölçülür, ücret/iddia değerlendirilmez.
