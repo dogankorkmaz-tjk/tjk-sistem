@@ -1,0 +1,26 @@
+name: yorumcu_gunluk
+on:
+  schedule:
+    - cron: "45 7,8,9 * * *"     # 10:45, 11:45, 12:45 TR (sayfa 10:30-12:30 arasında yayınlanır)
+    - cron: "15 10 * * *"        # 13:15 TR
+  workflow_dispatch:
+concurrency:
+  group: yorumcu-gunluk
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  p:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests curl_cffi==0.7.4 beautifulsoup4 lxml
+      - run: python -u -m tjk.yorumcu_sporx
+      - run: |
+          git config user.name tjk-bot; git config user.email tjk-bot@users.noreply.github.com
+          git add -A data/yorumcu; git diff --cached --quiet && exit 0
+          git commit -m "yorumcu otomatik $(date -u '+%Y-%m-%d %H:%M') UTC"; for i in 1 2 3 4; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done; exit 1
