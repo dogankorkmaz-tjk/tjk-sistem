@@ -1161,3 +1161,5 @@ Karar: ≥150 koşu (≈25 altılı gün) birikene kadar karar yok. Kural: yorum
 Not: Satılan kupon/tahmin vaadi ayrı; burada yalnız isabet ölçülür, ücret/iddia değerlendirilmez.
 
 T58 yazım düzeltmesi (Doğan, 13:05): '/' öncesi öncelikli grup (tek/banko), sonrakiler isteğe bağlı, soldan sağa öncelik azalır; '-' aynı grup. Ek ölçüler: (d) 1. katman isabeti (tek olarak oynanan atlar: kazandı mı), (e) 1. katman hiçbir yerde tek at değilse (örn. 5/2/3-4: tek=5) tek-at isabet oranı, AGF birincisi ve model birincisiyle eşleştirilmiş; (f) kümeler 1. katman, 1.+2. katman, tümü olarak ayrı boyut.
+
+T58 ek (13:10): ikinci kaynak 'yorumcu 2' İstanbul 1–10 (altılı değil, koşu başına öne çıkan atlar; data/yorumcu/2026-10-30_yorumcu2_istanbul.json). Kaynaklar AYRI ölçülür, birleştirilmez. Ek ölçü: koşu başına seçim sayısı k farklı olduğundan 'aynı k için AGF/model ilk-k' eşleştirmesi; tek at seçilen koşular (3 ve 8) kazanan isabeti ayrıca, AGF birincisi/model birincisiyle. Karar eşiği (≥150 koşu) kaynak başına geçerli.

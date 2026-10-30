@@ -1,0 +1,84 @@
+{
+ "tarih": "2026-10-30",
+ "hipodrom": "istanbul",
+ "kaynak": "yorumcu 2 (Doğan'ın not defteri, ekran görüntüsü 13:03 TR, yarışlardan önce)",
+ "not": "Her koşu için 'şanslı gördüğü, öne çıkardığı atlar' (altılı değil, koşu başına liste). Satır sırası = 1..10. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. Yazım sırası öncelik olabilir (belirsiz). 6. koşuda 'Hepsi(...)': tüm atlar oynanıyor, parantez içi öne çıkanlar.",
+ "kosular": {
+  "1": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "2": [
+   1,
+   3,
+   4,
+   6,
+   7
+  ],
+  "3": [
+   9
+  ],
+  "4": [
+   9,
+   10,
+   5,
+   11,
+   2
+  ],
+  "5": [
+   8,
+   3,
+   4,
+   5,
+   6
+  ],
+  "6": [
+   8,
+   3,
+   6,
+   2,
+   5,
+   10
+  ],
+  "7": [
+   3,
+   7,
+   9,
+   10,
+   8
+  ],
+  "8": [
+   5
+  ],
+  "9": [
+   3,
+   8,
+   6,
+   7,
+   5
+  ],
+  "10": [
+   3,
+   6,
+   1,
+   7
+  ]
+ },
+ "ham": {
+  "1": "1-2-3-4",
+  "2": "1-3-4-6-7",
+  "3": "9",
+  "4": "9-10-5-11-2",
+  "5": "8-3-4-5-6",
+  "6": "Hepsi(8-3-6-2-5-10)",
+  "7": "3-7-9-10-8",
+  "8": "5",
+  "9": "3-8-6-7-5",
+  "10": "3/6-1-7"
+ },
+ "hepsi": [
+  "6"
+ ]
+}
