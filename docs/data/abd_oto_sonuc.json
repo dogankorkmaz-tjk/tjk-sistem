@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 20:31 UTC",
+ "uretim": "2026-10-31 20:34 UTC",
  "kayitli_kosu": 1256,
- "eslesmeyen_kosu": 864,
+ "eslesmeyen_kosu": 862,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 660,
- "kosu": 392,
+ "bahis": 667,
+ "kosu": 394,
  "isabet": 45,
- "roi": 1.016,
+ "roi": 1.005,
  "ga95": [
-  0.705,
-  1.346
+  0.696,
+  1.336
  ],
  "ulke": {
   "abd": {
-   "bahis": 420,
-   "roi": 0.857
+   "bahis": 427,
+   "roi": 0.843
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,99 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 789,
-  "kosu": 384,
+  "bahis": 797,
+  "kosu": 386,
   "isabet": 80,
-  "roi": 0.697,
+  "roi": 0.69,
   "ga95": [
-   0.498,
-   0.898
+   0.485,
+   0.895
   ]
  },
  "bahis_t1": {
-  "bahis": 821,
-  "kosu": 378,
-  "isabet": 84,
-  "roi": 0.756,
+  "bahis": 825,
+  "kosu": 380,
+  "isabet": 85,
+  "roi": 0.757,
   "ga95": [
-   0.481,
+   0.484,
    1.051
   ]
  },
  "bahis_t3": {
-  "bahis": 813,
-  "kosu": 367,
+  "bahis": 820,
+  "kosu": 369,
   "isabet": 90,
-  "roi": 0.699,
+  "roi": 0.693,
   "ga95": [
-   0.448,
-   1.001
+   0.443,
+   0.996
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "ARINATO",
-   "q": 0.129,
-   "g": 11.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "THEMISTOCLES",
-   "q": 0.048,
-   "g": 86.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "REPENTLESS",
-   "q": 0.065,
-   "g": 26.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "OUTRUNNER",
-   "q": 0.141,
-   "g": 12.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "CRITERIA",
-   "q": 0.121,
-   "g": 10.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 8,
-   "at": "SHARE THE LUDT",
-   "q": 0.083,
-   "g": 18.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "SAVE OUR SOUL",
-   "q": 0.083,
-   "g": 32.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Gulfstream",
@@ -216,6 +153,69 @@
    "at": "EXPLORA",
    "q": 0.16,
    "g": 9.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "LAKE FOREST",
+   "q": 0.115,
+   "g": 14.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "CABO SPIRIT",
+   "q": 0.024,
+   "g": 105.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "QIRAT",
+   "q": 0.024,
+   "g": 55.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "LUGAL",
+   "q": 0.024,
+   "g": 166.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "FORMIDABLE MAN",
+   "q": 0.047,
+   "g": 48.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "TRUE LOVE",
+   "q": 0.089,
+   "g": 44.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 9,
+   "at": "PUERTO RICO",
+   "q": 0.073,
+   "g": 23.7,
    "kazandi": false
   },
   {
