@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 16:21 UTC",
- "kayitli_kosu": 1211,
+ "uretim": "2026-10-31 16:23 UTC",
+ "kayitli_kosu": 1212,
  "eslesmeyen_kosu": 835,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 633,
- "kosu": 376,
+ "bahis": 634,
+ "kosu": 377,
  "isabet": 41,
- "roi": 0.98,
+ "roi": 0.978,
  "ga95": [
-  0.643,
-  1.33
+  0.64,
+  1.329
  ],
  "ulke": {
   "abd": {
-   "bahis": 393,
-   "roi": 0.787
+   "bahis": 394,
+   "roi": 0.785
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 766,
-  "kosu": 368,
-  "isabet": 79,
-  "roi": 0.713,
+  "bahis": 769,
+  "kosu": 369,
+  "isabet": 80,
+  "roi": 0.715,
   "ga95": [
-   0.511,
+   0.518,
    0.908
   ]
  },
  "bahis_t1": {
-  "bahis": 796,
-  "kosu": 362,
-  "isabet": 83,
-  "roi": 0.775,
+  "bahis": 799,
+  "kosu": 363,
+  "isabet": 84,
+  "roi": 0.777,
   "ga95": [
-   0.499,
+   0.506,
    1.067
   ]
  },
  "bahis_t3": {
-  "bahis": 785,
-  "kosu": 351,
-  "isabet": 88,
-  "roi": 0.712,
+  "bahis": 788,
+  "kosu": 352,
+  "isabet": 89,
+  "roi": 0.714,
   "ga95": [
-   0.456,
-   1.025
+   0.463,
+   1.027
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "ARAUCANO",
-   "q": 0.112,
-   "g": 22.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Gulfstream",
@@ -261,6 +252,15 @@
    "at": "MERIDIAN MAE",
    "q": 0.037,
    "g": 33.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 1,
+   "at": "SAVE OUR SOUL",
+   "q": 0.083,
+   "g": 32.65,
    "kazandi": false
   },
   {
