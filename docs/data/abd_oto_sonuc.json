@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-31 12:42 UTC",
- "kayitli_kosu": 1174,
- "eslesmeyen_kosu": 803,
+ "uretim": "2026-10-31 12:50 UTC",
+ "kayitli_kosu": 1176,
+ "eslesmeyen_kosu": 804,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 616,
- "kosu": 371,
+ "bahis": 622,
+ "kosu": 372,
  "isabet": 41,
- "roi": 1.007,
+ "roi": 0.997,
  "ga95": [
-  0.667,
-  1.36
+  0.66,
+  1.348
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.787
   },
   "birlesik-krallik": {
-   "bahis": 99,
-   "roi": 1.813
+   "bahis": 105,
+   "roi": 1.709
   },
   "fransa": {
    "bahis": 47,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 738,
-  "kosu": 363,
+  "bahis": 746,
+  "kosu": 364,
   "isabet": 79,
-  "roi": 0.74,
+  "roi": 0.732,
   "ga95": [
-   0.548,
-   0.936
+   0.537,
+   0.925
   ]
  },
  "bahis_t1": {
-  "bahis": 767,
-  "kosu": 357,
+  "bahis": 775,
+  "kosu": 358,
   "isabet": 83,
-  "roi": 0.805,
+  "roi": 0.796,
   "ga95": [
-   0.531,
-   1.113
+   0.523,
+   1.103
   ]
  },
  "bahis_t3": {
-  "bahis": 765,
-  "kosu": 347,
+  "bahis": 769,
+  "kosu": 348,
   "isabet": 88,
-  "roi": 0.731,
+  "roi": 0.727,
   "ga95": [
-   0.476,
-   1.059
+   0.473,
+   1.05
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 6,
-   "at": "FRYE ISLAND",
-   "q": 0.087,
-   "g": 17.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 6,
-   "at": "ISLAND D'LITE",
-   "q": 0.025,
-   "g": 55.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 9,
-   "at": "SHE'S A TWELVE",
-   "q": 0.158,
-   "g": 7.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Woodbine",
-   "kosu": 2,
-   "at": "GOT A COMPLEX",
-   "q": 0.196,
-   "g": 11.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Woodbine",
-   "kosu": 2,
-   "at": "TANZANITE LILY",
-   "q": 0.087,
-   "g": 17.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "MISTY EYED",
-   "q": 0.176,
-   "g": 7.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-29",
    "pist": "Woodbine",
@@ -423,6 +369,60 @@
    "at": "STAR CHORUS",
    "q": 0.15,
    "g": 9.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 3,
+   "at": "ASTRAL MIST",
+   "q": 0.117,
+   "g": 21.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 3,
+   "at": "GORGONZOLA",
+   "q": 0.054,
+   "g": 29.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 3,
+   "at": "HEATHER WAY",
+   "q": 0.091,
+   "g": 15.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 3,
+   "at": "PALACE ROSE",
+   "q": 0.117,
+   "g": 29.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 3,
+   "at": "SO THIS IS LOVE",
+   "q": 0.233,
+   "g": 6.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 3,
+   "at": "TWITCHING",
+   "q": 0.048,
+   "g": 29.65,
    "kazandi": false
   }
  ]
