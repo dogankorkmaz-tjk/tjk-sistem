@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-31 15:39 UTC",
- "kayitli_kosu": 1200,
- "eslesmeyen_kosu": 825,
+ "uretim": "2026-10-31 16:21 UTC",
+ "kayitli_kosu": 1211,
+ "eslesmeyen_kosu": 835,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 628,
- "kosu": 375,
+ "bahis": 633,
+ "kosu": 376,
  "isabet": 41,
- "roi": 0.988,
+ "roi": 0.98,
  "ga95": [
-  0.65,
-  1.336
+  0.643,
+  1.33
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.787
   },
   "birlesik-krallik": {
-   "bahis": 111,
-   "roi": 1.617
+   "bahis": 116,
+   "roi": 1.547
   },
   "fransa": {
    "bahis": 47,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 762,
-  "kosu": 367,
+  "bahis": 766,
+  "kosu": 368,
   "isabet": 79,
-  "roi": 0.717,
+  "roi": 0.713,
   "ga95": [
-   0.518,
-   0.913
+   0.511,
+   0.908
   ]
  },
  "bahis_t1": {
-  "bahis": 792,
-  "kosu": 361,
+  "bahis": 796,
+  "kosu": 362,
   "isabet": 83,
-  "roi": 0.779,
+  "roi": 0.775,
   "ga95": [
-   0.505,
-   1.075
+   0.499,
+   1.067
   ]
  },
  "bahis_t3": {
-  "bahis": 781,
-  "kosu": 350,
+  "bahis": 785,
+  "kosu": 351,
   "isabet": 88,
-  "roi": 0.716,
+  "roi": 0.712,
   "ga95": [
-   0.461,
-   1.032
+   0.456,
+   1.025
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "CALL ATTENDANT",
-   "q": 0.092,
-   "g": 23.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "LIKE A ROCK",
-   "q": 0.109,
-   "g": 13.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Belmont Park",
-   "kosu": 10,
-   "at": "I'M AMERICA",
-   "q": 0.045,
-   "g": 41.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 3,
-   "at": "BARJOUJ",
-   "q": 0.256,
-   "g": 8.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 3,
-   "at": "DAUNTING",
-   "q": 0.275,
-   "g": 8.4,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-30",
    "pist": "Gulfstream",
@@ -423,6 +378,51 @@
    "at": "FRANCOPHONE",
    "q": 0.053,
    "g": 24.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 8,
+   "at": "BISCAYSIAN",
+   "q": 0.104,
+   "g": 22.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 8,
+   "at": "HIGHLAND FROST",
+   "q": 0.075,
+   "g": 22.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 8,
+   "at": "ARLECCHINO'S MOON",
+   "q": 0.092,
+   "g": 15.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 8,
+   "at": "MAGICAL LIFE",
+   "q": 0.092,
+   "g": 19.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 8,
+   "at": "WELLS FARGOS ENVOY",
+   "q": 0.055,
+   "g": 35.85,
    "kazandi": false
   }
  ]
