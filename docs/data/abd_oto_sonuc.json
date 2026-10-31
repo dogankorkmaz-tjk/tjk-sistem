@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 18:20 UTC",
- "kayitli_kosu": 1232,
- "eslesmeyen_kosu": 849,
+ "uretim": "2026-10-31 18:23 UTC",
+ "kayitli_kosu": 1234,
+ "eslesmeyen_kosu": 850,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 647,
- "kosu": 383,
+ "bahis": 650,
+ "kosu": 384,
  "isabet": 43,
- "roi": 0.999,
+ "roi": 0.994,
  "ga95": [
-  0.676,
-  1.337
+  0.672,
+  1.335
  ],
  "ulke": {
   "abd": {
-   "bahis": 407,
-   "roi": 0.824
+   "bahis": 410,
+   "roi": 0.818
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 778,
-  "kosu": 375,
+  "kosu": 376,
   "isabet": 80,
   "roi": 0.707,
   "ga95": [
@@ -46,7 +46,7 @@
  },
  "bahis_t1": {
   "bahis": 809,
-  "kosu": 369,
+  "kosu": 370,
   "isabet": 84,
   "roi": 0.767,
   "ga95": [
@@ -56,7 +56,7 @@
  },
  "bahis_t3": {
   "bahis": 800,
-  "kosu": 358,
+  "kosu": 359,
   "isabet": 89,
   "roi": 0.703,
   "ga95": [
@@ -65,33 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "SCOMMESSA SICURA",
-   "q": 0.025,
-   "g": 89.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Newmarket",
-   "kosu": 8,
-   "at": "I KNOW YOU BY NOW",
-   "q": 0.146,
-   "g": 25.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Newmarket",
-   "kosu": 8,
-   "at": "LIVORNO",
-   "q": 0.067,
-   "g": 60.2,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Santa Anita",
@@ -252,6 +225,33 @@
    "at": "FREEDOM STREET",
    "q": 0.12,
    "g": 16.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "CHANCE TO PARTY",
+   "q": 0.07,
+   "g": 23.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "TAKE CHARGE BOO",
+   "q": 0.083,
+   "g": 27.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 5,
+   "at": "TIZASWEETLADY",
+   "q": 0.083,
+   "g": 23.2,
    "kazandi": false
   },
   {
