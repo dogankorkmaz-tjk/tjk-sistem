@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 19:15 UTC",
- "kayitli_kosu": 1241,
- "eslesmeyen_kosu": 855,
+ "uretim": "2026-10-31 20:01 UTC",
+ "kayitli_kosu": 1249,
+ "eslesmeyen_kosu": 860,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 653,
- "kosu": 386,
- "isabet": 43,
- "roi": 0.99,
+ "bahis": 657,
+ "kosu": 389,
+ "isabet": 44,
+ "roi": 1.012,
  "ga95": [
-  0.668,
-  1.33
+  0.698,
+  1.343
  ],
  "ulke": {
   "abd": {
-   "bahis": 413,
-   "roi": 0.812
+   "bahis": 417,
+   "roi": 0.849
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 781,
-  "kosu": 378,
+  "bahis": 784,
+  "kosu": 381,
   "isabet": 80,
-  "roi": 0.704,
+  "roi": 0.701,
   "ga95": [
-   0.506,
-   0.901
+   0.504,
+   0.899
   ]
  },
  "bahis_t1": {
-  "bahis": 814,
-  "kosu": 372,
+  "bahis": 816,
+  "kosu": 375,
   "isabet": 84,
-  "roi": 0.763,
+  "roi": 0.761,
   "ga95": [
-   0.487,
-   1.054
+   0.486,
+   1.053
   ]
  },
  "bahis_t3": {
-  "bahis": 805,
-  "kosu": 361,
+  "bahis": 806,
+  "kosu": 364,
   "isabet": 89,
-  "roi": 0.699,
+  "roi": 0.698,
   "ga95": [
    0.444,
    1.003
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Santa Anita",
-   "kosu": 5,
-   "at": "TRIPLE DIAMONDS",
-   "q": 0.111,
-   "g": 20.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "MERIDIAN MAE",
-   "q": 0.037,
-   "g": 33.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "MASTER FREUD",
-   "q": 0.049,
-   "g": 26.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "GAYNOR",
-   "q": 0.071,
-   "g": 31.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Belmont Park",
@@ -171,6 +135,15 @@
    "at": "CRITERIA",
    "q": 0.121,
    "g": 10.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 8,
+   "at": "SHARE THE LUDT",
+   "q": 0.083,
+   "g": 18.2,
    "kazandi": false
   },
   {
@@ -252,6 +225,15 @@
    "at": "TIZASWEETLADY",
    "q": 0.083,
    "g": 23.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 7,
+   "at": "SUSHI PARTY",
+   "q": 0.361,
+   "g": 4.25,
    "kazandi": false
   },
   {
@@ -424,6 +406,24 @@
    "q": 0.055,
    "g": 35.85,
    "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 1,
+   "at": "ZOMBO BOMBO",
+   "q": 0.053,
+   "g": 23.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 1,
+   "at": "IMA TRACK STAR",
+   "q": 0.121,
+   "g": 18.4,
+   "kazandi": true
   }
  ]
 }
