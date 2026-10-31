@@ -130,7 +130,9 @@ def bayrak_guncelle(obj, kapanis_dk=-1.5, pencere_dk=30.0, simdi=None, yaz=True)
                 if not an or an[-1].get("dk") is None or an[-1]["dk"] - dk > 10: continue
                 son = an[-1]; at = [a for a in k["atlar"] if not a.get("kosmaz")]
                 g = {a["no"]: son["g"].get(str(a["no"])) for a in at}
-                if len(at) < 5 or sum(1 for v in g.values() if v and v > 0) < len(at) - 1: continue
+                _eksik = [no for no, v in g.items() if not (v and v > 0)]
+                _acik_none = all((str(no) in son["g"] and son["g"][str(no)] is None) for no in _eksik)   # TJK'nın açıkça boş bıraktığı (koşmaz) atlar sayılmaz (31 Ekim 2026: Ankara 1'de 2 boş at bayrağı engelliyordu)
+                if len(at) < 5 or (len(_eksik) > 1 and not _acik_none) or len(at) - len(_eksik) < 5: continue
                 inv = {no: 1 / v for no, v in g.items() if v and v > 0}; z = sum(inv.values())
                 bay = []
                 for no, v in g.items():
