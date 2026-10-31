@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 17:35 UTC",
- "kayitli_kosu": 1226,
- "eslesmeyen_kosu": 845,
+ "uretim": "2026-10-31 17:39 UTC",
+ "kayitli_kosu": 1229,
+ "eslesmeyen_kosu": 847,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 640,
- "kosu": 381,
+ "bahis": 641,
+ "kosu": 382,
  "isabet": 42,
- "roi": 0.987,
+ "roi": 0.985,
  "ga95": [
-  0.658,
-  1.335
+  0.657,
+  1.332
  ],
  "ulke": {
   "abd": {
-   "bahis": 400,
-   "roi": 0.802
+   "bahis": 401,
+   "roi": 0.8
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 771,
-  "kosu": 373,
+  "bahis": 772,
+  "kosu": 374,
   "isabet": 80,
-  "roi": 0.713,
+  "roi": 0.712,
   "ga95": [
-   0.515,
-   0.908
+   0.514,
+   0.907
   ]
  },
  "bahis_t1": {
-  "bahis": 802,
-  "kosu": 367,
+  "bahis": 803,
+  "kosu": 368,
   "isabet": 84,
-  "roi": 0.774,
+  "roi": 0.773,
   "ga95": [
-   0.502,
-   1.064
+   0.501,
+   1.063
   ]
  },
  "bahis_t3": {
-  "bahis": 793,
-  "kosu": 356,
+  "bahis": 795,
+  "kosu": 357,
   "isabet": 89,
-  "roi": 0.71,
+  "roi": 0.708,
   "ga95": [
-   0.457,
-   1.02
+   0.454,
+   1.015
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "DEL MAR SUNRISE",
-   "q": 0.095,
-   "g": 15.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Gulfstream",
@@ -198,6 +189,15 @@
    "at": "MERIDIAN MAE",
    "q": 0.037,
    "g": 33.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "MASTER FREUD",
+   "q": 0.049,
+   "g": 26.6,
    "kazandi": false
   },
   {
