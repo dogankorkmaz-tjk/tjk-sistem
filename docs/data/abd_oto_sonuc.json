@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 16:23 UTC",
- "kayitli_kosu": 1212,
- "eslesmeyen_kosu": 835,
+ "uretim": "2026-10-31 17:03 UTC",
+ "kayitli_kosu": 1220,
+ "eslesmeyen_kosu": 842,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 634,
- "kosu": 377,
- "isabet": 41,
- "roi": 0.978,
+ "bahis": 639,
+ "kosu": 378,
+ "isabet": 42,
+ "roi": 0.989,
  "ga95": [
-  0.64,
-  1.329
+  0.661,
+  1.335
  ],
  "ulke": {
   "abd": {
-   "bahis": 394,
-   "roi": 0.785
+   "bahis": 399,
+   "roi": 0.804
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 769,
-  "kosu": 369,
+  "kosu": 370,
   "isabet": 80,
   "roi": 0.715,
   "ga95": [
@@ -46,7 +46,7 @@
  },
  "bahis_t1": {
   "bahis": 799,
-  "kosu": 363,
+  "kosu": 364,
   "isabet": 84,
   "roi": 0.777,
   "ga95": [
@@ -56,7 +56,7 @@
  },
  "bahis_t3": {
   "bahis": 788,
-  "kosu": 352,
+  "kosu": 353,
   "isabet": 89,
   "roi": 0.714,
   "ga95": [
@@ -65,51 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "EL MUHEET",
-   "q": 0.157,
-   "g": 13.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "VALIANT WINTER",
-   "q": 0.071,
-   "g": 52.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "LOVE HATE",
-   "q": 0.049,
-   "g": 43.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "SANTAL",
-   "q": 0.071,
-   "g": 18.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "TELL ME SOME LIES",
-   "q": 0.284,
-   "g": 4.7,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-30",
    "pist": "Gulfstream",
@@ -261,6 +216,51 @@
    "at": "SAVE OUR SOUL",
    "q": 0.083,
    "g": 32.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 2,
+   "at": "GOLDEN AMBITION",
+   "q": 0.153,
+   "g": 19.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 2,
+   "at": "EMERGING LEADER",
+   "q": 0.168,
+   "g": 11.4,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 2,
+   "at": "VALUE INTHE CLOUDS",
+   "q": 0.04,
+   "g": 34.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 2,
+   "at": "KY'S LAW",
+   "q": 0.077,
+   "g": 36.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Gulfstream",
+   "kosu": 2,
+   "at": "FREEDOM STREET",
+   "q": 0.12,
+   "g": 16.55,
    "kazandi": false
   },
   {
