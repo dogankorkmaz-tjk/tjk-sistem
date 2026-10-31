@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-31 12:50 UTC",
- "kayitli_kosu": 1176,
- "eslesmeyen_kosu": 804,
+ "uretim": "2026-10-31 13:37 UTC",
+ "kayitli_kosu": 1179,
+ "eslesmeyen_kosu": 806,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 622,
- "kosu": 372,
+ "bahis": 624,
+ "kosu": 373,
  "isabet": 41,
- "roi": 0.997,
+ "roi": 0.994,
  "ga95": [
-  0.66,
-  1.348
+  0.657,
+  1.343
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.787
   },
   "birlesik-krallik": {
-   "bahis": 105,
-   "roi": 1.709
+   "bahis": 107,
+   "roi": 1.677
   },
   "fransa": {
    "bahis": 47,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 746,
-  "kosu": 364,
+  "bahis": 758,
+  "kosu": 365,
   "isabet": 79,
-  "roi": 0.732,
+  "roi": 0.72,
   "ga95": [
-   0.537,
-   0.925
+   0.524,
+   0.916
   ]
  },
  "bahis_t1": {
-  "bahis": 775,
-  "kosu": 358,
+  "bahis": 787,
+  "kosu": 359,
   "isabet": 83,
-  "roi": 0.796,
+  "roi": 0.784,
   "ga95": [
-   0.523,
-   1.103
+   0.509,
+   1.08
   ]
  },
  "bahis_t3": {
-  "bahis": 769,
-  "kosu": 348,
+  "bahis": 781,
+  "kosu": 349,
   "isabet": 88,
-  "roi": 0.727,
+  "roi": 0.716,
   "ga95": [
-   0.473,
-   1.05
+   0.461,
+   1.032
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "GIZMO'S B F F",
-   "q": 0.072,
-   "g": 19.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Belmont Park",
-   "kosu": 4,
-   "at": "BUZZER BEATER",
-   "q": 0.132,
-   "g": 32.65,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Belmont Park",
@@ -423,6 +405,24 @@
    "at": "TWITCHING",
    "q": 0.048,
    "g": 29.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 4,
+   "at": "GOD OF WAR",
+   "q": 0.071,
+   "g": 20.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 4,
+   "at": "RAINBOW NEBULA",
+   "q": 0.023,
+   "g": 57.6,
    "kazandi": false
   }
  ]
