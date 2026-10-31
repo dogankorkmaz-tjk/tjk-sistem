@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 17:06 UTC",
- "kayitli_kosu": 1222,
- "eslesmeyen_kosu": 843,
+ "uretim": "2026-10-31 17:35 UTC",
+ "kayitli_kosu": 1226,
+ "eslesmeyen_kosu": 845,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 639,
- "kosu": 379,
+ "bahis": 640,
+ "kosu": 381,
  "isabet": 42,
- "roi": 0.989,
+ "roi": 0.987,
  "ga95": [
-  0.661,
+  0.658,
   1.335
  ],
  "ulke": {
   "abd": {
-   "bahis": 399,
-   "roi": 0.804
+   "bahis": 400,
+   "roi": 0.802
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 769,
-  "kosu": 371,
+  "bahis": 771,
+  "kosu": 373,
   "isabet": 80,
-  "roi": 0.715,
+  "roi": 0.713,
   "ga95": [
-   0.518,
+   0.515,
    0.908
   ]
  },
  "bahis_t1": {
-  "bahis": 800,
-  "kosu": 365,
+  "bahis": 802,
+  "kosu": 367,
   "isabet": 84,
-  "roi": 0.776,
+  "roi": 0.774,
   "ga95": [
-   0.504,
-   1.067
+   0.502,
+   1.064
   ]
  },
  "bahis_t3": {
-  "bahis": 790,
-  "kosu": 354,
+  "bahis": 793,
+  "kosu": 356,
   "isabet": 89,
-  "roi": 0.712,
+  "roi": 0.71,
   "ga95": [
-   0.46,
-   1.024
+   0.457,
+   1.02
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "LADY RIVER LILY",
-   "q": 0.155,
-   "g": 9.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Gulfstream",
@@ -261,6 +252,15 @@
    "at": "FREEDOM STREET",
    "q": 0.12,
    "g": 16.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 4,
+   "at": "EXPLORA",
+   "q": 0.16,
+   "g": 9.0,
    "kazandi": false
   },
   {
