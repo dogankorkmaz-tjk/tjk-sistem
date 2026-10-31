@@ -1,11 +1,11 @@
 {
- "uretim": "2026-10-31 20:01 UTC",
+ "uretim": "2026-10-31 20:04 UTC",
  "kayitli_kosu": 1249,
- "eslesmeyen_kosu": 860,
+ "eslesmeyen_kosu": 859,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
  "bahis": 657,
- "kosu": 389,
+ "kosu": 390,
  "isabet": 44,
  "roi": 1.012,
  "ga95": [
@@ -35,33 +35,33 @@
   }
  },
  "bahis_ani": {
-  "bahis": 784,
-  "kosu": 381,
+  "bahis": 788,
+  "kosu": 382,
   "isabet": 80,
-  "roi": 0.701,
+  "roi": 0.698,
   "ga95": [
-   0.504,
-   0.899
+   0.5,
+   0.898
   ]
  },
  "bahis_t1": {
-  "bahis": 816,
-  "kosu": 375,
+  "bahis": 820,
+  "kosu": 376,
   "isabet": 84,
-  "roi": 0.761,
+  "roi": 0.757,
   "ga95": [
-   0.486,
-   1.053
+   0.482,
+   1.052
   ]
  },
  "bahis_t3": {
-  "bahis": 806,
-  "kosu": 364,
+  "bahis": 810,
+  "kosu": 365,
   "isabet": 89,
-  "roi": 0.698,
+  "roi": 0.695,
   "ga95": [
-   0.444,
-   1.003
+   0.44,
+   0.999
   ]
  },
  "bahisler": [
