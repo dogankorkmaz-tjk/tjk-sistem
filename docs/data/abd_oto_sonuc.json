@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-31 12:01 UTC",
- "kayitli_kosu": 1171,
- "eslesmeyen_kosu": 801,
+ "uretim": "2026-10-31 12:42 UTC",
+ "kayitli_kosu": 1174,
+ "eslesmeyen_kosu": 803,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 615,
- "kosu": 370,
+ "bahis": 616,
+ "kosu": 371,
  "isabet": 41,
- "roi": 1.009,
+ "roi": 1.007,
  "ga95": [
-  0.669,
-  1.382
+  0.667,
+  1.36
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.787
   },
   "birlesik-krallik": {
-   "bahis": 98,
-   "roi": 1.831
+   "bahis": 99,
+   "roi": 1.813
   },
   "fransa": {
    "bahis": 47,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 736,
-  "kosu": 362,
+  "bahis": 738,
+  "kosu": 363,
   "isabet": 79,
-  "roi": 0.742,
+  "roi": 0.74,
   "ga95": [
-   0.553,
-   0.935
+   0.548,
+   0.936
   ]
  },
  "bahis_t1": {
-  "bahis": 765,
-  "kosu": 356,
+  "bahis": 767,
+  "kosu": 357,
   "isabet": 83,
-  "roi": 0.807,
+  "roi": 0.805,
   "ga95": [
-   0.54,
-   1.102
+   0.531,
+   1.113
   ]
  },
  "bahis_t3": {
-  "bahis": 763,
-  "kosu": 346,
+  "bahis": 765,
+  "kosu": 347,
   "isabet": 88,
-  "roi": 0.733,
+  "roi": 0.731,
   "ga95": [
-   0.478,
-   1.049
+   0.476,
+   1.059
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 6,
-   "at": "BOAT'S A ROCKIN",
-   "q": 0.13,
-   "g": 9.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-29",
    "pist": "Laurel Park",
@@ -423,6 +414,15 @@
    "at": "MERIDIAN MAE",
    "q": 0.037,
    "g": 33.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 2,
+   "at": "STAR CHORUS",
+   "q": 0.15,
+   "g": 9.8,
    "kazandi": false
   }
  ]
