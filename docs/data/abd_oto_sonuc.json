@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 20:04 UTC",
- "kayitli_kosu": 1249,
- "eslesmeyen_kosu": 859,
+ "uretim": "2026-10-31 20:31 UTC",
+ "kayitli_kosu": 1256,
+ "eslesmeyen_kosu": 864,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 657,
- "kosu": 390,
- "isabet": 44,
- "roi": 1.012,
+ "bahis": 660,
+ "kosu": 392,
+ "isabet": 45,
+ "roi": 1.016,
  "ga95": [
-  0.698,
-  1.343
+  0.705,
+  1.346
  ],
  "ulke": {
   "abd": {
-   "bahis": 417,
-   "roi": 0.849
+   "bahis": 420,
+   "roi": 0.857
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 788,
-  "kosu": 382,
+  "bahis": 789,
+  "kosu": 384,
   "isabet": 80,
-  "roi": 0.698,
+  "roi": 0.697,
   "ga95": [
-   0.5,
+   0.498,
    0.898
   ]
  },
  "bahis_t1": {
-  "bahis": 820,
-  "kosu": 376,
+  "bahis": 821,
+  "kosu": 378,
   "isabet": 84,
-  "roi": 0.757,
+  "roi": 0.756,
   "ga95": [
-   0.482,
-   1.052
+   0.481,
+   1.051
   ]
  },
  "bahis_t3": {
-  "bahis": 810,
-  "kosu": 365,
-  "isabet": 89,
-  "roi": 0.695,
+  "bahis": 813,
+  "kosu": 367,
+  "isabet": 90,
+  "roi": 0.699,
   "ga95": [
-   0.44,
-   0.999
+   0.448,
+   1.001
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "MIRACLE MICHAEL",
-   "q": 0.086,
-   "g": 14.7,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "A LOT OF GOLD",
-   "q": 0.048,
-   "g": 30.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "UNSPOKEN",
-   "q": 0.06,
-   "g": 26.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Belmont Park",
@@ -423,6 +396,33 @@
    "at": "IMA TRACK STAR",
    "q": 0.121,
    "g": 18.4,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 2,
+   "at": "LUCILLE B",
+   "q": 0.061,
+   "g": 30.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 2,
+   "at": "NINETEEN FORTY TWO",
+   "q": 0.113,
+   "g": 17.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 2,
+   "at": "D'YQUEM",
+   "q": 0.328,
+   "g": 5.85,
    "kazandi": true
   }
  ]
