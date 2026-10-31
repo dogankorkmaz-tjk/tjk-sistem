@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 18:23 UTC",
- "kayitli_kosu": 1234,
- "eslesmeyen_kosu": 850,
+ "uretim": "2026-10-31 19:08 UTC",
+ "kayitli_kosu": 1241,
+ "eslesmeyen_kosu": 855,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 650,
- "kosu": 384,
+ "bahis": 653,
+ "kosu": 386,
  "isabet": 43,
- "roi": 0.994,
+ "roi": 0.99,
  "ga95": [
-  0.672,
-  1.335
+  0.668,
+  1.33
  ],
  "ulke": {
   "abd": {
-   "bahis": 410,
-   "roi": 0.818
+   "bahis": 413,
+   "roi": 0.812
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 778,
-  "kosu": 376,
+  "bahis": 781,
+  "kosu": 378,
   "isabet": 80,
-  "roi": 0.707,
+  "roi": 0.704,
   "ga95": [
-   0.509,
-   0.905
+   0.506,
+   0.901
   ]
  },
  "bahis_t1": {
-  "bahis": 809,
-  "kosu": 370,
+  "bahis": 814,
+  "kosu": 372,
   "isabet": 84,
-  "roi": 0.767,
+  "roi": 0.763,
   "ga95": [
-   0.494,
-   1.058
+   0.487,
+   1.054
   ]
  },
  "bahis_t3": {
-  "bahis": 800,
-  "kosu": 359,
+  "bahis": 805,
+  "kosu": 361,
   "isabet": 89,
-  "roi": 0.703,
+  "roi": 0.699,
   "ga95": [
-   0.448,
-   1.01
+   0.444,
+   1.003
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Santa Anita",
-   "kosu": 3,
-   "at": "TYPHOON TOMMY",
-   "q": 0.025,
-   "g": 77.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Santa Anita",
-   "kosu": 3,
-   "at": "JIMMY BLUE JEANS",
-   "q": 0.131,
-   "g": 11.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Santa Anita",
-   "kosu": 3,
-   "at": "UNPRETENTIOUS",
-   "q": 0.112,
-   "g": 15.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Santa Anita",
@@ -171,6 +144,33 @@
    "at": "THEMISTOCLES",
    "q": 0.048,
    "g": 86.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "REPENTLESS",
+   "q": 0.065,
+   "g": 26.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "OUTRUNNER",
+   "q": 0.141,
+   "g": 12.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 7,
+   "at": "CRITERIA",
+   "q": 0.121,
+   "g": 10.6,
    "kazandi": false
   },
   {
