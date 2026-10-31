@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-30 22:05 UTC",
- "kayitli_kosu": 1145,
- "eslesmeyen_kosu": 778,
+ "uretim": "2026-10-31 07:08 UTC",
+ "kayitli_kosu": 1162,
+ "eslesmeyen_kosu": 792,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 613,
- "kosu": 367,
+ "bahis": 615,
+ "kosu": 370,
  "isabet": 41,
- "roi": 1.012,
+ "roi": 1.009,
  "ga95": [
-  0.674,
-  1.383
+  0.669,
+  1.382
  ],
  "ulke": {
   "abd": {
-   "bahis": 391,
-   "roi": 0.791
+   "bahis": 393,
+   "roi": 0.787
   },
   "birlesik-krallik": {
    "bahis": 98,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 732,
-  "kosu": 359,
+  "bahis": 736,
+  "kosu": 362,
   "isabet": 79,
-  "roi": 0.746,
+  "roi": 0.742,
   "ga95": [
-   0.556,
-   0.939
+   0.553,
+   0.935
   ]
  },
  "bahis_t1": {
-  "bahis": 762,
-  "kosu": 353,
+  "bahis": 765,
+  "kosu": 356,
   "isabet": 83,
-  "roi": 0.81,
+  "roi": 0.807,
   "ga95": [
-   0.544,
-   1.104
+   0.54,
+   1.102
   ]
  },
  "bahis_t3": {
-  "bahis": 760,
-  "kosu": 343,
+  "bahis": 763,
+  "kosu": 346,
   "isabet": 88,
-  "roi": 0.735,
+  "roi": 0.733,
   "ga95": [
-   0.479,
-   1.052
+   0.478,
+   1.049
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 6,
-   "at": "A G DIAMOND",
-   "q": 0.049,
-   "g": 31.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-29",
-   "pist": "Laurel Park",
-   "kosu": 6,
-   "at": "DAUFUSKIE ISLAND",
-   "q": 0.025,
-   "g": 64.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-29",
    "pist": "Laurel Park",
@@ -423,6 +405,24 @@
    "at": "UNPRETENTIOUS",
    "q": 0.112,
    "g": 15.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Santa Anita",
+   "kosu": 5,
+   "at": "TRIPLE DIAMONDS",
+   "q": 0.111,
+   "g": 20.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-30",
+   "pist": "Santa Anita",
+   "kosu": 8,
+   "at": "MERIDIAN MAE",
+   "q": 0.037,
+   "g": 33.4,
    "kazandi": false
   }
  ]
