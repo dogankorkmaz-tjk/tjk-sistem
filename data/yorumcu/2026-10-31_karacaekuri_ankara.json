@@ -2,7 +2,7 @@
  "tarih": "2026-10-31",
  "hipodrom": "ankara",
  "kaynak": "karacaekürisi YouTube (Ankara)",
- "not": "YouTube kanalı 'karacaekürisi' önerileri, Doğan'ın not defteri (ekran görüntüsü 11:00 TR, yarışlardan önce). '/' öncesi öncelikli, sonrası isteğe bağlı; '-' aynı grup. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. 4. koşuda '3-4-6-11-5' tek grup olarak yazıldı (5 sonradan eklenmiş olabilir). Satır sırası = koşu 1..10.",
+ "not": "YouTube kanalı 'karacaekürisi' önerileri, Doğan'ın not defteri (ekran görüntüsü 11:00 TR, yarışlardan önce). Doğan'ın açıklaması (11:02): atlar SOLDAN SAĞA şanslı gördüğünden daha az şanslıya doğru SIRALI yazılmış (ilk at = ilk tercih/favori). '/' sonrası = kupona isteğe bağlı eklenecek atlar. '-' ile ayrılanlar sıralı devam eder. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız.",
  "kosular": {
   "1": [
    3,
@@ -154,5 +154,41 @@
   "8": "7/13",
   "9": "6-3-9-8",
   "10": "2-3-1"
+ },
+ "sirali": true,
+ "ilk_tercih": {
+  "1": 3,
+  "2": 1,
+  "3": 1,
+  "4": 3,
+  "5": 1,
+  "6": 1,
+  "7": 10,
+  "8": 7,
+  "9": 6,
+  "10": 2
+ },
+ "istege_bagli": {
+  "1": [
+   6
+  ],
+  "2": [],
+  "3": [
+   2,
+   4
+  ],
+  "4": [],
+  "5": [
+   8
+  ],
+  "6": [],
+  "7": [
+   11
+  ],
+  "8": [
+   13
+  ],
+  "9": [],
+  "10": []
  }
 }

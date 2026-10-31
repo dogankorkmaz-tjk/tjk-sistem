@@ -32,6 +32,8 @@ def main(tarihler):
                 if w is None: continue
                 kk = len(nolar); at = [a for a in k["atlar"] if not a.get("kosmaz")]
                 R.setdefault(ad, []).append((w in nolar, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z4", kk), kk / len(at)))
+                if Y.get("sirali") and nolar:                       # sıralı kaynak (soldan sağa tercih sırası): ilk tercih ayrıca puanlanır (31 Ekim 2026)
+                    R.setdefault(ad[:24] + " [ilk tercih]", []).append((w == nolar[0], 1, w in ilk_k(k, "agf", 1), w in ilk_k(k, "z4", 1), 1 / len(at)))
         fo = os.path.join(KOK, "data", "yorumcu", "otomatik", t + ".json")
         if os.path.exists(fo):
             D = json.load(open(fo, encoding="utf-8"))
