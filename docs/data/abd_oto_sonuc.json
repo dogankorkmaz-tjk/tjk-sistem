@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 17:39 UTC",
- "kayitli_kosu": 1229,
- "eslesmeyen_kosu": 847,
+ "uretim": "2026-10-31 18:20 UTC",
+ "kayitli_kosu": 1232,
+ "eslesmeyen_kosu": 849,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 641,
- "kosu": 382,
- "isabet": 42,
- "roi": 0.985,
+ "bahis": 647,
+ "kosu": 383,
+ "isabet": 43,
+ "roi": 0.999,
  "ga95": [
-  0.657,
-  1.332
+  0.676,
+  1.337
  ],
  "ulke": {
   "abd": {
-   "bahis": 401,
-   "roi": 0.8
+   "bahis": 407,
+   "roi": 0.824
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 772,
-  "kosu": 374,
+  "bahis": 778,
+  "kosu": 375,
   "isabet": 80,
-  "roi": 0.712,
+  "roi": 0.707,
   "ga95": [
-   0.514,
-   0.907
+   0.509,
+   0.905
   ]
  },
  "bahis_t1": {
-  "bahis": 803,
-  "kosu": 368,
+  "bahis": 809,
+  "kosu": 369,
   "isabet": 84,
-  "roi": 0.773,
+  "roi": 0.767,
   "ga95": [
-   0.501,
-   1.063
+   0.494,
+   1.058
   ]
  },
  "bahis_t3": {
-  "bahis": 795,
-  "kosu": 357,
+  "bahis": 800,
+  "kosu": 358,
   "isabet": 89,
-  "roi": 0.708,
+  "roi": 0.703,
   "ga95": [
-   0.454,
-   1.015
+   0.448,
+   1.01
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Gulfstream",
-   "kosu": 9,
-   "at": "ALL TO WIN",
-   "q": 0.222,
-   "g": 7.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Keeneland",
-   "kosu": 2,
-   "at": "AT FULL SAIL",
-   "q": 0.053,
-   "g": 32.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Keeneland",
-   "kosu": 2,
-   "at": "MAXIMUM CAPITAL",
-   "q": 0.04,
-   "g": 43.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "FUSTA",
-   "q": 0.093,
-   "g": 13.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Keeneland",
-   "kosu": 5,
-   "at": "TAKE A PICTURE",
-   "q": 0.109,
-   "g": 14.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Keeneland",
-   "kosu": 8,
-   "at": "ALWAYSANANGEL",
-   "q": 0.048,
-   "g": 27.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Keeneland",
@@ -198,6 +144,60 @@
    "at": "MASTER FREUD",
    "q": 0.049,
    "g": 26.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "GAYNOR",
+   "q": 0.071,
+   "g": 31.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "MIRACLE MICHAEL",
+   "q": 0.086,
+   "g": 14.7,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "A LOT OF GOLD",
+   "q": 0.048,
+   "g": 30.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "UNSPOKEN",
+   "q": 0.06,
+   "g": 26.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "ARINATO",
+   "q": 0.129,
+   "g": 11.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "THEMISTOCLES",
+   "q": 0.048,
+   "g": 86.15,
    "kazandi": false
   },
   {
