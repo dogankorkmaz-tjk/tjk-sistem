@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 20:34 UTC",
- "kayitli_kosu": 1256,
- "eslesmeyen_kosu": 862,
+ "uretim": "2026-10-31 21:31 UTC",
+ "kayitli_kosu": 1262,
+ "eslesmeyen_kosu": 866,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 667,
- "kosu": 394,
+ "bahis": 668,
+ "kosu": 396,
  "isabet": 45,
- "roi": 1.005,
+ "roi": 1.004,
  "ga95": [
-  0.696,
-  1.336
+  0.695,
+  1.335
  ],
  "ulke": {
   "abd": {
-   "bahis": 427,
-   "roi": 0.843
+   "bahis": 428,
+   "roi": 0.841
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 797,
-  "kosu": 386,
+  "bahis": 801,
+  "kosu": 388,
   "isabet": 80,
-  "roi": 0.69,
+  "roi": 0.686,
   "ga95": [
-   0.485,
-   0.895
+   0.482,
+   0.894
   ]
  },
  "bahis_t1": {
-  "bahis": 825,
-  "kosu": 380,
+  "bahis": 829,
+  "kosu": 382,
   "isabet": 85,
-  "roi": 0.757,
+  "roi": 0.753,
   "ga95": [
-   0.484,
+   0.481,
    1.051
   ]
  },
  "bahis_t3": {
-  "bahis": 820,
-  "kosu": 369,
+  "bahis": 824,
+  "kosu": 371,
   "isabet": 90,
-  "roi": 0.693,
+  "roi": 0.69,
   "ga95": [
-   0.443,
-   0.996
+   0.439,
+   0.995
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Gulfstream",
-   "kosu": 2,
-   "at": "GOLDEN AMBITION",
-   "q": 0.153,
-   "g": 19.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Gulfstream",
@@ -424,6 +415,15 @@
    "q": 0.328,
    "g": 5.85,
    "kazandi": true
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 3,
+   "at": "GOLDEN CLUB",
+   "q": 0.131,
+   "g": 10.55,
+   "kazandi": false
   }
  ]
 }
