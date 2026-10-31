@@ -1325,6 +1325,13 @@ def main():
     elif mod == "abdcanli":
         from . import yabanci as YB
         YB.abd_canli()
+        try:                                         # 31 Ekim 2026: yurtiçi canlı muhtemel + süpriz bayrağı da bu hafif döngüde (ana çalışma 11-15 dk sürüyor, bayrak yarışa 4 dk kala çıkıyordu)
+            from . import muhtemeller as _MH, supriz as _SP
+            _MH.topla(None, pencere_dk=30, yalniz_yurtdisi=False)
+            _ob = json.load(open(os.path.join(KOK, "docs", "data", "bugun.json"), encoding="utf-8"))
+            print("süpriz bayrak (hafif döngü):", _SP.bayrak_guncelle(_ob))
+        except Exception as _e:
+            print("yurtiçi canlı hata:", repr(_e))
     elif mod == "sayfaprobe":
         from . import yabanci as YB
         YB.sayfa_probe()

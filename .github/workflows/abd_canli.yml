@@ -35,7 +35,7 @@ jobs:
           for i in $(seq 1 $N); do
             BAS=$(date +%s)
             python -m tjk.calistir abdcanli || true
-            git add -A docs/data/abd.json docs/data/muh_canli.json docs/data/ga.json data/yabanci_ham/sl_canli_ornek.json data/abd_oto data/muh
+            git add -A docs/data/abd.json docs/data/muh_canli.json docs/data/ga.json data/yabanci_ham/sl_canli_ornek.json data/abd_oto data/muh docs/data/supriz_canli.json data/supriz/canli
             git add -A data/muh_geri.txt 2>/dev/null || true
             if ! git diff --cached --quiet; then
               git commit -q -m "ABD canlı oranlar $(date -u '+%H:%M') UTC"
