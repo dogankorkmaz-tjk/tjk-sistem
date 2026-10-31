@@ -1,16 +1,16 @@
 {
- "uretim": "2026-10-31 13:39 UTC",
- "kayitli_kosu": 1179,
- "eslesmeyen_kosu": 806,
+ "uretim": "2026-10-31 14:22 UTC",
+ "kayitli_kosu": 1185,
+ "eslesmeyen_kosu": 811,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 624,
- "kosu": 373,
+ "bahis": 626,
+ "kosu": 374,
  "isabet": 41,
- "roi": 0.994,
+ "roi": 0.991,
  "ga95": [
-  0.657,
-  1.343
+  0.655,
+  1.338
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.787
   },
   "birlesik-krallik": {
-   "bahis": 107,
-   "roi": 1.677
+   "bahis": 109,
+   "roi": 1.646
   },
   "fransa": {
    "bahis": 47,
@@ -35,23 +35,23 @@
   }
  },
  "bahis_ani": {
-  "bahis": 758,
-  "kosu": 365,
+  "bahis": 761,
+  "kosu": 366,
   "isabet": 79,
-  "roi": 0.72,
+  "roi": 0.717,
   "ga95": [
-   0.524,
-   0.916
+   0.52,
+   0.913
   ]
  },
  "bahis_t1": {
-  "bahis": 787,
-  "kosu": 359,
+  "bahis": 792,
+  "kosu": 360,
   "isabet": 83,
-  "roi": 0.784,
+  "roi": 0.779,
   "ga95": [
-   0.509,
-   1.08
+   0.505,
+   1.075
   ]
  },
  "bahis_t3": {
@@ -65,24 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-30",
-   "pist": "Belmont Park",
-   "kosu": 4,
-   "at": "SCOTTISH BRITTANY",
-   "q": 0.226,
-   "g": 14.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-30",
-   "pist": "Belmont Park",
-   "kosu": 4,
-   "at": "QUOTED",
-   "q": 0.144,
-   "g": 24.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-30",
    "pist": "Belmont Park",
@@ -423,6 +405,24 @@
    "at": "RAINBOW NEBULA",
    "q": 0.023,
    "g": 57.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 5,
+   "at": "GOLDEN SOUK",
+   "q": 0.11,
+   "g": 20.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Newmarket",
+   "kosu": 5,
+   "at": "MEZZO FORTE",
+   "q": 0.059,
+   "g": 31.7,
    "kazandi": false
   }
  ]
