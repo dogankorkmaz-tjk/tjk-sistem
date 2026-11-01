@@ -1,21 +1,21 @@
 {
- "uretim": "2026-10-31 22:17 UTC",
- "kayitli_kosu": 1270,
- "eslesmeyen_kosu": 870,
+ "uretim": "2026-11-01 07:14 UTC",
+ "kayitli_kosu": 1277,
+ "eslesmeyen_kosu": 875,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 675,
- "kosu": 400,
+ "bahis": 680,
+ "kosu": 402,
  "isabet": 45,
- "roi": 0.994,
+ "roi": 0.986,
  "ga95": [
-  0.685,
-  1.323
+  0.679,
+  1.317
  ],
  "ulke": {
   "abd": {
-   "bahis": 435,
-   "roi": 0.827
+   "bahis": 440,
+   "roi": 0.818
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 810,
-  "kosu": 392,
+  "bahis": 816,
+  "kosu": 394,
   "isabet": 80,
-  "roi": 0.679,
+  "roi": 0.674,
   "ga95": [
-   0.471,
+   0.464,
    0.891
   ]
  },
  "bahis_t1": {
-  "bahis": 838,
-  "kosu": 386,
+  "bahis": 840,
+  "kosu": 388,
   "isabet": 86,
-  "roi": 0.756,
+  "roi": 0.755,
   "ga95": [
-   0.49,
+   0.488,
    1.051
   ]
  },
  "bahis_t3": {
-  "bahis": 831,
-  "kosu": 375,
+  "bahis": 833,
+  "kosu": 377,
   "isabet": 91,
-  "roi": 0.695,
+  "roi": 0.694,
   "ga95": [
-   0.45,
-   0.996
+   0.449,
+   0.995
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "TAKE CHARGE BOO",
-   "q": 0.083,
-   "g": 27.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Gulfstream",
-   "kosu": 5,
-   "at": "TIZASWEETLADY",
-   "q": 0.083,
-   "g": 23.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "SUSHI PARTY",
-   "q": 0.361,
-   "g": 4.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 4,
-   "at": "EXPLORA",
-   "q": 0.16,
-   "g": 9.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "LAKE FOREST",
-   "q": 0.115,
-   "g": 14.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Keeneland",
@@ -189,6 +144,33 @@
    "at": "SURVIE",
    "q": 0.046,
    "g": 35.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 12,
+   "at": "GOLDEN TEMPO",
+   "q": 0.145,
+   "g": 15.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 12,
+   "at": "THE PUMA",
+   "q": 0.079,
+   "g": 25.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Keeneland",
+   "kosu": 12,
+   "at": "NAPOLEON SOLO",
+   "q": 0.054,
+   "g": 27.2,
    "kazandi": false
   },
   {
@@ -423,6 +405,24 @@
    "at": "WIZARD OF WESTWOOD",
    "q": 0.06,
    "g": 24.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 6,
+   "at": "HAMMERBARN",
+   "q": 0.06,
+   "g": 42.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-10-31",
+   "pist": "Santa Anita",
+   "kosu": 6,
+   "at": "HENIE IN BLACK",
+   "q": 0.049,
+   "g": 38.8,
    "kazandi": false
   }
  ]
