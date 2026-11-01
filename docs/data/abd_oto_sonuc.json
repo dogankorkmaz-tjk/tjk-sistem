@@ -1,29 +1,29 @@
 {
- "uretim": "2026-11-01 17:38 UTC",
- "kayitli_kosu": 1322,
- "eslesmeyen_kosu": 914,
+ "uretim": "2026-11-01 18:15 UTC",
+ "kayitli_kosu": 1328,
+ "eslesmeyen_kosu": 916,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 688,
- "kosu": 408,
+ "bahis": 696,
+ "kosu": 412,
  "isabet": 45,
- "roi": 0.975,
+ "roi": 0.964,
  "ga95": [
-  0.662,
-  1.33
+  0.654,
+  1.314
  ],
  "ulke": {
   "abd": {
-   "bahis": 443,
-   "roi": 0.812
+   "bahis": 450,
+   "roi": 0.799
   },
   "birlesik-krallik": {
    "bahis": 116,
    "roi": 1.547
   },
   "fransa": {
-   "bahis": 52,
-   "roi": 0.822
+   "bahis": 53,
+   "roi": 0.807
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 832,
-  "kosu": 400,
+  "bahis": 838,
+  "kosu": 404,
   "isabet": 82,
-  "roi": 0.67,
+  "roi": 0.665,
   "ga95": [
-   0.454,
-   0.878
+   0.451,
+   0.871
   ]
  },
  "bahis_t1": {
-  "bahis": 857,
-  "kosu": 394,
+  "bahis": 863,
+  "kosu": 398,
   "isabet": 88,
-  "roi": 0.749,
+  "roi": 0.744,
   "ga95": [
-   0.495,
-   1.05
+   0.493,
+   1.043
   ]
  },
  "bahis_t3": {
-  "bahis": 854,
-  "kosu": 383,
+  "bahis": 859,
+  "kosu": 387,
   "isabet": 93,
-  "roi": 0.686,
+  "roi": 0.682,
   "ga95": [
-   0.447,
-   0.998
+   0.444,
+   0.991
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 11,
-   "at": "SURVIE",
-   "q": 0.046,
-   "g": 35.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 12,
-   "at": "GOLDEN TEMPO",
-   "q": 0.145,
-   "g": 15.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 12,
-   "at": "THE PUMA",
-   "q": 0.079,
-   "g": 25.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 12,
-   "at": "NAPOLEON SOLO",
-   "q": 0.054,
-   "g": 27.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 2,
-   "at": "STAR CHORUS",
-   "q": 0.15,
-   "g": 9.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 3,
-   "at": "ASTRAL MIST",
-   "q": 0.117,
-   "g": 21.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 3,
-   "at": "GORGONZOLA",
-   "q": 0.054,
-   "g": 29.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 3,
-   "at": "HEATHER WAY",
-   "q": 0.091,
-   "g": 15.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Newmarket",
@@ -364,6 +292,60 @@
   },
   {
    "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "I'M NOT KIDDING",
+   "q": 0.037,
+   "g": 49.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "SWEET GRACE",
+   "q": 0.087,
+   "g": 15.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "PISTOLSNPEARLS",
+   "q": 0.087,
+   "g": 15.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 4,
+   "at": "HOWARD'S HOPE",
+   "q": 0.172,
+   "g": 12.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 4,
+   "at": "SOLDIER'S GLORY",
+   "q": 0.06,
+   "g": 36.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 4,
+   "at": "BILLY BUCCHERO",
+   "q": 0.06,
+   "g": 33.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
    "pist": "Gulfstream",
    "kosu": 1,
    "at": "GHOSTS LIL SECRET",
@@ -378,6 +360,15 @@
    "at": "GLACIA GLAZE",
    "q": 0.094,
    "g": 15.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Gulfstream",
+   "kosu": 2,
+   "at": "QUEEN KWAINA",
+   "q": 0.165,
+   "g": 7.65,
    "kazandi": false
   },
   {
@@ -423,6 +414,15 @@
    "at": "MODE AL MAURY",
    "q": 0.06,
    "g": 22.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Toulouse",
+   "kosu": 5,
+   "at": "DADEICOS LAER",
+   "q": 0.073,
+   "g": 17.4,
    "kazandi": false
   }
  ]
