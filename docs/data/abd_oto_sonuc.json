@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-01 17:32 UTC",
- "kayitli_kosu": 1321,
+ "uretim": "2026-11-01 17:38 UTC",
+ "kayitli_kosu": 1322,
  "eslesmeyen_kosu": 914,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 686,
- "kosu": 407,
+ "bahis": 688,
+ "kosu": 408,
  "isabet": 45,
- "roi": 0.978,
+ "roi": 0.975,
  "ga95": [
-  0.664,
-  1.332
+  0.662,
+  1.33
  ],
  "ulke": {
   "abd": {
-   "bahis": 441,
-   "roi": 0.816
+   "bahis": 443,
+   "roi": 0.812
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 826,
-  "kosu": 399,
-  "isabet": 81,
-  "roi": 0.668,
+  "bahis": 832,
+  "kosu": 400,
+  "isabet": 82,
+  "roi": 0.67,
   "ga95": [
-   0.451,
-   0.877
+   0.454,
+   0.878
   ]
  },
  "bahis_t1": {
-  "bahis": 851,
-  "kosu": 393,
-  "isabet": 87,
-  "roi": 0.747,
+  "bahis": 857,
+  "kosu": 394,
+  "isabet": 88,
+  "roi": 0.749,
   "ga95": [
-   0.493,
-   1.051
+   0.495,
+   1.05
   ]
  },
  "bahis_t3": {
-  "bahis": 848,
-  "kosu": 382,
-  "isabet": 92,
-  "roi": 0.684,
+  "bahis": 854,
+  "kosu": 383,
+  "isabet": 93,
+  "roi": 0.686,
   "ga95": [
-   0.443,
-   0.999
+   0.447,
+   0.998
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 11,
-   "at": "HOTAZHELL",
-   "q": 0.046,
-   "g": 32.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 11,
-   "at": "JOHANNA WALSH",
-   "q": 0.06,
-   "g": 25.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Keeneland",
@@ -378,6 +360,24 @@
    "at": "HORIZONTAL RAIN",
    "q": 0.194,
    "g": 6.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Gulfstream",
+   "kosu": 1,
+   "at": "GHOSTS LIL SECRET",
+   "q": 0.121,
+   "g": 14.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Gulfstream",
+   "kosu": 1,
+   "at": "GLACIA GLAZE",
+   "q": 0.094,
+   "g": 15.05,
    "kazandi": false
   },
   {
