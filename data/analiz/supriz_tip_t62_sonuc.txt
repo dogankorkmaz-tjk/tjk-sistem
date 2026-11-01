@@ -1,0 +1,80 @@
+koşu 13876 | süpriz oranı 7.9% | dönem 2024-01-01..2026-10-21 | yarı sınırı 2025-06-28
+/usr/local/lib/python3.13/dist-packages/numpy/lib/_nanfunctions_impl.py:1396: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+   boyut          duzey  n_kosu  surpriz%  fark_pp  GA_lo(Bonf)  GA_hi(Bonf)  farkA  farkB  ornuntu  yinelendi
+    alan            <=8    5724       3.7     -7.2         -8.4         -5.8   -7.6   -6.7     True       True
+hipodrom        antalya    1004       5.3     -2.8         -5.5         -0.3   -3.2   -2.1     True       True
+      yg              2    1364       5.7     -2.4         -4.6         -0.4   -4.5   -1.3     True       True
+      ay      kis(12-2)    2484       6.5     -1.7         -3.4          0.4   -2.0   -1.4    False      False
+     mes         >=2000    2811       6.8     -1.4         -2.9          0.3   -1.5   -1.3    False      False
+hipodrom          izmir    1970       6.7     -1.4         -3.5          1.0   -0.5   -2.3    False      False
+    alan           9-10    3314       7.1     -1.1         -2.8          0.9   -0.2   -1.9    False      False
+hipodrom          adana    1623       7.0     -1.1         -2.8          1.2   -1.4   -0.7    False      False
+    pist            Kum    7849       7.5     -0.9         -2.2          0.5   -0.8   -1.0    False      False
+hipodrom         ankara    1906       7.2     -0.8         -2.6          0.9   -0.5   -1.1    False      False
+    pist       Sentetik    2026       7.4     -0.6         -2.5          1.5   -0.9   -0.3    False      False
+      yg              3    5015       7.7     -0.4         -1.9          1.3   -0.7   -0.0    False      False
+hipodrom        kocaeli     799       7.6     -0.3         -3.1          3.0   -1.3    1.1    False      False
+     mes      1600-1900    3344       7.9      0.0         -1.6          1.6    0.4   -0.4    False      False
+      ay       yaz(6-8)    3736       8.1      0.2         -1.3          1.7   -0.3    0.7    False      False
+      ay     bahar(3-5)    4451       8.1      0.3         -1.2          1.9    1.2   -1.0    False      False
+     mes         <=1200    2648       8.3      0.5         -1.2          2.5   -0.5    1.5    False      False
+     mes      1300-1500    5073       8.3      0.6         -0.7          2.2    1.1    0.1    False      False
+hipodrom       istanbul    2695       8.5      0.7         -1.1          2.6    0.7    0.8    False      False
+      ay sonbahar(9-11)    3205       8.5      0.8         -0.7          2.2    0.4    1.1    False      False
+hipodrom          bursa    1819       8.7      0.9         -1.5          3.1    1.1    0.7    False      False
+hipodrom         elazig     803       8.8      1.0         -2.3          5.1    0.9    1.1    False      False
+      yg             4+    7497       8.5      1.2         -0.4          2.6    1.8    0.6    False      False
+    pist            Çim    4001       8.9      1.5         -0.2          2.9    1.6    1.3    False      False
+hipodrom     diyarbakir     337      10.7      2.8         -1.5          8.9   -1.1    6.5    False      False
+hipodrom      sanliurfa     920      11.6      4.0          1.1          7.2    5.7    2.1     True       True
+    alan          11-12    2570      11.2      4.1          2.1          6.1    4.6    3.5     True       True
+    alan           >=13    2268      16.0      9.6          7.3         12.0   10.0    9.4     True       True
+     hnd       handikap   13876       7.9      NaN          NaN          NaN    NaN    NaN    False      False
+
+ÖRÜNTÜ (Bonferroni GA 0 dışında, iki yarıda aynı yön):
+   boyut     duzey  n_kosu  surpriz%  fark_pp  GA_lo(Bonf)  GA_hi(Bonf)  farkA  farkB  ornuntu  yinelendi
+hipodrom   antalya    1004       5.3     -2.8         -5.5         -0.3   -3.2   -2.1     True       True
+hipodrom sanliurfa     920      11.6      4.0          1.1          7.2    5.7    2.1     True       True
+    alan       <=8    5724       3.7     -7.2         -8.4         -5.8   -7.6   -6.7     True       True
+    alan     11-12    2570      11.2      4.1          2.1          6.1    4.6    3.5     True       True
+    alan      >=13    2268      16.0      9.6          7.3         12.0   10.0    9.4     True       True
+      yg         2    1364       5.7     -2.4         -4.6         -0.4   -4.5   -1.3     True       True
+
+ALAN BÜYÜKLÜĞÜ KONTROLLÜ (gözlenen - at sayısına göre beklenen süpriz oranı, puan):
+   boyut          duzey  n_kosu  surpriz%  art_pp  GA_lo  GA_hi  artA  artB  yinelendi
+hipodrom        antalya    1004       5.3    -2.0   -4.1    0.5  -1.9  -2.2      False
+      ay      kis(12-2)    2484       6.5    -1.2   -2.7    0.5  -1.1  -1.3      False
+hipodrom          izmir    1970       6.7    -1.0   -2.8    1.2  -0.2  -1.7      False
+hipodrom          adana    1623       7.0    -0.8   -2.5    1.2  -0.7  -0.9      False
+    pist       Sentetik    2026       7.4    -0.6   -2.5    1.3  -0.1  -1.2      False
+      yg              3    5015       7.7    -0.3   -1.4    0.8  -0.1  -0.5      False
+     mes      1600-1900    3344       7.9    -0.2   -1.6    1.2   0.2  -0.5      False
+    pist            Kum    7849       7.5    -0.2   -1.1    0.7   0.1  -0.5      False
+hipodrom          bursa    1819       8.7    -0.2   -2.1    2.0   0.2  -0.5      False
+      ay     bahar(3-5)    4451       8.1    -0.1   -1.3    1.1   0.6  -1.4      False
+     mes      1300-1500    5073       8.3    -0.1   -1.3    1.2   0.6  -0.7      False
+     mes         >=2000    2811       6.8    -0.0   -1.4    1.5   0.2  -0.3      False
+hipodrom        kocaeli     799       7.6     0.1   -2.7    3.1  -0.5   1.0      False
+      yg             4+    7497       8.5     0.2   -0.8    1.2   0.6  -0.4      False
+      yg              2    1364       5.7     0.2   -1.8    2.1  -1.2   0.9      False
+hipodrom      sanliurfa     920      11.6     0.3   -2.8    3.5   1.8  -1.4      False
+     mes         <=1200    2648       8.3     0.4   -1.3    2.0  -0.3   1.0      False
+      ay sonbahar(9-11)    3205       8.5     0.4   -1.0    1.7   0.9   0.2      False
+hipodrom         elazig     803       8.8     0.5   -2.6    4.5   0.8   0.3      False
+      ay       yaz(6-8)    3736       8.1     0.6   -0.9    2.1   0.3   0.9      False
+hipodrom       istanbul    2695       8.5     0.7   -1.0    2.5   1.2   0.3      False
+    pist            Çim    4001       8.9     0.7   -0.6    1.9   0.8   0.6      False
+hipodrom         ankara    1906       7.2     1.2   -0.5    2.9   1.6   0.8      False
+hipodrom     diyarbakir     337      10.7     2.0   -2.6    7.7  -1.5   5.4      False
+
+ALAN KONTROLLÜ ÖRÜNTÜ:
+YOK
+
+Alan büyüklüğü x süpriz oranı:
+       size   mean
+alan              
+<=8    5724  0.037
+9-10   3314  0.071
+11-12  2570  0.112
+>=13   2268  0.160

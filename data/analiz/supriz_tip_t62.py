@@ -37,14 +37,23 @@ S['ornuntu'] = (S['GA_lo(Bonf)'] > 0) | (S['GA_hi(Bonf)'] < 0)
 S['yinelendi'] = S.ornuntu & (np.sign(S.farkA) == np.sign(S.farkB)) & (np.sign(S.farkA) == np.sign(S.fark_pp))
 pd.set_option('display.width', 200); print(S.round(1).sort_values('fark_pp').to_string(index=False))
 print('\nÖRÜNTÜ (Bonferroni GA 0 dışında, iki yarıda aynı yön):'); print(S[S.yinelendi].round(1).to_string(index=False) if S.yinelendi.any() else 'YOK')
-# lojistik regresyon: alan büyüklüğü sabit tutulur
-try:
-    import statsmodels.formula.api as smf
-    m0 = smf.logit('sur ~ n', R).fit(disp=0); m1 = smf.logit('sur ~ n + C(mes) + C(pist) + C(yg) + C(hnd) + C(ay)', R).fit(disp=0)
-    from scipy.stats import chi2
-    lr = 2 * (m1.llf - m0.llf); df = m1.df_model - m0.df_model; print(f"\nLojistik: n'ye ek (mesafe+pist+yaş+handikap+mevsim) LR={lr:.1f} df={df:.0f} p={chi2.sf(lr, df):.4g}; n katsayısı {m0.params['n']:.3f}/at (süpriz olasılığı alan büyüdükçe)")
-    for c in ['hipodrom']:
-        m2 = smf.logit('sur ~ n + C(mes) + C(pist) + C(yg) + C(hnd) + C(ay) + C(hipodrom)', R).fit(disp=0); lr2 = 2 * (m2.llf - m1.llf); df2 = m2.df_model - m1.df_model; print(f"hipodrom ek LR={lr2:.1f} df={df2:.0f} p={chi2.sf(lr2, df2):.4g}")
-except Exception as e:
-    print('regresyon yok:', repr(e))
+# alan büyüklüğü kontrolü: beklenen = at sayısına (n=5..16+) göre süpriz oranı (dolaylı standardizasyon); düzeyin gözlenen - beklenen farkı
+R['nn'] = R.n.clip(upper=16); beklenen = R.groupby('nn').sur.transform('mean'); R['art'] = R.sur - beklenen
+sat2 = []
+for col in ['hipodrom', 'mes', 'pist', 'yg', 'ay']:
+    for lv in R[col].dropna().unique():
+        m = (R[col] == lv).values
+        if m.sum() < 60: continue
+        f = R.art.values[m].mean()
+        bs = []
+        for b in B:
+            mm = m[b]; bs.append(R.art.values[b][mm].mean() if mm.sum() else np.nan)
+        lo, hi = np.nanpercentile(bs, [0.05, 99.95])
+        def y(yy):
+            sel = (R.yari.values == yy) & m; return R.art.values[sel].mean() if sel.sum() > 20 else np.nan
+        sat2.append((col, str(lv), int(m.sum()), R.sur.values[m].mean() * 100, f * 100, lo * 100, hi * 100, y('A') * 100, y('B') * 100))
+S2 = pd.DataFrame(sat2, columns=['boyut', 'duzey', 'n_kosu', 'surpriz%', 'art_pp', 'GA_lo', 'GA_hi', 'artA', 'artB'])
+S2['yinelendi'] = ((S2.GA_lo > 0) | (S2.GA_hi < 0)) & (np.sign(S2.artA) == np.sign(S2.artB)) & (np.sign(S2.artA) == np.sign(S2.art_pp))
+print('\nALAN BÜYÜKLÜĞÜ KONTROLLÜ (gözlenen - at sayısına göre beklenen süpriz oranı, puan):'); print(S2.round(1).sort_values('art_pp').to_string(index=False))
+print('\nALAN KONTROLLÜ ÖRÜNTÜ:'); print(S2[S2.yinelendi].round(1).to_string(index=False) if S2.yinelendi.any() else 'YOK')
 print('\nAlan büyüklüğü x süpriz oranı:'); print(R.groupby('alan', observed=True).sur.agg(['size', 'mean']).round(3).to_string())
