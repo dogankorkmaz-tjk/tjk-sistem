@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-01 21:28 UTC",
- "kayitli_kosu": 1356,
- "eslesmeyen_kosu": 931,
+ "uretim": "2026-11-01 21:49 UTC",
+ "kayitli_kosu": 1359,
+ "eslesmeyen_kosu": 933,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 714,
- "kosu": 425,
+ "bahis": 715,
+ "kosu": 426,
  "isabet": 46,
- "roi": 0.948,
+ "roi": 0.947,
  "ga95": [
-  0.639,
+  0.638,
   1.303
  ],
  "ulke": {
   "abd": {
-   "bahis": 466,
-   "roi": 0.785
+   "bahis": 467,
+   "roi": 0.784
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 860,
-  "kosu": 417,
+  "kosu": 418,
   "isabet": 85,
   "roi": 0.655,
   "ga95": [
@@ -46,7 +46,7 @@
  },
  "bahis_t1": {
   "bahis": 886,
-  "kosu": 411,
+  "kosu": 412,
   "isabet": 91,
   "roi": 0.731,
   "ga95": [
@@ -55,25 +55,16 @@
   ]
  },
  "bahis_t3": {
-  "bahis": 886,
-  "kosu": 400,
+  "bahis": 888,
+  "kosu": 401,
   "isabet": 99,
-  "roi": 0.679,
+  "roi": 0.677,
   "ga95": [
-   0.449,
-   0.978
+   0.448,
+   0.974
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Santa Anita",
-   "kosu": 2,
-   "at": "D'YQUEM",
-   "q": 0.328,
-   "g": 5.85,
-   "kazandi": true
-  },
   {
    "gun": "2026-10-31",
    "pist": "Santa Anita",
@@ -423,6 +414,15 @@
    "at": "JOLLEY",
    "q": 0.039,
    "g": 39.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "WELLER GREEN",
+   "q": 0.13,
+   "g": 10.2,
    "kazandi": false
   }
  ]
