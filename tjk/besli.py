@@ -316,6 +316,45 @@ def _gec_ortak(obj):
     return MI, c3, _dt.date.fromisoformat(tarih), simdi_dk, sn
 
 
+def _ekur_havuz_s(hv, a, b):
+    """T66b: ekür çifti (a,b) içi bölüşüm payı s_a, sıralı ikili/ikili havuz muhtemellerinden (ortak partnerlerin Σ1/G oranı); çıkmazsa None."""
+    G = {}
+    for key in ("si", "ik"):
+        for x, y, g in (hv.get(key) or []):
+            try:
+                G[(key, x, y)] = float(g)
+            except Exception:
+                pass
+    pt = {u for (_k, x, y) in G for u in (x, y) if u not in (a, b)}; ia = ib = 0.0; n = 0
+    for p_ in pt:
+        for key in ("si", "ik"):
+            for ka, kb in (((p_, a), (p_, b)), ((a, p_), (b, p_))):
+                ga = G.get((key,) + ka); gb = G.get((key,) + kb)
+                if ga and gb:
+                    ia += 1 / ga; ib += 1 / gb; n += 1
+    if n == 0 or ia <= 0 or ib <= 0:
+        return None
+    r = ia / ib
+    return r / (1 + r)
+
+
+def _eh_p(at, p, hv):
+    """Ekür-havuz gölge kolu (T66b): tam iki atlı ekür gruplarında çift toplamı korunur, bölüşüm havuzdan. (p2, düzeltilen çift sayısı)"""
+    grp = {}
+    for i, a in enumerate(at):
+        if a.get("ek"):
+            grp.setdefault(a["ek"], []).append(i)
+    p2 = list(p); ne = 0
+    for l in grp.values():
+        if len(l) != 2:
+            continue
+        s = _ekur_havuz_s(hv, str(at[l[0]]["no"]), str(at[l[1]]["no"]))
+        if s is None:
+            continue
+        P = p[l[0]] + p[l[1]]; p2[l[0]] = P * s; p2[l[1]] = P * (1 - s); ne += 1
+    return p2, ne
+
+
 def gec_p(obj, h, k, ort, kapanis_dk=-60.0, pencere_dk=30.0):
     """Tek koşu için geç olasılıklar: (at, atc, pm, p, son, dk) ya da None. p = G1-S v3 (girdi: canlı muhtemel ganyan)."""
     from . import g1v3 as _V3
@@ -367,6 +406,16 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
             for B in BUTCELER_G:
                 q = _kup_gec("G1-S-G (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
                 if q: kup.append(q)
+            try:                                             # T66b ekür-havuz gölge kolu (2 Kasım 2026): yalnız havuzdan bölüşümü çıkan ekür çifti olan koşularda
+                _hv = (ort[0].get((h["id"], k["kosu"])) or {}).get("havuz") or {}
+                if _hv:
+                    p2, ne = _eh_p(at, p, _hv)
+                    if ne:
+                        for B in BUTCELER_G:
+                            q = _kup_gec("G1-S-EH (geç)", B, p2, at, Wp, Tp, GGm, g1v, son["t"])
+                            if q: kup.append(q)
+            except Exception as e:
+                print("ekür-havuz kolu hatası:", repr(e))
             if c.get("devir"):
                 for B in (96, 150, 600):
                     q = _kup_gec("Devir-G1S (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
