@@ -1,5 +1,6 @@
 """T62: süpriz oranı koşu tipine göre. python3 data/analiz/supriz_tip_t62.py"""
-import numpy as np, pandas as pd
+import os, numpy as np, pandas as pd
+ESIK = float(os.environ.get('ESIK', 15))
 np.random.seed(62)
 d = pd.read_pickle('/tmp/claude-0/jason_d.pkl'); d = d[(d.kosmadi == False) | d.kosmadi.isna()]
 g = d.groupby(['tarih', 'hipodrom', 'kosu'])
@@ -7,7 +8,8 @@ R = g.agg(n=('no', 'size'), kz=('kazandi', 'sum'), mesafe=('mesafe', 'first'), p
           gk=('ganyan', lambda s: np.nan)).reset_index()
 W = d[d.kazandi == 1].groupby(['tarih', 'hipodrom', 'kosu']).ganyan.first().rename('gw').reset_index()
 R = R.merge(W, on=['tarih', 'hipodrom', 'kosu'], how='left'); R = R[(R.kz == 1) & (R.n >= 5) & R.gw.notna() & R.mesafe.notna() & R.pist.notna()].copy()
-R['sur'] = (R.gw >= 15).astype(float)
+R['sur'] = (R.gw >= ESIK).astype(float)
+print('EŞİK', ESIK); print('kazanan ganyan dağılımı:', R.gw.pipe(lambda x: {'<3': round((x<3).mean(),3), '3-5': round(((x>=3)&(x<5)).mean(),3), '5-7': round(((x>=5)&(x<7)).mean(),3), '7-10': round(((x>=7)&(x<10)).mean(),3), '10-15': round(((x>=10)&(x<15)).mean(),3), '>=15': round((x>=15).mean(),3)}))
 R['mes'] = pd.cut(R.mesafe, [0, 1200, 1500, 1900, 9999], labels=['<=1200', '1300-1500', '1600-1900', '>=2000'])
 R['alan'] = pd.cut(R.n, [0, 8, 10, 12, 99], labels=['<=8', '9-10', '11-12', '>=13'])
 R['yg'] = pd.cut(R.yas, [0, 2.5, 3.5, 99], labels=['2', '3', '4+'])
