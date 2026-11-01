@@ -388,6 +388,66 @@ def _havuz_off(at, hv):
     return [[b[k][0] * f2[i] + b[k][1] * fq[i] for i in range(n)] for k in range(5)]
 
 
+_H2H = {}
+
+
+def _h2h_hazirla(tarih):
+    """T76c: data/temiz'den (tarih öncesi) at -> {koşu anahtarı: (sıra, geri kalma %)}; yalnız sıra>0 ve süresi olan satırlar. Gün başına bir kez."""
+    if _H2H.get("t") == tarih:
+        return _H2H["h"]
+    import csv, gzip
+    h = {}
+    for f in sorted(glob.glob(os.path.join(KOK, "data", "temiz", "*.csv.gz"))):
+        gun = {}
+        for r in csv.DictReader(gzip.open(f, "rt", encoding="utf-8")):
+            if r["tarih"] >= tarih:
+                continue
+            try:
+                sr = float(r["sira"]); dr = float(r["derece_sn"])
+            except Exception:
+                continue
+            if sr > 0 and dr > 0:
+                gun.setdefault((r["tarih"], r["hipodrom"], r["kosu"]), []).append((r["at"], sr, dr))
+        for key, L in gun.items():
+            mn = min(x[2] for x in L)
+            for a, sr, dr in L:
+                h.setdefault(a, {})[key] = (sr, (dr - mn) / mn * 100.0)
+    _H2H["t"] = tarih; _H2H["h"] = h
+    return h
+
+
+def _h2h_off(at, tarih):
+    """T76c: pozisyon 2..5 log-faktörü (5 x n): b[k-1][0]*f_h2h_s + b[k-1][1]*f_h2h_m. Katsayılar data/analiz/h2h_t76c_beta.json (donduruldu). Hata/eksik -> None."""
+    if "b" not in _H2H:
+        try:
+            _H2H["b"] = json.load(open(os.path.join(KOK, "data", "analiz", "h2h_t76c_beta.json")))
+        except Exception:
+            _H2H["b"] = None
+    b = _H2H["b"]
+    if not b:
+        return None
+    h = _h2h_hazirla(tarih); n = len(at); fs = [0.0] * n; fm = [0.0] * n; var = False
+    for i in range(n):
+        hi = h.get(at[i]["at"])
+        if not hi:
+            continue
+        s = m = 0.0; c = 0
+        for j in range(n):
+            if j == i:
+                continue
+            hj = h.get(at[j]["at"])
+            if not hj:
+                continue
+            for key in (hi.keys() & hj.keys()):
+                si, pi = hi[key]; sj, pj = hj[key]
+                s += (sj > si) - (sj < si); m += max(-5.0, min(5.0, pj - pi)); c += 1
+        fs[i] = s / (c + 3); fm[i] = m / (c + 3)
+        if c: var = True
+    if not var:
+        return None
+    return [[0.0] * n] + [[b[k - 1][0] * fs[i] + b[k - 1][1] * fm[i] for i in range(n)] for k in range(1, 5)]
+
+
 def gec_p(obj, h, k, ort, kapanis_dk=-60.0, pencere_dk=30.0, ek=False):
     """Tek koşu için geç olasılıklar: (at, atc, pm, p, son, dk) ya da None. p = G1-S v3 (girdi: canlı muhtemel ganyan)."""
     from . import g1v3 as _V3
@@ -477,6 +537,14 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
                             if q: kup.append(q)
             except Exception as e:
                 print("ekür-havuz kolu hatası:", repr(e))
+            try:                                             # T76c H2H gölge kolu (2 Kasım 2026): pozisyon 2..5'te doğrudan karşılaşma özelliği (katsayılar dondurulmuş)
+                _oh = _h2h_off(at, obj["tarih"])
+                if _oh:
+                    for B in BUTCELER_G:
+                        q = _kup_gec("G1-S-H2H (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"], _oh)
+                        if q: kup.append(q)
+            except Exception as e:
+                print("h2h kolu hatası:", repr(e))
             if c.get("devir"):
                 for B in (96, 150, 600):
                     q = _kup_gec("Devir-G1S (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])

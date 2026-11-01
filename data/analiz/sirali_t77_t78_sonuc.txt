@@ -1,0 +1,17 @@
+
+=== B=48: koşu 406 tutan 8 ROI -48.9% beklenen tutan 7.5
+cins  Diğer      n=  59 tutan  0 beklenen   1.1 oran 0.00 (Poisson aralık 0-3) ROI -100% fark -60% GA[-123%,-14%] H1:-100%/-77% H2:-100%/+5%
+cins  Handikap   n= 130 tutan  0 beklenen   1.5 oran 0.00 (Poisson aralık 0-4) ROI -100% fark -75% GA[-173%,-6%] H1:-100%/-67% H2:-100%/+15%
+cins  Maiden     n= 122 tutan  5 beklenen   2.6 oran 1.94 (Poisson aralık 0-6) ROI +32% fark +115% GA[-27%,+300%] H1:-74%/-82% H2:+188%/-85%
+cins  Şartlı1-2  n=21 (az)
+cins  Şartlı3+   n=  74 tutan  1 beklenen   2.0 oran 0.51 (Poisson aralık 0-5) ROI -69% fark -24% GA[-124%,+94%] H1:-100%/-74% H2:-39%/-13%
+alan  9–11       n=23 (az)
+alan  ≥12        n= 383 tutan  8 beklenen   6.5 oran 1.24 (Poisson aralık 2-12) ROI -46% fark +54% GA[+11%,+112%] H1:-78%/-100% H2:-13%/-100%
+favg  .25–.40    n= 178 tutan  2 beklenen   3.7 oran 0.54 (Poisson aralık 1-8) ROI -66% fark -30% GA[-134%,+75%] H1:-84%/-74% H2:-45%/+2%
+favg  <.25       n= 170 tutan  2 beklenen   1.9 oran 1.03 (Poisson aralık 0-5) ROI -86% fark -64% GA[-165%,+17%] H1:-71%/-84% H2:-100%/+44%
+favg  >.40       n=  58 tutan  4 beklenen   1.9 oran 2.15 (Poisson aralık 0-5) ROI +113% fark +189% GA[-13%,+543%] H1:-84%/-78% H2:+296%/-73%
+
+=== B=96: koşu 406 tutan 11 ROI -63.6% beklenen tutan 12.4
+cins  Diğer      n=  59 tutan  0 beklenen   1.8 oran 0.00 (Poisson aralık 0-5) ROI -100% fark -42% GA[-79%,-12%] H1:-100%/-73% H2:-100%/-38%
+cins  Handikap   n= 130 tutan  1 beklenen   2.6 oran 0.39 (Poisson aralık 0-6) ROI -90% fark -39% GA[-95%,+12%] H1:-100%/-62% H2:-78%/-41%
+cins  Maiden     n= 122 tutan  6 beklenen   4.2 oran 1.41 (Poisson aralık 1-9) ROI -14% fark +71% GA[-12%,+174%] H1:-55%/-86% H2:+47%/-84%
