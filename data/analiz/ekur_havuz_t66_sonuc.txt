@@ -1,0 +1,10 @@
+ekür koşu 41 2026-10-23 2026-11-01 çift 46 havuzdan bölüşüm çıkan çift 15
+betimleyici: havuz payı s_a vs sonuç: s_a>0.5 olan üyenin önde bitirme oranı 0.667 (n=15); AGF payı>0.5 olan üye 0.733
+B HAV ilk5 fark(−HAM) 0.0228 GA [-0.0079,0.0584] n 41
+B HAV kazanan fark(−HAM) -0.0100 GA [-0.0233,-0.0001] n 41
+B ESIT ilk5 fark(−HAM) -0.0425 GA [-0.2389,0.1393] n 41
+B ESIT kazanan fark(−HAM) -0.0558 GA [-0.0899,-0.0228] n 41
+G HAV ilk5 fark(−HAM) 0.0098 GA [-0.0025,0.0228] n 35
+G HAV kazanan fark(−HAM) -0.0024 GA [-0.0053,0.0003] n 35
+G ESIT ilk5 fark(−HAM) 0.0195 GA [-0.0455,0.0800] n 35
+G ESIT kazanan fark(−HAM) -0.0084 GA [-0.0182,0.0013] n 35
