@@ -1,0 +1,10 @@
+accurace kaçak koşu 523 {'Kum': 339, '?': 108, 'Çim': 76}
+eşleşen 380
+TÜM                    n= 380 kaçak kazanma 0.4053 piyasa 0.1666 fark +0.2386 GA97,5 [+0.1954,+0.2856]
+grup diğer             n= 380 kaçak kazanma 0.4053 piyasa 0.1666 fark +0.2386 GA97,5 [+0.1909,+0.2812]
+istanbul ?             n=  48 kaçak kazanma 0.5833 piyasa 0.1753 fark +0.4080 GA97,5 [+0.2812,+0.5279]
+istanbul Çim           n=  39 kaçak kazanma 0.4872 piyasa 0.1979 fark +0.2892 GA97,5 [+0.1677,+0.4434]
+izmir Kum              n= 276 kaçak kazanma 0.3696 piyasa 0.1620 fark +0.2075 GA97,5 [+0.1550,+0.2607]
+pist ?                 n=  55 kaçak kazanma 0.5273 piyasa 0.1709 fark +0.3564 GA97,5 [+0.2343,+0.5136]
+pist Kum               n= 277 kaçak kazanma 0.3718 piyasa 0.1622 fark +0.2096 GA97,5 [+0.1555,+0.2651]
+pist Çim               n=  48 kaçak kazanma 0.4583 piyasa 0.1871 fark +0.2712 GA97,5 [+0.1543,+0.4367]
