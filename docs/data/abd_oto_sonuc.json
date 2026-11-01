@@ -1,29 +1,29 @@
 {
- "uretim": "2026-11-01 18:17 UTC",
- "kayitli_kosu": 1329,
- "eslesmeyen_kosu": 917,
+ "uretim": "2026-11-01 19:11 UTC",
+ "kayitli_kosu": 1337,
+ "eslesmeyen_kosu": 921,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 696,
- "kosu": 412,
- "isabet": 45,
- "roi": 0.964,
+ "bahis": 704,
+ "kosu": 416,
+ "isabet": 46,
+ "roi": 0.961,
  "ga95": [
-  0.654,
-  1.314
+  0.656,
+  1.312
  ],
  "ulke": {
   "abd": {
-   "bahis": 450,
-   "roi": 0.799
+   "bahis": 456,
+   "roi": 0.803
   },
   "birlesik-krallik": {
    "bahis": 116,
    "roi": 1.547
   },
   "fransa": {
-   "bahis": 53,
-   "roi": 0.807
+   "bahis": 55,
+   "roi": 0.777
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 838,
-  "kosu": 404,
-  "isabet": 82,
-  "roi": 0.665,
+  "bahis": 845,
+  "kosu": 408,
+  "isabet": 83,
+  "roi": 0.662,
   "ga95": [
-   0.451,
-   0.871
+   0.45,
+   0.865
   ]
  },
  "bahis_t1": {
-  "bahis": 863,
-  "kosu": 398,
-  "isabet": 88,
-  "roi": 0.744,
+  "bahis": 871,
+  "kosu": 402,
+  "isabet": 89,
+  "roi": 0.739,
   "ga95": [
-   0.493,
-   1.043
+   0.489,
+   1.037
   ]
  },
  "bahis_t3": {
-  "bahis": 859,
-  "kosu": 387,
-  "isabet": 93,
-  "roi": 0.682,
+  "bahis": 868,
+  "kosu": 391,
+  "isabet": 96,
+  "roi": 0.681,
   "ga95": [
-   0.444,
-   0.991
+   0.446,
+   0.988
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 3,
-   "at": "PALACE ROSE",
-   "q": 0.117,
-   "g": 29.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 3,
-   "at": "SO THIS IS LOVE",
-   "q": 0.233,
-   "g": 6.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 3,
-   "at": "TWITCHING",
-   "q": 0.048,
-   "g": 29.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 4,
-   "at": "GOD OF WAR",
-   "q": 0.071,
-   "g": 20.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 4,
-   "at": "RAINBOW NEBULA",
-   "q": 0.023,
-   "g": 57.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 5,
-   "at": "GOLDEN SOUK",
-   "q": 0.11,
-   "g": 20.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 5,
-   "at": "MEZZO FORTE",
-   "q": 0.059,
-   "g": 31.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 7,
-   "at": "WHITE BIRCH",
-   "q": 0.341,
-   "g": 4.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Newmarket",
@@ -346,6 +274,24 @@
   },
   {
    "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "FLIGHTRESS",
+   "q": 0.224,
+   "g": 6.2,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "DREAMOLOGY",
+   "q": 0.112,
+   "g": 12.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
    "pist": "Gulfstream",
    "kosu": 1,
    "at": "GHOSTS LIL SECRET",
@@ -369,6 +315,42 @@
    "at": "QUEEN KWAINA",
    "q": 0.165,
    "g": 7.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Gulfstream",
+   "kosu": 3,
+   "at": "SHEA'S A DEVIL",
+   "q": 0.086,
+   "g": 30.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Gulfstream",
+   "kosu": 4,
+   "at": "I'M HOT",
+   "q": 0.178,
+   "g": 15.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Gulfstream",
+   "kosu": 4,
+   "at": "LEXI'S BREEZE",
+   "q": 0.229,
+   "g": 7.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Gulfstream",
+   "kosu": 4,
+   "at": "NORTHERN CROWN",
+   "q": 0.089,
+   "g": 21.15,
    "kazandi": false
   },
   {
@@ -423,6 +405,24 @@
    "at": "DADEICOS LAER",
    "q": 0.073,
    "g": 17.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Toulouse",
+   "kosu": 6,
+   "at": "NADAU DE FAUST",
+   "q": 0.185,
+   "g": 6.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Toulouse",
+   "kosu": 6,
+   "at": "SAAD AL CHAM",
+   "q": 0.317,
+   "g": 8.85,
    "kazandi": false
   }
  ]
