@@ -1,0 +1,17 @@
+Handikap at 43866 koşu 4249 {np.float64(13.0): 1016, np.float64(14.0): 10801, np.float64(15.0): 14936, np.float64(16.0): 11617, np.float64(17.0): 3174, np.float64(21.0): 1202, np.float64(22.0): 713, np.float64(24.0): 407}
+I1 H13 en yüksek hnd         n=  165 kazanma 0.1030 piyasa 0.1272 fark -0.0241 GA99,2 [-0.0816,+0.0314] (sağlanmadı)
+I2 H14 hnd 40-50             n= 4809 kazanma 0.1200 piyasa 0.1146 fark +0.0054 GA99,2 [-0.0020,+0.0123] (sağlanmadı)
+I3 H15 hnd45-60 hafif        n= 1322 kazanma 0.1263 piyasa 0.1138 fark +0.0126 GA99,2 [-0.0083,+0.0294] (sağlanmadı)
+I4 H16 hnd60-75 ağır         n= 3901 kazanma 0.0964 piyasa 0.1076 fark -0.0112 GA99,2 [-0.0212,+0.0001] (sağlanmadı)
+I5 H17 hnd75-85|kilo50-56    n= 2412 kazanma 0.1036 piyasa 0.1026 fark +0.0011 GA99,2 [-0.0053,+0.0072] (sağlanmadı)
+I6 Handikap en genç 1/3      n= 6825 kazanma 0.1341 piyasa 0.1229 fark +0.0111 GA99,2 [+0.0044,+0.0186] (SAĞLANDI)
+
+Model − piyasa kazanan NLL (negatif=model iyi), Handikap n bazında:
+Handikap 13 koşu 97 fark +0.0128 [-0.0239,+0.0482]
+Handikap 14 koşu 975 fark -0.0139 [-0.0239,-0.0040]
+Handikap 15 koşu 1427 fark -0.0185 [-0.0271,-0.0094]
+Handikap 16 koşu 1162 fark -0.0213 [-0.0313,-0.0122]
+Handikap 17 koşu 322 fark -0.0064 [-0.0244,+0.0112]
+Handikap 21 koşu 135 fark -0.0088 [-0.0357,+0.0158]
+Handikap 22 koşu 79 fark -0.0146 [-0.0406,+0.0162]
+Handikap 24 koşu 52 fark +0.0069 [-0.0372,+0.0483]
