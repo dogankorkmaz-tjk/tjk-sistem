@@ -1,0 +1,4 @@
+koşu 14729 kesim 2025-10-18
+a ilk3 koşu      β=+0.04 eğitim 3626 test 2387 koşu kazanç +0.0000 [-0.0000,+0.0000] (sağlanmadı)
+b mesafe artışı  β=+0.42 eğitim 5478 test 3998 koşu kazanç +0.0001 [-0.0001,+0.0003] (sağlanmadı)
+c pist değişimi  β=-0.03 eğitim 6617 test 4458 koşu kazanç +0.0000 [-0.0000,+0.0000] (sağlanmadı)
