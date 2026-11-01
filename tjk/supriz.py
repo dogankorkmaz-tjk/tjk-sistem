@@ -12,15 +12,15 @@ import pandas as pd
 KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DS = os.path.join(KOK, "data", "supriz")
 SITE = os.path.join(KOK, "docs", "data")
-_M = None
+_M = {}
 
 
-def yukle():
-    global _M
-    if _M is None:
-        p = os.path.join(DS, "model_n.json")
-        _M = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
-    return _M or None
+def yukle(dosya="model_n.json"):
+    """dosya: model_n.json (T57, ganyan>=15) ya da model_n10.json (T64, ganyan>=10; 1 Kasım 2026 ikinci gölge)."""
+    if dosya not in _M:
+        p = os.path.join(DS, dosya)
+        _M[dosya] = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
+    return _M[dosya] or None
 
 
 def _agac(n, x):
@@ -94,8 +94,8 @@ def _sig(z): return 1 / (1 + math.exp(-z))
 
 
 def degerlendir(M, rec, p_piyasa, ganyan):
-    """Tek at: (p_taban, p_model, r) ya da None (evren dışı: ganyan<15)."""
-    if ganyan is None or ganyan < 15 or p_piyasa is None or p_piyasa <= 0: return None
+    """Tek at: (p_taban, p_model, r) ya da None (evren dışı: ganyan < M['g_esik'], varsayılan 15)."""
+    if ganyan is None or ganyan < M.get("g_esik", 15) or p_piyasa is None or p_piyasa <= 0: return None
     x = list(rec["x"]); FN = M["feat"]
     x[FN.index("lp0")] = math.log(max(p_piyasa, 1e-6))
     og = rec.get("og"); x[FN.index("gevsek")] = (math.log(ganyan) - math.log(og)) if og and og > 0 else None
@@ -107,7 +107,7 @@ def degerlendir(M, rec, p_piyasa, ganyan):
 # ---------------------------------------------------------------- yarış öncesi: canlı muhtemel ganyanla bayrak
 def bayrak_guncelle(obj, kapanis_dk=-1.5, pencere_dk=30.0, simdi=None, yaz=True):
     try:
-        M = yukle(); tarih = obj["tarih"]
+        M = yukle(); M10 = yukle("model_n10.json"); tarih = obj["tarih"]
         Z = _oz_oku(tarih); mp = os.path.join(KOK, "data", "muh", tarih + ".json")
         if not (M and Z and os.path.exists(mp)): return 0
         MH = json.load(open(mp, encoding="utf-8")); MI = {}
@@ -140,12 +140,18 @@ def bayrak_guncelle(obj, kapanis_dk=-1.5, pencere_dk=30.0, simdi=None, yaz=True)
                     if not rec or not v or v <= 0: continue
                     r = degerlendir(M, rec, inv[no] / z, v)
                     if r: bay.append({"no": no, "at": rec["at"], "g": v, "pb": round(r[0], 5), "pm": round(r[1], 5), "r": round(r[2], 3), "bayrak": bool(r[2] >= M["esik"])})
-                C[f"{h['id']}|{k['kosu']}"] = {"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "saat": k["saat"], "uzun": bay}
+                bay10 = []
+                for no, v in g.items():                              # T64 ikinci gölge (ganyan >= 10)
+                    rec = Z.get(f"{h['id']}|{k['kosu']}|{no}")
+                    if not M10 or not rec or not v or v <= 0: continue
+                    r = degerlendir(M10, rec, inv[no] / z, v)
+                    if r: bay10.append({"no": no, "at": rec["at"], "g": v, "pb": round(r[0], 5), "pm": round(r[1], 5), "r": round(r[2], 3), "bayrak": bool(r[2] >= M10["esik"])})
+                C[f"{h['id']}|{k['kosu']}"] = {"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "saat": k["saat"], "uzun": bay, "uzun10": bay10}
                 n += 1
         if n and yaz:
             os.makedirs(os.path.dirname(cy), exist_ok=True)
             json.dump(C, open(cy, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
-            json.dump({"tarih": tarih, "esik": M["esik"], "yarislar": C}, open(os.path.join(SITE, "supriz_canli.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+            json.dump({"tarih": tarih, "esik": M["esik"], "esik10": (M10 or {}).get("esik"), "yarislar": C}, open(os.path.join(SITE, "supriz_canli.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
         return n if yaz else C
     except Exception as e:
         print("süpriz bayrak hatası:", repr(e)); return 0
@@ -153,11 +159,19 @@ def bayrak_guncelle(obj, kapanis_dk=-1.5, pencere_dk=30.0, simdi=None, yaz=True)
 
 # ---------------------------------------------------------------- ertesi gün: kapanış ganyanıyla puanlama
 def skor_yaz(temiz):
+    """İki gölge: T57 (>=15) ve T64 (>=10). Biri hata verse diğeri çalışır."""
+    n = 0
+    for dosya, csv, js in (("model_n.json", "skor.csv.gz", "supriz.json"), ("model_n10.json", "skor10.csv.gz", "supriz10.json")):
+        try: n += _skor_tek(temiz, yukle(dosya), csv, js)
+        except Exception as e: print("süpriz skor hatası", dosya, repr(e))
+    return n
+
+
+def _skor_tek(temiz, M, csv, js):
     """temiz: oku('temiz') (sonuçlar, p_piyasa, ganyan, kazandi). Özellik dosyası olup henüz puanlanmamış günleri puanlar; özet JSON üretir."""
     try:
-        M = yukle()
         if not M: return 0
-        yol = os.path.join(DS, "skor.csv.gz")
+        yol = os.path.join(DS, csv)
         S = pd.read_csv(yol) if os.path.exists(yol) else pd.DataFrame(columns=["tarih", "hipodrom", "kosu", "no", "at", "ganyan", "pb", "pm", "r", "kazandi"])
         yapilan = set(S.tarih.astype(str)); yeni = []
         klas = os.path.join(DS, "ozellik")
@@ -176,16 +190,16 @@ def skor_yaz(temiz):
         if yeni:
             S = pd.concat([S, pd.DataFrame(yeni, columns=S.columns)], ignore_index=True)
             S.to_csv(yol, index=False, compression="gzip")
-        _ozet(S, M)
+        _ozet(S, M, js)
         return len(yeni)
     except Exception as e:
         print("süpriz skor hatası:", repr(e)); return 0
 
 
-def _ozet(S, M):
+def _ozet(S, M, js="supriz.json"):
     esik = M["esik"]; os.makedirs(SITE, exist_ok=True)
     if len(S) == 0:
-        json.dump({"esik": esik, "gun": 0}, open(os.path.join(SITE, "supriz.json"), "w"), ensure_ascii=False); return
+        json.dump({"esik": esik, "gun": 0}, open(os.path.join(SITE, js), "w"), ensure_ascii=False); return
     S = S.copy()
     for c in ("ganyan", "pb", "pm", "r", "kazandi"): S[c] = pd.to_numeric(S[c])
     S["bay"] = S.r >= esik; B = S[S.bay]
@@ -205,4 +219,4 @@ def _ozet(S, M):
            "ll_iyilesme_milli": float(dl.mean() * 1000), "ll_ga": [float(np.nanpercentile(bs, 2.5) * 1000), float(np.nanpercentile(bs, 97.5) * 1000)],
            "gunluk_ort": float(gunluk.mean()) if len(gunluk) else 0.0, "gunluk_max": int(gunluk.max()) if len(gunluk) else 0,
            "son": [{"t": r.tarih, "h": r.hipodrom, "k": int(r.kosu), "no": int(r.no), "at": r.at, "g": float(r.ganyan), "r": round(float(r.r), 2), "w": int(r.kazandi)} for r in son.itertuples()]}
-    json.dump(out, open(os.path.join(SITE, "supriz.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    json.dump(out, open(os.path.join(SITE, js), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))

@@ -695,7 +695,7 @@ function hesapGoster(){
       if(f3>=1.15) t+=`<span class="tag sur">ilk3 sürpriz +%${Math.round((f3-1)*100)}</span>`;
       else if(f3<=0.85) t+=`<span class="tag dus">ilk3 −%${Math.round((1-f3)*100)}</span>`;
     }
-    { const sp=supBul(h.id,k.kosu,a.no); if(sp) t+=`<span class="tag sur">süpriz adayı ×${sp.r.toFixed(1).replace('.',',')} · oran ${String(sp.g).replace('.',',')}</span>`; }
+    { const sp=supBul(h.id,k.kosu,a.no); if(sp) t+=`<span class="tag sur">süpriz adayı ×${sp.r.toFixed(1).replace('.',',')} · oran ${String(sp.g).replace('.',',')}${sp.k10?' · ≥10':''}</span>`; }
     $('s'+i).innerHTML=t;
   });
   { const mx=out?Math.max(.2,...Object.values(out.map).map(x=>Math.max(x.pm||0,x.pp||0,x.pj||0)))*1.08:1;
@@ -1480,19 +1480,20 @@ async function tegzYukle(){
     +'<div class="card"><b>Kurallar (dondurulmuş, 23 Ekim 2026)</b><div class="sub">Tüyo at T + sabah AGF\'sine göre T hariç en yüksek atlar. <b>İkili</b>: {T,F1}, {T,F2}. <b>Sıralı ikili</b>: T birinci, ikinci F1 ya da F2. <b>Üçlü</b>: T+2 favori kutu (6 sıralama, 2 TL). <b>Tabela</b>: T+3 favori kutu (24 sıralama / sırasız 1 bilet, 1,50 TL). <b>Sıralı 5\'li</b>: T+4 favori kutu (120 sıralama, 1,25 TL). Kontrol: aynı koşularda yalnız piyasa, AGF\'nin ilk 2/3/4/5 atı kutu. Devirli koşular veride yoksa geri dönüş olduğundan iyi görünebilir.</div></div>';
   }catch(e){ el.innerHTML='<div class="card empty">Henüz veri yok.</div>'; }
 }
-let SUPC=null, SUPS=null;
-function supBul(hid,kosu,no){ try{ if(!SUPC||SUPC.tarih!==GUN) return null; const y=(SUPC.yarislar||{})[hid+'|'+kosu]; const e=y&&y.uzun.find(x=>x.no===no&&x.bayrak); return e||null; }catch(e){ return null; } }
+let SUPC=null, SUPS=null, SUPS10=null;
+function supBul(hid,kosu,no){ try{ if(!SUPC||SUPC.tarih!==GUN) return null; const y=(SUPC.yarislar||{})[hid+'|'+kosu]; const e=y&&y.uzun.find(x=>x.no===no&&x.bayrak); if(e) return e; const e10=y&&(y.uzun10||[]).find(x=>x.no===no&&x.bayrak); return e10?{...e10,k10:true}:null; }catch(e){ return null; } }
 function supHtml(){
   const f1=x=>x==null?'–':String(x).replace('.',','), pc=x=>x==null?'–':(x*100).toFixed(1).replace('.',',')+'%';
   let h='';
   const gunId=id=>{ const hp=(VERI&&VERI.hipodromlar||[]).find(x=>x.id===id); return hp?(hp.ad||hp.id):id; };
-  const lst=[]; if(SUPC&&SUPC.tarih===GUN) Object.entries(SUPC.yarislar||{}).forEach(([key,y])=>{ const [hid,ko]=key.split('|'); (y.uzun||[]).filter(x=>x.bayrak).forEach(x=>lst.push({hid,ko:+ko,saat:y.saat,t:y.t,dk:y.dk,...x})); });
+  const lst=[]; if(SUPC&&SUPC.tarih===GUN) Object.entries(SUPC.yarislar||{}).forEach(([key,y])=>{ const [hid,ko]=key.split('|'); (y.uzun||[]).filter(x=>x.bayrak).forEach(x=>lst.push({hid,ko:+ko,saat:y.saat,t:y.t,dk:y.dk,...x})); (y.uzun10||[]).filter(x=>x.bayrak&&!(y.uzun||[]).some(z=>z.no===x.no&&z.bayrak)).forEach(x=>lst.push({hid,ko:+ko,saat:y.saat,t:y.t,dk:y.dk,k10:true,...x})); });
   lst.sort((a,b)=>(a.saat||'').localeCompare(b.saat||''));
-  h+=lst.length?'<div class="card"><b>Bugünün adayları ('+lst.length+')</b>'+lst.map(c=>`<div class="sub" style="margin-top:6px"><b>${esc(gunId(c.hid))} ${c.ko}. koşu</b> (${esc(c.saat||'')}) · ${c.no} ${esc(c.at)} · oran ${f1(c.g)} · model %${(c.pm*100).toFixed(1).replace('.',',')} / piyasa-tabanlı %${(c.pb*100).toFixed(1).replace('.',',')} · <b>×${f1(c.r.toFixed(2))}</b> <span class="note">(son okuma ${esc(c.t.slice(0,5))}, yarışa ${Math.round(c.dk)} dk kala)</span></div>`).join('')+'<div class="sub" style="margin-top:8px">Aday sayısı günden güne çok değişir (0–14); "bugün süpriz günü" demiyoruz, yalnız hangi atın daha olası olduğunu işaretliyoruz.</div></div>'
+  h+=lst.length?'<div class="card"><b>Bugünün adayları ('+lst.length+')</b>'+lst.map(c=>`<div class="sub" style="margin-top:6px"><b>${esc(gunId(c.hid))} ${c.ko}. koşu</b> (${esc(c.saat||'')}) · ${c.no} ${esc(c.at)} · oran ${f1(c.g)} · model %${(c.pm*100).toFixed(1).replace('.',',')} / piyasa-tabanlı %${(c.pb*100).toFixed(1).replace('.',',')} · <b>×${f1(c.r.toFixed(2))}</b>${c.k10?' <span class="note">(≥10 gölgesi)</span>':''} <span class="note">(son okuma ${esc(c.t.slice(0,5))}, yarışa ${Math.round(c.dk)} dk kala)</span></div>`).join('')+'<div class="sub" style="margin-top:8px">Aday sayısı günden güne çok değişir (0–14); "bugün süpriz günü" demiyoruz, yalnız hangi atın daha olası olduğunu işaretliyoruz.</div></div>'
     :'<div class="card empty">Şimdilik aday yok. Adaylar yarıştan ~30 dk önce, canlı oran gelince belirir.</div>';
   const s=SUPS;
   if(s&&s.gun){ h+=`<div class="card"><b>Şimdiye kadar</b> <span class="note">(${s.gun} gün, ${s.evren} uzun oranlı at)</span><div class="sub" style="margin-top:4px">${s.bayrak} aday: <b>${s.bayrak_kazanan}</b> kazandı (%${s.bayrak_kazanma==null?'–':(s.bayrak_kazanma*100).toFixed(1).replace('.',',')}; piyasa-tabanlı beklenti %${pc(s.bayrak_taban).replace('%','')}, model %${pc(s.bayrak_model).replace('%','')}). 1 TL ganyan: ${s.roi_1tl==null?'–':(s.roi_1tl>=0?'+':'')+(s.roi_1tl*100).toFixed(0)+'%'} (ort. oran ${f1(s.ort_oran&&+s.ort_oran.toFixed(1))}). Günlük ortalama ${f1(s.gunluk_ort&&+s.gunluk_ort.toFixed(1))} aday.</div><div class="sub">Karar ölçütü (donmuş, hipotez defteri T57): 2026-11..2027-02, log-kayıp iyileşmesi ${s.ll_iyilesme_milli==null?'–':f1(s.ll_iyilesme_milli.toFixed(2))} milli-nats/at [${s.ll_ga?f1(s.ll_ga[0].toFixed(2))+'; '+f1(s.ll_ga[1].toFixed(2)):'–'}]. Güven aralığının alt sınırı 0'ın üstüne çıkmadan sonuç sayılmaz.</div></div>`; }
   else h+='<div class="card"><div class="sub">Sonuçlanan aday henüz yok; sayaç ertesi sabahki puanlamayla dolar.</div></div>';
+  const s10=SUPS10; if(s10&&s10.gun) h+=`<div class="card"><b>≥10 gölgesi</b> <span class="note">(oran 10 ve üstü; ${s10.gun} gün, ${s10.evren} at)</span><div class="sub" style="margin-top:4px">${s10.bayrak} aday: <b>${s10.bayrak_kazanan}</b> kazandı (%${s10.bayrak_kazanma==null?'–':(s10.bayrak_kazanma*100).toFixed(1).replace('.',',')}; piyasa-tabanlı beklenti %${pc(s10.bayrak_taban).replace('%','')}).</div></div>`;
   return h;
 }
 function supSonHtml(){
@@ -1504,6 +1505,7 @@ async function supYukle(){
   const el=$('supIc'); if(!el) return;
   try{ SUPC=await getJSON('data/supriz_canli.json'); }catch(e){ SUPC=null; }
   try{ SUPS=await getJSON('data/supriz.json'); }catch(e){ SUPS=null; }
+  try{ SUPS10=await getJSON('data/supriz10.json'); }catch(e){ SUPS10=null; }
   el.innerHTML=supHtml(); const k=$('supKanit'); if(k) k.innerHTML=supSonHtml();
   try{ if(cur&&cur.h&&cur.k&&$('kosuAlani')&&!$('kosuAlani').hidden&&typeof hesapGoster==='function') hesapGoster(); }catch(e){}
 }
@@ -2259,7 +2261,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793528186';   // commit öncesi otomatik güncellenir
+const BUILD='1793528298';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
