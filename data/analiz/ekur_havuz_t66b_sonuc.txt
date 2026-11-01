@@ -1,0 +1,13 @@
+ekür koşu 2948 çift 3318 havuz bölüşümü çıkan çift 1485 havuzlu koşu 1395
+TÜM havuz−taban ilk5 0.0335 GA [0.0229,0.0436] n 2948
+TÜM havuz−taban kazanan 0.0109 GA [0.0053,0.0166] n 2948
+TÜM teta−taban ilk5 0.0212 GA [0.0115,0.0310] n 2948
+TÜM teta−taban kazanan 0.0098 GA [0.0051,0.0143] n 2948
+TÜM ikisi−teta ilk5 0.0262 GA [0.0205,0.0319] n 2948
+TÜM ikisi−teta kazanan 0.0073 GA [0.0042,0.0107] n 2948
+HAVUZLU havuz−taban ilk5 0.0707 GA [0.0487,0.0925] n 1395
+HAVUZLU havuz−taban kazanan 0.0231 GA [0.0111,0.0354] n 1395
+HAVUZLU teta−taban ilk5 0.0188 GA [0.0040,0.0338] n 1395
+HAVUZLU teta−taban kazanan 0.0093 GA [0.0015,0.0166] n 1395
+HAVUZLU ikisi−teta ilk5 0.0554 GA [0.0440,0.0673] n 1395
+HAVUZLU ikisi−teta kazanan 0.0154 GA [0.0088,0.0223] n 1395
