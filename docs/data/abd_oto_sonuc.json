@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-01 19:59 UTC",
- "kayitli_kosu": 1342,
- "eslesmeyen_kosu": 925,
+ "uretim": "2026-11-01 20:31 UTC",
+ "kayitli_kosu": 1347,
+ "eslesmeyen_kosu": 927,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 705,
- "kosu": 417,
+ "bahis": 707,
+ "kosu": 420,
  "isabet": 46,
- "roi": 0.96,
+ "roi": 0.957,
  "ga95": [
-  0.655,
-  1.311
+  0.653,
+  1.308
  ],
  "ulke": {
   "abd": {
-   "bahis": 457,
-   "roi": 0.801
+   "bahis": 459,
+   "roi": 0.797
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 847,
-  "kosu": 409,
-  "isabet": 83,
-  "roi": 0.661,
+  "bahis": 851,
+  "kosu": 412,
+  "isabet": 84,
+  "roi": 0.659,
   "ga95": [
    0.448,
-   0.865
+   0.862
   ]
  },
  "bahis_t1": {
-  "bahis": 872,
-  "kosu": 403,
-  "isabet": 89,
-  "roi": 0.738,
+  "bahis": 876,
+  "kosu": 406,
+  "isabet": 90,
+  "roi": 0.736,
   "ga95": [
-   0.488,
-   1.033
+   0.487,
+   1.031
   ]
  },
  "bahis_t3": {
-  "bahis": 869,
-  "kosu": 392,
-  "isabet": 96,
-  "roi": 0.68,
+  "bahis": 876,
+  "kosu": 395,
+  "isabet": 98,
+  "roi": 0.684,
   "ga95": [
-   0.445,
-   0.987
+   0.454,
+   0.988
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 8,
-   "at": "BISCAYSIAN",
-   "q": 0.104,
-   "g": 22.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 8,
-   "at": "HIGHLAND FROST",
-   "q": 0.075,
-   "g": 22.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Newmarket",
