@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-01 15:35 UTC",
- "kayitli_kosu": 1306,
- "eslesmeyen_kosu": 904,
+ "uretim": "2026-11-01 15:41 UTC",
+ "kayitli_kosu": 1308,
+ "eslesmeyen_kosu": 905,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 680,
- "kosu": 402,
+ "bahis": 681,
+ "kosu": 403,
  "isabet": 45,
- "roi": 0.986,
+ "roi": 0.985,
  "ga95": [
-  0.679,
-  1.317
+  0.669,
+  1.343
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.547
   },
   "fransa": {
-   "bahis": 47,
-   "roi": 0.91
+   "bahis": 48,
+   "roi": 0.891
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 816,
-  "kosu": 394,
+  "bahis": 821,
+  "kosu": 395,
   "isabet": 80,
-  "roi": 0.674,
+  "roi": 0.67,
   "ga95": [
-   0.464,
-   0.891
+   0.451,
+   0.881
   ]
  },
  "bahis_t1": {
-  "bahis": 840,
-  "kosu": 388,
+  "bahis": 845,
+  "kosu": 389,
   "isabet": 86,
-  "roi": 0.755,
+  "roi": 0.75,
   "ga95": [
-   0.488,
-   1.051
+   0.495,
+   1.053
   ]
  },
  "bahis_t3": {
-  "bahis": 833,
-  "kosu": 377,
+  "bahis": 839,
+  "kosu": 378,
   "isabet": 91,
-  "roi": 0.694,
+  "roi": 0.689,
   "ga95": [
-   0.449,
-   0.995
+   0.445,
+   1.006
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "CABO SPIRIT",
-   "q": 0.024,
-   "g": 105.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Keeneland",
@@ -423,6 +414,15 @@
    "at": "HENIE IN BLACK",
    "q": 0.049,
    "g": 38.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Toulouse",
+   "kosu": 1,
+   "at": "MOONZIKNUIT",
+   "q": 0.076,
+   "g": 34.1,
    "kazandi": false
   }
  ]
