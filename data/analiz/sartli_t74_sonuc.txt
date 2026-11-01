@@ -1,0 +1,13 @@
+D1 Maiden kazananı -> Şartlı 3: n 566 kazanma 0.1979 beklenen 0.1873 fark 0.0106 GA98,75 [-0.01916643  0.04190653]
+   yalnız 3 yaşlı Arap: n 250 fark 0.0115 [-0.03327229  0.05801586]
+D2 Şartlı2 uç oranı 0.562 diğer şartlı 0.562 fark 0.0004 GA98,75 [-0.08688237  0.08100007]
+D3 Maiden+Şartlı1 büyük ahır: at 1676 kazanma 0.1283 beklenen 0.1148 fark 0.0135 GA98,75 [-0.0052265   0.03168534]
+   küçük ahır: fark -0.0006
+D4 grup (kazanan ganyan ≥10 oranı, favori=ganyan en düşük ~ kazanan ganyan<3 oranı):
+  2 Yaşlı İngilizler         koşu  1756 sür10 0.112 kazanan<3 0.501
+  3 Yaşlı Araplar            koşu  2194 sür10 0.173 kazanan<3 0.363
+  3 Yaşlı İngilizler         koşu  3105 sür10 0.128 kazanan<3 0.425
+  4 ve Yukarı Araplar        koşu  2630 sür10 0.193 kazanan<3 0.299
+  4 ve Yukarı İngilizler     koşu   625 sür10 0.150 kazanan<3 0.416
+en yüksek−en düşük sür10: 0.081
+   bootstrap alt sınır (≥0,03?): [0.05886423 0.10436579]
