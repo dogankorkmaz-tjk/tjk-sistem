@@ -1,0 +1,5 @@
+# Model geliştirme yol haritası (2 Kasım 2026, Doğan: "1-2-3-4")
+1. Ekür kenarı ROI (T68): YAPILDI, sınırda sağlandı -> sıralı ikili ekür-havuz değer kolu (kâğıt üstü gölge) tasarlanacak.
+2. Havuzları genel olarak modele katmak: ÖN KAYIT bekliyor (T69). Fikir: ekür dışı koşularda da sıralı ikili havuzundan çıkan 2. sıra bilgisi (ör. P(y 2. | x 1.)) model olasılığına eklenir; ölçü 2.–5. sıra PL log-olabilirliği; veri muh_gecmis 648 gün; kural T66b ile aynı.
+3. Geç kuponu birincil yapmak: tasarım. Bayide start'a 5 dk kala oynandığı için ROI özeti ve arayüz geç kolu ana gösterecek; sabah AGF kuponları yedek. Kod değişikliği (besli.ozet_yaz + docs/index.html); önce ROI'yi geç/AGF ayrı sütun göster.
+4. Takvim: T57+T64 süpriz penceresi 1 Kas-28 Şub 2027; T34 ekür ileri (≥100 koşu, ~Aralık); T66b/T67 gölge kolları (G1-S-EH, G1-S-EK) ≥100 ekür koşusu; T41 yeniden test Kas-Oca; T35 kapı/hücre Ocak 2027; T45/47/51 Mart 2027; Diyarbakır kalibrasyon Nisan 2027; koşu cinsi (handikap/şartlı) süpriz testi 2026 verisi birikince; ıslak pist yalnız etiketli veri 3 katına çıkınca.
