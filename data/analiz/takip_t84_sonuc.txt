@@ -1,0 +1,5 @@
+sonraki koşu satırı 103833 hk 7954 ss 9102
+hayal kırıklığı  vs piyasa n= 7954 kazanma 0.1099 beklenen 0.1095 fark +0.0004 GA98,75 [-0.0077,+0.0082]
+hayal kırıklığı  vs model  n= 7954 kazanma 0.1099 beklenen 0.1134 fark -0.0035 GA98,75 [-0.0105,+0.0038]
+sürpriz iyi      vs piyasa n= 9102 kazanma 0.1273 beklenen 0.1303 fark -0.0030 GA98,75 [-0.0110,+0.0048]
+sürpriz iyi      vs model  n= 9102 kazanma 0.1273 beklenen 0.1299 fark -0.0026 GA98,75 [-0.0113,+0.0048]
