@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-01 19:13 UTC",
- "kayitli_kosu": 1337,
- "eslesmeyen_kosu": 921,
+ "uretim": "2026-11-01 19:57 UTC",
+ "kayitli_kosu": 1341,
+ "eslesmeyen_kosu": 923,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 704,
- "kosu": 416,
+ "bahis": 707,
+ "kosu": 418,
  "isabet": 46,
- "roi": 0.961,
+ "roi": 0.957,
  "ga95": [
-  0.656,
-  1.312
+  0.653,
+  1.308
  ],
  "ulke": {
   "abd": {
-   "bahis": 456,
-   "roi": 0.803
+   "bahis": 459,
+   "roi": 0.797
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 845,
-  "kosu": 408,
+  "bahis": 848,
+  "kosu": 410,
   "isabet": 83,
-  "roi": 0.662,
+  "roi": 0.66,
   "ga95": [
-   0.45,
-   0.865
+   0.448,
+   0.864
   ]
  },
  "bahis_t1": {
-  "bahis": 871,
-  "kosu": 402,
+  "bahis": 873,
+  "kosu": 404,
   "isabet": 89,
-  "roi": 0.739,
+  "roi": 0.737,
   "ga95": [
-   0.489,
-   1.037
+   0.488,
+   1.032
   ]
  },
  "bahis_t3": {
-  "bahis": 868,
-  "kosu": 391,
-  "isabet": 96,
-  "roi": 0.681,
+  "bahis": 873,
+  "kosu": 393,
+  "isabet": 97,
+  "roi": 0.685,
   "ga95": [
-   0.446,
-   0.988
+   0.455,
+   0.99
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 7,
-   "at": "FRANCOPHONE",
-   "q": 0.053,
-   "g": 24.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 8,
-   "at": "BISCAYSIAN",
-   "q": 0.104,
-   "g": 22.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Newmarket",
-   "kosu": 8,
-   "at": "HIGHLAND FROST",
-   "q": 0.075,
-   "g": 22.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Newmarket",
@@ -292,6 +265,15 @@
   },
   {
    "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 6,
+   "at": "RULE SIXTY TWO",
+   "q": 0.076,
+   "g": 20.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
    "pist": "Gulfstream",
    "kosu": 1,
    "at": "GHOSTS LIL SECRET",
@@ -423,6 +405,24 @@
    "at": "SAAD AL CHAM",
    "q": 0.317,
    "g": 8.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Woodbine",
+   "kosu": 4,
+   "at": "MAKINMOMMAPROUD",
+   "q": 0.05,
+   "g": 41.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Woodbine",
+   "kosu": 4,
+   "at": "SILVER COAST",
+   "q": 0.088,
+   "g": 30.2,
    "kazandi": false
   }
  ]
