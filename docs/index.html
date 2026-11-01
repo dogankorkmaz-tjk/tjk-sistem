@@ -624,6 +624,9 @@ function hesapla(h,k,kaynakZorla,yedek){
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
     out.map[i]={pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
   });
+  try{ const gr={}; idx.forEach((i,j)=>{ const e=atlar[i].ek>0?'e'+atlar[i].ek:(pp.grp[j]!==-1?'g'+pp.grp[j]:null); if(e){ (gr[e]=gr[e]||[]).push(j); } });
+    Object.values(gr).forEach(m=>{ if(m.length!==2) return; const q=m.map(j=>ps?ps[j]:pm[j]), P=q[0]+q[1]; if(!(P>0)) return;
+      const r=q[0]/P, lg=Math.log(r/(1-r)), s0=1/(1+Math.exp(-3.7*lg)); out.map[idx[m[0]]].ekb=s0; out.map[idx[m[1]]].ekb=1-s0; out.map[idx[m[0]]].ekes=idx[m[1]]; out.map[idx[m[1]]].ekes=idx[m[0]]; }); }catch(e){}
   return out;
 }
 const KAYNAK={canli:['Canlı muhtemel ganyan (TJK)','on'],elle:['Senin girdiğin oranlar','on'],kapanis:['Kapanış ganyanları','on'],agf:['AGF (altılı oynanma yüzdesi)','hot'],model:['YOK — gri: piyasasız tahmin (yalnız at, jokey ve geçmiş verisi; AGF/canlı oran gelince değişir)','']};
@@ -691,6 +694,7 @@ function hesapGoster(){
       t+=`<span>piyasa ${pct(x.pp)}%</span><span>ilk2 B ${pct(x.i2m)}%${x.i2j!=null?' · J '+pct(x.i2j)+'%':''}</span><span>ilk3 B ${pct(x.i3m)}%${x.i3j!=null?' · J '+pct(x.i3j)+'%':''}</span>`;
       if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
       if(x.ekuri) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre</span>';
+      if(x.ekb!=null) t+=`<span class="tag" style="color:var(--muted)">ekür çift içi (gölge, kupona girmiyor): ${a.no} %${pct(x.ekb)} · ${atlar[x.ekes].no} %${pct(1-x.ekb)}</span>`;
       if(x.ev!=null&&x.ev>=1) t+='<span class="tag ev">EV 1 üstü</span>';
       if(f3>=1.15) t+=`<span class="tag sur">ilk3 sürpriz +%${Math.round((f3-1)*100)}</span>`;
       else if(f3<=0.85) t+=`<span class="tag dus">ilk3 −%${Math.round((1-f3)*100)}</span>`;
@@ -2261,7 +2265,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793528302';   // commit öncesi otomatik güncellenir
+const BUILD='1793538239';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
