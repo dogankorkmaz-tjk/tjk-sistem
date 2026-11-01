@@ -355,7 +355,7 @@ def _eh_p(at, p, hv):
     return p2, ne
 
 
-def gec_p(obj, h, k, ort, kapanis_dk=-60.0, pencere_dk=30.0):
+def gec_p(obj, h, k, ort, kapanis_dk=-60.0, pencere_dk=30.0, ek=False):
     """Tek koşu için geç olasılıklar: (at, atc, pm, p, son, dk) ya da None. p = G1-S v3 (girdi: canlı muhtemel ganyan)."""
     from . import g1v3 as _V3
     MI, c3, t, simdi_dk, sn = ort
@@ -373,7 +373,17 @@ def gec_p(obj, h, k, ort, kapanis_dk=-60.0, pencere_dk=30.0):
     g = [son["g"].get(str(a["no"])) for a in at]
     if len(at) < 5 or any(x is None or x <= 0 for x in g):
         return None
-    inv = [1 / x for x in g]; z = sum(inv); pm = [x / z for x in inv]
+    inv = [1 / x for x in g]
+    if ek:                                                   # T67: ekür grubu tek birim sayılır (üyeler 1/(n·g)); varsayılan (ek=False) eski davranış
+        _gr = {}
+        for _i, _a in enumerate(at):
+            if _a.get("ek"):
+                _gr.setdefault(_a["ek"], []).append(_i)
+        for _l in _gr.values():
+            if len(_l) >= 2:
+                for _i in _l:
+                    inv[_i] = inv[_i] / len(_l)
+    z = sum(inv); pm = [x / z for x in inv]
     atc = [{**a, "agf": 100 * q} for a, q in zip(at, pm)]
     zz = _V3.z6(atc, t, c3)
     if not zz:
@@ -406,6 +416,16 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
             for B in BUTCELER_G:
                 q = _kup_gec("G1-S-G (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
                 if q: kup.append(q)
+            try:                                             # T67 ekür-düzeltmeli piyasa kolu (2 Kasım 2026): ekür grubu olan koşularda piyasa p'si çift sayımsız
+                if any(_a.get("ek") for _a in at):
+                    r2 = gec_p(obj, h, k, ort, kapanis_dk, pencere_dk, ek=True)
+                    if r2:
+                        _at2, _atc2, pm2, p2e, _son2, _dk2 = r2; Wp2, Tp2 = _W(pm2, G_P)
+                        for B in BUTCELER_G:
+                            q = _kup_gec("G1-S-EK (geç)", B, p2e, _at2, Wp2, Tp2, GGm, g1v, son["t"])
+                            if q: kup.append(q)
+            except Exception as e:
+                print("ekür-piyasa kolu hatası:", repr(e))
             try:                                             # T66b ekür-havuz gölge kolu (2 Kasım 2026): yalnız havuzdan bölüşümü çıkan ekür çifti olan koşularda
                 _hv = (ort[0].get((h["id"], k["kosu"])) or {}).get("havuz") or {}
                 if _hv:

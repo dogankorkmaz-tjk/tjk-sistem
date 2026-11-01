@@ -1,0 +1,14 @@
+Jason sabitleri ekür koşu 3040
+Jason sabitleri H−D ilk5 -0.1372 GA [-0.1521,-0.1229]
+Jason sabitleri H−D kazanan -0.0256 GA [-0.0340,-0.0175]
+Jason sabitleri E−D ilk5 0.0039 GA [-0.0043,0.0118]
+Jason sabitleri E−D kazanan 0.0036 GA [-0.0006,0.0076]
+Jason sabitleri E−H ilk5 0.1411 GA [0.1250,0.1580]
+Jason sabitleri E−H kazanan 0.0292 GA [0.0203,0.0381]
+G1-S ölçeği ekür koşu 3040
+G1-S ölçeği H−D ilk5 -0.0140 GA [-0.0176,-0.0103]
+G1-S ölçeği H−D kazanan -0.0010 GA [-0.0030,0.0012]
+G1-S ölçeği E−D ilk5 0.0072 GA [0.0051,0.0093]
+G1-S ölçeği E−D kazanan 0.0023 GA [0.0013,0.0034]
+G1-S ölçeği E−H ilk5 0.0212 GA [0.0172,0.0254]
+G1-S ölçeği E−H kazanan 0.0033 GA [0.0011,0.0055]
