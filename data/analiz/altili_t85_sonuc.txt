@@ -1,0 +1,7 @@
+a 3.lük kalıcı / piyasa P3     n= 4543 gerçek 0.1092 beklenen 0.1011 fark +0.0081 GA98,75 [-0.0020,+0.0186] (sağlanmadı)
+a 3.lük kalıcı / model P3      n= 4543 gerçek 0.1092 beklenen 0.1012 fark +0.0080 GA98,75 [-0.0023,+0.0192] (sağlanmadı)
+a kazanma / model              n= 4543 gerçek 0.0999 beklenen 0.1036 fark -0.0037 GA98,75 [-0.0138,+0.0060] (sağlanmadı)
+b ilk galibiyetten sonra / model n= 5635 gerçek 0.1052 beklenen 0.1056 fark -0.0003 GA98,75 [-0.0093,+0.0084] (sağlanmadı)
+b ... / piyasa                 n= 5635 gerçek 0.1052 beklenen 0.1059 fark -0.0006 GA98,75 [-0.0096,+0.0096] (sağlanmadı)
+c uzaktan tek ata üst jokey / model n=  310 gerçek 0.2355 beklenen 0.2544 fark -0.0189 GA98,75 [-0.0691,+0.0328] (sağlanmadı)
+c ... / piyasa                 n=  310 gerçek 0.2355 beklenen 0.2446 fark -0.0091 GA98,75 [-0.0585,+0.0444] (sağlanmadı)
