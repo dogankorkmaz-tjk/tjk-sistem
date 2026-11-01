@@ -30,8 +30,9 @@ def _prob(W, T, sets):
     return top
 
 
-def _W(p, G):
-    W = [[max(v, 1e-9) ** g for v in p] for g in G]
+def _W(p, G, off=None):
+    """Pozisyon ağırlıkları W_k(h)=p_h^G_k (· exp(off[k][h]) — T69 havuz faktörü, yalnız gölge kolda)."""
+    W = [[max(v, 1e-9) ** g * (math.exp(off[k][i]) if off else 1.0) for i, v in enumerate(p)] for k, g in enumerate(G)]
     return W, [sum(w) for w in W]
 
 
@@ -40,10 +41,10 @@ def gecerli_say(sets):
     return sum(1 for tup in itertools.product(*sets) if len(set(tup)) == 5)
 
 
-def _acgozlu_g(p, B, sets, G=None):
+def _acgozlu_g(p, B, sets, G=None, off=None):
     """Verilen başlangıç kümelerinden açgözlü genişletme; bütçe geçerli kombinasyon sayısına göre."""
     n = len(p)
-    W, T = _W(p, G or G_M)
+    W, T = _W(p, G or G_M, off)
     ord_ = sorted(range(n), key=lambda i: -p[i]); aday = ord_[:min(n, 9)]
     sets = [list(x) for x in sets]
     cur = _prob(W, T, sets); nv = gecerli_say(sets)
@@ -66,14 +67,14 @@ def _acgozlu_g(p, B, sets, G=None):
     return sets, cur
 
 
-def kupon_g(p, B, G=None):
+def kupon_g(p, B, G=None, off=None):
     """Çok başlangıçlı açgözlü kurucu (sürüm 2, 13 Ekim 2026 16:30): ilk iki sıra için tek yönlü ve iki yönlü başlangıçlardan en iyisi.
     Tek başlangıçlı açgözlü, favori çifti iki yönlü açmayı (6,7/6,7) göremiyordu; aynı maliyette %8 daha düşük tutma veriyordu."""
     n = len(p)
     if n < 5:
         return None
     t = sorted(range(n), key=lambda i: -p[i])
-    W, T = _W(p, G or G_M)
+    W, T = _W(p, G or G_M, off)
     baslangic = [[[t[0]], [t[1]], [t[2]], [t[3]], [t[4]]],
                  [[t[0], t[1]], [t[0], t[1]], [t[2]], [t[3]], [t[4]]],
                  [[t[0], t[1]], [t[0], t[1]], [t[2], t[3]], [t[2], t[3]], [t[4]]]]
@@ -81,7 +82,7 @@ def kupon_g(p, B, G=None):
     for st in baslangic:
         if not (0 < gecerli_say(st) <= B):
             continue
-        sets, pr = _acgozlu_g(p, B, st, G)
+        sets, pr = _acgozlu_g(p, B, st, G, off)
         if en is None or pr > en[1] + 1e-12:
             en = (sets, pr)
     return en
@@ -283,8 +284,8 @@ def kupon_oto(p, pq, G_m, G_p, Q, vmax=600):
     return sets, pm, pqs, (Q * sr / c if c else 0.0)
 
 
-def _kup_gec(model, B, p, at, Wp, Tp, GGm, g1v, sn):
-    kp = kupon_g(p, B, GGm)
+def _kup_gec(model, B, p, at, Wp, Tp, GGm, g1v, sn, off=None):
+    kp = kupon_g(p, B, GGm, off)
     if not kp:
         return None
     sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
@@ -355,6 +356,38 @@ def _eh_p(at, p, hv):
     return p2, ne
 
 
+_HF = {}
+
+
+def _havuz_off(at, hv):
+    """T69: kapanışa yakın havuzdan (sıralı ikili 2. sıra marjinali s2, ikili ilk-2 marjinali sq) pozisyon başına log-faktör (5 x n) ya da None.
+    Katsayılar data/analiz/havuz_faktor_t69.json (donduruldu)."""
+    if "b" not in _HF:
+        try:
+            _HF["b"] = json.load(open(os.path.join(KOK, "data", "analiz", "havuz_faktor_t69.json")))["beta"]
+        except Exception:
+            _HF["b"] = None
+    b = _HF["b"]
+    if not b or not hv:
+        return None
+    idx = {str(a["no"]): i for i, a in enumerate(at)}; n = len(at); s2 = [0.0] * n; sq = [0.0] * n
+    try:
+        for x, y, g in (hv.get("si") or []):
+            if y in idx: s2[idx[y]] += 1 / float(g)
+        for x, y, g in (hv.get("ik") or []):
+            q = 1 / float(g)
+            if x in idx: sq[idx[x]] += q
+            if y in idx: sq[idx[y]] += q
+    except Exception:
+        return None
+    if sum(s2) <= 0 or sum(sq) <= 0:
+        return None
+    def lf(v):
+        m = sum(v) / n; w = [x + 1e-3 * m for x in v]; t = sum(w); return [math.log(x / t) for x in w]
+    f2, fq = lf(s2), lf(sq)
+    return [[b[k][0] * f2[i] + b[k][1] * fq[i] for i in range(n)] for k in range(5)]
+
+
 def gec_p(obj, h, k, ort, kapanis_dk=-60.0, pencere_dk=30.0, ek=False):
     """Tek koşu için geç olasılıklar: (at, atc, pm, p, son, dk) ya da None. p = G1-S v3 (girdi: canlı muhtemel ganyan)."""
     from . import g1v3 as _V3
@@ -416,6 +449,14 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
             for B in BUTCELER_G:
                 q = _kup_gec("G1-S-G (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
                 if q: kup.append(q)
+            try:                                             # T69 havuz-faktör gölge kolu (2 Kasım 2026): s2/sq havuz faktörü pozisyon ağırlıklarına eklenir (katsayılar dondurulmuş)
+                _off = _havuz_off(at, (ort[0].get((h["id"], k["kosu"])) or {}).get("havuz") or {})
+                if _off:
+                    for B in BUTCELER_G:
+                        q = _kup_gec("G1-S-H (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"], _off)
+                        if q: kup.append(q)
+            except Exception as e:
+                print("havuz-faktör kolu hatası:", repr(e))
             try:                                             # T67 ekür-düzeltmeli piyasa kolu (2 Kasım 2026): ekür grubu olan koşularda piyasa p'si çift sayımsız
                 if any(_a.get("ek") for _a in at):
                     r2 = gec_p(obj, h, k, ort, kapanis_dk, pencere_dk, ek=True)
