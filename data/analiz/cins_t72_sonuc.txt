@@ -1,0 +1,19 @@
+program koşu 17456 {'Handikap': 5073, 'Maiden': 3510, 'ŞARTLI 4': 1910, 'KV': 1832, 'ŞARTLI 3': 1367, 'ŞARTLI 5': 1311, 'ŞARTLI 1': 882, 'Diğer': 476, 'SATIŞ': 451, 'Grup': 400, 'ŞARTLI 2': 244}
+eşleşen at 141816 cins eşleşmeyen 2609
+
+SINIF TABLOSU (koşu, favori kazanma, kazanan ganyan≥10, model üstünlüğü nats)
+Handikap   n= 4234 fav 0.298 sur10 0.195 ort_ganyan 7.2 üstünlük +0.0154 (n=4096)
+Maiden     n= 2851 fav 0.348 sur10 0.171 ort_ganyan 7.1 üstünlük +0.0025 (n=2814)
+ŞARTLI 4   n= 1645 fav 0.364 sur10 0.143 ort_ganyan 5.8 üstünlük -0.0101 (n=1497)
+KV         n= 1545 fav 0.373 sur10 0.119 ort_ganyan 5.4 üstünlük -0.0160 (n=1344)
+ŞARTLI 3   n= 1153 fav 0.337 sur10 0.135 ort_ganyan 6.1 üstünlük -0.0163 (n=1046)
+ŞARTLI 5   n= 1118 fav 0.369 sur10 0.126 ort_ganyan 5.5 üstünlük -0.0208 (n=984)
+ŞARTLI 1   n=  793 fav 0.306 sur10 0.187 ort_ganyan 7.2 üstünlük -0.0152 (n=775)
+SATIŞ      n=  393 fav 0.326 sur10 0.186 ort_ganyan 6.8 üstünlük -0.0369 (n=373)
+Grup       n=  352 fav 0.403 sur10 0.199 ort_ganyan 7.2 üstünlük -0.0253 (n=332)
+ŞARTLI 2   n=  213 fav 0.329 sur10 0.207 ort_ganyan 7.6 üstünlük -0.0029 (n=205)
+Diğer      n=    6 fav 0.167 sur10 0.000 ort_ganyan 3.9 üstünlük +0.0222 (n=5)
+
+C1 Şartlı2 sür10 − diğer şartlı: 0.0622 GA98,3 [0.00280673 0.12235628]
+C2 Şartlı4+5 hnd en yüksek at: kazanma 0.267 beklenen(piyasa) 0.262 fark 0.0048 GA98,3 [-0.0121494   0.02133052] n 2763
+C3 Maiden+Şartlı1 favori kazanma − diğer: 0.0031 GA98,3 [-0.01653372  0.02250269]
