@@ -1,29 +1,29 @@
 {
- "uretim": "2026-11-01 16:25 UTC",
- "kayitli_kosu": 1315,
- "eslesmeyen_kosu": 911,
+ "uretim": "2026-11-01 16:59 UTC",
+ "kayitli_kosu": 1316,
+ "eslesmeyen_kosu": 910,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 681,
- "kosu": 404,
+ "bahis": 684,
+ "kosu": 406,
  "isabet": 45,
- "roi": 0.985,
+ "roi": 0.98,
  "ga95": [
-  0.669,
-  1.343
+  0.665,
+  1.338
  ],
  "ulke": {
   "abd": {
-   "bahis": 440,
-   "roi": 0.818
+   "bahis": 441,
+   "roi": 0.816
   },
   "birlesik-krallik": {
    "bahis": 116,
    "roi": 1.547
   },
   "fransa": {
-   "bahis": 48,
-   "roi": 0.891
+   "bahis": 50,
+   "roi": 0.855
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 821,
-  "kosu": 396,
-  "isabet": 80,
-  "roi": 0.67,
+  "bahis": 826,
+  "kosu": 398,
+  "isabet": 81,
+  "roi": 0.668,
   "ga95": [
    0.451,
-   0.881
+   0.877
   ]
  },
  "bahis_t1": {
-  "bahis": 845,
-  "kosu": 390,
-  "isabet": 86,
-  "roi": 0.75,
+  "bahis": 850,
+  "kosu": 392,
+  "isabet": 87,
+  "roi": 0.748,
   "ga95": [
-   0.495,
-   1.053
+   0.494,
+   1.052
   ]
  },
  "bahis_t3": {
-  "bahis": 841,
-  "kosu": 379,
-  "isabet": 91,
-  "roi": 0.687,
+  "bahis": 847,
+  "kosu": 381,
+  "isabet": 92,
+  "roi": 0.685,
   "ga95": [
-   0.444,
-   1.004
+   0.443,
+   0.999
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "QIRAT",
-   "q": 0.024,
-   "g": 55.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "LUGAL",
-   "q": 0.024,
-   "g": 166.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-10-31",
-   "pist": "Keeneland",
-   "kosu": 9,
-   "at": "FORMIDABLE MAN",
-   "q": 0.047,
-   "g": 48.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-10-31",
    "pist": "Keeneland",
@@ -418,11 +391,38 @@
   },
   {
    "gun": "2026-11-01",
+   "pist": "Belmont Park",
+   "kosu": 1,
+   "at": "HORIZONTAL RAIN",
+   "q": 0.194,
+   "g": 6.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
    "pist": "Toulouse",
    "kosu": 1,
    "at": "MOONZIKNUIT",
    "q": 0.076,
    "g": 34.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Toulouse",
+   "kosu": 3,
+   "at": "GRIS DE PERLES",
+   "q": 0.126,
+   "g": 12.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-01",
+   "pist": "Toulouse",
+   "kosu": 3,
+   "at": "WATHAB",
+   "q": 0.032,
+   "g": 41.75,
    "kazandi": false
   }
  ]
