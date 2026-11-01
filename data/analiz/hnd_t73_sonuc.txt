@@ -1,0 +1,15 @@
+at 118966 koşu 884
+
+BETİMLEYİCİ: hnd sırası (tüm cinsler) gerçek/beklenen kazanma ve ilk-3
+hnd sıra 1    at  12989 kazanma 0.2115 bek 0.2027 | ilk3 0.5048 bek 0.5246
+hnd sıra 2-3  at  23986 kazanma 0.1474 bek 0.1440 | ilk3 0.4335 bek 0.4271
+hnd sıra 4-6  at  41420 kazanma 0.0974 bek 0.0973 | ilk3 0.3198 bek 0.3088
+hnd sıra 7+   at  40571 kazanma 0.0561 bek 0.0610 | ilk3 0.1930 bek 0.1954
+
+İDDİA1 Şartlı3-5 hnd sırası 1-3 ilk-3: gerçek 0.5288 beklenen 0.5342 fark -0.0054 GA97,5 [-0.01359646  0.0026532 ] at 10572
+İDDİA2 hnd alt yarı kazanma: gerçek 0.0662 beklenen 0.0713 fark -0.0051 GA97,5 [-0.00693039 -0.00320056] at 54443
+  ŞARTLI 3: hnd1-3 ilk3 fark -0.0068 (n=3019) | alt yarı kazanma fark -0.0133 (n=4202)
+  ŞARTLI 4: hnd1-3 ilk3 fark -0.0029 (n=4524) | alt yarı kazanma fark -0.0124 (n=6023)
+  ŞARTLI 5: hnd1-3 ilk3 fark -0.0076 (n=3029) | alt yarı kazanma fark -0.0068 (n=3877)
+  Handikap: hnd1-3 ilk3 fark -0.0128 (n=11613) | alt yarı kazanma fark -0.0001 (n=17111)
+  Maiden: hnd1-3 ilk3 fark +0.0208 (n=7385) | alt yarı kazanma fark -0.0046 (n=13547)
