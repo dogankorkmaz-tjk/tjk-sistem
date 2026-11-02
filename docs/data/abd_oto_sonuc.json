@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-02 13:08 UTC",
- "kayitli_kosu": 1375,
- "eslesmeyen_kosu": 942,
+ "uretim": "2026-11-02 14:10 UTC",
+ "kayitli_kosu": 1378,
+ "eslesmeyen_kosu": 944,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 727,
- "kosu": 433,
+ "bahis": 731,
+ "kosu": 434,
  "isabet": 47,
- "roi": 0.947,
+ "roi": 0.942,
  "ga95": [
-  0.649,
-  1.301
+  0.64,
+  1.3
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.547
   },
   "fransa": {
-   "bahis": 55,
-   "roi": 0.777
+   "bahis": 59,
+   "roi": 0.725
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 871,
-  "kosu": 425,
+  "bahis": 874,
+  "kosu": 426,
   "isabet": 87,
-  "roi": 0.664,
+  "roi": 0.661,
   "ga95": [
-   0.456,
-   0.862
+   0.458,
+   0.856
   ]
  },
  "bahis_t1": {
-  "bahis": 899,
-  "kosu": 419,
+  "bahis": 903,
+  "kosu": 420,
   "isabet": 93,
-  "roi": 0.731,
+  "roi": 0.728,
   "ga95": [
-   0.489,
-   1.02
+   0.478,
+   1.0
   ]
  },
  "bahis_t3": {
-  "bahis": 901,
-  "kosu": 407,
+  "bahis": 907,
+  "kosu": 408,
   "isabet": 100,
-  "roi": 0.675,
+  "roi": 0.671,
   "ga95": [
-   0.449,
-   0.969
+   0.445,
+   0.951
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "FLIGHTRESS",
-   "q": 0.224,
-   "g": 6.2,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "DREAMOLOGY",
-   "q": 0.112,
-   "g": 12.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Belmont Park",
-   "kosu": 6,
-   "at": "RULE SIXTY TWO",
-   "q": 0.076,
-   "g": 20.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Belmont Park",
-   "kosu": 9,
-   "at": "GATE TO WIRE",
-   "q": 0.114,
-   "g": 11.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-01",
    "pist": "Gulfstream",
@@ -423,6 +387,42 @@
    "at": "EL ALACRAN",
    "q": 0.195,
    "g": 8.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 3,
+   "at": "DOUBLE UP",
+   "q": 0.095,
+   "g": 19.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 3,
+   "at": "FELIX AUX ORMES",
+   "q": 0.083,
+   "g": 17.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 3,
+   "at": "VICTORY FOLIE",
+   "q": 0.113,
+   "g": 12.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 3,
+   "at": "TERREDEGUERRE",
+   "q": 0.083,
+   "g": 23.15,
    "kazandi": false
   }
  ]
