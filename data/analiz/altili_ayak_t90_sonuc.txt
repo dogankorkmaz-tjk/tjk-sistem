@@ -1,0 +1,23 @@
+ayak 7042, altılı≈1173, genel bust 0.280
+H1 seq1/ayak5: n=505 bust 0.331 diğer 0.276 fark +0.055 GA%98.3 [0.007 0.105]
+H2 seq2/ayak1: n=516 bust 0.333 diğer 0.276 fark +0.058 GA%98.3 [0.013 0.105]
+H3 seq2/ayak2: n=509 bust 0.348 diğer 0.275 fark +0.073 GA%98.3 [0.026 0.126]
+keşifsel (konum: n, bust, favori kazanma, medyan kazanan ganyanı)
+  0/1: n=157 bust 0.293 fav 0.318 medyan gan 4.45
+  0/2: n=156 bust 0.308 fav 0.340 medyan gan 3.98
+  0/3: n=154 bust 0.221 fav 0.416 medyan gan 3.17
+  0/4: n=146 bust 0.171 fav 0.411 medyan gan 2.55
+  0/5: n=156 bust 0.218 fav 0.365 medyan gan 3.05
+  0/6: n=158 bust 0.430 fav 0.259 medyan gan 5.65
+  1/1: n=510 bust 0.280 fav 0.314 medyan gan 3.70
+  1/2: n=515 bust 0.190 fav 0.384 medyan gan 3.10
+  1/3: n=512 bust 0.221 fav 0.393 medyan gan 3.20
+  1/4: n=512 bust 0.299 fav 0.338 medyan gan 3.92
+  1/5: n=505 bust 0.331 fav 0.303 medyan gan 4.15
+  1/6: n=506 bust 0.263 fav 0.375 medyan gan 3.45
+  2/1: n=516 bust 0.333 fav 0.318 medyan gan 4.35
+  2/2: n=509 bust 0.348 fav 0.316 medyan gan 4.45
+  2/3: n=503 bust 0.270 fav 0.352 medyan gan 3.40
+  2/4: n=510 bust 0.206 fav 0.378 medyan gan 3.15
+  2/5: n=509 bust 0.236 fav 0.381 medyan gan 3.25
+  2/6: n=508 bust 0.392 fav 0.276 medyan gan 5.00
