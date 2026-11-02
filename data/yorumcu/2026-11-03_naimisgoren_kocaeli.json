@@ -1,0 +1,97 @@
+{
+ "tarih": "2026-11-03",
+ "hipodrom": "kocaeli",
+ "kaynak": "Naim İşgören (Kocaeli 2. altılı)",
+ "not": "Doğan'ın telefon notu 'Naim işgören koc...' (ekran görüntüsü, 3 Kasım 02:31; kaynak adı ve tarih Doğan'ın notundan, program doğrulanmadı). Kocaeli 2. altılı = 4-9. koşular (1. ayak=4. koşu ... 6. ayak=9. koşu); not 'Kocaeli İkinci altılı' yazıyor. 3. ayak (6. koşu) 'hepsi' = tüm atlar; puanlamaya KATILMAZ (trivial isabet). '/' sonrası isteğe bağlı alındı (bankomat/karacaekürisi biçimiyle aynı varsayım); '-' ile ayrılan listelerin sırasının tercih sırası olup olmadığı BİLİNMİYOR -> sirali=false, ilk tercih puanlanmaz. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. At numaraları kontrol edildi: 4. koşu 11, 5. koşu 11, 6. koşu 6, 7. koşu 11, 8. koşu 6, 9. koşu 11 at; yazılan numaraların hepsi alan içinde. Yalnız betimleyici (az örnek).",
+ "kosular": {
+  "4": [
+   3,
+   7,
+   2,
+   1,
+   9
+  ],
+  "5": [
+   1,
+   7,
+   9
+  ],
+  "7": [
+   6,
+   3,
+   1,
+   2,
+   8,
+   11
+  ],
+  "8": [
+   4,
+   1,
+   2,
+   5
+  ],
+  "9": [
+   6,
+   2,
+   8,
+   9,
+   10
+  ]
+ },
+ "ham": {
+  "4": "3-7-2-1-9",
+  "5": "1/7-9",
+  "6": "hepsi",
+  "7": "6-3-1-2-8-11",
+  "8": "4-1-2-5",
+  "9": "6/2-8-9-10"
+ },
+ "sirali": false,
+ "ana": {
+  "4": [
+   3,
+   7,
+   2,
+   1,
+   9
+  ],
+  "5": [
+   1
+  ],
+  "7": [
+   6,
+   3,
+   1,
+   2,
+   8,
+   11
+  ],
+  "8": [
+   4,
+   1,
+   2,
+   5
+  ],
+  "9": [
+   6
+  ]
+ },
+ "istege_bagli": {
+  "4": [],
+  "5": [
+   7,
+   9
+  ],
+  "7": [],
+  "8": [],
+  "9": [
+   2,
+   8,
+   9,
+   10
+  ]
+ },
+ "hepsi": [
+  6
+ ]
+}
