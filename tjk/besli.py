@@ -509,6 +509,15 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
             for B in BUTCELER_G:
                 q = _kup_gec("G1-S-G (geç)", B, p, at, Wp, Tp, GGm, g1v, son["t"])
                 if q: kup.append(q)
+            try:                                             # T88 kupon-genişliği gölge kolu (3 Kasım 2026): açıklığa göre bütçe (kesimler T88'den, dondurulmuş)
+                _s = sum(pm); _ac = max(pm) / _s if _s > 0 else None
+                if _ac is not None:
+                    _B = 150 if _ac < 0.277 else (48 if _ac >= 0.373 else 96)
+                    _q = next((x for x in kup if x["model"] == "G1-S-G (geç)" and x["butce"] == _B), None)
+                    if _q:
+                        kup.append({**_q, "model": "G1-S-Aç (geç)", "aciklik": round(_ac, 4)})
+            except Exception as e:
+                print("T88 açıklık kolu hatası:", repr(e))
             try:                                             # T69 havuz-faktör gölge kolu (2 Kasım 2026): s2/sq havuz faktörü pozisyon ağırlıklarına eklenir (katsayılar dondurulmuş)
                 _off = _havuz_off(at, (ort[0].get((h["id"], k["kosu"])) or {}).get("havuz") or {})
                 if _off:
