@@ -1365,3 +1365,8 @@ Karar: (b) üst sınır <0 VE üç yılın en az ikisinde aynı yön → kupon g
 ### T88 SONUÇ (2026-11-03 00:10; data/analiz/aciklik_t88_sonuc.txt)
 14729 koşu, kesimler max p_piyasa 0.277/0.373. Jason−piyasa kazanan-NLL (negatif=Jason iyi): açık −0.0217 [−0.0265,−0.0169], orta −0.0126, kapalı −0.0116 [−0.0156,−0.0075]. Fark (açık−kapalı) −0.0101 [−0.0162,−0.0038]; 2024/2025/2026 hepsinde aynı yön (−0.0077/−0.0094/−0.0115). Karar kuralı (b) SAĞLANDI → kupon genişliği için ileri gölge adayı (açık ayak geniş, kapalı dar); henüz uygulanmadı, Doğan'la konuşulacak.
 Uzun at (ganyan≥10): gözlenen 0.0307, p_piyasa 0.0346 (piyasa uzun atları ~%12 fazla fiyatlıyor), p_Jason 0.0303 (iyi kalibre). p_J/p_m>1.2 uzun atlar: n=2593, gözlenen 0.0729, ROI 1.067 GA [0.918,1.228] → alt sınır <1, uzun at stratejisi YOK (kural c sağlanmadı); gözlem kaydı olarak kalır.
+
+## T89 — Altılıda uzun atlar (ganyan ≥7) AGF payına göre az mı kapsanıyor? (2026-11-03 00:12)
+Doğan'ın gözlemi: insanlar fiyat şişmesin diye açık ayaklarda az at yazıyor; ≥7 ganyanlı kazananlar az kuponda olduğu için altılı ödemesi şişiyor. Veri: /tmp/claude-0/agf_d.pkl (992 altılı, ~5950 ayak; agf_son % ve normalize pay a). 
+Ölçü: ≥7 ganyanlı atlar için Σkazandi / Σa (gözlenen/AGF payı), bantlar 7–10, 10–15, ≥15; gün-kümeli bootstrap %95 GA; karşılaştırma: aynı atlar için gözlenen/p_piyasa ve gözlenen/p_Jason; ayrıca açık/orta/kapalı ayak ayrımı (T88 kesimleri, 0.277/0.373).
+Karar: ≥7 genelinde gözlenen/AGF payı GA alt sınırı >1 VE açık ayaklarda da aynı yön → "uzun atlar altılıda az kapsanıyor" (kupon genişliği tasarımına girdi); alt sınır ≤1 ise kapanır. Altılı sayısı az (992) → sonuç keşifsel sayılır, tek karar bu testten çıkmaz; ≥150 ek altılıda tekrar.
