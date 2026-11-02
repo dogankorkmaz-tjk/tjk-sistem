@@ -1,0 +1,10 @@
+
+B=64: altılı 992 (DEVİR dahil)
+tümü: Jason ROI 0.62 (tutan 41, model-bekl 38.2) | AGF ROI 0.44 (tutan 36, bekl 30.7) | ROI farkı +0.18 GA95 [-0.10,+0.47] | maliyet J 61 A 61 kombinasyon/altılı
+2025: Jason ROI 0.28 (tutan 14, model-bekl 11.4) | AGF ROI 0.15 (tutan 10, bekl 9.2) | ROI farkı +0.13 GA95 [+0.01,+0.28] | maliyet J 61 A 61 kombinasyon/altılı
+2026: Jason ROI 0.75 (tutan 27, model-bekl 26.8) | AGF ROI 0.56 (tutan 26, bekl 21.4) | ROI farkı +0.20 GA95 [-0.17,+0.62] | maliyet J 61 A 61 kombinasyon/altılı
+
+B=256: altılı 992 (DEVİR dahil)
+tümü: Jason ROI 0.81 (tutan 95, model-bekl 83.0) | AGF ROI 0.50 (tutan 93, bekl 67.9) | ROI farkı +0.31 GA95 [+0.05,+0.63] | maliyet J 241 A 242 kombinasyon/altılı
+2025: Jason ROI 0.35 (tutan 23, model-bekl 24.4) | AGF ROI 0.31 (tutan 28, bekl 20.0) | ROI farkı +0.04 GA95 [-0.20,+0.30] | maliyet J 242 A 242 kombinasyon/altılı
+2026: Jason ROI 0.99 (tutan 72, model-bekl 58.6) | AGF ROI 0.57 (tutan 65, bekl 48.0) | ROI farkı +0.42 GA95 [+0.07,+0.86] | maliyet J 241 A 242 kombinasyon/altılı
