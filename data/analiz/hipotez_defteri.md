@@ -1383,3 +1383,7 @@ Karar: bir hipotezde fark GA alt sınırı >0 ise "o ayak sistematik riskli", ku
 
 ## T92 — KEŞİFSEL: uzun at kuralı (p_J/p_m>1.2 ve ganyan≥10) koşu açıklığına göre (2026-11-03 00:20)
 Statü: keşifsel, kanıt değil (kural T88(c)'de sonuç görülerek seçildi; alt grup ikinci ayrım). Bakış sayısı: 3 açıklık grubu + 3 yıl = 6, hepsi raporlanır. Ölçü: ROI ve gözlenen kazanma, gün-kümeli bootstrap GA (Bonferroni ×6 için %99.2 GA de verilir). Karar: yalnız ileri gölge kol adayı belirlemek; hiçbir canlı kural bu testten çıkmaz.
+
+## T91 — Altılıda daha geniş bütçeler: Jason (J/V) vs AGF kuponu ROI'si (2026-11-03 00:25)
+Soru: B=64→256'da Jason ROI'si 0.62→0.81 (AGF 0.44→0.50) yükseldi; B=512/1024/2048'de ROI 1'e yaklaşıyor mu? Yöntem: altili_deger.py ile aynı kurucu (kur, mod V/J/A), aynı veri (agf_d.pkl, ~990 altılı), yalnızca B∈{512,1024,2048}. Ölçüler: ROI + gün-kümeli GA; en büyük tek ödeme çıkarılmış ROI; 2025/2026 ayrı; J−A ve V−A fark GA'sı.
+Karar: bir B'de J (veya V) ROI GA alt sınırı >1 VE en büyük ödeme çıkarılınca ROI ≥1 ise "geniş kupon ileri gölge" adayı (altılı gölge kol zaten var, B ekleme). Aksi halde bütçe büyütmeyle eşik geçilmiyor kabul edilir. ROI GA geniş olacağı için tek test karar değil, aday üretir.
