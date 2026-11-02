@@ -302,11 +302,6 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
       <div class="bolum-not">Oranı 15 ve üstü atlarda, donmuş ağaç modeli piyasadan en az 1,69 kat yüksek bulursa aday olur. Yarıştan ~30 dk önce canlı oranla belirir. Ölçüm kâğıt üstü, 1 TL ganyan.</div>
       <div id="supIc"><div class="card empty">Yükleniyor…</div></div>
     </div>
-    <div class="bolum">
-      <h2>Tüyo takibi</h2>
-      <div class="bolum-not">Ana test: Jason olasılığı en az %6 ve AGF'nin en az 1,3 katı olan atlar, kâğıt üstü 1 TL ganyan.</div>
-      <div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
-    </div>
     <div class="sec">
       <h2>Devir fırsatı (7'li ganyan)</h2>
       <div id="otoDevir"><div class="card empty">Yükleniyor…</div></div>
@@ -343,6 +338,11 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
   <section id="canli" class="sec" hidden><div id="canliIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="bolton" class="sec" hidden><div id="bolIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="jason" class="sec" hidden>
+    <div class="bolum">
+      <h2>Tüyo takibi</h2>
+      <div class="bolum-not">Ana test: Jason olasılığı en az %6 ve AGF'nin en az 1,3 katı olan atlar, kâğıt üstü 1 TL ganyan.</div>
+      <div id="otoTuyo"><div class="card empty">Yükleniyor…</div></div>
+    </div>
     <div class="bolum">
       <h2>Sabit ihtimalli takip</h2>
       <div class="bolum-not">Yarışa ~5 dk kala dondurulan seçimler: Jason olasılığı × sabit oran ≥ 1,2 (Kol A); Jason havuz payından da yüksekse Kol B. Kâğıt üstü 1 TL.</div>
@@ -2284,7 +2284,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793659949';   // commit öncesi otomatik güncellenir
+const BUILD='1793659966';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
