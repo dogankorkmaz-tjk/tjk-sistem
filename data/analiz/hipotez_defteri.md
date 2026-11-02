@@ -1361,3 +1361,7 @@ Soru: Jason'ın piyasaya (p_piyasa) göre kazanan-NLL üstünlüğü "açık" ko
 Açıklık = koşudaki max p_piyasa; tüm örneğin terciliyle 3 grup (açık/orta/kapalı), kesimler sabit (tüm veriden bir kez).
 Ölçüler: (a) grup başına koşu-ortalaması NLL(Jason) − NLL(piyasa), gün-kümeli bootstrap %95 GA; (b) fark-fark (açık − kapalı) GA; (c) uzun at kutusu (ganyan ≥10): gözlenen kazanma oranı vs ort. p_piyasa vs ort. p_Jason, ve p_Jason/p_piyasa>1.2 olan uzun atlara 1 TL ROI (GA); (d) dönem A/B/C benzeri bölünme: 2024, 2025, 2026 ayrı yön.
 Karar: (b) üst sınır <0 VE üç yılın en az ikisinde aynı yön → kupon genişliği için ileri gölge (açık ayakta geniş, kapalıda dar). (c) ROI GA alt sınırı >1 değilse uzun at stratejisi yok. Aksi halde kapanır; tek koşuluk sonuç sayılmaz.
+
+### T88 SONUÇ (2026-11-03 00:10; data/analiz/aciklik_t88_sonuc.txt)
+14729 koşu, kesimler max p_piyasa 0.277/0.373. Jason−piyasa kazanan-NLL (negatif=Jason iyi): açık −0.0217 [−0.0265,−0.0169], orta −0.0126, kapalı −0.0116 [−0.0156,−0.0075]. Fark (açık−kapalı) −0.0101 [−0.0162,−0.0038]; 2024/2025/2026 hepsinde aynı yön (−0.0077/−0.0094/−0.0115). Karar kuralı (b) SAĞLANDI → kupon genişliği için ileri gölge adayı (açık ayak geniş, kapalı dar); henüz uygulanmadı, Doğan'la konuşulacak.
+Uzun at (ganyan≥10): gözlenen 0.0307, p_piyasa 0.0346 (piyasa uzun atları ~%12 fazla fiyatlıyor), p_Jason 0.0303 (iyi kalibre). p_J/p_m>1.2 uzun atlar: n=2593, gözlenen 0.0729, ROI 1.067 GA [0.918,1.228] → alt sınır <1, uzun at stratejisi YOK (kural c sağlanmadı); gözlem kaydı olarak kalır.
