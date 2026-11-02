@@ -1,15 +1,15 @@
 {
- "uretim": "2026-11-02 15:26 UTC",
- "kayitli_kosu": 1384,
- "eslesmeyen_kosu": 949,
+ "uretim": "2026-11-02 16:32 UTC",
+ "kayitli_kosu": 1387,
+ "eslesmeyen_kosu": 950,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 733,
- "kosu": 435,
- "isabet": 47,
- "roi": 0.939,
+ "bahis": 739,
+ "kosu": 437,
+ "isabet": 48,
+ "roi": 0.94,
  "ga95": [
-  0.636,
+  0.64,
   1.297
  ],
  "ulke": {
@@ -22,8 +22,8 @@
    "roi": 1.547
   },
   "fransa": {
-   "bahis": 61,
-   "roi": 0.701
+   "bahis": 67,
+   "roi": 0.736
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 878,
-  "kosu": 427,
+  "bahis": 885,
+  "kosu": 429,
   "isabet": 87,
-  "roi": 0.658,
+  "roi": 0.653,
   "ga95": [
-   0.456,
-   0.85
+   0.452,
+   0.842
   ]
  },
  "bahis_t1": {
-  "bahis": 907,
-  "kosu": 421,
+  "bahis": 914,
+  "kosu": 423,
   "isabet": 93,
-  "roi": 0.725,
+  "roi": 0.719,
   "ga95": [
-   0.474,
-   0.994
+   0.47,
+   0.991
   ]
  },
  "bahis_t3": {
-  "bahis": 911,
-  "kosu": 409,
-  "isabet": 100,
-  "roi": 0.668,
+  "bahis": 918,
+  "kosu": 411,
+  "isabet": 101,
+  "roi": 0.67,
   "ga95": [
-   0.443,
-   0.944
+   0.448,
+   0.943
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 2,
-   "at": "QUEEN KWAINA",
-   "q": 0.165,
-   "g": 7.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 3,
-   "at": "SHEA'S A DEVIL",
-   "q": 0.086,
-   "g": 30.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 4,
-   "at": "I'M HOT",
-   "q": 0.178,
-   "g": 15.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 4,
-   "at": "LEXI'S BREEZE",
-   "q": 0.229,
-   "g": 7.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 4,
-   "at": "NORTHERN CROWN",
-   "q": 0.089,
-   "g": 21.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "AUTHENTIC QUALITY",
-   "q": 0.072,
-   "g": 19.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-01",
    "pist": "Gulfstream",
@@ -423,6 +369,60 @@
    "at": "ALMA MATER",
    "q": 0.101,
    "g": 16.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 7,
+   "at": "YOKEN",
+   "q": 0.085,
+   "g": 16.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 7,
+   "at": "MEISHO SUGAR",
+   "q": 0.068,
+   "g": 33.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 7,
+   "at": "DAY DREAMING",
+   "q": 0.111,
+   "g": 22.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 7,
+   "at": "WHITE PLATIN",
+   "q": 0.222,
+   "g": 6.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 7,
+   "at": "ARKEN",
+   "q": 0.254,
+   "g": 6.55,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 8,
+   "at": "LEOPARDUCCIO",
+   "q": 0.113,
+   "g": 18.25,
    "kazandi": false
   }
  ]
