@@ -1,0 +1,4 @@
+(a) SON n=666 gözlenen 0.401 Jason 0.412 fark -0.011 GA95 [-0.046  0.023]
+(a) diger n=6376 gözlenen 0.267 Jason 0.281 fark -0.014 GA95 [-0.027 -0.001]
+(b) SON V-uzun at bahis=3774 kazanan=125 ROI 0.582 GA95 [0.476 0.694] (en büyük ödeme çıkarılınca 0.566, yalnız bilgi)
+(b) diger V-uzun at bahis=20090 kazanan=682 ROI 0.442 GA95 [0.397 0.489] (en büyük ödeme çıkarılınca 0.439, yalnız bilgi)
