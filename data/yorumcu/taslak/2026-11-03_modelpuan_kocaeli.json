@@ -1,6 +1,6 @@
 {
  "kaynak": "YouTube 'model puanı' videosu (kanal/adı belirtilmedi)",
- "not": "Doğan 2 Kasım 23:41'de gönderdi; hipodrom ve gün BİLİNMİYOR (atlar 1 Eylül–2 Kasım programlarımızda eşleşmedi, muhtemelen 3 Kasım). 22 kriterden göreli puan, kazanma yüzdesi değil; eşik 72, eşiği geçen at yeşil.",
+ "not": "Doğan 2 Kasım 23:41'de gönderdi; Doğan: Kocaeli, yarınki (3 Kasım) program; atlar henüz programımızda yok, doğrulanmadı. 22 kriterden göreli puan, kazanma yüzdesi değil; eşik 72, eşiği geçen at yeşil.",
  "esik": 72,
  "kosular": {
   "1": {
@@ -30,5 +30,7 @@
     7
    ]
   }
- }
+ },
+ "tarih": "2026-11-03",
+ "hipodrom": "kocaeli"
 }
