@@ -1,0 +1,165 @@
+{
+ "kaynak": "YouTube @AnalitikGanyan 'Bursa 2 Kasım 2026 | 4 Koşuda Yeşil Yok' (Yapay zeka etiketli)",
+ "not": "DOĞRULANMAMIŞ ZAMAN: Doğan ekran görüntülerini 2 Kasım 23:50'de, sonuçlar belli olduktan sonra attı; videonun yarıştan önce yayınlandığı teyit edilemiyor. T87 ileriye dönük sayımına KATILMAZ, yalnız tanımlayıcı. Kısmi sayfa: K1,K6,K7,K8 tek sayfa; K2/K3/K5 yalnız 1. sayfa (2. sayfa yok olabilir).",
+ "esik_kosu": {
+  "1": 74,
+  "2": 61,
+  "3": 68,
+  "4": 64,
+  "5": 61,
+  "6": 74,
+  "7": 77,
+  "8": 61,
+  "9": 66
+ },
+ "kosular": {
+  "1": {
+   "puan": {
+    "4 ŞAFİYE": 70,
+    "2 SELLY SU": 61,
+    "7 LITTLE FLORENTINA": 57,
+    "5 ZIBBOOSH": 56,
+    "8 WRITE TO TINAS": 53,
+    "1 KRALİÇE NONİKA": 52,
+    "3 SUGAR STORM": 47,
+    "6 DREAM SHIP": 44
+   },
+   "esigi_gecen": []
+  },
+  "2": {
+   "puan": {
+    "8 ÖZGÜN BAŞKAN": 73,
+    "9 SEZGİNAĞA": 66,
+    "2 ŞENSOY": 60,
+    "1 ESDRAGON": 58,
+    "7 MERCAN KONAK": 57,
+    "10 TEYZEOĞLU": 50,
+    "3 AKREP YÜREK": 50,
+    "11 YAĞIZSOY": 49,
+    "5 CİHANDERE": 48
+   },
+   "esigi_gecen": [
+    8,
+    9
+   ]
+  },
+  "3": {
+   "puan": {
+    "1 ELSENORDELOSCIELOS": 68,
+    "3 ALL FIRST": 61,
+    "4 ASABİ ÇOCUK": 60,
+    "2 PUYOL": 59,
+    "6 SHADOW GENIUS": 58,
+    "5 SON CESİ": 54
+   },
+   "esigi_gecen": [
+    1
+   ]
+  },
+  "4": {
+   "puan": {
+    "7 KARAT": 68,
+    "6 HULUSİBEY": 66,
+    "8 KAYALARIN ASLANI": 62,
+    "9 TOPLUSER": 61,
+    "1 KONÇİÇEK": 59,
+    "2 VAHŞİ KRALİÇE": 57,
+    "3 TORUN SADA": 57,
+    "11 HÜKÜMDAR KILICI": 55,
+    "12 MESTAN": 55,
+    "4 KÜÇÜK HASO": 54,
+    "10 KOLAYSA YAKALA": 51,
+    "5 HEVSELİM": 44
+   },
+   "esigi_gecen": [
+    7,
+    6
+   ]
+  },
+  "5": {
+   "puan": {
+    "7 KAPTAN İRFAN": 64,
+    "2 BELEK BEY": 60,
+    "11 SERT KOŞU": 59,
+    "3 BİLGETUNA": 56,
+    "6 KALEMEYDAN": 52,
+    "1 ASLAN ARAS": 50,
+    "5 GÜRSU AĞASI": 50,
+    "4 GÖLGE ADAM": 50,
+    "8 KOMBO": 48
+   },
+   "esigi_gecen": [
+    7
+   ]
+  },
+  "6": {
+   "puan": {
+    "1 FEARLESS DRAGON": 67,
+    "5 AL SAROUT": 64,
+    "9 SELLYGIRL": 63,
+    "7 SHARP STORM": 60,
+    "6 MİKEA": 60,
+    "3 MANCUNIAN BEDİİ": 56,
+    "4 DİPLOMAT ZAFER": 56,
+    "2 TEJON MELERO": 51,
+    "8 KUMSALIM": 41
+   },
+   "esigi_gecen": []
+  },
+  "7": {
+   "puan": {
+    "7 HAS SERÇE": 71,
+    "2 BODE A WINNER": 67,
+    "4 YİĞENİM NEHİR": 58,
+    "1 ANGEL OF DEFNE": 57,
+    "3 FASTEST ÇINAR": 51,
+    "5 KIZIM BERİL": 50,
+    "8 I RO": 43,
+    "6 DUCENS MULIER": 42
+   },
+   "esigi_gecen": []
+  },
+  "8": {
+   "puan": {
+    "1 SERTESEN": 60,
+    "5 ALKURUŞ BEYİ": 55,
+    "3 DİSU BEY": 53,
+    "8 DAVRANTAY": 52,
+    "4 ALANDER": 52,
+    "7 CABALLO": 52,
+    "9 GOZEYOĞLU": 51,
+    "2 ÇAĞIM": 50,
+    "10 ORTUNÇ": 50,
+    "11 ÖZASYALI": 47,
+    "6 ATEŞ KRALI": 40
+   },
+   "esigi_gecen": []
+  },
+  "9": {
+   "puan": {
+    "4 PATRONA HOLİ": 68,
+    "17 ÇEPNİ": 68,
+    "9 MY DEAR DREAM": 61,
+    "8 MY CHAKRA": 61,
+    "11 LIFE AND LIGHT": 59,
+    "15 DEBESE": 58,
+    "6 GOLDEN SCORE": 58,
+    "10 VISERRA": 52,
+    "18 İLHAMİ AĞA": 52,
+    "3 KINGS POWER": 52,
+    "7 LADY CLASSMAN": 51,
+    "5 SPEEDTAIL": 51,
+    "14 MY HAZEL EYES": 49,
+    "16 DIL BAHAR": 48,
+    "2 IRON CLEM": 46,
+    "12 DRAGON BREATH": 44,
+    "13 MAGGIE": 44,
+    "1 CLYDE BARROW": 36
+   },
+   "esigi_gecen": [
+    4,
+    17
+   ]
+  }
+ }
+}
