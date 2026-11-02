@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-02 18:00 UTC",
- "kayitli_kosu": 1392,
- "eslesmeyen_kosu": 953,
+ "uretim": "2026-11-02 18:28 UTC",
+ "kayitli_kosu": 1396,
+ "eslesmeyen_kosu": 956,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 741,
- "kosu": 439,
- "isabet": 48,
- "roi": 0.938,
+ "bahis": 744,
+ "kosu": 440,
+ "isabet": 49,
+ "roi": 0.994,
  "ga95": [
-  0.64,
-  1.295
+  0.693,
+  1.366
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.785
   },
   "birlesik-krallik": {
-   "bahis": 116,
-   "roi": 1.547
+   "bahis": 119,
+   "roi": 1.883
   },
   "fransa": {
    "bahis": 67,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 888,
-  "kosu": 431,
+  "bahis": 890,
+  "kosu": 432,
   "isabet": 88,
-  "roi": 0.653,
+  "roi": 0.651,
   "ga95": [
-   0.452,
-   0.842
+   0.45,
+   0.84
   ]
  },
  "bahis_t1": {
-  "bahis": 917,
-  "kosu": 425,
+  "bahis": 919,
+  "kosu": 426,
   "isabet": 93,
-  "roi": 0.717,
+  "roi": 0.715,
   "ga95": [
-   0.468,
-   0.987
+   0.467,
+   0.986
   ]
  },
  "bahis_t3": {
-  "bahis": 921,
-  "kosu": 413,
+  "bahis": 923,
+  "kosu": 414,
   "isabet": 101,
-  "roi": 0.667,
+  "roi": 0.666,
   "ga95": [
-   0.446,
-   0.94
+   0.445,
+   0.938
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 5,
-   "at": "BROTHER O' BRIEN",
-   "q": 0.204,
-   "g": 7.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 6,
-   "at": "SHOP TILL YOU DROP",
-   "q": 0.171,
-   "g": 10.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 7,
-   "at": "GRAMMY'S GAL",
-   "q": 0.14,
-   "g": 11.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-01",
    "pist": "Santa Anita",
@@ -424,6 +397,33 @@
    "q": 0.113,
    "g": 18.25,
    "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Wolverhampton",
+   "kosu": 4,
+   "at": "PENNY CAPRI",
+   "q": 0.09,
+   "g": 19.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Wolverhampton",
+   "kosu": 4,
+   "at": "CARROW ROAD",
+   "q": 0.054,
+   "g": 24.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Wolverhampton",
+   "kosu": 4,
+   "at": "DADAWADA",
+   "q": 0.031,
+   "g": 44.6,
+   "kazandi": true
   }
  ]
 }
