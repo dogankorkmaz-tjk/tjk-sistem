@@ -11,6 +11,7 @@ from .ozellik import hazirla, model_olasilik
 from . import kupon as KP
 from . import plase as PL
 from . import tuyo as TY
+from . import sabit_golge as SG
 from . import besli as BS
 from . import tabela as TB
 from . import sirali3 as S3
@@ -948,6 +949,10 @@ def canli(t):
     except Exception as e:
         print("tuyo hatası:", repr(e))
     try:
+        SG.guncelle(obj)
+    except Exception as e:
+        print("sabit gölge hatası:", repr(e))
+    try:
         BS.guncelle(obj)
     except Exception as e:
         print("besli hatası:", repr(e))
@@ -1048,6 +1053,10 @@ def gece(bugun):
                 _TE.guncelle()
             except Exception as e:
                 print("tuyo hatası:", repr(e))
+            try:
+                SG.guncelle(obj)
+            except Exception as e:
+                print("sabit gölge hatası:", repr(e))
             try:
                 BS.guncelle(obj)
             except Exception as e:
