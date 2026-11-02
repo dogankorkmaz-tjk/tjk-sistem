@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-02 19:28 UTC",
+ "uretim": "2026-11-02 19:50 UTC",
  "kayitli_kosu": 1402,
- "eslesmeyen_kosu": 961,
+ "eslesmeyen_kosu": 958,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 745,
- "kosu": 441,
- "isabet": 49,
- "roi": 0.993,
+ "bahis": 750,
+ "kosu": 444,
+ "isabet": 50,
+ "roi": 0.997,
  "ga95": [
-  0.692,
-  1.364
+  0.696,
+  1.367
  ],
  "ulke": {
   "abd": {
-   "bahis": 482,
-   "roi": 0.783
+   "bahis": 487,
+   "roi": 0.793
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 895,
-  "kosu": 433,
-  "isabet": 89,
-  "roi": 0.649,
+  "bahis": 900,
+  "kosu": 436,
+  "isabet": 90,
+  "roi": 0.655,
   "ga95": [
-   0.448,
-   0.838
+   0.458,
+   0.842
   ]
  },
  "bahis_t1": {
-  "bahis": 924,
-  "kosu": 427,
+  "bahis": 928,
+  "kosu": 430,
   "isabet": 94,
-  "roi": 0.713,
+  "roi": 0.71,
   "ga95": [
-   0.466,
-   0.983
+   0.462,
+   0.98
   ]
  },
  "bahis_t3": {
-  "bahis": 924,
-  "kosu": 415,
+  "bahis": 930,
+  "kosu": 418,
   "isabet": 101,
-  "roi": 0.665,
+  "roi": 0.661,
   "ga95": [
-   0.444,
-   0.937
+   0.44,
+   0.933
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "JIMMY WINKFIELD",
-   "q": 0.158,
-   "g": 18.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "SPEED OF ELON",
-   "q": 0.025,
-   "g": 65.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "THE G M",
-   "q": 0.025,
-   "g": 62.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "GOING NOWHERE",
-   "q": 0.025,
-   "g": 65.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "FEELING LUCKY",
-   "q": 0.061,
-   "g": 24.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-01",
    "pist": "Santa Anita",
@@ -292,6 +247,33 @@
   },
   {
    "gun": "2026-11-02",
+   "pist": "Finger Lakes",
+   "kosu": 5,
+   "at": "BEE DARING",
+   "q": 0.142,
+   "g": 9.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Finger Lakes",
+   "kosu": 5,
+   "at": "TY TY ROSE",
+   "q": 0.156,
+   "g": 10.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Finger Lakes",
+   "kosu": 5,
+   "at": "SPIRIT FORWARD",
+   "q": 0.087,
+   "g": 15.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
    "pist": "Fontainebleau",
    "kosu": 3,
    "at": "DOUBLE UP",
@@ -396,6 +378,24 @@
    "at": "LEOPARDUCCIO",
    "q": 0.113,
    "g": 18.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "WHAT'S UP DOG",
+   "q": 0.187,
+   "g": 8.55,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "MISS MACY",
+   "q": 0.153,
+   "g": 9.25,
    "kazandi": false
   },
   {
