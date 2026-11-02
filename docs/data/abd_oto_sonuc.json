@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-02 18:28 UTC",
- "kayitli_kosu": 1396,
+ "uretim": "2026-11-02 18:51 UTC",
+ "kayitli_kosu": 1397,
  "eslesmeyen_kosu": 956,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 744,
- "kosu": 440,
+ "bahis": 745,
+ "kosu": 441,
  "isabet": 49,
- "roi": 0.994,
+ "roi": 0.993,
  "ga95": [
-  0.693,
-  1.366
+  0.692,
+  1.364
  ],
  "ulke": {
   "abd": {
-   "bahis": 481,
-   "roi": 0.785
+   "bahis": 482,
+   "roi": 0.783
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 890,
-  "kosu": 432,
-  "isabet": 88,
-  "roi": 0.651,
+  "bahis": 895,
+  "kosu": 433,
+  "isabet": 89,
+  "roi": 0.649,
   "ga95": [
-   0.45,
-   0.84
+   0.448,
+   0.838
   ]
  },
  "bahis_t1": {
-  "bahis": 919,
-  "kosu": 426,
-  "isabet": 93,
-  "roi": 0.715,
+  "bahis": 924,
+  "kosu": 427,
+  "isabet": 94,
+  "roi": 0.713,
   "ga95": [
-   0.467,
-   0.986
+   0.466,
+   0.983
   ]
  },
  "bahis_t3": {
-  "bahis": 923,
-  "kosu": 414,
+  "bahis": 924,
+  "kosu": 415,
   "isabet": 101,
-  "roi": 0.666,
+  "roi": 0.665,
   "ga95": [
-   0.445,
-   0.938
+   0.444,
+   0.937
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Santa Anita",
-   "kosu": 8,
-   "at": "KERRY GOLD",
-   "q": 0.025,
-   "g": 120.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-01",
    "pist": "Santa Anita",
@@ -288,6 +279,15 @@
    "at": "LAST DIAMOND",
    "q": 0.178,
    "g": 7.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Finger Lakes",
+   "kosu": 3,
+   "at": "ALLOFASUDDENLEE",
+   "q": 0.086,
+   "g": 17.3,
    "kazandi": false
   },
   {
