@@ -33,6 +33,9 @@ def topla(tarih):
     eski = pd.read_csv(yol) if os.path.exists(yol) else pd.DataFrame(columns=SUT)
     son = {(r.kaynak, r.hipodrom, r.kosu, r.tip, r.no): r.oran for r in eski.itertuples()}
     saat = O.tr_simdi().strftime("%H:%M:%S"); yeni = []
+    yol2 = os.path.join(KOK, "data", "piyasa_cift", tarih + ".csv.gz")   # 3 Kasım 2026: sabit ihtimalli İKİ atlı satırlar (ikili / sıralı ikili ... kombinasyon oranları), yalnız değiştikçe
+    eski2 = pd.read_csv(yol2) if os.path.exists(yol2) else pd.DataFrame(columns=["saat", "hipodrom", "kosu", "tip", "no", "no2", "oran"])
+    son2 = {(r.hipodrom, r.kosu, r.tip, r.no, r.no2): r.oran for r in eski2.itertuples()}; yeni2 = []
     try:
         liste = _al("ProgramHippodromes", date=tarih).get("d") or []
     except Exception as e:
@@ -52,6 +55,13 @@ def topla(tarih):
                 for b in y.get("bets", []):
                     for p in b.get("probables", []):
                         if p.get("runner2") not in ("", None):
+                            if kaynak == "F":
+                                try:
+                                    a2 = (hid, int(y["raceNo"]), int(b["betTypeId"]), int(p["runner1"]), int(p["runner2"])); o2 = float(p["ganyan"])
+                                    if o2 and son2.get(a2) != o2:
+                                        son2[a2] = o2; yeni2.append(dict(saat=saat, hipodrom=a2[0], kosu=a2[1], tip=a2[2], no=a2[3], no2=a2[4], oran=o2))
+                                except Exception:
+                                    pass
                             continue
                         try:
                             no = int(p["runner1"]); o = float(p["ganyan"])
@@ -63,4 +73,7 @@ def topla(tarih):
     if yeni:
         os.makedirs(os.path.dirname(yol), exist_ok=True)
         pd.concat([eski, pd.DataFrame(yeni)], ignore_index=True).to_csv(yol, index=False, compression="gzip")
-    return len(yeni)
+    if yeni2:
+        os.makedirs(os.path.dirname(yol2), exist_ok=True)
+        pd.concat([eski2, pd.DataFrame(yeni2)], ignore_index=True).to_csv(yol2, index=False, compression="gzip")
+    return len(yeni) + len(yeni2)
