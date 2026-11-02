@@ -323,6 +323,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
         <label>Son ayak <select id="kSon"></select></label>
         <label>Birim fiyat (TL) <input id="kFiyat" inputmode="decimal" placeholder="isteğe bağlı"></label>
         <label class="ck"><input type="checkbox" id="kSur"> Sürpriz at ekle (Jason seçer)</label>
+        <span class="note">Çekirdek atlar da Jason'a göre seçilir.</span>
       </div>
       <div id="kupon"></div>
     </div>
@@ -764,17 +765,17 @@ function renderKupon(){
   h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{
     const out=hesapla(h,k); const kk=KUP.k[h.id+'|'+k.kosu]||2;
     if(!out){tam=false; s+=`<div class="leg"><div class="hd">${k.kosu}. koşu</div><div class="note">Bu koşuda henüz piyasa verisi yok.</div></div>`; return}
-    const idx=Object.keys(out.map).map(Number).sort((a,b)=>out.map[b].pm-out.map[a].pm);
+    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pm;              // çekirdek ve sürprizi Jason seçer (2 Kasım 2026, Doğan: Bolton AGF'den farksız; Jason verisi yoksa Bolton)
+    const idx=Object.keys(out.map).map(Number).sort((a,b)=>J(b)-J(a));
     const pick=idx.slice(0,Math.min(kk,idx.length)), extra=[];
-    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pm;              // sürprizi Jason seçer (Jason verisi yoksa Bolton)
     if(KUP.sur){ const rest=idx.filter(i=>!pick.includes(i)&&J(i)>=0.03&&J(i)/out.map[i].pp>=1.10).sort((a,b)=>J(b)/out.map[b].pp-J(a)/out.map[a].pp); if(rest.length) extra.push(rest[0]); }
-    const all=pick.concat(extra), sp=all.reduce((x,i)=>x+(extra.includes(i)?J(i):out.map[i].pm),0), spp=all.reduce((x,i)=>x+out.map[i].pp,0);
+    const all=pick.concat(extra), sp=all.reduce((x,i)=>x+J(i),0), spp=all.reduce((x,i)=>x+out.map[i].pp,0);
     combos*=all.length; pm*=sp; pp*=spp; SM.push(sp); SP.push(spp);
     const kaz=k.sonuc&&Object.entries(k.sonuc).find(([n,v])=>v.sira===1);
     const tuttu=kaz?all.some(i=>String(k.atlar[i].no)===kaz[0]):null;
     s+=`<div class="leg"><div class="hd"><span>${k.kosu}. koşu <span class="note">model ${pct(sp)}% · piyasa ${pct(spp)}%${kaz?` · kazanan ${kaz[0]} ${tuttu?'✓':'✗'}`:''}</span></span>
       <label>çekirdek <select data-k="${k.kosu}">${[1,2,3,4,5,6].map(n=>`<option${n===kk?' selected':''}>${n}</option>`).join('')}</select></label></div>
-      <div class="chips">${all.map(i=>`<span class="rk${extra.includes(i)?' sur':''}"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${esc(k.atlar[i].at)} · ${pct(extra.includes(i)?J(i):out.map[i].pm)}%${extra.includes(i)?' · sürpriz (Jason)':''}</span>`).join('')}</div></div>`;
+      <div class="chips">${all.map(i=>`<span class="rk${extra.includes(i)?' sur':''}"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${esc(k.atlar[i].at)} · ${pct(J(i))}%${extra.includes(i)?' · sürpriz (Jason)':''}</span>`).join('')}</div></div>`;
   });
   s+='</div>';
   if(tam){
@@ -2266,7 +2267,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793605859';   // commit öncesi otomatik güncellenir
+const BUILD='1793606677';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
