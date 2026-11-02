@@ -1,0 +1,8 @@
+çift n=3405 (günler 828)
+(a) doğru partner seçimi 0.630 GA [0.614 0.645] (taban 0.5)
+(b) log-loss Jason 0.6570 vs 0.5 payı 0.6931 fark +0.0361 GA [0.031 0.041] (>0 = Jason iyi)
+(c) çiftten biri kazandığında n=606 doğru 0.680 GA [0.643 0.717]
+top5 içinde n=2444 doğru 0.651 GA [0.633 0.67 ]
+çift Jason toplamı [0,0.1) n=974 doğru 0.605 GA [0.574 0.637]
+çift Jason toplamı [0.1,0.25) n=1609 doğru 0.633 GA [0.609 0.658]
+çift Jason toplamı [0.25,1) n=822 doğru 0.652 GA [0.622 0.684]
