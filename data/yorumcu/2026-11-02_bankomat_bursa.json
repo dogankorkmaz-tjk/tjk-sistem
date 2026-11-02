@@ -2,7 +2,7 @@
  "tarih": "2026-11-02",
  "hipodrom": "bursa",
  "kaynak": "Bankomat (Bursa)",
- "not": "Doğan'ın telefon notu 'Bankomat bursa' (ekran görüntüsü, 2 Kasım 10:34; kaynak ve tarih Doğan'ın notundan, program doğrulanmadı). '/' sonrası isteğe bağlı olarak alındı (karacaekürisi biçimiyle aynı varsayım). 3. koşu 'hepsi' = tüm atlar; puanlamaya KATILMAZ (trivial isabet). Tercih sırası belirsiz olduğundan sirali=false (ilk tercih puanlanmaz). Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. 9. koşuda '17' yazıldığı gibi alındı; 4. koşudaki sondaki '-' yok sayıldı.",
+ "not": "Doğan'ın telefon notu 'Bankomat bursa' (ekran görüntüsü, 2 Kasım 10:34; kaynak ve tarih Doğan'ın notundan, program doğrulanmadı). '/' sonrası isteğe bağlı olarak alındı (karacaekürisi biçimiyle aynı varsayım). 3. koşu 'hepsi' = tüm atlar; puanlamaya KATILMAZ (trivial isabet). Bankomat tahminlerini SIRASIZ verir (Doğan, 2 Kasım 10:39) -> sirali=false, ilk tercih puanlanmaz. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. 9. koşuda '17' yazıldığı gibi alındı; 4. koşudaki sondaki '-' yok sayıldı.",
  "kosular": {
   "1": [
    4
