@@ -51,7 +51,7 @@ button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(
 
 /* alt sekme çubuğu: yüzen hap */
 .tabs{position:fixed;z-index:35;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));
-  width:min(calc(100% - 24px),520px);display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:6px;
+  width:min(calc(100% - 24px),520px);display:grid;grid-template-columns:repeat(6,1fr);gap:2px;padding:6px;
   background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 30px rgba(8,20,14,.16)}
 .tabs button{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:transparent;color:var(--muted);padding:6px 0 5px;border-radius:16px;font:600 11px var(--f-body);min-width:0}
@@ -277,15 +277,15 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button role="tab" id="tabBugun" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>Bugün</button>
     <button role="tab" id="tabKosu" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>Koşu</button>
     <button role="tab" id="tabKupon" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v4a2 2 0 000 4v4H4v-4a2 2 0 000-4z"/></svg>Kuponlar</button>
-    <button role="tab" id="tabAbd" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Kanıt</button>
-    <button role="tab" id="tabSkor" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg>Test</button>
+    <button role="tab" id="tabJason" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>Jason</button>
     <button role="tab" id="tabCanli" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 000 11.4M17.7 6.3a8 8 0 010 11.4"/></svg>Canlı</button>
     <button role="tab" id="tabDiger" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg>Diğer</button>
   </div>
   <div id="digerOrtu" hidden></div>
   <div id="digerPanel" hidden><div class="ic">
     <button data-s="bolton"><b>Bolton</b><span>Piyasa-yakın referans</span></button>
-    <button data-s="jason"><b>Jason</b><span>Sürpriz avı modeli</span></button>
+    <button data-s="kanit"><b>Kanıt</b><span>Kanıt durumu</span></button>
+    <button data-s="skor"><b>Test</b><span>Canlı model testi</span></button>
     <button data-s="abd"><b>Yabancı</b><span>Yurt dışı yarışlar</span></button>
     <button data-s="arsiv"><b>Arşiv</b><span>Kanıt dışı kâğıt testler</span></button>
     <button data-s="dosya"><b>Dosya yükle</b><span>CSV, PDF, ekran görüntüsü</span></button>
@@ -1223,7 +1223,7 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabAbd',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabSkor',bolton:'tabDiger',jason:'tabDiger',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabDiger',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabDiger',bolton:'tabDiger',jason:'tabJason',arsiv:'tabDiger',dosya:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
 
 async function kanitYukle(){
@@ -1258,7 +1258,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   if(arguments[0]==='dosya'){ accDurum(); yfDurum(); }
   digerAc(false);
   const btn=TABS[ad];
-  ['tabBugun','tabKosu','tabKupon','tabAbd','tabSkor','tabCanli','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
+  ['tabBugun','tabKosu','tabKupon','tabJason','tabCanli','tabDiger'].forEach(b=>$(b).setAttribute('aria-selected',b===btn));
   Object.keys(TABS).forEach(k=>{ $(k).hidden=k!==ad; });
   if(btn==='tabKupon'){ SON_KUPON=ad; sv('gm2_kupsek',ad); document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===ad)); }
   if(ad==='canli') canliCiz();
@@ -1273,7 +1273,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   try{ window.scrollTo(0,0); }catch(e){}
 }
 $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
-$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabSkor').onclick=()=>sekme('skor'); $('tabAbd').onclick=()=>sekme('kanit');
+$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabJason').onclick=()=>sekme('jason');
 $('tabCanli').onclick=()=>sekme('canli'); $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
 {const kg=$('knGit'); if(kg) kg.onclick=()=>sekme('kanit');}
 document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
@@ -2283,7 +2283,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793657983';   // commit öncesi otomatik güncellenir
+const BUILD='1793658446';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
