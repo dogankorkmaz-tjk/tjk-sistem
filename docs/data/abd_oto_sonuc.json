@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-02 14:10 UTC",
- "kayitli_kosu": 1378,
- "eslesmeyen_kosu": 944,
+ "uretim": "2026-11-02 14:26 UTC",
+ "kayitli_kosu": 1380,
+ "eslesmeyen_kosu": 945,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 731,
- "kosu": 434,
+ "bahis": 733,
+ "kosu": 435,
  "isabet": 47,
- "roi": 0.942,
+ "roi": 0.939,
  "ga95": [
-  0.64,
-  1.3
+  0.636,
+  1.297
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.547
   },
   "fransa": {
-   "bahis": 59,
-   "roi": 0.725
+   "bahis": 61,
+   "roi": 0.701
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 874,
-  "kosu": 426,
+  "bahis": 878,
+  "kosu": 427,
   "isabet": 87,
-  "roi": 0.661,
+  "roi": 0.658,
   "ga95": [
-   0.458,
-   0.856
+   0.456,
+   0.85
   ]
  },
  "bahis_t1": {
-  "bahis": 903,
-  "kosu": 420,
+  "bahis": 907,
+  "kosu": 421,
   "isabet": 93,
-  "roi": 0.728,
+  "roi": 0.725,
   "ga95": [
-   0.478,
-   1.0
+   0.474,
+   0.994
   ]
  },
  "bahis_t3": {
-  "bahis": 907,
-  "kosu": 408,
+  "bahis": 911,
+  "kosu": 409,
   "isabet": 100,
-  "roi": 0.671,
+  "roi": 0.668,
   "ga95": [
-   0.445,
-   0.951
+   0.443,
+   0.944
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "GHOSTS LIL SECRET",
-   "q": 0.121,
-   "g": 14.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 1,
-   "at": "GLACIA GLAZE",
-   "q": 0.094,
-   "g": 15.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-01",
    "pist": "Gulfstream",
@@ -423,6 +405,24 @@
    "at": "TERREDEGUERRE",
    "q": 0.083,
    "g": 23.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 5,
+   "at": "LA MANDALA",
+   "q": 0.218,
+   "g": 7.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Fontainebleau",
+   "kosu": 5,
+   "at": "ALMA MATER",
+   "q": 0.101,
+   "g": 16.15,
    "kazandi": false
   }
  ]
