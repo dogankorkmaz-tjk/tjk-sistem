@@ -19,13 +19,19 @@ VERI, SITE, PIY = os.path.join(KOK, "data", "sabit_golge"), os.path.join(KOK, "d
 ESIK_EV = 1.2
 HIPKEY = {"diyarbakir": "DBAKIR"}
 ONCE, SONRA = 7.0, 3.0     # dondurma penceresi: yarış saatinden ÖNCE 7 dk ... SONRA 3 dk
-TIP = {"G": 1001, "FH": 1103, "P2": 1002, "P3": 1100, "FHS": 1103, "P2S": 1002, "P3S": 1100}
-MINAT = {"G": 4, "FH": 4, "P2": 5, "P3": 6, "FHS": 4, "P2S": 5, "P3S": 6}
-TURLER = ("G", "FH", "P2", "P3", "FHS", "P2S", "P3S")   # ...S = ana model (G1-S v3: z6, w0_g1, a_g1 pozisyon üsleri) olasılıklı varyant
+TIP = {"G": 1001, "FH": 1103, "P2": 1002, "P3": 1100, "P4": 1101, "FHS": 1103, "P2S": 1002, "P3S": 1100, "P4S": 1101}
+MINAT = {"G": 4, "FH": 4, "P2": 5, "P3": 6, "P4": 6, "FHS": 4, "P2S": 5, "P3S": 6, "P4S": 6}   # P4: oran yoksa zaten atlanır
+CIFT = ("SI", "IK", "KG")   # iki atlı türler: sıralı ikili, ikili, Kim Geçer (tip numarası YAPIDAN tanınır, bkz. _cift_sinif); sonek S = ana model
+TURLER = ("G", "FH", "P2", "P3", "P4", "FHS", "P2S", "P3S", "P4S") + tuple(c + m for c in CIFT for m in ("", "S"))
+TOPK, PMIN = 3, 0.01   # iki atlı türlerde koşu başına en yüksek EV'li 3 çift, çift olasılığı >= 0,01   # ...S = ana model (G1-S v3: z6, w0_g1, a_g1 pozisyon üsleri) olasılıklı varyant
 
 
 def _taban(tur):
     return tur[:-1] if tur.endswith("S") and len(tur) > 2 else tur
+
+
+def _cift_mi(tur):
+    return _taban(tur) in CIFT
 
 
 def _dk(s):
@@ -104,6 +110,59 @@ def _topS(P, a, i, m):
     return r
 
 
+def _topm(W, T, i, m):
+    """Genel Harville: W[d] = d. sıra ağırlıkları (Luce için hepsi p), T[d] = toplamları; i atının ilk m'ye girme olasılığı."""
+    n = len(W[0]); res = 0.0
+
+    def rec(used, prob):
+        nonlocal res
+        d = len(used); den = T[d] - sum(W[d][u] for u in used)
+        if den <= 1e-12:
+            return
+        res += prob * W[d][i] / den
+        if d + 1 < m:
+            for j in range(n):
+                if j != i and j not in used:
+                    rec(used + [j], prob * W[d][j] / den)
+    rec([], 1.0)
+    return res
+
+
+def _ws(P, a=None):
+    """Pozisyon ağırlıkları: a verilmezse Luce (hepsi p), verilirse W_k = p^a_k."""
+    g = (a or [1, 1, 1, 1])[:4] if a else [1, 1, 1, 1]
+    W = [[max(p, 1e-9) ** x for p in P] for x in g]
+    return W, [sum(w) for w in W]
+
+
+def _cift_oran(tarih, hip, kosu, sn):
+    """data/piyasa_cift: {tip: {(a, b): oran}} - o ana kadar yayınlanan son oran."""
+    yol = os.path.join(KOK, "data", "piyasa_cift", tarih + ".csv.gz")
+    if not os.path.exists(yol):
+        return {}
+    d = pd.read_csv(yol); d = d[(d.hipodrom == hip) & (d.kosu == kosu) & (d.oran > 1.0)]
+    d = d[d.saat.map(_dk) <= sn]
+    out = {}
+    for t, g in d.groupby("tip"):
+        g = g.sort_values("saat").groupby(["no", "no2"]).oran.last()
+        out[int(t)] = {(int(a), int(b)): float(o) for (a, b), o in g.items()}
+    return out
+
+
+def _cift_sinif(M, n):
+    """Yapıdan tür: SI (sıralı ikili: her iki yön, ~n(n-1) satır), IK (ikili: tek yön, ~n(n-1)/2), KG (Kim Geçer: seyrek). Emin değilse None."""
+    if n < 3 or len(M) < 3:
+        return None
+    ters = sum(1 for (a, b) in M if (b, a) in M) / len(M); tam = n * (n - 1) / 2
+    if ters >= 0.9 and len(M) >= 0.6 * 2 * tam:
+        return "SI"
+    if ters <= 0.1 and len(M) >= 0.6 * tam:
+        return "IK"
+    if len(M) < 0.5 * tam:
+        return "KG"
+    return None
+
+
 def _kazandi(c, sonuc):
     """Seçimin türüne göre kazanıp kazanmadığı (sonuç dict: {no(str): {sira,...}})."""
     tur = _taban(c.get("tur", "G")); s = c.get("sira")
@@ -154,7 +213,7 @@ def guncelle(obj, simdi=None):
                         if obj.get("w0_g1") is not None and obj.get("a_g1") and all(a.get("z6") is not None for a in at):
                             sS = [obj["w0_g1"] * math.log(max(pp[a["no"]], 1e-6)) + a["z6"] for a in at]; mS = max(sS); eS = [math.exp(v - mS) for v in sS]; ZS = sum(eS); PS = [v / ZS for v in eS]
                         for tur in TURLER:
-                            if len(at) < MINAT[tur]:
+                            if _cift_mi(tur) or len(at) < MINAT[tur]:
                                 continue
                             if tur.endswith("S") and len(tur) > 2 and PS is None:
                                 continue
@@ -175,7 +234,9 @@ def guncelle(obj, simdi=None):
                                 if not o:
                                     continue
                                 tb = _taban(tur)
-                                if Q is PS and tb != "FH":
+                                if tb == "P4":
+                                    W4, T4 = _ws(Q, obj["a_g1"] if Q is PS else None); pr = _topm(W4, T4, i, 4)
+                                elif Q is PS and tb != "FH":
                                     pr = _topS(PS, obj["a_g1"], i, 2 if tb == "P2" else 3)
                                 else:
                                     pr = {"G": Q[i], "FH": Q[i] / pfh if pfh > 1e-9 else 0.0, "P2": _top2(Q, i), "P3": _top3(Q, i)}[tb]
@@ -184,8 +245,51 @@ def guncelle(obj, simdi=None):
                                     kay[key] = {"tur": tur, "hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": k.get("saat"), "no": a["no"], "at": a["at"],
                                                 "pj": round(Q[i], 4), "pt": round(pr, 4), "pp": round(pp[a["no"]], 4), "oran": o, "ev": round(pr * o, 3),
                                                 "B": bool(Q[i] >= pp[a["no"]]), "dk": round(kalan, 1), "pkaynak": kaynak, **({"haric": haric} if haric else {})}
+                        try:   # iki atlı türler (sıralı ikili, ikili, Kim Geçer): tip numarası yapıdan tanınır; koşu başına en yüksek EV'li TOPK çift
+                            CO = _cift_oran(tarih, h["id"], k["kosu"], sn)
+                            isim = {a["no"]: a["at"] for a in at}
+                            for tip, M in CO.items():
+                                sn_ = _cift_sinif(M, len(at))
+                                if not sn_:
+                                    continue
+                                for mod, Qm in (("", P), ("S", PS)):
+                                    if Qm is None:
+                                        continue
+                                    Wm, Tm = _ws(Qm, obj["a_g1"] if mod else None); ix = {n_: j for j, n_ in enumerate(nolar)}; adaylar = []
+                                    for (a_, b_), o in M.items():
+                                        if a_ not in ix or b_ not in ix or a_ == b_:
+                                            continue
+                                        i_, j_ = ix[a_], ix[b_]
+                                        si = Wm[0][i_] / Tm[0] * Wm[1][j_] / max(Tm[1] - Wm[1][i_], 1e-12)
+                                        if sn_ == "SI":
+                                            pr = si
+                                        elif sn_ == "IK":
+                                            if a_ > b_:
+                                                continue
+                                            pr = si + Wm[0][j_] / Tm[0] * Wm[1][i_] / max(Tm[1] - Wm[1][j_], 1e-12)
+                                        else:
+                                            pr = Qm[i_] / (Qm[i_] + Qm[j_])
+                                        if pr >= PMIN and pr * o >= ESIK_EV:
+                                            adaylar.append((pr * o, pr, a_, b_, o))
+                                    for ev_, pr, a_, b_, o in sorted(adaylar, reverse=True)[:TOPK]:
+                                        tur = sn_ + mod
+                                        kay[f"{h['id']}|{k['kosu']}|{a_}-{b_}|{tur}"] = {"tur": tur, "tip": tip, "hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": k.get("saat"), "no": a_, "no2": b_,
+                                            "at": isim[a_], "at2": isim[b_], "pj": round(pr, 4), "pt": round(pr, 4), "pp": 0.0, "oran": o, "ev": round(ev_, 3), "B": False, "dk": round(kalan, 1), "pkaynak": kaynak}
+                        except Exception as e_:
+                            print("sabit çift kol hatası:", repr(e_))
             for key, c in kay.items():
                 if key.startswith("_") or c["hipodrom"] != h["id"] or c["kosu"] != k["kosu"] or "sira" in c:
+                    continue
+                if "no2" in c:   # iki atlı seçim
+                    if not sonuc:
+                        continue
+                    v1, v2 = sonuc.get(str(c["no"])) or {}, sonuc.get(str(c["no2"])) or {}
+                    s1, s2 = v1.get("sira"), v2.get("sira"); tb = _taban(c["tur"])
+                    if tb == "KG" and (s1 is None or s2 is None):
+                        c["sira"] = 99; c["iptal"] = True; c["k"] = None; continue   # Kim Geçer: çıkan atta iade
+                    s1 = 99 if s1 is None else s1; s2 = 99 if s2 is None else s2
+                    c["sira"] = s1; c["sira2"] = s2
+                    c["k"] = int(s1 == 1 and s2 == 2) if tb == "SI" else (int(s1 <= 2 and s2 <= 2) if tb == "IK" else int(s1 < s2))
                     continue
                 v = sonuc.get(str(c["no"]))
                 if v and v.get("sira") is not None:
@@ -233,7 +337,7 @@ def ozet_yaz(tarih):
     for y in sorted(glob.glob(os.path.join(VERI, "*.json"))):
         gun = json.load(open(y, encoding="utf-8"))
         for key, c in gun.items():
-            if key.startswith("_") or "sira" not in c:
+            if key.startswith("_") or "sira" not in c or c.get("iptal"):
                 continue
             tur = c.get("tur", "G")
             for kol in ("A", "B"):
