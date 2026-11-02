@@ -527,16 +527,7 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
                             if q: kup.append(q)
             except Exception as e:
                 print("ekür-piyasa kolu hatası:", repr(e))
-            try:                                             # T66b ekür-havuz gölge kolu (2 Kasım 2026): yalnız havuzdan bölüşümü çıkan ekür çifti olan koşularda
-                _hv = (ort[0].get((h["id"], k["kosu"])) or {}).get("havuz") or {}
-                if _hv:
-                    p2, ne = _eh_p(at, p, _hv)
-                    if ne:
-                        for B in BUTCELER_G:
-                            q = _kup_gec("G1-S-EH (geç)", B, p2, at, Wp, Tp, GGm, g1v, son["t"])
-                            if q: kup.append(q)
-            except Exception as e:
-                print("ekür-havuz kolu hatası:", repr(e))
+            # T66b ekür-havuz gölge kolu (G1-S-EH) 3 Kasım 2026'da KAPATILDI (T97 + defter): canlıda hiç kupon üretmedi, çift içi seçim zaten modelde (%63)
             try:                                             # T76c H2H gölge kolu (2 Kasım 2026): pozisyon 2..5'te doğrudan karşılaşma özelliği (katsayılar dondurulmuş)
                 _oh = _h2h_off(at, obj["tarih"])
                 if _oh:

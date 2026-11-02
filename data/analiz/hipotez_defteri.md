@@ -1422,3 +1422,6 @@ Geriye dönük (oos_p.pkl + ekur.pkl, tam iki atlı ekür grupları, ikisi de bi
 
 ### T97 SONUÇ (2026-11-03 01:55; ekur_cift_t97_sonuc.txt)
 3405 ekür çifti, 828 gün. (a) Çift içinde Jason'ın yüksek p verdiği at, çiftte önde bitirenle %63,0 aynı, GA [0,614, 0,645] → 0,50'yi dışlar: karar kuralına göre "çift içi seçim işe yarıyor". (b) çift içi log-loss: Jason 0,657 vs yarı-yarıya 0,693, fark +0,036 [0,031, 0,041]. (c) çiftten biri kazandığında doğru partner %68,0 [0,643, 0,717]. Çift toplamı büyüdükçe doğruluk artıyor (%60,5 / %63,3 / %65,2). Not: piyasa çift içinde eşit olduğundan ayrımı tamamen modelin at özellikleri yapıyor. Sonuç: ekür koşularında model doğru partneri yazı-turadan belirgin iyi seçiyor; "ekür yüzünden yanlış at yazılıyor" kaygısı için ek kanıt yok. Kalan sınır: bu çift-içi seçim; kuponda tutma oranı ayrı ölçülmedi.
+
+## 2026-11-03 01:55 — G1-S-EH (ekür-havuz gölge kolu) KAPATILDI (kullanıcı onayı)
+Gerekçe: canlıda şimdiye kadar 0 kupon üretti (havuz kaydında yalnız en olası 22 sıralı-ikili/ikili kombinasyonu var; 2 Kasım ekürlü 4 koşunun 3'ünde çift içi pay hesaplanamadı); T97: çift içi seçimi model zaten %63 [0,614, 0,645] doğrulukla yapıyor, 100 koşu karar eşiğine ulaşması beklenmiyor. G1-S-EK (ekür düzeltmeli piyasa) canlıda KALIYOR. Kod: tjk/besli.py'deki EH bloğu kaldırıldı (_eh_p fonksiyonu kullanılmıyor, duruyor).
