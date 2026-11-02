@@ -19,9 +19,13 @@ VERI, SITE, PIY = os.path.join(KOK, "data", "sabit_golge"), os.path.join(KOK, "d
 ESIK_EV = 1.2
 HIPKEY = {"diyarbakir": "DBAKIR"}
 ONCE, SONRA = 7.0, 3.0     # dondurma penceresi: yarış saatinden ÖNCE 7 dk ... SONRA 3 dk
-TIP = {"G": 1001, "FH": 1103, "P2": 1002, "P3": 1100}
-MINAT = {"G": 4, "FH": 4, "P2": 5, "P3": 6}
-TURLER = ("G", "FH", "P2", "P3")
+TIP = {"G": 1001, "FH": 1103, "P2": 1002, "P3": 1100, "FHS": 1103, "P2S": 1002, "P3S": 1100}
+MINAT = {"G": 4, "FH": 4, "P2": 5, "P3": 6, "FHS": 4, "P2S": 5, "P3S": 6}
+TURLER = ("G", "FH", "P2", "P3", "FHS", "P2S", "P3S")   # ...S = ana model (G1-S v3: z6, w0_g1, a_g1 pozisyon üsleri) olasılıklı varyant
+
+
+def _taban(tur):
+    return tur[:-1] if tur.endswith("S") and len(tur) > 2 else tur
 
 
 def _dk(s):
@@ -80,9 +84,29 @@ def _top3(p, i):
     return s
 
 
+def _topS(P, a, i, m):
+    """G1-S pozisyon üsleri (a_g1) ile Harville: W_k = p^a_k; atın ilk m'ye girme olasılığı (m = 2 veya 3)."""
+    n = len(P); W = [[max(p, 1e-9) ** g for p in P] for g in a[:3]]; T = [sum(w) for w in W]
+    p1 = [w / T[0] for w in W[0]]; r = p1[i]
+    for j in range(n):
+        if j != i and T[1] - W[1][j] > 1e-12:
+            r += p1[j] * W[1][i] / (T[1] - W[1][j])
+    if m >= 3:
+        for j in range(n):
+            if j == i:
+                continue
+            for k in range(n):
+                if k == i or k == j:
+                    continue
+                d1 = T[1] - W[1][j]; d2 = T[2] - W[2][j] - W[2][k]
+                if d1 > 1e-12 and d2 > 1e-12:
+                    r += p1[j] * W[1][k] / d1 * W[2][i] / d2
+    return r
+
+
 def _kazandi(c, sonuc):
     """Seçimin türüne göre kazanıp kazanmadığı (sonuç dict: {no(str): {sira,...}})."""
-    tur = c.get("tur", "G"); s = c.get("sira")
+    tur = _taban(c.get("tur", "G")); s = c.get("sira")
     if s is None:
         return None
     if tur == "P2":
@@ -126,12 +150,17 @@ def guncelle(obj, simdi=None):
                         m = max(s.values()); e = {n: math.exp(v - m) for n, v in s.items()}; Z = sum(e.values())
                         kay.setdefault("_bakildi", []).append(f"{h['id']}|{k['kosu']}")
                         nolar = [a["no"] for a in at]; P = [e[n] / Z for n in nolar]; pjd = dict(zip(nolar, P))
+                        PS = None   # ana model (G1-S v3) olasılığı: softmax(w0_g1 log pp + z6)
+                        if obj.get("w0_g1") is not None and obj.get("a_g1") and all(a.get("z6") is not None for a in at):
+                            sS = [obj["w0_g1"] * math.log(max(pp[a["no"]], 1e-6)) + a["z6"] for a in at]; mS = max(sS); eS = [math.exp(v - mS) for v in sS]; ZS = sum(eS); PS = [v / ZS for v in eS]
                         for tur in TURLER:
                             if len(at) < MINAT[tur]:
                                 continue
+                            if tur.endswith("S") and len(tur) > 2 and PS is None:
+                                continue
                             oran = oranG if tur == "G" else _oranlar(tarih, h["id"], k["kosu"], sn, TIP[tur])
                             haric = []
-                            if tur == "FH":
+                            if _taban(tur) == "FH":
                                 if len(oran) < 4:
                                     continue
                                 haric = [n for n in nolar if n not in oran]
@@ -139,17 +168,22 @@ def guncelle(obj, simdi=None):
                                     continue
                             elif len(oran) < 4:
                                 continue
-                            pfh = 1 - sum(pjd[n] for n in haric) if tur == "FH" else 1.0
+                            Q = PS if (tur.endswith("S") and len(tur) > 2) else P   # bu türün temel olasılığı
+                            qd = dict(zip(nolar, Q)); pfh = 1 - sum(qd[n] for n in haric) if _taban(tur) == "FH" else 1.0
                             for i, a in enumerate(at):
                                 o = oran.get(a["no"])
                                 if not o:
                                     continue
-                                pr = {"G": P[i], "FH": P[i] / pfh if pfh > 1e-9 else 0.0, "P2": _top2(P, i), "P3": _top3(P, i)}[tur]
+                                tb = _taban(tur)
+                                if Q is PS and tb != "FH":
+                                    pr = _topS(PS, obj["a_g1"], i, 2 if tb == "P2" else 3)
+                                else:
+                                    pr = {"G": Q[i], "FH": Q[i] / pfh if pfh > 1e-9 else 0.0, "P2": _top2(Q, i), "P3": _top3(Q, i)}[tb]
                                 if pr * o >= ESIK_EV:
                                     key = f"{h['id']}|{k['kosu']}|{a['no']}" + ("" if tur == "G" else "|" + tur)
                                     kay[key] = {"tur": tur, "hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": k.get("saat"), "no": a["no"], "at": a["at"],
-                                                "pj": round(P[i], 4), "pt": round(pr, 4), "pp": round(pp[a["no"]], 4), "oran": o, "ev": round(pr * o, 3),
-                                                "B": bool(P[i] >= pp[a["no"]]), "dk": round(kalan, 1), "pkaynak": kaynak, **({"haric": haric} if haric else {})}
+                                                "pj": round(Q[i], 4), "pt": round(pr, 4), "pp": round(pp[a["no"]], 4), "oran": o, "ev": round(pr * o, 3),
+                                                "B": bool(Q[i] >= pp[a["no"]]), "dk": round(kalan, 1), "pkaynak": kaynak, **({"haric": haric} if haric else {})}
             for key, c in kay.items():
                 if key.startswith("_") or c["hipodrom"] != h["id"] or c["kosu"] != k["kosu"] or "sira" in c:
                     continue
