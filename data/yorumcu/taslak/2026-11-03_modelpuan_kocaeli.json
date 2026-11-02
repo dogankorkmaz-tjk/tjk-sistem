@@ -1,6 +1,6 @@
 {
- "kaynak": "YouTube 'model puanı' videosu (kanal/adı belirtilmedi)",
- "not": "Doğan 2 Kasım 23:41'de gönderdi; Doğan: Kocaeli, yarınki (3 Kasım) program; atlar henüz programımızda yok, doğrulanmadı. 22 kriterden göreli puan, kazanma yüzdesi değil; eşik 72, eşiği geçen at yeşil.",
+ "kaynak": "YouTube @AnalitikGanyan 'Kocaeli 3 Kasım 2026 | At Yarışı Analizi ve…' (video, 'Yapay zeka' etiketli; model puanı grafikleri)",
+ "not": "Doğan'ın ekran görüntüleri (2 Kasım 23:41–23:45). Kocaeli 3 Kasım 2026 (başlıktan teyitli). 22 kriterden göreli puan, kazanma yüzdesi değil; her koşunun kendi eşiği var, eşiği geçen at yeşil. At numarası ve ismi ekrandan okundu; program gelince teyit edilecek (Türkçe harfler/ yazım farkları olabilir).",
  "esik": 72,
  "kosular": {
   "1": {
@@ -29,8 +29,124 @@
    "esigi_gecen": [
     7
    ]
+  },
+  "3": {
+   "puan": {
+    "2 LAGUNA SUNSET": 69,
+    "6 VAYNAKH": 63,
+    "4 KARDAHA": 59,
+    "1 SİHİRLİ JOVANKA": 54,
+    "5 NO MORE SORROW": 53,
+    "8 ILGAZ WIND": 48,
+    "3 ROSAS DEL ROSEDAL": 44,
+    "7 HAMMERWICH": 41
+   },
+   "esigi_gecen": []
+  },
+  "4": {
+   "puan": {
+    "3 NO BRAKES": 69,
+    "4 SHENRON": 64,
+    "2 SHAWSHANK": 63,
+    "8 ESTOCADE": 59,
+    "1 FOOT LOOS": 59,
+    "5 KUZEY EFESİ": 56,
+    "9 SANS PAREİL": 53,
+    "7 TM BATAILE": 53,
+    "11 ASYA MİLA": 49,
+    "6 SAVE YOUR TEARS": 46,
+    "10 DIAMOND CROWN": 41
+   },
+   "esigi_gecen": []
+  },
+  "5": {
+   "puan": {
+    "7 HARŞİT BEYİ": 65,
+    "9 SEMENDİN OĞLU": 60,
+    "1 DESPOTLU": 57,
+    "10 BEYPARS": 51,
+    "2 PUSAT BEYİ": 50,
+    "4 ORMANCIBEY": 50,
+    "3 TATARUŞAĞI": 48,
+    "8 AKYEL ABİ": 47,
+    "5 AFŞİNTAY": 45,
+    "11 AKSELBEYİM": 45,
+    "6 SER ŞÖVALYE": 43
+   },
+   "esigi_gecen": []
+  },
+  "6": {
+   "puan": {
+    "4 MAYBACK": 74,
+    "2 MELONCITTO": 70,
+    "5 MY DREAM SERAP": 67,
+    "1 MY LITTLE BOY": 62,
+    "6 INNERBLOOM": 60,
+    "3 HAWK": 52
+   },
+   "esigi_gecen": []
+  },
+  "7": {
+   "puan": {
+    "8 NOBIL BIGTIME": 59,
+    "11 STEEL HUNTER": 59,
+    "1 DRAGON FURIOUS": 58,
+    "6 MY BLACK BOY": 57,
+    "9 NEBULA STAR": 57,
+    "3 DOUBLE RUNNER": 55,
+    "4 JOHNY BLAZE": 54,
+    "2 ONUR BEYİM": 53,
+    "10 PLEASANT MOON": 51,
+    "5 KADİRİNOĞLU": 51,
+    "7 STAKES WINNER": 51
+   },
+   "esigi_gecen": []
+  },
+  "8": {
+   "puan": {
+    "2 UÇAN YAPRAK": 79,
+    "5 SAĞLAMCAN": 65,
+    "4 NEVERLAND": 63,
+    "3 AVCI OĞLUM": 57,
+    "1 KAYALARIN ŞAHI": 56,
+    "6 TUNCER": 56
+   },
+   "esigi_gecen": [
+    2
+   ]
+  },
+  "9": {
+   "puan": {
+    "2 ARSLANBEYLİ": 68,
+    "6 SANGARYAN": 67,
+    "10 RUNNING MONSTER": 64,
+    "3 HO HOO": 60,
+    "5 MİR BEG": 58,
+    "11 TONCHI": 57,
+    "8 TERRAFERMA": 56,
+    "9 BELLA FIGLIA": 56,
+    "4 LORD OF LIGHT": 52,
+    "7 SAVCI BEY": 50,
+    "1 TEMERARIO": 39
+   },
+   "esigi_gecen": [
+    2,
+    6,
+    10
+   ]
   }
  },
  "tarih": "2026-11-03",
- "hipodrom": "kocaeli"
+ "hipodrom": "kocaeli",
+ "esik_kosu": {
+  "1": 72,
+  "2": 72,
+  "3": 74,
+  "4": 72,
+  "5": 70,
+  "6": 77,
+  "7": 63,
+  "8": 75,
+  "9": 63
+ }
 }
