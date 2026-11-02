@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-02 17:01 UTC",
- "kayitli_kosu": 1387,
- "eslesmeyen_kosu": 950,
+ "uretim": "2026-11-02 17:31 UTC",
+ "kayitli_kosu": 1392,
+ "eslesmeyen_kosu": 953,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 739,
- "kosu": 437,
+ "bahis": 741,
+ "kosu": 439,
  "isabet": 48,
- "roi": 0.94,
+ "roi": 0.938,
  "ga95": [
   0.64,
-  1.297
+  1.295
  ],
  "ulke": {
   "abd": {
-   "bahis": 479,
-   "roi": 0.788
+   "bahis": 481,
+   "roi": 0.785
   },
   "birlesik-krallik": {
    "bahis": 116,
@@ -35,9 +35,9 @@
   }
  },
  "bahis_ani": {
-  "bahis": 885,
-  "kosu": 429,
-  "isabet": 87,
+  "bahis": 888,
+  "kosu": 431,
+  "isabet": 88,
   "roi": 0.653,
   "ga95": [
    0.452,
@@ -45,44 +45,26 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 914,
-  "kosu": 423,
+  "bahis": 917,
+  "kosu": 425,
   "isabet": 93,
-  "roi": 0.719,
+  "roi": 0.717,
   "ga95": [
-   0.47,
-   0.991
+   0.468,
+   0.987
   ]
  },
  "bahis_t3": {
-  "bahis": 918,
-  "kosu": 411,
+  "bahis": 921,
+  "kosu": 413,
   "isabet": 101,
-  "roi": 0.67,
+  "roi": 0.667,
   "ga95": [
-   0.448,
-   0.943
+   0.446,
+   0.94
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "MEL'S MANNER",
-   "q": 0.026,
-   "g": 61.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "TRILL",
-   "q": 0.07,
-   "g": 22.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-01",
    "pist": "Santa Anita",
@@ -315,6 +297,24 @@
    "at": "EL ALACRAN",
    "q": 0.195,
    "g": 8.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "BIG RICH",
+   "q": 0.198,
+   "g": 9.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "LAST DIAMOND",
+   "q": 0.178,
+   "g": 7.95,
    "kazandi": false
   },
   {
