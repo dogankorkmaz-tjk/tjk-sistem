@@ -21,6 +21,7 @@ def altili_kosular(h, no):
     ks = sorted(k["kosu"] for k in h["kosular"])
     return ks[:6] if no == 1 else ks[-6:] if no == 2 else None
 def main(tarihler):
+    ALT = []
     R = {}                                                   # kaynak -> liste (isabet, k, agf_isabet, model_isabet, oran)
     for t in tarihler:
         G = gun(t)
@@ -34,6 +35,24 @@ def main(tarihler):
                 R.setdefault(ad, []).append((w in nolar, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z4", kk), kk / len(at)))
                 if Y.get("sirali") and nolar:                       # sıralı kaynak (soldan sağa tercih sırası): ilk tercih ayrıca puanlanır (31 Ekim 2026)
                     R.setdefault(ad[:24] + " [ilk tercih]", []).append((w == nolar[0], 1, w in ilk_k(k, "agf", 1), w in ilk_k(k, "z4", 1), 1 / len(at)))
+            # ALTILI MALİYET ÖLÇÜSÜ (2 Kasım 2026, Doğan): tahmincinin 1./2. altılı kuponu (1,25 TL birim): maliyet = Π k × 1,25; tuttu mu; aynı ayak başına k ile AGF ve model kuponu tuttu mu; rastgele beklenti Π(k/n)
+            hepsi = {str(x) for x in Y.get("hepsi", [])}
+            h0, _ = kosu_bul(G, Y["hipodrom"], 1)
+            for ano in (1, 2):
+                ks = altili_kosular(h0, ano) if h0 else None
+                if not ks or len(ks) != 6: continue
+                hit = []; mal = 1; ok = True
+                for n in ks:
+                    _, k = kosu_bul(G, Y["hipodrom"], n); w = kazanan(k) if k else None
+                    if w is None: ok = False; break
+                    at = [a for a in k["atlar"] if not a.get("kosmaz")]
+                    if str(n) in hepsi: nolar = [a["no"] for a in at]
+                    elif str(n) in Y["kosular"]: nolar = Y["kosular"][str(n)]
+                    else: ok = False; break
+                    kk = len(nolar); mal *= kk
+                    hit.append((w in nolar, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z4", kk), kk / len(at)))
+                if not ok: continue
+                ALT.append((ad, t, ano, mal * 1.25, all(x[0] for x in hit), sum(x[0] for x in hit), all(x[2] for x in hit), all(x[3] for x in hit), float(np.prod([x[4] for x in hit]))))
         fo = os.path.join(KOK, "data", "yorumcu", "otomatik", t + ".json")
         if os.path.exists(fo):
             D = json.load(open(fo, encoding="utf-8"))
@@ -58,5 +77,12 @@ def main(tarihler):
     print("kaynak | n | yorumcu isabet | AGF ilk-k | model ilk-k | ort. k | rastgele beklenti")
     for ad, L in R.items():
         a = np.array(L, float); print(f"{ad:42s} {len(a):3d} | {a[:,0].mean()*100:5.1f}% | {a[:,2].mean()*100:5.1f}% | {a[:,3].mean()*100:5.1f}% | k={a[:,1].mean():.1f} | {a[:,4].mean()*100:5.1f}%")
+    alt_yaz(ALT)
+
+def alt_yaz(ALT):
+    if not ALT: return
+    print("\nALTILI (1,25 TL birim): kaynak | gün | altılı | maliyet TL | tuttu | tutan ayak/6 | AGF aynı-k tuttu | model aynı-k tuttu | rastgele olasılık")
+    for r in ALT: print(f"{r[0]:30s} {r[1]} A{r[2]} {r[3]:8.2f} TL | {'TUTTU' if r[4] else 'tutmadı'} | {r[5]}/6 | AGF {'T' if r[6] else '-'} | model {'T' if r[7] else '-'} | rastgele {r[8]*100:.2f}%")
 if __name__ == "__main__":
     main(sys.argv[1:] or ["2026-10-30"])
+
