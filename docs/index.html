@@ -1551,10 +1551,15 @@ otoPlaseYukle();
 async function otoSabitYukle(){
   const el=$('otoSabit'); if(!el) return;
   try{ const d=await getJSON('data/sabit_golge.json?'+Date.now()); const t=d.toplam||{}; const fx=x=>x==null?'—':String(x).replace('.',',');
-    let h='<div class="card"><b>Şimdiye kadar</b>';
-    ['A','B'].forEach(k=>{ const v=t[k]||{bahis:0}; h+=`<div class="sub"><b>Kol ${k}</b>: ${v.bahis} bahis, <b>${v.kazanan||0}</b> kazandı, geri dönüş <b>${fx(v.geri_donus)}</b> (1,00 üstü = kazandırdı)</div>`; });
-    h+='<div class="sub">Seçimler dondurulunca değişmez. Karar için en az 300 koşu ve 100 bahis gerekir; o zamana kadar yalnız izleme.</div></div>';
-    const g=(d.bugun||[]); if(g.length) h+='<div class="card"><b>Bugünün seçimleri</b>'+g.map(c=>`<div class="sub" style="margin-top:6px"><b>${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu</b> · ${c.no} ${esc(c.at)} · sabit oran <b>${fx(c.oran)}</b> · Jason %${pct(c.pj)} / havuz %${pct(c.pp)} · ×${fx(c.ev)} · ${c.B?'<b>Kol B</b>':'Kol A'}${c.sira?' · '+(c.sira===1?'<b>kazandı</b>':c.sira+'. oldu'):''}</div>`).join('')+'</div>';
+    const TAD={G:'Ganyan',FH:'Favori Hariç',P2:'İlk 2',P3:'İlk 3'}, tt=d.toplam_tur||{}, tk=d.toplam_kombine||{};
+    const satir=(ad,v)=>{ v=v||{bahis:0}; return `<div class="sub"><b>${ad}</b>: ${v.bahis} bahis, <b>${v.kazanan||0}</b> kazandı, geri dönüş <b>${fx(v.geri_donus)}</b></div>`; };
+    let h='<div class="card"><b>Şimdiye kadar</b> <span class="sub">(geri dönüş 1,00 üstü = kazandırdı)</span>';
+    ['A','B'].forEach(k=>{ h+=satir('Ganyan · Kol '+k,t[k]); });
+    ['FH','P2','P3'].forEach(r=>{ ['A','B'].forEach(k=>{ h+=satir(TAD[r]+' · Kol '+k,(tt[r]||{})[k]); }); });
+    [['K2','Kombine · en güvendiği 2'],['K3','Kombine · en güvendiği 3'],['KJ','Kombine · Jason\'un istediği kadar (p≥%25, 2–4 at)']].forEach(([k,ad])=>{ h+=satir(ad,tk[k]); });
+    h+='<div class="sub">Seçimler dondurulunca değişmez. Karar için en az 300 koşu ve 100 bahis gerekir (kombine için en az 100 gün); o zamana kadar yalnız izleme. Kombine seçimi gün sonunda tüm seçimlere bakılarak yapılır, yani ipucudur. At çıkma kesintisi hesaba katılmıyor.</div></div>';
+    const kb=d.kombine_bugun||{}; if(Object.keys(kb).length) h+='<div class="card"><b>Bugünün kombineleri</b>'+Object.entries(kb).map(([k,v])=>`<div class="sub" style="margin-top:6px"><b>${k}</b> · toplam oran <b>${fx(v.oran)}</b> · ${v.durum==='kazandı'?'<b>kazandı</b>':v.durum==='kaybetti'?'kaybetti':'bekliyor'}<br>${v.bacaklar.map(b=>`${esc(b.ad)} ${b.kosu}. koşu · ${b.no} ${esc(b.at)} (${fx(b.oran)})`).join('<br>')}</div>`).join('')+'</div>';
+    const g=(d.bugun||[]); if(g.length) h+='<div class="card"><b>Bugünün seçimleri</b>'+g.map(c=>`<div class="sub" style="margin-top:6px"><b>${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu</b> · ${c.no} ${esc(c.at)} · <b>${TAD[c.tur||'G']}</b> sabit oran <b>${fx(c.oran)}</b> · Jason %${pct(c.pj)}${c.pt&&c.tur&&c.tur!=='G'?' (bu tür için %'+pct(c.pt)+')':''} / havuz %${pct(c.pp)} · ×${fx(c.ev)} · ${c.B?'<b>Kol B</b>':'Kol A'}${c.sira?' · '+((c.k!=null?c.k:c.sira===1)?'<b>kazandı</b>':c.sira+'. oldu'):''}</div>`).join('')+'</div>';
     else h+='<div class="card empty">Bugün henüz dondurulmuş seçim yok.</div>';
     el.innerHTML=h; }catch(e){ el.innerHTML='<div class="card empty">Henüz sabit ihtimalli kaydı yok.</div>'; }
 }
@@ -2284,7 +2289,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793660000';   // commit öncesi otomatik güncellenir
+const BUILD='1793660803';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
