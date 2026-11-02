@@ -1,8 +1,8 @@
 """Sabit ihtimalli ganyan gölge kolu (3 Kasım 2026, T95 ileri ön kaydı: data/analiz/hipotez_defteri.md). Kağıt üstü, para yok.
 Kural (sonuç görülmeden donduruldu): yarışa 7 dk kala ile yarış saati+3 dk arasındaki İLK çalışmada, o anda yayınlanmış son sabit ganyan oranı (data/piyasa, tip 1001, oran>1)
-ile Jason olasılığı (tüyo ile aynı formül, AGF payı pp üzerinden) çarpılır:
+ile Jason olasılığı (modelin formülü; piyasa girdisi o anki MUHTEMEL GANYAN (data/muh, bayide ekranda görülen), yoksa AGF payı) çarpılır:
   Kol A: p_Jason × sabit oran >= 1,2           -> o ata 1 TL
-  Kol B: Kol A şartı VE p_Jason >= pp (AGF payı) -> o ata 1 TL   (sabit oranın havuz karşısında 'bayat yüksek' kalma riskini eler)
+  Kol B: Kol A şartı VE p_Jason >= pp (havuz payı) -> o ata 1 TL   (sabit oranın havuz karşısında 'bayat yüksek' kalma riskini eler)
 Her kayıt ilk dondurulduğunda değişmez. Sonuçta: sıra 1 ise kazanç = dondurulan oran (kesinti: 18+ oranda yok; uzun atlarda ihmal edilir, kesinti tablosu doğrulanmadı).
 Tanılama: dondurmadan sonraki son yayınlanan oran ('son') ve yarışa kaç dk kala dondurulduğu ('dk') saklanır."""
 import os, json, glob, math
@@ -12,6 +12,7 @@ from . import ortak as O
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI, SITE, PIY = os.path.join(KOK, "data", "sabit_golge"), os.path.join(KOK, "docs", "data"), os.path.join(KOK, "data", "piyasa")
 ESIK_EV = 1.2
+HIPKEY = {"diyarbakir": "DBAKIR"}
 ONCE, SONRA = 7.0, 3.0     # dondurma penceresi: yarış saatinden ÖNCE 7 dk ... SONRA 3 dk
 
 
@@ -34,6 +35,21 @@ def _oranlar(tarih, hip, kosu, simdi_dk=None):
     return {int(n): float(g.sort_values("saat").oran.iloc[-1]) for n, g in d.groupby("no")}
 
 
+def _muh(tarih, hip, kosu, sn):
+    """data/muh: yarışa kadar en son canlı muhtemel ganyan (havuz) -> {no: ganyan}; bayide ekranda görülen şey."""
+    yol = os.path.join(KOK, "data", "muh", tarih + ".json")
+    if not os.path.exists(yol):
+        return {}
+    try:
+        m = json.load(open(yol, encoding="utf-8")).get(f"{HIPKEY.get(hip, hip.upper())}-{kosu}")
+    except Exception:
+        return {}
+    if not m:
+        return {}
+    an = [a for a in m.get("anlik", []) if a.get("g") and a.get("t") and _dk(a["t"]) <= sn]
+    return {int(n): float(v) for n, v in an[-1]["g"].items() if v is not None and float(v) > 1} if an else {}
+
+
 def guncelle(obj, simdi=None):
     if obj.get("w0_aday") is None:
         return
@@ -52,7 +68,14 @@ def guncelle(obj, simdi=None):
                 if -SONRA <= kalan <= ONCE and at and all(a.get("z2") is not None for a in at):
                     oran = _oranlar(tarih, h["id"], k["kosu"], sn)
                     if len(oran) >= 4:
-                        tot = sum(a["agf"] for a in at); pp = {a["no"]: a["agf"] / tot for a in at}
+                        tot = sum(a["agf"] for a in at); pa = {a["no"]: a["agf"] / tot for a in at}   # AGF payı (yedek / tanılama)
+                        gm = _muh(tarih, h["id"], k["kosu"], sn)
+                        kaynak = "muh" if len(gm) >= max(4, 0.8 * len(at)) else "agf"
+                        if kaynak == "muh":
+                            tm = sum(1 / gm[a["no"]] for a in at if a["no"] in gm); pp = {a["no"]: (1 / gm[a["no"]]) / tm for a in at if a["no"] in gm}
+                            at = [a for a in at if a["no"] in pp]
+                        else:
+                            pp = pa
                         s = {a["no"]: w0 * math.log(max(pp[a["no"]], 1e-6)) + l2 * math.log(max(pp[a["no"]], 1e-6)) ** 2 + a["z2"] for a in at}
                         m = max(s.values()); e = {n: math.exp(v - m) for n, v in s.items()}; Z = sum(e.values())
                         kay.setdefault("_bakildi", []).append(f"{h['id']}|{k['kosu']}")
@@ -60,7 +83,7 @@ def guncelle(obj, simdi=None):
                             o = oran.get(a["no"]); pj = e[a["no"]] / Z
                             if o and pj * o >= ESIK_EV:
                                 kay[f"{h['id']}|{k['kosu']}|{a['no']}"] = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": k.get("saat"), "no": a["no"], "at": a["at"],
-                                    "pj": round(pj, 4), "pp": round(pp[a["no"]], 4), "oran": o, "ev": round(pj * o, 3), "B": bool(pj >= pp[a["no"]]), "dk": round(kalan, 1)}
+                                    "pj": round(pj, 4), "pp": round(pp[a["no"]], 4), "oran": o, "ev": round(pj * o, 3), "B": bool(pj >= pp[a["no"]]), "dk": round(kalan, 1), "pkaynak": kaynak}
             for key, c in kay.items():
                 if key.startswith("_") or c["hipodrom"] != h["id"] or c["kosu"] != k["kosu"] or "sira" in c:
                     continue
