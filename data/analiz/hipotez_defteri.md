@@ -1370,3 +1370,8 @@ Uzun at (ganyan≥10): gözlenen 0.0307, p_piyasa 0.0346 (piyasa uzun atları ~%
 Doğan'ın gözlemi: insanlar fiyat şişmesin diye açık ayaklarda az at yazıyor; ≥7 ganyanlı kazananlar az kuponda olduğu için altılı ödemesi şişiyor. Veri: /tmp/claude-0/agf_d.pkl (992 altılı, ~5950 ayak; agf_son % ve normalize pay a). 
 Ölçü: ≥7 ganyanlı atlar için Σkazandi / Σa (gözlenen/AGF payı), bantlar 7–10, 10–15, ≥15; gün-kümeli bootstrap %95 GA; karşılaştırma: aynı atlar için gözlenen/p_piyasa ve gözlenen/p_Jason; ayrıca açık/orta/kapalı ayak ayrımı (T88 kesimleri, 0.277/0.373).
 Karar: ≥7 genelinde gözlenen/AGF payı GA alt sınırı >1 VE açık ayaklarda da aynı yön → "uzun atlar altılıda az kapsanıyor" (kupon genişliği tasarımına girdi); alt sınır ≤1 ise kapanır. Altılı sayısı az (992) → sonuç keşifsel sayılır, tek karar bu testten çıkmaz; ≥150 ek altılıda tekrar.
+
+## T90 — Altılı ayak konumu: 1. altılının 5. ayağı ve 2. altılının 1./2. ayağı daha sık "yakıyor" mu? (2026-11-03 00:16)
+Doğan'ın gözlemi (ön kayıt, sonuçtan önce): kuponlar 1. altılının 5. ayağında ve 2. altılının 1. veya 2. ayağında daha sık yatıyor. Veri: agf_d.pkl + data/odeme (seq 1/2, ayaklar kosu−5..kosu).
+Hipotezler (yalnız bu 3 önceden belirlendi, Bonferroni ×3 → %98.3 GA): H1 = seq1/ayak5, H2 = seq2/ayak1, H3 = seq2/ayak2. Ölçü: bust = kazanan AGF ilk-4 dışında VEYA ganyanı ≥7; fark = (o konumda bust oranı) − (diğer tüm ayaklarda bust oranı); gün-kümeli bootstrap. Ek (keşifsel, karar dışı): 12 konumun tamamı, favori kazanma oranı, ortalama kazanan ganyanı.
+Karar: bir hipotezde fark GA alt sınırı >0 ise "o ayak sistematik riskli", kupon genişliği tasarımında o ayağa ek pay (ileri gölge); aksi halde kapanır. Diğer 9 konumdaki sapmalar karar değildir.
