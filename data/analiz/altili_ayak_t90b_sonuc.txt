@@ -1,0 +1,5 @@
+konum n gözlenen Jason-beklenen piyasa-beklenen
+1/5 n=505 gözlenen 0.331 Jason 0.323 piyasa 0.352
+2/1 n=516 gözlenen 0.333 Jason 0.353 piyasa 0.375
+2/2 n=509 gözlenen 0.348 Jason 0.361 piyasa 0.391
+diğer n=5512 gözlenen 0.264 Jason 0.279 piyasa 0.304
