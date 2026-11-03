@@ -1528,3 +1528,7 @@ Kalan: o günlerin devirli koşuları için 'Devir-G1S' donmuş kuponları geriy
 
 ## T103 SONUÇ (tabela, 492 koşu, v3 ileri-yürüyüş Nis–Eki)
 t24 ROI +5,6% [-29,9;+45,6]; t120 -11,3% [-35,5;+17,5]; s5 (sırasız 5 at) -35,1% [-61,4;-1,6]. Alan sınıfı: tutarlı işaret YOK (t24 ≥16 at: Nis-Tem -60% / Ağu-Eki +109%; t120 ≥16 at -49% [-69,7;-24,5], her iki yarıda negatif ama tek hücre, Bonferroni sonrası kanıt değil). Değer filtresi (oran≥1,15): t24 fark +6,0% GA [-101,8;+96,7] anlamsız; t120 +51,3% GA [+9,3;+95,2] tek test, çoklu karşılaştırma düzeltmesiyle sınırda; s5 +13,4% anlamsız. Karar: filtre değişikliği YOK; t120 filtre farkı yeni bağımsız dönemde (Kasım+) doğrulanana dek hipotez. Kalibrasyon sütunları (modelin beklediği vs gerçek) kupon-tutma tanımı ile tek-sıralama olasılığı farklı olduğundan karşılaştırılamaz — yalnız model/piyasa oranı yorumlanır. T103b (sıralı 5'li) ayrı raporlanacak.
+
+## T104 — T100'ün Benter v3 tabanında tekrarı (ÖN KAYIT, 2026-11-03 06:35; kullanıcı: "Tamam test et")
+Taban A = Benter v3 (piyasa+G1 9+Jason 38+galop, ileri-yürüyüş Nis–Eki, 3.397 koşu). B = piyasasız (aynı özellikler, piyasa ağırlığı 0, galopsuz). İlk k=3 at taban; ek at = B'nin tabanda olmayan en iyi atı; karşılaştırma Y = A'nın (k+1). atı. Birincil k=3; k=2,4,5 keşifsel.
+Karar kuralı: ek−Y gün-kümeli bootstrap GA95 alt sınırı >0 ise piyasasız ek at faydalı (kupon tasarımı için ayrı ROI ön kaydı gerekir); aksi halde fikir kapanır. T100 (v2 tabanı) sonucu: ek−Y −0,029 [−0,040;−0,019].
