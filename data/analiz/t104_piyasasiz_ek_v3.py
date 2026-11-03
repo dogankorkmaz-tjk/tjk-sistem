@@ -1,7 +1,7 @@
 """T104: T100'ün Benter v3 tabanında tekrarı (ön kayıt: hipotez_defteri T104). python3 data/analiz/t104_piyasasiz_ek_v3.py
 Taban A = v3 (piyasa+G1+Jason+galop). B = piyasasız (LM ağırlığı 0, aynı Jason+G1 özellikleri, galopsuz)."""
 import os, sys
-src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "entegre_v3.py")).read().split("aylar = sorted")[0]
+src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "entegre_v3.py")).read().split("\naylar = sorted")[0]
 exec(compile(src, "entegre_v3", "exec"))
 def fitJb(rl, l2=30.0, lj=50.0):
     LM, XX, _, XJ = packJ(rl); msk = LM > -1e8; mu = XJ[msk].mean(0); sd = XJ[msk].std(0) + 1e-9; Z = np.where(msk[..., None], (XJ - mu) / sd, 0.0)
