@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-03 18:32 UTC",
- "kayitli_kosu": 1449,
- "eslesmeyen_kosu": 990,
+ "uretim": "2026-11-03 19:20 UTC",
+ "kayitli_kosu": 1455,
+ "eslesmeyen_kosu": 994,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 776,
- "kosu": 459,
+ "bahis": 784,
+ "kosu": 461,
  "isabet": 50,
- "roi": 0.964,
+ "roi": 0.954,
  "ga95": [
-  0.675,
-  1.295
+  0.665,
+  1.283
  ],
  "ulke": {
   "abd": {
-   "bahis": 506,
-   "roi": 0.763
+   "bahis": 514,
+   "roi": 0.751
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 936,
-  "kosu": 450,
+  "bahis": 945,
+  "kosu": 452,
   "isabet": 94,
-  "roi": 0.648,
+  "roi": 0.642,
   "ga95": [
-   0.455,
-   0.842
+   0.451,
+   0.835
   ]
  },
  "bahis_t1": {
-  "bahis": 964,
-  "kosu": 444,
+  "bahis": 970,
+  "kosu": 446,
   "isabet": 97,
-  "roi": 0.695,
+  "roi": 0.69,
   "ga95": [
-   0.455,
-   0.967
+   0.45,
+   0.964
   ]
  },
  "bahis_t3": {
-  "bahis": 975,
-  "kosu": 431,
+  "bahis": 976,
+  "kosu": 432,
   "isabet": 104,
-  "roi": 0.642,
+  "roi": 0.641,
   "ga95": [
-   0.429,
-   0.912
+   0.428,
+   0.91
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 3,
-   "at": "VICTORY FOLIE",
-   "q": 0.113,
-   "g": 12.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 3,
-   "at": "TERREDEGUERRE",
-   "q": 0.083,
-   "g": 23.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 5,
-   "at": "LA MANDALA",
-   "q": 0.218,
-   "g": 7.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 5,
-   "at": "ALMA MATER",
-   "q": 0.101,
-   "g": 16.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 7,
-   "at": "YOKEN",
-   "q": 0.085,
-   "g": 16.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 7,
-   "at": "MEISHO SUGAR",
-   "q": 0.068,
-   "g": 33.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 7,
-   "at": "DAY DREAMING",
-   "q": 0.111,
-   "g": 22.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 7,
-   "at": "WHITE PLATIN",
-   "q": 0.222,
-   "g": 6.9,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Fontainebleau",
@@ -423,6 +351,78 @@
    "at": "BECK'S DREAMER",
    "q": 0.113,
    "g": 19.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "HOUSE OF GOLD",
+   "q": 0.094,
+   "g": 76.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "RAPID JUSTICE",
+   "q": 0.211,
+   "g": 7.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 2,
+   "at": "GIMMEL",
+   "q": 0.053,
+   "g": 33.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mahoning Valley",
+   "kosu": 4,
+   "at": "MYSTICAL MOBIL",
+   "q": 0.037,
+   "g": 59.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mahoning Valley",
+   "kosu": 4,
+   "at": "TALE OF THE LYON",
+   "q": 0.085,
+   "g": 16.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mahoning Valley",
+   "kosu": 4,
+   "at": "SHAKEURSKINNYLEGS",
+   "q": 0.171,
+   "g": 7.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mahoning Valley",
+   "kosu": 4,
+   "at": "SIOFRA",
+   "q": 0.192,
+   "g": 7.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mahoning Valley",
+   "kosu": 4,
+   "at": "GO GIRL",
+   "q": 0.085,
+   "g": 24.5,
    "kazandi": false
   }
  ]
