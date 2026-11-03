@@ -1,0 +1,5 @@
+T105: sıralı 5'li, 670 havuz koşusu, b96 taban (α=0) vs değer-eğimli p'=p·(p/pm)^α
+BİRİNCİL α=1.0: vuruş 22 (taban 26) | ROI -18.8% (taban -19.6%) | fark GA95 [-44.7%,+49.4%] | ort bedel 116 vs 116 TL
+     devirli 150: vuruş 1 (taban 2)
+keşifsel α=2.0: vuruş 16 (taban 26) | ROI -50.0% (taban -19.6%) | fark GA95 [-70.7%,+6.9%] | ort bedel 116 vs 116 TL
+     devirli 150: vuruş 1 (taban 2)

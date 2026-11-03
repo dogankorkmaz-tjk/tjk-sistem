@@ -1544,3 +1544,9 @@ Bu kullanıcının asıl sürpriz fikri olabilir; T105 benim tanımımdı. Veri:
 
 ## T104 SONUÇ (v3 tabanı, 3.388 koşu k=3, 204 gün)
 k=3: ek (piyasasız) %9,65 vs Y (piyasalı 4. at) %9,98; ek−Y −0,0032 GA95 [−0,0082;+0,0015] → alt sınır >0 değil: KARAR KURALI SAĞLANMADI, fikir kapandı. T100'ün aksine fark artık anlamlı negatif de değil (v3 Jason özelliklerini zaten içerdiği için piyasasız ek at piyasalı 4. atla ayırt edilemez; k=4,5'te +0,001). Rastgeleden hâlâ +0,048 iyi (bilgi var) ama piyasalı sıradaki attan fazla bilgi eklemiyor. Piyasasız modelden kupon faydası yok.
+
+## T105 SONUÇ (değer-eğimli sıralı 5'li, 670 havuz, b96)
+α=1: vuruş 22 (taban 26), ROI −%18,8 (taban −%19,6), fark GA95 [−44,7;+49,4] → alt sınır >0 değil, KAPANDI. α=2: vuruş 16, ROI −%50,0, fark [−70,7;+6,9] (daha kötü). Not: devirli satırındaki "150" sayısı kendi ödeme satırında DEVİR olan havuzları sayıyor, devirli analizi için kullanılmaz (T103b devirli tanımı geçerli). Olasılığı değere doğru eğmek sıralı 5'lide fayda sağlamadı.
+
+## T106 SONUÇ (yakın kaçırma/sürpriz at, 670 havuz, b96 v3; beklenen = modelin kendi olasılığından 300 sim/koşu)
+Tutan ayak sayısı 0..5: gözlenen 36/135/203/197/73/26, beklenen 40/142/223/179/67/18. 4/5 tutan gözlenen 73 vs beklenen 67; tam tutan 26 vs 18,4. Kaçan ayaklar: dışarıdan sürpriz (model ilk6 dışı) 896 vs 910; yer değişimi 469 vs 468; diğer 431 vs 487. Karar kuralı (gözlenen/beklenen ≥1,25 yakın kaçırmada) SAĞLANMADI: yakın kaçırma beklenenle aynı (1,09); sürpriz-at ve yer-değişimi payları beklentiyle özdeş. Model ayak olasılıkları iyi kalibre; "hep yakın kaçırıyor" izlenimi 5 ayaklı kuponun doğası (çoğu kayıp 3–4 ayak tutar), sistematik hata değil. Ayak üslerini yeniden kalibre etmeye gerek yok.

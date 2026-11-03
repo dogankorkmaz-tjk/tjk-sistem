@@ -1,0 +1,5 @@
+T106: 670 sıralı 5'li havuz koşusu, b96 (v3); beklenen = modelin kendi olasılığından 300 simülasyon/koşu
+tutan ayak sayısı (0..5): gözlenen 36 135 203 197 73 26 | beklenen 40 142 223 179 67 18
+kaçan ayaklar (toplam): gözlenen sürpriz-dışarıdan(model ilk6 dışı) 896 | komşu-ayağa-yazılmış-yer-değişimi 469 | diğer 431
+                        beklenen   sürpriz-dışarıdan 910 | yer-değişimi 468 | diğer 487
+4/5 tutan (yakın kaçırma) gözlenen 73 beklenen 67; tam tutan gözlenen 26 beklenen 18.4
