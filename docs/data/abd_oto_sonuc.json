@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-03 19:31 UTC",
- "kayitli_kosu": 1455,
- "eslesmeyen_kosu": 994,
+ "uretim": "2026-11-03 20:15 UTC",
+ "kayitli_kosu": 1460,
+ "eslesmeyen_kosu": 997,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 784,
- "kosu": 461,
+ "bahis": 788,
+ "kosu": 463,
  "isabet": 50,
- "roi": 0.954,
+ "roi": 0.949,
  "ga95": [
-  0.665,
-  1.283
+  0.66,
+  1.277
  ],
  "ulke": {
   "abd": {
-   "bahis": 514,
-   "roi": 0.751
+   "bahis": 518,
+   "roi": 0.745
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 945,
-  "kosu": 452,
-  "isabet": 94,
+  "bahis": 950,
+  "kosu": 454,
+  "isabet": 95,
   "roi": 0.642,
   "ga95": [
-   0.451,
-   0.835
+   0.454,
+   0.834
   ]
  },
  "bahis_t1": {
-  "bahis": 970,
-  "kosu": 446,
-  "isabet": 97,
+  "bahis": 975,
+  "kosu": 448,
+  "isabet": 98,
   "roi": 0.69,
   "ga95": [
-   0.45,
-   0.964
+   0.453,
+   0.963
   ]
  },
  "bahis_t3": {
-  "bahis": 976,
-  "kosu": 432,
+  "bahis": 978,
+  "kosu": 434,
   "isabet": 104,
-  "roi": 0.641,
+  "roi": 0.64,
   "ga95": [
-   0.428,
-   0.91
+   0.427,
+   0.908
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 7,
-   "at": "ARKEN",
-   "q": 0.254,
-   "g": 6.55,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 8,
-   "at": "LEOPARDUCCIO",
-   "q": 0.113,
-   "g": 18.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 2,
-   "at": "WHAT'S UP DOG",
-   "q": 0.187,
-   "g": 8.55,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 2,
-   "at": "MISS MACY",
-   "q": 0.153,
-   "g": 9.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Horseshoe Indianapolis",
@@ -355,6 +319,24 @@
   },
   {
    "gun": "2026-11-03",
+   "pist": "Finger Lakes",
+   "kosu": 5,
+   "at": "FIDELA",
+   "q": 0.089,
+   "g": 20.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Finger Lakes",
+   "kosu": 5,
+   "at": "STELLA BROWN",
+   "q": 0.038,
+   "g": 88.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
    "pist": "Horseshoe Indianapolis",
    "kosu": 2,
    "at": "HOUSE OF GOLD",
@@ -423,6 +405,24 @@
    "at": "GO GIRL",
    "q": 0.085,
    "g": 24.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 3,
+   "at": "LEAD THE WAY D W M",
+   "q": 0.131,
+   "g": 14.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 3,
+   "at": "COMFORT CASH",
+   "q": 0.184,
+   "g": 9.9,
    "kazandi": false
   }
  ]
