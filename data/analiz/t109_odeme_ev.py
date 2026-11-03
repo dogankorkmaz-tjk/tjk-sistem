@@ -75,7 +75,7 @@ for i, p in enumerate(P):
     mu = b[0] + b[1] * (-np.log(np.clip(Pk, 1e-12, 1))) + b[2] * np.log(r.n) + b[3] * r.devirli + (b[4:] @ hv[1:])
     vE = Pm * np.exp(mu + s2 / 2)
     jobs.append((vE, 96)); jobs.append((Pm, 96)); meta.append(i)
-with Pool(2) as pool: res = pool.map(kupon_ev, jobs, chunksize=4)
+with Pool(2) as pool: res = list(pool.imap(kupon_ev, jobs, chunksize=8))
 R_ = []
 for q, i in enumerate(meta):
     p = P[i]; r = D.iloc[i]; pmod = smx(p["S"]); aday = np.argsort(-pmod)[:9]; loc = {int(h): k for k, h in enumerate(aday)}
