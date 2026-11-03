@@ -723,6 +723,10 @@ def hizli(t):
         print("piyasa_zaman satırı:", PZ.topla(t.isoformat()))
     except Exception as e:
         print("piyasa_zaman hatası:", repr(e))
+    try:
+        SG.guncelle(c)               # sabit gölge: 7 dk kalan pencereyi 20 dk'lık akış kaçırmasın (5 dk'lık hızlı modda da dondur)
+    except Exception as e:
+        print("sabit gölge (hızlı) hatası:", repr(e))
 
 
 def kosmaz_isle(obj):

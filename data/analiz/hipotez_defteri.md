@@ -1602,3 +1602,6 @@ SONUÇ T112 (keşif, 10 gün, tüyo atı n=32–39/tür): ROI7 [GA] — G 1,36 [
 ## T113 — Tüyo kombineleri (2'li/3'lü, farklı koşular) × sabit tür — geriye dönük KEŞİF, ÖN KAYIT (3 Kasım 2026)
 Aynı gün farklı koşulardaki tüyo atlarının tüm 2'li ve 3'lü kombinasyonları, tür başına, 7 dk kala oranların çarpımı, 1 TL. Ölçü: ROI + gün-küme bootstrap GA. Beklenti (matematik): bacak ROI r ise kombine ROI ≈ r^k; kanıt amaçlı değil, bilgi notu. Karar: canlı K2/K3 kolları ≥100 bahse kadar izlenir.
 SONUÇ T113 (keşif, 8 gün, kombine n=43–69): ilk3 ROI 0,92 → 2'li 0,64 → 3'lü 0,34 (matematiğe uygun, düşüyor); G 2'li 1,34 [0,23–2,93], P2 2'li 1,06, P4 3'lü 1,59 [0–4,96] ama GA'lar çok geniş (birkaç şanslı isabet). Kombine hiçbir türde kanıtlı avantaj vermedi; kombineler bacak ROI'sini düzeltmiyor, varyansı büyütüyor.
+
+## Sabit gölge kaçırma hatası (3 Kasım 2026, 14:06)
+Sabit gölge kolu yalnız 20 dk'lık ana akışta çağrılıyordu; dondurma penceresi (yarışa −7..+3 dk) 10 dk olduğundan çoğu yarış kaçtı. Adana 1. koşu ve öncesi gölgeye girmedi (öncesi: erken sabit sayılmaz, bu yarışlar örnek dışı). Düzeltme: hızlı (5 dk) moda da SG.guncelle eklendi. Bu saatten önceki canlı sabit sonuçları ÖRNEĞE ALINMAZ.
