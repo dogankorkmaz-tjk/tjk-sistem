@@ -1,0 +1,8 @@
+T108 ödeme modeli OOS: n=3069 kazanan ödeme, R²=0.681, ort sapma (log) +0.387, kalibrasyon eğimi 1.00; model ayları 2024-03..2026-10
+TÜM PENCERE: 3472 havuz | EV-kupon vuruş 44 ROI +104.1% | olasılık-kupon vuruş 92 ROI -36.5% | fark +140.6% GA95 [-28.1%,+407.3%] | ort bedel 111/110
+BAĞIMSIZ (yeni aylar): 1761 havuz | EV-kupon vuruş 21 ROI -62.1% | olasılık-kupon vuruş 44 ROI -48.7% | fark -13.3% GA95 [-49.6%,+27.1%] | ort bedel 111/110
+ESKİ (Nis–Eki 2026): 1711 havuz | EV-kupon vuruş 23 ROI +275.1% | olasılık-kupon vuruş 48 ROI -23.9% | fark +298.9% GA95 [-33.6%,+865.8%] | ort bedel 111/110
+H1 ≥16 atlı (yeni aylar): n=199 vuruş 4 ROI +2.1% GA95 [-92.4%,+189.5%]
+≥16 atlı (eski): n=338 vuruş 2 ROI -53.8% GA95 [-100.0%,+22.9%]
+H2 devirli (yeni aylar): n=158 vuruş 7 ROI -5.7% GA95 [-73.2%,+81.8%]
+devirsiz (yeni aylar): n=1603 vuruş 37 ROI -53.0% GA95 [-75.0%,-24.6%]
