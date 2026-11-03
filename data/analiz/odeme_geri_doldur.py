@@ -25,6 +25,8 @@ for ay, fl in aylar.items():
                     except ValueError: continue
                     if tur in A._TUR and m.get("result") and tutar > 0:
                         rows.append({"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tur": tur, "seq": 0, "kombo": str(m["result"]).strip(), "tutar": tutar})
+                    c = A.coklu_satir(tarih, hip, k, m)
+                    if c: rows.append(c)
         rows += A.devir_satirlari(tarih, sonuc)
     if not rows: print(ay, "satır yok"); continue
     yol = os.path.join(KOK, "odeme", ay + ".csv.gz")
@@ -32,6 +34,7 @@ for ay, fl in aylar.items():
         var = pd.read_csv(yol); anahtar = set(zip(var.tarih, var.hipodrom, var.kosu, var.tur)); rows = [r for r in rows if (r["tarih"], r["hipodrom"], r["kosu"], r["tur"]) not in anahtar]
     sayac = {}
     for r in rows:
+        if r.pop("_s", False): continue
         a = (r["tarih"], r["hipodrom"], r["kosu"], r["tur"]); r["seq"] = sayac.get(a, 0); sayac[a] = r["seq"] + 1
     n = _yaz("odeme", pd.DataFrame(rows), ["tarih", "hipodrom", "kosu", "tur", "seq", "kombo"]) if rows else 0
     s5 = sum(1 for r in rows if r["tur"].startswith("SIRALI 5")); toplam += n; print(ay, "eklenen", n, "satır; sıralı5", s5, flush=True)

@@ -1605,3 +1605,6 @@ SONUÇ T113 (keşif, 8 gün, kombine n=43–69): ilk3 ROI 0,92 → 2'li 0,64 →
 
 ## Sabit gölge kaçırma hatası (3 Kasım 2026, 14:06)
 Sabit gölge kolu yalnız 20 dk'lık ana akışta çağrılıyordu; dondurma penceresi (yarışa −7..+3 dk) 10 dk olduğundan çoğu yarış kaçtı. Adana 1. koşu ve öncesi gölgeye girmedi (öncesi: erken sabit sayılmaz, bu yarışlar örnek dışı). Düzeltme: hızlı (5 dk) moda da SG.guncelle eklendi. Bu saatten önceki canlı sabit sonuçları ÖRNEĞE ALINMAZ.
+
+## Çok ayaklı ödemeler (çifte, 3–7'li ganyan, 7'li plase) kayıtta yoktu (4 Kasım 2026)
+Neden: data/odeme'ye CSV (son yüklenen 22 Ekim) ve atyapi.odeme_yaz yazıyordu; odeme_yaz yalnız tek-yarış türlerini (_TUR) alıyordu, çok ayaklı ikramiyeler API'de (raceMoneys) vardı ama atlanıyordu. Düzeltme: atyapi.coklu_satir (tur "6'LI GANYAN", seq = "1./2." sıra no, CSV ile aynı biçim); odeme_geri_doldur.py ile 23 Ekim–2 Kasım geri dolduruldu (316 satır). 3 Kasım: ham arşiv yarış öncesi anlık görüntü olduğundan akşam/03:40 çalışmasıyla gelecek.

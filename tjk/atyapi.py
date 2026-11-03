@@ -208,6 +208,26 @@ def sonuc_df(t, hid):
 _TUR = {"GANYAN", "İKİLİ", "SIRALI İKİLİ", "ÜÇLÜ BAHİS", "TABELA BAHİS", "TABELA BAHİS SIRASIZ", "SIRALI 5 Lİ BAHİS", "PLASE", "PLASE İKİLİ"}
 
 
+_COKLU = {"ÇİFTE", "3'LÜ GANYAN", "4'LÜ GANYAN", "5'Lİ GANYAN", "6'LI GANYAN", "7'Lİ GANYAN", "7'Lİ PLASE"}
+
+
+def coklu_satir(tarih, hip, k, m):
+    """Çok ayaklı bahis ikramiyesi (çifte, 3-7'li ganyan, 7'li plase): TJK CSV'sindeki gibi tur='6\'LI GANYAN', seq=sıra no (\"1. 6'LI GANYAN\" -> seq 1); yoksa None.
+    4 Kasım 2026: 23 Ekim'den beri CSV yüklenmediği için bu türler odeme'de eksikti (_TUR yalnız tek-yarış türlerini içeriyordu)."""
+    ad = str(m.get("betTypeName") or "").strip().upper().replace("İ", "İ")
+    x = re.match(r"^(\d+)\.\s*(.+)$", ad)
+    n, tur = (int(x.group(1)), x.group(2)) if x else (1, ad)
+    if tur not in _COKLU or not m.get("result"):
+        return None
+    try:
+        tutar = float(str(m.get("prizeText") or "0").replace(".", "").replace(",", "."))
+    except ValueError:
+        return None
+    if tutar <= 0:
+        return None
+    return {"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tur": tur, "seq": n, "kombo": str(m["result"]).strip(), "tutar": tutar, "_s": True}
+
+
 def devir_satirlari(tarih, sonuc):
     """Bilen çıkmayan (ikramiye 0, 'Bilen çıkmamıştır, X ₺ devretmiştir.') havuzlar için TJK CSV'sindeki gibi '<TÜR> DEVİR' satırları (3 Kasım 2026 düzeltmesi:
     22 Ekim'den beri CSV yüklenmediği ve tutar>0 süzgeci bu satırları attığı için devirli sıralı 5'li / 7'li ganyan havuzları kayıtta yoktu)."""
@@ -251,6 +271,9 @@ def odeme_yaz(tarih):
                     continue
                 if tur in _TUR and m.get("result") and tutar > 0:
                     rows.append({"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tur": tur, "seq": 0, "kombo": str(m["result"]).strip(), "tutar": tutar})
+                c = coklu_satir(tarih, hip, k, m)
+                if c:
+                    rows.append(c)
     rows += devir_satirlari(tarih, sonuc_gun(tarih))
     if not rows:
         return 0
@@ -264,6 +287,8 @@ def odeme_yaz(tarih):
     # aynı tür birden fazla satırsa (PLASE) seq numaralanır
     sayac = {}
     for r in rows:
+        if r.pop("_s", False):
+            continue
         a = (r["hipodrom"], r["kosu"], r["tur"]); r["seq"] = sayac.get(a, 0); sayac[a] = r["seq"] + 1
     n = _yaz("odeme", pd.DataFrame(rows), ["tarih", "hipodrom", "kosu", "tur", "seq", "kombo"])
     print("atyarisi ikramiyeleri eklendi:", tarih, n, "satır")
