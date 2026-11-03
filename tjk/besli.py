@@ -147,7 +147,8 @@ def _olasiliklar(obj, k):
             pg = sm([obj["w0_g1"] * math.log(max(p, 1e-6)) + a["z6"] for p, a in zip(pp, at)]); GG["G1-S"] = obj["a_g1"]
     except Exception as e:
         print("G1-S olasılık hatası:", repr(e))
-    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"Jason-S": ps} if ps else {}), **({"Jason-F": pf} if pf else {}), **({"G1-S": pg} if pg else {})}
+    # Jason-S ve Jason-F kapatıldı (3 Kasım 2026, kullanıcı kararı; bkz. hipotez_defteri)
+    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"G1-S": pg} if pg else {})}
 
 
 def _modeller(obj, k):

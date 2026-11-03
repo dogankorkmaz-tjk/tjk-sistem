@@ -104,7 +104,7 @@ def guncelle(obj):
         for ad_v, o_v in VARYANT.items():                                                         # ön-kayıtlı varyantlar (12 Ekim 2026): yalnızca eşik farklı, ana kural değişmedi
             modeller.append((ad_v.replace("Jason-", "J") .replace(".", "") + "|", "z2", obj["w0_aday"], ad_v, obj.get("lp2_aday", 0.0), o_v))
     if obj.get("w0_s") is not None:                                                            # Jason-S (14 Ekim 2026): aynı dondurulmuş kural, ayrı gölge sayaç
-        modeller.append(("JS|", "z4", obj["w0_s"], "Jason-S", obj.get("lp2_s", 0.0), ORAN))
+        pass                                                                                       # Jason-S kolu kapatıldı (3 Kasım 2026)
     GD = {}
     try:                                                                                       # G1-S: önce z6_doldur (obj'ye w0_g1/a_g1 yazar: v3 varsa v3), sonra aynı katsayılarla seçim
         from . import g1 as _G1

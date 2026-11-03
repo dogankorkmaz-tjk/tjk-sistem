@@ -1746,11 +1746,9 @@ function tahOd(nv,prP,bedel){
 }
 function s5Html(){
   if(!VERI) return '<div class="card empty">Yükleniyor…</div>';
-  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sıralı 5'li: ana model Benter v3 önce, ardından Jason-S / Jason-F</b>
+  let s=`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Sıralı 5'li: ana model Benter v3</b>
   <div class="sub">Tek bir kazananı değil, ilk beşin <b>sırasını</b> öğrenen model. Kupon, bütçe dolana kadar tutma olasılığını en çok artıran atı ekleyerek kurulur; AGF'nin ilk beşini yazmaktan farkı bu. Sürpriz için ayrı yer ayıran hibrit kupon geriye dönük testte daha iyi çıkmadı. Dürüst durum: sürprizi bulmak en zor kısım, aşağıdaki canlı takip bunu gösteriyor. Kâr kanıtı yok, kâğıt üstü.</div></div>`;
   try{ s+=besliEgz('G1-S'); }catch(e){ console.error(e); s+='<div class="card empty">Kuponlar hesaplanamadı.</div>'; }
-  try{ s+=besliEgz('Jason-S'); }catch(e){ console.error(e); }
-  try{ s+=besliEgz('Jason-F'); }catch(e){ console.error(e); }
   s+=`<h2 style="margin-top:14px">Canlı takip (dondurulmuş kuponlar)</h2><div id="s5Takip">${BS_HTML||'<div class="card empty">Yükleniyor…</div>'}</div>`;
   return s;
 }
@@ -1839,7 +1837,7 @@ function esnekHtml(){
 function tabelaEgz(){
   // Tabela bahsi (21 Ekim 2026): ilk 4 at; her model için sıralı kombine (sıra başına çok at) ve sırasız kombine (5 at, 120 kombinasyon). Kâğıt üstü, ölçüm/takip yok.
   if(!VERI||GUN!==trBugun()) return '<div class="card empty">Tabela yalnız bugün için gösterilir.</div>';
-  const BIRIM=1.5, MODELLER=['G1-S','Bolton','Jason','Jason-S','Jason-F'], R=[];
+  const BIRIM=1.5, MODELLER=['G1-S','Bolton','Jason'], R=[];
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
     const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
@@ -1877,7 +1875,7 @@ function egzCiz(){
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
     <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
   try{ if(EGT!=='TABELA') s+=uc3Html(); }catch(e){ console.error(e); }
-  if(EGT!=='TABELA') s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Bolton','Jason','Jason-S'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(d.toplam_g1s_gec?['G1-S (geç)']:[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'Benter v3 (ana)':m==='Jason'?'Jason (sürpriz avı)':adG(m)}</button>`).join('')}</div>`;
+  if(EGT!=='TABELA') s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Bolton','Jason'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(d.toplam_g1s_gec?['G1-S (geç)']:[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'Benter v3 (ana)':m==='Jason'?'Jason (sürpriz avı)':adG(m)}</button>`).join('')}</div>`;
   if(EGM==='Esnek'){ try{ s+=esnekHtml(); }catch(e){ console.error(e); }
     el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm3_egm',EGM);egzCiz();}); return; }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).concat(['S5']).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${t==='S5'?'Sıralı 5\'li':EGT_AD[t]}</button>`).join('')}</div>`;
@@ -1899,7 +1897,7 @@ function egzCiz(){
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
   try{ s+=sirali3Html(); }catch(e){ console.error(e); }
   try{ s+=kanitHtml(); }catch(e){ console.error(e); }
-  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${tab('Jason-S (gölge, yalnızca karşılaştırma)',d.toplam_jason_s)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
+  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
   try{ s+=besliEgz(MM(EGM)); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
@@ -2294,7 +2292,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793674406';   // commit öncesi otomatik güncellenir
+const BUILD='1793674924';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
