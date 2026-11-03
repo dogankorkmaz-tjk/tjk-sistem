@@ -1,0 +1,32 @@
+name: piyasa_sabah
+# 3 Kasım 2026: sabit ihtimalli oranlar 11:00/11:30'da açılıyor (TJK sayfası), ama ana akış 13:00'e kadar oran toplamıyordu.
+# Bu hafif iş yalnız data/piyasa + data/piyasa_cift zaman serisini sabah da toplar (dondurma kuralları DEĞİŞMEZ; ölçüm/CLV verisi).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5,25,45 8 * * *"   # 11:05, 11:25, 11:45 TR
+    - cron: "5,25 9 * * *"      # 12:05, 12:25 TR (12:40 TR ana akıştan önce)
+concurrency:
+  group: tjk-ana
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  p:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pandas
+      - name: Topla
+        run: python -u -c "from tjk import piyasa_zaman as P, ortak as O; print('yeni satır:', P.topla(O.tr_simdi().date().isoformat()))"
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name tjk-bot; git config user.email tjk-bot@users.noreply.github.com
+          git add -A data/piyasa data/piyasa_cift; git diff --cached --quiet && exit 0
+          git commit -m "piyasa sabah $(date -u '+%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done
