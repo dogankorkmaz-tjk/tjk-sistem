@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-03 18:10 UTC",
- "kayitli_kosu": 1448,
+ "uretim": "2026-11-03 18:32 UTC",
+ "kayitli_kosu": 1449,
  "eslesmeyen_kosu": 990,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 775,
- "kosu": 458,
+ "bahis": 776,
+ "kosu": 459,
  "isabet": 50,
- "roi": 0.965,
+ "roi": 0.964,
  "ga95": [
-  0.676,
-  1.297
+  0.675,
+  1.295
  ],
  "ulke": {
   "abd": {
-   "bahis": 505,
-   "roi": 0.764
+   "bahis": 506,
+   "roi": 0.763
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 935,
-  "kosu": 449,
-  "isabet": 93,
-  "roi": 0.642,
+  "bahis": 936,
+  "kosu": 450,
+  "isabet": 94,
+  "roi": 0.648,
   "ga95": [
-   0.449,
-   0.838
+   0.455,
+   0.842
   ]
  },
  "bahis_t1": {
-  "bahis": 963,
-  "kosu": 443,
+  "bahis": 964,
+  "kosu": 444,
   "isabet": 97,
   "roi": 0.695,
   "ga95": [
-   0.457,
-   0.968
+   0.455,
+   0.967
   ]
  },
  "bahis_t3": {
-  "bahis": 974,
-  "kosu": 430,
+  "bahis": 975,
+  "kosu": 431,
   "isabet": 104,
   "roi": 0.642,
   "ga95": [
    0.429,
-   0.913
+   0.912
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 3,
-   "at": "FELIX AUX ORMES",
-   "q": 0.083,
-   "g": 17.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Fontainebleau",
@@ -423,6 +414,15 @@
    "at": "MIA NIPOTINA",
    "q": 0.118,
    "g": 15.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Finger Lakes",
+   "kosu": 3,
+   "at": "BECK'S DREAMER",
+   "q": 0.113,
+   "g": 19.2,
    "kazandi": false
   }
  ]
