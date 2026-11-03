@@ -1,0 +1,32 @@
+{
+ "tarih": "2026-11-04",
+ "hipodrom": "istanbul",
+ "kaynak": "Uğur Kahvecioğlu (İstanbul)",
+ "not": "Doğan'ın bildirimi (4 Kasım 01:07): Uğur Kahvecioğlu İstanbul 6. koşuda 2 numarayı öneriyor. Tarih 4 Kasım varsayıldı. Tek koşu, tek at (ganyan tipi). Yarıştan ÖNCE kaydedildi; AGF/model karşılaştırması AGF yayınlanınca. Yalnız betimleyici (az örnek).",
+ "kosular": {
+  "6": [
+   2
+  ]
+ },
+ "ham": {
+  "6": "2"
+ },
+ "sirali": true,
+ "ana": {
+  "6": [
+   2
+  ]
+ },
+ "istege_bagli": {},
+ "hepsi": [],
+ "ilk_tercih": {
+  "6": 2
+ },
+ "katmanlar": {
+  "6": [
+   [
+    2
+   ]
+  ]
+ }
+}
