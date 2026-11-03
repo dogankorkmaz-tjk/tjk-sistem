@@ -1,0 +1,5 @@
+1001 1 satır 1634 gün 10 ilk/g7 medyan 0.941 ROI ilk 0.689 g7 0.688
+1002 2 satır 1634 gün 10 ilk/g7 medyan 1.0 ROI ilk 0.686 g7 0.661
+1100 3 satır 1619 gün 10 ilk/g7 medyan 1.0 ROI ilk 0.686 g7 0.671
+1101 4 satır 1471 gün 10 ilk/g7 medyan 1.0 ROI ilk 0.701 g7 0.691
+1103 FH satır 1415 gün 10 ilk/g7 medyan 1.0 ROI ilk 0.701 g7 0.696
