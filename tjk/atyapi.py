@@ -208,6 +208,31 @@ def sonuc_df(t, hid):
 _TUR = {"GANYAN", "İKİLİ", "SIRALI İKİLİ", "ÜÇLÜ BAHİS", "TABELA BAHİS", "TABELA BAHİS SIRASIZ", "SIRALI 5 Lİ BAHİS", "PLASE", "PLASE İKİLİ"}
 
 
+def devir_satirlari(tarih, sonuc):
+    """Bilen çıkmayan (ikramiye 0, 'Bilen çıkmamıştır, X ₺ devretmiştir.') havuzlar için TJK CSV'sindeki gibi '<TÜR> DEVİR' satırları (3 Kasım 2026 düzeltmesi:
+    22 Ekim'den beri CSV yüklenmediği ve tutar>0 süzgeci bu satırları attığı için devirli sıralı 5'li / 7'li ganyan havuzları kayıtta yoktu)."""
+    import re
+    rows = []
+    for hip, ko in (sonuc or {}).items():
+        for k in ko:
+            if not any((a.get("order") or 0) > 0 for a in (k.get("horses") or [])):
+                continue
+            for m in k.get("raceMoneys") or []:
+                ac = str(m.get("description") or "")
+                if "devret" not in ac:
+                    continue
+                x = re.search(r"([\d.]+,\d+)\s*₺", ac)
+                if not x:
+                    continue
+                try:
+                    tutar = float(x.group(1).replace(".", "").replace(",", "."))
+                except ValueError:
+                    continue
+                tur = str(m.get("betTypeName") or "").strip().upper() + " DEVİR"
+                rows.append({"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tur": tur, "seq": 0, "kombo": str(m.get("result") or "").strip(), "tutar": tutar})
+    return rows
+
+
 def odeme_yaz(tarih):
     """Sonucu belli koşuların bahis ikramiyelerini data/odeme/YYYY-MM.csv.gz içine (TJK CSV'siyle aynı biçimde) ekler; CSV'den gelen satırlara dokunmaz.
     Böylece egzotik/tabela/sıralı-5 değerlendirmeleri CSV yüklenmeden de çalışır."""
@@ -226,6 +251,7 @@ def odeme_yaz(tarih):
                     continue
                 if tur in _TUR and m.get("result") and tutar > 0:
                     rows.append({"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tur": tur, "seq": 0, "kombo": str(m["result"]).strip(), "tutar": tutar})
+    rows += devir_satirlari(tarih, sonuc_gun(tarih))
     if not rows:
         return 0
     yol = os.path.join(KOK, "odeme", tarih[:7] + ".csv.gz")

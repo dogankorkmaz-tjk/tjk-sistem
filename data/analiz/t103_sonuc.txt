@@ -1,0 +1,28 @@
+T103: tabela koşu 492; kuponlar: t24, t120 (sıralı), s5 (sırasız 5 at); v3 ileri-yürüyüş 2026-04..10
+== t24: tüm 492 koşu ROI +5.6% [-29.9%,+45.6%] tutma 109
+   alan <=12   n= 60 tutma 20 ROI -21.4% [-75.0%,+55.6%] | yarılar Nis-Tem -25.4% Agu-Eki -11.9%
+   alan 13-15  n=273 tutma 61 ROI +15.6% [-27.7%,+69.3%] | yarılar Nis-Tem +24.7% Agu-Eki +5.0%
+   alan >=16   n=159 tutma 28 ROI -1.4% [-65.0%,+90.3%] | yarılar Nis-Tem -60.3% Agu-Eki +109.3%
+   oran>=1.15  n=386 tutma 90 ROI +6.9% [-29.3%,+53.1%]
+   oran<1.15   n=106 tutma 19 ROI +0.8% [-73.9%,+106.8%]
+   KALİBRASYON oran>=1.15 : gerçek tutma 23.3% | modelin beklediği 3.4% | piyasanın beklediği 2.1% (n=386)
+   KALİBRASYON oran<1.15  : gerçek tutma 17.9% | modelin beklediği 2.5% | piyasanın beklediği 2.7% (n=106)
+   H2 fark (filtreli−filtresiz) +6.0% GA95 [-101.8%,+96.7%]
+== t120: tüm 492 koşu ROI -11.3% [-35.5%,+17.5%] tutma 180
+   alan <=12   n= 60 tutma 32 ROI +16.9% [-42.9%,+99.3%] | yarılar Nis-Tem +2.7% Agu-Eki +49.7%
+   alan 13-15  n=273 tutma 101 ROI +4.5% [-34.8%,+52.8%] | yarılar Nis-Tem +22.0% Agu-Eki -15.3%
+   alan >=16   n=159 tutma 47 ROI -49.0% [-69.7%,-24.5%] | yarılar Nis-Tem -63.9% Agu-Eki -20.7%
+   oran>=1.15  n=375 tutma 148 ROI +0.9% [-29.8%,+37.2%]
+   oran<1.15   n=117 tutma 32 ROI -50.3% [-73.0%,-22.8%]
+   KALİBRASYON oran>=1.15 : gerçek tutma 39.5% | modelin beklediği 10.3% | piyasanın beklediği 6.8% (n=375)
+   KALİBRASYON oran<1.15  : gerçek tutma 27.4% | modelin beklediği 8.7% | piyasanın beklediği 8.8% (n=117)
+   H2 fark (filtreli−filtresiz) +51.3% GA95 [+9.3%,+95.2%]
+== s5: tüm 492 koşu ROI -35.1% [-61.4%,-1.6%] tutma 42
+   alan <=12   n= 60 tutma  4 ROI -77.2% [-96.1%,-51.5%] | yarılar Nis-Tem -88.7% Agu-Eki -50.2%
+   alan 13-15  n=273 tutma 26 ROI -33.2% [-69.4%,+14.3%] | yarılar Nis-Tem -53.4% Agu-Eki -10.4%
+   alan >=16   n=159 tutma 12 ROI -22.6% [-72.4%,+44.1%] | yarılar Nis-Tem -35.9% Agu-Eki +2.6%
+   oran>=1.15  n=365 tutma 36 ROI -31.7% [-61.9%,+4.5%]
+   oran<1.15   n=127 tutma  6 ROI -45.0% [-92.5%,+31.3%]
+   KALİBRASYON oran>=1.15 : gerçek tutma 9.9% | modelin beklediği 10.6% | piyasanın beklediği 7.1% (n=365)
+   KALİBRASYON oran<1.15  : gerçek tutma 4.7% | modelin beklediği 9.2% | piyasanın beklediği 9.5% (n=127)
+   H2 fark (filtreli−filtresiz) +13.4% GA95 [-65.7%,+75.9%]
