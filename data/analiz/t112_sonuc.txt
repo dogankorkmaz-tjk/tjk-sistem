@@ -1,0 +1,6 @@
+tür | tüyo n | isabet | ort oran7 | ROI7 [GA] | ROIilk [GA] | tüm atlar ROI7
+G 39 0.231 6.06 1.362 (np.float64(0.65), np.float64(2.11)) 1.318 (np.float64(0.66), np.float64(2.04)) 0.682 gün 10
+P2 39 0.462 2.83 1.21 (np.float64(0.93), np.float64(1.57)) 1.213 (np.float64(0.92), np.float64(1.53)) 0.659 gün 10
+P3 38 0.5 1.96 0.921 (np.float64(0.7), np.float64(1.19)) 0.921 (np.float64(0.69), np.float64(1.19)) 0.671 gün 10
+P4 36 0.583 1.61 0.938 (np.float64(0.6), np.float64(1.35)) 0.935 (np.float64(0.6), np.float64(1.37)) 0.69 gün 10
+FH 32 0.344 4.82 1.384 (np.float64(0.79), np.float64(2.02)) 1.453 (np.float64(0.77), np.float64(2.24)) 0.694 gün 9
