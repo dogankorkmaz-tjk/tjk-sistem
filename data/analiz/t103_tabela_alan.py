@@ -40,9 +40,9 @@ for kind in ("t24", "t120", "s5"):
         v = sum(1 for z in itertools.product(*sets) if len(set(z)) == 4); npm = sum(1 for z in itertools.product(*sets) if len(set(z)) == 4 and set(z) == {0, 1, 2, 3})
         sirali = max([t for _, t in pr.get("TABELA BAHİS", [(0, 0.0)])]); sirasiz = max([t for _, t in pr.get("TABELA BAHİS SIRASIZ", [(0, 0.0)])])
         kz = (sirali if hit else 0.0) + (npm - (1 if hit else 0)) * sirasiz
-        rows.append((x[1]["gun"], x[0], kind, n, v * 1.5, kz, int(hit or npm > 0), pm_ / max(pq, 1e-9)))
+        rows.append((x[1]["gun"], x[0], kind, n, v * 1.5, kz, int(hit or npm > 0), pm_ / max(pq, 1e-9), pm_, pq))
 import pandas as pd
-D = pd.DataFrame(rows, columns=["gun", "ay", "kind", "n", "bedel", "kz", "tuttu", "oran"]); D.to_pickle("/tmp/claude-0/t103.pkl")
+D = pd.DataFrame(rows, columns=["gun", "ay", "kind", "n", "bedel", "kz", "tuttu", "oran", "pm", "pq"]); D.to_pickle("/tmp/claude-0/t103.pkl")
 D["sinif"] = pd.cut(D.n, [0, 12, 15, 99], labels=["<=12", "13-15", ">=16"]); D["filt"] = np.where(D.oran >= 1.15, "oran>=1.15", "oran<1.15")
 D["yari"] = np.where(D.ay <= "2026-07", "Nis-Tem", "Agu-Eki")
 rr = np.random.default_rng(21)
@@ -73,6 +73,9 @@ for kind in ("t24", "t120", "s5"):
     for f_ in ("oran>=1.15", "oran<1.15"):
         Y = X[X.filt == f_]
         if len(Y): r1 = roi_ga(Y); out.append(f"   {f_:11s} n={len(Y):3d} tutma {int(Y.tuttu.sum()):2d} ROI {r1[0]:+.1%} [{r1[1][0]:+.1%},{r1[1][1]:+.1%}]")
+    for f_ in ("oran>=1.15", "oran<1.15"):
+        Y = X[X.filt == f_]
+        if len(Y): out.append(f"   KALİBRASYON {f_:11s}: gerçek tutma {Y.tuttu.mean():.1%} | modelin beklediği {Y.pm.mean():.1%} | piyasanın beklediği {Y.pq.mean():.1%} (n={len(Y)})")
     A = X[X.filt == "oran>=1.15"]; B = X[X.filt == "oran<1.15"]
     if len(A) and len(B): d_, g_ = fark_ga(A, B); out.append(f"   H2 fark (filtreli−filtresiz) {d_:+.1%} GA95 [{g_[0]:+.1%},{g_[1]:+.1%}]")
 open("data/analiz/t103_sonuc.txt", "w").write("\n".join(out)); print("\n".join(out))
