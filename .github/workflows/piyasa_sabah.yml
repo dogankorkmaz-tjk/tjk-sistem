@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install requests pandas
+      - run: pip install -r requirements.txt
       - name: Topla
         run: python -u -c "from tjk import piyasa_zaman as P, ortak as O; print('yeni satır:', P.topla(O.tr_simdi().date().isoformat()))"
       - name: Kaydet
