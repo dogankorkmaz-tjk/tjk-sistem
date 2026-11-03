@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-02 22:30 UTC",
- "kayitli_kosu": 1412,
- "eslesmeyen_kosu": 962,
+ "uretim": "2026-11-03 07:26 UTC",
+ "kayitli_kosu": 1417,
+ "eslesmeyen_kosu": 963,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 761,
- "kosu": 450,
+ "bahis": 766,
+ "kosu": 454,
  "isabet": 50,
- "roi": 0.983,
+ "roi": 0.977,
  "ga95": [
-  0.692,
-  1.341
+  0.688,
+  1.324
  ],
  "ulke": {
   "abd": {
-   "bahis": 498,
-   "roi": 0.775
+   "bahis": 503,
+   "roi": 0.767
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 918,
-  "kosu": 442,
-  "isabet": 91,
-  "roi": 0.645,
+  "bahis": 929,
+  "kosu": 446,
+  "isabet": 93,
+  "roi": 0.646,
   "ga95": [
-   0.449,
+   0.455,
    0.829
   ]
  },
  "bahis_t1": {
-  "bahis": 945,
-  "kosu": 436,
-  "isabet": 95,
-  "roi": 0.699,
+  "bahis": 956,
+  "kosu": 440,
+  "isabet": 97,
+  "roi": 0.7,
   "ga95": [
-   0.453,
-   0.965
+   0.46,
+   0.964
   ]
  },
  "bahis_t3": {
-  "bahis": 955,
-  "kosu": 424,
-  "isabet": 102,
-  "roi": 0.646,
+  "bahis": 967,
+  "kosu": 428,
+  "isabet": 104,
+  "roi": 0.647,
   "ga95": [
-   0.424,
-   0.917
+   0.43,
+   0.916
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Woodbine",
-   "kosu": 5,
-   "at": "CANDYCREST",
-   "q": 0.057,
-   "g": 23.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "VINTAGE VELOCITY",
-   "q": 0.148,
-   "g": 12.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "JOLLEY",
-   "q": 0.039,
-   "g": 39.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "WELLER GREEN",
-   "q": 0.13,
-   "g": 10.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-01",
-   "pist": "Woodbine",
-   "kosu": 9,
-   "at": "WAGNER",
-   "q": 0.111,
-   "g": 11.45,
-   "kazandi": true
-  },
   {
    "gun": "2026-11-01",
    "pist": "Woodbine",
@@ -355,6 +310,42 @@
   },
   {
    "gun": "2026-11-02",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "MANSFIELD TIGER",
+   "q": 0.114,
+   "g": 12.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "ICE EXPRESS",
+   "q": 0.132,
+   "g": 11.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "FAYATHAAN",
+   "q": 0.078,
+   "g": 18.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "SHEAR MAGIC",
+   "q": 0.233,
+   "g": 5.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
    "pist": "Wolverhampton",
    "kosu": 4,
    "at": "PENNY CAPRI",
@@ -423,6 +414,15 @@
    "at": "IGNITING EMBERS",
    "q": 0.063,
    "g": 20.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-02",
+   "pist": "Zia Park",
+   "kosu": 9,
+   "at": "R R BOUGIE",
+   "q": 0.302,
+   "g": 5.45,
    "kazandi": false
   }
  ]
