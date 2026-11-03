@@ -19,10 +19,10 @@ VERI, SITE, PIY = os.path.join(KOK, "data", "sabit_golge"), os.path.join(KOK, "d
 ESIK_EV = 1.2
 HIPKEY = {"diyarbakir": "DBAKIR"}
 ONCE, SONRA = 7.0, 3.0     # dondurma penceresi: yarış saatinden ÖNCE 7 dk ... SONRA 3 dk
-TIP = {"G": 1001, "FH": 1103, "P2": 1002, "P3": 1100, "P4": 1101, "FHS": 1103, "P2S": 1002, "P3S": 1100, "P4S": 1101}
-MINAT = {"G": 4, "FH": 4, "P2": 5, "P3": 6, "P4": 6, "FHS": 4, "P2S": 5, "P3S": 6, "P4S": 6}   # P4: oran yoksa zaten atlanır
+TIP = {"G": 1001, "GE": 1001, "FH": 1103, "P2": 1002, "P3": 1100, "P4": 1101, "FHS": 1103, "P2S": 1002, "P3S": 1100, "P4S": 1101}
+MINAT = {"G": 4, "GE": 4, "FH": 4, "P2": 5, "P3": 6, "P4": 6, "FHS": 4, "P2S": 5, "P3S": 6, "P4S": 6}   # P4: oran yoksa zaten atlanır
 CIFT = ("SI", "IK", "KG")   # iki atlı türler: sıralı ikili, ikili, Kim Geçer (tip numarası YAPIDAN tanınır, bkz. _cift_sinif); sonek S = ana model
-TURLER = ("G", "FH", "P2", "P3", "P4", "FHS", "P2S", "P3S", "P4S") + tuple(c + m for c in CIFT for m in ("", "S"))
+TURLER = ("G", "GE", "FH", "P2", "P3", "P4", "FHS", "P2S", "P3S", "P4S") + tuple(c + m for c in CIFT for m in ("", "S"))
 TOPK, PMIN = 3, 0.01   # iki atlı türlerde koşu başına en yüksek EV'li 3 çift, çift olasılığı >= 0,01   # ...S = ana model (G1-S v3: z6, w0_g1, a_g1 pozisyon üsleri) olasılıklı varyant
 
 
@@ -191,6 +191,24 @@ def guncelle(obj, simdi=None):
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             sonuc = k.get("sonuc") or {}
+            if bugun and not sonuc and k.get("saat") and _dk(k["saat"]) - sn > ONCE:     # ERKEN kol (GE, 3 Kasım 2026, T111 ön kaydı): ilk EV>=1,2 görüldüğünde, o an yayınlı sabit oranla dondur
+                try:
+                    atE = [a for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")]
+                    if len(atE) >= 4 and all(a.get("z2") is not None for a in atE):
+                        oE = _oranlar(tarih, h["id"], k["kosu"], sn)
+                        if len(oE) >= 4:
+                            totE = sum(a["agf"] for a in atE); ppE = {a["no"]: a["agf"] / totE for a in atE}
+                            sE = {a["no"]: w0 * math.log(max(ppE[a["no"]], 1e-6)) + l2 * math.log(max(ppE[a["no"]], 1e-6)) ** 2 + a["z2"] for a in atE}
+                            mE = max(sE.values()); eE = {n: math.exp(v - mE) for n, v in sE.items()}; ZE = sum(eE.values())
+                            for a in atE:
+                                o = oE.get(a["no"]); pj = eE[a["no"]] / ZE
+                                kE = f"{h['id']}|{k['kosu']}|{a['no']}|GE"
+                                if o and o > 1.0 and kE not in kay and pj * o >= ESIK_EV:
+                                    kay[kE] = {"tur": "GE", "hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": k.get("saat"), "no": a["no"], "at": a["at"],
+                                               "pj": round(pj, 4), "pt": round(pj, 4), "pp": round(ppE[a["no"]], 4), "oran": o, "ev": round(pj * o, 3),
+                                               "B": bool(pj >= ppE[a["no"]]), "dk": round(_dk(k["saat"]) - sn, 1), "gor": simdi.strftime("%H:%M"), "pkaynak": "agf"}
+                except Exception as eE_:
+                    print("sabit erken kol hatası:", repr(eE_))
             if bugun and not sonuc and k.get("saat") and f"{h['id']}|{k['kosu']}" not in kay.get("_bakildi", []):
                 kalan = _dk(k["saat"]) - sn
                 at = [a for a in k.get("atlar", []) if a.get("agf") and not a.get("kosmaz")]
@@ -213,7 +231,7 @@ def guncelle(obj, simdi=None):
                         if obj.get("w0_g1") is not None and obj.get("a_g1") and all(a.get("z6") is not None for a in at):
                             sS = [obj["w0_g1"] * math.log(max(pp[a["no"]], 1e-6)) + a["z6"] for a in at]; mS = max(sS); eS = [math.exp(v - mS) for v in sS]; ZS = sum(eS); PS = [v / ZS for v in eS]
                         for tur in TURLER:
-                            if _cift_mi(tur) or len(at) < MINAT[tur]:
+                            if tur == "GE" or _cift_mi(tur) or len(at) < MINAT[tur]:
                                 continue
                             if tur.endswith("S") and len(tur) > 2 and PS is None:
                                 continue

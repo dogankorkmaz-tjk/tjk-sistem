@@ -1,0 +1,8 @@
+at-satırı 1784 gün 10 yarış 172
+ilk/g7 oran medyan oranı 0.944 ort log -0.0686
+GE (ilk oran) bahis 11 kazanan 2 ROI 2.618
+G (7dk) bahis 5 kazanan 2 ROI 1.86
+GE seçilenler: ilk oranla ROI 2.618 7dk oranla ROI 2.164 n 11
+GE ROI GA [0.   6.06]
+tüm atlar (Jason seçimi yok) ilk oranla ROI 0.622 7dk oranla 0.618
+pj>=%6 ve pj/pp>=1.3 (tüyo benzeri) n:

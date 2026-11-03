@@ -1569,10 +1569,11 @@ otoPlaseYukle();
 async function otoSabitYukle(){
   const el=$('otoSabit'); if(!el) return;
   try{ const d=await getJSON('data/sabit_golge.json?'+Date.now()); const t=d.toplam||{}; const fx=x=>x==null?'—':String(x).replace('.',',');
-    const TAD={G:'Ganyan',FH:'Favori Hariç',P2:'İlk 2',P3:'İlk 3',P4:'İlk 4',FHS:'Favori Hariç (ana model)',P2S:'İlk 2 (ana model)',P3S:'İlk 3 (ana model)',P4S:'İlk 4 (ana model)',SI:'Sıralı ikili',SIS:'Sıralı ikili (ana model)',IK:'İkili',IKS:'İkili (ana model)',KG:'Kim Geçer',KGS:'Kim Geçer (ana model)'}, tt=d.toplam_tur||{}, tk=d.toplam_kombine||{};
+    const TAD={G:'Ganyan',GE:'Ganyan · erken sabit (tüyo anı)',FH:'Favori Hariç',P2:'İlk 2',P3:'İlk 3',P4:'İlk 4',FHS:'Favori Hariç (ana model)',P2S:'İlk 2 (ana model)',P3S:'İlk 3 (ana model)',P4S:'İlk 4 (ana model)',SI:'Sıralı ikili',SIS:'Sıralı ikili (ana model)',IK:'İkili',IKS:'İkili (ana model)',KG:'Kim Geçer',KGS:'Kim Geçer (ana model)'}, tt=d.toplam_tur||{}, tk=d.toplam_kombine||{};
     const satir=(ad,v)=>{ v=v||{bahis:0}; return `<div class="sub"><b>${ad}</b>: ${v.bahis} bahis, <b>${v.kazanan||0}</b> kazandı, geri dönüş <b>${fx(v.geri_donus)}</b></div>`; };
     let h='<div class="card"><b>Şimdiye kadar</b> <span class="sub">(geri dönüş 1,00 üstü = kazandırdı)</span>';
     ['A','B'].forEach(k=>{ h+=satir('Ganyan · Kol '+k,t[k]); });
+    h+=satir(TAD.GE+' · Kol A',(tt.GE||{}).A); h+=satir(TAD.GE+' · Kol B',(tt.GE||{}).B);
     ['FH','P2','P3','P4','FHS','P2S','P3S','P4S'].forEach(r=>{ ['A','B'].forEach(k=>{ h+=satir(TAD[r]+' · Kol '+k,(tt[r]||{})[k]); }); });
     ['SI','SIS','IK','IKS','KG','KGS'].forEach(r=>{ h+=satir(TAD[r]+' · Kol A',(tt[r]||{}).A); });
     [['K2','Kombine · en güvendiği 2'],['K3','Kombine · en güvendiği 3'],['KJ','Kombine · Jason\'un istediği kadar (p≥%25, 2–4 at)']].forEach(([k,ad])=>{ h+=satir(ad,tk[k]); });
@@ -2309,7 +2310,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793696527';   // commit öncesi otomatik güncellenir
+const BUILD='1793696849';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
