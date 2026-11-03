@@ -1535,14 +1535,14 @@ async function otoTuyoYukle(){
     Object.keys(Object.assign({},F,S)).forEach(k=>{ const c=S[k]||F[k], gk=c.hipodrom+'|'+c.kosu; (GR[gk]=GR[gk]||{c:c,L:[]}).L.push(k); });
     const pr=c=>`Jason %${pct(c.pj)} / piyasa %${pct(c.pp)} (${f2(c.pj/c.pp)} kat)`;
     const gl=Object.values(GR).sort((u,v)=>String(u.c.saat).localeCompare(String(v.c.saat))||(u.c.kosu-v.c.kosu));
-    if(gl.length){ h+='<div class="card"><b>Bugünün tüyoları (koşuya göre)</b><div class="sub">🔒 = ilk görüldüğünde donan (değişmez) · şimdi = AGF/orana göre canlı durum (yarış saatine kadar değişir, sonra donar).</div>'+gl.map(g=>{
+    if(gl.length){ h+='<div class="card"><b>Bugünün tüyoları (koşuya göre)</b><div class="sub">Canlı durum: AGF/orana göre değişir, yarış saati gelince donar. 🔒 kayıtlı = ilk görüldüğünde donmuş (Bugün sekmesindeki liste); yeni = sonradan çıktı, kayda sonraki turda girer.</div>'+gl.map(g=>{
       const bas=g.c.saat&&now>=g.c.saat;
       return `<div style="margin-top:10px"><b>${esc(g.c.saat||'')} · ${esc(g.c.ad||g.c.hipodrom)} ${g.c.kosu}. koşu</b>${bas?' <span class="note">yarış başladı, son durum donuk</span>':''}`+g.L.sort((a,b)=>(F[a]||S[a]).no-(F[b]||S[b]).no).map(k=>{
         const f=F[k], sn=S[k], c=sn||f, sira=(f&&f.sira!=null)?f.sira:(sn&&sn.sira!=null?sn.sira:null);
         const dur=sira==null?'':(sira===1?` · <b style="color:var(--good,#3fb950)">✓ KAZANDI</b>${c.g?' (ganyan '+String(c.g).replace('.',',')+')':''}`:` · <b>${sira}. oldu</b>`);
-        const sat1=f?`🔒 ${esc(f.gor||'')} ${pr(f)}`:'🔒 henüz kayda girmedi';
-        const sat2=sn?`şimdi ✓ ${pr(sn)}${f?'':' · <b>yeni</b>'}`:(bas?'son durumda tüyo değildi':'şimdi eşik altı (düştü)');
-        return `<div class="sub" style="margin-top:4px"><b>${c.no} ${esc(c.at)}</b>${dur}<br>${sat1}<br>${sat2}</div>`;
+        const etk=f?`<span class="note">🔒 kayıtlı</span>`:'<b>yeni</b>';
+        const sat=sn?`şimdi ✓ ${pr(sn)} · ${etk}`:`<span style="opacity:.7">${bas?'son durumda tüyo değildi':'eşik altına düştü'} · ilk görüldüğünde ${pr(f)} · 🔒 kayıtlı</span>`;
+        return `<div class="sub" style="margin-top:4px"><b>${c.no} ${esc(c.at)}</b>${dur}<br>${sat}</div>`;
       }).join('')+'</div>'; }).join('')+'</div>'; }
     el.innerHTML=h; }catch(e){ el.innerHTML='<div class="card empty">Henüz tüyo kaydı yok.</div>'; }
 }
@@ -2309,7 +2309,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793696464';   // commit öncesi otomatik güncellenir
+const BUILD='1793696527';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
