@@ -75,7 +75,15 @@ for i, p in enumerate(P):
     mu = b[0] + b[1] * (-np.log(np.clip(Pk, 1e-12, 1))) + b[2] * np.log(r.n) + b[3] * r.devirli + (b[4:] @ hv[1:])
     vE = Pm * np.exp(mu + s2 / 2)
     jobs.append((vE, 96)); jobs.append((Pm, 96)); meta.append(i)
-with Pool(2) as pool: res = list(pool.imap(kupon_ev, jobs, chunksize=8))
+CK = "/tmp/claude-0/t109_res.pkl"; RES = pickle.load(open(CK, "rb")) if os.path.exists(CK) else {}
+print("ara kayıt:", len(RES), "/", len(jobs), flush=True)
+with Pool(2) as pool:
+    for st in range(0, len(jobs), 200):
+        idx = [j for j in range(st, min(st + 200, len(jobs))) if j not in RES]
+        if not idx: continue
+        for j, r in zip(idx, pool.map(kupon_ev, [jobs[j] for j in idx], chunksize=4)): RES[j] = r
+        pickle.dump(RES, open(CK + ".tmp", "wb")); os.replace(CK + ".tmp", CK); print("kayıt", len(RES), flush=True)
+res = [RES[j] for j in range(len(jobs))]
 R_ = []
 for q, i in enumerate(meta):
     p = P[i]; r = D.iloc[i]; pmod = smx(p["S"]); aday = np.argsort(-pmod)[:9]; loc = {int(h): k for k, h in enumerate(aday)}
