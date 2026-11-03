@@ -2,7 +2,7 @@
  "tarih": "2026-11-04",
  "hipodrom": "elazig",
  "kaynak": "karacaekürisi YouTube (Elazığ)",
- "not": "Doğan'ın not defteri (ekran görüntüsü, 4 Kasım 01:34-01:35; başlık 'Karaca ekürisi'). Tarih 4 Kasım varsayıldı. Soldan sağa SIRALI tercih, '/' sonrası isteğe bağlı (diğer karacaekürisi kayıtlarıyla aynı varsayım); '/hepsi' = tüm atlar isteğe bağlı, puanlamada yalnız ilk katman ve ilk tercih. Yarıştan ÖNCE kaydedildi. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız.",
+ "not": "Doğan'ın not defteri (ekran görüntüsü, 4 Kasım 01:34-01:35; başlık 'Karaca ekürisi'). Tarih 4 Kasım varsayıldı. Soldan sağa SIRALI tercih, '/' sonrası isteğe bağlı (diğer karacaekürisi kayıtlarıyla aynı varsayım); '/hepsi' = tüm atlar isteğe bağlı, puanlamada yalnız ilk katman ve ilk tercih. Yarıştan ÖNCE kaydedildi. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. Elazığ altılı 2. koşuda başlıyor (Doğan, 4 Kasım 02:06) → 2-7. koşular.",
  "kosular": {
   "1": [
    2
@@ -146,5 +146,6 @@
    7,
    12
   ]
- }
+ },
+ "altili_baslangic": 2
 }
