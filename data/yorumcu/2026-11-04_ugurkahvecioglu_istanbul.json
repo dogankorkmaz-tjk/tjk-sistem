@@ -2,7 +2,7 @@
  "tarih": "2026-11-04",
  "hipodrom": "istanbul",
  "kaynak": "Uğur Kahvecioğlu (İstanbul)",
- "not": "Doğan'ın bildirimi (4 Kasım 01:07-01:10): Uğur Kahvecioğlu İstanbul 6. koşuda 2 numarayı (UFKUN ÖTESİ) KAZANIR değil, İLK İKİ bahsi olarak öneriyor (çok güçlü 2 rakibi var); ikili bahis de denenebilir diyor (rakipler belirtilmedi). 7. koşuda 5 numara (kazanır varsayıldı, doğrulanmadı). Tarih 4 Kasım varsayıldı. Yarıştan ÖNCE kaydedildi. Yalnız betimleyici (az örnek).",
+ "not": "Doğan'ın bildirimi (4 Kasım 01:07-01:10): Uğur Kahvecioğlu İstanbul 6. koşuda 2 numarayı (UFKUN ÖTESİ) KAZANIR değil, İLK İKİ bahsi olarak öneriyor (çok güçlü 2 rakibi var); ikili bahis de denenebilir diyor (rakipler belirtilmedi). 7. koşuda 5 numarayı da İLK İKİ bahsi olarak öneriyor (kazanır değil; 'oranı yüksek çıkacaktır' diyor; Doğan 4 Kasım 01:10). Tarih 4 Kasım varsayıldı. Yarıştan ÖNCE kaydedildi. Yalnız betimleyici (az örnek).",
  "kosular": {
   "6": [
    2
@@ -47,7 +47,7 @@
    "ilk2"
   ],
   "7": [
-   "kazanir"
+   "ilk2"
   ]
  }
 }
