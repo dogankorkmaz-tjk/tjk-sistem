@@ -1527,8 +1527,11 @@ async function supYukle(){
 supYukle(); setInterval(()=>{ if(!document.hidden&&GUN===trBugun()) supYukle(); },90000);
 async function otoTuyoYukle(){
   const el=$('otoTuyo'); if(!el) return;
-  try{ const d=await getJSON('data/tuyo.json?'+Date.now()); const t=d.toplam||{n:0}; let h='<div class="card"><b>Şimdiye kadar</b><div class="sub">'+(t.n?`${t.n} tüyo sonuçlandı: <b>${t.kazanan}</b> kazandı, <b>${t.ilk3}</b> ilk üçe girdi. Her ata 1 TL ganyan oynansaydı geri dönüş <b>${String(t.geri_donus).replace('.',',')}</b> (1,00 üstü = kazandırdı).`:'Henüz sonuçlanan tüyo yok.')+'</div>'+(t.grup&&(t.grup.ust.n+t.grup.alt.n)?'<div class="sub">Adil ganyan ayrımı (kapanış ganyanı Jason\'un adil ganyanı 1/pj ve üstü = ÜST): <b>ÜST</b> '+t.grup.ust.n+' tüyo, '+t.grup.ust.kazanan+' kazandı, geri dönüş '+String(t.grup.ust.geri_donus).replace('.',',')+' · <b>ALT</b> '+t.grup.alt.n+' tüyo, '+t.grup.alt.kazanan+' kazandı, geri dönüş '+String(t.grup.alt.geri_donus).replace('.',',')+'</div>':'')+'<div class="sub">Tüyolar ilk görüldüğünde dondurulur, sonradan değişmez. Karar için en az ~300 tüyo gerekir.</div></div>';
-    const g=(d.bugun||[]); if(g.length) h+='<div class="card"><b>Bugünün tüyoları</b>'+g.map(c=>`<div class="sub" style="margin-top:6px"><b>${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu</b> · ${c.no} ${esc(c.at)} · Jason %${pct(c.pj)} / piyasa %${pct(c.pp)}${c.sira!=null?` · <b>${c.sira}. oldu</b>${c.sira===1&&c.g?' (ganyan '+String(c.g).replace('.',',')+')':''}`:''}</div>`).join('')+'</div>';
+  try{ const d=await getJSON('data/tuyo.json?'+Date.now()); const t=d.toplam||{n:0}; let h='<div class="card"><b>Şimdiye kadar</b><div class="sub">'+(t.n?`${t.n} tüyo sonuçlandı: <b>${t.kazanan}</b> kazandı, <b>${t.ilk3}</b> ilk üçe girdi. Her ata 1 TL ganyan oynansaydı geri dönüş <b>${String(t.geri_donus).replace('.',',')}</b> (1,00 üstü = kazandırdı).`:'Henüz sonuçlanan tüyo yok.')+'</div>'+(t.grup&&(t.grup.ust.n+t.grup.alt.n)?'<div class="sub">Adil ganyan ayrımı (kapanış ganyanı Jason\'un adil ganyanı 1/pj ve üstü = ÜST): <b>ÜST</b> '+t.grup.ust.n+' tüyo, '+t.grup.ust.kazanan+' kazandı, geri dönüş '+String(t.grup.ust.geri_donus).replace('.',',')+' · <b>ALT</b> '+t.grup.alt.n+' tüyo, '+t.grup.alt.kazanan+' kazandı, geri dönüş '+String(t.grup.alt.geri_donus).replace('.',',')+'</div>':'')+'<div class="sub">Tüyolar ilk görüldüğünde (sabah dahil) dondurulur, sonradan değişmez. Karar için en az ~300 tüyo gerekir.</div></div>';
+    const ts=d.toplam_son||{n:0}; h+='<div class="card"><b>Yarışa yakın son durum (ayrı kayıt)</b><div class="sub">'+(ts.n?`${ts.n} tüyo sonuçlandı: <b>${ts.kazanan}</b> kazandı, <b>${ts.ilk3}</b> ilk üçe girdi. Geri dönüş <b>${String(ts.geri_donus).replace('.',',')}</b>.`:'Henüz sonuçlanan kayıt yok (3 Kasım 2026\'da başladı).')+'</div><div class="sub">AGF/oran değiştikçe tüyo gelir ya da gider; yarış başlayınca o andaki liste donar. Ayrı ölçülür, ilk kayıtla karıştırılmaz.</div></div>';
+    const satir=c=>`<div class="sub" style="margin-top:6px"><b>${esc(c.saat||'')} · ${esc(c.ad||c.hipodrom)} ${c.kosu}. koşu</b> · ${c.no} ${esc(c.at)} · Jason %${pct(c.pj)} / piyasa %${pct(c.pp)}${c.gor?` · ilk görüldü ${esc(c.gor)}`:''}${c.sira!=null?` · <b>${c.sira}. oldu</b>${c.sira===1&&c.g?' (ganyan '+String(c.g).replace('.',',')+')':''}`:''}</div>`;
+    const g=(d.bugun||[]); if(g.length) h+='<div class="card"><b>Bugünün tüyoları: ilk görüldüğünde donanlar</b>'+g.sort((u,v)=>String(u.saat).localeCompare(String(v.saat))).map(satir).join('')+'</div>';
+    const g2=(d.bugun_son||[]); if(g2.length) h+='<div class="card"><b>Bugünün tüyoları: şu anki durum (değişir)</b>'+g2.sort((u,v)=>String(u.saat).localeCompare(String(v.saat))).map(c=>satir(c)+(c.guncel?`<div class="sub" style="opacity:.6">son güncelleme ${esc(c.guncel)}</div>`:'')).join('')+'</div>';
     el.innerHTML=h; }catch(e){ el.innerHTML='<div class="card empty">Henüz tüyo kaydı yok.</div>'; }
 }
 async function otoPlaseYukle(){
@@ -2259,7 +2262,7 @@ let TUYO_DON={}, TUYO_YUK=null;
 function tuyoYukle(){ const g=(VERI&&VERI.guncelleme)||''; if(TUYO_YUK===g) return; TUYO_YUK=g;
   getJSON('data/tuyo.json?'+Date.now()).then(d=>{ const m={}; (d.bugun||[]).forEach(c=>m[c.hipodrom+'|'+c.kosu+'|'+c.no]=c); const e=JSON.stringify(Object.keys(m)); if(e!==JSON.stringify(Object.keys(TUYO_DON))){ TUYO_DON=m; try{oynaCiz();}catch(x){} } else TUYO_DON=m; }).catch(()=>{}); }
 function tuyolar(){ tuyoYukle();
-  const R=[]; if(!VERI||GUN!==trBugun()||VERI.w0_aday==null) return R;
+  const R=[], CANLI_T=new Set(); if(!VERI||GUN!==trBugun()||VERI.w0_aday==null) return R;
   const simdi=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Istanbul'});
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     // biten koşuda tüyo kaybolmaz: sonuçla karşılaştırılır; saati geçip sonucu gelmemişse "sonuç bekleniyor" yazar
@@ -2279,8 +2282,12 @@ function tuyolar(){ tuyoYukle();
       if(k.sonuc){ const sr=so.sira;
         dur=sr===1?`<b style="color:var(--good,#3fb950)">✓ KAZANDI</b> (ganyan ${String(so.g).replace('.',',')})`:(sr!=null&&sr<=3?`<b>${sr}. oldu</b> (ilk üçte, kazanmadı)`:`<b style="color:var(--bad,#f85149)">✗ ${sr!=null?sr+'. oldu':'tutmadı'}</b>`); }
       else if(k.saat&&simdi>=k.saat) dur='<b>⏳ sonuç bekleniyor</b>';
-      R.push({t:(k.saat||'99:99')+String(h.ad), h:`<div><b>${esc(k.saat||'')} · ${esc(h.ad)} ${k.kosu}. koşu, ${a.no} numaralı ${esc(a.at)}</b>${dur?'<div class="sub">'+dur+'</div>':''}<div class="sub">${c.join(' · ')}</div></div>`});
+      const kk=h.id+'|'+k.kosu+'|'+a.no; CANLI_T.add(kk);
+      const rozet=k.sonuc?'':(don&&don.gor?` <span class="note">🔒 ${esc(don.gor)}'de donduruldu</span>`:' <span class="note">⚡ yeni, kayda sonraki turda girer</span>');
+      R.push({t:(k.saat||'99:99')+String(h.ad), h:`<div><b>${esc(k.saat||'')} · ${esc(h.ad)} ${k.kosu}. koşu, ${a.no} numaralı ${esc(a.at)}</b>${rozet}${dur?'<div class="sub">'+dur+'</div>':''}<div class="sub">${c.join(' · ')}</div></div>`});
     });
+    // kayıtlı (donmuş) ama AGF/oran değişince şu an eşiğin altına düşen tüyolar: kaybolmasın, açıkça yazılsın
+    if(!k.sonuc&&!(k.saat&&simdi>=k.saat)) k.atlar.forEach(a=>{ const kk=h.id+'|'+k.kosu+'|'+a.no, don=TUYO_DON[kk]; if(don&&!CANLI_T.has(kk)) R.push({t:(k.saat||'99:99')+String(h.ad), h:`<div style="opacity:.75"><b>${esc(k.saat||'')} · ${esc(h.ad)} ${k.kosu}. koşu, ${a.no} numaralı ${esc(a.at)}</b> <span class="note">🔒 ${esc(don.gor||'')}'de donduruldu</span><div class="sub">Şu an eşiğin altında (AGF/oran değişti): Jason %${pct(don.pj)} / piyasa %${pct(don.pp)} ilk görüldüğünde.</div></div>`}); });
   }));
   return R.sort((u,v)=>u.t<v.t?-1:u.t>v.t?1:0).slice(0,24).map(x=>x.h);
 }
@@ -2292,7 +2299,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793695762';   // commit öncesi otomatik güncellenir
+const BUILD='1793696069';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>

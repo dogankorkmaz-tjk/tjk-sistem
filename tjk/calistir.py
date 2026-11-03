@@ -210,6 +210,10 @@ def sabah(t):
     yaz_json(gun_yolu(t), obj)
     yaz_json(os.path.join(SITE, "bugun.json"), obj)
     print("yazıldı:", {h["id"]: len(h["kosular"]) for h in obj["hipodromlar"]})
+    try:
+        TY.guncelle(obj)             # 3 Kasım 2026: tüyo ilk görüldüğünde (sabah dahil) donar + yarışa kadar güncellenen 'son durum' kolu
+    except Exception as e:
+        print("tuyo (sabah) hatası:", repr(e))
     return obj
 
 
@@ -694,6 +698,10 @@ def hizli(t):
     c = copy.deepcopy(obj)
     agf_ekle(c)
     print("agf_zaman satırı:", agf_zaman_yaz(c))
+    try:
+        TY.guncelle(c)               # yarışa yakın taze AGF ile tüyo 'son durum' kolunu güncelle (yarış başlayınca donar)
+    except Exception as e:
+        print("tuyo (hızlı) hatası:", repr(e))
     try:
         from . import muhtemeller as MUH
         MUH.topla(t.isoformat(), pencere_dk=30, yalniz_yurtdisi=False)      # canlı muhtemel ganyan (yurtiçi dahil) -> geç kupon girdisi
