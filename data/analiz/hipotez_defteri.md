@@ -1494,3 +1494,8 @@ Yöntem (kod: data/analiz/t102_z2_roi.py): entegre_roi.py'nin DONDURULMUŞ kural
 BİRİNCİL (tek test): SIRALI İKİLİ, oran eşiği 1,15: ROI(C) − ROI(v2) farkı, gün kümeli bootstrap (aynı örnek günleriyle) %95 GA. Karar: alt sınır >0 → z2 kazancı ödemeye yansıyor (modele doğrudan eklenir, sürüm yükseltme olarak: Benter v4, sayaçlar ayrı); alt sınır ≤0 → ödemeye yansıma kanıtı yok (log-kayıp iyileşmesi tek başına canlıya almak için yetmez; karar kullanıcıya).
 KEŞİFSEL (karar vermez): üçlü ve sırasız ikili ROI farkları, oran 1,30/1,50 duyarlılığı, her modelin ROI'si [GA].
 Not: kâr kanıtı ayrı soru; her iki modelin ROI'sinin GA alt sınırı >0 olmadığı sürece "kâr kanıtı yok" ifadesi korunur.
+
+### T100/T101/T102 DÜZELTME (2026-11-03 06:25) — YANLIŞ TABAN, T102 İPTAL
+Hata: bu üç test "G1-S" olarak v2'yi (G1 9 özellik + galop) kullandı. Canlı ana model (Benter = G1-S v3, 24 Ekim) ZATEN Jason'ın 38 özelliğini ortak eğitimle içeriyor (bkz. 24 Ekim 12:45 ön kayıt ve sonucu: v3−v2 kazanan −0,0157, ilk5 −0,0887; ve TEST 1: v2+c·z2, c≈0,67–0,74, tüm ölçütlerde GA<0 → T101'in bulgusu o testin tekrarı).
+Sonuçlar: T101 = 24 Ekim TEST 1'in tekrarı, yeni bilgi yok; "z2 eklenmeli" kararı zaten v3 ile uygulanmış. T102 (v2+z2 ROI) anlamsız taban olduğundan DURDURULDU, sonuç yazılmadı. T100 (piyasasız ek at) tabanı v2'ydi; sonucun v3 ile değişmesi beklenmez ama v3 tabanıyla tekrarlanabilir (karar kullanıcıda).
+Ders: yeni test kurmadan önce hipotez_defteri'ni tara; canlı modelin tanımı (v3) defterde var.
