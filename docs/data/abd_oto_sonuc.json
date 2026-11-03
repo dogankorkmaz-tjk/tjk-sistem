@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-03 16:50 UTC",
- "kayitli_kosu": 1442,
- "eslesmeyen_kosu": 987,
+ "uretim": "2026-11-03 17:26 UTC",
+ "kayitli_kosu": 1445,
+ "eslesmeyen_kosu": 989,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 769,
- "kosu": 455,
+ "bahis": 773,
+ "kosu": 456,
  "isabet": 50,
- "roi": 0.973,
+ "roi": 0.968,
  "ga95": [
-  0.681,
-  1.308
+  0.677,
+  1.301
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.883
   },
   "fransa": {
-   "bahis": 70,
-   "roi": 0.704
+   "bahis": 74,
+   "roi": 0.666
   },
   "guney-afrika": {
    "bahis": 48,
@@ -65,42 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Finger Lakes",
-   "kosu": 3,
-   "at": "ALLOFASUDDENLEE",
-   "q": 0.086,
-   "g": 17.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "BEE DARING",
-   "q": 0.142,
-   "g": 9.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "TY TY ROSE",
-   "q": 0.156,
-   "g": 10.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "SPIRIT FORWARD",
-   "q": 0.087,
-   "g": 15.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Finger Lakes",
@@ -423,6 +387,42 @@
    "at": "BONNIE MOON",
    "q": 0.2,
    "g": 8.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Deauville",
+   "kosu": 4,
+   "at": "MOOREA",
+   "q": 0.171,
+   "g": 8.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Deauville",
+   "kosu": 4,
+   "at": "IDEE DE CHEVAL",
+   "q": 0.228,
+   "g": 7.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Deauville",
+   "kosu": 4,
+   "at": "MONARCH HUNZA",
+   "q": 0.033,
+   "g": 41.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Deauville",
+   "kosu": 4,
+   "at": "EL KRAKEN",
+   "q": 0.124,
+   "g": 14.8,
    "kazandi": false
   }
  ]
