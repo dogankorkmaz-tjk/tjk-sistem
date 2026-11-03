@@ -1,0 +1,160 @@
+{
+ "tarih": "2026-11-04",
+ "hipodrom": "istanbul",
+ "kaynak": "Naim İşgören (İstanbul 2. altılı)",
+ "not": "Doğan'ın telefon notu 'Naim işgören' (ekran görüntüsü, 4 Kasım 01:02; 'İstanbul 2.altılı', 6 ayak). Tarih 4 Kasım varsayıldı (gece yazılan not = ertesi günün programı); İstanbul 2. altılı = 4-9. koşular (1. ayak=4. koşu ... 6. ayak=9. koşu), at sayıları uyumlu (4. koşu 10, 5. koşu 15, 6. koşu 10, 7. koşu 5, 8. koşu 9, 9. koşu 18 at). Naim'in önceki kaydıyla aynı varsayım: soldan sağa TERCİH SIRASI, '/' sonrası isteğe bağlı. Yarıştan ÖNCE kaydedildi. Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. Yalnız betimleyici (az örnek).",
+ "kosular": {
+  "4": [
+   9,
+   8,
+   4,
+   1
+  ],
+  "5": [
+   12,
+   15,
+   5,
+   1,
+   2,
+   13
+  ],
+  "6": [
+   4,
+   1,
+   2,
+   8
+  ],
+  "7": [
+   4,
+   2
+  ],
+  "8": [
+   9,
+   7,
+   6,
+   4,
+   5
+  ],
+  "9": [
+   2,
+   5,
+   3
+  ]
+ },
+ "ham": {
+  "4": "9-8-4-1",
+  "5": "12-15-5-1-2-13",
+  "6": "4-1-2-8",
+  "7": "4/2",
+  "8": "9-7-6-4-5",
+  "9": "2/5-3"
+ },
+ "sirali": true,
+ "ana": {
+  "4": [
+   9,
+   8,
+   4,
+   1
+  ],
+  "5": [
+   12,
+   15,
+   5,
+   1,
+   2,
+   13
+  ],
+  "6": [
+   4,
+   1,
+   2,
+   8
+  ],
+  "7": [
+   4
+  ],
+  "8": [
+   9,
+   7,
+   6,
+   4,
+   5
+  ],
+  "9": [
+   2
+  ]
+ },
+ "istege_bagli": {
+  "7": [
+   2
+  ],
+  "9": [
+   5,
+   3
+  ]
+ },
+ "hepsi": [],
+ "ilk_tercih": {
+  "4": 9,
+  "5": 12,
+  "6": 4,
+  "7": 4,
+  "8": 9,
+  "9": 2
+ },
+ "katmanlar": {
+  "4": [
+   [
+    9,
+    8,
+    4,
+    1
+   ]
+  ],
+  "5": [
+   [
+    12,
+    15,
+    5,
+    1,
+    2,
+    13
+   ]
+  ],
+  "6": [
+   [
+    4,
+    1,
+    2,
+    8
+   ]
+  ],
+  "7": [
+   [
+    4
+   ],
+   [
+    2
+   ]
+  ],
+  "8": [
+   [
+    9,
+    7,
+    6,
+    4,
+    5
+   ]
+  ],
+  "9": [
+   [
+    2
+   ],
+   [
+    5,
+    3
+   ]
+  ]
+ }
+}
