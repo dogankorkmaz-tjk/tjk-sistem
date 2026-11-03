@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-03 17:26 UTC",
+ "uretim": "2026-11-03 17:39 UTC",
  "kayitli_kosu": 1445,
- "eslesmeyen_kosu": 989,
+ "eslesmeyen_kosu": 988,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 773,
- "kosu": 456,
+ "bahis": 775,
+ "kosu": 457,
  "isabet": 50,
- "roi": 0.968,
+ "roi": 0.965,
  "ga95": [
-  0.677,
-  1.301
+  0.676,
+  1.297
  ],
  "ulke": {
   "abd": {
-   "bahis": 503,
-   "roi": 0.767
+   "bahis": 505,
+   "roi": 0.764
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 932,
-  "kosu": 447,
+  "bahis": 934,
+  "kosu": 448,
   "isabet": 93,
-  "roi": 0.644,
+  "roi": 0.643,
   "ga95": [
-   0.451,
-   0.84
+   0.449,
+   0.838
   ]
  },
  "bahis_t1": {
-  "bahis": 960,
-  "kosu": 441,
+  "bahis": 962,
+  "kosu": 442,
   "isabet": 97,
-  "roi": 0.697,
+  "roi": 0.696,
   "ga95": [
    0.458,
-   0.97
+   0.969
   ]
  },
  "bahis_t3": {
-  "bahis": 972,
-  "kosu": 429,
+  "bahis": 974,
+  "kosu": 430,
   "isabet": 104,
-  "roi": 0.644,
+  "roi": 0.642,
   "ga95": [
-   0.43,
-   0.918
+   0.429,
+   0.913
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Finger Lakes",
-   "kosu": 7,
-   "at": "AZ U CHASE ME",
-   "q": 0.133,
-   "g": 14.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Fontainebleau",
-   "kosu": 3,
-   "at": "DOUBLE UP",
-   "q": 0.095,
-   "g": 19.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Fontainebleau",
@@ -423,6 +405,24 @@
    "at": "EL KRAKEN",
    "q": 0.124,
    "g": 14.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "LINCOLNVILLE BEACH",
+   "q": 0.118,
+   "g": 11.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "MIA NIPOTINA",
+   "q": 0.118,
+   "g": 15.0,
    "kazandi": false
   }
  ]
