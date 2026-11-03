@@ -555,7 +555,7 @@ async function gunYukle(t){
   try{
     VERI = t ? await getJSON('data/gun/'+t+'.json') : await getJSON('data/bugun.json');
     GUN = VERI.tarih;
-    $('durum').textContent = VERI.gecmis ? 'Arşiv günü: kapanış ganyanları ve sonuçlar kayıtlı. Model puanı o günkü bilgiyle hesaplandı (2026-10-08 öncesi günler modelin eğitim verisidir, canlı test sayılmaz).' : VERI.hipodromlar.length ? `Son güncelleme ${VERI.guncelleme||'?'} · yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir` : 'Bu gün Türkiye\'de yarış yok.';
+    $('durum').textContent = VERI.gecmis ? 'Arşiv günü: kapanış ganyanları ve sonuçlar kayıtlı. Model puanı o günkü bilgiyle hesaplandı (2026-10-08 öncesi günler modelin eğitim verisidir, canlı test sayılmaz).' : VERI.hipodromlar.length ? `Son güncelleme ${VERI.guncelleme||'?'} · 13:00’ten itibaren yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir` : 'Bu gün Türkiye\'de yarış yok.';
   }catch(e){
     if(t){ VERI={tarih:t,hipodromlar:[]}; GUN=t; $('durum').textContent='Bu güne ait kayıt yok.'; }
     else { $('durum').innerHTML='<span class="warn">Veri okunamadı. Sistem ilk çalışmasını yapmamış olabilir.</span>'; VERI={tarih:trBugun(),hipodromlar:[]}; GUN=VERI.tarih; }
@@ -1416,7 +1416,7 @@ async function ucDegerYukle(){ const el=$('ucDegerIc'); if(!el) return;
   }catch(e){ el.textContent='Henüz veri yok (takip başladı, ilk koşular bitince dolacak).'; }
 }
 setInterval(canliTick,10000); setTimeout(canliTick,3000);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 13:00’ten itibaren yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
@@ -2310,7 +2310,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793698470';   // commit öncesi otomatik güncellenir
+const BUILD='1793699836';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>

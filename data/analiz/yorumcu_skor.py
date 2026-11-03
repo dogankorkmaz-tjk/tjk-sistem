@@ -1,6 +1,6 @@
 """T58 yorumcu puanlama. python3 data/analiz/yorumcu_skor.py [tarih ...]
 Kaynaklar: data/yorumcu/<gün>*.json (Doğan'ın elle girdikleri, koşu başına liste) ve data/yorumcu/otomatik/<gün>.json (sporx kuponları, altılı ayakları; yapay zeka günün atı).
-Sonuç: docs/data/gun/<gün>.json (sonuc: sıra 1 = kazanan). Karşılaştırma: aynı boyutlu AGF ilk-k ve model (z4) ilk-k kümeleri."""
+Sonuç: docs/data/gun/<gün>.json (sonuc: sıra 1 = kazanan). Karşılaştırma: aynı boyutlu AGF ilk-k ve model (z6) ilk-k kümeleri."""
 import sys, os, json, glob, math
 import numpy as np
 KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -32,9 +32,9 @@ def main(tarihler):
                 h, k = kosu_bul(G, Y["hipodrom"], int(n)); w = kazanan(k) if k else None
                 if w is None: continue
                 kk = len(nolar); at = [a for a in k["atlar"] if not a.get("kosmaz")]
-                R.setdefault(ad, []).append((w in nolar, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z4", kk), kk / len(at)))
+                R.setdefault(ad, []).append((w in nolar, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z6", kk), kk / len(at)))
                 if Y.get("sirali") and nolar:                       # sıralı kaynak (soldan sağa tercih sırası): ilk tercih ayrıca puanlanır (31 Ekim 2026)
-                    R.setdefault(ad[:24] + " [ilk tercih]", []).append((w == nolar[0], 1, w in ilk_k(k, "agf", 1), w in ilk_k(k, "z4", 1), 1 / len(at)))
+                    R.setdefault(ad[:24] + " [ilk tercih]", []).append((w == nolar[0], 1, w in ilk_k(k, "agf", 1), w in ilk_k(k, "z6", 1), 1 / len(at)))
             # ALTILI MALİYET ÖLÇÜSÜ (2 Kasım 2026, Doğan): tahmincinin 1./2. altılı kuponu (1,25 TL birim): maliyet = Π k × 1,25; tuttu mu; aynı ayak başına k ile AGF ve model kuponu tuttu mu; rastgele beklenti Π(k/n)
             hepsi = {str(x) for x in Y.get("hepsi", [])}
             h0, _ = kosu_bul(G, Y["hipodrom"], 1)
@@ -50,7 +50,7 @@ def main(tarihler):
                     elif str(n) in Y["kosular"]: nolar = Y["kosular"][str(n)]
                     else: ok = False; break
                     kk = len(nolar); mal *= kk
-                    hit.append((w in nolar, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z4", kk), kk / len(at)))
+                    hit.append((w in nolar, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z6", kk), kk / len(at)))
                 if not ok: continue
                 ALT.append((ad, t, ano, mal * 1.25, all(x[0] for x in hit), sum(x[0] for x in hit), all(x[2] for x in hit), all(x[3] for x in hit), float(np.prod([x[4] for x in hit]))))
         fo = os.path.join(KOK, "data", "yorumcu", "otomatik", t + ".json")
@@ -65,7 +65,7 @@ def main(tarihler):
                     _, k = kosu_bul(G, c["hip"], n); w = kazanan(k) if k else None
                     if w is None: hits = None; break
                     kk = len(ay); at = [a for a in k["atlar"] if not a.get("kosmaz")]; maliyet *= kk
-                    hits.append((w in ay, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z4", kk), kk / len(at)))
+                    hits.append((w in ay, kk, w in ilk_k(k, "agf", kk), w in ilk_k(k, "z6", kk), kk / len(at)))
                 if hits is None: continue
                 R.setdefault("sporx:" + c["slug"] + " (ayak)", []).extend(hits)
                 R.setdefault("sporx:" + c["slug"] + " (altılı tam)", []).append((all(x[0] for x in hits), maliyet, all(x[2] for x in hits), all(x[3] for x in hits), 0))
@@ -73,7 +73,7 @@ def main(tarihler):
                 _, k = kosu_bul(G, y["hip"], y["kosu"]); w = kazanan(k) if k else None
                 if w is None: continue
                 no = next((a["no"] for a in k["atlar"] if a["at"].replace("İ", "I").upper() == y["at"].replace("İ", "I").upper()), None)
-                R.setdefault("yz:" + y["ad"], []).append((w == no, 1, w in ilk_k(k, "agf", 1), w in ilk_k(k, "z4", 1), 1 / len(k["atlar"])))
+                R.setdefault("yz:" + y["ad"], []).append((w == no, 1, w in ilk_k(k, "agf", 1), w in ilk_k(k, "z6", 1), 1 / len(k["atlar"])))
     print("kaynak | n | yorumcu isabet | AGF ilk-k | model ilk-k | ort. k | rastgele beklenti")
     for ad, L in R.items():
         a = np.array(L, float); print(f"{ad:42s} {len(a):3d} | {a[:,0].mean()*100:5.1f}% | {a[:,2].mean()*100:5.1f}% | {a[:,3].mean()*100:5.1f}% | k={a[:,1].mean():.1f} | {a[:,4].mean()*100:5.1f}%")
