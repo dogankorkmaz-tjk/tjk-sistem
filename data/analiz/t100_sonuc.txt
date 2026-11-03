@@ -1,0 +1,6 @@
+T100: test 3397 koşu (k=3), 204 gün; test ayları 2026-04..2026-10
+BİRİNCİL k=3: taban kazanan 0.657 | ek (piyasasız) 0.0748 | Y (piyasalı 4. at) 0.1039 | rastgele ek 0.0539 | ek−Y -0.0291 GA95 [-0.0398,-0.0186] | ek−rastgele +0.0209 [+0.0096,+0.0323] | ek kazanırsa piyasa p(ek) ort 0.085 vs Y'de -
+keşifsel k=2: taban kazanan 0.519 | ek (piyasasız) 0.0957 | Y (piyasalı 3. at) 0.1378 | rastgele ek 0.0615 | ek−Y -0.0421 GA95 [-0.0541,-0.0304] | ek−rastgele +0.0341 [+0.0217,+0.0470] | ek kazanırsa piyasa p(ek) ort 0.115 vs Y'de -
+keşifsel k=4: taban kazanan 0.761 | ek (piyasasız) 0.0533 | Y (piyasalı 5. at) 0.0692 | rastgele ek 0.0409 | ek−Y -0.0159 GA95 [-0.0237,-0.0081] | ek−rastgele +0.0124 [+0.0038,+0.0209] | ek kazanırsa piyasa p(ek) ort 0.065 vs Y'de -
+keşifsel k=5: taban kazanan 0.819 | ek (piyasasız) 0.0478 | Y (piyasalı 6. at) 0.0618 | rastgele ek 0.0328 | ek−Y -0.0140 GA95 [-0.0228,-0.0056] | ek−rastgele +0.0150 [+0.0064,+0.0232] | ek kazanırsa piyasa p(ek) ort 0.053 vs Y'de -
+ayrışma (A1≠B1) k=3: koşu 1891 (55.67%); A'nın 1. atı kazanma ayrışmada 0.310 diğerlerinde 0.335; ek at kazanma ayrışmada 0.0740 diğerlerinde 0.0757
