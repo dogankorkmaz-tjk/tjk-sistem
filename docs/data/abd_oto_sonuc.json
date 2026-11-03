@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-03 15:17 UTC",
- "kayitli_kosu": 1434,
- "eslesmeyen_kosu": 980,
+ "uretim": "2026-11-03 15:55 UTC",
+ "kayitli_kosu": 1439,
+ "eslesmeyen_kosu": 984,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 766,
- "kosu": 454,
+ "bahis": 769,
+ "kosu": 455,
  "isabet": 50,
- "roi": 0.977,
+ "roi": 0.973,
  "ga95": [
-  0.688,
-  1.324
+  0.681,
+  1.308
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.883
   },
   "fransa": {
-   "bahis": 67,
-   "roi": 0.736
+   "bahis": 70,
+   "roi": 0.704
   },
   "guney-afrika": {
    "bahis": 48,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 929,
-  "kosu": 446,
+  "bahis": 932,
+  "kosu": 447,
   "isabet": 93,
-  "roi": 0.646,
+  "roi": 0.644,
   "ga95": [
-   0.455,
-   0.829
+   0.451,
+   0.84
   ]
  },
  "bahis_t1": {
-  "bahis": 956,
-  "kosu": 440,
+  "bahis": 960,
+  "kosu": 441,
   "isabet": 97,
-  "roi": 0.7,
+  "roi": 0.697,
   "ga95": [
-   0.46,
-   0.964
+   0.458,
+   0.97
   ]
  },
  "bahis_t3": {
-  "bahis": 967,
-  "kosu": 428,
+  "bahis": 972,
+  "kosu": 429,
   "isabet": 104,
-  "roi": 0.647,
+  "roi": 0.644,
   "ga95": [
    0.43,
-   0.916
+   0.918
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-01",
-   "pist": "Woodbine",
-   "kosu": 9,
-   "at": "EL ALACRAN",
-   "q": 0.195,
-   "g": 8.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "BIG RICH",
-   "q": 0.198,
-   "g": 9.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "LAST DIAMOND",
-   "q": 0.178,
-   "g": 7.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Finger Lakes",
@@ -423,6 +396,33 @@
    "at": "R R BOUGIE",
    "q": 0.302,
    "g": 5.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Deauville",
+   "kosu": 1,
+   "at": "KLIFF BERE",
+   "q": 0.3,
+   "g": 8.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Deauville",
+   "kosu": 1,
+   "at": "ZAKHAROVA",
+   "q": 0.225,
+   "g": 8.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Deauville",
+   "kosu": 1,
+   "at": "BONNIE MOON",
+   "q": 0.2,
+   "g": 8.35,
    "kazandi": false
   }
  ]
