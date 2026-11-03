@@ -228,6 +228,31 @@ def coklu_satir(tarih, hip, k, m):
     return {"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tur": tur, "seq": n, "kombo": str(m["result"]).strip(), "tutar": tutar, "_s": True}
 
 
+def fob_satirlari(tarih, hip, k):
+    """Sabit ihtimalli sonuçlar (API fobResults.winners): kazanan seçimin İLK ve SON oranı (firstOdd/lastOdd), tür, seçim. 4 Kasım 2026: önceden hiç kaydedilmiyordu."""
+    rows = []
+    for w in (k.get("fobResults") or {}).get("winners") or []:
+        try:
+            tip = int(w.get("betType") or 0)
+            sec = "/".join(",".join(str(h.get("number")) for h in bacak) for bacak in (w.get("horses") or []))
+            rows.append({"tarih": tarih, "hipodrom": hip, "kosu": int(k["number"]), "tip": tip, "tur": str(w.get("betTypeText") or ""), "secim": sec,
+                         "ilk_oran": w.get("firstOdd"), "son_oran": w.get("lastOdd")})
+        except Exception:
+            continue
+    return rows
+
+
+def fob_yaz(tarih, sonuc):
+    import os, pandas as pd
+    from .sonuccsv import _yaz
+    rows = []
+    for hip, ko in sonuc.items():
+        for k in ko:
+            if any((a.get("order") or 0) > 0 for a in (k.get("horses") or [])):
+                rows += fob_satirlari(tarih, hip, k)
+    return _yaz("sabit_kazanan", pd.DataFrame(rows), ["tarih", "hipodrom", "kosu", "tip", "tur", "secim"]) if rows else 0
+
+
 def devir_satirlari(tarih, sonuc):
     """Bilen çıkmayan (ikramiye 0, 'Bilen çıkmamıştır, X ₺ devretmiştir.') havuzlar için TJK CSV'sindeki gibi '<TÜR> DEVİR' satırları (3 Kasım 2026 düzeltmesi:
     22 Ekim'den beri CSV yüklenmediği ve tutar>0 süzgeci bu satırları attığı için devirli sıralı 5'li / 7'li ganyan havuzları kayıtta yoktu)."""
@@ -275,6 +300,10 @@ def odeme_yaz(tarih):
                 if c:
                     rows.append(c)
     rows += devir_satirlari(tarih, sonuc_gun(tarih))
+    try:
+        print("sabit kazanan satırı:", fob_yaz(tarih, sonuc_gun(tarih)))
+    except Exception as e:
+        print("sabit kazanan hatası:", repr(e))
     if not rows:
         return 0
     yol = os.path.join(KOK, "odeme", tarih[:7] + ".csv.gz")

@@ -1608,3 +1608,4 @@ Sabit gölge kolu yalnız 20 dk'lık ana akışta çağrılıyordu; dondurma pen
 
 ## Çok ayaklı ödemeler (çifte, 3–7'li ganyan, 7'li plase) kayıtta yoktu (4 Kasım 2026)
 Neden: data/odeme'ye CSV (son yüklenen 22 Ekim) ve atyapi.odeme_yaz yazıyordu; odeme_yaz yalnız tek-yarış türlerini (_TUR) alıyordu, çok ayaklı ikramiyeler API'de (raceMoneys) vardı ama atlanıyordu. Düzeltme: atyapi.coklu_satir (tur "6'LI GANYAN", seq = "1./2." sıra no, CSV ile aynı biçim); odeme_geri_doldur.py ile 23 Ekim–2 Kasım geri dolduruldu (316 satır). 3 Kasım: ham arşiv yarış öncesi anlık görüntü olduğundan akşam/03:40 çalışmasıyla gelecek.
+Sabit ihtimalli kazananların ilk/son oranı (API fobResults.winners) da hiç kaydedilmiyordu (4 Kasım 2026): atyapi.fob_yaz → data/sabit_kazanan/YYYY-MM.csv.gz; 2 Ağustos 2026'dan itibaren 13.903 satır geri dolduruldu (yalnız KAZANAN seçimlerin firstOdd/lastOdd'u; kaybedenler yok, o yüzden tek başına ROI hesaplanamaz, yalnız oran kayması/CLV bilgisi).
