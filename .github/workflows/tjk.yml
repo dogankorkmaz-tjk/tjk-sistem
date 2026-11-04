@@ -16,7 +16,7 @@ on:
         default: "dene"
 
 concurrency:
-  group: tjk-${{ startsWith(inputs.mod, 'farkgecmis') && 'fark' || 'ana' }}
+  group: tjk-${{ startsWith(inputs.mod, 'farkgecmis') && 'fark' || ((inputs.mod == 'gece' || github.event.schedule == '30 0 * * *') && 'gece' || 'ana') }}   # gece işi ayrı grup: 'ana' grubunda bekleyen gece çalışması her 20 dk'lık yeni çalışma tarafından iptal ediliyordu (30 Ekim–4 Kasım)
   cancel-in-progress: false
 
 permissions:
