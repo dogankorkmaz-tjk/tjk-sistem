@@ -1724,3 +1724,11 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Özellikler: ekürisi var, ekürisinin stili (f1), ekürisinin piyasa payı, kendi payı. Karşılaştırma: ekürili öncünün tempo hedefi (H1/H2) ekürisiz benzerlerine göre; ekürisinin O/E'si.
 - Alt analiz (tek test): (a) ekürili çift: biri öncü, diğeri yatan → öncü atın erken pozisyonu/koşu ilk 400 süresi benzer ekürisizlere göre hızlı mı; (b) bu koşularda yatan ekürinin O/E'si > 1 mi. Eşik: day-cluster bootstrap GA.
 - Ana karar kuralı değişmez; bu yalnız açıklayıcı ve ayrı Bonferroni.
+
+## ÖN KAYIT T126 (koşu uyumu: AGF 3.–6. sıradaki, koşuya uygun at değer verir mi?)
+- Hipotez (Doğan): favoriyi herkes biliyor; değer, koşunun temposu/pisti/rakiplerine uygun olan orta sıradaki attadır.
+- Uyum skoru U (yalnız eğitim dönemiyle, walk-forward aylık): atın stili × beklenen tempo (T125) + pist/mesafe geçmiş performansı (piyasa ofsetine göre artık) + rakip öncü baskısı. Tek skor, eşik veriye bakılarak ayarlanmaz: koşu içi U sıralaması, en yüksek U'nun ilk üçü.
+- Kapsam: AGF sırası 3–6 ∧ koşu içi U sırası ≤2.
+- Metrik: O/E (gözlenen kazanan / piyasa beklentisi), day-cluster bootstrap GA; ikincil: ganyan ROI (büyük ödemeler dahil, GA).
+- Karar: O/E GA alt sınırı >1 → uyum değer taşıyor, ROI ayrı ön kayıtla; GA 1'i kapsıyor → kanıt yok. Test 2026-02→; tek test, Bonferroni T125 ile birlikte (2 ana test).
+- Not: Jason sürpriz modeli bu alanla örtüşebilir; U ile Jason p'nin korelasyonu raporlanır.
