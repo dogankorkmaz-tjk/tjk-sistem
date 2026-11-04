@@ -1795,3 +1795,10 @@ Not: ilk bootstrap sürümü (200 tekrar, yavaş optimizasyon) 40 dk'da bitmedi�
 - ARTIK: c = 0,013, %95 GA [−0,036; +0,066] → 0'ı kapsıyor; log-olabilirlik kazancı 0,000026 nat/koşu (GA [0; 0,0006]).
 - KARAR (kayıtlı kural): c GA'sı 0'ı kapsıyor → artık (piyasanın açıklanamayan %43'ü) sonucu piyasanın üstünde öngörmüyor; ne bilgili para ne sistematik hata izi. Betimleyici: artık beşliğinde O/E 0,91 / 1,02 / 1,02 / 0,98 / 1,02 (en düşük beşlik 0,91, karar verilmez).
 - Not: özellik setimiz piyasanın %57'sini açıklıyor; gerisi bizim göremediğimiz bilgi veya gürültü.
+
+## SONUÇ T129 (piyasa neyi, ne kadar fiyatlıyor? tek tek) — 5 Kasım 01:50
+Koşu sabit etkili doğrusal model (test 2025-12→, 50.715 at, 5.068 koşu, 43 terim), koşu içi R² = 0,525; katsayı = özellik 1 SS artınca koşu içi log(p) değişimi (≈ oran %'si), %95 gün-küme bootstrap GA (1000), Bonferroni eşiği |b|/se>2,58.
+- En büyük: jokey +0,42; handikap (göreli) +0,37 (+ kıvrım terimi +0,08); koşu sayısı (log) −0,30 (az koşmuş at pahalı fiyatlanıyor… yani deneyim azsa fiyat düşük); dinlenme gün −0,09; yaş −0,03; stil f_v1 −0,37, f_v3 −0,18, f_v2 +0,15.
+- PİST: atın aynı pistteki geçmiş artığı (pist_art) +0,04 [0,03; 0,05] (anlamlı ama küçük); aynı pistte geçmişi OLMAYAN at: −0,15 [−0,18; −0,12] (piyasa pist bilgisi yokluğunu cezalandırıyor); kum/sentetikte etkileşimler küçük (pist_art×sentetik +0,013). Kapı: −0,008 (neredeyse yok).
+- Yorum: piyasa pist uyumunu fiyatlıyor ama atın pist deneyimi yokluğu üzerinden belirgin biçimde; "pist geçmişi var/yok" bilgisinin yanında geçmiş artığın katkısı küçük. Not: ıslak/zemin durumu ve soy–zemin (T130) bu modelde YOK; koşu sabit etkisi koşu düzeyindeki pist türünü soğurduğu için pist türü yalnız etkileşimle girebildi.
+- Sınırlar: ilişki, nedensellik değil; eksik-veri göstergeleri (_na) birbirine yakın/eşdoğrusal (yeni at); stil f_v* tanımları VO.ekle'ye bağlı, işaret yorumu ayrıca doğrulanmalı. T128 artığının bu modelden yeniden hesaplanması henüz yapılmadı.
