@@ -27,7 +27,7 @@ for f in sorted(glob.glob('data/atyarisi/20*.json.gz')):
                     SIRE[key]=((h.get('parents') or {}).get('father') or {}).get('name'); a=str(h.get('age') or '').split('y')[0]; AGE[key]=float(a) if a.strip().isdigit() else np.nan
                 except Exception: pass
 key4=list(zip(d.tarih,d.hipodrom,d.kosu,d.no))
-d['kapi']=[G.get(k,np.nan) for k in key4]; d['sire']=[SIRE.get(k) for k in key4]; d['yas']=[AGE.get(k,np.nan) for k in key4]; d['eq']=[EQ.get(k,[]) for k in key4]
+d['kapi']=[G.get(k,np.nan) for k in key4]; d['sire']=[SIRE.get(k) for k in key4]; d['yas']=[AGE.get(k,np.nan) for k in key4]; d['ekp']=[EQ.get(k,[]) for k in key4]
 d['mes']=[MS.get((t,h,k),np.nan) for t,h,k in zip(d.tarih,d.hipodrom,d.kosu)]; d['pist']=[PS.get((t,h,k)) for t,h,k in zip(d.tarih,d.hipodrom,d.kosu)]
 d=VO.ekle(d)
 E={};RH={}
@@ -53,8 +53,8 @@ d=d[d.kapi.notna()&d.mes.notna()&d.pist.notna()].copy()
 d=d.sort_values(['tarih','hipodrom','kosu','no']).reset_index(drop=True)
 log('at',len(d),'koşu',d.rid.nunique(),'gün',d.tarih.nunique())
 # ekipman jetonları
-cnt=collections.Counter(t for l in d.eq for t in set(l)); top=[t for t,_ in cnt.most_common(15)]; log('ekipman jetonları',top)
-for t in top: d['eq_'+t]=[int(t in l) for l in d.eq]
+cnt=collections.Counter(t for l in d.ekp for t in set(l)); top=[t for t,_ in cnt.most_common(15)]; log('ekipman jetonları',top)
+for t in top: d['eq_'+t]=[int(t in l) for l in d.ekp]
 # sıralı özellikler: jokey öncü oranı, baba eğilimi, ikili karşılaşmalar
 K=20; jl={};sr={};pair=collections.defaultdict(lambda:[0.,0]);glob_rate=d.lead2.mean()
 n=len(d);jok=np.zeros(n);sire_e=np.zeros(n);pw=np.zeros(n);pwc=np.zeros(n);fstr=np.zeros(n)
