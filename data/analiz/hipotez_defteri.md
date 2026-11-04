@@ -1760,3 +1760,11 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Çıktı 2 (artık): artık = log p − tahmin. Tek parametreli koşu-içi softmax: p_i ∝ exp(log p_i + c·artık_i). c ve log-kayıp farkı (day-cluster bootstrap GA).
 - Karar: c GA alt sınırı >0 → artık bilgi taşıyor (piyasa bizim göremediğimiz bilgiyi içeriyor, "yüksek-nedensiz fiyat" kazanıyor); GA 0'ı kapsıyor → piyasa artığı gürültü; c<0 GA → artık fazla fiyatlama işareti (piyasa yanılıyor, değer fırsatı). Tek test. Sonuç görülmeden kural değişmez.
 - Siteye ekleme: yalnız analiz bittikten sonra, kullanıcı kararıyla.
+
+## ÖN KAYIT T129 (piyasa neyi, ne kadar fiyatlıyor? Tek tek etki + güven aralığı)
+- Gerekçe (kullanıcı): "piyasanın neleri fiyatladığını tek tek ve doğru aralıkla bilmemiz lazım". T128 grup bırakma ortak bilgiyi gizliyor; şeffaf model gerek.
+- Model: hedef y = koşu içi ortalamadan farkı alınmış log(p_piyasa). Doğrusal regresyon + kıvrım terimleri (kilo, hnd, yaş, kapı için parçalı), koşu sabit etkili. Özellikler T128 ile aynı + pist türü × zemin durumu (ıslak: kron etiketi / yağış vekili), pist türü değişimi, mesafe değişimi, ekürili, apranti.
+- Her özellik için: standartlaştırılmış katsayı = "1 SS değişim oranı yüzde kaç değiştirir" ve %95 GA (gün-küme bootstrap, 1000). Ayrıca Shapley paylaşımı (koşu başına at başına) örnek 3 gün için.
+- Raporlama: özellik başına etki, GA, anlamlı mı (Bonferroni, ~30 özellik). Sonuç yalnız İLİŞKİ (fiyatlama); nedensellik iddiası yok. Eşdoğrusallık için VIF raporlanır.
+- Karar yok (betimleyici); kullanım: T128 artığı bu modelden yeniden hesaplanır, c testi tekrarlanır (ikinci karşılaştırma, aynı Bonferroni aile).
+- T128 bitince çalıştırılır (CPU çakışması olmasın).
