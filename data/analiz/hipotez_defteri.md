@@ -1783,3 +1783,8 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Test 1 (fiyatlanıyor mu?): T129 şeffaf modeline özellik olarak girer; katsayı + GA (piyasa sire_wet'i ne kadar fiyatlıyor).
 - Test 2 (artık bilgi): ıslak/ağır zemin koşularında sire_wet'in piyasa ofseti üstünde log-kayıp katkısı (tek parametreli softmax, gün bootstrap GA). Karar: alt GA>0 → piyasa eksik fiyatlıyor; GA 0'ı kapsıyorsa piyasa yeterince fiyatlıyor.
 - T127 öncelik: düşük (veri yetersiz: 19 koşu); canlı toplama sürer, ayrı analiz yok.
+
+### T130 EK (00:59 TR) — anne tarafı
+- Veri var: parents.mother (anne), fatherOfMother (anne babası), motherOfMother (anneanne), fatherOfFather, motherOfFather.
+- Özellikler: sire_wet (baba), dam_wet (annenin TÜM yavrularının ıslak−kuru artığı; anne başına yavru sayısı az, 20 ağırlıklı önsel güçlü), damsire_wet (anne babasının TÜM torunları, çok örnek), ayrıca baba+anne babası ortalaması "soy_wet". Her biri ayrı katsayı + GA (T129), Test 2'de en iyi tek özellik değil, ÖNCEDEN SABİT: soy_wet = 0,5·sire_wet + 0,5·damsire_wet (tek test; diğerleri betimleyici).
+- Not: anne tarafı yavru sayısı az olduğundan gürültü yüksek; damsire (geniş örnek) daha güvenilir beklenir.
