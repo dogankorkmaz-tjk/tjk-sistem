@@ -855,6 +855,14 @@ def sonuclari_isle(obj, t, w0=None):
                     r["p_g1"] = pg
             except Exception as e:
                 print("g1 hatası:", repr(e))
+            try:                                                  # Benter (G1-S v3) canlı olasılığı: sitedeki pg ile aynı formül (5 Kasım 2026: sonuç kaydına pm5 olarak yazılır)
+                if obj.get("w0_g1") is not None:
+                    z6 = {a_["no"]: (a_.get("z6b") if a_.get("z6b") is not None else a_.get("z6")) for a_ in k["atlar"]}; r["z6"] = r.no.map(z6)
+                    if r.z6.notna().all():
+                        zb = all(a_.get("z6b") is not None for a_ in k["atlar"])
+                        r["p_g1"] = model_olasilik(r.p_piyasa.values, r.z6.values, obj["w0_g1"], obj.get("lp2_g1", 0.0) if zb else 0.0)
+            except Exception as e:
+                print("benter pm5 hatası:", repr(e))
             k["sonuc"] = {str(int(x.no)): {"sira": None if pd.isna(x.sira) else int(x.sira),
                                            "g": float(x.ganyan), "pp": round(float(x.p_piyasa), 5),
                                            "pm": round(float(x.p_model), 5),
@@ -1274,6 +1282,26 @@ def skor():
         hp.append({"h": h, "ad": O.AD.get(h, h), "n": int(len(x)), "fark": float(x.f.mean())})
     out["hipodrom"] = sorted(hp, key=lambda r: -r["n"])
     out.update(skor_ek(c, kz))
+    try:                                                          # Benter (ana model): sonuç kayıtlarındaki pm5 (5 Kasım 2026'dan itibaren)
+        L = []; days = set()
+        for fgun in sorted(glob.glob(os.path.join(SITE, "gun", "*.json"))):
+            dj = json.load(open(fgun, encoding="utf-8"))
+            for h in dj.get("hipodromlar", []):
+                for kk in h.get("kosular", []):
+                    sc = kk.get("sonuc") or {}
+                    if not sc or not all("pm5" in v for v in sc.values()):
+                        continue
+                    w = [v for v in sc.values() if v.get("sira") == 1]
+                    if len(w) == 1 and w[0]["pm5"] > 0 and w[0]["pp"] > 0:
+                        L.append((os.path.basename(fgun)[:10], float(np.log(w[0]["pm5"]) - np.log(w[0]["pp"]))))
+                        days.add(os.path.basename(fgun)[:10])
+        if L:
+            fb = np.array([x[1] for x in L])
+            out["benter"] = {"baslangic": min(days), "kosu": len(L), "gun": len(days), "fark": float(fb.mean()), "fark_se": float(fb.std(ddof=1) / np.sqrt(len(fb))) if len(fb) > 1 else None}
+        else:
+            out["benter"] = {"kosu": 0}
+    except Exception as e:
+        print("benter skor hatası:", repr(e))
     yaz_json(os.path.join(SITE, "skor.json"), out)
     print("skor:", {k: out[k] for k in ("kosu", "fark", "fark_se")})
 

@@ -863,6 +863,7 @@ async function skorYukle(){
   <div class="note">Model ile piyasanın en çok ayrıştığı atlar. Gerçek sayı hangi beklentiye daha yakınsa o taraf haklıdır.</div>`;
   if(S.gunluk&&S.gunluk.length) s+=`<h2>Günlük log-loss</h2><div class="card scroll"><table class="t"><thead><tr><th>Gün</th><th>Koşu</th><th>Model</th><th>Piyasa</th></tr></thead><tbody>${S.gunluk.slice().reverse().map(r=>`<tr><td>${r.t.slice(8)}.${r.t.slice(5,7)}</td><td class="n">${r.n}</td><td class="n${r.ll_model<r.ll_piyasa?' good':''}">${r.ll_model.toFixed(3).replace('.',',')}</td><td class="n">${r.ll_piyasa.toFixed(3).replace('.',',')}</td></tr>`).join('')}</tbody></table></div>
   <div class="note">Düşük log-loss daha iyi. Modelin kazandığı günler yeşil; tek gün gürültüdür.</div>`;
+  if(S.benter){ const B=S.benter; s+=`<h2>Ana model: Benter</h2><div class="card" style="padding:12px 14px">${B.kosu?`<b>${sp(B.fark)}${B.fark_se?' ±'+B.fark_se.toFixed(3).replace('.',','):''}</b> piyasaya göre kazanç · ${B.kosu} koşu · ${B.gun} gün (${esc(B.baslangic)} tarihinden beri)`:'Canlı kayıt henüz yok. Benter olasılığı 5 Kasım 2026\'dan itibaren her sonuçlanan koşu için kaydediliyor, ilk koşular gelince dolacak.'}<div class="sub" style="margin-top:6px">Kazanç = kazananın log-olasılığında piyasaya göre ortalama artış (büyük olan iyidir). Bolton ve Jason aşağıda karşılaştırma içindir.</div></div>`; }
   let gl=null; try{ gl=await getJSON('data/golge.json'); }catch(e){}
   if(gl){
     const f=(x,se)=>x==null?'–':sp(x)+(se?' ±'+se.toFixed(3).replace('.',','):'');
@@ -873,7 +874,7 @@ async function skorYukle(){
     <tr><td>${esc(gl.ad_aday)} − ${esc(gl.ad_v1)}</td><td class="n">${f(gl.aday_eksi_v1,gl.aday_eksi_v1_se)}</td><td>${gl.kosu||0} koşu${gl.gun?' · '+gl.gun+' gün':''}</td></tr></tbody></table></div>
     <div class="note">${gl.kosu?(Math.abs(zf)<2?'Henüz fark yok. İkisinin farkı sıfırdan ayırt edilemiyor; yüzlerce koşu gerekir.':(zf>0?esc(gl.ad_aday)+' anlamlı biçimde daha iyi.':esc(gl.ad_v1)+' anlamlı biçimde daha iyi.')):'İlk sonuçlanan koşular gelince dolacak.'} Kazanç = kazananın log-olasılığında piyasaya göre ortalama artış; büyük olan iyidir.</div>`;
   }
-  s+=`<div class="note">Bolton (ana model) ${esc(S.freeze)} tarihinde donduruldu; bu sayfadaki her koşu modelin hiç görmediği veridir. Son hesap: ${esc(S.guncelleme)}.</div>`;
+  s+=`<div class="note">Bolton (Benter'den önceki ana model) ${esc(S.freeze)} tarihinde donduruldu; aşağıdaki Bolton/Jason sayıları bu tarihten beri modelin hiç görmediği veridir. Son hesap: ${esc(S.guncelleme)}.</div>`;
   el.innerHTML=s;
 }
 
@@ -1358,8 +1359,10 @@ function canliCiz(){
   const canlilar=liste.filter(x=>x.L&&Date.now()-x.L.ts<150000);
   if(!CANLI_SEC||!liste.some(x=>x.key===CANLI_SEC)) CANLI_SEC=(canlilar[0]||liste[0]).key;
   const cs=liste.find(x=>x.key===CANLI_SEC), {h,k,L}=cs;
-  const opt=liste.slice().sort((a,b)=>a.dk-b.dk).map(x=>`<option value="${esc(x.key)}"${x.key===CANLI_SEC?' selected':''}>${x.L&&Date.now()-x.L.ts<150000?'● ':''}${esc(x.h.ad)} ${x.k.kosu}. koşu · ${esc(x.k.saat)}</option>`).join('');
+  const opt=liste.slice().sort((a,b)=>a.dk-b.dk).map(x=>`<option value="${esc(x.key)}"${x.key===CANLI_SEC?' selected':''}>${x.L&&Date.now()-x.L.ts<150000?'● ':''}${esc(x.h.ad)} ${x.k.kosu}. koşu · ${esc(x.k.saat)}${devirBilgi(x.h.id,x.k.kosu)?' · DEVİR':''}</option>`).join('');
   let s=`<div class="card"><label class="sub" for="canliSel">Koşu seç (● = canlı oran geliyor)</label><select id="canliSel" class="alan" style="width:100%">${opt}</select></div>`;
+  try{ const dvl=liste.map(x=>({x,dv:devirBilgi(x.h.id,x.k.kosu)})).filter(y=>y.dv).sort((p,q)=>p.x.dk-q.x.dk);
+    if(dvl.length) s+=`<div class="card" style="border-left:4px solid #b45309"><b>DEVİR VAR</b><span class="sub"> · sıralı 5'li havuzuna devir geldi</span>${dvl.map(y=>`<div style="margin-top:6px">${devirRozet(y.dv)} <b>${esc(y.x.h.ad)} ${y.x.k.kosu}. koşu</b> <span class="sub">${esc(y.x.k.saat)}</span></div>`).join('')}</div>`; }catch(e){}
   const live=L&&Date.now()-L.ts<150000, hs=live?hesapla(h,k):null;
   if(!hs||hs.kaynak!=='canli'){ s+=`<div class="card empty">${esc(h.ad)} ${k.kosu}. koşu için canlı muhtemel ganyan henüz yok (TJK oranları koşuya ~15 dk kala akmaya başlar). Koşuya yaklaşınca bu sayfa kendiliğinden dolar.</div>`; el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; return; }
   const mx=i=>{ const m=hs.map[i]; return m.pg!=null?m.pg:(m.pj!=null?m.pj:m.pm); }, gYok=Object.keys(hs.map).some(i=>hs.map[i].pg==null);   // G1-S puanı yoksa (henüz hesaplanmadıysa) Jason, o da yoksa Bolton
@@ -2320,7 +2323,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793835191';   // commit öncesi otomatik güncellenir
+const BUILD='1793835851';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
