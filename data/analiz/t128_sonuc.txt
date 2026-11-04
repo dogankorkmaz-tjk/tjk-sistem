@@ -1,0 +1,9 @@
+at 123477 koşu 12711 özellikler 26
+NEDEN: tüm özelliklerle R2 0.5706 test at 50715
+  grup bırakma form R2 düşüşü 0.0495
+  grup bırakma jokey R2 düşüşü 0.0648
+  grup bırakma yuk R2 düşüşü 0.13
+  grup bırakma kapi R2 düşüşü -0.0005
+  grup bırakma pist_mes R2 düşüşü 0.0048
+  grup bırakma stil R2 düşüşü 0.0089
+ARTIK: c = 0.014 log-olabilirlik kazancı (nat/koşu) 3e-05
