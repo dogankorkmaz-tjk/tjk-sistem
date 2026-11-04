@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-04 16:02 UTC",
- "kayitli_kosu": 1510,
- "eslesmeyen_kosu": 1028,
+ "uretim": "2026-11-04 16:29 UTC",
+ "kayitli_kosu": 1516,
+ "eslesmeyen_kosu": 1030,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 820,
- "kosu": 482,
- "isabet": 53,
- "roi": 0.949,
+ "bahis": 826,
+ "kosu": 486,
+ "isabet": 54,
+ "roi": 0.947,
  "ga95": [
   0.675,
-  1.261
+  1.254
  ],
  "ulke": {
   "abd": {
@@ -18,107 +18,53 @@
    "roi": 0.747
   },
   "birlesik-krallik": {
-   "bahis": 135,
-   "roi": 1.803
+   "bahis": 139,
+   "roi": 1.78
   },
   "fransa": {
    "bahis": 74,
    "roi": 0.666
   },
   "guney-afrika": {
-   "bahis": 51,
-   "roi": 1.739
+   "bahis": 52,
+   "roi": 1.706
   },
   "irlanda": {
-   "bahis": 29,
+   "bahis": 30,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 1010,
-  "kosu": 472,
+  "bahis": 1024,
+  "kosu": 476,
   "isabet": 98,
-  "roi": 0.632,
+  "roi": 0.624,
   "ga95": [
-   0.458,
-   0.819
+   0.451,
+   0.809
   ]
  },
  "bahis_t1": {
-  "bahis": 1029,
-  "kosu": 466,
+  "bahis": 1043,
+  "kosu": 470,
   "isabet": 101,
-  "roi": 0.682,
+  "roi": 0.673,
   "ga95": [
-   0.469,
-   0.949
+   0.459,
+   0.937
   ]
  },
  "bahis_t3": {
-  "bahis": 1035,
-  "kosu": 452,
-  "isabet": 108,
-  "roi": 0.64,
+  "bahis": 1044,
+  "kosu": 456,
+  "isabet": 111,
+  "roi": 0.654,
   "ga95": [
-   0.442,
-   0.899
+   0.46,
+   0.91
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-03",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 2,
-   "at": "GIMMEL",
-   "q": 0.053,
-   "g": 33.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 4,
-   "at": "GIOS GORGEOUS GIRL",
-   "q": 0.039,
-   "g": 51.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 4,
-   "at": "PERSISTED",
-   "q": 0.075,
-   "g": 19.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Mahoning Valley",
-   "kosu": 4,
-   "at": "MYSTICAL MOBIL",
-   "q": 0.037,
-   "g": 59.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Mahoning Valley",
-   "kosu": 4,
-   "at": "TALE OF THE LYON",
-   "q": 0.085,
-   "g": 16.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Mahoning Valley",
-   "kosu": 4,
-   "at": "SHAKEURSKINNYLEGS",
-   "q": 0.171,
-   "g": 7.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-03",
    "pist": "Mahoning Valley",
@@ -256,6 +202,15 @@
   },
   {
    "gun": "2026-11-04",
+   "pist": "Dundalk",
+   "kosu": 1,
+   "at": "GO ATHLETICO",
+   "q": 0.198,
+   "g": 9.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
    "pist": "Greyville",
    "kosu": 3,
    "at": "A GOOD HEART",
@@ -279,6 +234,15 @@
    "at": "WORLD OF OUR OWN",
    "q": 0.209,
    "g": 9.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Greyville",
+   "kosu": 6,
+   "at": "CAPPELLINO",
+   "q": 0.141,
+   "g": 12.9,
    "kazandi": false
   },
   {
@@ -355,6 +319,24 @@
   },
   {
    "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 4,
+   "at": "ACCOYA",
+   "q": 0.077,
+   "g": 18.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 4,
+   "at": "LIGHT OF THE STARS",
+   "q": 0.358,
+   "g": 4.05,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-04",
    "pist": "Musselburgh",
    "kosu": 3,
    "at": "KARTINI",
@@ -423,6 +405,24 @@
    "at": "DANDY MAGIC",
    "q": 0.16,
    "g": 16.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Musselburgh",
+   "kosu": 8,
+   "at": "VINCE LE PRINCE",
+   "q": 0.115,
+   "g": 11.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Musselburgh",
+   "kosu": 8,
+   "at": "JKR COBBLER",
+   "q": 0.146,
+   "g": 11.45,
    "kazandi": false
   }
  ]
