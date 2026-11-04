@@ -1816,3 +1816,11 @@ Veri: test 2025-12→, 5.058 koşu, 50.715 at. Model: p_i ∝ exp(log p_piyasa +
 - Ama kaynak tempo etkileşimi değil, ana etkiler: öncülük +0,157 [0,119; 0,197] (öncü atlar piyasada eksik fiyatlı), kapanışçılık +0,085 [0,044; 0,123], fe×mesafe −0,052 [−0,080; −0,025] (öncü avantajı kısa mesafede daha güçlü; T119 ile uyumlu). Etkileşimler anlamsız: fe×rakip öncü baskısı −0,024 [−0,053; +0,006]; cl×baskı +0,016 [−0,016; +0,048].
 - Kullanıcı mekanizması alt analizi: (a) favori∧öncü∧yüksek baskı O/E 1,061 [0,948; 1,182] → beklenen <1 DEĞİL, mekanizma desteklenmedi; (b) yatan∧yüksek baskı O/E 1,014 [0,955; 1,066] → fark yok. Kontrol: favori∧öncü∧DÜŞÜK baskı O/E 1,141 [1,011; 1,269] (n=412) → az rakip öncü varken öncü favori piyasanın üstünde kazanıyor (T119 ile uyumlu).
 - Sınırlar: 0,0067 nat/koşu küçük bir kazanç; log-kayıp kazancı ≠ ROI>1 (kesinti). Ana model G1-S/Jason'da f_v* zaten varsa bu kazanç orada tekrarlanmaz olabilir; kontrol edilmeli. ROI testi ayrı ön kayıt ister.
+
+## ÖLÇÜM (betimleyici, karar vermez): stil bilgisini Jason/G1-S tabanına eklemenin pratik etkisi — 5 Kasım 02:30
+Kaynak: v3 galopsuz S3 önbellekleri, MJV (= MJ + video stil f_v1..f_v5) − MJ; 5.102 koşu (2025-12..2026-10), gün-küme bootstrap 1000. Sağlama: T41 kazanan log-kayıp farkı yeniden üretildi (B −0,0021 [−0,0039; −0,0005], H +0,0035), sayılar tutuyor.
+- Aynı tepe at (en yüksek olasılıklı) oranı %94,4; yani modelin birinci tercihi 20 koşunun 19'unda değişmiyor.
+- Tepe at isabeti: TÜMÜ %33,67 (MJV) vs %33,87 (MJ), fark −0,0020 [−0,0067; +0,0029]; H −0,0023, B −0,0018 (ikisi de sıfırı kapsıyor).
+- Tepe ata 1 TL ganyan geri dönüş/koşu: TÜMÜ 0,765 vs 0,769, fark −0,0032 [−0,0190; +0,0120]; B 0,732 vs 0,739; H 0,831 vs 0,828 → ROI'de fark yok, ROI<1.
+- Kazanan log-kayıp: B'de −0,0021 (GA<0, iyi), H'de +0,0035 (hafif kötü), TÜMÜ −0,0002 [−0,0023; +0,0018] → iki dönemde ters işaret, toplamda sıfır.
+- Yorum: stil bilgisi olasılıkları küçük ve dönem-bağımlı biçimde oynatıyor, birinci tercihleri ve ganyan getirisini değiştirmiyor. Kasım–Ocak T41 yeniden testi (kayıtlı kural) geçerli olmaya devam eder.

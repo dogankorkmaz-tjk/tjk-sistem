@@ -1,0 +1,13 @@
+koşu 5102 | aynı tepe at oranı 0.944
+H 2025-12..2026-03 koşu 1714
+   kazanan log-kayıp (− iyi): MJV 1.7908 | MJ 1.7872 | fark +0.0035 [-0.0014,+0.0093]
+   tepe at isabeti (+ iyi): MJV 0.3664 | MJ 0.3687 | fark -0.0023 [-0.0129,+0.0066]
+   tepe ata 1 TL ganyan geri dönüş/koşu (+ iyi): MJV 0.8312 | MJ 0.8278 | fark +0.0034 [-0.0240,+0.0308]
+B 2026-04..2026-10 koşu 3388
+   kazanan log-kayıp (− iyi): MJV 1.8670 | MJ 1.8692 | fark -0.0021 [-0.0039,-0.0005]
+   tepe at isabeti (+ iyi): MJV 0.3217 | MJ 0.3235 | fark -0.0018 [-0.0074,+0.0030]
+   tepe ata 1 TL ganyan geri dönüş/koşu (+ iyi): MJV 0.7321 | MJ 0.7387 | fark -0.0065 [-0.0245,+0.0114]
+TÜMÜ koşu 5102
+   kazanan log-kayıp (− iyi): MJV 1.8414 | MJ 1.8417 | fark -0.0002 [-0.0023,+0.0018]
+   tepe at isabeti (+ iyi): MJV 0.3367 | MJ 0.3387 | fark -0.0020 [-0.0067,+0.0029]
+   tepe ata 1 TL ganyan geri dönüş/koşu (+ iyi): MJV 0.7654 | MJ 0.7686 | fark -0.0032 [-0.0190,+0.0120]
