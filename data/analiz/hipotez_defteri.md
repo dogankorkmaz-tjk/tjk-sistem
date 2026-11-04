@@ -1776,3 +1776,10 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Metrik: (a) etkilenen atlar içinde U_z üst üçlü / alt üçlü O/E farkı; (b) zemin değişen koşularda AGF→kapanış ganyan hareketinin U_z ile ilişkisi (piyasa düzeltiyor mu); (c) değişimsiz kontrol koşularda aynı fark (karşılaştırma).
 - Karar: değişimli koşularda (üst−alt) O/E farkının GA alt sınırı >0 ve kontrol farkından büyükse "piyasa geç uyum sağlıyor, fırsat"; olay sayısı <40 koşu ise "veri yetersiz", yorum yok, canlı toplamaya devam.
 - Canlı: 5 Kasım Bursa (tüm koşular kuma alındı) örnek olarak kaydedilir; program/zemin ve oranlar yarıştan önce kayda alınır, sonuç görülmeden U_z sabitlenir. Sonuç yalnız betimleyici tek gün, karar vermez.
+
+## ÖN KAYIT T130 (soy–zemin uyumu: baba çamur seviyor mu?) — T127'nin önüne alındı
+- Gerekçe (kullanıcı): yorumcular zemin değişince "soyu çamuru seven" atları öne alıyor; piyasa bunu fiyatlıyor olabilir ama ölçülebilir mi? Atın kendi ıslak geçmişi seyrek (T-ıslak testi güçsüzdü); babanın TÜM yavruları zemin başına çok daha fazla örnek verir.
+- Özellik: sire_wet = babanın yavrularının ıslak/ağır zeminde (kron etiketi + yağış vekili, kum/çim ayrı) piyasaya göre artık ortalaması − kuru zemindeki artık ortalaması; yalnız önceki günlerden, 20 ağırlıklı önsel; (aynı ölçü fatherOfMother için ayrı).
+- Test 1 (fiyatlanıyor mu?): T129 şeffaf modeline özellik olarak girer; katsayı + GA (piyasa sire_wet'i ne kadar fiyatlıyor).
+- Test 2 (artık bilgi): ıslak/ağır zemin koşularında sire_wet'in piyasa ofseti üstünde log-kayıp katkısı (tek parametreli softmax, gün bootstrap GA). Karar: alt GA>0 → piyasa eksik fiyatlıyor; GA 0'ı kapsıyorsa piyasa yeterince fiyatlıyor.
+- T127 öncelik: düşük (veri yetersiz: 19 koşu); canlı toplama sürer, ayrı analiz yok.
