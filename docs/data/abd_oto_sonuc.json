@@ -1,15 +1,15 @@
 {
- "uretim": "2026-11-04 14:32 UTC",
- "kayitli_kosu": 1499,
- "eslesmeyen_kosu": 1023,
+ "uretim": "2026-11-04 15:07 UTC",
+ "kayitli_kosu": 1503,
+ "eslesmeyen_kosu": 1024,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 803,
- "kosu": 476,
- "isabet": 51,
- "roi": 0.945,
+ "bahis": 813,
+ "kosu": 479,
+ "isabet": 52,
+ "roi": 0.949,
  "ga95": [
-  0.663,
+  0.673,
   1.263
  ],
  "ulke": {
@@ -18,16 +18,16 @@
    "roi": 0.747
   },
   "birlesik-krallik": {
-   "bahis": 121,
-   "roi": 1.852
+   "bahis": 129,
+   "roi": 1.835
   },
   "fransa": {
    "bahis": 74,
    "roi": 0.666
   },
   "guney-afrika": {
-   "bahis": 48,
-   "roi": 1.848
+   "bahis": 50,
+   "roi": 1.774
   },
   "irlanda": {
    "bahis": 29,
@@ -35,126 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 982,
-  "kosu": 466,
-  "isabet": 97,
-  "roi": 0.637,
+  "bahis": 994,
+  "kosu": 469,
+  "isabet": 98,
+  "roi": 0.643,
   "ga95": [
-   0.458,
-   0.828
+   0.465,
+   0.831
   ]
  },
  "bahis_t1": {
-  "bahis": 1001,
-  "kosu": 460,
-  "isabet": 100,
-  "roi": 0.688,
+  "bahis": 1013,
+  "kosu": 463,
+  "isabet": 101,
+  "roi": 0.693,
   "ga95": [
-   0.469,
-   0.956
+   0.475,
+   0.958
   ]
  },
  "bahis_t3": {
-  "bahis": 1007,
-  "kosu": 446,
-  "isabet": 107,
-  "roi": 0.645,
+  "bahis": 1019,
+  "kosu": 449,
+  "isabet": 108,
+  "roi": 0.65,
   "ga95": [
-   0.442,
-   0.911
+   0.453,
+   0.913
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Zia Park",
-   "kosu": 5,
-   "at": "FAST PAY",
-   "q": 0.051,
-   "g": 25.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Zia Park",
-   "kosu": 5,
-   "at": "IGNITING EMBERS",
-   "q": 0.063,
-   "g": 20.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Zia Park",
-   "kosu": 9,
-   "at": "R R BOUGIE",
-   "q": 0.302,
-   "g": 5.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Deauville",
-   "kosu": 1,
-   "at": "KLIFF BERE",
-   "q": 0.3,
-   "g": 8.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Deauville",
-   "kosu": 1,
-   "at": "ZAKHAROVA",
-   "q": 0.225,
-   "g": 8.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Deauville",
-   "kosu": 1,
-   "at": "BONNIE MOON",
-   "q": 0.2,
-   "g": 8.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Deauville",
-   "kosu": 4,
-   "at": "MOOREA",
-   "q": 0.171,
-   "g": 8.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Deauville",
-   "kosu": 4,
-   "at": "IDEE DE CHEVAL",
-   "q": 0.228,
-   "g": 7.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Deauville",
-   "kosu": 4,
-   "at": "MONARCH HUNZA",
-   "q": 0.033,
-   "g": 41.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Deauville",
-   "kosu": 4,
-   "at": "EL KRAKEN",
-   "q": 0.124,
-   "g": 14.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-03",
    "pist": "Finger Lakes",
@@ -409,6 +319,69 @@
   },
   {
    "gun": "2026-11-04",
+   "pist": "Greyville",
+   "kosu": 3,
+   "at": "A GOOD HEART",
+   "q": 0.067,
+   "g": 26.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Greyville",
+   "kosu": 3,
+   "at": "TURBO TWENTY",
+   "q": 0.092,
+   "g": 22.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 1,
+   "at": "AMAZONIAN DREAM",
+   "q": 0.068,
+   "g": 26.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 1,
+   "at": "PANAMA BLACK",
+   "q": 0.111,
+   "g": 19.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 1,
+   "at": "CUBAN LADY",
+   "q": 0.059,
+   "g": 37.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 1,
+   "at": "MISTER MOJITO",
+   "q": 0.197,
+   "g": 12.7,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 1,
+   "at": "RHYTHM N ROCK",
+   "q": 0.111,
+   "g": 18.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
    "pist": "Musselburgh",
    "kosu": 3,
    "at": "KARTINI",
@@ -423,6 +396,33 @@
    "at": "KINROSS CLARET",
    "q": 0.048,
    "g": 42.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Musselburgh",
+   "kosu": 5,
+   "at": "SUGARPIEHONEYBUNCH",
+   "q": 0.051,
+   "g": 55.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Musselburgh",
+   "kosu": 5,
+   "at": "NEDDIES BOY",
+   "q": 0.134,
+   "g": 21.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Musselburgh",
+   "kosu": 5,
+   "at": "NOTHINGBUTADREAM",
+   "q": 0.041,
+   "g": 41.7,
    "kazandi": false
   }
  ]
