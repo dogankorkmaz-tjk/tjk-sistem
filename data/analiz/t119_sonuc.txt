@@ -1,0 +1,82 @@
+at 66962 koşu 7623 gün 659 bölme 2025-11-03 | pist {'Kum': 35605, 'Çim': 21490, 'Sentetik': 9867} | stil {'orta': 46788, 'öncü': 10208, 'kapanış': 9966}
+
+Hücre sayısı k=34, Bonferroni %99.85 GA. endeks = O/E(öncü) − O/E(kapanış)
+hücre | n | O/E | endeks | ROI | aday
+GENEL | n öncü 10208 orta 46788 kap 9966 | O/E öncü 1.095 orta 1.019 kap 0.838 | endeks +0.257 GA(Bonf) [+0.138;+0.394] yarı1 +0.335 yarı2 +0.204 | ROI öncü 0.74[0.69;0.80] kap 0.49[0.44;0.54] | ADAY
+mesafe×pist: <1400 Kum | n öncü 1405 orta 5814 kap 677 | O/E öncü 1.055 orta 1.009 kap 0.841 | endeks +0.213 GA(Bonf) [-0.223;+0.570] yarı1 +0.465 yarı2 +0.106 | ROI öncü 0.75[0.59;0.91] kap 0.54[0.31;0.83] | -
+mesafe×pist: <1400 Çim | n öncü 1140 orta 5419 kap 575 | O/E öncü 1.199 orta 0.973 kap 0.975 | endeks +0.224 GA(Bonf) [-0.278;+0.746] yarı1 +0.191 yarı2 +0.261 | ROI öncü 0.80[0.61;1.01] kap 0.53[0.32;0.78] | -
+mesafe×pist: <1400 Sentetik | n öncü 284 orta 1339 kap 147 | O/E öncü 1.379 orta 1.015 kap 0.172 | endeks +1.207 GA(Bonf) [+0.579;+1.840] yarı1 +1.134 yarı2 +1.269 | ROI öncü 0.98[0.68;1.34] kap 0.12[0.00;0.34] | -
+mesafe×pist: 1400-1799 Kum | n öncü 2551 orta 10804 kap 2079 | O/E öncü 1.149 orta 1.012 kap 0.762 | endeks +0.387 GA(Bonf) [+0.132;+0.614] yarı1 +0.441 yarı2 +0.360 | ROI öncü 0.76[0.66;0.87] kap 0.40[0.30;0.52] | ADAY
+mesafe×pist: 1400-1799 Çim | n öncü 1051 orta 5128 kap 922 | O/E öncü 1.135 orta 1.028 kap 0.751 | endeks +0.384 GA(Bonf) [-0.045;+0.787] yarı1 +0.253 yarı2 +0.512 | ROI öncü 0.71[0.57;0.86] kap 0.39[0.29;0.51] | -
+mesafe×pist: 1400-1799 Sentetik | n öncü 722 orta 3369 kap 548 | O/E öncü 1.075 orta 1.038 kap 0.741 | endeks +0.333 GA(Bonf) [-0.146;+0.774] yarı1 +0.517 yarı2 +0.176 | ROI öncü 0.71[0.54;0.88] kap 0.52[0.27;0.86] | -
+mesafe×pist: 1800-2199 Kum | n öncü 1577 orta 7492 kap 2633 | O/E öncü 0.973 orta 1.049 kap 0.894 | endeks +0.079 GA(Bonf) [-0.208;+0.293] yarı1 +0.207 yarı2 +0.012 | ROI öncü 0.63[0.51;0.75] kap 0.51[0.43;0.59] | -
+mesafe×pist: 1800-2199 Çim | n öncü 709 orta 3805 kap 1099 | O/E öncü 1.077 orta 1.061 kap 0.690 | endeks +0.388 GA(Bonf) [-0.005;+0.810] yarı1 +0.414 yarı2 +0.356 | ROI öncü 0.87[0.65;1.11] kap 0.43[0.30;0.58] | -
+mesafe×pist: 1800-2199 Sentetik | n öncü 391 orta 2020 kap 626 | O/E öncü 1.129 orta 0.978 kap 0.986 | endeks +0.143 GA(Bonf) [-0.392;+0.644] yarı1 +0.395 yarı2 -0.063 | ROI öncü 0.80[0.50;1.17] kap 0.72[0.44;1.01] | -
+mesafe×pist: ≥2200 Kum | n öncü 94 orta 327 kap 152 | O/E öncü 0.811 orta 0.978 kap 1.190 | endeks -0.379 GA(Bonf) [-1.466;+0.635] yarı1 -0.156 yarı2 -0.531 | ROI öncü 0.41[0.19;0.70] kap 0.76[0.38;1.19] | -
+mesafe×pist: ≥2200 Çim | n öncü 226 orta 1014 kap 402 | O/E öncü 0.976 orta 0.971 kap 1.132 | endeks -0.155 GA(Bonf) [-0.772;+0.461] yarı1 -0.102 yarı2 -0.202 | ROI öncü 0.57[0.30;0.87] kap 0.65[0.45;0.87] | -
+mesafe×pist: ≥2200 Sentetik | n öncü 58 orta 257 kap 106 | O/E öncü 0.874 orta 1.066 kap 0.860 | endeks +0.014 GA(Bonf) [-1.371;+1.163] yarı1 +nan yarı2 -0.260 | ROI öncü 0.59[0.15;1.09] kap 0.55[0.16;1.03] | -
+mesafe: <1400 | n öncü 2829 orta 12572 kap 1399 | O/E öncü 1.140 orta 0.995 kap 0.818 | endeks +0.322 GA(Bonf) [+0.032;+0.581] yarı1 +0.424 yarı2 +0.250 | ROI öncü 0.79[0.68;0.92] kap 0.49[0.34;0.65] | ADAY
+mesafe: 1400-1799 | n öncü 4324 orta 19301 kap 3549 | O/E öncü 1.134 orta 1.021 kap 0.756 | endeks +0.378 GA(Bonf) [+0.214;+0.551] yarı1 +0.401 yarı2 +0.364 | ROI öncü 0.74[0.66;0.82] kap 0.42[0.33;0.51] | ADAY
+mesafe: 1800-2199 | n öncü 2677 orta 13317 kap 4358 | O/E öncü 1.018 orta 1.041 kap 0.860 | endeks +0.158 GA(Bonf) [-0.028;+0.358] yarı1 +0.297 yarı2 +0.061 | ROI öncü 0.72[0.61;0.83] kap 0.52[0.45;0.59] | -
+mesafe: ≥2200 | n öncü 378 orta 1598 kap 660 | O/E öncü 0.912 orta 0.989 kap 1.108 | endeks -0.195 GA(Bonf) [-0.710;+0.351] yarı1 -0.060 yarı2 -0.299 | ROI öncü 0.53[0.34;0.74] kap 0.66[0.50;0.84] | -
+pist: Kum | n öncü 5627 orta 24437 kap 5541 | O/E öncü 1.066 orta 1.023 kap 0.851 | endeks +0.215 GA(Bonf) [+0.072;+0.352] yarı1 +0.315 yarı2 +0.164 | ROI öncü 0.71[0.64;0.79] kap 0.48[0.42;0.54] | ADAY
+pist: Çim | n öncü 3126 orta 15366 kap 2998 | O/E öncü 1.134 orta 1.013 kap 0.827 | endeks +0.307 GA(Bonf) [+0.088;+0.554] yarı1 +0.268 yarı2 +0.347 | ROI öncü 0.77[0.67;0.87] kap 0.47[0.39;0.55] | ADAY
+pist: Sentetik | n öncü 1455 orta 6985 kap 1427 | O/E öncü 1.139 orta 1.017 kap 0.808 | endeks +0.331 GA(Bonf) [-0.011;+0.672] yarı1 +0.543 yarı2 +0.142 | ROI öncü 0.78[0.64;0.94] kap 0.57[0.41;0.75] | -
+tempo(öncü sayısı): 0-1 | n öncü 2242 orta 30621 kap 5662 | O/E öncü 1.153 orta 1.029 kap 0.813 | endeks +0.340 GA(Bonf) [+0.172;+0.517] yarı1 +0.432 yarı2 +0.251 | ROI öncü 0.76[0.66;0.86] kap 0.44[0.39;0.50] | ADAY
+tempo(öncü sayısı): 2 | n öncü 3020 orta 8677 kap 2255 | O/E öncü 1.119 orta 0.993 kap 0.851 | endeks +0.268 GA(Bonf) [+0.024;+0.482] yarı1 +0.311 yarı2 +0.240 | ROI öncü 0.82[0.71;0.93] kap 0.51[0.40;0.62] | ADAY
+tempo(öncü sayısı): 3+ | n öncü 4946 orta 7490 kap 2049 | O/E öncü 1.037 orta 1.000 kap 0.900 | endeks +0.137 GA(Bonf) [-0.108;+0.412] yarı1 +0.181 yarı2 +0.120 | ROI öncü 0.68[0.61;0.77] kap 0.60[0.46;0.76] | -
+tempo×mesafe: 0-1 <1400 | n öncü 467 orta 8043 kap 655 | O/E öncü 1.219 orta 1.015 kap 0.762 | endeks +0.457 GA(Bonf) [-0.021;+0.897] yarı1 +0.694 yarı2 +0.212 | ROI öncü 0.78[0.58;1.05] kap 0.44[0.25;0.67] | -
+tempo×mesafe: 0-1 1400-1799 | n öncü 843 orta 11954 kap 1855 | O/E öncü 1.221 orta 1.046 kap 0.658 | endeks +0.562 GA(Bonf) [+0.210;+0.887] yarı1 +0.609 yarı2 +0.519 | ROI öncü 0.82[0.66;0.98] kap 0.30[0.23;0.38] | ADAY
+tempo×mesafe: 0-1 1800-2199 | n öncü 825 orta 9494 kap 2752 | O/E öncü 1.088 orta 1.025 kap 0.871 | endeks +0.218 GA(Bonf) [-0.029;+0.503] yarı1 +0.320 yarı2 +0.134 | ROI öncü 0.72[0.57;0.87] kap 0.51[0.42;0.60] | -
+tempo×mesafe: 0-1 ≥2200 | n öncü 107 orta 1130 kap 400 | O/E öncü 0.906 orta 0.980 kap 1.105 | endeks -0.199 GA(Bonf) [-0.864;+0.615] yarı1 -0.282 yarı2 -0.128 | ROI öncü 0.49[0.25;0.80] kap 0.61[0.43;0.83] | -
+tempo×mesafe: 2 <1400 | n öncü 654 orta 2077 kap 285 | O/E öncü 1.178 orta 0.986 kap 0.694 | endeks +0.484 GA(Bonf) [-0.081;+1.004] yarı1 +0.161 yarı2 +0.759 | ROI öncü 0.97[0.66;1.34] kap 0.44[0.17;0.82] | -
+tempo×mesafe: 2 1400-1799 | n öncü 1270 orta 3827 kap 812 | O/E öncü 1.167 orta 0.966 kap 0.831 | endeks +0.336 GA(Bonf) [-0.135;+0.724] yarı1 +0.350 yarı2 +0.337 | ROI öncü 0.79[0.65;0.94] kap 0.49[0.29;0.74] | -
+tempo×mesafe: 2 1800-2199 | n öncü 966 orta 2486 kap 1001 | O/E öncü 1.041 orta 1.038 kap 0.868 | endeks +0.172 GA(Bonf) [-0.192;+0.541] yarı1 +0.340 yarı2 +0.076 | ROI öncü 0.76[0.58;0.96] kap 0.51[0.39;0.65] | -
+tempo×mesafe: 2 ≥2200 | n öncü 130 orta 287 kap 157 | O/E öncü 0.945 orta 1.012 kap 1.036 | endeks -0.091 GA(Bonf) [-1.314;+1.022] yarı1 +0.275 yarı2 -0.311 | ROI öncü 0.71[0.32;1.19] kap 0.65[0.33;1.01] | -
+tempo×mesafe: 3+ <1400 | n öncü 1708 orta 2452 kap 459 | O/E öncü 1.091 orta 0.919 kap 0.977 | endeks +0.114 GA(Bonf) [-0.390;+0.645] yarı1 +0.270 yarı2 +0.063 | ROI öncü 0.72[0.58;0.88] kap 0.59[0.33;0.93] | -
+tempo×mesafe: 3+ 1400-1799 | n öncü 2211 orta 3520 kap 882 | O/E öncü 1.062 orta 0.977 kap 0.900 | endeks +0.163 GA(Bonf) [-0.219;+0.525] yarı1 +0.073 yarı2 +0.192 | ROI öncü 0.68[0.57;0.79] kap 0.59[0.38;0.84] | -
+tempo×mesafe: 3+ 1800-2199 | n öncü 886 orta 1337 kap 605 | O/E öncü 0.873 orta 1.191 kap 0.795 | endeks +0.078 GA(Bonf) [-0.390;+0.528] yarı1 +0.174 yarı2 +0.028 | ROI öncü 0.67[0.48;0.88] kap 0.57[0.35;0.89] | -
+tempo×mesafe: 3+ ≥2200 | n öncü 141 orta 181 kap 103 | O/E öncü 0.881 orta 1.016 kap 1.255 | endeks -0.373 GA(Bonf) [-1.546;+0.923] yarı1 +nan yarı2 -0.630 | ROI öncü 0.40[0.17;0.65] kap 0.85[0.38;1.49] | -
+
+KAZANAN ERKEN SIRA ≤2,5 (yarışı önden başlayan at kazandı) payı vs beklenen (rastgele 2/n kadar; piyasa beklentisi = Σp erken≤2,5 olanların)
+mesafe×pist: <1400 Kum | koşu 941 | önden başlayan kazandı 0.393 | piyasa beklentisi 0.259 | fark +0.135
+mesafe×pist: <1400 Çim | koşu 781 | önden başlayan kazandı 0.346 | piyasa beklentisi 0.224 | fark +0.122
+mesafe×pist: <1400 Sentetik | koşu 220 | önden başlayan kazandı 0.395 | piyasa beklentisi 0.210 | fark +0.185
+mesafe×pist: 1400-1799 Kum | koşu 1787 | önden başlayan kazandı 0.339 | piyasa beklentisi 0.243 | fark +0.096
+mesafe×pist: 1400-1799 Çim | koşu 745 | önden başlayan kazandı 0.286 | piyasa beklentisi 0.207 | fark +0.078
+mesafe×pist: 1400-1799 Sentetik | koşu 499 | önden başlayan kazandı 0.295 | piyasa beklentisi 0.213 | fark +0.082
+mesafe×pist: 1800-2199 Kum | koşu 1396 | önden başlayan kazandı 0.357 | piyasa beklentisi 0.275 | fark +0.081
+mesafe×pist: 1800-2199 Çim | koşu 601 | önden başlayan kazandı 0.281 | piyasa beklentisi 0.210 | fark +0.071
+mesafe×pist: 1800-2199 Sentetik | koşu 334 | önden başlayan kazandı 0.266 | piyasa beklentisi 0.219 | fark +0.047
+mesafe×pist: ≥2200 Kum | koşu 70 | önden başlayan kazandı 0.329 | piyasa beklentisi 0.281 | fark +0.048
+mesafe×pist: ≥2200 Çim | koşu 199 | önden başlayan kazandı 0.236 | piyasa beklentisi 0.245 | fark -0.008
+mesafe×pist: ≥2200 Sentetik | koşu 50 | önden başlayan kazandı 0.340 | piyasa beklentisi 0.238 | fark +0.102
+mesafe: <1400 | koşu 1942 | önden başlayan kazandı 0.374 | piyasa beklentisi 0.239 | fark +0.135
+mesafe: 1400-1799 | koşu 3031 | önden başlayan kazandı 0.318 | piyasa beklentisi 0.229 | fark +0.089
+mesafe: 1800-2199 | koşu 2331 | önden başlayan kazandı 0.324 | piyasa beklentisi 0.251 | fark +0.074
+mesafe: ≥2200 | koşu 319 | önden başlayan kazandı 0.273 | piyasa beklentisi 0.252 | fark +0.021
+pist: Kum | koşu 4194 | önden başlayan kazandı 0.357 | piyasa beklentisi 0.258 | fark +0.099
+pist: Çim | koşu 2326 | önden başlayan kazandı 0.301 | piyasa beklentisi 0.217 | fark +0.084
+pist: Sentetik | koşu 1103 | önden başlayan kazandı 0.308 | piyasa beklentisi 0.215 | fark +0.093
+tempo(öncü sayısı): 0-1 | koşu 4763 | önden başlayan kazandı 0.343 | piyasa beklentisi 0.247 | fark +0.096
+tempo(öncü sayısı): 2 | koşu 1510 | önden başlayan kazandı 0.330 | piyasa beklentisi 0.244 | fark +0.087
+tempo(öncü sayısı): 3+ | koşu 1350 | önden başlayan kazandı 0.299 | piyasa beklentisi 0.207 | fark +0.093
+tempo×mesafe: 0-1 <1400 | koşu 1178 | önden başlayan kazandı 0.376 | piyasa beklentisi 0.240 | fark +0.136
+tempo×mesafe: 0-1 1400-1799 | koşu 1787 | önden başlayan kazandı 0.324 | piyasa beklentisi 0.238 | fark +0.086
+tempo×mesafe: 0-1 1800-2199 | koşu 1584 | önden başlayan kazandı 0.346 | piyasa beklentisi 0.260 | fark +0.086
+tempo×mesafe: 0-1 ≥2200 | koşu 214 | önden başlayan kazandı 0.290 | piyasa beklentisi 0.266 | fark +0.024
+tempo×mesafe: 2 <1400 | koşu 327 | önden başlayan kazandı 0.388 | piyasa beklentisi 0.253 | fark +0.135
+tempo×mesafe: 2 1400-1799 | koşu 635 | önden başlayan kazandı 0.326 | piyasa beklentisi 0.234 | fark +0.092
+tempo×mesafe: 2 1800-2199 | koşu 483 | önden başlayan kazandı 0.302 | piyasa beklentisi 0.251 | fark +0.051
+tempo×mesafe: 2 ≥2200 | koşu 65 | önden başlayan kazandı 0.292 | piyasa beklentisi 0.236 | fark +0.056
+tempo×mesafe: 3+ <1400 | koşu 437 | önden başlayan kazandı 0.359 | piyasa beklentisi 0.225 | fark +0.134
+tempo×mesafe: 3+ 1400-1799 | koşu 609 | önden başlayan kazandı 0.294 | piyasa beklentisi 0.200 | fark +0.094
+tempo×mesafe: 3+ 1800-2199 | koşu 264 | önden başlayan kazandı 0.235 | piyasa beklentisi 0.194 | fark +0.041
+tempo×mesafe: 3+ ≥2200 | koşu 40 | önden başlayan kazandı 0.150 | piyasa beklentisi 0.199 | fark -0.049
+
+GERÇEK TEMPO (yarış SONRASI, betimleyici; fade=son400/ önceki400 oranı terzileri):
+hızlı-erken(az sönme) | öncü n 3201 O/E 1.014 | kapanış n 3074 O/E 0.870 | fark +0.144
+yavaş-erken | öncü n 3050 O/E 1.176 | kapanış n 3241 O/E 0.789 | fark +0.387
+orta | öncü n 3396 O/E 1.079 | kapanış n 3114 O/E 0.883 | fark +0.196
+
+BİTTİ
