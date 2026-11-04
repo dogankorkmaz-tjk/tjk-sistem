@@ -1,0 +1,41 @@
+{
+ "tarih": "2026-11-05",
+ "hipodrom": "ankara",
+ "kaynak": "Robin Ahmet Ankara",
+ "tur": "tuyo",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:17). TÜYO, yorumcu seçimi DEĞİL (skorlamaya/kuponlara katılmaz). Doğan'ın açıklaması: '/' arkası sıralı ikili tüyosu. Yani '/' öncesi ganyan tüyosu, '/' sonrası sıralı ikili. Belirsiz: '/' sonrası tek rakam (2. koşu '2/1', 6. koşu '1/3') ve üç rakamlı (1. koşu '7/1-2', 7. koşu '1/3-2') durumlarının tam anlamı Doğan'dan teyit edilecek; ham metin saklandı. Mavi alt çizgi otomatik bağlantı, anlamsız. Yarıştan ÖNCE kaydedildi.",
+ "ham": {
+  "1": "7/1-2",
+  "2": "2/1",
+  "6": "1/3",
+  "7": "1/3-2"
+ },
+ "tuyo": {
+  "1": {
+   "ganyan": 7,
+   "sirali_ikili_ham": [
+    1,
+    2
+   ]
+  },
+  "2": {
+   "ganyan": 2,
+   "sirali_ikili_ham": [
+    1
+   ]
+  },
+  "6": {
+   "ganyan": 1,
+   "sirali_ikili_ham": [
+    3
+   ]
+  },
+  "7": {
+   "ganyan": 1,
+   "sirali_ikili_ham": [
+    3,
+    2
+   ]
+  }
+ }
+}
