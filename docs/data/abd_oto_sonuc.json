@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-03 21:28 UTC",
- "kayitli_kosu": 1462,
- "eslesmeyen_kosu": 996,
+ "uretim": "2026-11-04 01:00 UTC",
+ "kayitli_kosu": 1463,
+ "eslesmeyen_kosu": 995,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 791,
- "kosu": 466,
- "isabet": 50,
- "roi": 0.946,
+ "bahis": 793,
+ "kosu": 468,
+ "isabet": 51,
+ "roi": 0.957,
  "ga95": [
-  0.657,
-  1.272
+  0.674,
+  1.283
  ],
  "ulke": {
   "abd": {
-   "bahis": 521,
-   "roi": 0.741
+   "bahis": 523,
+   "roi": 0.759
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 951,
-  "kosu": 457,
+  "bahis": 954,
+  "kosu": 459,
   "isabet": 95,
-  "roi": 0.642,
+  "roi": 0.64,
   "ga95": [
-   0.453,
-   0.832
+   0.451,
+   0.829
   ]
  },
  "bahis_t1": {
-  "bahis": 978,
-  "kosu": 451,
+  "bahis": 979,
+  "kosu": 453,
   "isabet": 98,
   "roi": 0.688,
   "ga95": [
-   0.45,
-   0.96
+   0.449,
+   0.959
   ]
  },
  "bahis_t3": {
-  "bahis": 980,
-  "kosu": 437,
+  "bahis": 982,
+  "kosu": 439,
   "isabet": 104,
-  "roi": 0.638,
+  "roi": 0.637,
   "ga95": [
-   0.427,
+   0.426,
    0.906
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 6,
-   "at": "FUOCO",
-   "q": 0.135,
-   "g": 12.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 6,
-   "at": "DYNO WAR",
-   "q": 0.051,
-   "g": 33.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Horseshoe Indianapolis",
@@ -423,6 +405,24 @@
    "at": "COMFORT CASH",
    "q": 0.184,
    "g": 9.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 5,
+   "at": "JULIA'S PROMISE",
+   "q": 0.177,
+   "g": 10.9,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 5,
+   "at": "DELIA",
+   "q": 0.133,
+   "g": 13.45,
    "kazandi": false
   }
  ]
