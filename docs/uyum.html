@@ -1,0 +1,14 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Uyum seçimi (deneysel)</title>
+<style>:root{--bg:#fff;--fg:#1a1a1a;--mut:#666;--ln:#ddd;--ac:#0a6}@media(prefers-color-scheme:dark){:root{--bg:#121212;--fg:#eee;--mut:#aaa;--ln:#333;--ac:#4c9}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif;padding:16px;max-width:720px;margin:auto}h1{font-size:20px;margin:0 0 4px}.s{color:var(--mut);font-size:13px;margin-bottom:12px}
+.k{border:1px solid var(--ln);border-radius:10px;padding:10px 12px;margin:10px 0}.k b{color:var(--ac)}.r{display:flex;justify-content:space-between;gap:8px;padding:3px 0}.m{color:var(--mut);font-size:13px}</style></head><body>
+<h1>Uyum seçimi</h1><div class="s" id="alt">yükleniyor…</div><div id="ic"></div>
+<script>
+fetch('data/uyum_secim.json?'+Date.now()).then(r=>r.json()).then(d=>{
+ document.getElementById('alt').innerHTML=d.gun+' · '+d.kural+'<br>Deneysel ve kâğıt üstü. Bahis önerisi değil. Güncelleme: '+d.olusturma;
+ const ic=document.getElementById('ic'); let n=0;
+ d.kosular.forEach(k=>{ if(!k.secimler.length) return; n+=k.secimler.length;
+  ic.insertAdjacentHTML('beforeend','<div class="k"><b>'+k.hipodrom.toUpperCase()+' '+k.kosu+'. koşu</b> <span class="m">'+(k.saat||'')+'</span>'+k.secimler.map(s=>'<div class="r"><span>#'+s.no+' '+s.at+'</span><span class="m">uyum '+s.uyum_sirasi+'. · AGF '+s.agf_sirasi+'. ('+String(s.agf).replace('.',',')+')</span></div>').join('')+'</div>');});
+ if(!n) ic.innerHTML='<div class="m">Bu gün için seçim yok (ya da AGF henüz yayınlanmadı).</div>';
+}).catch(()=>{document.getElementById('alt').textContent='Veri yok (henüz AGF sonrası seçim üretilmedi).';});
+</script></body></html>
