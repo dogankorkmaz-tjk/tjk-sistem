@@ -1,0 +1,36 @@
+toplam at 50716 koşu 6155 gün 381
+stil dağılımı {'orta': 37470, 'öncü': 6782, 'kapanış': 6464}
+
+STİL × MESAFE: n | kazanan | beklenen | O/E | GA
+öncü kısa (2070, 292, np.float64(257.3), np.float64(1.135), [1.04, 1.23])
+öncü orta (2562, 351, np.float64(320.3), np.float64(1.096), [1.01, 1.18])
+öncü uzun (718, 89, np.float64(99.7), np.float64(0.892), [0.74, 1.05])
+orta kısa (10543, 1078, np.float64(1067.8), np.float64(1.01), [0.98, 1.04])
+orta orta (13570, 1450, np.float64(1406.6), np.float64(1.031), [1.01, 1.06])
+orta uzun (3860, 441, np.float64(432.1), np.float64(1.021), [0.97, 1.07])
+kapanış kısa (1318, 93, np.float64(104.5), np.float64(0.89), [0.74, 1.05])
+kapanış orta (2739, 188, np.float64(244.2), np.float64(0.77), [0.67, 0.87])
+kapanış uzun (1103, 101, np.float64(102.8), np.float64(0.982), [0.82, 1.15])
+
+STİL × KOŞUDAKİ ÖNCÜ SAYISI
+öncü 0-1 (1746, 286, np.float64(265.4), np.float64(1.078), [0.98, 1.18])
+öncü 2 (2142, 289, np.float64(266.0), np.float64(1.086), [0.98, 1.18])
+öncü 3+ (2894, 310, np.float64(294.4), np.float64(1.053), [0.97, 1.14])
+orta 0-1 (26183, 2844, np.float64(2808.6), np.float64(1.013), [1.0, 1.03])
+orta 2 (6358, 637, np.float64(625.1), np.float64(1.019), [0.97, 1.07])
+orta 3+ (4929, 397, np.float64(398.2), np.float64(0.997), [0.94, 1.06])
+kapanış 0-1 (3807, 296, np.float64(342.1), np.float64(0.865), [0.79, 0.95])
+kapanış 2 (1400, 97, np.float64(118.6), np.float64(0.818), [0.68, 0.98])
+kapanış 3+ (1257, 90, np.float64(101.0), np.float64(0.891), [0.74, 1.05])
+
+STİL (genel)
+öncü (6782, 885, np.float64(825.8), np.float64(1.072), [1.02, 1.13])
+orta (37470, 3878, np.float64(3831.9), np.float64(1.012), [1.0, 1.03])
+kapanış (6464, 483, np.float64(561.7), np.float64(0.86), [0.79, 0.93])
+
+ROI (1 TL ganyan, büyük ödemeler dahil) | n | ROI | GA
+öncü (6782, np.float64(0.742), [0.68, 0.81])
+orta (37470, np.float64(0.609), [0.58, 0.63])
+kapanış (6464, np.float64(0.465), [0.41, 0.52])
+öncü kısa (2070, np.float64(0.834), [0.71, 0.97]) öncü orta (2562, np.float64(0.718), [0.62, 0.83])
+tüm atlar (50716, np.float64(0.608), [0.59, 0.63])
