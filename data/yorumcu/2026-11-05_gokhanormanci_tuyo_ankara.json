@@ -3,7 +3,7 @@
  "hipodrom": "ankara",
  "kaynak": "Gökhan Ormancı",
  "tur": "tuyo",
- "not": "Doğan'ın mesajı (5 Kasım 01:20). TÜYO, seçim değil. Hipodrom belirtilmedi, önceki notlar gibi Ankara varsayıldı (teyit edilecek). Ham: '2) 2 (5 ile eküri)'; '7) 1 (beyaz bayrak ayna yapmasını bekliyor)'. 2. koşu tüyosu ekürili (2 ile 5 aynı ekürü); 7. koşu tüyosu bir ekipman/koşu şekli beklentisine bağlı (ifade ham saklandı, yorumlanmadı).",
+ "not": "Doğan'ın mesajı (5 Kasım 01:20). TÜYO, seçim değil. Hipodrom belirtilmedi, önceki notlar gibi Ankara varsayıldı (teyit edilecek). Ham: '2) 2 (5 ile eküri)'; '7) 1 (beyaz bayrak ayna yapmasını bekliyor)'. 2. koşu tüyosu ekürili (2 ile 5 aynı ekürü); 7. koşu tüyosu bir ekipman/koşu şekli beklentisine bağlı (ifade ham saklandı, yorumlanmadı). Teyit (Doğan, 5 Kasım 01:22): 'beyaz bayrak ayna yapmak' = yarışa en önde başlayıp hiç geçilmeden birinci bitirmek (uçtan uca). Yani 7. koşu tüyosu, 1 numaranın öncü gidip tek başına kazanma senaryosuna bağlı.",
  "tuyo": {
   "2": {
    "ganyan": 2,
@@ -13,7 +13,9 @@
   },
   "7": {
    "ganyan": 1,
-   "kosul_ham": "beyaz bayrak ayna yapmasını bekliyor"
+   "kosul_ham": "beyaz bayrak ayna yapmasını bekliyor",
+   "kosul": "1 numaralı atın uçtan uca (başından sonuna önde, hiç geçilmeden) kazanması: 'beyaz bayrak ayna yapmak'",
+   "uctan_uca_beklentisi": true
   }
  }
 }
