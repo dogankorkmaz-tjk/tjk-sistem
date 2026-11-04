@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-04 20:31 UTC",
+ "uretim": "2026-11-04 20:46 UTC",
  "kayitli_kosu": 1534,
- "eslesmeyen_kosu": 1038,
+ "eslesmeyen_kosu": 1035,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 846,
- "kosu": 496,
- "isabet": 55,
- "roi": 0.945,
+ "bahis": 848,
+ "kosu": 499,
+ "isabet": 56,
+ "roi": 0.952,
  "ga95": [
-  0.68,
-  1.244
+  0.686,
+  1.251
  ],
  "ulke": {
   "abd": {
-   "bahis": 541,
-   "roi": 0.765
+   "bahis": 543,
+   "roi": 0.777
   },
   "birlesik-krallik": {
    "bahis": 143,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1038,
-  "kosu": 486,
+  "bahis": 1040,
+  "kosu": 489,
   "isabet": 100,
-  "roi": 0.625,
+  "roi": 0.624,
   "ga95": [
-   0.454,
+   0.453,
    0.808
   ]
  },
  "bahis_t1": {
-  "bahis": 1063,
-  "kosu": 480,
+  "bahis": 1067,
+  "kosu": 483,
   "isabet": 103,
-  "roi": 0.67,
+  "roi": 0.667,
   "ga95": [
-   0.461,
-   0.931
+   0.458,
+   0.928
   ]
  },
  "bahis_t3": {
-  "bahis": 1061,
-  "kosu": 466,
+  "bahis": 1063,
+  "kosu": 469,
   "isabet": 114,
-  "roi": 0.657,
+  "roi": 0.656,
   "ga95": [
    0.463,
-   0.91
+   0.907
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "GLEN BREEZE",
-   "q": 0.079,
-   "g": 18.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "PICK A WINDOW",
-   "q": 0.025,
-   "g": 55.85,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Finger Lakes",
@@ -180,6 +162,15 @@
    "at": "CAPPELLINO",
    "q": 0.141,
    "g": 12.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 4,
+   "at": "WICKED SUPRISE",
+   "q": 0.355,
+   "g": 8.4,
    "kazandi": false
   },
   {
@@ -334,6 +325,15 @@
    "q": 0.177,
    "g": 9.0,
    "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Mahoning Valley",
+   "kosu": 7,
+   "at": "COLORYOUREGGS",
+   "q": 0.224,
+   "g": 8.4,
+   "kazandi": true
   },
   {
    "gun": "2026-11-04",
