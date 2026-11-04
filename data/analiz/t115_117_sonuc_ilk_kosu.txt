@@ -1,0 +1,46 @@
+arşivden kapı dolu oran 0.968 mesafe 0.969
+video-hedefli at 79397 koşu 8363 gün 683 | ilk tarih 2024-10-01 son 2026-10-21
+
+T115 test: 4414 koşu, 363 gün, 42847 at
+koşu-içi AUC (öncü=ilk2 erken sıra): model 0.7949 kapı 0.5128 rastgele 0.4979
+AUC(model)−AUC(kapı): 0.2827 GA [0.2731, 0.2934] gün 363
+ilk-1 isabeti model (np.float64(0.4299954689623924), 4414) kapı (np.float64(0.13706388763026733), 4414) rastgele beklenen 0.1136
+Σp ile gerçek öncü sayısı korelasyonu (ilk2 hedefinde sabit ~2, bilgi yok): -0.029
+gerçek (erken sıra ≤2,5) öncü sayısı vs stil-öncü sayısı korelasyonu: -0.018
+KARAR T115: anlamlı
+
+T116: 69844 at, 7921 koşu, bölme tarihi 2025-11-13, grup sayısı 20 (Bonferroni %99.75 GA)
+grup | n | kazanan | beklenen | O/E | GA(Bonf) | yarı1 O/E | yarı2 O/E | aday?
+stil=orta | 48624 | 5282 | 5183.4 | 1.019 | [1.0, 1.04] | 1.020 | 1.018 | -
+stil=öncü | 10745 | 1450 | 1327.0 | 1.093 | [1.03, 1.16] | 1.129 | 1.068 | ADAY
+stil=kapanış | 10475 | 785 | 931.8 | 0.842 | [0.77, 0.91] | 0.786 | 0.882 | ADAY
+kapig=iç | 24049 | 2729 | 2605.2 | 1.048 | [1.0, 1.09] | 1.066 | 1.028 | -
+kapig=dış | 21923 | 2315 | 2334.9 | 0.991 | [0.94, 1.04] | 0.993 | 0.990 | -
+kapig=orta | 19524 | 2001 | 2040.5 | 0.981 | [0.94, 1.03] | 0.963 | 0.999 | -
+band=uzun | 13220 | 1491 | 1489.0 | 1.001 | [0.99, 1.01] | 1.000 | 1.003 | -
+band=kısa | 16800 | 1781 | 1757.3 | 1.013 | [1.0, 1.03] | 1.011 | 1.016 | -
+band=orta | 36942 | 3955 | 3910.1 | 1.011 | [1.0, 1.02] | 1.016 | 1.006 | -
+oran=favori(≥25%) | 7204 | 2747 | 2619.5 | 1.049 | [1.01, 1.09] | 1.051 | 1.046 | ADAY
+oran=orta-uzun | 20950 | 1618 | 1671.1 | 0.968 | [0.91, 1.04] | 0.958 | 0.978 | -
+oran=uzun(<5%) | 27772 | 596 | 749.1 | 0.796 | [0.71, 0.89] | 0.775 | 0.813 | ADAY
+oran=orta | 13918 | 2556 | 2402.5 | 1.064 | [1.02, 1.11] | 1.072 | 1.056 | ADAY
+hnd_b=56-65 | 7593 | 888 | 880.2 | 1.009 | [0.94, 1.08] | 1.028 | 0.990 | -
+hnd_b=>65 | 19144 | 2722 | 2647.2 | 1.028 | [1.01, 1.05] | 1.036 | 1.021 | ADAY
+hnd_b=≤45 | 33934 | 2832 | 2841.3 | 0.997 | [0.97, 1.02] | 0.992 | 1.001 | -
+hnd_b=46-55 | 9173 | 1075 | 1073.6 | 1.001 | [0.94, 1.06] | 0.989 | 1.014 | -
+jok_s=orta | 23746 | 2883 | 2829.1 | 1.019 | [0.99, 1.06] | 1.016 | 1.021 | -
+jok_s=üst | 23051 | 2814 | 2674.0 | 1.052 | [1.01, 1.09] | 1.040 | 1.065 | ADAY
+jok_s=alt | 23047 | 1820 | 1939.1 | 0.939 | [0.89, 1.0] | 0.965 | 0.912 | -
+Traceback (most recent call last):
+  File "/home/claude/tjk-sistem/data/analiz/t115_117.py", line 149, in <module>
+    if (cu.dt-pr.dt).days<=60: rows.append((cu.tarih,cu.kazandi,cu.p,int(cu.bit<=3),pr.et_a,pr.et_b,pr.et_c,pr.et_d))
+        ^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/core/generic.py", line 6194, in __getattr__
+    return object.__getattribute__(self, name)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/core/accessor.py", line 230, in __get__
+    return self._accessor(obj)
+           ~~~~~~~~~~~~~~^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/core/indexes/accessors.py", line 698, in __new__
+    raise AttributeError("Can only use .dt accessor with datetimelike values")
+AttributeError: Can only use .dt accessor with datetimelike values. Did you mean: 'at'?

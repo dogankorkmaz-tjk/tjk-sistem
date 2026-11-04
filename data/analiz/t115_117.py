@@ -87,8 +87,9 @@ for tgt in ('lead2','lead1'):
 test=d[d.tarih>='2025-10-01'].copy(); test=test[test.kapi_ok]
 log(f'\nT115 test: {test.rid.nunique()} koşu, {test.tarih.nunique()} gün, {len(test)} at')
 test['rnd']=rng.random(len(test))
-a_m=auc_ric(test.assign(lead2=test.lead2),'lead2_model'); a_k=auc_ric(test,'lead2_kapi'); a_r=auc_ric(test,'rnd')
-log('koşu-içi AUC (öncü=ilk2 erken sıra): model',round(np.mean([x[1] for x in a_m]),4),'kapı',round(np.mean([x[1] for x in a_k]),4),'rastgele',round(np.mean([x[1] for x in a_r]),4))
+a_m=auc_ric(test.assign(lead2=test.lead2),'lead2_model'); a_k=auc_ric(test,'lead2_kapi'); a_r=auc_ric(test,'rnd'); test['stl']=-test.f1; a_s=auc_ric(test,'stl')
+log('koşu-içi AUC (öncü=ilk2 erken sıra): model',round(np.mean([x[1] for x in a_m]),4),'kapı',round(np.mean([x[1] for x in a_k]),4),'rastgele',round(np.mean([x[1] for x in a_r]),4),'| EK (kayıt dışı, bilgi): yalnız stil f_v1',round(np.mean([x[1] for x in a_s]),4))
+b2=boot(a_m,a_s); log('EK: AUC(model)−AUC(yalnız stil):',b2[0],'GA',b2[1])
 b=boot(a_m,a_k); log('AUC(model)−AUC(kapı):',b[0],'GA',b[1],'gün',b[2]); T115_gecti=b[1][0]>0
 def isabet(col,tg):
     h=[];
@@ -140,13 +141,13 @@ d['et_a']=((d.e_orta<=3)&(d.bit>d.n/2)).astype(int)                 # tempo kurb
 d['et_b']=(((d.e_orta-d.e_son)>=4)&(d.bit>3)).astype(int)            # geç kapanan (son parça kazancı ≥4, ilk3 dışı)
 d['et_c']=((d.bit<=3)&(d.p<=0.05)).astype(int)                      # beklenenden iyi
 d['et_d']=((d.p>=0.25)&(d.bit>5)).astype(int)                       # beklenenden kötü
-d['dt']=pd.to_datetime(d.tarih)
+d['dtm']=pd.to_datetime(d.tarih)
 rows=[]
 for at_,x in d.groupby('at'):
-    x=x.sort_values('dt')
+    x=x.sort_values('dtm')
     for i in range(1,len(x)):
         pr=x.iloc[i-1]; cu=x.iloc[i]
-        if (cu.dt-pr.dt).days<=60: rows.append((cu.tarih,cu.kazandi,cu.p,int(cu.bit<=3),pr.et_a,pr.et_b,pr.et_c,pr.et_d))
+        if (cu.dtm-pr.dtm).days<=60: rows.append((cu.tarih,cu.kazandi,cu.p,int(cu.bit<=3),pr.et_a,pr.et_b,pr.et_c,pr.et_d))
 R=pd.DataFrame(rows,columns=['tarih','kaz','p','ilk3','et_a','et_b','et_c','et_d'])
 log(f'\nT117: ardışık çift sayısı {len(R)}')
 for e,ad in (('et_a','tempo kurbanı'),('et_b','geç kapanan'),('et_c','beklenenden iyi'),('et_d','beklenenden kötü')):
