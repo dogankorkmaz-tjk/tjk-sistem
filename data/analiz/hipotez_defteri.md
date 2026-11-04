@@ -1824,3 +1824,11 @@ Kaynak: v3 galopsuz S3 önbellekleri, MJV (= MJ + video stil f_v1..f_v5) − MJ;
 - Tepe ata 1 TL ganyan geri dönüş/koşu: TÜMÜ 0,765 vs 0,769, fark −0,0032 [−0,0190; +0,0120]; B 0,732 vs 0,739; H 0,831 vs 0,828 → ROI'de fark yok, ROI<1.
 - Kazanan log-kayıp: B'de −0,0021 (GA<0, iyi), H'de +0,0035 (hafif kötü), TÜMÜ −0,0002 [−0,0023; +0,0018] → iki dönemde ters işaret, toplamda sıfır.
 - Yorum: stil bilgisi olasılıkları küçük ve dönem-bağımlı biçimde oynatıyor, birinci tercihleri ve ganyan getirisini değiştirmiyor. Kasım–Ocak T41 yeniden testi (kayıtlı kural) geçerli olmaya devam eder.
+
+## ÖLÇÜM (betimleyici): stil bilgisini ANA MODELE (G1-S v3 + galop aşaması, S3g) eklemenin etkisi — 5 Kasım 02:45
+Düzeltme: önceki ölçüm (jason_stil_fark.py) önbellekteki v3 GALOPSUZ skorlarını (S3; Jason özellikleri ortak eğitimli v3) kullanıyordu; ayrı bir yalnız-Jason (fitJ) skoru önbellekte yok. Bu ölçüm galop ikinci aşamalı son skorla (S3g) yapıldı (entegre_v3_elo2_g.py, VAR=MJ/MJV, önbellek cacheg_*). Galop aşaması 2026-02'de yok (NaN) ve Aralık/Ocak ... ilk bakışta H dönemi NaN'lı aylar atlandı (geçersiz çıktı fark edilip düzeltildi: ilk çalıştırmada H için %83,6 isabet çıkmıştı, NaN skorlarından; o sayılar çöp).
+Sonuç (3.826 koşu; B 2026-04..2026-10 = 3.388 koşu): aynı tepe at %96,5.
+- Kazanan log-kayıp: B −0,0010 [−0,0022; +0,0003]; TÜMÜ −0,0009 [−0,0020; +0,0002] (sıfırı kapsıyor).
+- Tepe at isabeti: TÜMÜ %33,12 → %32,72 (fark −0,0039 [−0,0080; +0,0005]).
+- Tepe ata 1 TL ganyan geri dönüş/koşu: TÜMÜ 0,759 → 0,742 (fark −0,0167 [−0,0328; −0,0013]); B 0,759 → 0,741 (−0,0179 [−0,0356; −0,0024]) → ROI'de hafif KÖTÜLEŞME (tek bahis/koşu, gürültülü; ana karar ölçütü değil).
+- Yorum: stil bilgisi ana modele net fayda sağlamıyor, tepe ata ganyan getirisi hafif kötüleşiyor. T41 kayıtlı kuralı (Kasım–Ocak) aynen geçerli.

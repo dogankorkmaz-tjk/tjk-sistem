@@ -1,0 +1,16 @@
+atlandı (galop aşaması yok/NaN): 2025-12
+atlandı (galop aşaması yok/NaN): 2026-01
+atlandı (galop aşaması yok/NaN): 2026-02
+koşu 3826 | aynı tepe at oranı 0.965
+H 2025-12..2026-03 koşu 438
+   kazanan log-kayıp (− iyi): MJV 1.7630 | MJ 1.7626 | fark +0.0003 [-0.0027,+0.0037]
+   tepe at isabeti (+ iyi): MJV 0.3584 | MJ 0.3584 | fark +0.0000 [-0.0119,+0.0136]
+   tepe ata 1 TL ganyan geri dönüş/koşu (+ iyi): MJV 0.7551 | MJ 0.7624 | fark -0.0073 [-0.0543,+0.0351]
+B 2026-04..2026-10 koşu 3388
+   kazanan log-kayıp (− iyi): MJV 1.8634 | MJ 1.8645 | fark -0.0010 [-0.0022,+0.0003]
+   tepe at isabeti (+ iyi): MJV 0.3232 | MJ 0.3276 | fark -0.0044 [-0.0097,+0.0000]
+   tepe ata 1 TL ganyan geri dönüş/koşu (+ iyi): MJV 0.7407 | MJ 0.7587 | fark -0.0179 [-0.0356,-0.0024]
+TÜMÜ koşu 3826
+   kazanan log-kayıp (− iyi): MJV 1.8519 | MJ 1.8528 | fark -0.0009 [-0.0020,+0.0002]
+   tepe at isabeti (+ iyi): MJV 0.3272 | MJ 0.3312 | fark -0.0039 [-0.0080,+0.0005]
+   tepe ata 1 TL ganyan geri dönüş/koşu (+ iyi): MJV 0.7424 | MJ 0.7591 | fark -0.0167 [-0.0328,-0.0013]
