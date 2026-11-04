@@ -1,0 +1,27 @@
+at 202929 koşu 21268 ıslak vekil koşu 3229 | pist türleri {'Kum': 116620, 'Çim': 56906, 'Sentetik': 29403}
+TEST 1 ISLAK koşu 1706 at 16511
+   sire_wet   +0.0100 [-0.0017,+0.0209]
+   dsire_wet  +0.0067 [-0.0059,+0.0196]
+   dam_wet    -0.0108 [-0.0219,+0.0006]
+   form5      -0.0163 [-0.0285,-0.0043]
+   jok        +0.3943 [+0.3816,+0.4070]
+   nk         -0.1805 [-0.1957,-0.1652]
+   hnd_r      +0.4043 [+0.3874,+0.4188]
+   kilo_r     +0.0340 [+0.0194,+0.0510]
+TEST 1 KURU (kontrol) koşu 9298 at 91805
+   sire_wet   +0.0161 [+0.0114,+0.0210]
+   dsire_wet  +0.0042 [-0.0005,+0.0092]
+   dam_wet    -0.0172 [-0.0226,-0.0116]
+   form5      -0.0013 [-0.0068,+0.0039]
+   jok        +0.3955 [+0.3900,+0.4012]
+   nk         -0.1834 [-0.1910,-0.1766]
+   hnd_r      +0.4203 [+0.4133,+0.4269]
+   kilo_r     +0.0201 [+0.0128,+0.0272]
+TEST 2 ANA TEST (ıslak koşular, kayıtlı soy_wet=0,5 baba+0,5 anne babası) [soy_wet] koşu 1696 | c (1 SS) = +0.0476  95% GA [-0.0046,+0.1029] => GA 0'ı kapsıyor/altında: kanıt yok
+TEST 2 betimleyici [sire_wet] koşu 1696 | c (1 SS) = +0.0266  95% GA [-0.0222,+0.0762] => GA 0'ı kapsıyor/altında: kanıt yok
+TEST 2 betimleyici [dsire_wet] koşu 1696 | c (1 SS) = +0.0436  95% GA [-0.0078,+0.0967] => GA 0'ı kapsıyor/altında: kanıt yok
+TEST 2 betimleyici [dam_wet] koşu 1696 | c (1 SS) = +0.0240  95% GA [-0.0291,+0.0723] => GA 0'ı kapsıyor/altında: kanıt yok
+TEST 2 kontrol (kuru koşular) [soy_wet] koşu 9281 | c (1 SS) = -0.0005  95% GA [-0.0223,+0.0226] => GA 0'ı kapsıyor/altında: kanıt yok
+TEST 2 betimleyici Kum [soy_wet] koşu 1159 | c (1 SS) = +0.0426  95% GA [-0.0244,+0.1129] => GA 0'ı kapsıyor/altında: kanıt yok
+TEST 2 betimleyici Çim [soy_wet] koşu 191 | c (1 SS) = +0.0955  95% GA [-0.0780,+0.2612] => GA 0'ı kapsıyor/altında: kanıt yok
+BİTTİ
