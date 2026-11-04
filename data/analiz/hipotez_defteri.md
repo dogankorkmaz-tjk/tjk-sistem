@@ -1748,3 +1748,8 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - 4 videodan 14'er kare (6 sn aralık) görsel incelendi. Yayın sürekli kamera değiştiriyor (kapıdan yaklaşma, yandan pan, tepe açısı, ön görünüm); mesafe direği/işareti yalnız birkaç karede ve rastgele açıyla görünüyor (ör. kırmızı "4" levhası). Her atın direği geçtiği kareyi güvenilir yakalamak mümkün görünmüyor.
 - Yayın, öncü atın 400/600/800/1000 m geçiş sürelerini sağ üstte zaten yazıyor (bolum). Yani direk ölçümü gereksiz ve zayıf; doğrudan bu süreler daha iyi bir ölçüt.
 - Karar: T124'ün direk yöntemi TERK. Yerine T124b: `bolum` temizliği (monoton artış, makul hız, 4000/4400 gibi bozuk anahtarları ele) + doğrudan süreleri tempo hedefi yap (ilk 400 m, 400–800 m; hipodrom×pist×mesafe hücresine göre z). Kapsam ~%96.
+
+## SONUÇ Aşama B (galop videosu pilotu, adım sıklığı)
+- 60/60 video indi ve işlendi (20 at × 3). Adım Hz ort. 1,95 (std 0,46), aralık 1,2–3,5 Hz içinde ama FFT tepe oranı çok düşük (≈0,01–0,03: spektrum neredeyse düz, sinyal zayıf).
+- ICC (aynı atın 3 videosu arasında tutarlılık) = 0,475 < 0,5 → kayıtlı karar kuralı: BAŞARISIZ (sınırda). p400 ile korelasyon −0,05 (anlamlı ilişki yok).
+- Yorum: kaba hareket-enerjisi/FFT yöntemi adım sıklığını güvenilir ölçmüyor (kamera hareketi karışıyor). Ciddi sürüm için at tespiti + takip (pose/iz sürme) gerekir; bu CV işi, yöntem değişmeden devam edilmez.
