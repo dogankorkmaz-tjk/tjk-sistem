@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-04 18:51 UTC",
- "kayitli_kosu": 1526,
- "eslesmeyen_kosu": 1034,
+ "uretim": "2026-11-04 19:29 UTC",
+ "kayitli_kosu": 1530,
+ "eslesmeyen_kosu": 1037,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 836,
- "kosu": 492,
+ "bahis": 840,
+ "kosu": 493,
  "isabet": 54,
- "roi": 0.936,
+ "roi": 0.931,
  "ga95": [
-  0.667,
-  1.239
+  0.662,
+  1.234
  ],
  "ulke": {
   "abd": {
@@ -30,77 +30,41 @@
    "roi": 1.706
   },
   "irlanda": {
-   "bahis": 32,
+   "bahis": 36,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 1031,
-  "kosu": 482,
+  "bahis": 1035,
+  "kosu": 483,
   "isabet": 99,
-  "roi": 0.627,
+  "roi": 0.625,
   "ga95": [
-   0.455,
-   0.81
+   0.453,
+   0.808
   ]
  },
  "bahis_t1": {
-  "bahis": 1053,
-  "kosu": 476,
+  "bahis": 1058,
+  "kosu": 477,
   "isabet": 102,
-  "roi": 0.674,
+  "roi": 0.671,
   "ga95": [
-   0.465,
-   0.937
+   0.461,
+   0.933
   ]
  },
  "bahis_t3": {
-  "bahis": 1055,
-  "kosu": 462,
-  "isabet": 112,
-  "roi": 0.655,
+  "bahis": 1058,
+  "kosu": 463,
+  "isabet": 113,
+  "roi": 0.657,
   "ga95": [
-   0.461,
-   0.908
+   0.463,
+   0.91
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-03",
-   "pist": "Zia Park",
-   "kosu": 5,
-   "at": "DELIA",
-   "q": 0.133,
-   "g": 13.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Zia Park",
-   "kosu": 7,
-   "at": "H M HOLY BAD BOY",
-   "q": 0.113,
-   "g": 20.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Zia Park",
-   "kosu": 7,
-   "at": "ANGEL'S MARK",
-   "q": 0.05,
-   "g": 33.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Zia Park",
-   "kosu": 7,
-   "at": "LOOKNFONOBIKINI",
-   "q": 0.159,
-   "g": 11.2,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-03",
    "pist": "Zia Park",
@@ -135,6 +99,42 @@
    "at": "JENNY SPIDER",
    "q": 0.034,
    "g": 42.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "DANDYVILLE",
+   "q": 0.096,
+   "g": 24.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "WHISTLING JAMESIE",
+   "q": 0.079,
+   "g": 21.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "GLEN BREEZE",
+   "q": 0.079,
+   "g": 18.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "PICK A WINDOW",
+   "q": 0.025,
+   "g": 55.85,
    "kazandi": false
   },
   {
