@@ -1704,3 +1704,10 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - H5 (kazanan derecesi hücre içi z): S3 0.760 (sınıf/yaş/kilo/handikap belirliyor), S4−S3 −0.014 (CI [−0.020,−0.008]).
 - Karar: S3−S0 geçti (koşu yapısı bilgi veriyor). S4−S3 BAŞARISIZ: at bazlı özetler hücre içinde de ek bilgi vermiyor. T120/T122 sonucu hipodrom/kamera karışıklığından kaynaklanmıyor.
 - Not: kullanıcı önerisi: pist kenarı mesafe direklerinden saniye ölçümü (ekranda ara süre yoksa) → T124 adayı; ön kayıt gerekli.
+
+## ÖN KAYIT T125 (koşu yapısı tempo beklentisi piyasanın üstüne bilgi katıyor mu?)
+- Soru: piyasa tempoyu bizim kadar iyi fiyatlamıyor olabilir. Piyasa dışlanmıyor, ofset olarak kullanılır.
+- Özellik: koşu yapısından (hücre, cins, yaş, kilo, hnd, öncü sayısı) tahmin edilen tempo skoru (T123 S3c, yalnız eğitim dönemiyle) × atın stili (öncü/yatan).
+- Model: koşu-içi conditional logit, ofset = log(piyasa p, AGF/oran normalize). Karşılaştırma: yalnız ofset vs ofset + stil + tempo×stil. Walk-forward aylık, test 2026-02→.
+- Karar: log-kayıp farkı (day-cluster bootstrap) alt GA > 0 → bilgi var; değilse piyasa tempoyu yeterince fiyatlıyor. ROI testi ancak bu geçerse, ayrı ön kayıtla.
+- Çoklu test: T124 (direk ölçümü) ayrı, bu teste bağlı değil.
