@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-04 15:07 UTC",
- "kayitli_kosu": 1503,
- "eslesmeyen_kosu": 1024,
+ "uretim": "2026-11-04 15:29 UTC",
+ "kayitli_kosu": 1507,
+ "eslesmeyen_kosu": 1026,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 813,
- "kosu": 479,
- "isabet": 52,
- "roi": 0.949,
+ "bahis": 817,
+ "kosu": 481,
+ "isabet": 53,
+ "roi": 0.953,
  "ga95": [
-  0.673,
-  1.263
+  0.68,
+  1.266
  ],
  "ulke": {
   "abd": {
@@ -18,16 +18,16 @@
    "roi": 0.747
   },
   "birlesik-krallik": {
-   "bahis": 129,
-   "roi": 1.835
+   "bahis": 132,
+   "roi": 1.844
   },
   "fransa": {
    "bahis": 74,
    "roi": 0.666
   },
   "guney-afrika": {
-   "bahis": 50,
-   "roi": 1.774
+   "bahis": 51,
+   "roi": 1.739
   },
   "irlanda": {
    "bahis": 29,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 994,
-  "kosu": 469,
+  "bahis": 1003,
+  "kosu": 471,
   "isabet": 98,
-  "roi": 0.643,
+  "roi": 0.637,
   "ga95": [
-   0.465,
-   0.831
+   0.46,
+   0.824
   ]
  },
  "bahis_t1": {
-  "bahis": 1013,
-  "kosu": 463,
+  "bahis": 1022,
+  "kosu": 465,
   "isabet": 101,
-  "roi": 0.693,
+  "roi": 0.687,
   "ga95": [
-   0.475,
-   0.958
+   0.471,
+   0.951
   ]
  },
  "bahis_t3": {
-  "bahis": 1019,
-  "kosu": 449,
+  "bahis": 1028,
+  "kosu": 451,
   "isabet": 108,
-  "roi": 0.65,
+  "roi": 0.644,
   "ga95": [
-   0.453,
-   0.913
+   0.446,
+   0.905
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-03",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "LINCOLNVILLE BEACH",
-   "q": 0.118,
-   "g": 11.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "MIA NIPOTINA",
-   "q": 0.118,
-   "g": 15.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Finger Lakes",
-   "kosu": 3,
-   "at": "BECK'S DREAMER",
-   "q": 0.113,
-   "g": 19.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "FIDELA",
-   "q": 0.089,
-   "g": 20.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-03",
    "pist": "Finger Lakes",
@@ -337,6 +301,15 @@
   },
   {
    "gun": "2026-11-04",
+   "pist": "Greyville",
+   "kosu": 4,
+   "at": "WORLD OF OUR OWN",
+   "q": 0.209,
+   "g": 9.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
    "pist": "Kempton",
    "kosu": 1,
    "at": "AMAZONIAN DREAM",
@@ -378,6 +351,33 @@
    "at": "RHYTHM N ROCK",
    "q": 0.111,
    "g": 18.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 2,
+   "at": "BOBACIOUS",
+   "q": 0.054,
+   "g": 43.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 2,
+   "at": "SNOOKER MCCREW",
+   "q": 0.201,
+   "g": 6.65,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 2,
+   "at": "BLUE CELESTIAL",
+   "q": 0.115,
+   "g": 11.4,
    "kazandi": false
   },
   {
