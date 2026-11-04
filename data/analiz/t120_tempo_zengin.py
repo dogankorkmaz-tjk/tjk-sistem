@@ -44,7 +44,7 @@ for f in glob.glob('data/video_seyir/20*.json'):
     fade=bl[400]/(bl[800]-bl[400]) if 400 in bl and 800 in bl and bl[800]>bl[400] else np.nan
     if L>=10:
         f25=z[:max(int(L*0.25),1)]; RH[(b[0],b[1],int(b[2]))]=(len({fr[0] for fr in f25}),len({h for fr in f25 for h in fr[:2]}),fade)
-d['e_erken']=[E.get(k,np.nan) for k in key4]; d=d[d.e_erken.notna()].copy()
+d['e_erken']=[E.get(k,np.nan) for k in zip(d.tarih,d.hipodrom,d.kosu,d.no)]; d=d[d.e_erken.notna()].copy()   # (düzeltme: VO.ekle satırları yeniden sıraladığı için anahtarlar güncel sütunlardan)
 d['rid']=d.tarih+'|'+d.hipodrom+'|'+d.kosu.astype(str)
 d['n']=d.groupby('rid').no.transform('count'); d=d[d.n>=5].copy()
 d['p']=d.p_piyasa/d.groupby('rid').p_piyasa.transform('sum')
@@ -52,6 +52,7 @@ d['rk']=d.groupby('rid').e_erken.rank(method='min'); d['lead2']=(d.rk<=2).astype
 d=d[d.kapi.notna()&d.mes.notna()&d.pist.notna()].copy()
 d=d.sort_values(['tarih','hipodrom','kosu','no']).reset_index(drop=True)
 log('at',len(d),'koşu',d.rid.nunique(),'gün',d.tarih.nunique())
+assert d.groupby('rid').lead2.sum().between(2,4).mean()>0.9   # hedef sağlama
 # ekipman jetonları
 cnt=collections.Counter(t for l in d.ekp for t in set(l)); top=[t for t,_ in cnt.most_common(15)]; log('ekipman jetonları',top)
 for t in top: d['eq_'+t]=[int(t in l) for l in d.ekp]

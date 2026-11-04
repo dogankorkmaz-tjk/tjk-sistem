@@ -1,0 +1,17 @@
+at 76213 koşu 8056 gün 663
+ekipman jetonları ['KG', 'SK', 'DB', 'K', 'SKG', 'DS', 'GKR', 'ÖG', 'SGKR', 'YP', 'BB', 'TGK']
+rakip karşılaşma kapsamı (en az 1 önceki ortak koşu olan at oranı): 0.678 | ortalama rakip sayısı 2.08 | baba bilgisi dolu 1.0
+
+TEST 4414 koşu 363 gün 42847 at
+AT DÜZEYİ koşu-içi AUC: M0 0.5291 M1 0.5559 | M1−M0 (np.float64(0.0278), [0.0192, 0.0365])
+rakip karşılaşma kapsamı yüksek yarı koşular: M0 0.5244 M1 0.5428 | fark (np.float64(0.0183), [0.0056, 0.0318])
+1. öncüyü bulma isabeti M0 0.137 M1 0.174 rastgele 0.114
+M1 standardize katsayılar (eğitim<2025-10): [('hndf', np.float64(0.186)), ('kilo', np.float64(0.184)), ('yas', np.float64(-0.154)), ('pwk', np.float64(-0.042)), ('f1_guc', np.float64(-0.034)), ('eq_GKR', np.float64(0.034)), ('f1_rel', np.float64(0.029)), ('eq_SKG', np.float64(0.028)), ('eq_K', np.float64(-0.025)), ('uzun', np.float64(0.022)), ('eq_TGK', np.float64(-0.018)), ('kapir', np.float64(0.017))]
+
+YARIŞ DÜZEYİ (Spearman ρ; S0 yapı tabanı, S1 = +M0 öncü özetleri, S2 = +M1 zengin özetler; aylık yürüyüş, test 2025-12→)
+H1 farklı lider sayısı (ilk %25) | koşu 3559 | ρ S0 0.222 S1 0.221 S2 0.219 | S1−S0 (np.float64(-0.0009), [-0.009, 0.0064]) S2−S0 (np.float64(-0.0029), [-0.0079, 0.0019]) S2−S1 (np.float64(-0.002), [-0.0092, 0.0057])
+H3 farklı ilk-2 at sayısı (ilk %25) | koşu 3559 | ρ S0 0.284 S1 0.279 S2 0.287 | S1−S0 (np.float64(-0.0054), [-0.0124, 0.0016]) S2−S0 (np.float64(0.0032), [-0.0038, 0.0111]) S2−S1 (np.float64(0.0087), [0.001, 0.0171])
+H2 tempo (400m sönme, grup içi z) | koşu 3374 | ρ S0 0.220 S1 0.230 S2 0.222 | S1−S0 (np.float64(0.0093), [-0.0045, 0.0232]) S2−S0 (np.float64(0.0015), [-0.0076, 0.0106]) S2−S1 (np.float64(-0.0078), [-0.0257, 0.0095])
+hedef dağılımları: H1 {1.0: 1378, 2.0: 1897, 3.0: 880, 4.0: 208, 5.0: 36, 6.0: 7, 7.0: 2} H3 {2.0: 719, 3.0: 1788, 4.0: 1255, 5.0: 475, 6.0: 142, 7.0: 21, 8.0: 6, 9.0: 2}
+
+BİTTİ
