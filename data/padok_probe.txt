@@ -1,0 +1,36 @@
+SAYFA 200 400000 https://www.tjk.org/
+SAYFA 200 66918 https://www.tjk.org/TR/YarisSever/Info/Page/GunlukYarisProgrami
+SAYFA 404 2383 https://www.tjk.org/TR/YarisSever/Info/Page/CanliYayin
+SAYFA 404 2383 https://www.tjk.org/TR/YarisSever/Info/Page/YarisVideolari
+SAYFA 403 2382 https://www.tjk.org/TR/YarisSever/Info/Sayfa/CanliYayin
+BULUNAN BAĞLANTILAR 4
+  ALT 200 45066 https://www.tjk.org/TR/YarisSever/Static/Canli
+    MEDYA: https://tjktv-live.tjk.org/taytv/taytv.m3u8
+  ALT 200 125678 https://yayinlar.tjk.org/
+    PADOK-GEÇTİ:  Kapadokya Meslek Yüksek Okulu Atçılık ve Antrenörlüğü Program Başkanı Sinan Özbek’ten, eğitici bir kitap. Özellikle atçılığa gö
+  ALT 200 38627 https://www.tjk.org/TR/YarisSever/Query/Page/YayinAkisi
+  ALT 200 45066 https://www.tjk.org/TR/YarisSever/Static/Page/Canli
+    MEDYA: https://tjktv-live.tjk.org/taytv/taytv.m3u8
+CDN 200 26605099 https://video-cdn.tjk.org/videoftp/2026/11/26110431_m.mp4
+CDN 200 26605099 https://video-cdn.tjk.org/videoftp/2026/11/26110431_m.mp4
+CDN 200 80382237 https://video-cdn.tjk.org/videoftp/2026/11/26110431.mp4
+CDN 200 80382237 https://video-cdn.tjk.org/videoftp/2026/11/26110431.mp4
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/padok/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/padok/2026/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/paddock/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/paddock/2026/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/padokvideo/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/padokvideo/2026/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/padokvideolari/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/padokvideolari/2026/
+KLASÖR 403 https://video-cdn.tjk.org/videoftp/idmanpisti/
+KLASÖR 403 https://video-cdn.tjk.org/videoftp/idmanpisti/2026/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/canli/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/canli/2026/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/yayin/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/yayin/2026/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/tv/
+KLASÖR 404 https://video-cdn.tjk.org/videoftp/tv/2026/
+KÖK 403 https://video-cdn.tjk.org/ <html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> <hr><center>openresty</center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error 
+KÖK 403 https://video-cdn.tjk.org/videoftp/ <html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> <hr><center>openresty</center> </body> </html> <!-- a padding to disable MSIE and Chrome friendly error 
+KÖK 200 https://medya-cdn.tjk.org/ <html> <head> <meta http-equiv="refresh" content="10; URL=http://www.tjk.org/" /> </head> <body> medya.tjk.org </body> </html>
