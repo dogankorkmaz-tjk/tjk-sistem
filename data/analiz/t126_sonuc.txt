@@ -1,0 +1,12 @@
+walk-forward c (son ay): [ 0.148 -0.017  0.019  0.08  -0.055  0.051]
+T126 test aylar 2026-02 .. 2026-09 koşu 4115
+ANA: piyasa sırası>=3 ∧ uyum sırası<=2: bahis 5261 kazanan 469 beklenen 403.8 | O/E 1.162 [1.071,1.252] | ROI 0.754 [0.676,0.835] <== ANA TEST
+KARAR: O/E GA alt sınırı>1 → uyum değer taşıyor
+BANTLAR (betimleyici):
+  piyasa sırası 3-6 ∧ uyum<=2: bahis 3422 kazanan 400 beklenen 341.3 | O/E 1.172 [1.069,1.276] | ROI 0.754 [0.675,0.835]
+  piyasa sırası 7-10 ∧ uyum<=2: bahis 1439 kazanan 57 beklenen 54.7 | O/E 1.042 [0.803,1.285] | ROI 0.691 [0.517,0.868]
+  piyasa sırası 11+ ∧ uyum<=2: bahis 400 kazanan 12 beklenen 7.7 | O/E 1.552 [0.777,2.420] | ROI 0.978 [0.462,1.584]
+  KONTROL favori(1-2) ∧ uyum<=2: bahis 2969 kazanan 922 beklenen 881.0 | O/E 1.047 [0.995,1.096] | ROI 0.709 [0.666,0.753]
+  KONTROL piyasa>=3 ∧ uyum EN DÜŞÜK 2: bahis 7315 kazanan 304 beklenen 374.4 | O/E 0.812 [0.727,0.904] | ROI 0.489 [0.420,0.563]
+  KONTROL piyasa>=3 (tümü): bahis 33240 kazanan 1902 beklenen 1943.3 | O/E 0.979 [0.948,1.010] | ROI 0.588 [0.559,0.617]
+BİTTİ

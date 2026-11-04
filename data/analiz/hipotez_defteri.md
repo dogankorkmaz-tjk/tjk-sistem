@@ -1832,3 +1832,10 @@ Sonuç (3.826 koşu; B 2026-04..2026-10 = 3.388 koşu): aynı tepe at %96,5.
 - Tepe at isabeti: TÜMÜ %33,12 → %32,72 (fark −0,0039 [−0,0080; +0,0005]).
 - Tepe ata 1 TL ganyan geri dönüş/koşu: TÜMÜ 0,759 → 0,742 (fark −0,0167 [−0,0328; −0,0013]); B 0,759 → 0,741 (−0,0179 [−0,0356; −0,0024]) → ROI'de hafif KÖTÜLEŞME (tek bahis/koşu, gürültülü; ana karar ölçütü değil).
 - Yorum: stil bilgisi ana modele net fayda sağlamıyor, tepe ata ganyan getirisi hafif kötüleşiyor. T41 kayıtlı kuralı (Kasım–Ocak) aynen geçerli.
+
+## SONUÇ T126 (koşu uyumu: piyasa sırası ≥3 ∧ uyum sırası ≤2) — 5 Kasım 03:00
+Yöntem: uyum skoru U = X·c (X: öncülük, öncülük×rakip öncü baskısı, kapanışçılık×baskı, kapanışçılık, öncülük×mesafe, atın aynı pistteki geçmiş artığı); c her ay yalnız önceki aylarla (2025-10..) piyasa ofsetli softmax'tan öğrenildi (aylık yürüyüş), test 2026-02..2026-09 (4.115 koşu). Piyasa sırası = p_piyasa sırası (AGF yerine; ön kayıttan sapma). Jason ile korelasyon ölçülmedi (Jason p bu betikte yok).
+- ANA TEST: bahis 5.261, kazanan 469, piyasanın beklediği 403,8 → O/E 1,162 [1,071; 1,252]; alt GA>1 → KAYITLI KURAL GEÇTİ (uyum skoru piyasa sırası ≥3 atlar içinde kazananı piyasanın üstünde seçiyor). Ganyan ROI (büyük ödemeler dahil) 0,754 [0,676; 0,835] → ROI<1, kesintiyi aşmıyor.
+- Betimleyici bantlar: 3–6: O/E 1,172 [1,069; 1,276], ROI 0,754; 7–10: O/E 1,042 [0,803; 1,285], ROI 0,691; 11+: O/E 1,552 [0,777; 2,420] (kazanan 12, yetersiz örnek), ROI 0,978 [0,462; 1,584]. Kontroller: favori(1–2) ∧ uyum≤2 O/E 1,047, ROI 0,709; piyasa≥3 ∧ uyum EN DÜŞÜK 2: O/E 0,812 [0,727; 0,904], ROI 0,489; piyasa≥3 tümü: O/E 0,979, ROI 0,588.
+- Okuma: uyum skoru sıralıyor (üst iki 1,16, alt iki 0,81) ve kapsam ROI'sini 0,59'dan 0,75'e çıkarıyor, ama ROI 1'e ulaşmıyor. Katkının büyük kısmı stil (öncülük +0,148, kapanışçılık +0,08); pist artığı küçük (+0,051), rakip baskısı etkileşimleri sıfıra yakın. Yani "uyum" ağırlıkla T125'in stil etkisinin yeniden bulunması; bağımsız yeni bilgi olduğu söylenemez. Çoklu test: T125+T126 iki ana test (Bonferroni, yaklaşık %97,5 GA, alt sınır yine >1).
+- ROI testi ayrı ön kayıt ister; şimdiki ROI<1.
