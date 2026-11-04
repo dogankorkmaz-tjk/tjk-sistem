@@ -1717,3 +1717,10 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Ek özellikler (atın kendi stiline göre): rakip öncü sayısı, atın öncü baskısı (rakip f1 toplamı), beklenen tempo skoru. Etkileşimler: stil×rakip öncü sayısı, stil×tempo skoru.
 - Alt analiz (tek test, ayrı Bonferroni): (a) piyasa favorisi ∧ öncü ∧ yüksek rakip öncü baskısı → O/E; (b) yatan ∧ yüksek tempo beklentisi → O/E. Yön: (a) O/E<1, (b) O/E>1. Eşik: day-cluster bootstrap GA 1'i dışlıyor.
 - Ana karar kuralı değişmez (log-kayıp farkı alt GA>0).
+
+### T125 EK-2 (00:32 TR) — ekürili koşular (tavşan/feda mekanizması)
+- Veri: atyarisi 'stablemate' alanı (0 = ekürisiz; aynı sayı = aynı ekürü grubu). Önce kapsam sayılacak: ekürili koşu sayısı (test döneminde < 150 ise bu alt analiz "veri yetersiz" kapanır).
+- Hipotez: ekürideki öncü at, ekürisi yatan/güçlü ise tempoyu yükseltir (tavşan); ekürisi de öncüyse tersi (tempo korunur).
+- Özellikler: ekürisi var, ekürisinin stili (f1), ekürisinin piyasa payı, kendi payı. Karşılaştırma: ekürili öncünün tempo hedefi (H1/H2) ekürisiz benzerlerine göre; ekürisinin O/E'si.
+- Alt analiz (tek test): (a) ekürili çift: biri öncü, diğeri yatan → öncü atın erken pozisyonu/koşu ilk 400 süresi benzer ekürisizlere göre hızlı mı; (b) bu koşularda yatan ekürinin O/E'si > 1 mi. Eşik: day-cluster bootstrap GA.
+- Ana karar kuralı değişmez; bu yalnız açıklayıcı ve ayrı Bonferroni.
