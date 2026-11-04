@@ -1,0 +1,33 @@
+{
+ "tarih": "2026-11-05",
+ "hipodrom": "ankara",
+ "kaynak": "Yener Çelik Ankara 2. altılı ganyan",
+ "tur": "tuyo",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:13). TÜYO, yorumcu SEÇİMİ DEĞİL: yorumcu skorlamasına ve yorumcu kuponlarına katılmaz, ayrı izlenir. Altılı ayak numaraları (koşu eşlemesi ayrıca doğrulanacak, 2. altılı muhtemelen 4.–9. koşular): 1.ayak 7; 2.ayak 4; 3.ayak 6 (TEK, yani banko); 6.ayak 'kuma döner' ise 8/10 (zemin koşullu). Yarıştan ÖNCE kaydedildi.",
+ "ayaklar": {
+  "1": [
+   7
+  ],
+  "2": [
+   4
+  ],
+  "3": [
+   6
+  ],
+  "6": [
+   8,
+   10
+  ]
+ },
+ "tek": {
+  "3": 6
+ },
+ "kosullu": {
+  "6": {
+   "kum": [
+    8,
+    10
+   ]
+  }
+ }
+}
