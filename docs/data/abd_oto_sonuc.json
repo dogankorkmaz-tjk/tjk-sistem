@@ -1,25 +1,25 @@
 {
- "uretim": "2026-11-04 17:51 UTC",
- "kayitli_kosu": 1521,
- "eslesmeyen_kosu": 1033,
+ "uretim": "2026-11-04 18:25 UTC",
+ "kayitli_kosu": 1524,
+ "eslesmeyen_kosu": 1032,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 831,
- "kosu": 488,
+ "bahis": 836,
+ "kosu": 492,
  "isabet": 54,
- "roi": 0.941,
+ "roi": 0.936,
  "ga95": [
-  0.671,
-  1.246
+  0.667,
+  1.239
  ],
  "ulke": {
   "abd": {
-   "bahis": 533,
-   "roi": 0.745
+   "bahis": 535,
+   "roi": 0.742
   },
   "birlesik-krallik": {
-   "bahis": 142,
-   "roi": 1.743
+   "bahis": 143,
+   "roi": 1.73
   },
   "fransa": {
    "bahis": 74,
@@ -30,86 +30,41 @@
    "roi": 1.706
   },
   "irlanda": {
-   "bahis": 30,
+   "bahis": 32,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 1026,
-  "kosu": 478,
-  "isabet": 98,
-  "roi": 0.623,
+  "bahis": 1031,
+  "kosu": 482,
+  "isabet": 99,
+  "roi": 0.627,
   "ga95": [
-   0.45,
-   0.808
+   0.455,
+   0.81
   ]
  },
  "bahis_t1": {
-  "bahis": 1046,
-  "kosu": 472,
-  "isabet": 101,
-  "roi": 0.671,
+  "bahis": 1053,
+  "kosu": 476,
+  "isabet": 102,
+  "roi": 0.674,
   "ga95": [
-   0.458,
-   0.936
+   0.465,
+   0.937
   ]
  },
  "bahis_t3": {
-  "bahis": 1047,
-  "kosu": 458,
-  "isabet": 111,
-  "roi": 0.652,
+  "bahis": 1055,
+  "kosu": 462,
+  "isabet": 112,
+  "roi": 0.655,
   "ga95": [
-   0.46,
-   0.907
+   0.461,
+   0.908
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-03",
-   "pist": "Mountaineer",
-   "kosu": 2,
-   "at": "NOBLE STAR",
-   "q": 0.071,
-   "g": 59.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Mountaineer",
-   "kosu": 3,
-   "at": "LEGENDARY STAR",
-   "q": 0.052,
-   "g": 33.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Zia Park",
-   "kosu": 3,
-   "at": "LEAD THE WAY D W M",
-   "q": 0.131,
-   "g": 14.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Zia Park",
-   "kosu": 3,
-   "at": "COMFORT CASH",
-   "q": 0.184,
-   "g": 9.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-03",
-   "pist": "Zia Park",
-   "kosu": 5,
-   "at": "JULIA'S PROMISE",
-   "q": 0.177,
-   "g": 10.9,
-   "kazandi": true
-  },
   {
    "gun": "2026-11-03",
    "pist": "Zia Park",
@@ -166,6 +121,24 @@
   },
   {
    "gun": "2026-11-04",
+   "pist": "Dundalk",
+   "kosu": 4,
+   "at": "ALL ABOUT NOA",
+   "q": 0.068,
+   "g": 22.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Dundalk",
+   "kosu": 4,
+   "at": "JENNY SPIDER",
+   "q": 0.034,
+   "g": 42.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
    "pist": "Finger Lakes",
    "kosu": 1,
    "at": "TONY HOOKS",
@@ -180,6 +153,15 @@
    "at": "BY MINK STANDARDS",
    "q": 0.158,
    "g": 8.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Finger Lakes",
+   "kosu": 3,
+   "at": "SIGNAL CHAT",
+   "q": 0.118,
+   "g": 11.05,
    "kazandi": false
   },
   {
@@ -333,6 +315,24 @@
    "at": "SEA BAAEED",
    "q": 0.093,
    "g": 14.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Kempton",
+   "kosu": 8,
+   "at": "AN OUTLAW'S GRACE",
+   "q": 0.091,
+   "g": 30.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Mahoning Valley",
+   "kosu": 2,
+   "at": "DIVINENESS",
+   "q": 0.145,
+   "g": 10.55,
    "kazandi": false
   },
   {
