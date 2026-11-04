@@ -1,0 +1,52 @@
+{
+ "tarih": "2026-11-05",
+ "hipodrom": "ankara",
+ "kaynak": "Naim işgören Ankara",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:10). Yalnız 2 koşu: 1. koşu 8; 8. koşu ZEMİN KOŞULLU: çimde kalırsa 7-10, kum olursa 8-4. Mavi alt çizgi notun otomatik bağlantısı, anlamsız. Yarıştan ÖNCE kaydedildi.",
+ "sirali": true,
+ "kosular": {
+  "1": [
+   8
+  ],
+  "8": [
+   7,
+   10,
+   8,
+   4
+  ]
+ },
+ "katmanlar": {
+  "1": [
+   [
+    8
+   ]
+  ],
+  "8": [
+   [
+    7,
+    10
+   ],
+   [
+    8,
+    4
+   ]
+  ]
+ },
+ "ilk_tercih": {
+  "1": 8
+ },
+ "istege_bagli": {},
+ "hepsi": [],
+ "kosullu": {
+  "8": {
+   "cim": [
+    7,
+    10
+   ],
+   "kum": [
+    8,
+    4
+   ]
+  }
+ }
+}
