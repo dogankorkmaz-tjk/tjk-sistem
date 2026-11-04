@@ -1847,3 +1847,6 @@ Gerekçe: T126 tek dönemde (2026-02..09) geçti; yeniden üretilebilirlik için
 - Kural (T126 ile aynı): piyasa sırası ≥3 ∧ uyum sırası ≤2 bahislerinde O/E %95 GA alt sınırı >1 → T126 doğrulandı; GA 1'i kapsıyor → doğrulanmadı, T126 şansa/döneme bağlı sayılır. ROI yalnız bilgi, karar kuralında yok.
 - Bu sonuçlanmadan uyum skoru hiçbir üretim/bahis kararında KULLANILMAZ.
 - İkincil (betimleyici): bant 3–6 O/E; en düşük-2 kontrol O/E<1 mi.
+
+### T131 kayıt 1 (5 Kasım 02:40): bugünün uyum skorları (yarıştan ÖNCE, piyasa sırasız)
+Dondurulmuş c ile Ankara ve İzmir tüm atları için U ve koşu içi sıra: data/t131_kayit/2026-11-05_uyum.csv (betik data/analiz/t131_bugun.py). Piyasa (AGF) sırası henüz yok; kural gereği "piyasa sırası ≥3 ∧ U sırası ≤2" seçimi AGF yayınlandıktan sonra ve yarıştan önce ayrıca kaydedilecek. Sonuç görülmeden değiştirilmez.
