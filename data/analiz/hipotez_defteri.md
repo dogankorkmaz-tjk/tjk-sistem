@@ -1753,3 +1753,10 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - 60/60 video indi ve işlendi (20 at × 3). Adım Hz ort. 1,95 (std 0,46), aralık 1,2–3,5 Hz içinde ama FFT tepe oranı çok düşük (≈0,01–0,03: spektrum neredeyse düz, sinyal zayıf).
 - ICC (aynı atın 3 videosu arasında tutarlılık) = 0,475 < 0,5 → kayıtlı karar kuralı: BAŞARISIZ (sınırda). p400 ile korelasyon −0,05 (anlamlı ilişki yok).
 - Yorum: kaba hareket-enerjisi/FFT yöntemi adım sıklığını güvenilir ölçmüyor (kamera hareketi karışıyor). Ciddi sürüm için at tespiti + takip (pose/iz sürme) gerekir; bu CV işi, yöntem değişmeden devam edilmez.
+
+## ÖN KAYIT T128 (piyasa fiyatı neden böyle? Açıklanan/artık ayrıştırması)
+- Hedef: koşu içi ortalamadan farkı alınmış log(p_piyasa). Model: HistGB, aylık yürüyüş (eğitim yalnız geçmiş), test 2025-12→. Özellik grupları (yalnız önceki koşulardan): G_form (son 5 bitiş yüzdeliği, son koşu piyasa artığı, dinlenme günü), G_jokey (önceki jokey kazanma/artık), G_yuk (kilo, hnd, yaş göreli), G_kapi (kapı), G_pist_mes (aynı pist/mesafe geçmiş artığı, pist, mesafe), G_stil (VO f1.. stil, rakip öncü sayısı).
+- Çıktı 1 (neden): tüm özelliklerle R² ve grup bırakma (drop-group) R² düşüşü → fiyatın ne kadarı hangi grupta.
+- Çıktı 2 (artık): artık = log p − tahmin. Tek parametreli koşu-içi softmax: p_i ∝ exp(log p_i + c·artık_i). c ve log-kayıp farkı (day-cluster bootstrap GA).
+- Karar: c GA alt sınırı >0 → artık bilgi taşıyor (piyasa bizim göremediğimiz bilgiyi içeriyor, "yüksek-nedensiz fiyat" kazanıyor); GA 0'ı kapsıyor → piyasa artığı gürültü; c<0 GA → artık fazla fiyatlama işareti (piyasa yanılıyor, değer fırsatı). Tek test. Sonuç görülmeden kural değişmez.
+- Siteye ekleme: yalnız analiz bittikten sonra, kullanıcı kararıyla.
