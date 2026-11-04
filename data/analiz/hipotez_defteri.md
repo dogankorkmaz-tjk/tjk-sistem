@@ -1743,3 +1743,8 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Yöntem: kare başına direk/işaret tespiti, öncü atın direği geçtiği kare → saniye. Kamera kayması ve zoom nedeniyle önce pilot.
 - Pilot: 10–20 video, ekrandaki `bolum` süresi doğru olanlar. Ölçüt: direk süresi − `bolum` süresi, ortalama mutlak hata ≤0,5 sn ve korelasyon ≥0,95.
 - Karar: ölçüt sağlanırsa tüm arşive uygula ve tempo hedefi olarak T125'e ver; sağlanmazsa vazgeç (bilgisayarlı görme zorlaşırsa Opus öner).
+
+### SONUÇ T124 pilot adım 1 (kare incelemesi, 00:50 TR)
+- 4 videodan 14'er kare (6 sn aralık) görsel incelendi. Yayın sürekli kamera değiştiriyor (kapıdan yaklaşma, yandan pan, tepe açısı, ön görünüm); mesafe direği/işareti yalnız birkaç karede ve rastgele açıyla görünüyor (ör. kırmızı "4" levhası). Her atın direği geçtiği kareyi güvenilir yakalamak mümkün görünmüyor.
+- Yayın, öncü atın 400/600/800/1000 m geçiş sürelerini sağ üstte zaten yazıyor (bolum). Yani direk ölçümü gereksiz ve zayıf; doğrudan bu süreler daha iyi bir ölçüt.
+- Karar: T124'ün direk yöntemi TERK. Yerine T124b: `bolum` temizliği (monoton artış, makul hız, 4000/4400 gibi bozuk anahtarları ele) + doğrudan süreleri tempo hedefi yap (ilk 400 m, 400–800 m; hipodrom×pist×mesafe hücresine göre z). Kapsam ~%96.
