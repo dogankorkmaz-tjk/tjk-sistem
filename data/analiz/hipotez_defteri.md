@@ -1711,3 +1711,9 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Model: koşu-içi conditional logit, ofset = log(piyasa p, AGF/oran normalize). Karşılaştırma: yalnız ofset vs ofset + stil + tempo×stil. Walk-forward aylık, test 2026-02→.
 - Karar: log-kayıp farkı (day-cluster bootstrap) alt GA > 0 → bilgi var; değilse piyasa tempoyu yeterince fiyatlıyor. ROI testi ancak bu geçerse, ayrı ön kayıtla.
 - Çoklu test: T124 (direk ölçümü) ayrı, bu teste bağlı değil.
+
+### T125 EK (script yazılmadan önce, 00:30 TR) — kullanıcı mekanizması
+- Hipotez: tempoyu yükselten rakip öncüler varsa öncü favori fazla, yatan at az fiyatlanır.
+- Ek özellikler (atın kendi stiline göre): rakip öncü sayısı, atın öncü baskısı (rakip f1 toplamı), beklenen tempo skoru. Etkileşimler: stil×rakip öncü sayısı, stil×tempo skoru.
+- Alt analiz (tek test, ayrı Bonferroni): (a) piyasa favorisi ∧ öncü ∧ yüksek rakip öncü baskısı → O/E; (b) yatan ∧ yüksek tempo beklentisi → O/E. Yön: (a) O/E<1, (b) O/E>1. Eşik: day-cluster bootstrap GA 1'i dışlıyor.
+- Ana karar kuralı değişmez (log-kayıp farkı alt GA>0).
