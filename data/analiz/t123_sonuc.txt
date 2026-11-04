@@ -1,0 +1,15 @@
+at 76213 koşu 8056 gün 663
+ekipman jetonları ['KG', 'SK', 'DB', 'K', 'SKG', 'DS', 'GKR', 'ÖG', 'SGKR', 'YP', 'BB', 'TGK']
+rakip karşılaşma kapsamı (en az 1 önceki ortak koşu olan at oranı): 0.678 | ortalama rakip sayısı 2.08 | baba bilgisi dolu 1.0
+
+TEST 4414 koşu 363 gün 42847 at
+AT DÜZEYİ koşu-içi AUC: M0 0.7949 M1 0.7969 | M1−M0 (np.float64(0.0024), [0.0, 0.0048])
+rakip karşılaşma kapsamı yüksek yarı koşular: M0 0.8309 M1 0.8329 | fark (np.float64(0.0028), [0.0, 0.0057])
+1. öncüyü bulma isabeti M0 0.429 M1 0.435 rastgele 0.114
+M1 standardize katsayılar (eğitim<2025-10): [('f1_rel', np.float64(-1.048)), ('hndf', np.float64(0.216)), ('yas', np.float64(-0.201)), ('f1', np.float64(0.198)), ('pw', np.float64(0.19)), ('jok', np.float64(0.179)), ('f1_guc', np.float64(-0.165)), ('pwk', np.float64(-0.151)), ('sire_e', np.float64(-0.136)), ('eq_K', np.float64(0.13)), ('eq_SK', np.float64(0.104)), ('eq_TGK', np.float64(-0.053))]
+
+T123 HÜCRE İÇİ HEDEFLER (hücre = hipodrom×pist×mesafe, ≥20 koşu): koşu 5962 hücre 76
+H2c tempo sönmesi hücre içi z | koşu 3177 | ρ S0 0.274 S3 0.421 S4 0.417 | S3−S0 (np.float64(0.147), [0.118, 0.1744]) S4−S3 (np.float64(-0.0037), [-0.0171, 0.0092]) S4−S0 (np.float64(0.1433), [0.1163, 0.1692])
+H5 kazanan derecesi hücre içi z (yüksek = yavaş) | koşu 3339 | ρ S0 0.257 S3 0.760 S4 0.746 | S3−S0 (np.float64(0.5029), [0.4673, 0.5391]) S4−S3 (np.float64(-0.0137), [-0.02, -0.0077]) S4−S0 (np.float64(0.4892), [0.4528, 0.5271])
+
+BİTTİ
