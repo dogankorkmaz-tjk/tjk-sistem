@@ -1,0 +1,17 @@
+at 76213 koşu 8056 gün 663
+ekipman jetonları ['KG', 'SK', 'DB', 'K', 'SKG', 'DS', 'GKR', 'ÖG', 'SGKR', 'YP', 'BB', 'TGK']
+rakip karşılaşma kapsamı (en az 1 önceki ortak koşu olan at oranı): 0.678 | ortalama rakip sayısı 2.08 | baba bilgisi dolu 1.0
+galop kapsamı (atın son 45 günde ≥1 galobu olan satır oranı): 0.398 | test (2026-02→): 0.968
+
+TEST 2933 koşu 241 gün 28867 at
+AT DÜZEYİ koşu-içi AUC: M0 0.7948 M1 0.7974 | M1−M0 (np.float64(0.0029), [-0.0001, 0.006])
+rakip karşılaşma kapsamı yüksek yarı koşular: M0 0.8339 M1 0.837 | fark (np.float64(0.0031), [-0.0004, 0.0065])
+1. öncüyü bulma isabeti M0 0.418 M1 0.427 rastgele 0.113
+
+T121-A AT DÜZEYİ (test 2026-02→): AUC M0 0.7948 M1 0.7974 M2 0.7989
+M2−M1 (np.float64(0.001), [-0.0009, 0.0029]) | M2−M0 (np.float64(0.004), [0.001, 0.0071]) | M1−M0 (np.float64(0.0029), [-0.0001, 0.0061])
+galobu olan atlar (alt küme) M0/M1/M2 0.7944 0.7972 0.7992 M2−M1 (np.float64(0.0017), [-0.0002, 0.0035])
+1. öncüyü bulma M0 0.418 M1 0.427 M2 0.429
+M2 standardize katsayılar: [('f1_rel', -1.12), ('jok', 0.206), ('f1', 0.201), ('pw', 0.182), ('hndf', 0.174), ('pwk', -0.151), ('yas', -0.149), ('f1_guc', -0.144), ('eq_K', 0.111), ('eq_SK', 0.1), ('sire_e', -0.099), ('eq_TGK', -0.06), ('eq_KG', 0.058), ('kapir', 0.053)]
+
+BİTTİ

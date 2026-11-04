@@ -1,0 +1,18 @@
+at 76213 koşu 8056 gün 663
+ekipman jetonları ['KG', 'SK', 'DB', 'K', 'SKG', 'DS', 'GKR', 'ÖG', 'SGKR', 'YP', 'BB', 'TGK']
+rakip karşılaşma kapsamı (en az 1 önceki ortak koşu olan at oranı): 0.678 | ortalama rakip sayısı 2.08 | baba bilgisi dolu 1.0
+
+TEST 4414 koşu 363 gün 42847 at
+AT DÜZEYİ koşu-içi AUC: M0 0.7949 M1 0.7969 | M1−M0 (np.float64(0.0024), [0.0, 0.0048])
+rakip karşılaşma kapsamı yüksek yarı koşular: M0 0.8309 M1 0.8329 | fark (np.float64(0.0028), [0.0, 0.0057])
+1. öncüyü bulma isabeti M0 0.429 M1 0.435 rastgele 0.114
+M1 standardize katsayılar (eğitim<2025-10): [('f1_rel', np.float64(-1.048)), ('hndf', np.float64(0.216)), ('yas', np.float64(-0.201)), ('f1', np.float64(0.198)), ('pw', np.float64(0.19)), ('jok', np.float64(0.179)), ('f1_guc', np.float64(-0.165)), ('pwk', np.float64(-0.151)), ('sire_e', np.float64(-0.136)), ('eq_K', np.float64(0.13)), ('eq_SK', np.float64(0.104)), ('eq_TGK', np.float64(-0.053))]
+
+T122 YARIŞ DÜZEYİ (HistGB, aylık yürüyüş, test 2025-12→; ρ Spearman). S0 = at sayısı/mesafe/pist; S3 = + hipodrom, sınıf (cins), hipodrom×pist×mesafe, yaş/kilo/handikap ortalaması; S4 = S3 + at özetleri (öncü olasılıkları, stil dağılımı, antrenör öncü eğilimi, jokey, ekipman değişimi)
+H1 farklı lider sayısı | koşu 3559 | ρ S0 0.247 S3 0.274 S4 0.269 | S3−S0 (np.float64(0.0271), [0.0072, 0.0466]) S4−S3 (np.float64(-0.0058), [-0.0222, 0.0108]) S4−S0 (np.float64(0.0213), [-0.0016, 0.0442])
+H3 farklı ilk-2 at sayısı | koşu 3559 | ρ S0 0.317 S3 0.333 S4 0.334 | S3−S0 (np.float64(0.0156), [-0.0001, 0.0309]) S4−S3 (np.float64(0.0015), [-0.0124, 0.0167]) S4−S0 (np.float64(0.0171), [-0.0015, 0.0346])
+H2 tempo (400 m sönme, grup içi z) | koşu 3374 | ρ S0 0.409 S3 0.563 S4 0.556 | S3−S0 (np.float64(0.1543), [0.1302, 0.1779]) S4−S3 (np.float64(-0.0072), [-0.0164, 0.002]) S4−S0 (np.float64(0.1471), [0.1236, 0.1699])
+
+hedef H2z ortalaması (grup içi z) — hipodrom: {'adana': -0.07, 'ankara': -0.09, 'bursa': -0.07, 'istanbul': 0.1, 'izmir': 0.0, 'kocaeli': 0.12}
+
+BİTTİ
