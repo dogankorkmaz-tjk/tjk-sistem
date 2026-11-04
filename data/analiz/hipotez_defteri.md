@@ -1737,3 +1737,9 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Ana test kapsamı: AGF sırası ≥3 (uzun oranlılar dahil) ∧ koşu içi U sırası ≤2. Tek ana test, karar kuralı aynı (O/E GA alt sınırı >1).
 - Bantlar yalnız betimleyici (ana testten bağımsız, karar vermez): AGF 3–6, 7–10, 11+ ve favori (1–2) kontrol grubu.
 - Uzun oranlıda varyans yüksek: O/E ve ROI GA'sı geniş çıkacak; kazanan sayısı <30 olan bantta "yetersiz örnek" yazılır, yorum yapılmaz.
+
+## ÖN KAYIT T124 (videodan direk geçiş süresi ölçümü — tempo hedefi için)
+- Amaç: ekranda ara süre yazmayan veya OCR'ı bozuk videolarda, pist kenarı mesafe direklerinden öncü atın 400/800 m geçiş süresini hesaplamak. Kullanıcı önerisi (5 Kasım 00:21).
+- Yöntem: kare başına direk/işaret tespiti, öncü atın direği geçtiği kare → saniye. Kamera kayması ve zoom nedeniyle önce pilot.
+- Pilot: 10–20 video, ekrandaki `bolum` süresi doğru olanlar. Ölçüt: direk süresi − `bolum` süresi, ortalama mutlak hata ≤0,5 sn ve korelasyon ≥0,95.
+- Karar: ölçüt sağlanırsa tüm arşive uygula ve tempo hedefi olarak T125'e ver; sağlanmazsa vazgeç (bilgisayarlı görme zorlaşırsa Opus öner).
