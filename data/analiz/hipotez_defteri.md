@@ -1768,3 +1768,11 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Raporlama: özellik başına etki, GA, anlamlı mı (Bonferroni, ~30 özellik). Sonuç yalnız İLİŞKİ (fiyatlama); nedensellik iddiası yok. Eşdoğrusallık için VIF raporlanır.
 - Karar yok (betimleyici); kullanım: T128 artığı bu modelden yeniden hesaplanır, c testi tekrarlanır (ikinci karşılaştırma, aynı Bonferroni aile).
 - T128 bitince çalıştırılır (CPU çakışması olmasın).
+
+## ÖN KAYIT T127 (son dakika zemin/pist değişimi: piyasa geç mi uyum sağlıyor?)
+- Soru (kullanıcı): program yayınlandıktan sonra pist türü değişince (ör. 14 Ekim İstanbul sentetik, 5 Kasım Bursa kum) piyasa eski zemine göre fiyatlanmış atları düzeltiyor mu?
+- Olay tanımı: koşunun program verisindeki pist türü ile yarış günü sonuç/son verisindeki pist türü farklı (veya `yeniden_puan` bayrağı / data/pist_durum.csv kaydı). Etkilenen = o koşuda yeni zeminde ≥2 geçmiş koşusu olan atlar.
+- Zemin uyumu U_z: atın yeni zemindeki geçmiş piyasaya göre artığı (T128/mesafe_pist_ozellik.py'deki f_ps tanımı; yalnız önceki koşulardan, 2 ağırlıklı önsel).
+- Metrik: (a) etkilenen atlar içinde U_z üst üçlü / alt üçlü O/E farkı; (b) zemin değişen koşularda AGF→kapanış ganyan hareketinin U_z ile ilişkisi (piyasa düzeltiyor mu); (c) değişimsiz kontrol koşularda aynı fark (karşılaştırma).
+- Karar: değişimli koşularda (üst−alt) O/E farkının GA alt sınırı >0 ve kontrol farkından büyükse "piyasa geç uyum sağlıyor, fırsat"; olay sayısı <40 koşu ise "veri yetersiz", yorum yok, canlı toplamaya devam.
+- Canlı: 5 Kasım Bursa (tüm koşular kuma alındı) örnek olarak kaydedilir; program/zemin ve oranlar yarıştan önce kayda alınır, sonuç görülmeden U_z sabitlenir. Sonuç yalnız betimleyici tek gün, karar vermez.
