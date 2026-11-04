@@ -23,4 +23,4 @@ jobs:
       - run: |
           git config user.name tjk-bot; git config user.email tjk-bot@users.noreply.github.com
           git add -A data/yorumcu; git diff --cached --quiet && exit 0
-          git commit -m "yorumcu otomatik $(date -u '+%Y-%m-%d %H:%M') UTC"; for i in 1 2 3 4; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep 5; done; exit 1
+          git commit -m "yorumcu otomatik $(date -u '+%Y-%m-%d %H:%M') UTC"; for i in 1 2 3 4 5 6 7 8; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep $((RANDOM % 25 + 5)); done; exit 1
