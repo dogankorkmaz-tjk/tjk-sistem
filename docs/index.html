@@ -285,6 +285,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
   <div id="digerOrtu" hidden></div>
   <div id="digerPanel" hidden><div class="ic">
     <button data-s="bolton"><b>Bolton</b><span>Piyasa-yakın referans</span></button>
+    <button data-s="uyum"><b>Uyum</b><span>Deneysel seçim (T131), bahis değil</span></button>
     <button data-s="kanit"><b>Kanıt</b><span>Kanıt durumu</span></button>
     <button data-s="skor"><b>Test</b><span>Canlı model testi</span></button>
     <button data-s="abd"><b>Yabancı</b><span>Yurt dışı yarışlar</span></button>
@@ -385,6 +386,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <div class="bolum"><h2>İlk 2, 3 ve 4 takibi</h2><div id="otoPlase"><div class="card empty">Yükleniyor…</div></div></div>
   </section>
   <section id="skor" class="sec" hidden></section>
+  <section id="uyum" class="sec" hidden><div id="uyumIc"><div class="card empty">Yükleniyor…</div></div></section>
   <section id="dosya" class="sec" hidden>
     <div class="card">
       <h2>TJK program dosyası (CSV)</h2>
@@ -1227,9 +1229,16 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabDiger',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabDiger',bolton:'tabDiger',jason:'tabJason',sabit:'tabSabit',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabDiger',uyum:'tabDiger',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabDiger',bolton:'tabDiger',jason:'tabJason',sabit:'tabSabit',arsiv:'tabDiger',dosya:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
 
+async function uyumYukle(){
+  const ic=$('uyumIc'); try{ const d=await getJSON('data/uyum_secim.json?'+Date.now()); const esc=x=>String(x==null?'':x).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    let h='<div class="card" style="padding:12px 14px"><b>Uyum seçimi (T131)</b><div class="sub">'+esc(d.gun||'')+' · '+esc(d.kural||'')+'<br>Deneysel, kâğıt üstü, bahis önerisi değil. Katsayılar donduruldu; sonuçlar Ocak 2027\'de değerlendirilecek. '+(d.olusturma?'Güncelleme: '+esc(d.olusturma):'')+'</div></div>'; let n=0;
+    (d.kosular||[]).forEach(k=>{ if(!(k.secimler||[]).length) return; n+=k.secimler.length;
+      h+='<div class="card" style="padding:10px 14px"><b>'+esc(String(k.hipodrom).toUpperCase())+' '+k.kosu+'. koşu</b> <span class="sub">'+esc(k.saat||'')+'</span>'+k.secimler.map(x=>'<div style="display:flex;justify-content:space-between;gap:8px;padding:3px 0"><span>#'+x.no+' '+esc(x.at)+'</span><span class="sub">uyum '+x.uyum_sirasi+'. · AGF '+x.agf_sirasi+'. ('+String(x.agf).replace('.',',')+')</span></div>').join('')+'</div>'; });
+    if(!n) h+='<div class="card empty">Seçim yok (AGF henüz yayınlanmadı ya da koşullara uyan at yok).</div>';
+    ic.innerHTML=h; }catch(e){ ic.innerHTML='<div class="card empty">Veri yok.</div>'; } }
 async function kanitYukle(){
   const el=$('kanitIc'); if(!el) return;
   const T=(b,r)=>'<div style="overflow-x:auto"><table class="t"><tr>'+b.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr>'+r.map(l=>'<tr>'+l.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</table></div>';
@@ -1271,6 +1280,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   if(ad==='tegz') tegzYukle();
   if(ad==='abd'&&!ABD) abdYukle();
   if(ad==='kanit') kanitYukle();
+  if(ad==='uyum') uyumYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
   if(ad==='bolton'||ad==='jason') (EGZ?Promise.resolve():egzYukle()).then(tumModel);
   try{ history.replaceState(null,'','#'+ad); }catch(e){}
@@ -2310,7 +2320,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793835093';   // commit öncesi otomatik güncellenir
+const BUILD='1793835191';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
