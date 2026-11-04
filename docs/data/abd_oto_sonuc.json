@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-04 01:00 UTC",
- "kayitli_kosu": 1463,
- "eslesmeyen_kosu": 995,
+ "uretim": "2026-11-04 07:34 UTC",
+ "kayitli_kosu": 1480,
+ "eslesmeyen_kosu": 1006,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 793,
- "kosu": 468,
+ "bahis": 801,
+ "kosu": 474,
  "isabet": 51,
- "roi": 0.957,
+ "roi": 0.947,
  "ga95": [
-  0.674,
-  1.283
+  0.664,
+  1.27
  ],
  "ulke": {
   "abd": {
-   "bahis": 523,
-   "roi": 0.759
+   "bahis": 531,
+   "roi": 0.747
   },
   "birlesik-krallik": {
    "bahis": 119,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 954,
-  "kosu": 459,
-  "isabet": 95,
-  "roi": 0.64,
+  "bahis": 974,
+  "kosu": 464,
+  "isabet": 97,
+  "roi": 0.643,
   "ga95": [
-   0.451,
-   0.829
+   0.458,
+   0.827
   ]
  },
  "bahis_t1": {
-  "bahis": 979,
-  "kosu": 453,
-  "isabet": 98,
-  "roi": 0.688,
+  "bahis": 993,
+  "kosu": 458,
+  "isabet": 100,
+  "roi": 0.694,
   "ga95": [
-   0.449,
-   0.959
+   0.464,
+   0.96
   ]
  },
  "bahis_t3": {
-  "bahis": 982,
-  "kosu": 439,
-  "isabet": 104,
-  "roi": 0.637,
+  "bahis": 999,
+  "kosu": 444,
+  "isabet": 107,
+  "roi": 0.65,
   "ga95": [
-   0.426,
-   0.906
+   0.442,
+   0.917
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-02",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "MANSFIELD TIGER",
-   "q": 0.114,
-   "g": 12.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "ICE EXPRESS",
-   "q": 0.132,
-   "g": 11.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Mountaineer",
-   "kosu": 2,
-   "at": "FAYATHAAN",
-   "q": 0.078,
-   "g": 18.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Mountaineer",
-   "kosu": 2,
-   "at": "SHEAR MAGIC",
-   "q": 0.233,
-   "g": 5.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Wolverhampton",
-   "kosu": 4,
-   "at": "PENNY CAPRI",
-   "q": 0.09,
-   "g": 19.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Wolverhampton",
-   "kosu": 4,
-   "at": "CARROW ROAD",
-   "q": 0.054,
-   "g": 24.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Wolverhampton",
-   "kosu": 4,
-   "at": "DADAWADA",
-   "q": 0.031,
-   "g": 44.6,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-02",
-   "pist": "Zia Park",
-   "kosu": 3,
-   "at": "ZAP DANCER",
-   "q": 0.069,
-   "g": 19.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-02",
    "pist": "Zia Park",
@@ -391,6 +319,42 @@
   },
   {
    "gun": "2026-11-03",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "TIZAWHITEFACECAT",
+   "q": 0.112,
+   "g": 39.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "MAYNARD",
+   "q": 0.196,
+   "g": 14.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "NOBLE STAR",
+   "q": 0.071,
+   "g": 59.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Mountaineer",
+   "kosu": 3,
+   "at": "LEGENDARY STAR",
+   "q": 0.052,
+   "g": 33.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
    "pist": "Zia Park",
    "kosu": 3,
    "at": "LEAD THE WAY D W M",
@@ -423,6 +387,42 @@
    "at": "DELIA",
    "q": 0.133,
    "g": 13.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 7,
+   "at": "H M HOLY BAD BOY",
+   "q": 0.113,
+   "g": 20.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 7,
+   "at": "ANGEL'S MARK",
+   "q": 0.05,
+   "g": 33.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 7,
+   "at": "LOOKNFONOBIKINI",
+   "q": 0.159,
+   "g": 11.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-03",
+   "pist": "Zia Park",
+   "kosu": 9,
+   "at": "PRINCE ABU DHABI",
+   "q": 0.121,
+   "g": 19.25,
    "kazandi": false
   }
  ]
