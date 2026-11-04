@@ -6,4 +6,12 @@ NEDEN: tüm özelliklerle R2 0.5706 test at 50715
   grup bırakma kapi R2 düşüşü -0.0005
   grup bırakma pist_mes R2 düşüşü 0.0048
   grup bırakma stil R2 düşüşü 0.0089
-ARTIK: c = 0.014 log-olabilirlik kazancı (nat/koşu) 3e-05
+ARTIK: c = 0.0131 log-olabilirlik kazancı (nat/koşu) 2.6e-05
+c %95 GA (gün bootstrap 1000): [-0.0355  0.0656] | kazanç GA [0.       0.000633]
+artık beşlik: ort. O/E (gözlenen kazanan / piyasa beklentisi)
+   0 0.908 n 10143
+   1 1.022 n 10143
+   2 1.021 n 10143
+   3 0.98 n 10143
+   4 1.019 n 10143
+BİTTİ

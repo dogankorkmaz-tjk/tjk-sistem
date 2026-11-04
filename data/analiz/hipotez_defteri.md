@@ -1788,3 +1788,10 @@ Aşama B (galop videosu pilotu; tjk/galop_video_pilot.py + workflow galop_video_
 - Veri var: parents.mother (anne), fatherOfMother (anne babası), motherOfMother (anneanne), fatherOfFather, motherOfFather.
 - Özellikler: sire_wet (baba), dam_wet (annenin TÜM yavrularının ıslak−kuru artığı; anne başına yavru sayısı az, 20 ağırlıklı önsel güçlü), damsire_wet (anne babasının TÜM torunları, çok örnek), ayrıca baba+anne babası ortalaması "soy_wet". Her biri ayrı katsayı + GA (T129), Test 2'de en iyi tek özellik değil, ÖNCEDEN SABİT: soy_wet = 0,5·sire_wet + 0,5·damsire_wet (tek test; diğerleri betimleyici).
 - Not: anne tarafı yavru sayısı az olduğundan gürültü yüksek; damsire (geniş örnek) daha güvenilir beklenir.
+
+## SONUÇ T128 (piyasa fiyatı neden böyle? Açıklanan/artık) — 5 Kasım 01:35
+Not: ilk bootstrap sürümü (200 tekrar, yavaş optimizasyon) 40 dk'da bitmediği için iptal edildi; AYNI hesap vektörleşik skor/Newton + gün ağırlıklı bootstrap (1000) ile yeniden koşturuldu. Kural değişmedi, nokta tahmini aynı (c 0,014 → 0,013).
+- NEDEN: özelliklerle R² = 0,571 (test 50.715 at). Grup bırakma R² düşüşü: yük (kilo/hnd/yaş) 0,130; jokey 0,065; form 0,050; stil 0,009; pist/mesafe 0,005; kapı ≈0. (Ortak bilgi gruplar arasında paylaşılıyor olabilir; T129 şeffaf modelle tek tek bakacak.)
+- ARTIK: c = 0,013, %95 GA [−0,036; +0,066] → 0'ı kapsıyor; log-olabilirlik kazancı 0,000026 nat/koşu (GA [0; 0,0006]).
+- KARAR (kayıtlı kural): c GA'sı 0'ı kapsıyor → artık (piyasanın açıklanamayan %43'ü) sonucu piyasanın üstünde öngörmüyor; ne bilgili para ne sistematik hata izi. Betimleyici: artık beşliğinde O/E 0,91 / 1,02 / 1,02 / 0,98 / 1,02 (en düşük beşlik 0,91, karar verilmez).
+- Not: özellik setimiz piyasanın %57'sini açıklıyor; gerisi bizim göremediğimiz bilgi veya gürültü.

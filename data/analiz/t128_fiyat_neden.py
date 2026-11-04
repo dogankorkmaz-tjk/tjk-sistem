@@ -67,20 +67,33 @@ def r2(p): m=T&~np.isnan(p); return 1-((y[m]-p[m])**2).sum()/((y[m]-y[m].mean())
 R=r2(pall); log('NEDEN: tüm özelliklerle R2',round(R,4),'test at',int(T.sum()))
 for g in grp: log('  grup bırakma',g,'R2 düşüşü',round(R-r2(predd[g]),4))
 d['art']=d.y-pall; D=d[T].copy()
-def ll(c,sub): 
-    s=0.
-    for _,x in sub.groupby('rid'):
-        z=x.lp.values+c*x.art.values; z=z-z.max(); lse=np.log(np.exp(z).sum()); w=x.kazandi.values==1
-        if w.any(): s+=(z[w][0]-lse)
-    return s
-def cfit(sub): return minimize_scalar(lambda c:-ll(c,sub),bounds=(-3,3),method='bounded').x
-rids=D.groupby('rid').tarih.first(); days=sorted(rids.unique()); c0=cfit(D)
-ll0=ll(0,D); ll1=ll(c0,D); log('ARTIK: c =',round(c0,3),'log-olabilirlik kazancı (nat/koşu)',round((ll1-ll0)/D.rid.nunique(),5))
-B=[]
-for b in range(200):
-    pick=rng.choice(days,len(days)); sub=pd.concat([D[D.tarih==g] for g in pick[:len(days)]]); B.append(cfit(sub))
-log('c %95 GA (gün bootstrap 200):',np.round(np.percentile(B,[2.5,97.5]),3))
-D['artbant']=pd.qcut(D.art,5,labels=False); 
-log('artık beşlik: ort. O/E (gözlenen kazanan / piyasa beklentisi)'); 
+# --- hızlı sürüm: koşu başına skor/hessian vektörleşik, gün ağırlıklı bootstrap (yavaş sürüm iptal edildi) ---
+D=D.sort_values(['rid']).reset_index(drop=True)
+rid_codes,rid_idx=np.unique(D.rid.values,return_inverse=True); R=len(rid_codes)
+starts=np.r_[0,np.flatnonzero(np.diff(rid_idx))+1]; cnt=np.diff(np.r_[starts,len(D)])
+lp=D.lp.values; art=D.art.values; win=(D.kazandi.values==1)
+has=np.add.reduceat(win.astype(int),starts)==1
+rday=D.groupby('rid').tarih.first().reindex(rid_codes).values
+ud,day_idx=np.unique(rday,return_inverse=True)
+def fitc(w,c=0.,it=25):
+    for _ in range(it):
+        z=lp+c*art; zm=np.maximum.reduceat(z,starts); e=np.exp(z-np.repeat(zm,cnt)); S=np.add.reduceat(e,starts)
+        s=e/np.repeat(S,cnt)
+        m1=np.add.reduceat(s*art,starts); m2=np.add.reduceat(s*art*art,starts); aw=np.add.reduceat(art*win,starts)
+        g=(w*has*(aw-m1)).sum(); h=-(w*has*(m2-m1**2)).sum()
+        if abs(h)<1e-12: break
+        c=c-g/h
+        if abs(g/h)<1e-8: break
+    return c
+def loglik(c,w):
+    z=lp+c*art; zm=np.maximum.reduceat(z,starts); S=np.add.reduceat(np.exp(z-np.repeat(zm,cnt)),starts)
+    zw=np.add.reduceat(z*win,starts); return (w*has*(zw-zm-np.log(S))).sum()
+w1=np.ones(R); c0=fitc(w1); log('ARTIK: c =',round(c0,4),'log-olabilirlik kazancı (nat/koşu)',round((loglik(c0,w1)-loglik(0,w1))/has.sum(),6))
+B=[];G=[]
+for b in range(1000):
+    k=np.bincount(rng.integers(0,len(ud),len(ud)),minlength=len(ud)); w=k[day_idx].astype(float); cb=fitc(w,c0); B.append(cb); G.append((loglik(cb,w)-loglik(0,w))/(w*has).sum())
+log('c %95 GA (gün bootstrap 1000):',np.round(np.percentile(B,[2.5,97.5]),4),'| kazanç GA',np.round(np.percentile(G,[2.5,97.5]),6))
+D['artbant']=pd.qcut(D.art,5,labels=False)
+log('artık beşlik: ort. O/E (gözlenen kazanan / piyasa beklentisi)')
 for q,x in D.groupby('artbant'): log('  ',q,round(x.kazandi.sum()/x.p.sum(),3),'n',len(x))
 log('BİTTİ')
