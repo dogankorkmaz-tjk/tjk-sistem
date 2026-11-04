@@ -3,7 +3,7 @@
  "hipodrom": "ankara",
  "kaynak": "Robin Ahmet Ankara",
  "tur": "tuyo",
- "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:17). TÜYO, yorumcu seçimi DEĞİL (skorlamaya/kuponlara katılmaz). Doğan'ın açıklaması: '/' arkası sıralı ikili tüyosu. Yani '/' öncesi ganyan tüyosu, '/' sonrası sıralı ikili. Belirsiz: '/' sonrası tek rakam (2. koşu '2/1', 6. koşu '1/3') ve üç rakamlı (1. koşu '7/1-2', 7. koşu '1/3-2') durumlarının tam anlamı Doğan'dan teyit edilecek; ham metin saklandı. Mavi alt çizgi otomatik bağlantı, anlamsız. Yarıştan ÖNCE kaydedildi.",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:17). TÜYO, yorumcu seçimi DEĞİL (skorlamaya/kuponlara katılmaz). Doğan'ın açıklaması: '/' arkası sıralı ikili tüyosu. Yani '/' öncesi ganyan tüyosu, '/' sonrası sıralı ikili. Teyit (Doğan, 5 Kasım 01:18): '/' öncesi ganyan tüyosu (birinci); '/' sonrası o atın arkasına yazılabilecek ikinci adaylar. Örn. '7/1-2': 7 kazanır, sıralı ikilide 7-1 veya 7-2. Ganyan tüyosu = birinci aday; sıralı ikili = birinci-ikinci çifti.",
  "ham": {
   "1": "7/1-2",
   "2": "2/1",
@@ -13,28 +13,60 @@
  "tuyo": {
   "1": {
    "ganyan": 7,
-   "sirali_ikili_ham": [
+   "ikinci_adaylar": [
     1,
     2
+   ],
+   "sirali_ikili": [
+    [
+     7,
+     1
+    ],
+    [
+     7,
+     2
+    ]
    ]
   },
   "2": {
    "ganyan": 2,
-   "sirali_ikili_ham": [
+   "ikinci_adaylar": [
     1
+   ],
+   "sirali_ikili": [
+    [
+     2,
+     1
+    ]
    ]
   },
   "6": {
    "ganyan": 1,
-   "sirali_ikili_ham": [
+   "ikinci_adaylar": [
     3
+   ],
+   "sirali_ikili": [
+    [
+     1,
+     3
+    ]
    ]
   },
   "7": {
    "ganyan": 1,
-   "sirali_ikili_ham": [
+   "ikinci_adaylar": [
     3,
     2
+   ],
+   "sirali_ikili": [
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     2
+    ]
    ]
   }
  }
