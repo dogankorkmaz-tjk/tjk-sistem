@@ -1839,3 +1839,11 @@ Yöntem: uyum skoru U = X·c (X: öncülük, öncülük×rakip öncü baskısı,
 - Betimleyici bantlar: 3–6: O/E 1,172 [1,069; 1,276], ROI 0,754; 7–10: O/E 1,042 [0,803; 1,285], ROI 0,691; 11+: O/E 1,552 [0,777; 2,420] (kazanan 12, yetersiz örnek), ROI 0,978 [0,462; 1,584]. Kontroller: favori(1–2) ∧ uyum≤2 O/E 1,047, ROI 0,709; piyasa≥3 ∧ uyum EN DÜŞÜK 2: O/E 0,812 [0,727; 0,904], ROI 0,489; piyasa≥3 tümü: O/E 0,979, ROI 0,588.
 - Okuma: uyum skoru sıralıyor (üst iki 1,16, alt iki 0,81) ve kapsam ROI'sini 0,59'dan 0,75'e çıkarıyor, ama ROI 1'e ulaşmıyor. Katkının büyük kısmı stil (öncülük +0,148, kapanışçılık +0,08); pist artığı küçük (+0,051), rakip baskısı etkileşimleri sıfıra yakın. Yani "uyum" ağırlıkla T125'in stil etkisinin yeniden bulunması; bağımsız yeni bilgi olduğu söylenemez. Çoklu test: T125+T126 iki ana test (Bonferroni, yaklaşık %97,5 GA, alt sınır yine >1).
 - ROI testi ayrı ön kayıt ister; şimdiki ROI<1.
+
+## ÖN KAYIT T131 (T126'nın bağımsız ileri doğrulaması) — 5 Kasım 03:10
+Gerekçe: T126 tek dönemde (2026-02..09) geçti; yeniden üretilebilirlik için hiç görülmemiş veride aynı kural. 
+- Dondurulan: katsayı vektörü c ve standardizasyon (data/analiz/t126_c_dondurulmus.json; eğitim 2025-10..2026-10, 5 Kasım 2026'da sabitlendi, bir daha DEĞİŞMEZ). Özellikler yalnız önceki günlerden (t126_uyum.py aynı).
+- Test verisi: 2026-11-01 ve sonrası. Değerlendirme: 2027-01-31 (veya ≥1.500 koşu birikince, hangisi önceyse). Betik c'yi dosyadan okuyacak şekilde uyarlanır (yeniden eğitim yok).
+- Kural (T126 ile aynı): piyasa sırası ≥3 ∧ uyum sırası ≤2 bahislerinde O/E %95 GA alt sınırı >1 → T126 doğrulandı; GA 1'i kapsıyor → doğrulanmadı, T126 şansa/döneme bağlı sayılır. ROI yalnız bilgi, karar kuralında yok.
+- Bu sonuçlanmadan uyum skoru hiçbir üretim/bahis kararında KULLANILMAZ.
+- İkincil (betimleyici): bant 3–6 O/E; en düşük-2 kontrol O/E<1 mi.

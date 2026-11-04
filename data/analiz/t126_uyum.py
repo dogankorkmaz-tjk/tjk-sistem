@@ -57,6 +57,7 @@ d['ay']=d.tarih.str[:7]
 d=d.sort_values('rid').reset_index(drop=True)
 d['fe']=(1-d.f_v1).fillna(0.5); d['cl']=d.f_v2.fillna(0.0); d['pa']=d.pist_art.fillna(0.0)
 d['tot']=d.groupby('rid').fe.transform('sum'); d['rp']=(d.tot-d.fe)/(d.n-1); d['mesk']=(d.mes-1400)/400.
+STD={c:[float(d[c].mean()),float(d[c].std())] for c in ('fe','cl','rp','mesk','pa')}
 for c in ('fe','cl','rp','mesk','pa'): d[c]=(d[c]-d[c].mean())/d[c].std()
 d['X1']=d.fe; d['X2']=d.fe*d.rp; d['X3']=d.cl*d.rp; d['X4']=d.cl; d['X5']=d.fe*d.mesk; d['X6']=d.pa
 XC=['X1','X2','X3','X4','X5','X6']; K_=len(XC)
@@ -96,4 +97,6 @@ for ad,m in (('3-6',(T.rkp>=3)&(T.rkp<=6)),('7-10',(T.rkp>=7)&(T.rkp<=10)),('11+
 rap((T.rkp<=2)&(T.rkU<=2),'  KONTROL favori(1-2) ∧ uyum<=2')
 rap((T.rkp>=3)&(T.rkU>=T.groupby('rid').rkU.transform('max')-1),'  KONTROL piyasa>=3 ∧ uyum EN DÜŞÜK 2')
 rap(T.rkp>=3,'  KONTROL piyasa>=3 (tümü)')
+import json
+son=fitc(d[(d.ay<'2026-11')&(d.ay>='2025-10')]); json.dump({'c':[float(x) for x in son],'XC':XC,'std':STD,'egitim':'2025-10..2026-10','sabitlendi':'2026-11-05'},open('data/analiz/t126_c_dondurulmus.json','w'),indent=1); log('dondurulmuş c',np.round(son,4))
 log('BİTTİ')
