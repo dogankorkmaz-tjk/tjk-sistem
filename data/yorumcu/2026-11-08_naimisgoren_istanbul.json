@@ -1,8 +1,8 @@
 {
- "tarih": "2026-11-06",
+ "tarih": "2026-11-08",
  "hipodrom": "istanbul",
  "kaynak": "Naim işgören İstanbul",
- "not": "Doğan'ın telefon notu (ekran görüntüsü, 6 Kasım 01:05, yarıştan ÖNCE). Naim: 'bunları mutlaka kuponlarınıza yazın' diye paylaştı (Doğan). Naim sıralı verir. DOĞRULANMADI: bugun.json'daki 6 Kasım İstanbul programında 9 koşu var; nottaki '10)' koşusu yok, 6. koşuda 6 at (nottaki 11 yok), 7. koşuda 7 at (nottaki 8 yok). Tarih/program uyuşmuyor; Doğan'a soruldu. Netleşene kadar PUANLANMAZ. Mavi alt çizgiler notun otomatik bağlantısı, anlamsız.",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 6 Kasım 01:05 — PAZAR 8 Kasım İstanbul için paylaşılmış, Doğan teyit etti 6 Kasım 01:09; yarıştan çok ÖNCE). Naim: 'bunları mutlaka kuponlarınıza yazın' diye paylaştı (Doğan). Naim sıralı verir. Pazar programı henüz yayınlanmadığı için koşu/at numaraları doğrulanmadı; program gelince kontrol edilecek (6 Kasım programıyla uyuşmaması bu yüzden). Mavi alt çizgiler notun otomatik bağlantısı, anlamsız.",
  "dogrulanmadi": true,
  "vurgu": "mutlaka kuponlara yazın",
  "sirali": true,
