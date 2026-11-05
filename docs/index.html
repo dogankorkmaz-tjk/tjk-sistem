@@ -652,7 +652,7 @@ function renderKosu(){
       <div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat||'')}${bitti?' · bitti':''}</span>${k.bilgi?`<span class="note">${esc(k.bilgi)}</span>`:''}${(((VERI.pist_durumu||{})[h.id])||[]).map(c=>`<span class="note">Pist durumu: ${esc(c.pist)} ${esc(String(c.durum||'').toLocaleLowerCase('tr'))}${c.agirlik?' '+String(c.agirlik).replace('.',','):''}</span>`).join('')}${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}</div></div>
     <div id="kaynak"></div></div>
     ${podyum.length?'<div class="podyum">'+podyum.map(a=>`<div class="p${k.sonuc[a.no].sira}"><small>${k.sonuc[a.no].sira}.</small><span class="no c${(a.no-1)%16+1}">${a.no}</span><b>${esc(a.at)}</b></div>`).join('')+'</div>':''}
-    <div class="rkbas">Model sırası</div><div class="rank" id="rank"></div>
+    <div class="rkbas">Model sırası (Jason)</div><div class="rank" id="rank"></div>
     <div id="b5"></div>`;
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=a.kosmaz?'KOŞMAZ':sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
@@ -660,7 +660,7 @@ function renderKosu(){
       <div class="nm"><b${a.kosmaz?' style="text-decoration:line-through;opacity:.5"':''}>${esc(a.at)}</b>${a.kosmaz?'<span style="color:var(--hot)">KOŞMAZ</span>':''}<span>${esc(a.jokey||'')}${a.st?' · start '+a.st:''}</span></div>
       <label class="gn"><small>Ganyan</small><input class="oran" id="o${i}" data-i="${i}" inputmode="decimal" autocomplete="off" placeholder="${esc(ph)}" value="${esc(o[a.no]||'')}" aria-label="${esc(a.at)} ganyan"></label>
       <div class="bar" id="bar${i}" aria-hidden="true"><i class="bm"></i><i class="bp"></i><i class="bj"></i></div>
-      <div class="ozt"><span><b class="num" id="m${i}">–</b> Bolton</span><span><b class="num" id="e${i}">–</b> EV</span></div>
+      <div class="ozt"><span><b class="num" id="m${i}">–</b> <em id="ml${i}" style="font-style:normal">Jason</em></span><span><b class="num" id="e${i}">–</b> EV</span></div>
       <div class="sub2" id="s${i}"></div></div>`;
   });
   s+=`</div>
@@ -695,19 +695,21 @@ function hesapGoster(){
   const sira=[];
   k.atlar.forEach((a,i)=>{
     const x=out&&out.map[i]; const sn=k.sonuc&&k.sonuc[a.no];
-    $('m'+i).textContent=x?pct(x.pm)+'%':'–';
-    const ev=$('e'+i); ev.textContent=x&&x.ev!=null?f2(x.ev):'–'; ev.style.color=x&&x.ev>=1?'var(--good)':'';
+    const jA=x&&x.pj!=null;   // ana satır Jason (ganyanı o seçer, 5 Kasım 2026 Doğan); Jason yoksa Bolton
+    $('m'+i).textContent=x?pct(jA?x.pj:x.pm)+'%':'–'; $('ml'+i).textContent=jA||!x?'Jason':'Bolton';
+    const evA=x?(jA?x.ejv:x.ev):null;
+    const ev=$('e'+i); ev.textContent=evA!=null?f2(evA):'–'; ev.style.color=evA!=null&&evA>=1?'var(--good)':'';
     let t='';
     if(x&&yed){ sira.push(i); t=`<span class="note">piyasasız tahmin %${(x.pn*100).toFixed(1).replace('.',',')} (gri bilgi; Bolton alanı bu değeri gösterir)</span>`; }
     else if(x){
       sira.push(i);
       const f3=x.i3m/x.i3p;
-      if(x.pj!=null) t+=`<span>Jason ${pct(x.pj)}%${x.ejv!=null?' · EV '+f2(x.ejv):''}</span>`;
+      if(x.pj!=null) t+=`<span>Bolton ${pct(x.pm)}%${x.ev!=null?' · EV '+f2(x.ev):''}</span>`;
       t+=`<span>piyasa ${pct(x.pp)}%</span><span>ilk2 B ${pct(x.i2m)}%${x.i2j!=null?' · J '+pct(x.i2j)+'%':''}</span><span>ilk3 B ${pct(x.i3m)}%${x.i3j!=null?' · J '+pct(x.i3j)+'%':''}</span>`;
       if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
       if(x.ekuri) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre</span>';
       if(x.ekb!=null) t+=`<span class="tag" style="color:var(--muted)">ekür çift içi (gölge, kupona girmiyor): ${a.no} %${pct(x.ekb)} · ${atlar[x.ekes].no} %${pct(1-x.ekb)}</span>`;
-      if(x.ev!=null&&x.ev>=1) t+='<span class="tag ev">EV 1 üstü</span>';
+      if(evA!=null&&evA>=1) t+='<span class="tag ev">EV 1 üstü</span>';
       if(f3>=1.15) t+=`<span class="tag sur">ilk3 sürpriz +%${Math.round((f3-1)*100)}</span>`;
       else if(f3<=0.85) t+=`<span class="tag dus">ilk3 −%${Math.round((1-f3)*100)}</span>`;
     }
@@ -720,9 +722,10 @@ function hesapGoster(){
       b.querySelector('.bm').style.width=w(x.pm); b.querySelector('.bp').style.left=w(x.pp);
       const j=b.querySelector('.bj'); j.hidden=x.pj==null; if(x.pj!=null) j.style.left=w(x.pj);
       b.classList.toggle('deger',x.pj!=null&&x.pp>0&&x.pj/x.pp>=1.3); }); }
-  sira.sort((a,b)=>out.map[b].pm-out.map[a].pm);
+  const ana=x=>x.pj!=null?x.pj:x.pm;
+  sira.sort((a,b)=>ana(out.map[b])-ana(out.map[a]));
   clearTimeout(oynaT); oynaT=setTimeout(oynaCiz,500);
-  $('rank').innerHTML=out?sira.map(i=>`<span class="rk"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${pct(out.map[i].pm)}%</span>`).join(''):'<span class="note">Model sıralaması piyasa verisi gelince çıkar.</span>';
+  $('rank').innerHTML=out?sira.map(i=>`<span class="rk"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${pct(ana(out.map[i]))}%</span>`).join(''):'<span class="note">Model sıralaması piyasa verisi gelince çıkar.</span>';
   renderKombo(yed?null:out); renderKupon();
 }
 
@@ -2323,7 +2326,7 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
 oynaOzet();
 </script>
 <script>
-const BUILD='1793874184';   // commit öncesi otomatik güncellenir
+const BUILD='1793882348';   // commit öncesi otomatik güncellenir
 (async()=>{ try{ const t=await (await fetch(location.pathname+'?v='+Date.now(),{cache:'no-store'})).text(); const m=t.match(/^const BUILD='([^']*)'/m); if(m&&m[1]!==BUILD&&!sessionStorage.getItem('rl'+m[1])){ sessionStorage.setItem('rl'+m[1],'1'); location.reload(); } }catch(e){} })();
 </script>
 </body>
