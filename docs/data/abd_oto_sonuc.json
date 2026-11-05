@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-05 15:29 UTC",
- "kayitli_kosu": 1567,
- "eslesmeyen_kosu": 1055,
+ "uretim": "2026-11-05 16:27 UTC",
+ "kayitli_kosu": 1570,
+ "eslesmeyen_kosu": 1056,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 878,
- "kosu": 512,
+ "bahis": 881,
+ "kosu": 514,
  "isabet": 57,
- "roi": 0.93,
+ "roi": 0.927,
  "ga95": [
-  0.658,
-  1.236
+  0.654,
+  1.232
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.776
   },
   "birlesik-krallik": {
-   "bahis": 153,
-   "roi": 1.617
+   "bahis": 156,
+   "roi": 1.586
   },
   "fransa": {
    "bahis": 81,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1081,
-  "kosu": 500,
+  "bahis": 1085,
+  "kosu": 502,
   "isabet": 102,
-  "roi": 0.612,
+  "roi": 0.609,
   "ga95": [
-   0.445,
-   0.786
+   0.443,
+   0.782
   ]
  },
  "bahis_t1": {
-  "bahis": 1105,
-  "kosu": 494,
+  "bahis": 1108,
+  "kosu": 496,
   "isabet": 105,
-  "roi": 0.655,
+  "roi": 0.654,
   "ga95": [
-   0.443,
-   0.907
+   0.442,
+   0.905
   ]
  },
  "bahis_t3": {
-  "bahis": 1094,
-  "kosu": 479,
+  "bahis": 1098,
+  "kosu": 481,
   "isabet": 116,
-  "roi": 0.649,
+  "roi": 0.646,
   "ga95": [
-   0.452,
-   0.895
+   0.45,
+   0.893
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Mahoning Valley",
-   "kosu": 2,
-   "at": "DIVINENESS",
-   "q": 0.145,
-   "g": 10.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Mahoning Valley",
-   "kosu": 5,
-   "at": "SACRED CONNECTION",
-   "q": 0.122,
-   "g": 12.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Mahoning Valley",
-   "kosu": 5,
-   "at": "MALI BALI",
-   "q": 0.177,
-   "g": 9.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Mahoning Valley",
@@ -373,6 +346,15 @@
   },
   {
    "gun": "2026-11-05",
+   "pist": "Chelmsford City",
+   "kosu": 4,
+   "at": "ENZIYA",
+   "q": 0.148,
+   "g": 10.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
    "pist": "Southwell",
    "kosu": 1,
    "at": "MACANUDO",
@@ -423,6 +405,24 @@
    "at": "LOCHABER",
    "q": 0.052,
    "g": 52.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 3,
+   "at": "LILLIE MARGOT",
+   "q": 0.16,
+   "g": 15.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 3,
+   "at": "MIDSUMMER STORM",
+   "q": 0.123,
+   "g": 26.75,
    "kazandi": false
   }
  ]
