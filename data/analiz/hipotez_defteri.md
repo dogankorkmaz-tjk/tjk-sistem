@@ -1876,3 +1876,10 @@ Tabanlar (hepsi hazır, dışarıdan-örneklem walk-forward skorları): (A) Bent
 Model: p_i ∝ exp(taban_skor_i + β·x_i). Aylık yürüyüş: test ayı m için β yalnız önceki test-penceresi aylarından (≥1 ay) tahmin edilir; ilk ay atlanır. Ölçü: test koşusu başına log-olabilirlik farkı (β̂ ile − tabanın kendisi, nat), gün-küme bootstrap %95 GA (1000). Ek (betimsel): tüm pencerede β̂ ve gün-küme bootstrap GA.
 Karar (her taban için ayrı): KABUL ⇔ yürüyüş kazancı GA alt >0 VE β̂ GA'sı 0'ı kapsamıyor ve β̂<0. Aksi halde 'bu güçle ayırt edilemedi'. KABUL ise ana modele tek özellik olarak ekleme ayrı ön kayıtla önerilir (otomatik eklenmez).
 Beklenti/uyarı: pencere kısa (7–11 ay, ~3.500–5.500 koşu, uzun mesafe payı ~1/3); güç düşük, T132 gibi sınırda çıkabilir. Kod: data/analiz/t133_kilo_uzun.py (arka planda).
+
+SONUÇ T133 (2026-11-06 01:50; t133_kilo_uzun.py; kilo_r std 2,385 kg; uzun mesafe payı ≈%31; 2026-10 ayı kilo/mesafe eşlemesi eksik olduğu için üç tabanda da dışarıda kaldı):
+(A) Benter (S3g, 3.471 koşu 2026-03..09; test 3.035 koşu/183 gün): yürüyüş kazancı −0,00032 nat/koşu [−0,00141; +0,00082]; tam pencere β̂ −0,051 [−0,118; +0,011] → ayırt edilemedi.
+(B) Jason (pj, 3.201 koşu 2026-04..09; test 2.699/153 gün): −0,00002 [−0,00068; +0,00069]; β̂ −0,051 [−0,127; +0,019] → ayırt edilemedi.
+(C) v3 galopsuz (S3, 4.745 koşu 2025-12..09; test 4.278/273 gün): −0,00011 [−0,00069; +0,00050]; β̂ −0,032 [−0,082; +0,021] → ayırt edilemedi.
+KARAR (kural): üç tabanda da KABUL değil. Gözlem (betimsel): β̂ zamanla işaret değiştiriyor — erken aylarda + (Benter 2026-04 +0,11), 2026-08/09'da − (−0,02/−0,04); tam pencere β̂ üç tabanda da −0,03…−0,05 (kullanıcı hipoteziyle aynı yön) ama GA 0'ı kapsıyor. Kazanç sıfıra çok yakın: modeller kilo×uzun bilgisini ya zaten taşıyor ya da etkisi bu güçle ölçülemeyecek kadar küçük (50 kg'lık koşuda 1 std ≈ 2,4 kg × 0,05 = ~%12 oran değişimi uç durumlarda).
+Sonuç: kilo×mesafe hipotezi için kanıt yok, ama yön desteği zayıf; T132 ve T133 birlikte okununca 'etkisi küçük, mevcut modellerde büyük ölçüde fiyatlı' en makul okuma. Yeni veriyle (≥2× koşu) yeniden bakılabilir; şimdilik modele eklenmeyecek.
