@@ -10,12 +10,15 @@ d = d[d.kazandi.notna() & d.lp.notna()].copy()
 base = M["feat"] + GL.EK; feat = base + GL.LPEK
 mes = pd.to_numeric(d.mesafe, errors="coerce"); orta = ((mes >= 1400) & (mes < 1800)).astype(float); uzun = (mes >= 1800).astype(float)
 cim = d.pist.astype(str).str.lower().str.contains("çim|cim|turf").astype(float)
-mo, mu_, mc = float(orta.mean()), float(uzun.mean()), float(cim.mean()); log("band payları orta %.3f uzun %.3f çim %.3f"%(mo,mu_,mc), "satır", len(d), "mesafe eksik", int(mes.isna().sum()))
+mo, mu_, mc = float(orta[mes.notna()].mean()), float(uzun[mes.notna()].mean()), float(cim[d.pist.notna()].mean())   # DÜZELTME: eksik mesafe/pist = nötr (gösterge = ortalama -> etkileşim 0); ilk koşuda eksikler "kısa/kum" sayılıyordu (hata)
+orta = orta.where(mes.notna(), mo); uzun = uzun.where(mes.notna(), mu_); cim = cim.where(d.pist.notna(), mc)
+log("band payları orta %.3f uzun %.3f çim %.3f"%(mo,mu_,mc), "satır", len(d), "mesafe eksik", int(mes.isna().sum()))
 IX = []
 for tag, ind, c0 in (("orta", orta, mo), ("uzun", uzun, mu_), ("cim", cim, mc)):
     for f in base:
         n = f + "×" + tag; d[n] = d[f].fillna(0.0) * (ind - c0); IX.append(n)
-featB = feat + IX; log("özellik A", len(feat), "B", len(featB))
+featB = base + IX + GL.LPEK;   # DÜZELTME 2: golge.z2 ağırlıkları sırayla eşler, f_lp2 (LPEK) listenin SONUNDA olmalı; ilk iki koşuda IX sonrasına konunca ağırlıklar kayıyordu (hatalı)
+ log("özellik A", len(feat), "B", len(featB))
 rows = []
 def skor(te, A):
     lp2a = float(A["w"][1 + A["feat"].index("f_lp2")] / A["sd"]["f_lp2"])
