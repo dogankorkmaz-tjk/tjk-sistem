@@ -1850,3 +1850,9 @@ Gerekçe: T126 tek dönemde (2026-02..09) geçti; yeniden üretilebilirlik için
 
 ### T131 kayıt 1 (5 Kasım 02:40): bugünün uyum skorları (yarıştan ÖNCE, piyasa sırasız)
 Dondurulmuş c ile Ankara ve İzmir tüm atları için U ve koşu içi sıra: data/t131_kayit/2026-11-05_uyum.csv (betik data/analiz/t131_bugun.py). Piyasa (AGF) sırası henüz yok; kural gereği "piyasa sırası ≥3 ∧ U sırası ≤2" seçimi AGF yayınlandıktan sonra ve yarıştan önce ayrıca kaydedilecek. Sonuç görülmeden değiştirilmez.
+
+## T131 kayıt 2 (5 Kasım 2026, 12:41 TR)
+- 5 Kasım Uyum seçimi kaydedildi: Ankara + İzmir, 18 koşu, 21 seçim (kural dondurulmuş: AGF sırası ≥3 ∧ uyum sırası ≤2; c ve std T126 dondurulmuş).
+- AGF kaynağı: docs/data/bugun.json'daki 10:36 TR okuması (tüm 170 atta var). data/agf_zaman/2026-11-05.csv.gz o gün hiç yazılmamıştı (agf_zaman_yaz yalnız canlı modda çalışır, ilk canlı koşu 13:00 TR); bu yüzden bugun.json'dan elle bir kez yazıldı (saat 12:41). Seçim ilk koşudan (Ankara 14:00) ÖNCE yapıldı. AGF yarışa kadar değişebilir; kayıt bu andaki AGF'ye göredir.
+- Uyarı (kural değişmedi, sonradan düzeltme yok): İzmir 3. ve 10. koşuda geçmişi olmayan atların uyum puanı eşit (yer tutucu satırlar, U=-0.0077); sıralama eşitlikte rastgele sırayla ≤2'ye girdi (İzmir 3: Alya Hanım; İzmir 10: Vai Vai). Bu iki seçim zayıf; değerlendirmede ayrıca raporlanacak.
+- Hata kaydı: agf_zaman_yaz'ın bugün için hiç çalışmaması, sabah modunda AGF zaman serisi yazılmadığını gösteriyor; seçim saati bu yüzden 12:41 oldu (planlanan 10:30 değil).
