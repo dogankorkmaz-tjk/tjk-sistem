@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-04 22:13 UTC",
- "kayitli_kosu": 1538,
- "eslesmeyen_kosu": 1038,
+ "uretim": "2026-11-05 07:37 UTC",
+ "kayitli_kosu": 1550,
+ "eslesmeyen_kosu": 1042,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 848,
- "kosu": 500,
- "isabet": 56,
- "roi": 0.952,
+ "bahis": 861,
+ "kosu": 508,
+ "isabet": 57,
+ "roi": 0.949,
  "ga95": [
   0.686,
-  1.251
+  1.243
  ],
  "ulke": {
   "abd": {
-   "bahis": 543,
-   "roi": 0.777
+   "bahis": 556,
+   "roi": 0.776
   },
   "birlesik-krallik": {
    "bahis": 143,
@@ -35,135 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1042,
-  "kosu": 490,
-  "isabet": 100,
-  "roi": 0.623,
+  "bahis": 1060,
+  "kosu": 496,
+  "isabet": 102,
+  "roi": 0.624,
   "ga95": [
-   0.453,
-   0.806
+   0.458,
+   0.804
   ]
  },
  "bahis_t1": {
-  "bahis": 1070,
-  "kosu": 484,
-  "isabet": 103,
-  "roi": 0.665,
+  "bahis": 1088,
+  "kosu": 490,
+  "isabet": 105,
+  "roi": 0.666,
   "ga95": [
-   0.457,
-   0.926
+   0.463,
+   0.922
   ]
  },
  "bahis_t3": {
-  "bahis": 1063,
-  "kosu": 469,
-  "isabet": 114,
-  "roi": 0.656,
+  "bahis": 1079,
+  "kosu": 475,
+  "isabet": 116,
+  "roi": 0.658,
   "ga95": [
-   0.463,
-   0.907
+   0.467,
+   0.906
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "TONY HOOKS",
-   "q": 0.088,
-   "g": 16.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "BY MINK STANDARDS",
-   "q": 0.158,
-   "g": 8.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Finger Lakes",
-   "kosu": 3,
-   "at": "SIGNAL CHAT",
-   "q": 0.118,
-   "g": 11.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "BOUNTY KILLAH",
-   "q": 0.074,
-   "g": 62.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "HONEY IN THE BANK",
-   "q": 0.074,
-   "g": 16.9,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "VOLAMO",
-   "q": 0.074,
-   "g": 30.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Finger Lakes",
-   "kosu": 5,
-   "at": "LADY OF MERCIA",
-   "q": 0.074,
-   "g": 16.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Greyville",
-   "kosu": 3,
-   "at": "A GOOD HEART",
-   "q": 0.067,
-   "g": 26.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Greyville",
-   "kosu": 3,
-   "at": "TURBO TWENTY",
-   "q": 0.092,
-   "g": 22.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Greyville",
-   "kosu": 4,
-   "at": "WORLD OF OUR OWN",
-   "q": 0.209,
-   "g": 9.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Greyville",
-   "kosu": 6,
-   "at": "CAPPELLINO",
-   "q": 0.141,
-   "g": 12.9,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Horseshoe Indianapolis",
@@ -171,6 +72,24 @@
    "at": "WICKED SUPRISE",
    "q": 0.355,
    "g": 8.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 9,
+   "at": "CLEAN GETAWAY",
+   "q": 0.122,
+   "g": 11.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 9,
+   "at": "SHE'S A WHIRLWIND",
+   "q": 0.095,
+   "g": 13.2,
    "kazandi": false
   },
   {
@@ -423,6 +342,87 @@
    "at": "JKR COBBLER",
    "q": 0.146,
    "g": 11.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 1,
+   "at": "MISS KY TAP",
+   "q": 0.28,
+   "g": 5.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 1,
+   "at": "TRISTAR EMPRESS",
+   "q": 0.16,
+   "g": 10.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 3,
+   "at": "CAUSE IT'S TIME",
+   "q": 0.107,
+   "g": 14.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 3,
+   "at": "LITTLE ROUND TOP",
+   "q": 0.168,
+   "g": 12.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 4,
+   "at": "ECLIPTICALS BEAR",
+   "q": 0.115,
+   "g": 37.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 4,
+   "at": "AARAJ",
+   "q": 0.09,
+   "g": 17.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 6,
+   "at": "AQUITANIA ARRIVAL",
+   "q": 0.224,
+   "g": 6.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 6,
+   "at": "LAFITTE'S FLEET",
+   "q": 0.187,
+   "g": 6.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-04",
+   "pist": "Penn National",
+   "kosu": 6,
+   "at": "THE SINNER IS YOU",
+   "q": 0.16,
+   "g": 11.4,
    "kazandi": false
   }
  ]
