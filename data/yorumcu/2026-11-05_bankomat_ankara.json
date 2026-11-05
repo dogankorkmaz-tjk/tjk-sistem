@@ -1,9 +1,8 @@
 {
  "tarih": "2026-11-05",
  "hipodrom": "ankara",
- "kaynak": "Bankomat (telefon notu başlığı; yorumcu adı belli değil)",
- "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 12:04, yarıştan ÖNCE). Başlık 'Bankomat'. Mavi alt çizgiler notun otomatik bağlantısı, anlamsız. '-' sıra/öncelik, '/' eşit/alternatif varsayıldı (yorumcu belli değil, yorum belirsiz). 6. koşu '34' = 3 ve 4 varsayıldı. Tüyo/seçim ayrımı belli değil; seçim olarak puanlanmadan önce Doğan'a sorulmalı.",
- "sirali": true,
+ "kaynak": "Bankomat (YouTube kanalı, Ankara)",
+ "not": "Doğan'ın telefon notu 'Bankomat' (ekran görüntüsü, 5 Kasım 12:04, yarıştan ÖNCE). Bankomat daha önce de takip edilen YouTube kanalı (Doğan, 5 Kasım). Bankomat tahminlerini SIRASIZ verir (Doğan, 2 Kasım) -> sirali=false, ilk tercih puanlanmaz. '/' sonrası isteğe bağlı (Bursa 2 Kasım ile aynı biçim); '/' sonrasındaki '-' parçaları da isteğe bağlı sayıldı (5. ve 7. koşu: '6/4-7', '3/1-2'). 6. koşu '34' = 3 ve 4 varsayıldı. Mavi alt çizgiler notun otomatik bağlantısı, anlamsız.",
  "ham": {
   "1": "2-8-7-1",
   "2": "2-1-7",
@@ -14,7 +13,8 @@
   "7": "3/1-2",
   "8": "8-7-3-5/2-4"
  },
- "kosular": {
+ "sirali": false,
+ "ana": {
   "1": [
    2,
    8,
@@ -39,9 +39,7 @@
    3
   ],
   "5": [
-   6,
-   4,
-   7
+   6
   ],
   "6": [
    2,
@@ -50,27 +48,33 @@
    4
   ],
   "7": [
-   3,
-   1,
-   2
+   3
   ],
   "8": [
    8,
    7,
    3,
-   5,
+   5
+  ]
+ },
+ "istege_bagli": {
+  "1": [],
+  "2": [],
+  "3": [],
+  "4": [],
+  "5": [
+   4,
+   7
+  ],
+  "6": [],
+  "7": [
+   1,
+   2
+  ],
+  "8": [
    2,
    4
   ]
  },
- "ilk_tercih": {
-  "1": 2,
-  "2": 2,
-  "3": 2,
-  "4": 4,
-  "5": 6,
-  "6": 2,
-  "7": 3,
-  "8": 8
- }
+ "hepsi": []
 }

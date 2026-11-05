@@ -2,7 +2,7 @@
  "tarih": "2026-11-04",
  "hipodrom": "istanbul",
  "kaynak": "Bankomat İstanbul",
- "not": " Doğan'ın telefon notu (ekran görüntüsü, 4 Kasım 12:37). Tarih 4 Kasım, İstanbul 9 koşu varsayıldı. Soldan sağa SIRALI tercih, '/' sonrası isteğe bağlı (diğer yorumcularla aynı varsayım). Yarıştan ÖNCE kaydedildi (ilk koşu öncesi). Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız.",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 4 Kasım 12:37). Tarih 4 Kasım, İstanbul 9 koşu varsayıldı. Soldan sağa SIRALI tercih, '/' sonrası isteğe bağlı (diğer yorumcularla aynı varsayım). Yarıştan ÖNCE kaydedildi (ilk koşu öncesi). Mavi alt çizgiler telefon notunun otomatik bağlantısı, anlamsız. | DÜZELTME 5 Kasım: Bankomat tahminlerini SIRASIZ verir (Doğan, 2 Kasım); bu kayıt yanlışlıkla sirali=true/ilk_tercih ile girilmişti, sirali=false yapıldı, ilk tercih kaldırıldı.",
  "kosular": {
   "1": [
    1,
@@ -148,18 +148,7 @@
   "8": "7/1-9-4-6",
   "9": "3-2"
  },
- "sirali": true,
- "ilk_tercih": {
-  "1": 1,
-  "2": 3,
-  "3": 1,
-  "4": 1,
-  "5": 1,
-  "6": 3,
-  "7": 4,
-  "8": 7,
-  "9": 3
- },
+ "sirali": false,
  "istege_bagli": {
   "1": [
    3,
