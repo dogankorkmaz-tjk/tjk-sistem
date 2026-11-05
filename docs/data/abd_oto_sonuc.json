@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-05 14:29 UTC",
+ "uretim": "2026-11-05 15:23 UTC",
  "kayitli_kosu": 1565,
- "eslesmeyen_kosu": 1056,
+ "eslesmeyen_kosu": 1053,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 862,
- "kosu": 509,
+ "bahis": 878,
+ "kosu": 512,
  "isabet": 57,
- "roi": 0.948,
+ "roi": 0.93,
  "ga95": [
-  0.678,
-  1.258
+  0.658,
+  1.236
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.776
   },
   "birlesik-krallik": {
-   "bahis": 143,
-   "roi": 1.73
+   "bahis": 153,
+   "roi": 1.617
   },
   "fransa": {
-   "bahis": 75,
-   "roi": 0.657
+   "bahis": 81,
+   "roi": 0.609
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,180 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1063,
-  "kosu": 497,
+  "bahis": 1081,
+  "kosu": 500,
   "isabet": 102,
-  "roi": 0.622,
+  "roi": 0.612,
   "ga95": [
-   0.457,
-   0.801
+   0.445,
+   0.786
   ]
  },
  "bahis_t1": {
-  "bahis": 1091,
-  "kosu": 491,
+  "bahis": 1105,
+  "kosu": 494,
   "isabet": 105,
-  "roi": 0.664,
+  "roi": 0.655,
   "ga95": [
-   0.451,
-   0.918
+   0.443,
+   0.907
   ]
  },
  "bahis_t3": {
-  "bahis": 1085,
-  "kosu": 476,
+  "bahis": 1094,
+  "kosu": 479,
   "isabet": 116,
-  "roi": 0.654,
+  "roi": 0.649,
   "ga95": [
-   0.457,
-   0.903
+   0.452,
+   0.895
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 9,
-   "at": "CLEAN GETAWAY",
-   "q": 0.122,
-   "g": 11.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 9,
-   "at": "SHE'S A WHIRLWIND",
-   "q": 0.095,
-   "g": 13.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 1,
-   "at": "AMAZONIAN DREAM",
-   "q": 0.068,
-   "g": 26.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 1,
-   "at": "PANAMA BLACK",
-   "q": 0.111,
-   "g": 19.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 1,
-   "at": "CUBAN LADY",
-   "q": 0.059,
-   "g": 37.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 1,
-   "at": "MISTER MOJITO",
-   "q": 0.197,
-   "g": 12.7,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 1,
-   "at": "RHYTHM N ROCK",
-   "q": 0.111,
-   "g": 18.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 2,
-   "at": "BOBACIOUS",
-   "q": 0.054,
-   "g": 43.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 2,
-   "at": "SNOOKER MCCREW",
-   "q": 0.201,
-   "g": 6.65,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 2,
-   "at": "BLUE CELESTIAL",
-   "q": 0.115,
-   "g": 11.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 4,
-   "at": "ACCOYA",
-   "q": 0.077,
-   "g": 18.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 4,
-   "at": "LIGHT OF THE STARS",
-   "q": 0.358,
-   "g": 4.05,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 6,
-   "at": "FORCE AND VALOUR",
-   "q": 0.279,
-   "g": 9.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 6,
-   "at": "BERKSHIRE WHISPER",
-   "q": 0.076,
-   "g": 20.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 6,
-   "at": "SEA BAAEED",
-   "q": 0.093,
-   "g": 14.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Kempton",
-   "kosu": 8,
-   "at": "AN OUTLAW'S GRACE",
-   "q": 0.091,
-   "g": 30.6,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Mahoning Valley",
@@ -423,6 +279,150 @@
    "at": "ASSEREJE",
    "q": 0.108,
    "g": 25.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "CHARMING CECILIA",
+   "q": 0.248,
+   "g": 6.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "YOHIO",
+   "q": 0.102,
+   "g": 13.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "KAPKAN",
+   "q": 0.16,
+   "g": 8.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "RUN VICTORIA",
+   "q": 0.066,
+   "g": 28.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "TERRA PROXIMA",
+   "q": 0.086,
+   "g": 29.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chantilly",
+   "kosu": 6,
+   "at": "LANDED",
+   "q": 0.075,
+   "g": 22.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chelmsford City",
+   "kosu": 2,
+   "at": "MAKES ME WONDER",
+   "q": 0.096,
+   "g": 21.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chelmsford City",
+   "kosu": 2,
+   "at": "READ ALL ABOUT IT",
+   "q": 0.066,
+   "g": 18.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chelmsford City",
+   "kosu": 2,
+   "at": "SUITCASE SMITH",
+   "q": 0.051,
+   "g": 41.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chelmsford City",
+   "kosu": 2,
+   "at": "WILD ROSIE",
+   "q": 0.041,
+   "g": 87.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 1,
+   "at": "MACANUDO",
+   "q": 0.241,
+   "g": 5.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 1,
+   "at": "WILD ACT",
+   "q": 0.03,
+   "g": 53.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 1,
+   "at": "SANDS OF SEVE",
+   "q": 0.06,
+   "g": 62.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 1,
+   "at": "TEN CUIDADO",
+   "q": 0.131,
+   "g": 10.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 1,
+   "at": "A LADY FOREVER",
+   "q": 0.03,
+   "g": 96.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Southwell",
+   "kosu": 1,
+   "at": "LOCHABER",
+   "q": 0.052,
+   "g": 52.55,
    "kazandi": false
   }
  ]
