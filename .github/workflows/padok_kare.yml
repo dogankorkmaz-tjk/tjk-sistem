@@ -2,22 +2,28 @@ name: padok_kare
 on:
   workflow_dispatch:
   schedule:
-    - cron: "40 9 * * *"    # 12:40 TR: yarış öncesi padok/galop görüntüsü örneği (yalnız kendi analizim için)
+    - cron: "25 10 * * *"   # 13:25 TR: yarış günü boyunca padok/galop görüntüsü (her koşudan önce padok gösterilir); kareler artifact olarak saklanır (repoyu şişirmez)
 permissions:
   contents: write
 jobs:
   kare:
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 330
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
-      - run: python3 tjk/padok_kare.py 900 30 2>&1 | tee /tmp/padok.log
+      - run: python3 tjk/padok_kare.py 18900 60 2>&1 | tee /tmp/padok.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: padok_kare_${{ github.run_id }}
+          path: data/padok_kare/
+          retention-days: 30
       - run: |
-          mkdir -p data/padok_kare; cp /tmp/padok.log "data/padok_kare/log_$(date -u +%Y-%m-%d_%H%M).txt"
+          mkdir -p data/padok_kare_log; cp /tmp/padok.log "data/padok_kare_log/log_$(date -u +%Y-%m-%d_%H%M).txt"
           git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
-          git add data/padok_kare; git commit -qm "padok kare örnekleri" || exit 0
+          git add data/padok_kare_log; git commit -qm "padok kare log" || exit 0
           for i in 1 2 3 4 5 6 7 8; do git pull --rebase -q && git push -q && exit 0; sleep $((RANDOM % 25 + 5)); done; exit 1

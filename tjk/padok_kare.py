@@ -14,6 +14,6 @@ if r.stdout != "200":
 print(open("/tmp/m.m3u8").read()[:600])
 d = f"data/padok_kare/{gun}"; os.makedirs(d, exist_ok=True)
 p = subprocess.run(["ffmpeg", "-v", "error", "-y", "-user_agent", UA, "-headers", "Referer: https://www.tjk.org/\r\n", "-i", URL, "-t", str(SURE),
-                    "-vf", f"fps=1/{ARALIK},scale=640:-1", "-q:v", "6", f"{d}/{sa}_%03d.jpg"], capture_output=True, text=True)
+                    "-vf", f"fps=1/{ARALIK},scale=480:-1", "-q:v", "7", f"{d}/{sa}_%03d.jpg"], capture_output=True, text=True)
 print("ffmpeg rc", p.returncode, p.stderr[-400:])
 print("kare", len([f for f in os.listdir(d) if f.startswith(sa)]))
