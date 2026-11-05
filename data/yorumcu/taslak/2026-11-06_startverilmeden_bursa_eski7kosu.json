@@ -1,0 +1,157 @@
+{
+ "tarih": "2026-11-06",
+ "hipodrom": "bursa",
+ "kaynak": "Start Verilmeden Bursa",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:02). Bursa 7 koşu. Soldan sağa SIRALI tercih, '/' sonrası isteğe bağlı (diğer yorumcularla aynı varsayım). Mavi alt çizgiler notun otomatik bağlantısı, anlamsız. Yarıştan ÖNCE kaydedildi. Bu liste yorumcunun REVİZE videosundaki (Bursa tüm koşular kuma alındı) güncel tahminidir (kullanıcı teyidi, 5 Kasım 01:05). Revize öncesi tahmin elimizde yok. DÜZELTME (5 Kasım 02:30): 5 Kasım programında Bursa yok (yalnız Ankara ve İzmir); Bursa notu 6 Kasım içindir, tarih 2026-11-06 olarak düzeltildi.",
+ "kosular": {
+  "1": [
+   4,
+   2,
+   7,
+   8,
+   6
+  ],
+  "2": [
+   4,
+   6,
+   3,
+   1
+  ],
+  "3": [
+   5,
+   2,
+   10,
+   8
+  ],
+  "4": [
+   8,
+   2,
+   6,
+   7,
+   9
+  ],
+  "5": [
+   5
+  ],
+  "6": [
+   5,
+   1,
+   10,
+   11,
+   2,
+   6
+  ],
+  "7": [
+   15,
+   4,
+   16,
+   1,
+   8,
+   3
+  ]
+ },
+ "katmanlar": {
+  "1": [
+   [
+    4
+   ],
+   [
+    2,
+    7,
+    8,
+    6
+   ]
+  ],
+  "2": [
+   [
+    4,
+    6,
+    3,
+    1
+   ]
+  ],
+  "3": [
+   [
+    5,
+    2,
+    10,
+    8
+   ]
+  ],
+  "4": [
+   [
+    8,
+    2,
+    6
+   ],
+   [
+    7,
+    9
+   ]
+  ],
+  "5": [
+   [
+    5
+   ]
+  ],
+  "6": [
+   [
+    5,
+    1,
+    10
+   ],
+   [
+    11,
+    2,
+    6
+   ]
+  ],
+  "7": [
+   [
+    15,
+    4,
+    16,
+    1,
+    8,
+    3
+   ]
+  ]
+ },
+ "ham": {
+  "1": "4/2-7-8-6",
+  "2": "4-6-3-1",
+  "3": "5-2-10-8",
+  "4": "8-2-6/7-9",
+  "5": "5",
+  "6": "5-1-10/11-2-6",
+  "7": "15-4-16-1-8-3"
+ },
+ "sirali": true,
+ "ilk_tercih": {
+  "1": 4,
+  "2": 4,
+  "3": 5,
+  "4": 8,
+  "5": 5,
+  "6": 5,
+  "7": 15
+ },
+ "istege_bagli": {
+  "1": [
+   2,
+   7,
+   8,
+   6
+  ],
+  "4": [
+   7,
+   9
+  ],
+  "6": [
+   11,
+   2,
+   6
+  ]
+ },
+ "hepsi": []
+}

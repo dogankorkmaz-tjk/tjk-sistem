@@ -2,155 +2,185 @@
  "tarih": "2026-11-06",
  "hipodrom": "bursa",
  "kaynak": "Start Verilmeden Bursa",
- "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:02). Bursa 7 koşu. Soldan sağa SIRALI tercih, '/' sonrası isteğe bağlı (diğer yorumcularla aynı varsayım). Mavi alt çizgiler notun otomatik bağlantısı, anlamsız. Yarıştan ÖNCE kaydedildi. Bu liste yorumcunun REVİZE videosundaki (Bursa tüm koşular kuma alındı) güncel tahminidir (kullanıcı teyidi, 5 Kasım 01:05). Revize öncesi tahmin elimizde yok. DÜZELTME (5 Kasım 02:30): 5 Kasım programında Bursa yok (yalnız Ankara ve İzmir); Bursa notu 6 Kasım içindir, tarih 2026-11-06 olarak düzeltildi.",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 6 Kasım 01:32, yarıştan ÖNCE). 8 koşu; Bursa programının güncel hâli (8 koşu). Soldan sağa SIRALI tercih, '/' sonrası isteğe bağlı (önceki Start Verilmeden kaydıyla aynı varsayım). Bu not önceki 7 koşulu kaydın (5 Kasım 01:02, revize video) yerine geçer; eskisi taslak/ klasörüne taşındı, puanlamaya katılmaz. Mavi alt çizgiler notun otomatik bağlantısı, anlamsız.",
+ "ham": {
+  "1": "1-4-6-/8-5",
+  "2": "2-6-3/5-4",
+  "3": "6-11-4-13-1-10",
+  "4": "4",
+  "5": "6/1-2",
+  "6": "5-3-6-7-8",
+  "7": "2-9-8-5-1-3",
+  "8": "2-10-11-3-/4-5-8"
+ },
+ "sirali": true,
  "kosular": {
   "1": [
+   1,
    4,
-   2,
-   7,
+   6,
    8,
-   6
+   5
   ],
   "2": [
-   4,
+   2,
    6,
    3,
-   1
+   5,
+   4
   ],
   "3": [
-   5,
-   2,
-   10,
-   8
+   6,
+   11,
+   4,
+   13,
+   1,
+   10
   ],
   "4": [
-   8,
-   2,
-   6,
-   7,
-   9
+   4
   ],
   "5": [
-   5
+   6,
+   1,
+   2
   ],
   "6": [
    5,
-   1,
-   10,
-   11,
-   2,
-   6
+   3,
+   6,
+   7,
+   8
   ],
   "7": [
-   15,
-   4,
-   16,
-   1,
+   2,
+   9,
    8,
+   5,
+   1,
    3
+  ],
+  "8": [
+   2,
+   10,
+   11,
+   3,
+   4,
+   5,
+   8
   ]
  },
  "katmanlar": {
   "1": [
    [
-    4
+    1,
+    4,
+    6
    ],
    [
-    2,
-    7,
     8,
-    6
+    5
    ]
   ],
   "2": [
    [
-    4,
+    2,
     6,
-    3,
-    1
+    3
+   ],
+   [
+    5,
+    4
    ]
   ],
   "3": [
    [
-    5,
-    2,
-    10,
-    8
+    6,
+    11,
+    4,
+    13,
+    1,
+    10
    ]
   ],
   "4": [
    [
-    8,
-    2,
-    6
-   ],
-   [
-    7,
-    9
+    4
    ]
   ],
   "5": [
    [
-    5
+    6
+   ],
+   [
+    1,
+    2
    ]
   ],
   "6": [
    [
     5,
-    1,
-    10
-   ],
-   [
-    11,
-    2,
-    6
+    3,
+    6,
+    7,
+    8
    ]
   ],
   "7": [
    [
-    15,
-    4,
-    16,
-    1,
+    2,
+    9,
     8,
+    5,
+    1,
     3
+   ]
+  ],
+  "8": [
+   [
+    2,
+    10,
+    11,
+    3
+   ],
+   [
+    4,
+    5,
+    8
    ]
   ]
  },
- "ham": {
-  "1": "4/2-7-8-6",
-  "2": "4-6-3-1",
-  "3": "5-2-10-8",
-  "4": "8-2-6/7-9",
-  "5": "5",
-  "6": "5-1-10/11-2-6",
-  "7": "15-4-16-1-8-3"
- },
- "sirali": true,
  "ilk_tercih": {
-  "1": 4,
-  "2": 4,
-  "3": 5,
-  "4": 8,
-  "5": 5,
+  "1": 1,
+  "2": 2,
+  "3": 6,
+  "4": 4,
+  "5": 6,
   "6": 5,
-  "7": 15
+  "7": 2,
+  "8": 2
  },
  "istege_bagli": {
   "1": [
-   2,
-   7,
    8,
-   6
+   5
   ],
-  "4": [
-   7,
-   9
+  "2": [
+   5,
+   4
   ],
-  "6": [
-   11,
-   2,
-   6
+  "3": [],
+  "4": [],
+  "5": [
+   1,
+   2
+  ],
+  "6": [],
+  "7": [],
+  "8": [
+   4,
+   5,
+   8
   ]
  },
  "hepsi": []
