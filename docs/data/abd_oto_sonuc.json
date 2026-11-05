@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-05 13:11 UTC",
- "kayitli_kosu": 1559,
+ "uretim": "2026-11-05 14:25 UTC",
+ "kayitli_kosu": 1560,
  "eslesmeyen_kosu": 1051,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 861,
- "kosu": 508,
+ "bahis": 862,
+ "kosu": 509,
  "isabet": 57,
- "roi": 0.949,
+ "roi": 0.948,
  "ga95": [
-  0.686,
-  1.243
+  0.678,
+  1.258
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.73
   },
   "fransa": {
-   "bahis": 74,
-   "roi": 0.666
+   "bahis": 75,
+   "roi": 0.657
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1060,
-  "kosu": 496,
+  "bahis": 1063,
+  "kosu": 497,
   "isabet": 102,
-  "roi": 0.624,
+  "roi": 0.622,
   "ga95": [
-   0.458,
-   0.804
+   0.457,
+   0.801
   ]
  },
  "bahis_t1": {
-  "bahis": 1088,
-  "kosu": 490,
+  "bahis": 1091,
+  "kosu": 491,
   "isabet": 105,
-  "roi": 0.666,
+  "roi": 0.664,
   "ga95": [
-   0.463,
-   0.922
+   0.451,
+   0.918
   ]
  },
  "bahis_t3": {
-  "bahis": 1079,
-  "kosu": 475,
+  "bahis": 1085,
+  "kosu": 476,
   "isabet": 116,
-  "roi": 0.658,
+  "roi": 0.654,
   "ga95": [
-   0.467,
-   0.906
+   0.457,
+   0.903
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 4,
-   "at": "WICKED SUPRISE",
-   "q": 0.355,
-   "g": 8.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Horseshoe Indianapolis",
@@ -423,6 +414,15 @@
    "at": "THE SINNER IS YOU",
    "q": 0.16,
    "g": 11.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-05",
+   "pist": "Chantilly",
+   "kosu": 4,
+   "at": "ASSEREJE",
+   "q": 0.108,
+   "g": 25.6,
    "kazandi": false
   }
  ]
