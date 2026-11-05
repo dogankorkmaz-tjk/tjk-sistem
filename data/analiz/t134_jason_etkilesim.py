@@ -18,7 +18,7 @@ for tag, ind, c0 in (("orta", orta, mo), ("uzun", uzun, mu_), ("cim", cim, mc)):
     for f in base:
         n = f + "×" + tag; d[n] = d[f].fillna(0.0) * (ind - c0); IX.append(n)
 featB = base + IX + GL.LPEK;   # DÜZELTME 2: golge.z2 ağırlıkları sırayla eşler, f_lp2 (LPEK) listenin SONUNDA olmalı; ilk iki koşuda IX sonrasına konunca ağırlıklar kayıyordu (hatalı)
- log("özellik A", len(feat), "B", len(featB))
+log("özellik A", len(feat), "B", len(featB))
 rows = []
 def skor(te, A):
     lp2a = float(A["w"][1 + A["feat"].index("f_lp2")] / A["sd"]["f_lp2"])
