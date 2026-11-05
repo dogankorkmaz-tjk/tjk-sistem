@@ -1,0 +1,56 @@
+{
+ "tarih": "2026-11-06",
+ "hipodrom": "istanbul",
+ "kaynak": "Naim işgören İstanbul",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 6 Kasım 01:05, yarıştan ÖNCE). Naim: 'bunları mutlaka kuponlarınıza yazın' diye paylaştı (Doğan). Naim sıralı verir. DOĞRULANMADI: bugun.json'daki 6 Kasım İstanbul programında 9 koşu var; nottaki '10)' koşusu yok, 6. koşuda 6 at (nottaki 11 yok), 7. koşuda 7 at (nottaki 8 yok). Tarih/program uyuşmuyor; Doğan'a soruldu. Netleşene kadar PUANLANMAZ. Mavi alt çizgiler notun otomatik bağlantısı, anlamsız.",
+ "dogrulanmadi": true,
+ "vurgu": "mutlaka kuponlara yazın",
+ "sirali": true,
+ "ham": {
+  "5": "2-5",
+  "6": "11",
+  "7": "7-5-8",
+  "8": "1-8",
+  "9": "6-2-4",
+  "10": "8-12-11-10"
+ },
+ "kosular": {
+  "5": [
+   2,
+   5
+  ],
+  "6": [
+   11
+  ],
+  "7": [
+   7,
+   5,
+   8
+  ],
+  "8": [
+   1,
+   8
+  ],
+  "9": [
+   6,
+   2,
+   4
+  ],
+  "10": [
+   8,
+   12,
+   11,
+   10
+  ]
+ },
+ "ilk_tercih": {
+  "5": 2,
+  "6": 11,
+  "7": 7,
+  "8": 1,
+  "9": 6,
+  "10": 8
+ },
+ "istege_bagli": {},
+ "hepsi": []
+}
