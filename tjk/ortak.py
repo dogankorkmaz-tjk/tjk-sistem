@@ -29,12 +29,13 @@ except Exception:
     _CR = None
 
 
+_ARDISIK403 = 0    # üst üste 403 sayısı: 3'e ulaşırsa agftablosu bu çalışmada engelli sayılır (gece işi 200 dk sınırını aşıyordu, 5 Kasım 2026)
 _ENGEL = False      # agftablosu Cloudflare engeli bu çalışmada görüldüyse ona giden diğer istekler hemen None döner (23 Ekim 2026)
 
 
 def getir(url):
     """Sayfayı indirir. 404 -> ''. Hata -> None (sonra tekrar denenir)."""
-    global _ENGEL
+    global _ENGEL, _ARDISIK403
     if _ENGEL and url.startswith(BASE):
         return None
     for deneme in range(3):
@@ -55,9 +56,15 @@ def getir(url):
             r.raise_for_status()
             if _CR is None:
                 r.encoding = r.apparent_encoding or "utf-8"
+            _ARDISIK403 = 0
             return r.text
         except Exception as e:
             print("  hata, tekrar:", url, e)
+            if "403" in str(e) and url.startswith(BASE):
+                _ARDISIK403 += 1
+                if _ARDISIK403 >= 3:
+                    print("  üst üste 403: bu çalışmada agftablosu'na başka istek yapılmayacak"); _ENGEL = True
+                return None
             time.sleep(8 * (deneme + 1))
     return None
 
