@@ -1930,3 +1930,6 @@ Sonuç: T135+T136 birlikte: sıralı/üçlü havuzlarda takeout üstü sınıf b
 
 ## 2026-11-06 SONUÇ T137 kayıt 1 (betimsel; KARAR YOK)
 n(A)=36 (<300) → karar yok. A: 6 kazanan / 4,1 beklenen, O/E 1,47 [0,85–1,88]. B tümü n=247, 31 / 21,8, O/E 1,42 [1,16–1,66]; oy=1 (164) 1,52 [1,04–1,98]; oy≥2 (83) 1,28 [0,88–1,45]. Eklenen TABAN: aynı gün/hipodromlardaki TÜM piyasa sırası ≥3 atlar n=621, 43 / 39,2, O/E 1,10 [0,99–1,21] → yorumcu fazlası (1,42) tabanın (1,10) üzerinde ama GA'lar örtüşüyor ve B yorumcular arası bağımsız değil. Kanal bazlı n çok küçük (0–4). Tekrar: python3 data/analiz/t137_yorumcu_bilgi.py; karar yalnız n(A)≥300'de.
+
+## 2026-11-06 Not: Bankomat artık SIRALI veriyor (kullanıcı)
+Bundan sonraki Bankomat notları sirali=true ve soldan sağa tercih sırasıyla kaydedilir (ilk_tercih geçerli). Geçmiş kayıtlar (2, 4, 5 Kasım) sirali=false kalır; T137 A grubuna girmez, yalnız B'de. Yeni formatın ilk notu geldiğinde kullanıcıdan teyit alınır (geçişin hangi günden başladığı).
