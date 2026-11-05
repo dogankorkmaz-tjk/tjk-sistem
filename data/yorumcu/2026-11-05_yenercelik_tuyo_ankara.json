@@ -3,7 +3,7 @@
  "hipodrom": "ankara",
  "kaynak": "Yener Çelik Ankara 2. altılı ganyan",
  "tur": "tuyo",
- "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:13). TÜYO, yorumcu SEÇİMİ DEĞİL: yorumcu skorlamasına ve yorumcu kuponlarına katılmaz, ayrı izlenir. Altılı ayak numaraları (koşu eşlemesi ayrıca doğrulanacak, 2. altılı muhtemelen 4.–9. koşular): 1.ayak 7; 2.ayak 4; 3.ayak 6 (TEK, yani banko); 6.ayak 'kuma döner' ise 8/10 (zemin koşullu). Yarıştan ÖNCE kaydedildi.",
+ "not": "Doğan'ın telefon notu (ekran görüntüsü, 5 Kasım 01:13). TÜYO, yorumcu SEÇİMİ DEĞİL: yorumcu skorlamasına ve yorumcu kuponlarına katılmaz, ayrı izlenir. Altılı ayak numaraları (koşu eşlemesi ayrıca doğrulanacak, 2. altılı muhtemelen 4.–9. koşular): 1.ayak 7; 2.ayak 4; 3.ayak 6 (TEK, yani banko); 6.ayak 'kuma döner' ise 8/10 (zemin koşullu). Yarıştan ÖNCE kaydedildi. | TEYİT (Doğan, 5 Kasım 13:22): 2. altılı 3. koşuda başlıyor -> 1.ayak=3. koşu, 2.ayak=4, 3.ayak=5 (6 tek), 6.ayak=8. koşu.",
  "ayaklar": {
   "1": [
    7
@@ -24,6 +24,37 @@
  },
  "kosullu": {
   "6": {
+   "kum": [
+    8,
+    10
+   ]
+  }
+ },
+ "kosu_eslemesi": {
+  "1": 3,
+  "2": 4,
+  "3": 5,
+  "4": 6,
+  "5": 7,
+  "6": 8
+ },
+ "kosular": {
+  "3": [
+   7
+  ],
+  "4": [
+   4
+  ],
+  "5": [
+   6
+  ],
+  "8": [
+   8,
+   10
+  ]
+ },
+ "kosullu_kosu": {
+  "8": {
    "kum": [
     8,
     10
