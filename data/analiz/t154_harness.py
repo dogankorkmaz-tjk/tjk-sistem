@@ -3,7 +3,7 @@ entegre_v3_elo2.py'yi döngüden önceki kısmına kadar AYNEN çalıştırır (
 Çıktı biçimi harness ile aynı: /tmp/claude-0/v3_elo2MJP{N}_2025-10.pkl = {ay: (kayıp[N,5] birikimli, gun)}; δ katsayıları t154_delta{N}.json.
 Kontrol: PLASE_SIFIR=1 ile δ=0'a kilitlenir → MJ galopsuz çıktısını birebir vermeli (kod doğrulaması)."""
 import os, sys, json, pickle
-assert os.environ.get("VAR") == "MJP"
+VAR = os.environ.get("VAR"); assert VAR in ("MJP", "MJPK")   # MJPK: T155 birleşik
 _yol = os.path.join(os.path.dirname(os.path.abspath(__file__)), "entegre_v3_elo2.py")
 _src = open(_yol).read().split('aylar = sorted({r["ay"]')[0]
 _g = {"__file__": _yol, "__name__": "t154"}; exec(compile(_src, _yol, "exec"), _g)
@@ -43,6 +43,6 @@ for a in test:
     tr = [r for r in R if r["ay"] < a]; te = [r for r in R if r["ay"] == a]
     tm = fitP(tr); OUT[a] = (evP(te, tm), [r["gun"] for r in te]); DL[a] = [float(x) for x in tm[0][14 + NJ:]]
     print(a, "tamam", len(te), "koşu | δ", np.round(tm[0][14 + NJ:], 3).tolist(), flush=True)
-pickle.dump(OUT, open(f"/tmp/claude-0/v3_elo2MJP{ek}{N_}_{os.environ.get('TESTBAS', '2026-04')}.pkl", "wb"))
-json.dump({"ozellik": PF, "delta": DL}, open(os.path.join(os.path.dirname(_yol), f"t154_delta{ek}{N_}.json"), "w"), indent=1)
+pickle.dump(OUT, open(f"/tmp/claude-0/v3_elo2{VAR}{ek}{N_}_{os.environ.get('TESTBAS', '2026-04')}.pkl", "wb"))
+json.dump({"ozellik": PF, "delta": DL}, open(os.path.join(os.path.dirname(_yol), (f"t154_delta{ek}{N_}.json" if VAR == "MJP" else f"t155_delta{ek}{N_}.json")), "w"), indent=1)
 print("kaydedildi", flush=True)
