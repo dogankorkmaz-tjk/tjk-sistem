@@ -1465,6 +1465,12 @@ def main():
             OD.yaz()
         except Exception as ex:
             print("oynadim özeti atlandı:", ex)
+    if mod in ("sabah", "canli", "gece", "hepsi"):
+        try:                                   # sağlık kontrolü (docs/data/saglik.json; hata işi durdurmaz)
+            from . import saglik as _SG
+            _SG.kontrol(bugun=str(bugun))
+        except Exception as ex:
+            print("sağlık kontrolü atlandı:", ex)
 
 
 if __name__ == "__main__":

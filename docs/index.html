@@ -294,12 +294,14 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button data-s="kanit"><b>Kanıt</b><span>Kanıt durumu</span></button>
     <button data-s="skor"><b>Test</b><span>Canlı model testi</span></button>
     <button data-s="abd"><b>Yabancı</b><span>Yurt dışı yarışlar</span></button>
+    <button data-s="saglik"><b>Sistem sağlığı</b><span>Veri, model ve puan denetimi</span></button>
     <button data-s="arsiv"><b>Arşiv</b><span>Kanıt dışı kâğıt testler</span></button>
     <button data-s="dosya"><b>Dosya yükle</b><span>CSV, PDF, ekran görüntüsü</span></button>
   </div></div>
   <div id="durum" class="note"></div>
 
   <section id="bugun" class="sec">
+    <div id="saglikBant" hidden></div>
     <div class="card" style="padding:12px 14px"><b>Ana model: Benter v3</b> · odak: sıralı ikili, üçlü, tabela, sıralı 5'li<div class="sub" style="margin:4px 0 8px">Sıra tahmininde piyasadan iyi, takeout'u henüz geçmiyor (kâr kanıtı yok). Jason sürpriz avında devam ediyor.</div><button id="knGit" style="padding:8px 12px;border-radius:10px">Kanıt durumunu aç</button></div>
     <div id="pano"></div>
     <div class="sec" id="oynaKutu"></div>
@@ -381,6 +383,10 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <div id="abdKosu"></div>
     <div class="card" id="abdKayitKutu"></div>
     <div class="card" id="abdSonucKutu"></div>
+  </section>
+  <section id="saglik" class="sec" hidden>
+    <div class="bolum-not">Her çalışmanın sonunda otomatik denetim: veri tazeliği, model eğitim tarihleri, bugünkü atların Jason/Benter puan kapsamı, sıralı bahis katsayıları, altılı yapısı.</div>
+    <div id="saglikIc"><div class="card empty">Yükleniyor…</div></div>
   </section>
   <section id="arsiv" class="sec" hidden>
     <div class="bolum-not">Bu bölümdeki kurallar izlenmeye devam ediyor ama kanıt hesabına girmiyor. Birinin şansla iyi görünmesi, işe yaradığını göstermez.</div>
@@ -1245,7 +1251,7 @@ $('abdYenile').onclick=async()=>{
     $('abdGuncel').textContent=r.ok?'İstek gitti. 1–2 dakika sonra sekmeyi yeniden aç.':'Hata '+r.status;
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
-const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabDiger',uyum:'tabDiger',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabDiger',bolton:'tabDiger',jason:'tabJason',sabit:'tabSabit',arsiv:'tabDiger',dosya:'tabDiger'};
+const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabDiger',uyum:'tabDiger',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabDiger',bolton:'tabDiger',jason:'tabJason',sabit:'tabSabit',arsiv:'tabDiger',dosya:'tabDiger',saglik:'tabDiger'};
 let SON_KUPON=ld('gm2_kupsek','egz');
 
 async function uyumYukle(){
@@ -1296,6 +1302,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   if(ad==='tegz') tegzYukle();
   if(ad==='abd'&&!ABD) abdYukle();
   if(ad==='kanit') kanitYukle();
+  if(ad==='saglik') saglikYukle();
   if(ad==='uyum') uyumYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
   if(ad==='bolton'||ad==='jason') (EGZ?Promise.resolve():egzYukle()).then(tumModel);
@@ -1306,6 +1313,22 @@ $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu')
 $('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabJason').onclick=()=>sekme('jason'); $('tabSabit').onclick=()=>sekme('sabit');
 $('tabCanli').onclick=()=>sekme('canli'); $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
 {const kg=$('knGit'); if(kg) kg.onclick=()=>sekme('kanit');}
+/* Sistem sağlığı (tjk/saglik.py → data/saglik.json) */
+let SAGLIK=null;
+async function saglikAl(){ try{ SAGLIK=await (await fetch('data/saglik.json?'+Date.now())).json(); }catch(e){ SAGLIK=null; } return SAGLIK; }
+const SG_RENK={ok:'var(--ok, #2e7d32)',uyari:'#b26a00',hata:'#e05252'}, SG_AD={ok:'Tamam',uyari:'Uyarı',hata:'Hata'};
+function saglikBant(){ const b=$('saglikBant'); if(!b) return; const S=SAGLIK;
+  if(!S||S.genel==='ok'||S.tarih!==trBugun()){ b.hidden=true; b.innerHTML=''; return; }
+  const k=(S.kontroller||[]).filter(x=>x.durum!=='ok');
+  b.hidden=false; b.className='card'; b.style.cssText='padding:10px 14px;border-left:4px solid '+SG_RENK[S.genel];
+  b.innerHTML='<b style="color:'+SG_RENK[S.genel]+'">Sistem: '+k.length+' sorun</b> <span class="sub">('+esc(S.zaman||'')+')</span><div class="sub" style="margin-top:4px">'+k.slice(0,3).map(x=>esc(x.ad)).join(' · ')+(k.length>3?' …':'')+'</div><button id="sgGit" style="margin-top:6px;padding:6px 10px;border-radius:10px">Ayrıntı</button>';
+  $('sgGit').onclick=()=>sekme('saglik'); }
+async function saglikYukle(){ await saglikAl(); saglikBant(); const el=$('saglikIc'); const S=SAGLIK;
+  if(!S){ el.innerHTML='<div class="card empty">Sağlık kaydı yok (ilk çalışmadan sonra oluşur).</div>'; return; }
+  const sira={hata:0,uyari:1,ok:2}, L=[...(S.kontroller||[])].sort((a,b)=>sira[a.durum]-sira[b.durum]);
+  el.innerHTML='<div class="card" style="padding:10px 14px"><b style="color:'+SG_RENK[S.genel]+'">Genel: '+SG_AD[S.genel]+'</b> <span class="sub">· '+esc(S.tarih)+' · '+esc(S.zaman||'')+'</span></div>'
+   +L.map(x=>'<div class="card" style="padding:8px 14px;border-left:4px solid '+SG_RENK[x.durum]+'"><b>'+esc(x.ad)+'</b> <span style="color:'+SG_RENK[x.durum]+'">'+SG_AD[x.durum]+'</span><div class="sub">'+esc(x.detay)+'</div></div>').join(''); }
+saglikAl().then(saglikBant);
 document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
 document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.dataset.k));
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
@@ -1447,7 +1470,7 @@ async function ucDegerYukle(){ const el=$('ucDegerIc'); if(!el) return;
   }catch(e){ el.textContent='Henüz veri yok (takip başladı, ilk koşular bitince dolacak).'; }
 }
 setInterval(canliTick,10000); setTimeout(canliTick,3000);
-setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 13:00’ten itibaren yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); } }).catch(()=>{}); } }, 5*60*1000);
+setInterval(()=>{ if(GUN===trBugun() && !document.hidden){ const s={...sel}; getJSON('data/bugun.json').then(v=>{ if(v.tarih===GUN){ VERI=v; sel=s; $('durum').textContent=`Son güncelleme ${VERI.guncelleme||'?'} · 13:00’ten itibaren yaklaşık 20 dk’da bir yenilenir, GitHub gecikirse 1 saate kadar uzayabilir`; const a=document.activeElement; if(!(a&&a.classList&&a.classList.contains('oran'))) renderSecim(); renderOzet(); tumModel(); besliYukle(); uyanYukle(); sirasizYukle(); genisYukle(); degerYukle(); kombYukle(); saglikAl().then(saglikBant); } }).catch(()=>{}); } }, 5*60*1000);
 
 async function otoKuponYukle(){
   const el=$('otoKupon'); if(!el) return;
