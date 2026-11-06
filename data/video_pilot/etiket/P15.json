@@ -1,0 +1,17 @@
+{
+ "id": "P15",
+ "tarih": "2026-07-30",
+ "hipodrom": "kocaeli",
+ "kosu": 9,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/7/26073099_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 7,
+   "tur": "kotu_cikis",
+   "t": 14.04047,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:57:52.875Z"
+}
