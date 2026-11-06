@@ -1,0 +1,16 @@
+Resmî birim fiyatları (tjk.org Bahisler sayfası): üçlü 2 TL, tabela 1,50 TL, sıralı beşli 1,25 TL; ödeme birim bilet için.
+--- üçlü (birim 2.0 TL) ---
+   p×ödeme ≥ 1.2 TL (= maliyetin 0.60 katı): bahis 696252 (230/koşu, 459 TL/koşu) isabet 2424 ROI -0.166 [-0.240; -0.087] (%98,33 BİRİNCİL)
+   p×ödeme ≥ 1.5 TL (= maliyetin 0.75 katı): bahis 375568 (124/koşu, 248 TL/koşu) isabet 1511 ROI -0.086 [-0.164; +0.001] (%95)
+   p×ödeme ≥ 2.0 TL (= maliyetin 1.00 katı): bahis 88926 (33/koşu, 67 TL/koşu) isabet 404 ROI +0.177 [-0.032; +0.418] (%95)
+   p×ödeme ≥ 3.0 TL (= maliyetin 1.50 katı): bahis 4281 (11/koşu, 22 TL/koşu) isabet 21 ROI +0.977 [-0.095; +2.322] (%95)
+--- tabela (birim 1.5 TL) ---
+   p×ödeme ≥ 1.2 TL (= maliyetin 0.80 katı): bahis 293662 (294/koşu, 440 TL/koşu) isabet 100 ROI -0.082 [-0.385; +0.279] (%98,33 BİRİNCİL)
+   p×ödeme ≥ 1.5 TL (= maliyetin 1.00 katı): bahis 51481 (96/koşu, 143 TL/koşu) isabet 15 ROI -0.440 [-0.850; +0.229] (%95)
+   p×ödeme ≥ 2.0 TL (= maliyetin 1.33 katı): bahis 3836 (43/koşu, 65 TL/koşu) isabet 0 ROI -1.000 [-1.000; -1.000] (%95)
+   p×ödeme ≥ 3.0 TL (= maliyetin 2.00 katı): bahis 38 (19/koşu, 28 TL/koşu) isabet 0 ROI -1.000 [-1.000; -1.000] (%95)
+--- sıralı 5'li (birim 1.25 TL) ---
+   p×ödeme ≥ 1.2 TL (= maliyetin 0.96 katı): bahis 5447583 (3629/koşu, 4,537 TL/koşu) isabet 350 ROI +0.487 [+0.074; +0.990] (%98,33 BİRİNCİL)
+   p×ödeme ≥ 1.5 TL (= maliyetin 1.20 katı): bahis 1268519 (969/koşu, 1,211 TL/koşu) isabet 114 ROI +1.156 [+0.280; +2.234] (%95)
+   p×ödeme ≥ 2.0 TL (= maliyetin 1.60 katı): bahis 104218 (213/koşu, 266 TL/koşu) isabet 17 ROI +0.097 [-0.675; +1.147] (%95)
+   p×ödeme ≥ 3.0 TL (= maliyetin 2.40 katı): bahis 2004 (74/koşu, 93 TL/koşu) isabet 1 ROI -0.748 [-1.000; +0.041] (%95)
