@@ -1,0 +1,6 @@
+bahis 1241 gün 354 | isabet 171 | ort. ganyan 10.39
+D (düz) ROI +0.093 [-0.070; +0.276] | büyük ödeme çıkarılınca (bilgi) +0.070
+D    son kasa    215.55 | en büyük düşüş %56 | gün başına log büyüme +0.00217
+K25  son kasa    263.70 | en büyük düşüş %56 | gün başına log büyüme +0.00274
+K50  son kasa    145.69 | en büyük düşüş %83 | gün başına log büyüme +0.00106
+K25 − D gün başına log büyüme +0.00057 [-0.00417; +0.00523] → KARAR: düz kalır
