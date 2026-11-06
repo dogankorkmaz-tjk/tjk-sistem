@@ -5,7 +5,7 @@ on:
     inputs:
       n:
         description: "en çok video"
-        default: "60"
+        default: "120"
   schedule:
     - cron: "40 */3 * * *"
 permissions:
@@ -30,6 +30,6 @@ jobs:
       - run: |
           git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
           ( while true; do sleep 600; git add data/spiker; git commit -qm "spiker (ara kayıt)"; for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((RANDOM % 20 + 5)); done; done ) &
-          python3 -m tjk.spiker calis ${{ github.event.inputs.n || '60' }} 2>&1 | grep -v "HF_TOKEN\|unauthenticated" | tail -80
+          python3 -m tjk.spiker calis ${{ github.event.inputs.n || '120' }} 2>&1 | grep -v "HF_TOKEN\|unauthenticated" | tail -80
           git add data/spiker; git commit -qm "spiker yazı" || exit 0
           for i in 1 2 3 4 5 6 7 8; do git pull --rebase -q && git push -q && exit 0; sleep $((RANDOM % 25 + 5)); done; exit 1
