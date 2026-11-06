@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-06 18:55 UTC",
- "kayitli_kosu": 1636,
- "eslesmeyen_kosu": 1119,
+ "uretim": "2026-11-06 19:34 UTC",
+ "kayitli_kosu": 1641,
+ "eslesmeyen_kosu": 1123,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 883,
- "kosu": 517,
+ "bahis": 885,
+ "kosu": 518,
  "isabet": 57,
- "roi": 0.925,
+ "roi": 0.923,
  "ga95": [
-  0.66,
-  1.216
+  0.658,
+  1.211
  ],
  "ulke": {
   "abd": {
-   "bahis": 558,
-   "roi": 0.773
+   "bahis": 560,
+   "roi": 0.77
   },
   "birlesik-krallik": {
    "bahis": 156,
@@ -35,13 +35,13 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1090,
-  "kosu": 505,
+  "bahis": 1093,
+  "kosu": 506,
   "isabet": 102,
-  "roi": 0.607,
+  "roi": 0.605,
   "ga95": [
    0.436,
-   0.781
+   0.778
   ]
  },
  "bahis_t1": {
@@ -65,24 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 3,
-   "at": "KINROSS CLARET",
-   "q": 0.048,
-   "g": 42.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 5,
-   "at": "SUGARPIEHONEYBUNCH",
-   "q": 0.051,
-   "g": 55.2,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Musselburgh",
@@ -405,6 +387,24 @@
    "at": "MIDSUMMER STORM",
    "q": 0.123,
    "g": 26.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "SHAKE MY HAND",
+   "q": 0.122,
+   "g": 30.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "SPHINX",
+   "q": 0.095,
+   "g": 20.35,
    "kazandi": false
   },
   {
