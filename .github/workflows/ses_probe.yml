@@ -23,11 +23,13 @@ jobs:
             ffmpeg -v error -y -i /tmp/v/$b.mp4 -vn -ac 1 -ar 16000 /tmp/v/$b.wav && ffmpeg -v error -i /tmp/v/$b.wav -af volumedetect -f null - 2>&1 | grep -E "mean_volume|max_volume" >> $out
           done
           python3 - <<'P' >> $out 2>&1
-          import glob, os
+          import glob, os, wave, numpy as np
           from faster_whisper import WhisperModel
           m = WhisperModel("small", device="cpu", compute_type="int8")
           for f in sorted(glob.glob("/tmp/v/*.wav")):
-              seg, info = m.transcribe(f, language="tr", vad_filter=True)
+              w = wave.open(f); a = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768.0
+              print("ses ortalama genlik", round(float(np.abs(a).mean()), 4), "| en yüksek", round(float(np.abs(a).max()), 3))
+              seg, info = m.transcribe(a, language="tr", vad_filter=False)
               print("\n### TRANSKRİPT", os.path.basename(f), "dil olasılığı", round(info.language_probability, 2))
               for s in seg: print(f"[{s.start:6.1f}-{s.end:6.1f}] {s.text.strip()}")
           P
