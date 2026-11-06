@@ -1,0 +1,6 @@
+ayak-koşu: 294 gün: 15 | momentum ≠ 1 olan koşu oranı: 0.918 | ilk görüntü kesimden ort. 203 dk önce
+eğitim 60 / test 234 ayak-koşu
+P3 momentum + eğim (BİRİNCİL): λ=+0.374 μ=-0.194 | test kazanan LL farkı -0.0001 [-0.0262; +0.0270] | kapanışa uzaklık KL 0.0694 (P0 0.0960)
+P1 yalnız momentum: λ=+0.435 μ=-0.000 | test kazanan LL farkı +0.0005 [-0.0190; +0.0145] | kapanışa uzaklık KL 0.0977 (P0 0.0960)
+P2 yalnız eğim: λ=+0.000 μ=-0.220 | test kazanan LL farkı -0.0032 [-0.0346; +0.0266] | kapanışa uzaklık KL 0.0667 (P0 0.0960)
+ayak sırasına göre kapanışa uzaklık (P0, KL): {1: 0.0766, 2: 0.0887, 3: 0.1022, 4: 0.0914, 5: 0.0918, 6: 0.0991}

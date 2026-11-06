@@ -143,6 +143,24 @@ def guncelle(obj):
                                               "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
                                               **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
                     kay[anahtar] = c
+            # T178 (7 Kas 2026, gölge): son ayakları genişlet — ilk ayak öncesi AGF'nin kapanışa uzaklığı ayak ilerledikçe artıyor (T177: KL 0,077→0,099);
+            # j. ayakta model olasılığı pm^τ_j ile yassılaştırılarak kurulur (τ = 1, 1, 0,95, 0,90, 0,85, 0,80); tutma/değerlendirme özgün olasılıkla.
+            if c and not c.get("dondu") and not any(q["mod"] == "gen_favori" for q in c["kuponlar"]):
+                try:
+                    r0 = _ayaklar_obj(h, son, obj.get("w0", 1.0))
+                    if r0:
+                        ay0, ad0 = r0; TAU = [1.0, 1.0, 0.95, 0.90, 0.85, 0.80]
+                        ayg = []
+                        for j, a_ in enumerate(ay0):
+                            t_ = TAU[min(j, 5)]; z = sum(v[0] ** t_ for v in a_.values()) or 1.0
+                            ayg.append({no: ((v[0] ** t_) / z, v[1]) for no, v in a_.items()})
+                        for B in (48, 192):
+                            s_ = kur(ayg, B, "favori"); o = ozet(ay0, s_)
+                            c["kuponlar"].append({"mod": "gen_favori", "butce": B, "birim": birim(h["id"]), "bedel": round(o["kombinasyon"] * birim(h["id"]), 2), "ayaklar": [sorted(x) for x in s_],
+                                                  "isimler": [{str(no): ad0[i][no] for no in sorted(x)} for i, x in enumerate(s_)],
+                                                  **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
+                except Exception as e:
+                    print("gen_favori hatası:", repr(e))
             # Jason kolu (gölge, kağıt üstü): Bolton kuponlarına dokunmadan j_favori / j_deger eklenir
             if c and not c.get("dondu") and obj.get("w0_aday") is not None and not any(q["mod"].startswith("j_") for q in c["kuponlar"]):
                 rj = _ayaklar_obj(h, son, obj.get("w0", 1.0), (obj["w0_aday"], obj.get("lp2_aday", 0.0)))

@@ -329,6 +329,9 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
         <label>Birim fiyat (TL) <input id="kFiyat" inputmode="decimal" placeholder="isteğe bağlı"></label>
         <label class="ck"><input type="checkbox" id="kSur"> Sürpriz at ekle (Jason seçer)</label>
         <span class="note">Çekirdek atlar da Jason'a göre seçilir.</span>
+        <label>Bütçe (komb.) <input id="kButce" inputmode="numeric" placeholder="ör. 96" style="width:80px"></label>
+        <button id="kOto" class="btn">Ayaklara göre otomatik genişlik</button>
+        <span class="note">Bütçe içinde en yüksek tutmayı veren at sayılarını her ayağa dağıtır; son ayaklar daha geniş tutulur (ilk ayak öncesi bilgi o ayaklarda kapanıştan daha uzak, T177). Deneysel; aynı kural kâğıt üstünde kaydediliyor (gen_favori).</span>
       </div>
       <div id="kupon"></div>
     </div>
@@ -807,7 +810,7 @@ function renderKupon(){
   if(KUP.son<KUP.bas) KUP.son=KUP.bas;
   const opt=v=>ks.map(k=>`<option value="${k}"${k===v?' selected':''}>${k}. koşu</option>`).join('');
   $('kBas').innerHTML=opt(KUP.bas); $('kSon').innerHTML=opt(KUP.son);
-  $('kSur').checked=!!KUP.sur; if($('kFiyat')!==document.activeElement) $('kFiyat').value=KUP.fiyat||'';
+  $('kSur').checked=!!KUP.sur; if($('kFiyat')!==document.activeElement) $('kFiyat').value=KUP.fiyat||''; if($('kButce')!==document.activeElement&&KUP.butce) $('kButce').value=KUP.butce;
   let s='<div class="card">',combos=1,pm=1,pp=1,tam=true; const SM=[],SP=[];
   h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{
     const out=hesapla(h,k); const kk=KUP.k[h.id+'|'+k.kosu]||2;
@@ -821,7 +824,7 @@ function renderKupon(){
     const kaz=k.sonuc&&Object.entries(k.sonuc).find(([n,v])=>v.sira===1);
     const tuttu=kaz?all.some(i=>String(k.atlar[i].no)===kaz[0]):null;
     s+=`<div class="leg"><div class="hd"><span>${k.kosu}. koşu <span class="note">model ${pct(sp)}% · piyasa ${pct(spp)}%${kaz?` · kazanan ${kaz[0]} ${tuttu?'✓':'✗'}`:''}</span></span>
-      <label>çekirdek <select data-k="${k.kosu}">${[1,2,3,4,5,6].map(n=>`<option${n===kk?' selected':''}>${n}</option>`).join('')}</select></label></div>
+      <label>çekirdek <select data-k="${k.kosu}">${[1,2,3,4,5,6,7,8,9,10].map(n=>`<option${n===kk?' selected':''}>${n}</option>`).join('')}</select></label></div>
       <div class="chips">${all.map(i=>`<span class="rk${extra.includes(i)?' sur':''}"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${esc(k.atlar[i].at)} · ${pct(J(i))}%${extra.includes(i)?' · sürpriz (Jason)':''}</span>`).join('')}</div></div>`;
   });
   s+='</div>';
@@ -838,6 +841,15 @@ $('kBas').onchange=()=>{KUP.bas=+$('kBas').value;sv('gm2_kupon',KUP);renderKupon
 $('kSon').onchange=()=>{KUP.son=+$('kSon').value;sv('gm2_kupon',KUP);renderKupon()};
 $('kSur').onchange=()=>{KUP.sur=$('kSur').checked;sv('gm2_kupon',KUP);renderKupon()};
 $('kFiyat').oninput=()=>{KUP.fiyat=$('kFiyat').value;sv('gm2_kupon',KUP);renderKupon()};
+$('kOto').onclick=()=>{ const h=hipBul(sel.hip); if(!h) return; const B=parseInt($('kButce').value,10)||96; KUP.butce=B; const TAU=[1,1,0.95,0.9,0.85,0.8];
+  const legs=[]; h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{ const out=hesapla(h,k); if(!out) return;
+    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pp; const idx=Object.keys(out.map).map(Number).sort((a,b)=>J(b)-J(a)); const t=TAU[Math.min(legs.length,5)];
+    const w=idx.map(i=>Math.pow(Math.max(J(i),1e-9),t)), z=w.reduce((a,b)=>a+b,0); legs.push({k:k.kosu,p:w.map(v=>v/z),n:1}); });
+  if(!legs.length) return;
+  for(let it=0;it<200;it++){ const n=legs.reduce((a,l)=>a*l.n,1); let best=null;
+    legs.forEach(l=>{ if(l.n>=l.p.length||n/l.n*(l.n+1)>B) return; const R=l.p.slice(0,l.n).reduce((a,b)=>a+b,0), r=l.p[l.n]; const g=Math.log((R+r)/R)/Math.log((l.n+1)/l.n); if(!best||g>best.g) best={l,g}; });
+    if(!best) break; best.l.n++; }
+  legs.forEach(l=>{ KUP.k[h.id+'|'+l.k]=l.n; }); sv('gm2_kupon',KUP); renderKupon(); };
 
 // ---------- günün özeti (kapanış ganyanına göre) ----------
 function renderOzet(){
