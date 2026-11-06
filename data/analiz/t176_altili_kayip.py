@@ -5,14 +5,24 @@ from scipy.stats import spearmanr
 rng = np.random.default_rng(176)
 def modelP(pp, z, w0, c2):
     l = np.log(np.maximum(pp, 1e-6)); s = w0 * l + c2 * l * l + z; e = np.exp(s - s.max()); return e / e.sum()
+import gzip, re
+ALT = {}   # (gun, hip) -> {altılı no: ilk ayak}; docs/data/gun 'altili' alanı çoğu günde boş → atyarisi arşivinden ("N. 6'LI GANYAN bu koşudan başlar")
+for f in sorted(glob.glob("data/atyarisi/2026-*.json.gz")):
+    try: x = json.load(gzip.open(f))
+    except Exception: continue
+    gun_ = x.get("tarih") or f.split("/")[-1][:10]
+    for hh, L in (x.get("program") or {}).items():
+        for r in L or []:
+            for m in re.findall(r"(\d)\. 6'LI GANYAN bu koşudan başlar", str(r.get("bets"))):
+                ALT.setdefault((gun_, hh), {})[m] = int(r["number"])
 R = []
 for f in sorted(glob.glob("docs/data/gun/2026-*.json")):
     d = json.load(open(f, encoding="utf-8")); gun = d.get("tarih")
     if not gun or gun > "2026-11-06" or d.get("w0_g1") is None: continue
     for h in d["hipodromlar"]:
         K = {k["kosu"]: k for k in h["kosular"]}
-        for alt, son in (h.get("altili") or {}).items():
-            for j, kn in enumerate(range(int(son) - 5, int(son) + 1), start=1):
+        for alt, ilk in ALT.get((gun, h["id"]), {}).items():
+            for j, kn in enumerate(range(int(ilk), int(ilk) + 6), start=1):
                 k = K.get(kn)
                 if not k or not k.get("sonuc"): continue
                 so = k["sonuc"]; at = [a for a in k["atlar"] if not a.get("kosmaz") and str(a["no"]) in so and (so[str(a["no"])].get("g") or 0) > 1]
@@ -24,7 +34,7 @@ for f in sorted(glob.glob("docs/data/gun/2026-*.json")):
                 if np.isnan(agf).any() or (agf <= 0).any() or not (sira == 1).any() or any(z is None for z in zb): continue
                 z = np.array(zb, float); c2 = d.get("lp2_g1") or 0.0 if all(a.get("z6b") is not None for a in at) else 0.0
                 w = int(np.argmax(sira == 1)); pA = agf / agf.sum(); pK = (1 / g) / (1 / g).sum()
-                R.append(dict(gun=gun, ayak=j, n=len(at), w=w, pA=pA, pK=pK, z=z, w0=d["w0_g1"], c2=c2,
+                R.append(dict(gun=gun, alt=str(alt), ayak=j, n=len(at), w=w, pA=pA, pK=pK, z=z, w0=d["w0_g1"], c2=c2,
                               mom=np.where(np.isnan(agf0) | (agf0 <= 0), 1.0, agf / np.where(agf0 > 0, agf0, 1))))
 print("ayak-koşu:", len(R), "gün:", len({r['gun'] for r in R}))
 def ll(r, p): return np.log(max(p[r["w"]], 1e-9))
@@ -36,6 +46,8 @@ D = pd.DataFrame([{k: v for k, v in r.items() if not isinstance(v, np.ndarray)} 
 def boot(x, g):
     s = pd.Series(x).groupby(np.asarray(g)).agg(["sum", "size"]); ug = s.index.values
     bs = [(lambda q: s.loc[q, "sum"].sum() / s.loc[q, "size"].sum())(rng.choice(ug, len(ug))) for _ in range(3000)]; return np.percentile(bs, [2.5, 97.5])
+D2 = D[D.alt != "1"]; D = D[D.alt == "1"]; R2 = [r for r in R if r["alt"] != "1"]; R = [r for r in R if r["alt"] == "1"]
+print("1. altılı ayak-koşu:", len(D), "| 2. altılı (betimsel):", len(D2), "Benter kaybı ort", round(D2.kayip_B.mean(), 4) if len(D2) else None)
 print("=== 1) Canlı bilgi kaybı: kazanan log-olabilirliği, kapanış − ilk ayak öncesi AGF (nats/koşu; büyük = kapanış daha iyi)")
 for j in range(1, 7):
     x = D[D.ayak == j]

@@ -1,0 +1,18 @@
+ayak-koşu: 292 gün: 14
+1. altılı ayak-koşu: 142 | 2. altılı (betimsel): 150 Benter kaybı ort 0.0205
+=== 1) Canlı bilgi kaybı: kazanan log-olabilirliği, kapanış − ilk ayak öncesi AGF (nats/koşu; büyük = kapanış daha iyi)
+  1. ayak (20 koşu): Benter +0.0908 [-0.0770; +0.2989] | piyasa tek +0.1021 [-0.0978; +0.3503]
+  2. ayak (23 koşu): Benter -0.1059 [-0.4211; +0.0997] | piyasa tek -0.1180 [-0.4708; +0.1380]
+  3. ayak (25 koşu): Benter -0.0251 [-0.1962; +0.1513] | piyasa tek -0.0078 [-0.2327; +0.2328]
+  4. ayak (24 koşu): Benter +0.0063 [-0.1425; +0.1602] | piyasa tek +0.0041 [-0.1815; +0.2108]
+  5. ayak (25 koşu): Benter +0.1083 [-0.0519; +0.2915] | piyasa tek +0.1181 [-0.0893; +0.3505]
+  6. ayak (25 koşu): Benter +0.1167 [-0.0586; +0.3327] | piyasa tek +0.1631 [-0.0406; +0.4142]
+  TÜMÜ (142): Benter +0.0319 [-0.0540; +0.1123] | eğilim (ayak ~ kayıp) Spearman +0.076
+=== 2) AGF momentumu p' ∝ p_AGF × (agf/agf0)^λ
+  λ (eğitim 0 koşu) = +3.000 | test (142 koşu): +0.0000 nats/koşu [+0.0000; +0.0000] → kanıt yok | kapanış bilgisinin ne kadarını geri alır: %0
+=== 3) Ayak belirsizliği göstergeleri ile kayıp ilişkisi (Spearman)
+  kl: rho +0.113 (p 0.181)
+/home/claude/tjk-sistem/data/analiz/t176_altili_kayip.py:70: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho, pv = spearmanr(D[c], D.kayip_B); print(f"  {c}: rho {rho:+.3f} (p {pv:.3f})")
+  oyn: rho +nan (p nan)
+  n: rho -0.057 (p 0.498)
