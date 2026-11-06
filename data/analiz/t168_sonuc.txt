@@ -1,0 +1,9 @@
+=== A) İKİLİ / SIRALI İKİLİ (havuz AÇIK, koşuya 0–10 dk)
+sıralı ikili: kazanan kombinasyon listede 3 koşu | resmî ödeme / önce oranı medyan 0.928 (çeyrekler 0.909–0.952)
+   değer bahisleri: 24 bahis, 7 koşu, 4 gün, 0 isabet | önce oranıyla SANILAN ROI -1.000 [-1.000; -1.000] | resmî ödemeyle GERÇEK ROI -1.000 [-1.000; -1.000] | fark +0.000
+ikili: kazanan kombinasyon listede 8 koşu | resmî ödeme / önce oranı medyan 0.974 (çeyrekler 0.891–1.012)
+   değer bahisleri: 37 bahis, 10 koşu, 4 gün, 3 isabet | önce oranıyla SANILAN ROI +2.018 [-0.459; +6.137] | resmî ödemeyle GERÇEK ROI +1.699 [-0.486; +5.331] | fark -0.319
+=== B) GANYAN (koşuya 1–5 dk kalan son anlık)
+koşu 146, gün 14, ort. dk 1.7 | kazananın resmî ganyan / önce oranı medyan 0.960 (çeyrekler 0.804–1.137)
+önce fiyatıyla seçim: 31 bahis, 6 isabet | SANILAN ROI +1.300 [+0.065; +2.571] | GERÇEK ROI +0.705 [-0.303; +2.175]
+kapanış fiyatıyla seçim (T159 kuralı, aynı koşular): 28 bahis, 4 isabet | ROI +0.625 [-0.694; +2.715]
