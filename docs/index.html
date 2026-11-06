@@ -687,7 +687,7 @@ function renderKosu(){
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=a.kosmaz?'KOŞMAZ':sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
     s+=`<div class="row at${sn&&sn.sira===1?' kazanan':sn&&sn.sira===2?' ikinci':sn&&sn.sira===3?' ucuncu':''}" id="r${i}"><span class="no c${(a.no-1)%16+1}">${a.no}${sn&&sn.sira?`<em>${sn.sira}.</em>`:''}</span>
-      <div class="nm"><b${a.kosmaz?' style="text-decoration:line-through;opacity:.5"':''}>${esc(a.at)}</b>${ekRozet(k,a)}${a.kosmaz?'<span style="color:var(--hot)">KOŞMAZ</span>':''}<span>${esc(a.jokey||'')}${a.st?' · start '+a.st:''}</span></div>
+      <div class="nm"><b${a.kosmaz?' style="text-decoration:line-through;opacity:.5"':''}>${esc(a.at)}</b>${ekRozet(k,a)}${a.kosmaz?'<span style="color:var(--hot)">KOŞMAZ</span>':''}<span>${esc(a.jokey||'')}${a.st?' · start '+a.st:''}</span>${(a.spiker||[]).length?'<span class="spk" style="display:block;font-size:12px;color:var(--muted)">🎙 '+a.spiker.map(x=>esc(x.t)+' '+(/olay yok|^erken/.test(x.o)?esc(x.o):'<b style="color:var(--hot)">'+esc(x.o)+'</b>')).join(' · ')+'</span>':''}</div>
       <label class="gn"><small>Ganyan</small><input class="oran" id="o${i}" data-i="${i}" inputmode="decimal" autocomplete="off" placeholder="${esc(ph)}" value="${esc(o[a.no]||'')}" aria-label="${esc(a.at)} ganyan"></label>
       <div class="bar" id="bar${i}" aria-hidden="true"><i class="bm"></i><i class="bp"></i><i class="bj"></i></div>
       <div class="ozt"><span><b class="num" id="m${i}">–</b> <em id="ml${i}" style="font-style:normal">Jason</em></span><span><b class="num" id="e${i}">–</b> EV</span></div>

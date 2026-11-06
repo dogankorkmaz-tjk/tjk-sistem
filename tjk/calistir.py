@@ -207,6 +207,11 @@ def sabah(t):
         obj["hipodromlar"].append({"id": h, "ad": O.AD[h], "kosular": kos})
     agf_ekle(obj)
     csv_agf_uygula(obj, csv_agf)
+    try:                                          # spiker notları (6 Kasım 2026): atların son 3 koşusunda spikerin anlattığı olaylar/erken konum (bilgi; modele girmez)
+        from . import spiker_not as _SPN
+        print("spiker notu:", _SPN.ekle(obj), "at")
+    except Exception as e:
+        print("spiker notu hatası:", repr(e))
     try:                                          # T158 (6 Kasım 2026): sabah AGF'si de zaman serisine (erken referans; önceden yalnız canlı/hızlı modda yazılıyordu)
         agf_zaman_yaz(obj)
     except Exception as e:
