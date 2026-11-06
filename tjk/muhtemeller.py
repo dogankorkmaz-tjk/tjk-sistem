@@ -141,6 +141,8 @@ def topla(tarih=None, pencere_dk=12, yalniz_yurtdisi=True):
                         hv = _havuz(run)
                         if hv.get("si") and hv.get("ik"):
                             kay["havuz"] = {"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "durum": dr, **hv}   # yalnız son durum (ilk5 gölge v3)
+                            if dr == "AÇIK":   # 7 Kas 2026: kapanış öncesi son açık ikili/sıralı ikili muhtemeli (Canlı değer bahisleri için; KAPALI ile ezilmez)
+                                kay["havuz_acik"] = kay["havuz"]
                     except Exception:
                         pass
                     yazilan += 1
