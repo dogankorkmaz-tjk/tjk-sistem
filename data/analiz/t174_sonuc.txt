@@ -1,0 +1,19 @@
+tarih aralığı: {'sıralı ikili kombine (taban)': ('2025-10-01', '2026-10-13', 5236), 'ikili kombine': ('2025-10-01', '2026-10-13', 4836), "sıralı 5'li kombine": ('2025-11-01', '2026-10-31', 1309)}
+=== sıralı ikili kombine (taban): seçim 2776 koşu ROI +0.217 | doğrulama 2460 koşu ROI +0.177
+   hipodrom büyük/küçük: seçimde fark küçük (+0.209 / +0.256) → seçilmedi
+   at sayısı ≤10/≥11: seçim oyna=2. taraf (+0.609 vs -0.041) | doğrulama oyna +0.382 (1068 koşu, 94 isabet) vs oynama +0.021 (1392) fark +0.361 [-0.122; +0.906] → doğrulanmadı
+   pist çim/kum: seçimde fark küçük (+0.260 / +0.210) → seçilmedi
+   ayrışma yüksek/düşük (KL>0.048): seçimde fark küçük (+0.265 / +0.168) → seçilmedi
+   favori güçlü/zayıf (>0.31): seçim oyna=2. taraf (+0.363 vs +0.072) | doğrulama oyna +0.068 (1199 koşu, 93 isabet) vs oynama +0.281 (1261) fark -0.213 [-0.654; +0.243] → doğrulanmadı
+=== ikili kombine: seçim 2510 koşu ROI +0.137 | doğrulama 2326 koşu ROI +0.208
+   hipodrom büyük/küçük: seçim oyna=2. taraf (+0.435 vs +0.072) | doğrulama oyna +0.440 (423 koşu, 37 isabet) vs oynama +0.156 (1903) fark +0.284 [-0.314; +0.963] → doğrulanmadı
+   at sayısı ≤10/≥11: seçim oyna=2. taraf (+0.432 vs -0.086) | doğrulama oyna +0.552 (1086 koşu, 88 isabet) vs oynama -0.091 (1240) fark +0.642 [+0.125; +1.166] → doğrulandı (%95)
+   pist çim/kum: seçim oyna=2. taraf (+0.162 vs -0.002) | doğrulama oyna +0.333 (1563 koşu, 129 isabet) vs oynama -0.049 (763) fark +0.382 [-0.073; +0.850] → doğrulanmadı
+   ayrışma yüksek/düşük (KL>0.050): seçim oyna=2. taraf (+0.196 vs +0.079) | doğrulama oyna +0.316 (1255 koşu, 92 isabet) vs oynama +0.082 (1071) fark +0.234 [-0.221; +0.696] → doğrulanmadı
+   favori güçlü/zayıf (>0.30): seçim oyna=2. taraf (+0.514 vs -0.239) | doğrulama oyna +0.315 (1116 koşu, 90 isabet) vs oynama +0.109 (1210) fark +0.206 [-0.354; +0.723] → doğrulanmadı
+=== sıralı 5'li kombine: seçim 484 koşu ROI +1.542 | doğrulama 825 koşu ROI +0.273
+   hipodrom büyük/küçük: seçim oyna=1. taraf (+1.702 vs +1.096) | doğrulama oyna +0.016 (624 koşu, 12 isabet) vs oynama +0.993 (201) fark -0.977 [-3.726; +1.286] → doğrulanmadı
+   at sayısı ≤10/≥11: seçim oyna=2. taraf (+1.595 vs -1.000) | doğrulama oyna +0.039 (809 koşu, 16 isabet) vs oynama +12.193 (16) fark -12.154 [-39.632; +1.834] → doğrulanmadı
+   pist çim/kum: seçim oyna=1. taraf (+2.948 vs +1.297) | doğrulama oyna +0.952 (273 koşu, 5 isabet) vs oynama -0.065 (552) fark +1.017 [-1.335; +4.231] → doğrulanmadı
+   ayrışma yüksek/düşük (KL>0.062): seçim oyna=2. taraf (+1.932 vs +1.364) | doğrulama oyna +0.581 (476 koşu, 6 isabet) vs oynama +0.068 (349) fark +0.513 [-1.585; +3.119] → doğrulanmadı
+   favori güçlü/zayıf (>0.24): seçim oyna=2. taraf (+1.941 vs +1.087) | doğrulama oyna +1.054 (352 koşu, 6 isabet) vs oynama -0.267 (473) fark +1.320 [-0.803; +3.918] → doğrulanmadı
