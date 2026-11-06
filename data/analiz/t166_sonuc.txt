@@ -1,0 +1,32 @@
+5'li kendi havuz medyanı: {'adana': 213245, 'ankara': 213245, 'antalya': 89408, 'bursa': 88203, 'diyarbakir': 169635, 'elazig': 281759, 'istanbul': 419943, 'izmir': 307102, 'kocaeli': 213245, 'sanliurfa': 118601} | grup {True: 213245, False: 150967}
+2025-10 tamam
+2025-11 tamam
+2025-12 tamam
+2026-01 tamam
+2026-02 tamam
+2026-03 tamam
+2026-04 tamam
+2026-05 tamam
+2026-06 tamam
+2026-07 tamam
+2026-08 tamam
+2026-09 tamam
+2026-10 tamam
+=== üçlü: BİRİNCİL (eşik 1,2, 1.000 TL, havuz k=1.0) koşu 720 ort. 59 TL isabet 87 (bunların DEVİR olanı 0) → ROI +0.196 [-0.231; +0.723] | duyarlılık k=(0.5, 2.0): [np.float64(0.186), np.float64(0.201)] → kârlı değil
+      DEVİR isabeti 0 sayılırsa: +0.196 [-0.160; +0.612]
+      eşik 1.0 bütçe 1000: koşu 2015 ort. 85 TL isabet 357 ROI +0.174 [-0.030; +0.413]
+      eşik 1.5 bütçe 1000: koşu 126 ort. 52 TL isabet 12 ROI +0.723 [-0.403; +2.338]
+      eşik 1.2 bütçe 500: koşu 720 ort. 59 TL isabet 87 ROI +0.196 [-0.177; +0.624]
+      eşik 1.2 bütçe 2500: koşu 720 ort. 59 TL isabet 87 ROI +0.196 [-0.161; +0.632]
+=== tabela: BİRİNCİL (eşik 1,2, 1.000 TL, havuz k=0.5) koşu 111 ort. 133 TL isabet 1 (bunların DEVİR olanı 0) → ROI -0.953 [-1.000; -0.826] | duyarlılık k=(0.25, 1.0): [np.float64(-0.953), np.float64(-0.953)] → kârlı değil
+      DEVİR isabeti 0 sayılırsa: -0.953 [-1.000; -0.853]
+      eşik 1.0 bütçe 1000: koşu 369 ort. 201 TL isabet 15 ROI -0.453 [-0.841; +0.153]
+      eşik 1.5 bütçe 1000: koşu 16 ort. 102 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+      eşik 1.2 bütçe 500: koşu 111 ort. 126 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+      eşik 1.2 bütçe 2500: koşu 111 ort. 133 TL isabet 1 ROI -0.953 [-1.000; -0.852]
+=== sıralı 5'li: BİRİNCİL (eşik 1,2, 1.000 TL, havuz k=1.0) koşu 1251 ort. 670 TL isabet 79 (bunların DEVİR olanı 1) → ROI +0.352 [-0.242; +1.138] | duyarlılık k=(0.5, 2.0): [np.float64(0.029), np.float64(0.777)] → kârlı değil
+      DEVİR isabeti 0 sayılırsa: +0.210 [-0.239; +0.755]
+      eşik 1.0 bütçe 1000: koşu 1462 ort. 942 TL isabet 126 ROI +0.414 [-0.011; +0.906]
+      eşik 1.5 bütçe 1000: koşu 556 ort. 323 TL isabet 21 ROI +0.024 [-0.568; +0.778]
+      eşik 1.2 bütçe 500: koşu 1251 ort. 400 TL isabet 54 ROI +0.696 [-0.111; +1.666]
+      eşik 1.2 bütçe 2500: koşu 1251 ort. 1,056 TL isabet 106 ROI +0.347 [-0.077; +0.807]
