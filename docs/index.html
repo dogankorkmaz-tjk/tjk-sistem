@@ -1470,12 +1470,33 @@ function canliCiz(){
   if(gYok){ s+=atlarJ; el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; return; }
   // değer bahisleri (gölge, T163 kuralı + T168 kayma): listelenen her kombinasyon için Benter p × canlı oran × 0,96 ≥ 1,2
   const KAY=(FM&&FM.kayma)||0.96;
-  const degerIk=(tur,sirali)=>{ const L2=((L.hv||{})[tur]||[]), dg=[];
-    L2.forEach(([a,b,G])=>{ const ja=noj[a], jb=noj[b]; if(ja==null||jb==null||!(G>1)) return; const mp=sirali?plOlas(W,T,[ja,jb]):plOlas(W,T,[ja,jb])+plOlas(W,T,[jb,ja]); const e=mp*G*KAY; if(e>=1.2) dg.push({ja,jb,G,mp,e}); });
-    if(!L2.length) return ''; dg.sort((x,y)=>y.e-x.e);
-    if(!dg.length) return `<div class="deger" style="border:1px dashed var(--line);border-radius:8px;padding:6px 8px;margin-bottom:6px"><b>Değer bahsi (gölge):</b> <span class="sub">bu koşuda yok — hiçbir kombinasyon eşiği (model × oran × 0,96 ≥ 1,2) geçmiyor.</span></div>`;
-    const tl=20, top=tl*dg.length;   // her ikili kombinasyon ayrı kupon, kupon başına en az 20 TL (Doğan, 7 Kas 2026)
-    return `<div class="deger" style="border:1px solid #15803d;border-radius:8px;padding:6px 8px;margin-bottom:6px;background:rgba(21,128,61,.06)"><b style="color:#15803d">Değer bahsi (gölge)</b> <span class="sub">· ${dg.length} ayrı kupon · her biri <b>${tl} TL</b> (${tl} misli) · toplam <b>${top} TL</b></span>${dg.map(x=>`<div style="display:flex;align-items:center;gap:6px;margin-top:4px">${rozet([x.ja,x.jb],sirali)}<span class="sub">oran ${f2(x.G)} · model %${(x.mp*100).toFixed(1).replace('.',',')} · beklenen ×${f2(x.e)}</span></div>`).join('')}<div class="sub" style="margin-top:4px;font-size:11px">Kural T163 (geçmiş: sıralı ikili +%7,7, ikili +%6,3; kâr kanıtlanmadı). Oran yarış öncesine göre ~%4 düşük alınır (T168). Her gün kâğıt üstünde kaydedilir.</div></div>`; };
+  const degerIk=(tur,sirali)=>{ const L2=((L.hv||{})[tur]||[]); if(!L2.length) return '';
+    // T169 (7 Kas 2026): tek kupon — sıralı ikili virgüllü (1. sıra kümesi / 2. sıra kümesi), ikili kombine (n at); listede olmayan çiftin oranı 0,75 sayılır; ≤100 komb.; <20 TL → misli
+    const Q={}; L2.forEach(([a,b,G])=>{ const ja=noj[a], jb=noj[b]; if(ja==null||jb==null||!(G>1)) return; Q[sirali?ja+'-'+jb:Math.min(ja,jb)+'-'+Math.max(ja,jb)]=G; });
+    const MXG=Math.max(...L2.map(x=>x[2]).filter(v=>v>1),1);   // T169-B (7 Kas 2026): liste dışı sıralı ikili çiftinin oranı listedeki en yüksek orandan yüksektir → taban
+    const val=(a,b)=>{ const G=Q[sirali?a+'-'+b:Math.min(a,b)+'-'+Math.max(a,b)]; if(G==null){ if(!sirali) return 0.75; const mp0=plOlas(W,T,[a,b]); return mp0*MXG*KAY; } const mp=sirali?plOlas(W,T,[a,b]):plOlas(W,T,[a,b])+plOlas(W,T,[b,a]); return mp*G*KAY; };
+    const cand=ord.slice(0,Math.min(9,ord.length)), TH=1.2, BMX=100;
+    let best=null; cand.forEach(a=>cand.forEach(b=>{ if(a!==b){ const v=val(a,b); if(!best||v>best.v) best={a,b,v}; } }));
+    const kutu=(ic,yesil)=>`<div class="deger" style="border:1px ${yesil?'solid #15803d':'dashed var(--line)'};border-radius:8px;padding:6px 8px;margin-bottom:6px;${yesil?'background:rgba(21,128,61,.06)':''}">${ic}</div>`;
+    if(!best||best.v<TH) return kutu('<b>Değer kuponu (gölge):</b> <span class="sub">bu koşuda yok — hiçbir kombinasyon eşiği (model × oran × 0,96 ≥ 1,2) geçmiyor.</span>',false);
+    const key=c=>sirali?c[0]+'-'+c[1]:Math.min(c[0],c[1])+'-'+Math.max(c[0],c[1]);
+    const cV=(A,Bs)=>{ const o=[]; A.forEach(a=>Bs.forEach(b=>{ if(a!==b) o.push([a,b]); })); return o; };
+    const cK=S=>{ const x=[...S], o=[]; for(let i=0;i<x.length;i++) for(let j=0;j<x.length;j++){ if(i===j) continue; if(!sirali&&j<i) continue; o.push([x[i],x[j]]); } return o; };
+    const art=(cur,nw)=>{ const cs=new Set(cur.map(key)); return nw.filter(c=>!cs.has(key(c))).reduce((t,c)=>t+val(c[0],c[1])-TH,0); };
+    // kombine: n at, sıralıda tüm sıralar / ikilide tüm çiftler
+    const K1=new Set([best.a,best.b]);
+    for(let it=0;it<20;it++){ let sec=null; const cur=cK(K1); cand.forEach(h=>{ if(K1.has(h)) return; const nw=cK(new Set([...K1,h])); if(nw.length>BMX) return; const d=art(cur,nw); if(d>0&&(!sec||d>sec.d)) sec={d,h}; }); if(!sec) break; K1.add(sec.h); }
+    // virgüllü (yalnız sıralı ikili): 1. sıra kümesi / 2. sıra kümesi
+    const A=new Set([best.a]), Bs=new Set([best.b]);
+    if(sirali) for(let it=0;it<20;it++){ let sec=null; const cur=cV(A,Bs); [0,1].forEach(pos=>cand.forEach(h=>{ if((pos?Bs:A).has(h)) return; const nw=pos?cV(A,new Set([...Bs,h])):cV(new Set([...A,h]),Bs); if(nw.length>BMX) return; const d=art(cur,nw); if(d>0&&(!sec||d>sec.d)) sec={d,pos,h}; })); if(!sec) break; (sec.pos?Bs:A).add(sec.h); }
+    const srt=S=>[...S].sort((x,y)=>p[y]-p[x]);
+    const chips=arr=>srt(arr).map(j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`).join('');
+    const tutar=n=>{ const ms=n<20?Math.ceil(20/n):1; return `${n} komb. · ${n} TL${ms>1?` · ${ms} misli = ${n*ms} TL`:''}`; };
+    const satir=(etk,ic,n)=>`<div style="border-top:1px solid var(--line);padding:6px 0"><div><b>${etk}</b> <span class="sub">· ${tutar(n)}</span></div>${ic}</div>`;
+    let g='';
+    if(sirali) g+=satir('Virgüllü: '+srt(A).map(no).join(',')+' / '+srt(Bs).map(no).join(','),`<div style="display:flex;align-items:center;gap:6px;margin-top:4px"><span class="sub" style="width:44px">1. at</span>${chips(A)}</div><div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:44px">2. at</span>${chips(Bs)}</div>`,cV(A,Bs).length);
+    g+=satir('Kombine: '+srt(K1).map(no).join(','),`<div style="display:flex;align-items:center;gap:6px;margin-top:4px"><span class="sub" style="width:44px">Atlar</span>${chips(K1)}</div>`,cK(K1).length);
+    return kutu(`<b style="color:#15803d">Değer kuponu (gölge)</b>${g}<div class="sub" style="margin-top:4px;font-size:11px">Geçmiş ~5.000 koşu: ${sirali?'kombine +%20 [+3; +38], virgüllü +%15 [−1; +31] (T169-B)':'kombine +%17 [−2; +37]'}; ${sirali?'kural sonuçlara bakılarak adım adım seçildi, ileriye dönük doğrulanmalı':'kâr kanıtlanmadı'}. Oran yarış öncesine göre ~%4 düşük alınır (T168). Her gün kâğıt üstünde kaydedilir.</div>`,true); };
   const dkKart=(baslik,K,Bt,not)=>{ const qn=ppAll.map(v=>Math.max(v||0,1e-9)), qs=qn.reduce((a,b)=>a+b,0), qd=qn.map(v=>v/qs), r=degerKupon(p,qd,K,a5,GP,1.2,Bt);
     let g; if(!FM) g='<div class="sub">Fiyat modeli yüklenemedi.</div>'; else if(!r) g='<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>';
     else if(r.yok) g='<div class="sub">Bu koşuda değer kuponu yok — hiçbir kombinasyon eşiği (tahmini ödeme × model ≥ 1,2 × birim) geçmiyor.</div>';

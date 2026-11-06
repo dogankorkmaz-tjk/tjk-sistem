@@ -2353,3 +2353,8 @@ OKUMA: kombine/virgüllü kupon çoğu koşuda 2–3 kombinasyona iniyor ve misl
 ## 2026-11-07 01:43 — ÖN KAYIT T169-B liste dışı ikili/sıralı ikili çiftlerine TABAN oran (kullanıcı: "Başlat"; bilgi: "listede olmayan kombinasyonların oranı listenin en yüksek oranından çok daha yüksektir")
 T169 ile aynı veri, model, kurucular (kombine her iki bahis; virgüllü sıralı ikili), eşik 1,2, ≤100 komb., misli. Tek değişiklik: listede olmayan çiftin değer oranı = p_model × (o koşunun listesindeki en yüksek oran) (gerçek oran bundan yüksek → temkinli alt sınır); T169'da 0,75 sabitti.
 BİRİNCİL (%97,5, eşleştirilmiş gün-küme bootstrap, büyük ödemeler dahil): sıralı ikili ve ikili kombine ROI, T169-B − T169 farkı. KARAR: T169-B kombine ROI ≥ T169 (nokta) → Canlı kurucusu taban kuralına geçer; aksi → T169 kuralı kalır. Betimsel: virgüllü, at sayısı dağılımı, ayrı kuponlarla fark.
+## 2026-11-07 01:45 SONUÇ T169-B (data/analiz/t169b_taban.py → t169b_sonuc.txt)
+Sıralı ikili KOMBİNE: T169 +0,111 → T169-B (taban) +0,198 [+0,026; +0,384] (%97,5; 5.236 koşu, ort. 21 TL, 2,9 komb., 528 isabet); fark +0,088 [−0,036; +0,217] → KARAR: taban kuralına geç. At dağılımı: 2 at %82, 3 at %16, 4+ at %2. Ayrı kuponlara göre +0,122.
+Sıralı ikili VİRGÜLLÜ (betimsel): +0,123 → +0,152 [−0,007; +0,311].
+İkili KOMBİNE: T169 +0,171 → T169-B +0,165 [−0,027; +0,369]; fark −0,006 → KARAR: T169 (0,75) kuralı kalır.
+OKUMA: sıralı ikili kombine (taban) birincil GA alt sınırı ilk kez sıfırın üstünde. ÇEKİNCE: bu kural T163 → T169 → T169-B zincirinde, sonuçlar görülerek adım adım daraltıldı (çoklu deneme); kapanış muhtemeli kullanıldı (T168: kazananlarda ~%4 kayma) ve havuz etkisi yok sayıldı. Kâr KANITI sayılmaz; ileri pencerede (gölge kayıt) doğrulanmalı.
