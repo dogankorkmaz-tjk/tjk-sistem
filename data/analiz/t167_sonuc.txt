@@ -1,0 +1,32 @@
+5'li kendi havuz medyanı: {'adana': 213245, 'ankara': 213245, 'antalya': 89408, 'bursa': 88203, 'diyarbakir': 169635, 'elazig': 281759, 'istanbul': 419943, 'izmir': 307102, 'kocaeli': 213245, 'sanliurfa': 118601} | grup {True: 213245, False: 150967}
+2025-10 tamam
+2025-11 tamam
+2025-12 tamam
+2026-01 tamam
+2026-02 tamam
+2026-03 tamam
+2026-04 tamam
+2026-05 tamam
+2026-06 tamam
+2026-07 tamam
+2026-08 tamam
+2026-09 tamam
+2026-10 tamam
+=== üçlü BİRİNCİL (%98,33)
+üçlü eşik 1.2 bütçe 1000 kupon×1: LİSTE +0.196 [-0.234; +0.722] (720 koşu, ort 59 TL, 87 isabet) | KUPON +0.172 [-0.256; +0.662] (1475 koşu, ort 32 TL, ort 10 komb, 69 isabet, dolgu %7) | FARK -0.024 [-0.372; +0.351]
+üçlü eşik 1.2 bütçe 1000 kupon×2: LİSTE +0.196 [-0.179; +0.626] (720 koşu, ort 59 TL, 87 isabet) | KUPON +0.178 [-0.175; +0.579] (1475 koşu, ort 52 TL, ort 14 komb, 95 isabet, dolgu %6) | FARK -0.018 [-0.353; +0.344]
+üçlü eşik 1.0 bütçe 1000 kupon×1: LİSTE +0.174 [-0.033; +0.410] (2015 koşu, ort 85 TL, 357 isabet) | KUPON +0.110 [-0.111; +0.352] (2656 koşu, ort 51 TL, ort 22 komb, 233 isabet, dolgu %12) | FARK -0.064 [-0.253; +0.114]
+üçlü eşik 1.2 bütçe 500 kupon×1: LİSTE +0.196 [-0.178; +0.635] (720 koşu, ort 59 TL, 87 isabet) | KUPON +0.172 [-0.197; +0.590] (1475 koşu, ort 32 TL, ort 10 komb, 69 isabet, dolgu %7) | FARK -0.024 [-0.316; +0.267]
+üçlü eşik 1.0 bütçe 500 kupon×1: LİSTE +0.175 [-0.039; +0.421] (2015 koşu, ort 85 TL, 356 isabet) | KUPON +0.115 [-0.100; +0.355] (2656 koşu, ort 51 TL, ort 22 komb, 232 isabet, dolgu %12) | FARK -0.059 [-0.244; +0.107]
+=== tabela BİRİNCİL (%98,33)
+tabela eşik 1.2 bütçe 1000 kupon×1: LİSTE -0.953 [-1.000; -0.818] (111 koşu, ort 133 TL, 1 isabet) | KUPON -1.000 [-1.000; -1.000] (193 koşu, ort 53 TL, ort 27 komb, 0 isabet, dolgu %12) | FARK -0.047 [-0.182; +0.000]
+tabela eşik 1.2 bütçe 1000 kupon×2: LİSTE -0.953 [-1.000; -0.852] (111 koşu, ort 133 TL, 1 isabet) | KUPON -1.000 [-1.000; -1.000] (193 koşu, ort 80 TL, ort 35 komb, 0 isabet, dolgu %10) | FARK -0.047 [-0.148; +0.000]
+tabela eşik 1.0 bütçe 1000 kupon×1: LİSTE -0.453 [-0.842; +0.144] (369 koşu, ort 201 TL, 15 isabet) | KUPON -0.541 [-0.952; +0.109] (539 koşu, ort 80 TL, ort 46 komb, 7 isabet, dolgu %13) | FARK -0.088 [-0.844; +0.693]
+tabela eşik 1.2 bütçe 500 kupon×1: LİSTE -1.000 [-1.000; -1.000] (111 koşu, ort 126 TL, 0 isabet) | KUPON -1.000 [-1.000; -1.000] (193 koşu, ort 53 TL, ort 26 komb, 0 isabet, dolgu %11) | FARK +0.000 [+0.000; +0.000]
+tabela eşik 1.0 bütçe 500 kupon×1: LİSTE -0.393 [-0.824; +0.304] (369 koşu, ort 177 TL, 13 isabet) | KUPON -0.490 [-0.961; +0.313] (539 koşu, ort 69 TL, ort 39 komb, 6 isabet, dolgu %11) | FARK -0.097 [-0.920; +0.779]
+=== sıralı 5'li BİRİNCİL (%98,33)
+sıralı 5'li eşik 1.2 bütçe 1000 kupon×1: LİSTE +0.352 [-0.273; +1.117] (1251 koşu, ort 670 TL, 79 isabet) | KUPON +0.115 [-0.560; +0.995] (1309 koşu, ort 324 TL, ort 257 komb, 28 isabet, dolgu %14) | FARK -0.237 [-1.009; +0.476]
+sıralı 5'li eşik 1.2 bütçe 1000 kupon×2: LİSTE +0.352 [-0.165; +0.973] (1251 koşu, ort 670 TL, 79 isabet) | KUPON +0.015 [-0.446; +0.565] (1309 koşu, ort 431 TL, ort 339 komb, 40 isabet, dolgu %15) | FARK -0.337 [-0.899; +0.129]
+sıralı 5'li eşik 1.0 bütçe 1000 kupon×1: LİSTE +0.414 [-0.012; +0.878] (1462 koşu, ort 942 TL, 126 isabet) | KUPON +0.025 [-0.356; +0.512] (1470 koşu, ort 730 TL, ort 583 komb, 72 isabet, dolgu %9) | FARK -0.389 [-0.950; +0.180]
+sıralı 5'li eşik 1.2 bütçe 500 kupon×1: LİSTE +0.696 [-0.076; +1.602] (1251 koşu, ort 400 TL, 54 isabet) | KUPON +0.314 [-0.449; +1.237] (1309 koşu, ort 229 TL, ort 181 komb, 23 isabet, dolgu %12) | FARK -0.382 [-1.399; +0.561]
+sıralı 5'li eşik 1.0 bütçe 500 kupon×1: LİSTE +0.591 [-0.054; +1.312] (1462 koşu, ort 484 TL, 70 isabet) | KUPON -0.059 [-0.446; +0.415] (1470 koşu, ort 413 TL, ort 330 komb, 51 isabet, dolgu %6) | FARK -0.649 [-1.397; +0.046]

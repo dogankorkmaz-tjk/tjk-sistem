@@ -2319,3 +2319,11 @@ Kupon kurucu (açgözlü): her ayak için bir at kümesi; kupon = kümelerin ge�
 Varyant: 1 kupon (birincil) / 2 kupon (ikinci kupon birinciye girmeyen kombinasyonlardan, kalan bütçeyle).
 BİRİNCİL (3 karşılaştırma → %98,33, gün-küme bootstrap, büyük ödemeler DAHİL): üçlü, tabela, 5'li için eşik 1,2 / bütçe 1.000 TL / 1 kupon ROI ve FARK (kupon ROI − liste ROI, eşleştirilmiş bootstrap). Ayrıca dolgu oranı (kupon maliyetinin oran < eşik kombinasyonlara giden payı).
 KARAR (Canlı gösterimi): kupon ROI GA alt > 0 → "değer" kartı; nokta > 0 ama GA alt ≤ 0 → "gölge/deneysel" kartı + kâğıt kaydı; nokta ≤ 0 → yalnız kâğıt kaydı (kart "testte zararlı" uyarılı). Betimsel: eşik 1,0, bütçe 500, 2 kupon.
+## 2026-11-07 01:02 SONUÇ T167 (data/analiz/t167_kupon.py → t167_sonuc.txt)
+BİRİNCİL (eşik 1,2, bütçe 1.000 TL, 1 kupon, %98,33, büyük ödemeler dahil):
+  üçlü: liste +0,196 → KUPON +0,172 [−0,256; +0,662] (1.475 koşu, ort. 32 TL / 10 komb., 69 isabet, dolgu %7); fark −0,024 [−0,372; +0,351].
+  tabela: liste −0,953 → KUPON −1,000 (193 koşu, 0 isabet); fark −0,047.
+  sıralı 5'li: liste +0,352 → KUPON +0,115 [−0,560; +0,995] (1.309 koşu, ort. 324 TL / 257 komb., 28 isabet, dolgu %14); fark −0,237 [−1,009; +0,476].
+Betimsel: üçlü eşik 1,0 kupon +0,110 (fark −0,064); 2 kupon üçlü +0,178, 5'li +0,015; 5'li bütçe 500 kupon +0,314 [−0,449; +1,237] (fark −0,38); 5'li eşik 1,0 bütçe 500 kupon −0,059.
+OKUMA: kayıp "dolgu"dan değil (dolgu %6–15), kuponun değerli kombinasyonların ancak bir kısmını kapsayabilmesinden (değerli kombinasyonlar dağınık; bir at eklemek değersiz kombinasyonları da getirdiği için kurucu erken duruyor). Üçlüde kayıp küçük (~2–6 puan), 5'lide büyük (~24–65 puan). Kupon sayısı liste sayısından fazla çünkü misli ile 20 TL altı kuponlar da oynanabiliyor.
+KARAR (ön kayıt kuralı): hiçbir kupon GA alt > 0 değil → "değer" kartı YOK. Üçlü ve 5'li (nokta > 0) → Canlı'da "gölge/deneysel" kart + kâğıt kaydı; tabela (nokta ≤ 0) → yalnız kâğıt kaydı, kart "testte zararlı" uyarılı (kullanıcı: ileriye dönük test için kalsın).
