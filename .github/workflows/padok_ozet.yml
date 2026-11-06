@@ -1,0 +1,33 @@
+name: padok_ozet
+# Padok pilotu (T143): bir padok_kare çalışmasının karelerinden 30'ar karelik paftalar (6x5, 240 px) → data/padok_ozet/<run_id>/ (repoya küçük özet; ham kareler artifact'te kalır)
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "padok_kare çalışma numarası"
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  ozet:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: padok_kare_${{ inputs.run_id }}
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/kare
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
+      - run: |
+          d=data/padok_ozet/${{ inputs.run_id }}; mkdir -p $d
+          find /tmp/kare -name "*.jpg" | sort > $d/kareler.txt; wc -l < $d/kareler.txt
+          mkdir -p /tmp/sira; i=0; while read f; do i=$((i+1)); cp "$f" /tmp/sira/$(printf %04d $i).jpg; done < $d/kareler.txt
+          ffmpeg -v error -framerate 1 -i /tmp/sira/%04d.jpg -vf "scale=240:-1,tile=6x5" -q:v 6 $d/pafta_%02d.jpg
+          ls -la $d
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/padok_ozet; git commit -qm "padok özet ${{ inputs.run_id }}" || exit 0
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase -q && git push -q && exit 0; sleep $((RANDOM % 25 + 5)); done; exit 1

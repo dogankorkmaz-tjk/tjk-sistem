@@ -2,7 +2,7 @@ name: padok_kare
 on:
   workflow_dispatch:
   schedule:
-    - cron: "25 10 * * *"   # 13:25 TR: yarış günü boyunca padok/galop görüntüsü (her koşudan önce padok gösterilir); kareler artifact olarak saklanır (repoyu şişirmez)
+    - cron: "25 10 * * *"   # 13:25 TR (5 saat; 6 Kasım: 5,25 sa iş süre sınırına takıldı): yarış günü boyunca padok/galop görüntüsü (her koşudan önce padok gösterilir); kareler artifact olarak saklanır (repoyu şişirmez)
 permissions:
   contents: write
 jobs:
@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
-      - run: python3 tjk/padok_kare.py 18900 60 2>&1 | tee /tmp/padok.log
+      - run: python3 tjk/padok_kare.py 18000 60 2>&1 | tee /tmp/padok.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
