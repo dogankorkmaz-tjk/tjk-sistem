@@ -143,9 +143,9 @@ def guncelle(obj):
                                               "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
                                               **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
                     kay[anahtar] = c
-            # T178 (7 Kas 2026, gölge): son ayakları genişlet — ilk ayak öncesi AGF'nin kapanışa uzaklığı ayak ilerledikçe artıyor (T177: KL 0,077→0,099);
+            # T178 (7 Kas 2026, gölge; 'butce' alanı burada kapsama hedefi %): son ayakları genişlet — ilk ayak öncesi AGF'nin kapanışa uzaklığı ayak ilerledikçe artıyor (T177: KL 0,077→0,099);
             # j. ayakta model olasılığı pm^τ_j ile yassılaştırılarak kurulur (τ = 1, 1, 0,95, 0,90, 0,85, 0,80); tutma/değerlendirme özgün olasılıkla.
-            if c and not c.get("dondu") and not any(q["mod"] == "gen_favori" for q in c["kuponlar"]):
+            if c and not c.get("dondu") and not any(q["mod"].startswith("gen_") for q in c["kuponlar"]):
                 try:
                     r0 = _ayaklar_obj(h, son, obj.get("w0", 1.0))
                     if r0:
@@ -154,9 +154,16 @@ def guncelle(obj):
                         for j, a_ in enumerate(ay0):
                             t_ = TAU[min(j, 5)]; z = sum(v[0] ** t_ for v in a_.values()) or 1.0
                             ayg.append({no: ((v[0] ** t_) / z, v[1]) for no, v in a_.items()})
-                        for B in (48, 192):
-                            s_ = kur(ayg, B, "favori"); o = ozet(ay0, s_)
-                            c["kuponlar"].append({"mod": "gen_favori", "butce": B, "birim": birim(h["id"]), "bedel": round(o["kombinasyon"] * birim(h["id"]), 2), "ayaklar": [sorted(x) for x in s_],
+                        for HED in (0.50, 0.65):     # 7 Kas 2026 (Doğan): genişlik bütçeye göre değil ayağın zorluğuna göre — her ayakta kapsama hedefine ulaşana kadar at
+                            s_ = []
+                            for a_ in ayg:
+                                sira = sorted(a_, key=lambda no: -a_[no][0]); cum = 0.0; sec = []
+                                for no in sira[:10]:
+                                    if cum >= HED: break
+                                    sec.append(no); cum += a_[no][0]
+                                s_.append(sec or sira[:1])
+                            o = ozet(ay0, s_); B = int(round(HED * 100))
+                            c["kuponlar"].append({"mod": "gen_kapsama", "butce": B, "birim": birim(h["id"]), "bedel": round(o["kombinasyon"] * birim(h["id"]), 2), "ayaklar": [sorted(x) for x in s_],
                                                   "isimler": [{str(no): ad0[i][no] for no in sorted(x)} for i, x in enumerate(s_)],
                                                   **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
                 except Exception as e:

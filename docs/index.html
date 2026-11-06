@@ -329,9 +329,9 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
         <label>Birim fiyat (TL) <input id="kFiyat" inputmode="decimal" placeholder="isteğe bağlı"></label>
         <label class="ck"><input type="checkbox" id="kSur"> Sürpriz at ekle (Jason seçer)</label>
         <span class="note">Çekirdek atlar da Jason'a göre seçilir.</span>
-        <label>Bütçe (komb.) <input id="kButce" inputmode="numeric" placeholder="ör. 96" style="width:80px"></label>
-        <button id="kOto" class="btn">Ayaklara göre otomatik genişlik</button>
-        <span class="note">Bütçe içinde en yüksek tutmayı veren at sayılarını her ayağa dağıtır; son ayaklar daha geniş tutulur (ilk ayak öncesi bilgi o ayaklarda kapanıştan daha uzak, T177). Deneysel; aynı kural kâğıt üstünde kaydediliyor (gen_favori).</span>
+        <label>Kapsama <select id="kKap"><option value="0.5">Dar (%50)</option><option value="0.65" selected>Orta (%65)</option><option value="0.8">Geniş (%80)</option></select></label>
+        <button id="kOto" class="btn">Ayağın zorluğuna göre genişlik</button>
+        <span class="note">Her ayakta, kazananın kupona girme ihtimali seçilen kapsamaya ulaşana kadar at eklenir: tek atın öne çıktığı kolay ayak banko kalır, açık/zor ayak genişler. Para hesabı kurala girmez; tutar sonuçtur. Son ayaklar biraz daha geniş tutulur (ilk ayak öncesi bilgi orada kapanıştan uzak, T177). Deneysel; aynı kural kâğıt üstünde kaydediliyor (gen_kapsama).</span>
       </div>
       <div id="kupon"></div>
     </div>
@@ -365,16 +365,16 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     </div>
 <div id="jasIc"><div class="card empty">Yükleniyor…</div></div></section>
 
-  <section id="egz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="true">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button><button data-k="tegz" aria-pressed="false">Tüyo egz.</button></div><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
-  <section id="ikili" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="true">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button><button data-k="tegz" aria-pressed="false">Tüyo egz.</button></div><div id="ikiIc"><div class="card empty">Yükleniyor…</div></div></section>
-  <section id="tegz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button><button data-k="tegz" aria-pressed="true">Tüyo egz.</button></div><div id="tegzIc"><div class="card empty">Yükleniyor…</div></div></section>
-  <section id="kupon2" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="egz" aria-pressed="false">Egzotik</button><button data-k="ikili" aria-pressed="false">İkili</button><button data-k="kupon2" aria-pressed="true">Beşli ve altılı</button><button data-k="tegz" aria-pressed="false">Tüyo egz.</button></div>
+  <section id="egz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button></div><div id="egzIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="ikili" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button></div><div id="ikiIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="tegz" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="kupon2" aria-pressed="false">Beşli ve altılı</button></div><div id="tegzIc"><div class="card empty">Yükleniyor…</div></div></section>
+  <section id="kupon2" class="sec" hidden><div class="seg" role="group" aria-label="Kupon türü"><button data-k="kupon2" aria-pressed="true">Beşli ve altılı</button></div>
     <div class="bolum"><h2>Sıralı 5'li kombine kupon</h2><div class="bolum-not">Ana test: Jason, 150 kombinasyonluk bütçe.</div><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div></div>
     <div class="bolum"><h2>Değer filtresi: ikili ve üçlü</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div></div>
     <div class="bolum"><h2>Altılı kupon testi</h2><div class="bolum-not">Sistemin her gün kurduğu altılı kuponlar; kâğıt üstü.</div><div id="otoKupon"><div class="card empty">Yükleniyor…</div></div></div>
   </section>
   <section id="s5" class="sec" hidden><div id="s5Ic"><div class="card empty">Yükleniyor…</div></div></section>
-  <section id="kanit" class="sec" hidden><div id="kanitIc"><div class="card empty">Yükleniyor…</div></div><div id="supKanit"></div></section>
+  <section id="kanit" class="sec" hidden><div id="kanitIc"><div class="card empty">Yükleniyor…</div></div><div id="supKanit"></div><div id="eskiKupKanit"></div></section>
   <section id="abd" class="sec" hidden>
     <div class="card">
       <b>ABD ve Güney Afrika: iki piyasa kuralı</b>
@@ -810,7 +810,7 @@ function renderKupon(){
   if(KUP.son<KUP.bas) KUP.son=KUP.bas;
   const opt=v=>ks.map(k=>`<option value="${k}"${k===v?' selected':''}>${k}. koşu</option>`).join('');
   $('kBas').innerHTML=opt(KUP.bas); $('kSon').innerHTML=opt(KUP.son);
-  $('kSur').checked=!!KUP.sur; if($('kFiyat')!==document.activeElement) $('kFiyat').value=KUP.fiyat||''; if($('kButce')!==document.activeElement&&KUP.butce) $('kButce').value=KUP.butce;
+  $('kSur').checked=!!KUP.sur; if($('kFiyat')!==document.activeElement) $('kFiyat').value=KUP.fiyat||''; if(KUP.kap) $('kKap').value=String(KUP.kap);
   let s='<div class="card">',combos=1,pm=1,pp=1,tam=true; const SM=[],SP=[];
   h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{
     const out=hesapla(h,k); const kk=KUP.k[h.id+'|'+k.kosu]||2;
@@ -841,15 +841,12 @@ $('kBas').onchange=()=>{KUP.bas=+$('kBas').value;sv('gm2_kupon',KUP);renderKupon
 $('kSon').onchange=()=>{KUP.son=+$('kSon').value;sv('gm2_kupon',KUP);renderKupon()};
 $('kSur').onchange=()=>{KUP.sur=$('kSur').checked;sv('gm2_kupon',KUP);renderKupon()};
 $('kFiyat').oninput=()=>{KUP.fiyat=$('kFiyat').value;sv('gm2_kupon',KUP);renderKupon()};
-$('kOto').onclick=()=>{ const h=hipBul(sel.hip); if(!h) return; const B=parseInt($('kButce').value,10)||96; KUP.butce=B; const TAU=[1,1,0.95,0.9,0.85,0.8];
-  const legs=[]; h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{ const out=hesapla(h,k); if(!out) return;
-    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pp; const idx=Object.keys(out.map).map(Number).sort((a,b)=>J(b)-J(a)); const t=TAU[Math.min(legs.length,5)];
-    const w=idx.map(i=>Math.pow(Math.max(J(i),1e-9),t)), z=w.reduce((a,b)=>a+b,0); legs.push({k:k.kosu,p:w.map(v=>v/z),n:1}); });
-  if(!legs.length) return;
-  for(let it=0;it<200;it++){ const n=legs.reduce((a,l)=>a*l.n,1); let best=null;
-    legs.forEach(l=>{ if(l.n>=l.p.length||n/l.n*(l.n+1)>B) return; const R=l.p.slice(0,l.n).reduce((a,b)=>a+b,0), r=l.p[l.n]; const g=Math.log((R+r)/R)/Math.log((l.n+1)/l.n); if(!best||g>best.g) best={l,g}; });
-    if(!best) break; best.l.n++; }
-  legs.forEach(l=>{ KUP.k[h.id+'|'+l.k]=l.n; }); sv('gm2_kupon',KUP); renderKupon(); };
+$('kOto').onclick=()=>{ const h=hipBul(sel.hip); if(!h) return; const HED=parseFloat($('kKap').value)||0.65; KUP.kap=HED; const TAU=[1,1,0.95,0.9,0.85,0.8]; let j=0;
+  h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{ const out=hesapla(h,k); if(!out) return;
+    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pp; const idx=Object.keys(out.map).map(Number).sort((a,b)=>J(b)-J(a)); const t=TAU[Math.min(j,5)]; j++;
+    const w=idx.map(i=>Math.pow(Math.max(J(i),1e-9),t)), z=w.reduce((a,b)=>a+b,0); let c=0,n=0; while(n<Math.min(10,w.length)&&c<HED){ c+=w[n]/z; n++; }
+    KUP.k[h.id+'|'+k.kosu]=Math.max(1,n); });
+  sv('gm2_kupon',KUP); renderKupon(); };
 
 // ---------- günün özeti (kapanış ganyanına göre) ----------
 function renderOzet(){
@@ -1279,7 +1276,7 @@ $('abdYenile').onclick=async()=>{
   }catch(e){ $('abdGuncel').textContent='Hata'; }
 };
 const TABS={canli:'tabCanli',s5:'tabKupon',kanit:'tabDiger',uyum:'tabDiger',abd:'tabDiger',bugun:'tabBugun',kosu:'tabKosu',egz:'tabKupon',ikili:'tabKupon',kupon2:'tabKupon',tegz:'tabKupon',skor:'tabDiger',bolton:'tabDiger',jason:'tabJason',sabit:'tabSabit',arsiv:'tabDiger',dosya:'tabDiger',saglik:'tabDiger'};
-let SON_KUPON=ld('gm2_kupsek','egz');
+let SON_KUPON=ld('gm2_kupsek','kupon2'); if(['egz','ikili','tegz'].includes(SON_KUPON)) SON_KUPON='kupon2';   // 7 Kas 2026: Egzotik/İkili/Tüyo egz. alt sekmeleri kaldırıldı (Canlı'da daha iyi hâli var); kayıtları arka planda sürüyor
 
 async function uyumYukle(){
   const ic=$('uyumIc'); try{ const d=await getJSON('data/uyum_secim.json?'+Date.now()); const esc=x=>String(x==null?'':x).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -1289,6 +1286,11 @@ async function uyumYukle(){
       h+='<div class="card" style="padding:10px 14px"><b>'+esc(String(k.hipodrom).toUpperCase())+' '+k.kosu+'. koşu</b> <span class="sub">'+esc(k.saat||'')+'</span>'+k.secimler.map(x=>'<div style="display:flex;justify-content:space-between;gap:8px;padding:3px 0"><span>#'+x.no+' '+esc(x.at)+'</span><span class="sub">uyum '+x.uyum_sirasi+'. · AGF '+x.agf_sirasi+'. ('+String(x.agf).replace('.',',')+')</span></div>').join('')+'</div>'; });
     if(!n) h+='<div class="card empty">Seçim yok (AGF henüz yayınlanmadı ya da koşullara uyan at yok).</div>';
     ic.innerHTML=h; }catch(e){ ic.innerHTML='<div class="card empty">Veri yok.</div>'; } }
+async function eskiKupKanit(){ const el=$('eskiKupKanit'); if(!el) return; const f=x=>x==null?'–':String(x).replace('.',','); let h='<h2 style="margin-top:14px">Kaldırılan kupon kurallarının kâğıt kaydı</h2><div class="sub">Kuponlar sekmesinden kaldırılan Egzotik / İkili kuralları (7 Kasım 2026; Canlı\'da daha iyi hâli var). Dondurulmuş testleri sürüyor, sonuçlar burada birikir. Geri dönüş 1\'in altı = zarar.</div>';
+  const tab=(ad,L)=>`<div class="card scroll"><b>${esc(ad)}</b><table class="t"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcama</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>${L.map(t=>`<tr><td>${esc(t.tur)}${t.butce?' ~'+t.butce:''}${t.model?' · '+esc(t.model):''}</td><td class="n">${t.koşu??t.kosu}</td><td class="n">${f(t.harcama)}</td><td class="n">${f(t.kazanc)}</td><td class="n">${f(t.geri_donus)}</td></tr>`).join('')}</table></div>`;
+  try{ const d=await getJSON('data/egzotik.json'); if((d.toplam_g1s||[]).length) h+=tab('Egzotik · Benter (her koşu, sabah AGF)',d.toplam_g1s); if((d.toplam_jason||[]).length) h+=tab('Egzotik · Jason',d.toplam_jason); Object.entries(d.toplam_varyant||{}).forEach(([k,v])=>{ if((v||[]).length) h+=tab('Egzotik · '+k+' (karar 1 Ocak 2027)',v); }); }catch(e){}
+  try{ const d=await getJSON('data/kombine.json'); const L=(d.toplam||[]).filter(t=>t.grup==='hepsi'&&t.model!=='Bolton'); if(L.length) h+=tab('Kombine ikili (sürpriz + 2 favori; karar 1 Nisan 2027)',L); }catch(e){}
+  el.innerHTML=h; }
 async function kanitYukle(){
   const el=$('kanitIc'); if(!el) return;
   const T=(b,r)=>'<div style="overflow-x:auto"><table class="t"><tr>'+b.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr>'+r.map(l=>'<tr>'+l.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('')+'</table></div>';
@@ -1329,7 +1331,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   if(ad==='ikili') degerYukle();
   if(ad==='tegz') tegzYukle();
   if(ad==='abd'&&!ABD) abdYukle();
-  if(ad==='kanit') kanitYukle();
+  if(ad==='kanit'){ kanitYukle(); eskiKupKanit(); }
   if(ad==='saglik') saglikYukle();
   if(ad==='uyum') uyumYukle();
   if(ad==='skor'&&!SKOR) skorYukle();
@@ -1338,7 +1340,7 @@ function sekme(ad){if(ad==='s5'){ EGT='S5'; sv('gm2_egt',EGT); ad='egz'; }
   try{ window.scrollTo(0,0); }catch(e){}
 }
 $('tabBugun').onclick=()=>sekme('bugun'); $('tabKosu').onclick=()=>sekme('kosu');
-$('tabKupon').onclick=()=>sekme(TABS[SON_KUPON]?SON_KUPON:'egz'); $('tabJason').onclick=()=>sekme('jason'); $('tabSabit').onclick=()=>sekme('sabit');
+$('tabKupon').onclick=()=>sekme(['kupon2','s5'].includes(SON_KUPON)?SON_KUPON:'kupon2'); $('tabJason').onclick=()=>sekme('jason'); $('tabSabit').onclick=()=>sekme('sabit');
 $('tabCanli').onclick=()=>sekme('canli'); $('tabDiger').onclick=()=>digerAc($('digerPanel').hidden); $('digerOrtu').onclick=()=>digerAc(false);
 {const kg=$('knGit'); if(kg) kg.onclick=()=>sekme('kanit');}
 /* Sistem sağlığı (tjk/saglik.py → data/saglik.json) */
