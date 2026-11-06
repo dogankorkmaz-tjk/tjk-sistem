@@ -15,13 +15,13 @@ jobs:
         with:
           python-version: "3.12"
       - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
-      - run: python3 tjk/padok_kare.py 18000 60 2>&1 | tee /tmp/padok.log
+      - run: python3 tjk/padok_kare.py 18000 1 640 2>&1 | tee /tmp/padok.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: padok_kare_${{ github.run_id }}
           path: data/padok_kare/
-          retention-days: 30
+          retention-days: 14
       - run: |
           mkdir -p data/padok_kare_log; cp /tmp/padok.log "data/padok_kare_log/log_$(date -u +%Y-%m-%d_%H%M).txt"
           git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"

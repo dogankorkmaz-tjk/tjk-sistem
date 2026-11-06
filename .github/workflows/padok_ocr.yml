@@ -1,0 +1,37 @@
+name: padok_ocr
+# T143-B: padok_kare bitince karelerin alt yazısını OCR'la → data/padok_ocr/<gün>_<run>.csv.gz (ham kareler artifact'te kalır)
+on:
+  workflow_run:
+    workflows: [padok_kare]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "padok_kare çalışma numarası"
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  ocr:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: r
+        run: echo "id=${{ inputs.run_id || github.event.workflow_run.id }}" >> $GITHUB_OUTPUT
+      - uses: actions/download-artifact@v4
+        with:
+          name: padok_kare_${{ steps.r.outputs.id }}
+          run-id: ${{ steps.r.outputs.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/kare
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y tesseract-ocr tesseract-ocr-tur >/dev/null && pip install -q pillow
+      - run: |
+          g=$(ls /tmp/kare | head -1); python3 tjk/padok_ocr.py /tmp/kare "data/padok_ocr/${g}_${{ steps.r.outputs.id }}.csv.gz"
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/padok_ocr; git commit -qm "padok OCR ${{ steps.r.outputs.id }}" || exit 0
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase -q && git push -q && exit 0; sleep $((RANDOM % 25 + 5)); done; exit 1
