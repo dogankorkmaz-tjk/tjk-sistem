@@ -1,0 +1,17 @@
+{
+ "id": "P14",
+ "tarih": "2026-05-31",
+ "hipodrom": "adana",
+ "kosu": 1,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/5/26053111_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 8,
+   "tur": "kotu_cikis",
+   "t": 4.800772,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:57:15.140Z"
+}
