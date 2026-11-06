@@ -160,6 +160,16 @@ def agf_uygula(obj, saat):
                     a["agf_a1"] = x
             if gor:
                 k["agf_saat"] = saat; k.setdefault("agf0_saat", saat)
+        # 6 Kasım 2026: altılı yapısı (hangi koşular) agftablosu'ndan geliyordu; engelden (23 Ekim) beri boştu → altılı kupon testi durmuştu.
+        # API 'bets' metni: "1. 6'LI GANYAN bu koşudan başlar" (tek altılıda "6'LI GANYAN ..."); son koşu = başlangıç + 5.
+        if not h.get("altili"):
+            alt = {}
+            for kn, ak in ko.items():
+                b = str(ak.get("bets") or "")
+                for m in re.finditer(r"(?:(\d+)\.\s*)?6'LI GANYAN", b.split("bu koşudan başlar")[0] if "bu koşudan başlar" in b else ""):
+                    alt[str(int(m.group(1)) if m.group(1) else 1)] = kn + 5
+            if alt:
+                h["altili"] = alt
     if n:
         print("AGF atyarisi API'sinden eklendi:", n, "at")
     return n
