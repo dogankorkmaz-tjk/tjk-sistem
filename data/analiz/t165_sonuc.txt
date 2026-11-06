@@ -1,0 +1,70 @@
+2025-10 tamam
+2025-11 tamam
+2025-12 tamam
+2026-01 tamam
+2026-02 tamam
+2026-03 tamam
+2026-04 tamam
+2026-05 tamam
+2026-06 tamam
+2026-07 tamam
+2026-08 tamam
+2026-09 tamam
+2026-10 tamam
+=== üçlü: BİRİNCİL (eşik 1,2, bütçe 1.000 TL, havuz N=150,000) oynanan koşu 720, ort. bahis 59 TL, isabet 87 → ROI +0.193 [-0.246; +0.710] (%98,33) → kârlı değil
+      havuz ×0,5     ROI +0.180 [-0.187; +0.600]
+      havuz ×2       ROI +0.199 [-0.169; +0.655]
+      havuz etkisiz  ROI +0.206 [-0.165; +0.627]
+   eşik 1.0 bütçe 500: koşu 2015 ort. 85 TL isabet 356 ROI +0.171 [-0.040; +0.405]
+   eşik 1.0 bütçe 1000: koşu 2015 ort. 85 TL isabet 357 ROI +0.171 [-0.045; +0.404]
+   eşik 1.0 bütçe 2500: koşu 2015 ort. 85 TL isabet 357 ROI +0.171 [-0.041; +0.399]
+   eşik 1.0 bütçe sınırsız: koşu 2015 ort. 85 TL isabet 357 ROI +0.171 [-0.055; +0.411]
+   eşik 1.2 bütçe 500: koşu 720 ort. 59 TL isabet 87 ROI +0.193 [-0.174; +0.615]
+   eşik 1.2 bütçe 2500: koşu 720 ort. 59 TL isabet 87 ROI +0.193 [-0.178; +0.623]
+   eşik 1.2 bütçe sınırsız: koşu 720 ort. 59 TL isabet 87 ROI +0.193 [-0.173; +0.637]
+   eşik 1.5 bütçe 500: koşu 126 ort. 52 TL isabet 12 ROI +0.724 [-0.429; +2.232]
+   eşik 1.5 bütçe 1000: koşu 126 ort. 52 TL isabet 12 ROI +0.724 [-0.425; +2.266]
+   eşik 1.5 bütçe 2500: koşu 126 ort. 52 TL isabet 12 ROI +0.724 [-0.399; +2.272]
+   eşik 1.5 bütçe sınırsız: koşu 126 ort. 52 TL isabet 12 ROI +0.724 [-0.420; +2.304]
+   eşik 2.0 bütçe 500: koşu 15 ort. 54 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 2.0 bütçe 1000: koşu 15 ort. 54 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 2.0 bütçe 2500: koşu 15 ort. 54 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 2.0 bütçe sınırsız: koşu 15 ort. 54 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+=== tabela: BİRİNCİL (eşik 1,2, bütçe 1.000 TL, havuz N=75,000) oynanan koşu 111, ort. bahis 133 TL, isabet 1 → ROI -0.953 [-1.000; -0.829] (%98,33) → kârlı değil
+      havuz ×0,5     ROI -0.953 [-1.000; -0.855]
+      havuz ×2       ROI -0.953 [-1.000; -0.851]
+      havuz etkisiz  ROI -0.953 [-1.000; -0.854]
+   eşik 1.0 bütçe 500: koşu 369 ort. 177 TL isabet 13 ROI -0.428 [-0.850; +0.195]
+   eşik 1.0 bütçe 1000: koşu 369 ort. 201 TL isabet 15 ROI -0.483 [-0.847; +0.041]
+   eşik 1.0 bütçe 2500: koşu 369 ort. 205 TL isabet 15 ROI -0.493 [-0.837; +0.052]
+   eşik 1.0 bütçe sınırsız: koşu 369 ort. 205 TL isabet 15 ROI -0.493 [-0.845; +0.059]
+   eşik 1.2 bütçe 500: koşu 111 ort. 126 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 1.2 bütçe 2500: koşu 111 ort. 133 TL isabet 1 ROI -0.953 [-1.000; -0.851]
+   eşik 1.2 bütçe sınırsız: koşu 111 ort. 133 TL isabet 1 ROI -0.953 [-1.000; -0.855]
+   eşik 1.5 bütçe 500: koşu 16 ort. 102 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 1.5 bütçe 1000: koşu 16 ort. 102 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 1.5 bütçe 2500: koşu 16 ort. 102 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 1.5 bütçe sınırsız: koşu 16 ort. 102 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 2.0 bütçe 500: koşu 1 ort. 48 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 2.0 bütçe 1000: koşu 1 ort. 48 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 2.0 bütçe 2500: koşu 1 ort. 48 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+   eşik 2.0 bütçe sınırsız: koşu 1 ort. 48 TL isabet 0 ROI -1.000 [-1.000; -1.000]
+=== sıralı 5'li: BİRİNCİL (eşik 1,2, bütçe 1.000 TL, havuz N=120,000) oynanan koşu 1251, ort. bahis 670 TL, isabet 79 → ROI +0.310 [-0.355; +1.232] (%98,33) → kârlı değil
+      havuz ×0,5     ROI +0.222 [-0.328; +0.898]
+      havuz ×2       ROI +0.424 [-0.172; +1.194]
+      havuz etkisiz  ROI +1.005 [-0.038; +2.383]
+   eşik 1.0 bütçe 500: koşu 1462 ort. 484 TL isabet 70 ROI +0.490 [-0.190; +1.349]
+   eşik 1.0 bütçe 1000: koşu 1462 ort. 942 TL isabet 126 ROI +0.293 [-0.113; +0.789]
+   eşik 1.0 bütçe 2500: koşu 1462 ort. 2,093 TL isabet 224 ROI +0.222 [-0.064; +0.561]
+   eşik 1.0 bütçe sınırsız: koşu 1462 ort. 3,710 TL isabet 297 ROI -0.017 [-0.218; +0.218]
+   eşik 1.2 bütçe 500: koşu 1251 ort. 400 TL isabet 54 ROI +0.678 [-0.215; +1.953]
+   eşik 1.2 bütçe 2500: koşu 1251 ort. 1,056 TL isabet 106 ROI +0.293 [-0.112; +0.839]
+   eşik 1.2 bütçe sınırsız: koşu 1251 ort. 1,267 TL isabet 114 ROI +0.351 [-0.100; +0.896]
+   eşik 1.5 bütçe 500: koşu 556 ort. 242 TL isabet 19 ROI +0.295 [-0.473; +1.192]
+   eşik 1.5 bütçe 1000: koşu 556 ort. 323 TL isabet 21 ROI +0.002 [-0.577; +0.733]
+   eşik 1.5 bütçe 2500: koşu 556 ort. 405 TL isabet 24 ROI -0.113 [-0.588; +0.475]
+   eşik 1.5 bütçe sınırsız: koşu 556 ort. 424 TL isabet 24 ROI -0.153 [-0.614; +0.418]
+   eşik 2.0 bütçe 500: koşu 71 ort. 161 TL isabet 2 ROI +1.586 [-1.000; +7.683]
+   eşik 2.0 bütçe 1000: koşu 71 ort. 200 TL isabet 3 ROI +1.335 [-1.000; +6.254]
+   eşik 2.0 bütçe 2500: koşu 71 ort. 213 TL isabet 3 ROI +1.193 [-1.000; +6.189]
+   eşik 2.0 bütçe sınırsız: koşu 71 ort. 213 TL isabet 3 ROI +1.193 [-1.000; +5.938]
