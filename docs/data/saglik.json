@@ -1,57 +1,57 @@
 {
- "tarih": "2026-11-06",
- "zaman": "2026-11-06 23:44 TR",
- "genel": "ok",
+ "tarih": "2026-11-07",
+ "zaman": "2026-11-07 00:32 TR",
+ "genel": "uyari",
  "kontroller": [
   {
    "ad": "veri: sonuclar",
    "durum": "ok",
-   "detay": "son gün 2026-11-05 (1 gün önce)"
+   "detay": "son gün 2026-11-05 (2 gün önce)"
   },
   {
    "ad": "veri: temiz",
    "durum": "ok",
-   "detay": "son gün 2026-11-05 (1 gün önce)"
+   "detay": "son gün 2026-11-05 (2 gün önce)"
   },
   {
    "ad": "veri: program",
    "durum": "ok",
-   "detay": "son gün 2026-11-05 (1 gün önce)"
+   "detay": "son gün 2026-11-05 (2 gün önce)"
   },
   {
    "ad": "veri: odeme",
    "durum": "ok",
-   "detay": "son gün 2026-11-06 (0 gün önce)"
+   "detay": "son gün 2026-11-06 (1 gün önce)"
   },
   {
    "ad": "veri: agf",
    "durum": "ok",
-   "detay": "son gün 2026-11-05 (1 gün önce)"
+   "detay": "son gün 2026-11-05 (2 gün önce)"
   },
   {
    "ad": "veri: galop",
    "durum": "ok",
-   "detay": "son gün 2026-11-06 (0 gün önce)"
+   "detay": "son gün 2026-11-06 (1 gün önce)"
   },
   {
    "ad": "atyarisi arşivi (dün)",
-   "durum": "ok",
-   "detay": "tam"
+   "durum": "uyari",
+   "detay": "sonuçları eksik"
   },
   {
    "ad": "Jason eğitimi",
    "durum": "ok",
-   "detay": "2026-11-05 (1 gün önce)"
+   "detay": "2026-11-05 (2 gün önce)"
   },
   {
    "ad": "Benter eğitimi",
    "durum": "ok",
-   "detay": "2026-11-06 (0 gün önce)"
+   "detay": "2026-11-06 (1 gün önce)"
   },
   {
    "ad": "piyasasız model eğitimi",
    "durum": "ok",
-   "detay": "2026-11-06 (0 gün önce)"
+   "detay": "2026-11-06 (1 gün önce)"
   },
   {
    "ad": "piyasasız model galop",
@@ -61,12 +61,37 @@
   {
    "ad": "Benter-K (gölge) eğitimi",
    "durum": "ok",
-   "detay": "2026-11-06 (0 gün önce)"
+   "detay": "2026-11-06 (1 gün önce)"
+  },
+  {
+   "ad": "Jason puanı (z2)",
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "Benter puanı (z6)",
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "piyasasız puan (z7)",
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "Benter-K gölge puanı (zk6)",
+   "durum": "uyari",
+   "detay": "kapsam %0 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "Benter sıra üstelleri (a_g1)",
+   "durum": "ok",
+   "detay": "var"
   },
   {
    "ad": "altılı yapısı",
    "durum": "ok",
-   "detay": "2/2 hipodromda"
+   "detay": "3/3 hipodromda"
   }
  ]
 }
