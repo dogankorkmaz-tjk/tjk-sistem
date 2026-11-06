@@ -230,7 +230,7 @@ def guncelle(obj, simdi=None):
                             for q in kup:
                                 q["bedel"] = round(q["n"] * _birim(q) * q["misli"], 2)
                             kay[anahtar] = c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "goruntu": sn[-1]["t"],
-                                                "dk": sn[-1]["dk"], "ikili_liste_dk": hv.get("dk"), "at_sayisi": len(nos), "kuponlar": kup}   # at_sayisi: T174 ileri pencere (≥11 alt kümesi)
+                                                "dk": sn[-1]["dk"], "ikili_liste_dk": hv.get("dk"), "at_sayisi": len(nos), "cins": k.get("cins"), "kuponlar": kup}   # at_sayisi: T174 ileri pencere (≥11 alt kümesi)
             if c and "sonuc" not in c and k.get("sonuc"):
                 if od is None:
                     try:

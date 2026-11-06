@@ -1,0 +1,99 @@
+tür kaydı 7563
+koşu 6363 | tür bilinmeyen 357
+=== A) türe göre sürpriz (favori-dışı at ilk 3'te / ilk 5'te), favori kazanma
+            kosu  ort_at  surpriz3  surpriz5  favori_kazanir
+tur                                                         
+Grup/diğer   218  10.000     0.876     0.908           0.353
+Handikap    1782  10.955     0.926     0.925           0.316
+KV           582   8.423     0.859     0.847           0.397
+Maiden      1335  10.766     0.896     0.914           0.344
+Satış        171  10.444     0.918     0.895           0.333
+bilinmiyor   357  10.445     0.874     0.899           0.350
+Şartlı      1918   9.596     0.880     0.863           0.355
+         kosu  surpriz3  favori_kazanir
+irk                                    
+?         357     0.874           0.350
+Arap     2773     0.908           0.322
+İngiliz  3233     0.886           0.363
+=== B) bahis ROI'si türe göre (büyük ödemeler dahil)
+--- ganyan değer (T159): tümü +0.093 (1241 koşu) | BİRİNCİL Maiden +0.423 (260 koşu, 46 isabet) − diğer +0.049 (913) = +0.375 [-0.247; +1.044] (%99) → kanıt yok
+      Grup/diğer  -0.260 [-0.817; +0.343] (50 koşu, 5 isabet)
+      Handikap    +0.242 [-0.085; +0.605] (380 koşu, 53 isabet)
+      KV          -0.176 [-0.609; +0.362] (118 koşu, 13 isabet)
+      Maiden      +0.423 [+0.016; +0.874] (260 koşu, 46 isabet)
+      Satış       -0.294 [-1.000; +0.766] (31 koşu, 3 isabet)
+      bilinmiyor  -0.571 [-0.938; -0.011] (68 koşu, 4 isabet)
+      Şartlı      -0.014 [-0.288; +0.290] (334 koşu, 47 isabet)
+      ırk ?       -0.571 (68 koşu)
+      ırk Arap    +0.061 (534 koşu)
+      ırk İngiliz +0.191 (639 koşu)
+      ≤10 at: Maiden +0.657 (104) | diğer +0.089
+      ≥11 at: Maiden +0.267 (156) | diğer -0.008
+--- sıralı ikili kombine: tümü +0.198 (5236 koşu) | BİRİNCİL Maiden +0.213 (1152 koşu, 111 isabet) − diğer +0.199 (3877) = +0.014 [-0.472; +0.532] (%99) → kanıt yok
+      Grup/diğer  -0.162 [-0.662; +0.424] (183 koşu, 19 isabet)
+      Handikap    +0.297 [+0.007; +0.613] (1465 koşu, 125 isabet)
+      KV          +0.091 [-0.309; +0.606] (494 koşu, 55 isabet)
+      Maiden      +0.213 [-0.094; +0.573] (1152 koşu, 111 isabet)
+      Satış       +0.505 [-0.369; +1.582] (145 koşu, 16 isabet)
+      bilinmiyor  +0.112 [-0.447; +0.716] (207 koşu, 20 isabet)
+      Şartlı      +0.157 [-0.099; +0.458] (1590 koşu, 182 isabet)
+      ırk ?       +0.112 (207 koşu)
+      ırk Arap    +0.293 (2314 koşu)
+      ırk İngiliz +0.124 (2715 koşu)
+      ≤10 at: Maiden -0.027 (534) | diğer -0.002
+      ≥11 at: Maiden +0.422 (618) | diğer +0.532
+--- ikili kombine: tümü +0.171 (4836 koşu) | BİRİNCİL Maiden +0.358 (1108 koşu, 107 isabet) − diğer +0.086 (3537) = +0.273 [-0.259; +0.889] (%99) → kanıt yok
+      Grup/diğer  -0.007 [-0.898; +1.588] (173 koşu, 11 isabet)
+      Handikap    +0.311 [+0.009; +0.655] (1411 koşu, 103 isabet)
+      KV          -0.065 [-0.461; +0.431] (425 koşu, 46 isabet)
+      Maiden      +0.358 [-0.016; +0.777] (1108 koşu, 107 isabet)
+      Satış       +1.102 [-0.068; +2.580] (130 koşu, 14 isabet)
+      bilinmiyor  +0.658 [-0.338; +1.721] (191 koşu, 16 isabet)
+      Şartlı      -0.177 [-0.376; +0.055] (1398 koşu, 115 isabet)
+      ırk ?       +0.658 (191 koşu)
+      ırk Arap    +0.299 (2171 koşu)
+      ırk İngiliz +0.021 (2474 koşu)
+      ≤10 at: Maiden +0.349 (509) | diğer -0.183
+      ≥11 at: Maiden +0.367 (599) | diğer +0.466
+--- üçlü kombine: tümü +0.176 (1475 koşu) | BİRİNCİL Maiden -0.022 (346 koşu, 24 isabet) − diğer +0.096 (1032) = -0.118 [-1.096; +1.130] (%99) → kanıt yok
+      Grup/diğer  +0.038 [-0.668; +0.838] (68 koşu, 6 isabet)
+      Handikap    +0.407 [-0.413; +1.424] (293 koşu, 17 isabet)
+      KV          +0.124 [-0.638; +1.074] (198 koşu, 11 isabet)
+      Maiden      -0.022 [-0.642; +0.882] (346 koşu, 24 isabet)
+      Satış       -0.944 [-1.000; -0.809] (33 koşu, 1 isabet)
+      bilinmiyor  +1.708 [-0.635; +5.486] (97 koşu, 6 isabet)
+      Şartlı      -0.069 [-0.513; +0.522] (440 koşu, 31 isabet)
+      ırk ?       +1.708 (97 koşu)
+      ırk Arap    -0.279 (635 koşu)
+      ırk İngiliz +0.360 (743 koşu)
+      ≤10 at: Maiden -0.334 (191) | diğer -0.013
+      ≥11 at: Maiden +0.303 (155) | diğer +0.391
+--- sıralı 5'li kombine: tümü +0.719 (1309 koşu) | BİRİNCİL Maiden +1.864 (285 koşu, 8 isabet) − diğer +0.619 (931) = +1.245 [-1.974; +6.223] (%99) → kanıt yok
+      Grup/diğer  -1.000 [-1.000; -1.000] (40 koşu, 0 isabet)
+      Handikap    +1.419 [-0.136; +3.477] (462 koşu, 11 isabet)
+      KV          +0.485 [-1.000; +3.010] (50 koşu, 2 isabet)
+      Maiden      +1.864 [-0.591; +5.283] (285 koşu, 8 isabet)
+      Satış       +5.838 [-1.000; +24.103] (44 koşu, 1 isabet)
+      bilinmiyor  -0.913 [-1.000; -0.783] (93 koşu, 2 isabet)
+      Şartlı      -0.773 [-0.978; -0.506] (335 koşu, 6 isabet)
+      ırk ?       -0.913 (93 koşu)
+      ırk Arap    +0.038 (688 koşu)
+      ırk İngiliz +1.959 (528 koşu)
+      ≤10 at: Maiden -1.000 (4) | diğer +7.868
+      ≥11 at: Maiden +1.881 (281) | diğer +0.420
+=== C) türe özgü yeniden ağırlık (kazanan): p ∝ exp(a_t·s + b_t·log p_piyasa)
+   Grup/diğer  eğitim 101 koşu: a = 0.986, b = +0.137
+   Handikap    eğitim 990 koşu: a = 0.949, b = +0.222
+   KV          eğitim 306 koşu: a = 1.010, b = +0.113
+   Maiden      eğitim 774 koşu: a = 0.797, b = +0.245
+   Satış       eğitim 94 koşu: a = 1.078, b = +0.014
+   bilinmiyor  eğitim 4 koşu: a = 0.950, b = -0.026
+   Şartlı      eğitim 991 koşu: a = 0.917, b = +0.157
+BİRİNCİL test (3103 koşu) kazanan log-olabilirlik farkı -0.0005 nats/koşu [-0.0034; +0.0023] → kanıt yok
+      Grup/diğer  +0.0012 (117 koşu)
+      Handikap    -0.0070 (792 koşu)
+      KV          +0.0061 (276 koşu)
+      Maiden      +0.0037 (561 koşu)
+      Satış       -0.0197 (77 koşu)
+      bilinmiyor  -0.0036 (353 koşu)
+      Şartlı      +0.0031 (927 koşu)
