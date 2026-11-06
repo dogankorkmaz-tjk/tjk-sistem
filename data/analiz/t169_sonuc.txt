@@ -1,0 +1,10 @@
+U 0.75 tamam
+U 0.5 tamam
+U 1.0 tamam
+=== sıralı ikili BİRİNCİL (%97,5) | AYRI +0.077 [-0.037; +0.190] (4937 koşu, ort 59 TL, ort 3.0 komb, 461 isabet) | KOMBİNE +0.111 [-0.030; +0.263] (4935 koşu, ort 20 TL, ort 2.4 komb, 448 isabet) | FARK +0.034 [-0.095; +0.162]
+    duyarlılık listede olmayan oran=0.5: KOMBİNE +0.120 [-0.007; +0.251] (4935 koşu, ort 20 TL, ort 2.3 komb, 442 isabet) fark +0.043
+    duyarlılık listede olmayan oran=1.0: KOMBİNE +0.091 [-0.039; +0.226] (4935 koşu, ort 21 TL, ort 2.6 komb, 461 isabet) fark +0.014
+    VİRGÜLLÜ: +0.123 [-0.031; +0.286] (4935 koşu, ort 20 TL, ort 2.1 komb, 336 isabet) fark ayrıya göre +0.046 [-0.065; +0.163]
+=== ikili BİRİNCİL (%97,5) | AYRI +0.057 [-0.055; +0.169] (4845 koşu, ort 57 TL, ort 2.8 komb, 573 isabet) | KOMBİNE +0.171 [-0.015; +0.371] (4836 koşu, ort 20 TL, ort 1.9 komb, 412 isabet) | FARK +0.114 [-0.038; +0.271]
+    duyarlılık listede olmayan oran=0.5: KOMBİNE +0.202 [+0.026; +0.380] (4836 koşu, ort 20 TL, ort 1.8 komb, 408 isabet) fark +0.145
+    duyarlılık listede olmayan oran=1.0: KOMBİNE +0.176 [+0.018; +0.340] (4836 koşu, ort 21 TL, ort 2.1 komb, 438 isabet) fark +0.119
