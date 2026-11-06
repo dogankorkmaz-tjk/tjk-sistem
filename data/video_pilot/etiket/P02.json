@@ -1,0 +1,17 @@
+{
+ "id": "P02",
+ "tarih": "2026-05-07",
+ "hipodrom": "ankara",
+ "kosu": 2,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/5/26050752_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 3,
+   "tur": "genis",
+   "t": 99.026982,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:44:03.646Z"
+}
