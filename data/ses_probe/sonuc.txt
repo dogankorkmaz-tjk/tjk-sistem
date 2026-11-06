@@ -11,13 +11,126 @@ stream|codec_name=h264|codec_type=video
 stream|codec_name=aac|codec_type=audio|sample_rate=48000|channels=2
 format|duration=150.951333
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "<stdin>", line 5, in <module>
-  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/faster_whisper/transcribe.py", line 876, in transcribe
-    audio = decode_audio(audio, sampling_rate=sampling_rate)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/faster_whisper/audio.py", line 46, in decode_audio
-    with av.open(input_file, mode="r", metadata_errors="ignore") as container:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "av/container/core.py", line 479, in av.container.core.open
-TypeError: open() got an unexpected keyword argument 'metadata_errors'
+ses ortalama genlik 0.0283 | en yüksek 0.485
+
+### TRANSKRİPT 26062125_m.wav dil olasılığı 1
+[   0.0-  10.0] İster şimdi verildi ve koşu başladı 10 numarada Bayturbo çıkmadı kullarından henüz yarışa başlamadı.
+[  10.0-  17.0] 6 numarada Kazancı da 10 boy geç başladı yarışa. Yine 11 numarada Fotoğroman da 4 boy kadar oyalandı.
+[  17.0-  24.0] Yarışın liderliğini 8 numarada Demirni Hatal'da 2. yedişten yaptığı atakları ile 4 numarada Külün Çağası geldi.
+[  25.0-  28.0] 12 numarada Halay çıktı. 1 boy kadar gerilerinde 2 numarada Aslan Kılıcı.
+[  28.0-  33.0] Yarın boy geride içeride 3 numarada Köycü Bey. Bunların 1,5 boy kadar gerisinde 9 numarada Ildırdı.
+[  33.0-  36.0] 3 boy geride 1 numarada Tılısım. 2 boy geride 5 numarada Gürsel Han.
+[  36.0-  40.0] 3 boy geride 7 numarada Sarsal'a 2 boy gerisi 11 numarada Fotoğroman.
+[  40.0-  46.0] 4 boy geride 6 numarada Kazancı sırasıyla Atlarj 1600 metre stert yerinden çıktı.
+[  47.0-  51.0] 8 numarada Demirni Hat Yaraşın lideri. Fark 2 boy kadar.
+[  51.0-  55.0] 2.likte dışta 4 numarada Külün Çağası var. 1 boy geride içeride 12 numarada Halay.
+[  55.0-  57.0] 2 boy geride dışta 2 numarada Aslan Kılıcı.
+[  57.0-  60.0] Yarın boy kadar geride içeride 3 numarada Köycü Bey.
+[  60.0-  64.0] 3 boy kadar geride 9 numarada Ildırdı. 2 boy geride 1 numarada Tılısım.
+[  64.0-  67.0] Onun yarın boy gerisine 5 numarada Gürsel Han.
+[  67.0-  73.0] 4 boy geride 7 numarada Sarsal'a sırasıyla Safkanlarj 1200 metre stert yerini geçmek üzere.
+[  74.0-  78.0] 8 numarada Demirni Hatlı liderliğini sürdürüyor. Fark 3 boy kadar.
+[  78.0-  82.0] 2.likte 4 numarada Külün Çağası ve 12 numarada Halay Birlikteler.
+[  82.0-  86.0] Onlardan 2 boy kadar geride iç kulları Yakın 3 numarada Köycü Bey.
+[  86.0-  88.0] Yarın boy gerisine dışarıda 2 numarada Aslan Kılıcı.
+[  88.0-  92.0] 2 boy geride 9 numarada Ildırdı. 2 boy geride 1 numarada Tılısım.
+[  92.0-  95.0] Tılısım'ın 1.5 boy gerisine 5 numarada Gürsel Han.
+[  95.0-  97.0] 3 boy geride 11 numarada Fotoğro Man.
+[  97.0-  99.0] Yarın boy geride 7 numarada Sarsal'a.
+[  99.0- 104.0] 2 boy geride 6 numarada Kazancı sırasıyla Safkanlarj 1800 metre stert yerini geçmek üzere.
+[ 105.0- 108.0] Son bir aş koşulur. Kendileri lider 8 numarada Demirni Hat.
+[ 108.0- 112.0] Fark 3 boy kadar çıktı. 2.likte içeride 12 numarada Halay var.
+[ 112.0- 114.0] Onun hemen dışında 4 numarada Külün Çağası.
+[ 114.0- 116.0] 1.5 boy gerilerinde 3 numarada Köycü Bey.
+[ 116.0- 120.0] Dışında 2 numarada Aslan Kılıcı içlerinde ise 9 numarada Ildırdı.
+[ 120.0- 124.0] Safkanlar son bir aşı dönüyor. 5 boy farklı düzleyen lider çıkıyor.
+[ 124.0- 126.0] 8 numarada Demirni Hat.
+[ 126.0- 130.0] 2.ya 9 numarada Ildırdı. Sartı dışarıda 3 numarada Köycü Bey de var.
+[ 130.0- 132.0] En içkul vardı da 1 numarada Tılasım.
+[ 132.0- 134.0] Safkanlar son 400 metreye girdi.
+[ 134.0- 137.0] 6-7 boy farklı 8 numarada Demirni Hat lider.
+[ 137.0- 141.0] 3 numarada Köycü Bey hata kalktığı onun dışında 9 numarada Ildırdı var içeride de.
+[ 141.0- 148.0] 1 numarada Tılasım 200'e girildikten sonra liderliğini 6-7 boy farklı 8 numarada Demirni Hat sürdürüyor.
+[ 148.0- 157.0] 3 numarada Köycü Bey 9 numarada Ildırdı'nın gayretleri olsa da son 100 metreye de 3 boy farklı 8 numarada Demirni Hat lider giriyor.
+[ 157.0- 160.0] Ve koşuyu 8 numarada Demirni Hat kazanıyor.
+[ 160.0- 168.0] 3 numarada Köycü Bey 2-9 numarada Ildırdı. 3-1 numarada Tılasım 4-2 numarada Aslan Kılıcı da yarıştan 5. olarak ayrıldı.
+[ 168.0- 173.0] 8 numarada Demirni Hat 5. koşuyu Kürşat Yılmaz da kazandı.
+[ 187.0- 192.0] 1 numarada Köycü Bey 9 numarada Ildırdı.
+[ 192.0- 196.0] 3 numarada Köycü Bey 9 numarada Ildırdı.
+ses ortalama genlik 0.0286 | en yüksek 0.435
+
+### TRANSKRİPT 26082141_m.wav dil olasılığı 1
+[   0.0-   3.6] ve onu hakinleştirme gayretinde.
+[   4.2-   8.8] Saksiyon idi ve Bursa'da koşulardan ilki başladı.
+[   9.1-  14.6] Bir numaralı ada köprüsü rakiplerinin on, on beş boy gerisinde ancak başlayabildi.
+[  14.8-  18.4] Üç numaralı Denizberk'te dışı açılınca dört boy avantaj kaybettim.
+[  19.0-  21.1] Yedi numaralı Özgür Kaptan lider başladı.
+[  21.1-  23.1] İkincilikle dört numaralı Fırtına fedaesi vardı.
+[  23.1-  25.2] Hemen içine beş numaralı gölge adam geldi.
+[  25.4-  27.9] İki buçuk üç boy geride on bir numaralı Öz Asyalı.
+[  27.9-  29.6] Yanına dokuz numaralı Golaçıya.
+[  29.8-  32.2] Bir boy kadar gerilerinde içeride altın numaralı Koçinoğlu.
+[  32.2-  33.5] Yanında iki numaralı ateşgöralı.
+[  33.5-  35.6] Yarın boy geride içeride on numaralı Kınalı Irmak.
+[  35.9-  40.0] Dışında üç numaralı Denizberk sırasıyla Taylar son bir acı koşuyor.
+[  41.5-  44.8] Yedi numaralı Özgür Kaptan son 600 metreye bir boy farkta lider geldi.
+[  44.8-  46.5] Beş numaralı gölge adam ikincilikte.
+[  46.7-  48.8] Onun dışında dört numaralı Fırtına fedaesi var.
+[  48.8-  50.7] İki buçuk boy geride on bir numaralı Öz Asyalı.
+[  50.7-  55.1] Yanında altın numaralı Koçinoğlu sırasıyla Safkanlar düzüye doğru ilerliyor.
+[  55.1-  57.0] Yedi numaralı Özgür Kaptan koşur ideri.
+[  57.2-  61.5] Beş numaralı gölge adam ikincilikte üç boy geriden üçüncürye on numaralı Kınalı Irmak.
+[  61.5-  66.2] Geride dışında altın numaralı Koçinoğlu sırasıyla Taylar son düzlükte son 400 metreye yarışta.
+[  66.5-  68.7] Yedi numaralı Özgür Kaptan yarışın ideri fark.
+[  68.9-  73.0] Üç boy kadar ikincilikte beş numaralı gölge adamlar içeride on numaralı Kınalı Irmak.
+[  73.0-  78.0] Üçüncürükte son 200 metreye girilirken yedi numaralı Özgür Kaptan'ın liderliği sürüyor.
+[  78.2-  81.4] Son 200 metreye de beş boy farkta lider girmeyi başardı.
+[  81.4-  83.1] Geriden Koçinoğlu'nun atakları var.
+[  83.2-  90.2] Son 100 metreye de yedi sekiz boy farkta lider giren yedi numaralı Özgür Kaptan birinciliğe ulaşıyor.
+[  90.8-  94.0] Altın numaralı Koçinoğlu ikinci oldu dokuz numaralı Golaçiye üçüncü.
+[  94.1-  98.6] Beş numaralı gölge adam dördüncü on numaralı Kınalı Irmak'ta yarışı beşinci tamamladı.
+[  98.9- 102.9] Yedi numaralı Özgür Kaptan fesih çetin başta ilk yarışında kazandı.
+ses ortalama genlik 0.0173 | en yüksek 0.314
+
+### TRANSKRİPT 26091839_m.wav dil olasılığı 1
+[   0.0-  13.0] Start verildi ve İstanbul'da dokuzuncu koşu başladı. Dokuz maradı Holly Brie koşuya beş boyu kadar geç başladı.
+[  13.0-  17.0] Leader yalan isim 11 numarada Klerisa oldu. Farkada üç boyu yaptı.
+[  17.0-  20.0] İkinci iktidonu 12 numarada Moon Stream takip ediyor.
+[  20.0-  23.0] Üçüncükte dışlarında 14 ma liberty Mia yer tuttu.
+[  23.0-  26.0] Barrierdibinde altınmalı Misaka ilerliyor. Bunun hemen dışında.
+[  26.0-  32.0] Bu maddelerde izlediğim isim Kranov Anır bu şekilde 1500 metre start yeri geçiriyor.
+[  32.0-  35.0] Leaderlik 11 numarada Klerisa da Farkı üç boyu yaptı.
+[  35.0-  38.0] İkinci iktidonu 12 numarada Moon Stream onu takip ediyor.
+[  38.0-  39.0] Üçüncükte ilerliyor.
+[  39.0-  42.0] Ortada şimdi 2 numarada Arnavut kız bunun bir boyu farklı yerisinde.
+[  42.0-  47.0] 14 numarada Liberty Mia'nın ataklarıyla 1200 metre start yeri geçiriyor.
+[  47.0-  49.0] Leaderlik 11 numarada Klerisa da.
+[  49.0-  52.0] İkinci iktidonu 12 numarada Arnavut kız takip ediyor.
+[  52.0-  55.0] Üçüncükte iktidelerde 12 numarada Moon Stream.
+[  55.0-  58.0] 4. iktidonu 14 numarada Liberty Mia.
+[  58.0-  61.0] Onun iki boyu kadar gerisinde Barrierdibinde altınmalı Misaka.
+[  61.0-  63.0] Misaka'nın hemen dışında 4 numarada Kranov Anır.
+[  63.0-  65.0] Onun üç boyu kadar gerisinde Barrierdibinde 3 numarada City Rock.
+[  65.0-  67.0] Bir boyu farklı gerisinde.
+[  67.0-  70.0] Ortada 1 numarada Deep Iron'ın ataklarıyla son 800'e giriliyor.
+[  70.0-  73.0] Leaderlik 11 numarada Klerisa da Farkı iki boyu oldu.
+[  73.0-  76.0] İkinci iktidonu 2 numarada Arnavut kız onu takip ediyor.
+[  76.0-  78.0] Üçüncükte Barrierdibinde 12 numarada Moon Stream yer tuttu.
+[  78.0-  81.0] Bunun bir boyu farklı gerisinde dışında 14 numarada Liberty Mia.
+[  81.0-  84.0] Barrierdibinde altınmalı Misaka onun bir boyu gerisinde dışında 4 numarada
+[  84.0-  88.0] Kranov Anır'ın ataklarıyla safkanlar düzlüğe çıkıyor.
+[  88.0-  90.0] Düzlüğü 11 numarada Klerisa önünde çıktı.
+[  90.0-  92.0] İkinci iktidonu ortada 12 numarada Moon Stream'in atakları var.
+[  92.0-  94.0] Ortalarında 3 numarada City Rock.
+[  94.0-  98.0] Barrierdibinde 800 numarada Saadrın Secret dışlarında altınmalı Misaka'nın ataklarıyla
+[  98.0-  99.0] son 300'ü yaklaşıyor.
+[  99.0- 103.0] Leaderlik 11 numarada Klerisa da Barrierdibinde 800 numarada Saadrın Secret gelmeye çalışıyor.
+[ 103.0- 108.0] Daha girden mücadele 12 numarada Moon Stream'la beraber dışında altınmalı Misaka'da katılmaya çalışıyor.
+[ 108.0- 111.0] İçtiğinde 3 numarada City Rock'ın da atakları ortada 5 numarada Mariska.
+[ 111.0- 114.0] Son 100 metre 11 numarada Klerisa önünde.
+[ 114.0- 117.0] Fark 3 boy, son 50 metre Fark 4 boy oluyor 11 numarada.
+[ 117.0- 120.0] Klerisa koşuyu kazanan isim oluyor.
+[ 120.0- 125.0] 3 numarada City Rock koşu da ikinci olarak ayrılırken 12 numarada Moon Stream koşu da üçüncü olarak ayrıldı.
+[ 125.0- 127.0] 5 numarada Mariska'yı koşu da dördüncü olarak ayrılırken
+[ 127.0- 132.0] altınmalı Misaka'ysa koşu da beşinci olarak ayrıldı koşuyu.
+[ 132.0- 135.0] 11 numarada Klerisa Ali Yıldız'a kazandı.
