@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-06 19:34 UTC",
+ "uretim": "2026-11-06 19:51 UTC",
  "kayitli_kosu": 1641,
- "eslesmeyen_kosu": 1123,
+ "eslesmeyen_kosu": 1122,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 885,
- "kosu": 518,
+ "bahis": 886,
+ "kosu": 519,
  "isabet": 57,
- "roi": 0.923,
+ "roi": 0.922,
  "ga95": [
-  0.658,
-  1.211
+  0.657,
+  1.208
  ],
  "ulke": {
   "abd": {
-   "bahis": 560,
-   "roi": 0.77
+   "bahis": 561,
+   "roi": 0.769
   },
   "birlesik-krallik": {
    "bahis": 156,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 1093,
-  "kosu": 506,
+  "kosu": 507,
   "isabet": 102,
   "roi": 0.605,
   "ga95": [
@@ -45,18 +45,18 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 1110,
-  "kosu": 498,
+  "bahis": 1111,
+  "kosu": 499,
   "isabet": 105,
   "roi": 0.652,
   "ga95": [
    0.436,
-   0.898
+   0.897
   ]
  },
  "bahis_t3": {
   "bahis": 1099,
-  "kosu": 483,
+  "kosu": 484,
   "isabet": 116,
   "roi": 0.646,
   "ga95": [
@@ -65,15 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 5,
-   "at": "NEDDIES BOY",
-   "q": 0.134,
-   "g": 21.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Musselburgh",
@@ -423,6 +414,15 @@
    "at": "HIGHER SELF",
    "q": 0.049,
    "g": 41.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Gulfstream",
+   "kosu": 4,
+   "at": "YASTRZEMSKI",
+   "q": 0.06,
+   "g": 24.2,
    "kazandi": false
   }
  ]
