@@ -1,0 +1,44 @@
+özellik tablosu hazır (202994, 48)
+2025-10 tamam
+2025-11 tamam
+2025-12 tamam
+2026-01 tamam
+2026-02 tamam
+2026-03 tamam
+2026-04 tamam
+2026-05 tamam
+2026-06 tamam
+2026-07 tamam
+2026-08 tamam
+2026-09 tamam
+2026-10 tamam
+3 2026-01 fit
+3 2026-02 fit
+3 2026-03 fit
+3 2026-04 fit
+3 2026-05 fit
+3 2026-06 fit
+3 2026-07 fit
+3 2026-08 fit
+3 2026-09 fit
+3 2026-10 fit
+=== ilk 3 (favori olmayan 33899 at, 4420 koşu, test 2026-01..10) BİRİNCİL: uzman − kontrol log-kayıp +0.0084 nats/koşu [+0.0021; +0.0149] (%97,5) → fark yok / kötü
+    AUC: Benter tek 0.734 | piyasa tek 0.712 | kontrol 0.734 | uzman 0.733
+    şerit çıkarılınca uzman kötüleşme +0.0036 [-0.0002; +0.0074]
+    yer tutma çıkarılınca uzman kötüleşme +0.0004 [-0.0019; +0.0027]
+    Jason özellikleri çıkarılınca uzman kötüleşme -0.0003 [-0.0044; +0.0038]
+5 2026-01 fit
+5 2026-02 fit
+5 2026-03 fit
+5 2026-04 fit
+5 2026-05 fit
+5 2026-06 fit
+5 2026-07 fit
+5 2026-08 fit
+5 2026-09 fit
+5 2026-10 fit
+=== ilk 5 (favori olmayan 23971 at, 3876 koşu, test 2026-01..10) BİRİNCİL: uzman − kontrol log-kayıp +0.0181 nats/koşu [+0.0080; +0.0281] (%97,5) → fark yok / kötü
+    AUC: Benter tek 0.721 | piyasa tek 0.690 | kontrol 0.723 | uzman 0.719
+    şerit çıkarılınca uzman kötüleşme -0.0008 [-0.0054; +0.0039]
+    yer tutma çıkarılınca uzman kötüleşme -0.0019 [-0.0062; +0.0028]
+    Jason özellikleri çıkarılınca uzman kötüleşme +0.0082 [-0.0008; +0.0171]
