@@ -1,0 +1,23 @@
+{
+ "id": "P05",
+ "tarih": "2026-06-21",
+ "hipodrom": "izmir",
+ "kosu": 5,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/6/26062125_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 6,
+   "tur": "kotu_cikis",
+   "t": 16.756167,
+   "not": ""
+  },
+  {
+   "no": 11,
+   "tur": "kotu_cikis",
+   "t": 16.756167,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:47:06.103Z"
+}
