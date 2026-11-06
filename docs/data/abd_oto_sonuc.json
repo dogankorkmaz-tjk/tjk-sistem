@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-06 20:26 UTC",
- "kayitli_kosu": 1648,
- "eslesmeyen_kosu": 1129,
+ "uretim": "2026-11-06 20:45 UTC",
+ "kayitli_kosu": 1650,
+ "eslesmeyen_kosu": 1128,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 886,
- "kosu": 519,
+ "bahis": 890,
+ "kosu": 522,
  "isabet": 57,
- "roi": 0.922,
+ "roi": 0.918,
  "ga95": [
-  0.657,
-  1.208
+  0.654,
+  1.202
  ],
  "ulke": {
   "abd": {
-   "bahis": 561,
-   "roi": 0.769
+   "bahis": 565,
+   "roi": 0.764
   },
   "birlesik-krallik": {
    "bahis": 156,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1093,
-  "kosu": 507,
-  "isabet": 102,
-  "roi": 0.605,
+  "bahis": 1104,
+  "kosu": 510,
+  "isabet": 104,
+  "roi": 0.608,
   "ga95": [
-   0.436,
-   0.778
+   0.442,
+   0.78
   ]
  },
  "bahis_t1": {
-  "bahis": 1111,
-  "kosu": 499,
-  "isabet": 105,
-  "roi": 0.652,
+  "bahis": 1121,
+  "kosu": 502,
+  "isabet": 107,
+  "roi": 0.655,
   "ga95": [
-   0.436,
-   0.897
+   0.442,
+   0.898
   ]
  },
  "bahis_t3": {
-  "bahis": 1099,
-  "kosu": 484,
-  "isabet": 116,
-  "roi": 0.646,
+  "bahis": 1102,
+  "kosu": 487,
+  "isabet": 117,
+  "roi": 0.648,
   "ga95": [
-   0.45,
-   0.892
+   0.451,
+   0.893
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 5,
-   "at": "NOTHINGBUTADREAM",
-   "q": 0.041,
-   "g": 41.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 7,
-   "at": "RHOSCOLYN",
-   "q": 0.201,
-   "g": 9.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 7,
-   "at": "MUDAMER",
-   "q": 0.062,
-   "g": 25.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 7,
-   "at": "DANDY MAGIC",
-   "q": 0.16,
-   "g": 16.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Musselburgh",
@@ -423,6 +387,42 @@
    "at": "YASTRZEMSKI",
    "q": 0.06,
    "g": 24.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 4,
+   "at": "LOU MAN",
+   "q": 0.086,
+   "g": 16.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 4,
+   "at": "SOUTH OF BIRMINHAM",
+   "q": 0.059,
+   "g": 44.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 4,
+   "at": "KING ANTHONY",
+   "q": 0.105,
+   "g": 17.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 4,
+   "at": "LOBO SALVAJE",
+   "q": 0.059,
+   "g": 54.5,
    "kazandi": false
   }
  ]
