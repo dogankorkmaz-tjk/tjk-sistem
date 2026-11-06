@@ -207,6 +207,10 @@ def sabah(t):
             for k in h["kosular"]:
                 if es.get((h["id"], k["kosu"])):
                     k["sonuc"] = es[(h["id"], k["kosu"])]
+    try:                                                  # 6 Kasım 2026: sabah yazımı Benter (z6, a_g1) ve piyasasız (z7) puanlarını siliyordu; ilk koşuya (~14:00) kadar sitede Benter yoktu
+        from . import g1 as _G1z; _G1z.z6_doldur(obj)     # (z6_doldur içinde z7_doldur da çağrılır)
+    except Exception as e:
+        print("sabah z6/z7 hatası:", repr(e))
     yaz_json(gun_yolu(t), obj)
     yaz_json(os.path.join(SITE, "bugun.json"), obj)
     print("yazıldı:", {h["id"]: len(h["kosular"]) for h in obj["hipodromlar"]})
@@ -1012,6 +1016,10 @@ def canli(t):
         print("bildirim gönderildi:", BL.gonder(obj["tarih"], O.tr_simdi().strftime("%H:%M")))
     except Exception as e:
         print("bildirim hatası:", repr(e))
+    try:                                                  # 6 Kasım 2026: yazmadan önce Benter/piyasasız puanlar eksikse doldur (dolu olanlara dokunmaz)
+        from . import g1 as _G1z; _G1z.z6_doldur(obj)
+    except Exception as e:
+        print("z6/z7 doldurma hatası:", repr(e))
     yaz_json(yol, obj); yaz_json(os.path.join(SITE, "bugun.json"), obj)
 
 

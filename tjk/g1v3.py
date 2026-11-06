@@ -38,6 +38,11 @@ def z7(atlar, t, c):
     ok = [{"at": a["at"], "jokey": a["jokey"], "kilo": a.get("kg"), "hnd": a.get("hk")} for a in at]
     X = G._oz(H, J, AJ, ok, None, t.toordinal())
     z = X @ np.array(c["b"]) + np.array([a["zn"] for a in at])
+    if c.get("galop"):                                   # T153 (6 Kasım 2026): galop ikinci aşaması, z6 ile aynı biçim
+        try:
+            cg = c["galop"]; F = (np.array([G.galop_f(a["at"], t) for a in at]) - np.array(cg["mu"])) / np.array(cg["sd"]); z = z + F @ np.array(cg["b"])
+        except Exception as e:
+            print("z7 galop hatası:", repr(e))
     return {a["no"]: float(v) for a, v in zip(at, z)}
 
 
@@ -167,8 +172,7 @@ def egit(l2=30.0, lj=50.0, adim=5, bas_galop="2026-02-01", l2g=20.0, nolp=False)
            "wJ": [float(x) for x in t[10:10 + NJ]], "i_lp2": (None if nolp else FEAT.index("f_lp2")), "n_kosu": N, "egitim": dt.date.today().isoformat()}
     # galop ikinci aşama (ofset = v3 aşama 1)
     sel = np.where(gv)[0]
-    if nolp:
-        json.dump(out, open(YOL_N, "w"), indent=1); return out      # galop ikinci aşaması piyasasız modelde yok (T49 yalnız galopsuz)
+    # 6 Kasım 2026 (T153): galop ikinci aşaması piyasasız modelde de (PM0g − PM0 kazanan −0,0101 [−0,0135; −0,0064], 8/8 ay)
     if len(sel) > 200:
         S = S0[sel]; F = FF[sel]; mk = S > -1e8; fmu = F[mk].mean(0); fsd = F[mk].std(0) + 1e-9; Zg = (F - fmu) / fsd; n2 = len(sel); idx = np.arange(n2)
 
@@ -177,5 +181,5 @@ def egit(l2=30.0, lj=50.0, adim=5, bas_galop="2026-02-01", l2g=20.0, nolp=False)
             return -np.log(p[idx, 0] + 1e-12).sum() + l2g * (b @ b), np.einsum("nm,nmk->k", dd, Zg) + 2 * l2g * b
         b = minimize(fg, np.zeros(7), jac=True, method="L-BFGS-B").x
         out["galop"] = {"b": [float(x) for x in b], "mu": [float(x) for x in fmu], "sd": [float(x) for x in fsd], "n_kosu": int(n2), "bas": bas_galop}
-    json.dump(out, open(YOL, "w"), indent=1)
+    json.dump(out, open(YOL_N if nolp else YOL, "w"), indent=1)
     return out
