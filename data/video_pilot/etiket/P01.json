@@ -1,0 +1,17 @@
+{
+ "id": "P01",
+ "tarih": "2026-09-18",
+ "hipodrom": "istanbul",
+ "kosu": 9,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/9/26091839_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 9,
+   "tur": "kotu_cikis",
+   "t": 2.308448,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:42:00.618Z"
+}
