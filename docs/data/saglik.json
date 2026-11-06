@@ -1,6 +1,6 @@
 {
  "tarih": "2026-11-06",
- "zaman": "2026-11-06 11:51 UTC",
+ "zaman": "2026-11-06 15:07 TR",
  "genel": "ok",
  "kontroller": [
   {
@@ -59,6 +59,11 @@
    "detay": "var"
   },
   {
+   "ad": "Benter-K (gölge) eğitimi",
+   "durum": "ok",
+   "detay": "2026-11-06 (0 gün önce)"
+  },
+  {
    "ad": "Jason puanı (z2)",
    "durum": "ok",
    "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
@@ -70,6 +75,11 @@
   },
   {
    "ad": "piyasasız puan (z7)",
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "Benter-K gölge puanı (zk6)",
    "durum": "ok",
    "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
   },
