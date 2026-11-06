@@ -2074,3 +2074,13 @@ P1 piyasasız MJDE−MJ kazanan −0,00042 [−0,00127; +0,00055] (%97,5) → KA
 Betimsel (karar dışı): sıra konumlarında tutarlı küçük iyileşme — piyasasız ikili −0,0012 [−0,0023; −0,00003] (%97,5), ilk5 −0,0014 (10/13 ay −); piyasalı ikili −0,0010, ilk5 −0,0012 (10/13 ay −), GA'lar 0'ı içeriyor. Kaynağı SON koşu bilgisi (Δ_son piyasalı ilk5 −0,0013 [−0,0027; −0,0001]; Δ_eski ilk5 ≈0).
 İKİNCİL H_hafıza (piyasa eski örüntüyü daha az fiyatlar): D = Δ_eski − Δ_son piyasalı kazanan −0,00016 [−0,00097; +0,00064] → DESTEK YOK (fark ölçülemeyecek kadar küçük); piyasasız karşı kontrol −0,00005. Yani startta kalma bilgisinin kazanma olasılığına katkısı, son ya da eski olsun, ölçüm duyarlılığımızın (~±0,001) altında.
 Okuma: startta kalma özelliği kazananı tahmine katkı vermiyor; sıralı bahisler (ikili/ilk5) için zayıf bir iz var. Yeniden bakış: 2027-03 (+5 ay), yalnız sıra konumları için ayrı ön kayıtla (birincil ölçü ilk5).
+
+## 2026-11-06 12:00 — ÖN KAYIT T152 T142/T149/T146 adaylarının RESMİ TABANDA (T150, Benter-piyasasız ve piyasalı) yeniden sınanması (kullanıcı: "Testleri yap")
+Neden: T142, T146, T149 Jason'ın 37 özelliğiyle (Z/J) sınanmıştı; aşama-1 ölçüsü artık T150 tabanı (harness, VAR=MJ: G1 9 + Jason 37 + Elo 6). T149'un şerit kodlaması hatalıydı (görünmeyen at = 6; 8. sıradaki attan "önde" sayılıyordu) → düzeltildi: görünmeyen = (kutu+1+n)/2 (T41/MJV ile aynı), sıralar (n−1)'e bölünür.
+Kod: data/analiz/t152_ozellik.py; elo2_ozellik VAR: MJOV (T142 olay, 6 özellik), MJT9 (T149 düzeltilmiş, 9), MJSY (T146 soy/yetiştirici/sahip/baba×mesafe/pist + tam yaş, 9; satış bedeli alınmadı). Hepsi yalnız önceki koşulardan (at bazında son 3 koşu ort. / önceki günlerle hedef kodlama). Kapsam (2025-10+, sonuçla ilişkisiz): OV/V2 ~%77, SY ~%94; NaN 0. Video kaynağı: data/video_seyir, okuyucu=rakam1 (video_ozet.pkl kayıptı; 'ozet' alanından yeniden kuruldu).
+Aynı koşu kümesi, aylar (2025-10..2026-10), taban önbellekleri (T151'in MJ N/P çalışmaları; aynı jason_d).
+BİRİNCİL (6 karşılaştırma; Bonferroni → her biri %99,17 GA; gün-küme bootstrap 1000; kazanan kaybı, eşleşik):
+ piyasasız: MJOV−MJ, MJT9−MJ, MJSY−MJ (NOLP=1) → GA üst <0: "aşama-1 ADAYI"; GA alt >0: zarar; aksi: etkisiz.
+ piyasalı:  aynıları NOLP=0 → GA üst <0: "ana model ADAYI" (üretim ancak 2026-11→2027-01 ileri pencere doğrulamasıyla); aksi: eklenmez.
+Önceki (Jason tabanı) sonuçlar karşılaştırma için: T142 ≈+0,001 nat; T146 piyasasız ADAY (+0,0021), piyasalı yok; T149 piyasasız +0,0044, piyasalı +0,0019 (hatalı kodlamayla). Beklenti yazılmaz; karar yalnız yukarıdaki kuralla.
+Betimsel: ikili..ilk5, aylara göre işaret; birden çok grup aday çıkarsa birleşik model AYRI ön kayıtla (T153) denenir.
