@@ -1,0 +1,41 @@
+T150 PM0 yeniden üretim kontrolü (T150: 1,9326; veri aynıysa aynı): 1.9326
+P1 piyasasız MJDE−MJ: 6363 koşu, 396 gün | A kazanan 1.9322, B 1.9326
+  kazanan  -0.00042 [-0.00127; +0.00055] (GA %97.5) | ay işareti −:7/13
+  ikili    -0.00119 [-0.00234; -0.00003] (GA %97.5) | ay işareti −:9/13
+  üçlü     -0.00111 [-0.00254; +0.00027] (GA %97.5) | ay işareti −:9/13
+  ilk4     -0.00108 [-0.00281; +0.00059] (GA %97.5) | ay işareti −:11/13
+  ilk5     -0.00142 [-0.00327; +0.00043] (GA %97.5) | ay işareti −:10/13
+  KARAR P1: etkisiz
+P2 piyasalı MJDE−MJ: 6363 koşu, 396 gün | A kazanan 1.8430, B 1.8433
+  kazanan  -0.00028 [-0.00118; +0.00068] (GA %97.5) | ay işareti −:7/13
+  ikili    -0.00098 [-0.00200; +0.00018] (GA %97.5) | ay işareti −:8/13
+  üçlü     -0.00094 [-0.00229; +0.00035] (GA %97.5) | ay işareti −:8/13
+  ilk4     -0.00093 [-0.00250; +0.00052] (GA %97.5) | ay işareti −:8/13
+  ilk5     -0.00124 [-0.00285; +0.00043] (GA %97.5) | ay işareti −:10/13
+  KARAR P2: etkisiz
+Δ_son piyasalı (İKİNCİL H_hafıza): 6363 koşu, 396 gün | A kazanan 1.8432, B 1.8433
+  kazanan  -0.00014 [-0.00091; +0.00067] (GA %95.0) | ay işareti −:7/13
+  ikili    -0.00084 [-0.00184; +0.00014] (GA %95.0) | ay işareti −:9/13
+  üçlü     -0.00084 [-0.00197; +0.00028] (GA %95.0) | ay işareti −:8/13
+  ilk4     -0.00098 [-0.00226; +0.00035] (GA %95.0) | ay işareti −:8/13
+  ilk5     -0.00134 [-0.00270; -0.00006] (GA %95.0) | ay işareti −:10/13
+Δ_eski piyasalı (İKİNCİL H_hafıza): 6363 koşu, 396 gün | A kazanan 1.8430, B 1.8433
+  kazanan  -0.00030 [-0.00070; +0.00013] (GA %95.0) | ay işareti −:9/13
+  ikili    -0.00043 [-0.00099; +0.00018] (GA %95.0) | ay işareti −:8/13
+  üçlü     -0.00035 [-0.00102; +0.00034] (GA %95.0) | ay işareti −:7/13
+  ilk4     -0.00007 [-0.00077; +0.00065] (GA %95.0) | ay işareti −:6/13
+  ilk5     -0.00001 [-0.00080; +0.00076] (GA %95.0) | ay işareti −:6/13
+  D = Δ_eski − Δ_son (piyasalı (İKİNCİL H_hafıza)) kazanan: -0.00016 [-0.00097; +0.00064]
+Δ_son piyasasız (karşı kontrol): 6363 koşu, 396 gün | A kazanan 1.9323, B 1.9326
+  kazanan  -0.00027 [-0.00106; +0.00048] (GA %95.0) | ay işareti −:7/13
+  ikili    -0.00104 [-0.00196; -0.00004] (GA %95.0) | ay işareti −:9/13
+  üçlü     -0.00104 [-0.00230; +0.00019] (GA %95.0) | ay işareti −:9/13
+  ilk4     -0.00120 [-0.00258; +0.00014] (GA %95.0) | ay işareti −:9/13
+  ilk5     -0.00161 [-0.00307; -0.00012] (GA %95.0) | ay işareti −:10/13
+Δ_eski piyasasız (karşı kontrol): 6363 koşu, 396 gün | A kazanan 1.9323, B 1.9326
+  kazanan  -0.00032 [-0.00076; +0.00013] (GA %95.0) | ay işareti −:8/13
+  ikili    -0.00043 [-0.00105; +0.00018] (GA %95.0) | ay işareti −:8/13
+  üçlü     -0.00031 [-0.00107; +0.00047] (GA %95.0) | ay işareti −:8/13
+  ilk4     +0.00003 [-0.00084; +0.00088] (GA %95.0) | ay işareti −:6/13
+  ilk5     +0.00012 [-0.00075; +0.00107] (GA %95.0) | ay işareti −:7/13
+  D = Δ_eski − Δ_son (piyasasız (karşı kontrol)) kazanan: -0.00005 [-0.00083; +0.00070]
