@@ -1,0 +1,21 @@
+name: cv_pilot
+# Görüntü pilotu (tjk/cv_pilot.py): 20 koşu, HD video, YOLOv8n at/jokey tespiti; sonuçlar data/cv_pilot/
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  cv:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null && pip install -q ultralytics opencv-python-headless --extra-index-url https://download.pytorch.org/whl/cpu
+      - run: |
+          python3 tjk/cv_pilot.py 2>&1 | tail -40
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/cv_pilot; git commit -qm "cv pilot" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && exit 0; sleep 10; done; exit 1
