@@ -2,7 +2,7 @@
 import sys,glob,json,gzip,os,collections,numpy as np,pandas as pd
 sys.path.insert(0,'data/analiz'); sys.path.insert(0,'.')
 import video_ozellik as VO
-from sklearn.ensemble import HistGradientBoostingRegressor as HGB
+# (sklearn içe aktarımı kaldırıldı 6 Kasım 2026: kullanılmıyordu, üretimde kurulu değil)
 from scipy.optimize import minimize_scalar
 rng=np.random.default_rng(125)
 def log(*a): print(*a,flush=True)
