@@ -64,7 +64,7 @@ def ekle(d, grup):
             src = ["lead_frac", "top3_frac", "mean_rank", "early_rank", "late_rank", "vol", "fade", "lead_lost"]
             out = ["v2_" + c for c in src]; d = _onceki3(d, src, out); d["v2_var"] = d.v2_lead_frac.notna().astype(float)
         for n in out: d[n] = d[n].fillna(0.0)
-    elif grup == "SY":
+    elif grup in ("SY", "SYG"):          # SYG (T152 sızıntı kontrolü): sahip = YARIŞ GÜNÜ programındaki sahip (d.sahip); SY arşivin (geriye dönük çekilmişse güncel) sahibini kullanır
         A = pd.read_pickle("/tmp/claude-0/ay_oz.pkl").drop_duplicates(["tarih", "hipodrom", "kosu", "no"])
         A["kosu"] = A.kosu.astype(int); A["no"] = A.no.astype(int)
         d = d.merge(A[["tarih", "hipodrom", "kosu", "no", "baba", "annebaba", "babababa", "yetistirici", "sahip", "dogum"]].rename(columns={"baba": "baba_a", "sahip": "sahip_a"}),
@@ -83,7 +83,7 @@ def ekle(d, grup):
             return d[["tarih"]].assign(_k=k).merge(g[["_k", "tarih", "v"]], on=["_k", "tarih"], how="left")["v"].fillna(0.0).values
         S = []
         for col, name in (("annebaba", "e_fm"), ("babababa", "e_ff"), ("yetistirici", "e_br"), ("sahip_a", "e_ow"), ("k_baba_mb", "e_bmb"), ("k_baba_pist", "e_bpist")):
-            d[name] = enc(col); S.append(name)
+            d[name] = enc("sahip" if (grup == "SYG" and col == "sahip_a") else col); S.append(name)
         yr = (pd.to_datetime(d.tarih) - pd.to_datetime(d.dogum, unit="s")).dt.days / 365.25; yas = pd.to_numeric(d.yas, errors="coerce")
         d["age_g"] = yr.fillna(yr.median()); d["age_g3"] = d.age_g * (yas <= 3).astype(float); d["age_gf"] = (d.age_g - d.age_g.round()) * (yas <= 3).astype(float)
         S += ["age_g", "age_g3", "age_gf"]
@@ -96,4 +96,5 @@ def ekle(d, grup):
 
 FEAT = {"OV": ["ov_gain", "ov_fin", "ov_tot", "ov_flop", "ov_unl", "ov_var"],
         "V2": ["v2_lead_frac", "v2_top3_frac", "v2_mean_rank", "v2_early_rank", "v2_late_rank", "v2_vol", "v2_fade", "v2_lead_lost", "v2_var"],
+        "SYG": ["e_fm", "e_ff", "e_br", "e_ow", "e_bmb", "e_bpist", "age_g", "age_g3", "age_gf"],
         "SY": ["e_fm", "e_ff", "e_br", "e_ow", "e_bmb", "e_bpist", "age_g", "age_g3", "age_gf"]}
