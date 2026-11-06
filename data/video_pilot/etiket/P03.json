@@ -1,0 +1,17 @@
+{
+ "id": "P03",
+ "tarih": "2026-08-21",
+ "hipodrom": "bursa",
+ "kosu": 1,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/8/26082141_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 1,
+   "tur": "kotu_cikis",
+   "t": 14.35891,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:45:27.204Z"
+}
