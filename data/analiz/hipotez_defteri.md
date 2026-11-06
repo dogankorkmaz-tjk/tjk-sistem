@@ -2384,3 +2384,11 @@ A) SÜRPRİZ KUPONU (T170 altyapısı: veri, havuz paylaşımı, misli, büyük 
   KONTROL B: aynı yapı, S piyasaya göre seçilir (aynı aday havuzunda piyasa olasılığı en yüksekler). BİRİNCİL (3 karşılaştırma → %98,33, gün-küme eşleştirilmiş bootstrap): her bahis için A ROI ve A − B. KARAR: A − B GA alt > 0 → Benter'in sürpriz seçimi değer katıyor (Canlı'ya sürpriz kuponu adayı); A ROI GA alt > 0 → kârlı aday. Betimsel: S'yi Benter/piyasa oranına göre seçen C; ortalama maliyet, isabet.
 B) "YER TUTMA" ÖZELLİĞİ (data/temiz 2023-01..; yalnız koşudan ÖNCEKİ veriler). Kazanamadığı koşularda r = (piyasa sırası − bitiriş sırası)/(n − 1); jokey_yer = Σr/(adet+10), at_yer = Σr/(adet+5). Model: Benter sıralama adımları j ≥ 2 (2.–5. sıra) puanı = γ_j·s + β1·jokey_yer + β2·at_yer (s, γ = MJ önbelleği S3, g3; 1. adım değişmez). β eğitim 2025-10..2026-03, test 2026-04..2026-10.
   BİRİNCİL: test dönemi 2.–5. sıra log-olabilirlik farkı (koşu başına, büyük olan iyi), gün-küme bootstrap %95. KARAR: GA alt > 0 → aday özellik (üretime ancak ayrı onayla); aksi → kayıt. Betimsel: yalnız jokey / yalnız at; adım bazında fark.
+## 2026-11-07 02:05 SONUÇ T171 (t171a_surpriz.py → t171a_sonuc.txt; t171b_yer.py → t171b_sonuc.txt)
+A) Sürpriz kuponu, her koşuda sabit yapı (havuz paylaşımı, misli, büyük ödemeler dahil; %98,33):
+  üçlü: Benter sürprizi −0,206 [−0,305; −0,107] vs piyasa sürprizi −0,243; A−B +0,037 [−0,081; +0,145] (3.162 koşu, ort. 36 TL).
+  tabela: −0,361 [−0,637; +0,009] vs −0,543; A−B +0,182 [−0,101; +0,553] (1.158 koşu).
+  sıralı 5'li: +0,175 [−0,393; +0,895] vs −0,316; A−B +0,491 [−0,125; +1,240] (1.663 koşu, ort. 135 TL, 47 vs 37 isabet).
+  Betimsel C (Benter/piyasa oranıyla sürpriz): üçlü −0,167, tabela −0,322, 5'li +0,110 (C−B +0,426 [−0,008; +0,892]).
+  KARAR: hiçbir A−B ve A ROI GA alt > 0 değil → kayıt. OKUMA: Benter'in seçtiği sürpriz üç bahiste de piyasanın seçtiğinden iyi (aynı yön, 5'lide büyük), ama her koşuda oynanan sabit kupon üçlü/tabelada zarar; değer filtresiz oynamak kesintiye takılıyor.
+B) Yer tutma özelliği: ikisi +0,0024 nats/koşu [−0,0010; +0,0057] (3.578 test koşusu; at β 0,77, jokey β −0,21); yalnız at +0,0025 [−0,0008; +0,0058]; yalnız jokey ≈0. Kazanç 4.–5. sırada. KARAR: GA 0'ı kapsıyor → kayıt (aday değil). Not: jokeyin "bırakma" alışkanlığı bu ölçüyle görünmüyor; atın kendi yer tutma artığı küçük bir işaret.

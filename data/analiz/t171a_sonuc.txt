@@ -1,0 +1,20 @@
+5'li kendi havuz medyanı: {'adana': 213245, 'ankara': 213245, 'antalya': 89408, 'bursa': 88203, 'diyarbakir': 169635, 'elazig': 281759, 'istanbul': 419943, 'izmir': 307102, 'kocaeli': 213245, 'sanliurfa': 118601} | grup {True: 213245, False: 150967}
+2025-10 tamam
+2025-11 tamam
+2025-12 tamam
+2026-01 tamam
+2026-02 tamam
+2026-03 tamam
+2026-04 tamam
+2026-05 tamam
+2026-06 tamam
+2026-07 tamam
+2026-08 tamam
+2026-09 tamam
+2026-10 tamam
+=== üçlü BİRİNCİL (%98,33): A Benter sürprizi -0.206 [-0.305; -0.107] (3162 koşu, ort 36 TL / 18 komb, 658 isabet) | B piyasa sürprizi -0.243 [-0.359; -0.107] (3162 koşu, ort 36 TL / 18 komb, 623 isabet) | A−B +0.037 [-0.081; +0.145]
+    C Benter/piyasa oranıyla sürpriz: -0.167 [-0.269; -0.063] (3162 koşu, ort 36 TL / 18 komb, 608 isabet) | C−B +0.076 [-0.054; +0.203]
+=== tabela BİRİNCİL (%98,33): A Benter sürprizi -0.361 [-0.637; +0.009] (1158 koşu, ort 54 TL / 36 komb, 53 isabet) | B piyasa sürprizi -0.543 [-0.734; -0.317] (1158 koşu, ort 54 TL / 36 komb, 47 isabet) | A−B +0.182 [-0.101; +0.553]
+    C Benter/piyasa oranıyla sürpriz: -0.322 [-0.548; -0.038] (1158 koşu, ort 54 TL / 36 komb, 51 isabet) | C−B +0.222 [-0.049; +0.528]
+=== sıralı 5'li BİRİNCİL (%98,33): A Benter sürprizi +0.175 [-0.393; +0.895] (1663 koşu, ort 135 TL / 108 komb, 47 isabet) | B piyasa sürprizi -0.316 [-0.689; +0.182] (1663 koşu, ort 135 TL / 108 komb, 37 isabet) | A−B +0.491 [-0.125; +1.240]
+    C Benter/piyasa oranıyla sürpriz: +0.110 [-0.273; +0.564] (1663 koşu, ort 135 TL / 108 komb, 49 isabet) | C−B +0.426 [-0.008; +0.892]
