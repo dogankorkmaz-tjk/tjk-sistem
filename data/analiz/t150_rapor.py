@@ -22,5 +22,5 @@ def rapor(ad, ays, S):
 ays = sorted(X); rapor("PM0 (ANA)", ays, X)
 for a in ays: 
     p = X[a][0][:, 0].mean(); m = R[a][0][:, 0].mean(); u = R[a][1][:, 0].mean(); print(f"    {a} n={len(X[a][1])} PM0 {p:.4f} piyasa {m:.4f} eşit {u:.4f} Ρ {(u-p)/(u-m):.3f}")
-ga = [a for a in sorted(G) if a >= "2026-02"]
+ga = [a for a in sorted(G) if a >= "2026-03"]
 if ga: rapor("PM0g (galoplu, betimsel)", ga, G); rapor("PM0 aynı aylar (kıyas)", ga, X)
