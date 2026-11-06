@@ -506,6 +506,17 @@ function besliKupon(p,B,G,L,GS){
   } else en=genislet([...Array(L).keys()].map(k=>[ord[k]]));
   return {sets:en.sets,n:en.sets.reduce((a,x)=>a*x.length,1),pr:en.pr,W,T};
 }
+function benterKHtml(h,k,out){   /* Benter-K GÖLGE (T155, 6 Kasım 2026): ana model DEĞİL; ileriye dönük takip, Benter ile ayrıştığı yerler */
+  const idx=Object.keys(out.map).map(Number); if(idx.length<5||!idx.every(i=>out.map[i].pk!=null&&out.map[i].pg!=null)) return '';
+  const A=idx.map(i=>({i,no:k.atlar[i].no,ad:k.atlar[i].at,g:out.map[i].pg,q:out.map[i].pk})), sg=[...A].sort((a,b)=>b.g-a.g), sq=[...A].sort((a,b)=>b.q-a.q);
+  const ig=sg.slice(0,5).map(x=>x.no), iq=sq.slice(0,5).map(x=>x.no), fark=[];
+  if(sg[0].no!==sq[0].no) fark.push('favori farklı: Benter '+sg[0].no+', Benter-K '+sq[0].no);
+  const ek=iq.filter(n=>!ig.includes(n)), cik=ig.filter(n=>!iq.includes(n)); if(ek.length) fark.push('ilk 5\'e giren: '+ek.join(', ')+' · çıkan: '+cik.join(', '));
+  const sat=sq.map(x=>{ const d=x.q-x.g; return `<tr><td>${x.no} ${esc(x.ad||'')}</td><td class="n">%${pct(x.g)}</td><td class="n">%${pct(x.q)}</td><td class="n" style="color:${Math.abs(d)>=0.03?(d>0?'var(--good)':'var(--bad)'):'var(--muted)'}">${d>=0?'+':''}${(d*100).toFixed(1).replace('.',',')}</td></tr>`; }).join('');
+  return `<details class="kb"><summary>Benter-K (gölge) · ${fark.length?'<b style="color:var(--hot)">ayrışıyor</b>':'Benter ile aynı sıra'}</summary><div style="padding:0 12px 12px"><div class="sub">T155 birleşik aday: Benter + video olay/şerit + soy/yaş + sıraya özgü katsayılar. Ana model değil; kuponları Kuponlar → Sıralı 5'li'de "Benter-K-G" olarak takip ediliyor.</div>${fark.length?'<div style="margin-top:4px;color:var(--hot)"><b>'+fark.map(esc).join(' · ')+'</b></div>':''}
+   <table class="t" style="margin-top:6px"><tr><th>At</th><th class="n">Benter</th><th class="n">Benter-K</th><th class="n">Fark (puan)</th></tr>${sat}</table>
+   <div class="sub" style="margin-top:4px">İlk 5 sırası · Benter: ${ig.join('-')} · Benter-K: ${iq.join('-')}</div></div></details>`;
+}
 function besliHtml(h,k,out){
   if(k.besli===false) return '';   // program CSV'sine göre sıralı beşli oynanmayan koşu (14 Ekim 2026)
   const idx=Object.keys(out.map).map(Number); if(idx.length<5) return '';
@@ -644,10 +655,11 @@ function hesapla(h,k,kaynakZorla,yedek){
   if(!pp||idx.length<2) return null;
   const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(idx.every(i=>atlar[i].z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6b!=null?atlar[i].z6b:atlar[i].z6),VERI.w0_g1,idx.every(i=>atlar[i].z6b!=null)?(VERI.lp2_g1||0):0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA), hb=pg?harville(pg,GB()):null;
   const out={kaynak,map:{}};
+  const pk=(VERI.w0_k!=null&&idx.every(i=>atlar[i].zk6!=null))?modelP(pp,idx.map(i=>atlar[i].zk6),VERI.w0_k):null;   /* Benter-K gölge (T155) */
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
     let gj=pj?pj[j]:null; if(pj){ const e=atlar[i].ek; if(e>0){ gj=0; idx.forEach((ii,l)=>{ if(atlar[ii].ek===e) gj+=pj[l]; }); } else if(pp.grp[j]!==-1){ gj=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gj+=pj[l]; }); } }   // ekür: ganyan ekürilerden biri kazanırsa öder (6 Kasım 2026)
-    out.map[i]={pjg:gj,i2b:hb?hb[j][0]:null,i3b:hb?hb[j][1]:null,ejg:(gj!=null&&!isNaN(g[j]))?gj*g[j]:null,pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
+    out.map[i]={pjg:gj,i2b:hb?hb[j][0]:null,i3b:hb?hb[j][1]:null,ejg:(gj!=null&&!isNaN(g[j]))?gj*g[j]:null,pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,pk:pk?pk[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
   });
   try{ const gr={}; idx.forEach((i,j)=>{ const e=atlar[i].ek>0?'e'+atlar[i].ek:(pp.grp[j]!==-1?'g'+pp.grp[j]:null); if(e){ (gr[e]=gr[e]||[]).push(j); } });
     Object.values(gr).forEach(m=>{ if(m.length!==2) return; const q=m.map(j=>ps?ps[j]:pm[j]), P=q[0]+q[1]; if(!(P>0)) return;
@@ -670,7 +682,8 @@ function renderKosu(){
     <div id="kaynak"></div></div>
     ${podyum.length?'<div class="podyum">'+podyum.map(a=>`<div class="p${k.sonuc[a.no].sira}"><small>${k.sonuc[a.no].sira}.</small><span class="no c${(a.no-1)%16+1}">${a.no}</span><b>${esc(a.at)}</b></div>`).join('')+'</div>':''}
     <div class="rkbas" id="rkbas">Model sırası (Jason)</div><div class="rank" id="rank"></div>
-    <div id="b5"></div>`;
+    <div id="b5"></div>
+    <div id="bK"></div>`;
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=a.kosmaz?'KOŞMAZ':sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
     s+=`<div class="row at${sn&&sn.sira===1?' kazanan':sn&&sn.sira===2?' ikinci':sn&&sn.sira===3?' ucuncu':''}" id="r${i}"><span class="no c${(a.no-1)%16+1}">${a.no}${sn&&sn.sira?`<em>${sn.sira}.</em>`:''}</span>
@@ -708,6 +721,7 @@ function renderKosu(){
 function hesapGoster(){
   const {h,k}=cur; const out=hesapla(h,k,undefined,true); const yed=!!(out&&out.kaynak==='model'); curOut=yed?null:out;
   { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0)+'|'+JSON.stringify(ODDS[okey(h.id,k.kosu)]||{}); /* elle girilen oran değişince de yenilenir */ if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!yed&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
+  { const bk2=$('bK'); if(bk2){ try{ bk2.innerHTML=out&&!yed&&!k.sonuc?benterKHtml(h,k,out):''; }catch(e){ bk2.innerHTML=''; } } }
   $('kaynak').innerHTML=out?`<span class="pill ${KAYNAK[out.kaynak][1]}">Piyasa: ${KAYNAK[out.kaynak][0]}${out.kaynak==='agf'&&k.agf_saat?' · '+esc(k.agf_saat):''}</span>${out.kaynak==='agf'?' <span class="note">AGF ganyan oranı değildir; EV hesaplanmaz. Güncel ganyanı girersen EV çıkar.</span>':''}`:'<span class="pill">Piyasa verisi yok</span> <span class="note">Ganyanları girince model çalışır.</span>';
   const sira=[];
   k.atlar.forEach((a,i)=>{

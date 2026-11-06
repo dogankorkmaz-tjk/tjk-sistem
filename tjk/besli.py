@@ -116,6 +116,7 @@ def kupon(p, B):
 
 G1V = {"s": None}   # G1-S sürümü (v2/v3): -G kuponlara damga, eski sürümlü kuponlar başlamamış koşuda yenilenir
 GG = {}   # model -> sıra üsleri (Jason-S kendi öğrenilmiş ölçeklerini kullanır)
+OFF = {}  # model -> pozisyon ofseti off[k][i] (Benter-K: sıraya özgü δ, k≥1 için γ_k·P·δ; T154/T155)
 
 
 def _olasiliklar(obj, k):
@@ -147,8 +148,15 @@ def _olasiliklar(obj, k):
             pg = sm([obj["w0_g1"] * math.log(max(p, 1e-6)) + a["z6"] for p, a in zip(pp, at)]); GG["G1-S"] = obj["a_g1"]
     except Exception as e:
         print("G1-S olasılık hatası:", repr(e))
+    pk = None
+    try:                                                   # Benter-K GÖLGE (T155, 6 Kasım 2026): yalnız -G kuponlarla ileriye dönük takip
+        if obj.get("w0_k") is not None and obj.get("a_k") and all(a.get("zk6") is not None and a.get("zkd") is not None for a in at):
+            pk = sm([obj["w0_k"] * math.log(max(p, 1e-6)) + a["zk6"] for p, a in zip(pp, at)]); GG["Benter-K"] = obj["a_k"]
+            OFF["Benter-K"] = [[0.0] * len(at)] + [[g * a["zkd"] for a in at] for g in obj["a_k"][1:]]
+    except Exception as e:
+        print("Benter-K olasılık hatası:", repr(e))
     # Jason-S ve Jason-F kapatıldı (3 Kasım 2026, kullanıcı kararı; bkz. hipotez_defteri)
-    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"G1-S": pg} if pg else {})}
+    return at, pp, {"Bolton": pm, **({"Jason": pj} if pj else {}), **({"G1-S": pg} if pg else {}), **({"Benter-K": pk} if pk else {})}
 
 
 def _modeller(obj, k):
@@ -163,7 +171,7 @@ def _ekle_g(c, at, pp, P, simdi, istek=None):
         for B in BUTCELER_G:
             if any(q["model"] == model + "-G" and q["butce"] == B for q in c["kuponlar"]):
                 continue
-            kp = kupon_g(p, B, GG.get(model))
+            kp = kupon_g(p, B, GG.get(model), OFF.get(model))
             if not kp:
                 continue
             sets, pm_ = kp; pq = _prob(Wp, Tp, sets); v = gecerli_say(sets)
@@ -598,8 +606,8 @@ def guncelle(obj, simdi=None):
                     c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "kuponlar": []}
                     Wp, Tp = _W(pp, G_P)
                     for model, p in P.items():
-                        if model in ("Jason-S", "G1-S"):
-                            continue                  # Jason-S ve G1-S yalnız -G kuponlarla ölçülür
+                        if model in ("Jason-S", "G1-S", "Benter-K"):
+                            continue                  # Jason-S, G1-S ve Benter-K yalnız -G kuponlarla ölçülür
                         for B in BUTCELER:
                             kp = kupon(p, B)
                             if not kp:

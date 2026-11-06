@@ -64,7 +64,7 @@ def kontrol(obj=None, bugun=None):
         _ekle(L, "atyarisi arşivi (dün)", "uyari", repr(e)[:120])
     # 4) model eğitim tarihleri
     for ad, yol, anahtar, esik in (("Jason eğitimi", "model_aday.json", "egitim_son_tarih", 3), ("Benter eğitimi", "analiz/g1v3_katsayi.json", "egitim", 3),
-                                   ("piyasasız model eğitimi", "analiz/g1v3_nolp_katsayi.json", "egitim", 3)):
+                                   ("piyasasız model eğitimi", "analiz/g1v3_nolp_katsayi.json", "egitim", 3), ("Benter-K (gölge) eğitimi", "analiz/g1k_katsayi.json", "egitim", 3)):
         try:
             d = json.load(open(os.path.join(VERI, yol))); s = str(d.get(anahtar)); f = _gun_farki(s, bugun)
             _ekle(L, ad, "ok" if (f is not None and f <= esik) else "uyari", f"{s}" + (f" ({f} gün önce)" if f is not None else ""))
@@ -83,6 +83,8 @@ def kontrol(obj=None, bugun=None):
                 for key, ad in (("z2", "Jason puanı (z2)"), ("z6", "Benter puanı (z6)"), ("z7", "piyasasız puan (z7)")):
                     pc = 100.0 * sum(1 for a in A if a.get(key) is not None) / len(A)
                     _ekle(L, ad, "ok" if pc >= 95 else ("uyari" if pc >= 50 else "hata"), f"kapsam %{pc:.0f} (başlamamış koşulardaki atlar)")
+                pk = 100.0 * sum(1 for a in A if a.get("zk6") is not None) / len(A)          # gölge: en fazla uyarı
+                _ekle(L, "Benter-K gölge puanı (zk6)", "ok" if pk >= 95 else "uyari", f"kapsam %{pk:.0f} (başlamamış koşulardaki atlar)")
                 _ekle(L, "Benter sıra üstelleri (a_g1)", "ok" if obj.get("a_g1") else "hata", "var" if obj.get("a_g1") else "YOK — sitede sıralı bahisler çıkmaz")
             al = sum(1 for h in obj["hipodromlar"] if h.get("altili"))
             _ekle(L, "altılı yapısı", "ok" if al else "uyari", f"{al}/{len(obj['hipodromlar'])} hipodromda")

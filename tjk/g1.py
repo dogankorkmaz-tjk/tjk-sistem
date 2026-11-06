@@ -238,6 +238,10 @@ def z6_doldur(obj):
         from . import g1v3 as _V3N; _V3N.z7_doldur(obj)          # piyasasız puan (z7): AGF/canlı oran yokken yedek tahmin (T49)
     except Exception as e:
         print("z7 doldurma hatası:", repr(e))
+    try:
+        from . import g1k as _GKd; _GKd.doldur(obj)             # Benter-K gölge puanı (zk6), T155 — 6 Kasım 2026
+    except Exception as e:
+        print("Benter-K doldurma hatası:", repr(e))
 
 
 # ---- Galop (idman) özellikleri: G1-S'nin bir parçası (24 Ekim 2026, ön kayıtlı test: data/analiz/ozellik_galop.py) ----

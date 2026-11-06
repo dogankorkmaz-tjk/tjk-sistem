@@ -123,7 +123,7 @@ def sabah(t):
     except Exception as e:
         print("süpriz skor hatası:", repr(e))
     bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
-    A = GL.yukle(); bz2 = {}; bzj = {}; bze = {}; bzn = {}
+    A = GL.yukle(); bz2 = {}; bzj = {}; bze = {}; bzn = {}; bzk = {}; bzkd = {}
     if A:
         try:
             bugun_m = {(h, int(kn)): GL.MS.bilgiden(b_) for h in programlar for kn, b_ in programlar[h]["bilgi"].items() if GL.MS.bilgiden(b_)}
@@ -133,9 +133,16 @@ def sabah(t):
             try:
                 from . import g1v3 as _V3; G3 = _V3.yukle()
                 if G3:
-                    from . import elo as _EL; dj = _EL.ekle(d2); _SUP.ozellik_yaz(dj, tarih); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
+                    from . import elo as _EL; dj = _EL.ekle(d2); _DJT = dj; _SUP.ozellik_yaz(dj, tarih); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
             except Exception as e:
                 print("v3 zj hatası:", repr(e)); bzj = {}
+            try:                                       # Benter-K gölge (T155, 6 Kasım 2026): ek özellikler + sıraya özgü δ; ana Benter'e dokunmaz
+                from . import g1k as _GK; _CK = _GK.yukle()
+                if _CK and G3:
+                    _dk = _GK.ozellik_ekle(_DJT); _dk = _dk[_dk.yeni].copy(); _dk["_l"], _dk["_p"] = _GK.zk(_dk, _CK)
+                    bzk = _dk.set_index(["hipodrom", "kosu", "no"])._l.to_dict(); bzkd = _dk.set_index(["hipodrom", "kosu", "no"])._p.to_dict()
+            except Exception as e:
+                print("Benter-K özellik hatası:", repr(e)); bzk = {}; bzkd = {}
         except Exception as e:
             print("aday model hatası:", repr(e)); A = None
     AK = GL.yukle_k(); bz3 = {}
@@ -189,6 +196,7 @@ def sabah(t):
                       **({"zj": round(float(bzj[(h, kn, int(r.no))]), 4)} if (h, kn, int(r.no)) in bzj else {}),
                       **({"ze": round(float(bze[(h, kn, int(r.no))]), 4)} if (h, kn, int(r.no)) in bze else {}),
                       **({"zn": round(float(bzn[(h, kn, int(r.no))]), 4)} if (h, kn, int(r.no)) in bzn else {}),
+                      **({"zk": round(float(bzk[(h, kn, int(r.no))]), 4), "zkd": round(float(bzkd[(h, kn, int(r.no))]), 4)} if (h, kn, int(r.no)) in bzk else {}),
                       **({"z2": round(float(bz2.get((h, kn, int(r.no)), 0.0)), 4)} if A else {}),
                       **({"z3": round(float(bz3.get((h, kn, int(r.no)), 0.0)), 4)} if AK else {}),
                       **({"z4": round(float(bz4.get((h, kn, int(r.no)), 0.0)), 4)} if AS else {}),
@@ -379,16 +387,23 @@ def pist_uygula(obj):
         bz = d[d.yeni].set_index(["hipodrom", "kosu", "no"]).z.to_dict()
         bugun_m = {(h["id"], int(k["kosu"])): GL.MS.bilgiden(k.get("bilgi")) for h in obj["hipodromlar"] for k in h["kosular"] if GL.MS.bilgiden(k.get("bilgi"))}
         d2 = GL.MS.ekle(d, bugun_m) if A and "f_dp150_m" in A["feat"] else d
-        bz2 = bz3 = bz4 = bz5 = bzj = {}; bze = {}; bzn = {}
+        bz2 = bz3 = bz4 = bz5 = bzj = {}; bze = {}; bzn = {}; bzk = {}; bzkd = {}
         if A:
             dy = d2[d2.yeni].copy(); dy["z2"] = GL.z2(dy, A); bz2 = dy.set_index(["hipodrom", "kosu", "no"]).z2.to_dict()
             bzj = {}
             try:
                 from . import g1v3 as _V3; G3 = _V3.yukle()
                 if G3:
-                    from . import elo as _EL; dj = _EL.ekle(d2); _SUP.ozellik_yaz(dj, t.isoformat()); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
+                    from . import elo as _EL; dj = _EL.ekle(d2); _DJT = dj; _SUP.ozellik_yaz(dj, t.isoformat()); dj = dj[dj.yeni].copy(); dj["zj"] = _V3.zj(dj, G3); dj["ze"] = _V3.ze(dj, G3); bzj = dj.set_index(["hipodrom", "kosu", "no"]).zj.to_dict(); bze = dj.set_index(["hipodrom", "kosu", "no"]).ze.to_dict(); _GN = _V3.yukle_n(); bzn = (dj.assign(zn=_V3.zn(dj, _GN)).set_index(["hipodrom", "kosu", "no"]).zn.to_dict() if _GN else {})
             except Exception as e:
                 print("v3 zj hatası:", repr(e))
+            try:                                       # Benter-K gölge (T155, 6 Kasım 2026): ek özellikler + sıraya özgü δ; ana Benter'e dokunmaz
+                from . import g1k as _GK; _CK = _GK.yukle()
+                if _CK and G3:
+                    _dk = _GK.ozellik_ekle(_DJT); _dk = _dk[_dk.yeni].copy(); _dk["_l"], _dk["_p"] = _GK.zk(_dk, _CK)
+                    bzk = _dk.set_index(["hipodrom", "kosu", "no"])._l.to_dict(); bzkd = _dk.set_index(["hipodrom", "kosu", "no"])._p.to_dict()
+            except Exception as e:
+                print("Benter-K özellik hatası:", repr(e)); bzk = {}; bzkd = {}
             AK = GL.yukle_k()
             if AK:
                 dk = GL.kapi_ekle(d2); dk = dk[dk.yeni].copy(); dk["z3"] = GL.z2(dk, AK); bz3 = dk.set_index(["hipodrom", "kosu", "no"]).z3.to_dict()
@@ -409,6 +424,9 @@ def pist_uygula(obj):
                         if key in bzx and ad in a:
                             a[ad] = round(float(bzx[key]), 4)
                     a.pop("z6", None)                   # G1-S puanı (z6) yeni özelliklerle yeniden hesaplanır
+                    a.pop("zk6", None)                  # Benter-K gölge puanı da (doldur yeniden yazar)
+                    if key in bzk:
+                        a["zk"] = round(float(bzk[key]), 4); a["zkd"] = round(float(bzkd[key]), 4)
                 k.pop("yeniden_puan", None)
                 n += 1
         print("pist değişikliği işlendi: koşu", n, sorted(hedef))
@@ -1158,6 +1176,11 @@ def gece(bugun):
             _V3.egit(nolp=True)                    # piyasasız model (T49): günün ilk koşuları için yedek (~100 sn)
         except Exception as e:
             print("piyasasız eğitim hatası:", repr(e))
+        try:
+            from . import g1k as _GK               # Benter-K gölge (T155; ~3 dk): başarısız olursa önceki katsayılar kalır
+            _GK.egit()
+        except Exception as e:
+            print("Benter-K eğitim hatası:", repr(e))
     except Exception as e:
         print("g1 eğitim hatası:", repr(e))
     try:
