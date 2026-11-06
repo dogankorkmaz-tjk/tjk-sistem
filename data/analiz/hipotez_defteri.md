@@ -2112,3 +2112,4 @@ T142 (MJOV) ve T149 (MJT9) sahip/antrenör kullanmıyor (video ve olay verisi) �
 T134: B−A −0,00300 [−0,00528; −0,00068], 3/13 ay pozitif (eski −0,0033 [−0,0058; −0,0010], 4/13) → karar AYNI (etkileşimler Jason'u iyileştirmiyor).
 T147: piyasasız ZG−Z +0,00065 [−0,00034; +0,00159]; piyasalı JG−J −0,00019 [−0,00040; +0,00002] (eski GA 0'ı dışlıyordu, şimdi kesiyor); yalnız ıslak: ZG−Z +0,00266 [−0,00128; +0,00686], JG−J −0,00090 [−0,00186; +0,00008] → karar AYNI (ADAY DEĞİL).
 T132 ve T139 henüz yeniden koşulmadı (sırada).
+2026-11-06 13:50 — DENETİM RAPORU (1. madde): data/analiz/DENETIM_2026-11-06.md (sessiz hatalar 1–4, karar denetimi: T146 sızıntısı, galop/Elo/antrenör sızıntı kontrolleri, mesafe yeniden koşumları, çoklu karşılaştırma, kayıp önbellekler, açık işler).
