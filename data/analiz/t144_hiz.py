@@ -30,7 +30,7 @@ d["fg_en5"] = gg.transform(lambda s: s.shift(1).rolling(5, min_periods=1).max())
 d["fg_trend"] = d.fg_son - gg.transform(lambda s: s.shift(2).rolling(3, min_periods=1).mean())
 d["fg_var"] = gg.transform(lambda s: s.shift(1).rolling(5, min_periods=1).count()) / 5.0
 # hücre: aynı mesafe bandı (±1 kutu = ±200 m) içinde son 5'te en iyi; hesap atın kendi geçmişi üzerinde
-hc = np.full(len(d), np.nan); at = d.at.values; fg = d.fig.values; mb = d.mb.values
+hc = np.full(len(d), np.nan); at = d["at"].values; fg = d.fig.values; mb = d.mb.values
 i = 0
 while i < len(d):
     j = i
@@ -47,7 +47,7 @@ d = d.sort_values(["tarih", "hipodrom", "kosu", "no"]).reset_index(drop=True)
 H = []; key = [d.tarih, d.hipodrom, d.kosu]
 for c in ("fg_son", "fg_ort5", "fg_en5", "fg_trend", "fg_hucre", "fg_var"):
     d[c + "_yok"] = d[c].isna().astype(float); mu = d[c].mean(); x = d[c].fillna(mu) - mu
-    d["f_" + c] = x - x.groupby(key).transform("mean"); H += ["f_" + c, c + "_yok"]
+    d["f_" + c] = x - x.groupby(key).transform("mean"); H += ["f_" + c] + ([c + "_yok"] if d[c + "_yok"].std() > 0 else [])
 log("kapsam fg_son %.3f fg_hucre %.3f (2025-10+: %.3f)" % (d.fg_son.notna().mean(), d.fg_hucre.notna().mean(), d[d.tarih >= "2025-10-01"].fg_son.notna().mean()))
 base = M["feat"] + GL.EK
 def fit(tr, feat, sifir):
