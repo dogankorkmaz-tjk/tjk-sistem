@@ -209,6 +209,7 @@ details summary{cursor:pointer;font:600 14.5px var(--f-body);color:var(--fg);pad
 details summary::-webkit-details-marker{display:none}
 details summary::after{content:"";flex:0 0 auto;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin-top:-4px;transition:transform .2s}
 details[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+details.acik{margin:2px 0}details.acik>summary{padding:4px 0;font:600 12.5px var(--f-body);color:var(--muted);justify-content:flex-start}details.acik>summary::after{width:6px;height:6px}
 .cr{display:grid;grid-template-columns:minmax(0,1fr) 54px 54px 48px;gap:8px;padding:9px 16px;border-top:1px solid var(--line);align-items:center;font-size:13.5px}
 .cr.hd{font:600 12px var(--f-body);color:var(--muted);background:var(--raise)}
 .cr b{font:700 14.5px var(--f-body)} .cr small{color:var(--muted);font-size:12px;margin-left:6px}
@@ -346,7 +347,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
   <section id="sabit" class="sec" hidden>
     <div class="bolum">
       <h2>Sabit ihtimalli takip</h2>
-      <div class="bolum-not">Yarışa ~5 dk kala dondurulan seçimler: Jason olasılığı × sabit oran ≥ 1,2 (Kol A); Jason havuz payından da yüksekse Kol B. Kâğıt üstü 1 TL.</div>
+      <div class="bolum-not">Yarışa 7 dk kala dondurulan seçimler: Jason olasılığı × sabit oran ≥ 1,2 (Kol A); Jason havuz payından da yüksekse Kol B. Kâğıt üstü 1 TL.</div>
       <div id="otoSabit"><div class="card empty">Yükleniyor…</div></div>
     </div>
   </section>
@@ -638,8 +639,8 @@ function hesapla(h,k,kaynakZorla,yedek){
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
-    let gj=pj?pj[j]:null; if(pj&&pp.grp[j]!==-1){ gj=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gj+=pj[l]; }); }
-    out.map[i]={i2b:hb?hb[j][0]:null,i3b:hb?hb[j][1]:null,ejg:(gj!=null&&!isNaN(g[j]))?gj*g[j]:null,pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
+    let gj=pj?pj[j]:null; if(pj){ const e=atlar[i].ek; if(e>0){ gj=0; idx.forEach((ii,l)=>{ if(atlar[ii].ek===e) gj+=pj[l]; }); } else if(pp.grp[j]!==-1){ gj=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gj+=pj[l]; }); } }   // ekür: ganyan ekürilerden biri kazanırsa öder (6 Kasım 2026)
+    out.map[i]={pjg:gj,i2b:hb?hb[j][0]:null,i3b:hb?hb[j][1]:null,ejg:(gj!=null&&!isNaN(g[j]))?gj*g[j]:null,pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
   });
   try{ const gr={}; idx.forEach((i,j)=>{ const e=atlar[i].ek>0?'e'+atlar[i].ek:(pp.grp[j]!==-1?'g'+pp.grp[j]:null); if(e){ (gr[e]=gr[e]||[]).push(j); } });
     Object.values(gr).forEach(m=>{ if(m.length!==2) return; const q=m.map(j=>ps?ps[j]:pm[j]), P=q[0]+q[1]; if(!(P>0)) return;
@@ -715,7 +716,7 @@ function hesapGoster(){
       const f3=x.i3b!=null?x.i3b/x.i3p:1;   // sıralı/ilk-N bilgisi Benter'den (ana model; ganyan Jason) — 6 Kasım 2026 Doğan
       t+=`<span>piyasa ${pct(x.pp)}%</span>${x.i2b!=null?`<span>ilk2 ${pct(x.i2b)}% · ilk3 ${pct(x.i3b)}% (Benter)</span>`:''}`;
       if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
-      if(x.ekuri&&jA) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre (ekürilerin Jason olasılığı toplanır)</span>';
+      if(jA&&x.pjg!=null&&x.pjg>x.pj+1e-9) t+=`<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre (ekürilerle Jason %${pct(x.pjg)})</span>`;
       if(x.ekb!=null) t+=`<span class="tag" style="color:var(--muted)">ekür çift içi (gölge, kupona girmiyor): ${a.no} %${pct(x.ekb)} · ${k.atlar[x.ekes].no} %${pct(1-x.ekb)}</span>`;
       if(evA!=null&&evA>=1) t+='<span class="tag ev">EV 1 üstü</span>';
       if(f3>=1.15) t+=`<span class="tag sur">ilk3 sürpriz +%${Math.round((f3-1)*100)}</span>`;
@@ -1599,7 +1600,7 @@ otoPlaseYukle();
 async function otoSabitYukle(){
   const el=$('otoSabit'); if(!el) return;
   try{ const d=await getJSON('data/sabit_golge.json?'+Date.now()); const t=d.toplam||{}; const fx=x=>x==null?'—':String(x).replace('.',',');
-    const TAD={G:'Ganyan',GE:'Ganyan · erken sabit (tüyo anı)',FH:'Favori Hariç',P2:'İlk 2',P3:'İlk 3',P4:'İlk 4',FHS:'Favori Hariç (ana model)',P2S:'İlk 2 (ana model)',P3S:'İlk 3 (ana model)',P4S:'İlk 4 (ana model)',SI:'Sıralı ikili',SIS:'Sıralı ikili (ana model)',IK:'İkili',IKS:'İkili (ana model)',KG:'Kim Geçer',KGS:'Kim Geçer (ana model)'}, tt=d.toplam_tur||{}, tk=d.toplam_kombine||{};
+    const TAD={G:'Ganyan',GE:'Ganyan · erken sabit (tüyo anı)',FH:'Favori Hariç (Jason)',P2:'İlk 2 (Jason)',P3:'İlk 3 (Jason)',P4:'İlk 4 (Jason)',FHS:'Favori Hariç (Benter · ana)',P2S:'İlk 2 (Benter · ana)',P3S:'İlk 3 (Benter · ana)',P4S:'İlk 4 (Benter · ana)',SI:'Sıralı ikili (Jason)',SIS:'Sıralı ikili (Benter · ana)',IK:'İkili (Jason)',IKS:'İkili (Benter · ana)',KG:'Kim Geçer (Jason)',KGS:'Kim Geçer (Benter · ana)'}, tt=d.toplam_tur||{}, tk=d.toplam_kombine||{};
     const satir=(ad,v)=>{ v=v||{bahis:0}; return `<div class="sub"><b>${ad}</b>: ${v.bahis} bahis, <b>${v.kazanan||0}</b> kazandı, geri dönüş <b>${fx(v.geri_donus)}</b></div>`; };
     let h='<div class="card"><b>Şimdiye kadar</b> <span class="sub">(geri dönüş 1,00 üstü = kazandırdı)</span>';
     ['A','B'].forEach(k=>{ h+=satir('Ganyan · Kol '+k,t[k]); });
@@ -1617,7 +1618,7 @@ otoSabitYukle(); setInterval(()=>{ if(!document.hidden) otoSabitYukle(); },12000
 otoTuyoYukle();
 besliYukle();
 
-let UC3=null, EGZ=null, KANIT=null, S3=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm3_egm','G1-S');
+let UC3=null, EGZ=null, KANIT=null, S3=null, EGT=ld('gm2_egt','SIRALI İKİLİ'), EGM=ld('gm3_egm','G1-S'); if(EGM==='Bolton') EGM='G1-S';   // Bolton seçimi kaldırıldı (6 Kasım 2026)
 const EGT_AD={'SIRALI İKİLİ':'Sıralı ikili','İKİLİ':'İkili','ÜÇLÜ BAHİS':'Üçlü','TABELA':'Tabela'}, EGT_B={'SIRALI İKİLİ':1,'İKİLİ':1,'ÜÇLÜ BAHİS':2,'TABELA':1};
 function kanitHtml(){
   if(!KANIT||!KANIT.satirlar) return '';
@@ -1781,7 +1782,7 @@ function kombEgz(m,L){
     if(!sat.length) return;
     R.push({t:(k.saat||'')+h.id,h:`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(h.ad)} ${k.kosu}. koşu <span style="font-weight:500;color:var(--muted)">${esc(k.saat||'')}</span></b>${sat.some(x=>x.oran>=1.15)?'<span class="pill on">★ öneri</span>':'<span class="pill">Ölçüm</span>'}</div>${(L===3&&k.uclu!==true)?'<div class="sub" style="color:#e0b050">Program dosyası yok: bu koşuda üçlü bahis var mı, makinede kontrol et.</div>':''}${sat.map(x=>x.h).join('')}${L===3?permHtml(k,idx,P,pp,GMm,BIRIM,sat[sat.length-1].sets):''}${L===2?perm2Html(k,idx,P,pp,GMm,BIRIM):''}</div>`});
   }));
-  return `<h2 style="margin-top:14px">${ad} (kombine, ${m})</h2><div class="sub">Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır. Birim ${BIRIM} TL, en az 20 TL'lik bilet. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü, geçmiş ölçümü yok, kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
+  return `<h2 style="margin-top:14px">${ad} (kombine, ${adG(m)}${m==='G1-S'?' · ana model':''})</h2><div class="sub">Her sıraya birden fazla at; tüm kombinasyonlar birlikte oynanır. Birim ${BIRIM} TL, en az 20 TL'lik bilet. ★ = modelin tutma ihtimali piyasanınkinin ≥1,15 katı. Kâğıt üstü, geçmiş ölçümü yok, kâr kanıtı yok.</div>`+(R.length?R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h).join(''):'<div class="card empty">Bekleyen koşu yok.</div>');
 }
 function tahOd(nv,prP,bedel){
   // Tahmini ödeme (kazanırsa): 0,875 × geçerli komb. / piyasa tutma olasılığı. 169 geçmiş ödemeyle sınandı: gerçek/tahmin medyan 0,91, %10–%90 aralığı 0,32–2,39. Devir/havuz büyüklüğü hesaba katılmaz.
@@ -1883,7 +1884,7 @@ function esnekHtml(){
 function tabelaEgz(){
   // Tabela bahsi (21 Ekim 2026): ilk 4 at; her model için sıralı kombine (sıra başına çok at) ve sırasız kombine (5 at, 120 kombinasyon). Kâğıt üstü, ölçüm/takip yok.
   if(!VERI||GUN!==trBugun()) return '<div class="card empty">Tabela yalnız bugün için gösterilir.</div>';
-  const BIRIM=1.5, MODELLER=['G1-S','Bolton','Jason'], R=[];
+  const BIRIM=1.5, MODELLER=['G1-S','Jason'], R=[];   // Bolton kaldırıldı (6 Kasım 2026)
   (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
     if(k.sonuc) return; const out=hesapla(h,k); if(!out) return;
     const idx=Object.keys(out.map).map(Number); if(idx.length<6) return;
@@ -1915,13 +1916,13 @@ function egzCiz(){
     try{ h5+=s5Html(); }catch(e){ console.error(e); }
     el.innerHTML=h5; el.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();}); return; }
   const d=EGZ, ilk=egzIlkAyak(); const eski=d.tarih!==GUN;
-  let s=EGT==='TABELA'?'':`<div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><b>Nasıl okunur</b>
+  let s=EGT==='TABELA'?'':`<details class="kb"><summary>Nasıl okunur</summary><div style="padding:0 16px 14px;display:flex;flex-direction:column;gap:6px">
     <div class="sub">1) Model, piyasanın düşük fiyatladığını düşündüğü kombinasyonları seçer. Hepsini birlikte almak gerekir.</div>
     <div class="sub">2) Geçmişte bu seçim yatırılan paranın yaklaşık %90–110'unu geri verdi. Rastgele alım %75 verir. Kâr kanıtı yok.</div>
     <div class="sub">Kombinasyon altındaki ×1,32 = modelin ona piyasadan %32 fazla şans verdiği, %4,1 = modelin tutma olasılığı. Büyük oran daha güvenli demek değildir: geçmiş veride oran yükseldikçe getiri arttı gibi görünüyor (×1,25 ve ×1,50 daha iyi), ama bahis sayısı azaldığı için bu henüz kanıt sayılmaz. Jason-1.25 ve Jason-1.50 düğmeleri bunu ileriye dönük ölçüyor.</div>
-    <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div>`;
+    <div class="sub">3) Oynamadan önce makinede o bahsin açık olduğuna bak. Altılı 1. ayakta üçlü hiç açılmaz.</div></div></details>`;
   try{ if(EGT!=='TABELA') s+=uc3Html(); }catch(e){ console.error(e); }
-  if(EGT!=='TABELA') s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Bolton','Jason'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(d.toplam_g1s_gec?['G1-S (geç)']:[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'Benter v3 (ana)':m==='Jason'?'Jason (sürpriz avı)':adG(m)}</button>`).join('')}</div>`;
+  if(EGT!=='TABELA') s+=`<div class="chips mchips" style="margin-top:2px">${['G1-S','Jason'].concat(d.toplam_varyant?Object.keys(d.toplam_varyant):[]).concat(d.toplam_g1s_gec?['G1-S (geç)']:[]).concat(['Esnek']).map(m=>`<button class="chip" style="font-size:15px" aria-pressed="${m===EGM}" data-m="${m}">${m==='G1-S'?'Benter v3 (ana)':m==='Jason'?'Jason (sürpriz avı)':adG(m)}</button>`).join('')}</div>`;
   if(EGM==='Esnek'){ try{ s+=esnekHtml(); }catch(e){ console.error(e); }
     el.innerHTML=s; el.querySelectorAll('.mchips button').forEach(b=>b.onclick=()=>{EGM=b.dataset.m;sv('gm3_egm',EGM);egzCiz();}); return; }
   s+=`<div class="chips" style="margin-top:2px">${Object.keys(EGT_AD).concat(['S5']).map(t=>`<button class="chip" style="font-size:15px" aria-pressed="${t===EGT}" data-t="${esc(t)}">${t==='S5'?'Sıralı 5\'li':EGT_AD[t]}</button>`).join('')}</div>`;
@@ -1943,7 +1944,7 @@ function egzCiz(){
   const tab=(ad,tp)=>!tp?'':`<div style="margin-top:10px"><b>${ad}</b><table class="t" style="margin-top:4px"><tr><th>Bahis</th><th class="n">Koşu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>`+tp.map(t=>`<tr><td>${EGT_AD[t.tur]}</td><td class="n">${t['koşu']}</td><td class="n">${t.harcama}</td><td class="n">${t.kazanc}</td><td class="n">${t.geri_donus==null?'–':t.geri_donus}</td></tr>`).join('')+'</table></div>';
   try{ s+=sirali3Html(); }catch(e){ console.error(e); }
   try{ s+=kanitHtml(); }catch(e){ console.error(e); }
-  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
+  s+=`<details class="kb"><summary>Kağıt üstü takip (şimdiye kadar)</summary><div style="padding:0 16px 14px">${tab('Bolton (arşiv · piyasa kontrolü)',d.toplam)}${tab('Jason (yalnızca karşılaştırma)',d.toplam_jason)}${d.toplam_varyant?Object.keys(d.toplam_varyant).map(k=>tab(k+' (ön-kayıtlı varyant, 12 Ekim 2026)',d.toplam_varyant[k])).join(''):''}${d.toplam_ikramiye?['düşük','orta','yüksek'].map(k=>tab('Bolton · '+k+' ikramiyeli koşular'+(d.ikramiye_kesim?(k==='düşük'?` (<${Math.round(d.ikramiye_kesim[0]/1000)} bin TL)`:k==='orta'?` (${Math.round(d.ikramiye_kesim[0]/1000)}–${Math.round(d.ikramiye_kesim[1]/1000)} bin)`:` (>${Math.round(d.ikramiye_kesim[1]/1000)} bin)`):''),d.toplam_ikramiye[k])).join(''):''}<div class="sub" style="margin-top:8px">1,00 üstü = para kazandırdı. Kural 10 Ekim 2026'da donduruldu: model / AGF olasılığı ≥ ${d.kural?d.kural.oran:1.15}. Karar için kaç koşu gerektiği Kanıt sayacında yazıyor.</div></div></details>`;
   try{ s+=besliEgz(MM(EGM)); }catch(e){ console.error(e); }
   el.innerHTML=s;
   el.querySelectorAll('.chips:not(.mchips) button').forEach(b=>b.onclick=()=>{EGT=b.dataset.t;sv('gm2_egt',EGT);egzCiz();tumModel();});
@@ -1966,14 +1967,14 @@ function modelCiz(m){
       const out=hesapla(h,k);
       let c=`<div class="card" style="padding:12px 14px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${k.kosu}. koşu</b><span class="sub">${esc(k.saat||'')}${k.sonuc?' · bitti':''}</span></div>`;
       if(!out){ (k.sonuc?bit:ac).push(c+'<div class="sub">Piyasa verisi yok.</div></div>'); return; }
-      const P=x=>m==='Bolton'?x.pm:x.pj, E=x=>m==='Bolton'?x.ev:x.ejv;
+      const P=x=>m==='Bolton'?x.pm:x.pj, E=x=>m==='Bolton'?x.ev:x.ejg, PG=x=>m==='Bolton'?x.pm:(x.pjg!=null?x.pjg:x.pj);   // Jason EV/min ganyan ekür grubuna göre (6 Kasım 2026)
       const idx=Object.keys(out.map).map(Number).filter(i=>P(out.map[i])!=null).sort((a,b)=>P(out.map[b])-P(out.map[a]));
       if(!idx.length){ (k.sonuc?bit:ac).push(c+'<div class="sub">Bu koşuda model verisi yok.</div></div>'); return; }
       const kaz=k.sonuc&&Object.entries(k.sonuc).find(([n,v])=>v.sira===1);
       c+='<div style="display:flex;flex-direction:column;gap:5px">';
       idx.slice(0,5).forEach((i,r)=>{
         const a=k.atlar[i], x=out.map[i], p=P(x), ev=E(x), oy=ev!=null&&ev>=1.10&&out.kaynak!=='agf'&&!k.sonuc; if(oy) yildiz++;
-        c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':''}${!k.sonuc&&p>0?`<small class="sub" style="display:block">min ganyan <b>${f2(1.10/p)}</b></small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
+        c+=`<div style="display:flex;align-items:center;gap:8px;${r>=3?'opacity:.75;':''}"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b>${esc(a.at)}</b>${kaz&&String(a.no)===kaz[0]?' <span class="tag ev">kazandı</span>':''}${oy?' <span class="tag ev">★ EV '+f2(ev)+'</span>':''}${!k.sonuc&&p>0?`<small class="sub" style="display:block">min ganyan <b>${f2(1.10/PG(x))}</b>${PG(x)>p+1e-9?' (ekürle)':''}</small>`:''}</span><span class="num" style="min-width:92px;text-align:right">${pct(p)}% <small class="sub">(piyasa ${pct(x.pp)}%)</small></span></div>`;
       });
       c+='</div>';
       try{ c+=sirasizHtml(h,k,m); }catch(e2){ console.error(e2); }
@@ -2006,7 +2007,9 @@ let OY={tarih:null,liste:[]};
 const OYT=['Ganyan','Plase','Sıralı ikili','İkili','Üçlü','Tabela','Sıralı beşli',"3'lü ganyan","4'lü ganyan","5'li ganyan","6'lı ganyan (altılı)","7'li ganyan",'Diğer'];
 const ghTok=()=>($('ghTok').value||'').trim()||(()=>{try{return localStorage.getItem('gm2_gh')||''}catch(e){return ''}})();
 async function oyYukle(){
-  try{ const d=await getJSON('data/oynadim/'+GUN+'.json'); OY={tarih:GUN,liste:d.liste||[]}; }catch(e){ OY={tarih:GUN,liste:[]}; }
+  // 6 Kasım 2026: geçmiş günlerde dosya yalnız özet o günü içeriyorsa istenir (gereksiz 404 olmasın); bugün her zaman istenir (gün içinde kaydedilmiş olabilir)
+  let ist=GUN===trBugun(); if(!ist){ try{ const oz=OZ||await getJSON('data/oynadim_ozet.json?'+Date.now()); ist=!!(oz&&oz.gun&&oz.gun[GUN]); }catch(e){ ist=true; } }
+  if(ist){ try{ const d=await getJSON('data/oynadim/'+GUN+'.json'); OY={tarih:GUN,liste:d.liste||[]}; }catch(e){ OY={tarih:GUN,liste:[]}; } } else OY={tarih:GUN,liste:[]};
   oyCiz(); ozYukle();
 }
 async function oyYaz(mut){
@@ -2151,7 +2154,7 @@ function ganyanOneri(){
         R.push(`<div><b>Aday: ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> · ekranda ganyan <b>≥ ${f2(1.10/pmin)}</b> ise oyna, altındaysa geç · <span class="sub">tutar önerisi kapalı: avantaj kanıtlanmadı, küçük ve sabit bir tutar kullan</span> <span class="sub">(Bolton %${pct(x.pm)} · ${x.pj!=null?'Jason %'+pct(x.pj):'Jason yok'} · piyasa %${pct(x.pp)})</span></div>`); });
       return; }
     k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x||x.ev==null||x.ev<1.10) return;
-      const j=x.ejv; if(j!=null&&j<1.10) return;
+      const j=x.ejg; if(j!=null&&j<1.10) return;   // Jason EV ekür grubuna göre (6 Kasım 2026)
       R.push(`<div><b>★ ${esc(h.ad)} ${k.kosu}. koşu</b> (${esc(k.saat||'')}) · ganyan: <b>${a.no} ${esc(a.at)}</b> @${esc(String(((ODDS[okey(h.id,k.kosu)]||{})[a.no])||'').replace('.',','))} · Bolton EV ${f2(x.ev)}${j!=null?' · Jason EV '+f2(j):' · <span class="sub">Jason verisi yok</span>'}</div>`); });
   }));
   return R;
@@ -2260,26 +2263,25 @@ function guvenCiz(){
     const out=hesapla(h,k); if(!out) return;
     const bitti=!!k.sonuc, S=[];
     k.atlar.forEach((a,i)=>{ const x=out.map[i]; if(!x) return;
-      const pa=x.pg!=null?x.pg:x.pm, pj=x.pj; if(pa==null) return;
+      const pa=x.pg, pj=x.pj; if(pj==null) return;   // kazanma güveni Jason (ganyan), sırasız ilk 5 Benter (6 Kasım 2026 Doğan)
       S.push({a,x,pa,pj});
     });
     if(!S.length) return;
-    const ana=S.some(s=>s.x.pg!=null)?'Ana model':'Bolton';
-    const sec=S.filter(s=>s.pa>=GUVEN_ESIK||(s.pj!=null&&s.pj>=GUVEN_ESIK));
+    const bOk=S.every(s=>s.pa!=null);
+    const sec=S.filter(s=>s.pj>=GUVEN_ESIK);
     if(!sec.length) return;
-    const top=S.slice().sort((p,q)=>q.pa-p.pa).slice(0,5).sort((p,q)=>p.a.no-q.a.no);
-    const sat=sec.sort((p,q)=>q.pa-p.pa).map(({a,x,pa,pj})=>{
+    const top=bOk?S.slice().sort((p,q)=>q.pa-p.pa).slice(0,5).sort((p,q)=>p.a.no-q.a.no):[];
+    const sat=sec.sort((p,q)=>q.pj-p.pj).map(({a,x,pa,pj})=>{
       const r=k.sonuc&&k.sonuc[String(a.no)];
-      if(bitti){ n++; bek+=(pj!=null)?(pa+pj)/2:pa; if(r&&r.sira===1) kz++; }
-      const aH=pa>=GUVEN_ESIK, jH=pj!=null&&pj>=GUVEN_ESIK;
-      return `<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-top:1px solid var(--line)"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:120px"><b>${esc(a.at)}</b>${x.pp>0?'<small class="sub" style="display:block">piyasa %'+pct(x.pp)+'</small>':''}</span><span class="num">${aH?'<b>':'<small class="sub">'}${ana} %${pct(pa)}${aH?'</b>':'</small>'}${pj!=null?(' · '+(jH?'':'<small class="sub">')+'Jason %'+pct(pj)+(jH?'':'</small>')):''}</span>${bitti?(r&&r.sira===1?' <span class="tag ev">kazandı</span>':` <span class="sub">${r&&r.sira?r.sira+'. oldu':'–'}</span>`):''}</div>`; }).join('');
+      if(bitti){ n++; bek+=pj; if(r&&r.sira===1) kz++; }
+      return `<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-top:1px solid var(--line)"><span class="no c${(a.no-1)%16+1}" style="flex:0 0 auto">${a.no}</span><span style="flex:1;min-width:120px"><b>${esc(a.at)}</b>${x.pp>0?'<small class="sub" style="display:block">piyasa %'+pct(x.pp)+'</small>':''}</span><span class="num"><b>Jason %${pct(pj)}</b></span>${bitti?(r&&r.sira===1?' <span class="tag ev">kazandı</span>':` <span class="sub">${r&&r.sira?r.sira+'. oldu':'–'}</span>`):''}</div>`; }).join('');
     const kom=top.map(s=>s.a.no).join('-'), kp=top.reduce((t,s)=>t+s.pa,0);
     let ok='';
     if(bitti){ const w=top.filter(s=>{const r=k.sonuc[String(s.a.no)];return r&&r.sira&&r.sira<=3;}).length; ok=` · ilk 3'te ${w} at`; }
-    L.push({bitti,t:(k.saat||''),h:`<div style="padding:8px 0;border-top:2px solid var(--line)"><b>${esc(h.ad)} ${k.kosu}. koşu</b> <span class="sub">${esc(k.saat&&k.saat!=='99:99'?k.saat:'')}</span>${sat}<div class="sub" style="margin-top:4px">Sırasız kombine (${ana} ilk 5): <b>${kom}</b> · toplam kazanma ihtimali %${pct(kp)}${ok}</div></div>`});
+    L.push({bitti,t:(k.saat||''),h:`<div style="padding:8px 0;border-top:2px solid var(--line)"><b>${esc(h.ad)} ${k.kosu}. koşu</b> <span class="sub">${esc(k.saat&&k.saat!=='99:99'?k.saat:'')}</span>${sat}${top.length?`<div class="sub" style="margin-top:4px">Sırasız kombine (Benter ilk 5): <b>${kom}</b> · toplam kazanma ihtimali %${pct(kp)}${ok}</div>`:''}</div>`});
   }));
   L.sort((p,q)=>(p.bitti-q.bitti)||(p.t<q.t?-1:1));
-  el.innerHTML='<h2>Modellerin en çok güvendiği atlar</h2><div class="card">'+(L.length?L.map(x=>x.h).join(''):'<div class="sub">Bugün iki modelin de %'+Math.round(GUVEN_ESIK*100)+' üstü güvendiği at yok.</div>')+`<div class="sub" style="margin-top:8px">Ana model ya da Jason'un kazanma ihtimali %${Math.round(GUVEN_ESIK*100)} ve üstü verdiği atlar. Altta her koşunun ana modele göre en güvenilen 5 atı sırasız kombine olarak. Bugün biten: ${n} işaretli at, ${kz} kazandı${n?` (modellerin beklediği ≈ ${bek.toFixed(1).replace('.',',')})`:''}. Yüksek güven kazanacağı garanti etmez.</div></div>`;
+  el.innerHTML='<h2>Jason\'ın en çok güvendiği atlar</h2><div class="card">'+(L.length?L.map(x=>x.h).join(''):'<div class="sub">Bugün Jason\'ın %'+Math.round(GUVEN_ESIK*100)+' üstü güvendiği at yok.</div>')+`<div class="sub" style="margin-top:8px">Jason'ın kazanma ihtimali %${Math.round(GUVEN_ESIK*100)} ve üstü verdiği atlar (ganyan: Jason). Altta her koşunun Benter'e (ana model) göre en güvenilen 5 atı sırasız kombine olarak. Bugün biten: ${n} işaretli at, ${kz} kazandı${n?` (Jason'ın beklediği ≈ ${bek.toFixed(1).replace('.',',')})`:''}. Yüksek güven kazanacağı garanti etmez.</div></div>`;
 }
 let BS=null;
 async function besliYukle(){ try{ BS=await getJSON('data/besli.json?'+Date.now()); }catch(e){ BS=null; } try{ oynaCiz(); }catch(e){} try{ besliTest(); }catch(e){} }
@@ -2338,6 +2340,18 @@ function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
   el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Bunlar kağıt üstü deney önerileridir, kâr garantisi yoktur. Kaybetmeyi göze alabileceğin tutarla oyna.</div></div>':'<div class="card empty">Şu an sistemin önerdiği bahis yok. Bu normal; çoğu gün öneri çıkmaz.</div>')+(()=>{const T=tuyolar(); return '<h2>Jason\'ın tüyoları: bunlara dikkat</h2>'+(T.length?'<div class="card">'+T.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Jason\'ın piyasadan belirgin yüksek gördüğü atlar. Yorumlar otomatik, sayılardan çıkar. Tüyo bahis önerisi değil, bakılacak at demek; oynamadan önce Bolton/Jason sekmesindeki min ganyana bak.</div></div>':'<div class="card empty">Jason şu an piyasanın gözden kaçırdığı belirgin bir at görmüyor.</div>');})();
 }
 oynaOzet();
+// Açıklama metinleri katlı (6 Kasım 2026, Doğan): 140+ karakterlik açıklama blokları (.bolum-not/.note/.sub) "Açıklama" altında kapalı başlar.
+// Veri satırları (id'li, girişli, at numaralı) dokunulmaz; kullanıcının açtığı açıklama yeniden çizimde açık kalır.
+const KT_ACIK=new Set();
+function katla(kok){ (kok||document).querySelectorAll('.bolum-not,.note,.sub').forEach(el=>{
+  if(el.dataset.kt||el.id||el.closest('details.acik')||el.closest('.row')||el.closest('button')||el.closest('summary')||el.closest('.cr')) return;
+  if(el.querySelector('[id],input,button,select,textarea,.no,table,.cr')) return;
+  const t=(el.textContent||'').trim(); if(t.length<140) return;
+  el.dataset.kt='1'; const d=document.createElement('details'); d.className='acik'; d.innerHTML='<summary>Açıklama</summary>';
+  const ak=t.slice(0,60); if(KT_ACIK.has(ak)) d.open=true; d.addEventListener('toggle',()=>{ d.open?KT_ACIK.add(ak):KT_ACIK.delete(ak); });
+  el.parentNode.insertBefore(d,el); d.appendChild(el); }); }
+new MutationObserver(()=>{ clearTimeout(window._ktT); window._ktT=setTimeout(()=>{ try{ katla(); }catch(e){ console.error(e); } },60); }).observe(document.body,{childList:true,subtree:true});
+try{ katla(); }catch(e){}
 </script>
 <script>
 const BUILD='1793924725';   // commit öncesi otomatik güncellenir

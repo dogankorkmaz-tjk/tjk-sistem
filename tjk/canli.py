@@ -1,6 +1,8 @@
 """Son dakika oran kaydı: sitede 'Kaydet' ile data/canli_oran/<tarih>_<hipodrom>_<kosu>_<SSDD>.json olarak yazılan, makinede görülen
 ganyan oranlarını sonuçla karşılaştırır -> docs/data/canli.json.
-Her koşu için son kayıt alınır. Model olasılığı: softmax(w0*log(piyasa) + z), piyasa = 1/oran normalize (ekür düzeltmesi yok).
+Her koşu için son kayıt alınır. Model olasılığı: softmax(w0*log(piyasa) + z), piyasa = 1/oran normalize.
+Ekür (6 Kasım 2026): aynı ekür grubundaki (gün JSON'u 'ek' alanı = TJK resmî stablemate) atlar tek ganyanı paylaşır: piyasa payı grup içinde eşit bölünür,
+EV = grubun model olasılığı toplamı × oran, kazandı = gruptan biri 1. oldu; grup TEK bahis satırı olarak sayılır (önceden her at ayrı ve tek at olasılığıyla sayılıyordu).
 Getiri iki türlü: girilen oranla (makinede gördüğün) ve kapanış ganyanıyla (resmî ödeme)."""
 import os, glob, json
 import numpy as np
@@ -49,19 +51,31 @@ def ozet():
         atlar = [a for a in k["atlar"] if str(a["no"]) in oran]
         if len(atlar) < 2:
             continue
-        ham = np.array([1.0 / oran[str(a["no"])] for a in atlar]); pp = ham / ham.sum()
+        ekg = [int(a.get("ek") or 0) for a in atlar]
+        boy = {e: ekg.count(e) for e in set(ekg) if e > 0}
+        ham = np.array([1.0 / oran[str(a["no"])] / (boy[e] if e > 0 else 1) for a, e in zip(atlar, ekg)]); pp = ham / ham.sum()
         s = g.get("w0", 1.0) * np.log(np.maximum(pp, 1e-6)) + np.array([a.get("z", 0.0) or 0.0 for a in atlar])
         e = np.exp(s - s.max()); pm = e / e.sum()
         pj = None
         if g.get("w0_aday") is not None and all(a.get("z2") is not None for a in atlar):
             sj = g["w0_aday"] * np.log(np.maximum(pp, 1e-6)) + g.get("lp2_aday", 0.0) * np.log(np.maximum(pp, 1e-6)) ** 2 + np.array([a["z2"] for a in atlar])
             ej = np.exp(sj - sj.max()); pj = ej / ej.sum()
-        sn = k.get("sonuc")
+        sn = k.get("sonuc"); gorulen = set()
         for ix, (a, p1, p2) in enumerate(zip(atlar, pp, pm)):
-            o = oran[str(a["no"])]; x = (sn or {}).get(str(a["no"]))
-            satirlar.append({"tarih": t, "hipodrom": hip, "kosu": kosu, "no": a["no"], "at": a["at"], "saat": r.get("saat"), "oran": o,
-                             "pp": float(p1), "pm": float(p2), "ev": float(p2 * o), "evj": float(pj[ix] * o) if pj is not None else None, "bitti": bool(sn),
-                             "kazandi": (x or {}).get("sira") == 1 if sn else None, "kapanis": (x or {}).get("g") if sn else None})
+            e = ekg[ix]
+            if e > 0 and e in gorulen:
+                continue                                   # ekür grubu tek bahis
+            uye = [j for j in range(len(atlar)) if e > 0 and ekg[j] == e] or [ix]
+            if e > 0: gorulen.add(e)
+            o = oran[str(a["no"])]
+            xs = [(sn or {}).get(str(atlar[j]["no"])) or {} for j in uye]
+            kaz = any(x.get("sira") == 1 for x in xs) if sn else None
+            kap = next((x.get("g") for x in xs if x.get("sira") == 1), None) if sn else None
+            if sn and kap is None: kap = (xs[0].get("g") if xs else None)
+            satirlar.append({"tarih": t, "hipodrom": hip, "kosu": kosu, "no": "-".join(str(atlar[j]["no"]) for j in uye), "at": " + ".join(atlar[j]["at"] for j in uye),
+                             "saat": r.get("saat"), "oran": o, "pp": float(sum(pp[j] for j in uye)), "pm": float(sum(pm[j] for j in uye)),
+                             "ev": float(sum(pm[j] for j in uye) * o), "evj": float(sum(pj[j] for j in uye) * o) if pj is not None else None, "bitti": bool(sn),
+                             "kazandi": kaz, "kapanis": kap})
     bitmis = [x for x in satirlar if x["bitti"] and x["kapanis"]]
     tablo = []; tablo_j = []
     for anahtar, hedef in (("ev", tablo), ("evj", tablo_j)):
