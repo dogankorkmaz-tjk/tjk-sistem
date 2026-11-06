@@ -2084,3 +2084,7 @@ BİRİNCİL (6 karşılaştırma; Bonferroni → her biri %99,17 GA; gün-küme 
  piyasalı:  aynıları NOLP=0 → GA üst <0: "ana model ADAYI" (üretim ancak 2026-11→2027-01 ileri pencere doğrulamasıyla); aksi: eklenmez.
 Önceki (Jason tabanı) sonuçlar karşılaştırma için: T142 ≈+0,001 nat; T146 piyasasız ADAY (+0,0021), piyasalı yok; T149 piyasasız +0,0044, piyasalı +0,0019 (hatalı kodlamayla). Beklenti yazılmaz; karar yalnız yukarıdaki kuralla.
 Betimsel: ikili..ilk5, aylara göre işaret; birden çok grup aday çıkarsa birleşik model AYRI ön kayıtla (T153) denenir.
+
+## 2026-11-06 12:00 — ÖN KAYIT T153 galop piyasasız modelde (kullanıcı: "galoplu bu kadar olumluysa neden birleştirmiyoruz")
+Veri: T151'in MJ NOLP=1 çalışması (aynı harness çıktısında v3_galopsuz ve v3 galoplu skorlar; /tmp/claude-0/v3_elo2MJN[_g]_2025-10.pkl). Aylar 2026-03..2026-10 (galop eğitim verisi olan aylar). Ölçü: eşleşik kazanan kaybı farkı PM0g − PM0, gün-küme bootstrap %95 GA (1000). Karar: GA üst <0 → galop piyasasız modele EKLENİR (aşama-1 resmi ölçüsü bundan sonra PM0g, ≥2026-03; üretim z7'ye galop eklenmesi ayrı iş); aksi → eklenmez. Ek betimsel: ikili..ilk5, aylara göre işaret.
+SONUÇ T153 (12:05): 4.016 koşu, 245 gün (2026-03..10). PM0g − PM0 kazanan −0,01008 [−0,01348; −0,00644], 8/8 ay −; ikili −0,0171, üçlü −0,0187, ilk4 −0,0202, ilk5 −0,0220 (hepsi GA<0, 8/8 ay). KARAR: galop piyasasız modele EKLENİR. Aşama-1 resmi ölçüsü bundan sonra PM0g (≥2026-03): Ρ 0,853 [0,812; 0,890] (T150). Sıradaki iş: üretim z7 (g1v3.egit(nolp=True)) galoplu yapılır.
