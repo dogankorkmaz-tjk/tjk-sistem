@@ -18,7 +18,7 @@ def fark(a, b, ad, q=(2.5, 97.5)):
         aylar = [np.sign(np.mean(A[m][0][:, j] - B[m][0][:, j])) for m in ays]
         print(f"  {n:8s} {D[:,j].mean():+.5f} [{lo:+.5f}; {hi:+.5f}] (GA %{q[1]-q[0]:.1f}) | ay işareti −:{aylar.count(-1)}/{len(ays)}")
     return out, D, inv, ug
-print("T150 PM0 yeniden üretim kontrolü (beklenen 1,9326):", round(np.concatenate([v[0] for v in yuk("MJ", 1).values()])[:, 0].mean(), 4))
+print("T150 PM0 yeniden üretim kontrolü (T150: 1,9326; veri aynıysa aynı):", round(np.concatenate([v[0] for v in yuk("MJ", 1).values()])[:, 0].mean(), 4))
 P1, *_ = fark(("MJDE", 1), ("MJ", 1), "P1 piyasasız MJDE−MJ", (1.25, 98.75))
 k = "aşama-1 ADAYI" if P1["kazanan"][2] < 0 else ("ZARAR" if P1["kazanan"][1] > 0 else "etkisiz"); print("  KARAR P1:", k)
 P2, *_ = fark(("MJDE", 0), ("MJ", 0), "P2 piyasalı MJDE−MJ", (1.25, 98.75))
