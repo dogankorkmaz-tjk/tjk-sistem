@@ -2186,3 +2186,22 @@ Stratejiler (her koşuda; kombinasyon adayları modelin ilk 9 atı; atlar rastge
 Bütçeler: 48, 96, 150 geçerli kombinasyon (birim 1,25 TL). Getiri: kupon kazanan sırayı içeriyorsa resmî ödeme; DEVİR koşusunda isabet = 0 (birincil, üretim kâğıt testiyle aynı ihtiyatlı kural; betimsel: DEVİR tutarı).
 BİRİNCİL (2 karşılaştırma, %97,5, gün-küme bootstrap 2000; BÜYÜK ÖDEMELER DAHİL): (1) bütçe 96'da ROI(B) − ROI(A); (2) bütçe 96'da ROI(C) (mutlak, 0'a karşı).
 KARAR: (1) GA alt >0 → EV kurucu ADAY (üretimde gölge kupon + ileri pencere); (2) GA alt >0 → C kârlı ADAY (ileri pencere zorunlu); aksi → kayıt. Betimsel: 48/150 bütçeler, isabet sayısı, oynanan koşu sayısı, en büyük ödeme çıkarılınca (yalnız bilgi notu).
+
+## 2026-11-06 20:55 — ÖN KAYIT T157 sabit ihtimalli oran ikinci piyasa olarak (fikir 2/5)
+Soru: Benter (z6, w0_g1) KAPANIŞ ganyanıyla birleştirildikten sonra, sabit ihtimalli ganyan oranı (data/piyasa tip 1001, koşu başına son görülen; marjı Σ1/oran ile atılmış) kazananı tahmine bilgi ekler mi?
+Veri: 2026-10-24..2026-11-05, docs/data/gun (z6 ve sonuç; 'g' kapanış ganyanı) ∩ data/piyasa; yalnız tüm koşan atlarında z6, kapanış ganyanı ve sabit oranı olan koşular.
+Model: taban L0 = softmax(w0_g1·log p_kapanış + z6). Aday L1 = softmax(w0_g1·log p_kapanış + z6 + c·log p_sabit). c günü dışarıda bırakarak (leave-one-day-out) tahmin edilir, her gün kendi dışındaki günlerden c ile skorlanır (yeniden kullanım yok).
+BİRİNCİL: kazanan log kaybı L1 − L0, gün-küme bootstrap %95. KARAR: GA üst <0 → "sabit oran ek bilgi taşıyor" ADAY (üretimde Benter'e ikinci piyasa terimi ancak ileri pencereyle); aksi → kayıt.
+Güç uyarısı (sonuçtan önce): ~13 gün, birkaç yüz koşu; küçük etkiyi kaçırabilir → "etkisiz" sonuç kesin değil, veri biriktikçe (ör. 2027-01) aynı kuralla tekrar.
+## 2026-11-06 21:00 SONUÇ T157 (data/analiz/t157_sabit.py → t157_sonuc.txt; 230 koşu, 13 gün)
+L1−L0 kazanan log kaybı +0,0078 [+0,0020; +0,0156], 0/13 gün iyileşme; LODO c −0,08..+0,06 (sıfır çevresinde) → KARAR (kurala göre): ZARAR — sabit ihtimalli oran, Benter + kapanış ganyanı üstüne bilgi TAŞIMIYOR; serbest c yalnız gürültü ekliyor. Sabit oranın değeri bilgi değil FİYAT olabilir (aynı at için daha iyi oran) → bu zaten T95 gölge kolunda (p×o ≥ 1,2) ileriye dönük izleniyor. Güç sınırlı; 2027-01'de aynı kuralla tekrar.
+
+## 2026-11-06 21:05 — ÖN KAYIT T158 son dakika oranının değeri (fikir 3/5; ÖLÇÜM)
+Soru: Benter'in (z6, w0_g1) piyasa girdisi olarak koşudan uzak AGF yerine koşuya yakın AGF ya da kapanış ganyanı kullanılırsa kazanan tahmini ne kadar iyileşir? ("Ne zaman oynamalı" kararının sayısal temeli.)
+Veri: data/agf_zaman (≈20 dk'da bir anlık AGF) ∩ docs/data/gun (z6, koşu saati, sonuç 'g' kapanış ganyanı), 2026-10-10..2026-11-05; koşu başına en az iki anlık görüntü (biri koşudan ≥45 dk önce, biri ≤25 dk önce).
+Karşılaştırma (aynı koşular): E = koşudan ≥45 dk önceki son AGF; S = koşudan önceki son AGF (≤25 dk); K = kapanış ganyanı. Benter olasılığı softmax(w0_g1·log p + z6); ayrıca yalnız piyasa (softmax(log p)).
+Ölçü: kazanan log kaybı farkları S−E ve K−S, gün-küme bootstrap %95. Karar kuralı yok (ölçüm); sonuç 'oynama zamanı' notu olarak ve kupon/ganyan seçim saatleri için kullanılır.
+## 2026-11-06 21:15 SONUÇ T158 (ölçüm; data/analiz/t158_zaman.py → t158_sonuc.txt; 64 koşu, 13 gün)
+Uygulama düzeltmesi (sonuç yorumlanmadan, ilk çalıştırmadan sonra): agf_zaman yalnız DEĞİŞEN atları yazdığı için anlık görüntü at başına son değerle ileri doldurulmalıydı; ilk çalıştırma yalnız son zaman damgasının satırlarını alıp koşuların çoğunu eksik sayıyordu (41 koşu). Tanım değişmedi.
+Benter son AGF − erken AGF (medyan 61 dk önce) −0,0075 [−0,0123; −0,0029] → yarışa yakın AGF ile model belirgin daha iyi; kapanış ganyanı − son AGF −0,0087 [−0,0360; +0,0173] (belirsiz). Yalnız piyasa: kapanış ganyanı son AGF'den KÖTÜ (+0,0275 [+0,0082; +0,0497]) — AGF (altılı oyuncularının tercih payı) kazananı ganyan kapanış oranından daha iyi tahmin ediyor (küçük örnek; ileride tekrar).
+Pratik not: oynamadan hemen önce son AGF ile güncel Benter'e bakmak, sabah görüntüsüne göre ölçülebilir iyileşme sağlıyor. Örnek küçük çünkü erken referans yoktu → sabah çalışmaları da agf_zaman'a yazacak şekilde düzeltildi (calistir.sabah); 2027-01'de daha büyük örnekle tekrar.

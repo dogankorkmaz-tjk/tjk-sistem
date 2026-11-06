@@ -1,0 +1,9 @@
+koşu 64 gün 13 | E ile koşu arası medyan dk 61.0 (düzeltme 21:10: değişen-at biçimi ileri doldurma)
+ortalama kayıp: Benter E/S/K 1.9626 1.9551 1.9465 | piyasa E/S/K 2.1129 2.1077 2.1352
+   Benter: son AGF − erken AGF  -0.0075 [-0.0123; -0.0029]
+   Benter: kapanış − son AGF    -0.0087 [-0.0360; +0.0173]
+   Piyasa: son − erken          -0.0052 [-0.0109; +0.0001]
+   Piyasa: kapanış − son AGF    +0.0275 [+0.0082; +0.0497]
+   erken: Benter − piyasa       -0.1503 [-0.3334; +0.0409]
+   son: Benter − piyasa         -0.1525 [-0.3356; +0.0357]
+   kapanış: Benter − piyasa     -0.1887 [-0.3791; +0.0038]
