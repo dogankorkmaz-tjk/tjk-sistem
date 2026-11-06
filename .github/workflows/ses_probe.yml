@@ -1,0 +1,36 @@
+name: ses_probe
+# Spiker sesi yoklaması (6 Kasım 2026, kullanıcı fikri): yarış videolarında ses var mı, Türkçe konuşma tanıma okuyor mu? 3 video, yalnız fizibilite.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  ses:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null && pip install -q faster-whisper
+      - run: |
+          mkdir -p data/ses_probe /tmp/v; out=data/ses_probe/sonuc.txt; : > $out
+          for u in https://video-cdn.tjk.org/videoftp/2026/8/26082141_m.mp4 https://video-cdn.tjk.org/videoftp/2026/6/26062125_m.mp4 https://video-cdn.tjk.org/videoftp/2026/9/26091839_m.mp4; do
+            b=$(basename $u .mp4); curl -s -m 120 -A "Mozilla/5.0" -o /tmp/v/$b.mp4 "$u"; sleep 3
+            echo "=== $b ($(stat -c %s /tmp/v/$b.mp4) bayt)" >> $out
+            ffprobe -v error -show_entries stream=codec_type,codec_name,sample_rate,channels -show_entries format=duration -of compact /tmp/v/$b.mp4 >> $out 2>&1
+            ffmpeg -v error -y -i /tmp/v/$b.mp4 -vn -ac 1 -ar 16000 /tmp/v/$b.wav && ffmpeg -v error -i /tmp/v/$b.wav -af volumedetect -f null - 2>&1 | grep -E "mean_volume|max_volume" >> $out
+          done
+          python3 - <<'P' >> $out 2>&1
+          import glob, os
+          from faster_whisper import WhisperModel
+          m = WhisperModel("small", device="cpu", compute_type="int8")
+          for f in sorted(glob.glob("/tmp/v/*.wav")):
+              seg, info = m.transcribe(f, language="tr", vad_filter=True)
+              print("\n### TRANSKRİPT", os.path.basename(f), "dil olasılığı", round(info.language_probability, 2))
+              for s in seg: print(f"[{s.start:6.1f}-{s.end:6.1f}] {s.text.strip()}")
+          P
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/ses_probe; git commit -qm "ses yoklaması" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && exit 0; sleep 10; done; exit 1
