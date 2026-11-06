@@ -1,0 +1,87 @@
+{
+ "tarih": "2026-11-06",
+ "zaman": "2026-11-06 10:42 UTC",
+ "genel": "ok",
+ "kontroller": [
+  {
+   "ad": "veri: sonuclar",
+   "durum": "ok",
+   "detay": "son gün 2026-11-05 (1 gün önce)"
+  },
+  {
+   "ad": "veri: temiz",
+   "durum": "ok",
+   "detay": "son gün 2026-11-05 (1 gün önce)"
+  },
+  {
+   "ad": "veri: program",
+   "durum": "ok",
+   "detay": "son gün 2026-11-05 (1 gün önce)"
+  },
+  {
+   "ad": "veri: odeme",
+   "durum": "ok",
+   "detay": "son gün 2026-11-05 (1 gün önce)"
+  },
+  {
+   "ad": "veri: agf",
+   "durum": "ok",
+   "detay": "son gün 2026-11-05 (1 gün önce)"
+  },
+  {
+   "ad": "veri: galop",
+   "durum": "ok",
+   "detay": "son gün 2026-11-06 (0 gün önce)"
+  },
+  {
+   "ad": "atyarisi arşivi (dün)",
+   "durum": "ok",
+   "detay": "tam"
+  },
+  {
+   "ad": "Jason eğitimi",
+   "durum": "ok",
+   "detay": "2026-11-05 (1 gün önce)"
+  },
+  {
+   "ad": "Benter eğitimi",
+   "durum": "ok",
+   "detay": "2026-11-06 (0 gün önce)"
+  },
+  {
+   "ad": "piyasasız model eğitimi",
+   "durum": "ok",
+   "detay": "2026-11-06 (0 gün önce)"
+  },
+  {
+   "ad": "piyasasız model galop",
+   "durum": "ok",
+   "detay": "var"
+  },
+  {
+   "ad": "Jason puanı (z2)",
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "Benter puanı (z6)",
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "piyasasız puan (z7)",
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+  },
+  {
+   "ad": "Benter sıra üstelleri (a_g1)",
+   "durum": "ok",
+   "detay": "var"
+  },
+  {
+   "ad": "altılı yapısı",
+   "durum": "ok",
+   "detay": "2/2 hipodromda"
+  }
+ ]
+}
