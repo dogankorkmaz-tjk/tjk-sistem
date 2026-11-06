@@ -638,7 +638,8 @@ function hesapla(h,k,kaynakZorla,yedek){
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
-    out.map[i]={pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
+    let gj=pj?pj[j]:null; if(pj&&pp.grp[j]!==-1){ gj=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gj+=pj[l]; }); }
+    out.map[i]={ejg:(gj!=null&&!isNaN(g[j]))?gj*g[j]:null,pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
   });
   try{ const gr={}; idx.forEach((i,j)=>{ const e=atlar[i].ek>0?'e'+atlar[i].ek:(pp.grp[j]!==-1?'g'+pp.grp[j]:null); if(e){ (gr[e]=gr[e]||[]).push(j); } });
     Object.values(gr).forEach(m=>{ if(m.length!==2) return; const q=m.map(j=>ps?ps[j]:pm[j]), P=q[0]+q[1]; if(!(P>0)) return;
@@ -660,7 +661,7 @@ function renderKosu(){
       <div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat||'')}${bitti?' · bitti':''}</span>${k.bilgi?`<span class="note">${esc(k.bilgi)}</span>`:''}${(((VERI.pist_durumu||{})[h.id])||[]).map(c=>`<span class="note">Pist durumu: ${esc(c.pist)} ${esc(String(c.durum||'').toLocaleLowerCase('tr'))}${c.agirlik?' '+String(c.agirlik).replace('.',','):''}</span>`).join('')}${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}${ekOzet(k)}</div></div>
     <div id="kaynak"></div></div>
     ${podyum.length?'<div class="podyum">'+podyum.map(a=>`<div class="p${k.sonuc[a.no].sira}"><small>${k.sonuc[a.no].sira}.</small><span class="no c${(a.no-1)%16+1}">${a.no}</span><b>${esc(a.at)}</b></div>`).join('')+'</div>':''}
-    <div class="rkbas">Model sırası (Jason)</div><div class="rank" id="rank"></div>
+    <div class="rkbas" id="rkbas">Model sırası (Jason)</div><div class="rank" id="rank"></div>
     <div id="b5"></div>`;
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=a.kosmaz?'KOŞMAZ':sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
@@ -672,7 +673,7 @@ function renderKosu(){
       <div class="sub2" id="s${i}"></div></div>`;
   });
   s+=`</div>
-  <div class="lejant"><span><i class="bm"></i> Bolton</span><span><i class="bp"></i> piyasa</span><span><i class="bj"></i> Jason</span></div>
+  <div class="lejant"><span><i class="bm"></i> Jason</span><span><i class="bp"></i> piyasa</span></div>
   <div class="card hizli"><label class="sub" for="hizliOran">Hızlı giriş: ekrandaki ganyanları at numarası sırasıyla boşlukla yaz (1. at, 2. at, ...). Yarışmayan atı 0 yaz.</label>
     <input id="hizliOran" class="alan" inputmode="decimal" autocomplete="off" placeholder="örn: 3,5 4 12 2,8 0 25">
     <button id="oranKaydet" class="primary">Bu oranları kaydet (sonradan sonuçla karşılaştırılır)</button><div id="kaydetSonuc" style="margin-top:8px;font-size:13px"></div></div>
@@ -703,19 +704,18 @@ function hesapGoster(){
   const sira=[];
   k.atlar.forEach((a,i)=>{
     const x=out&&out.map[i]; const sn=k.sonuc&&k.sonuc[a.no];
-    const jA=x&&x.pj!=null;   // ana satır Jason (ganyanı o seçer, 5 Kasım 2026 Doğan); Jason yoksa Bolton
-    $('m'+i).textContent=x?pct(jA?x.pj:x.pm)+'%':'–'; $('ml'+i).textContent=jA||!x?'Jason':'Bolton';
-    const evA=x?(jA?x.ejv:x.ev):null;
+    const jA=x&&x.pj!=null;   // Koşu ekranı tamamen Jason (6 Kasım 2026 Doğan: Bolton bu ekranda hiç yok); piyasa yokken gri piyasasız tahmin
+    $('m'+i).textContent=jA?pct(x.pj)+'%':(x&&yed?pct(x.pn)+'%':'–'); $('ml'+i).textContent=x&&yed?'piyasasız':'Jason';
+    const evA=jA?x.ejg:null;
     const ev=$('e'+i); ev.textContent=evA!=null?f2(evA):'–'; ev.style.color=evA!=null&&evA>=1?'var(--good)':'';
     let t='';
-    if(x&&yed){ sira.push(i); t=`<span class="note">piyasasız tahmin %${(x.pn*100).toFixed(1).replace('.',',')} (gri bilgi; Bolton alanı bu değeri gösterir)</span>`; }
+    if(x&&yed){ sira.push(i); t=`<span class="note">piyasa verisi yok: piyasasız tahmin (Benter'in piyasasız modeli); Jason, AGF/ganyan gelince hesaplanır</span>`; }
     else if(x){
       sira.push(i);
-      const f3=x.i3m/x.i3p;
-      if(x.pj!=null) t+=`<span>Bolton ${pct(x.pm)}%${x.ev!=null?' · EV '+f2(x.ev):''}</span>`;
-      t+=`<span>piyasa ${pct(x.pp)}%</span><span>ilk2 B ${pct(x.i2m)}%${x.i2j!=null?' · J '+pct(x.i2j)+'%':''}</span><span>ilk3 B ${pct(x.i3m)}%${x.i3j!=null?' · J '+pct(x.i3j)+'%':''}</span>`;
+      const f3=x.i3j!=null?x.i3j/x.i3p:1;
+      t+=`<span>piyasa ${pct(x.pp)}%</span>${x.i2j!=null?`<span>ilk2 ${pct(x.i2j)}%</span><span>ilk3 ${pct(x.i3j)}%</span>`:''}`;
       if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
-      if(x.ekuri) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre</span>';
+      if(x.ekuri&&jA) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre (ekürilerin Jason olasılığı toplanır)</span>';
       if(x.ekb!=null) t+=`<span class="tag" style="color:var(--muted)">ekür çift içi (gölge, kupona girmiyor): ${a.no} %${pct(x.ekb)} · ${k.atlar[x.ekes].no} %${pct(1-x.ekb)}</span>`;
       if(evA!=null&&evA>=1) t+='<span class="tag ev">EV 1 üstü</span>';
       if(f3>=1.15) t+=`<span class="tag sur">ilk3 sürpriz +%${Math.round((f3-1)*100)}</span>`;
@@ -724,22 +724,24 @@ function hesapGoster(){
     { const sp=supBul(h.id,k.kosu,a.no); if(sp) t+=`<span class="tag sur">süpriz adayı ×${sp.r.toFixed(1).replace('.',',')} · oran ${String(sp.g).replace('.',',')}${sp.k10?' · ≥10':''}</span>`; }
     $('s'+i).innerHTML=t;
   });
-  { const mx=out?Math.max(.2,...Object.values(out.map).map(x=>Math.max(x.pm||0,x.pp||0,x.pj||0)))*1.08:1;
+  { const mx=out?Math.max(.2,...Object.values(out.map).map(x=>Math.max(yed?(x.pn||0):(x.pj||0),x.pp||0)))*1.08:1;
     k.atlar.forEach((a,i)=>{ const x=out&&out.map[i], b=$('bar'+i); if(!b) return;
       b.hidden=!x; if(!x) return; const w=v=>Math.min(100,(v||0)/mx*100).toFixed(1)+'%';
-      b.querySelector('.bm').style.width=w(x.pm); b.querySelector('.bp').style.left=w(x.pp);
-      const j=b.querySelector('.bj'); j.hidden=x.pj==null; if(x.pj!=null) j.style.left=w(x.pj);
+      b.querySelector('.bm').style.width=w(yed?x.pn:x.pj); const bp=b.querySelector('.bp'); bp.hidden=x.pp==null; if(x.pp!=null) bp.style.left=w(x.pp);
+      b.querySelector('.bj').hidden=true;
       b.classList.toggle('deger',x.pj!=null&&x.pp>0&&x.pj/x.pp>=1.3); }); }
-  const ana=x=>x.pj!=null?x.pj:x.pm;
+  const ana=x=>yed?x.pn:x.pj;
+  const siraJ=sira.filter(i=>ana(out.map[i])!=null); sira.length=0; sira.push(...siraJ);
   sira.sort((a,b)=>ana(out.map[b])-ana(out.map[a]));
+  $('rkbas').textContent=yed?'Piyasasız sıra (Jason piyasa gelince)':'Model sırası (Jason)';
   clearTimeout(oynaT); oynaT=setTimeout(oynaCiz,500);
-  $('rank').innerHTML=out?sira.map(i=>`<span class="rk"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${pct(ana(out.map[i]))}%</span>`).join(''):'<span class="note">Model sıralaması piyasa verisi gelince çıkar.</span>';
+  $('rank').innerHTML=out&&sira.length?sira.map(i=>`<span class="rk"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${pct(ana(out.map[i]))}%</span>`).join(''):'<span class="note">Jason sıralaması piyasa verisi gelince çıkar.</span>';
   renderKombo(yed?null:out); renderKupon();
 }
 
 // ---------- kombinasyonlar ----------
 function kombolar(out){
-  const idx=Object.keys(out.map).map(Number); const P=i=>out.map[i].pm, Q=i=>out.map[i].pp;
+  const idx=Object.keys(out.map).map(Number); const P=i=>out.map[i].pj, Q=i=>out.map[i].pp;   // Jason (6 Kasım 2026; Bolton Koşu ekranından kaldırıldı)
   const sm=(f,g)=>idx.reduce((t,i)=>t+Math.pow(f(i),g),0);
   const S2m=sm(P,G_MODEL[1]), S3m=sm(P,G_MODEL[2]), S2q=sm(Q,G_PIYASA[1]), S3q=sm(Q,G_PIYASA[2]);
   const ik=[],ik0=new Map(),uc=[];
@@ -761,7 +763,7 @@ function komboHtml(list,atlar){
 }
 function renderKombo(out){
   ['ik','ik0','uc'].forEach(id=>{const el=$('kb_'+id); if(!el)return;
-    el.innerHTML=out?komboHtml(kombolar(out)[id],cur.k.atlar):'<div class="empty">Piyasa verisi gelince çıkar.</div>';});
+    const jv=out&&Object.values(out.map).every(x=>x.pj!=null); el.innerHTML=jv?komboHtml(kombolar(out)[id],cur.k.atlar):'<div class="empty">Jason olasılıkları gelince çıkar.</div>';});
 }
 
 // k ayaktan en az/tam n tanesini tutma olasılığı (bağımsız ayaklar)
@@ -787,7 +789,7 @@ function renderKupon(){
   h.kosular.filter(k=>k.kosu>=KUP.bas&&k.kosu<=KUP.son).forEach(k=>{
     const out=hesapla(h,k); const kk=KUP.k[h.id+'|'+k.kosu]||2;
     if(!out){tam=false; s+=`<div class="leg"><div class="hd">${k.kosu}. koşu</div><div class="note">Bu koşuda henüz piyasa verisi yok.</div></div>`; return}
-    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pm;              // çekirdek ve sürprizi Jason seçer (2 Kasım 2026, Doğan: Bolton AGF'den farksız; Jason verisi yoksa Bolton)
+    const J=i=>out.map[i].pj!=null?out.map[i].pj:out.map[i].pp;              // çekirdek ve sürprizi Jason seçer (2 Kasım 2026, Doğan); Jason verisi yoksa piyasa (6 Kasım: Bolton kaldırıldı)
     const idx=Object.keys(out.map).map(Number).sort((a,b)=>J(b)-J(a));
     const pick=idx.slice(0,Math.min(kk,idx.length)), extra=[];
     if(KUP.sur){ const rest=idx.filter(i=>!pick.includes(i)&&J(i)>=0.03&&J(i)/out.map[i].pp>=1.10).sort((a,b)=>J(b)/out.map[b].pp-J(a)/out.map[a].pp); if(rest.length) extra.push(rest[0]); }
@@ -1488,7 +1490,7 @@ async function otoCanliYukle(){
   try{
     const d=await getJSON('data/canli.json');
     let s=`<div class="card"><div class="note">${d.kosu} koşu kaydedildi, ${d.biten_kosu} tanesi sonuçlandı. EV (model olasılığı × senin girdiğin oran) eşiğini geçen atlara 1 birim oynansaydı:</div>`;
-    [['Bolton',d.tablo],['Jason',d.tablo_jason]].forEach(([ad,tb])=>{ if(!tb) return;
+    [['Jason',d.tablo_jason]].forEach(([ad,tb])=>{ if(!tb) return;   // Koşu ekranında yalnız Jason (6 Kasım 2026)
       s+=`<table style="width:100%;margin-top:8px;font-size:13px"><tr><th align=left>${ad}: EV</th><th>Bahis</th><th>İsabet</th><th>Getiri (girilen)</th><th>Getiri (kapanış)</th></tr>`;
       tb.forEach(t=>{s+=`<tr><td>≥ ${f2(t.esik)}</td><td align=center>${t.bahis}</td><td align=center>${t.isabet}</td><td align=center>${t.getiri_girilen==null?'–':f2(t.getiri_girilen)}</td><td align=center>${t.getiri_kapanis==null?'–':f2(t.getiri_kapanis)}</td></tr>`});
       s+='</table>'; });
@@ -2050,7 +2052,7 @@ function oyCiz(){
       <label class="sub">TJK ganyan (o an)<input id="oyTjk" inputmode="decimal" placeholder="örn 4,20" style="width:100%;padding:8px"></label>
     </div>
     <label class="sub">Seçim (ne oynadın?)<input id="oySecim" placeholder="örn: 3 @4,2   veya   3-5, 3-6   veya   kupon" style="width:100%;padding:8px"></label>
-    <label class="sub">Hangi öneriden? <select id="oyKaynak" style="width:100%;padding:8px"><option>Kendi kararım</option><option>Bolton önerisi</option><option>Jason önerisi</option><option>İki model birlikte</option><option>Altılı/7'li önerisi</option><option>Egzotik seçimi</option></select></label>
+    <label class="sub">Hangi öneriden? <select id="oyKaynak" style="width:100%;padding:8px"><option>Kendi kararım</option><option>Jason önerisi</option><option>Altılı/7'li önerisi</option><option>Egzotik seçimi</option></select></label>
     <button id="oyEkle" class="primary">Ekle</button><div id="oyMsj" style="font-size:13px"></div></div>`;
   if(L.length){
     s+=`<div class="card stat"><div><b>${f2(top)}</b><span>oynanan TL</span></div><div><b>${f2(odm)}</b><span>ödeme (girilenler)</span></div><div><b style="color:${net>=0?'var(--good)':'var(--hot)'}">${net>=0?'+':''}${f2(net)}</b><span>net (sonuçlananlar)</span></div><div><b>${bek}</b><span>sonucu girilmemiş</span></div></div>`;
