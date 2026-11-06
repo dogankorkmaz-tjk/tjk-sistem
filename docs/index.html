@@ -502,14 +502,13 @@ function besliHtml(h,k,out){
   if(k.besli===false) return '';   // program CSV'sine göre sıralı beşli oynanmayan koşu (14 Ekim 2026)
   const idx=Object.keys(out.map).map(Number); if(idx.length<5) return '';
   const no=i=>k.atlar[i].no;
-  const pm=idx.map(i=>out.map[i].pm), pp=idx.map(i=>out.map[i].pp), pj=out.map[idx[0]].pj!=null?idx.map(i=>out.map[i].pj):null;
-  const ort=pj?pm.map((v,i)=>(v+pj[i])/2):null;
-  const L=[['Bolton',pm],pj?['Jason',pj]:null,ort?['Ortak (iki modelin ortalaması)',ort]:null].filter(Boolean);
+  const pp=idx.map(i=>out.map[i].pp); if(!idx.every(i=>out.map[i].pg!=null)) return '';
+  const L=[['Benter',idx.map(i=>out.map[i].pg)]];   // sıralı 5'li Benter (ana model, 6 Kasım 2026 Doğan)
   let s='<details class="kb"><summary>Sıralı 5\'li kombine kupon (kağıt üstü)</summary><div style="padding:0 12px 12px;display:flex;flex-direction:column;gap:10px">';
   s+=devirKutu(devirBilgi(h.id,k.kosu),k);
   s+='<div class="sub">Her sıra için birden fazla at seçilir; tüm kombinasyonlar birlikte oynanır. Birim 1,25 TL. Tutma = modelin bu kuponun tutma olasılığı, piyasa = AGF\'ye göre aynı kuponun olasılığı. Devir yoksa kesinti yüzünden beklenen getiri düşüktür.</div>';
   L.forEach(([ad,P])=>{ [48,96].forEach(B=>{
-    const r=besliKupon(P,B,G5_M); if(!r) return;
+    const r=besliKupon(P,B,GMO('G1-S')); if(!r) return;
     const prP=besliProb(G5_P.map(g=>pp.map(v=>Math.pow(Math.max(v,1e-9),g))),G5_P.map(g=>pp.reduce((a,v)=>a+Math.pow(Math.max(v,1e-9),g),0)),r.sets);
     s+=`<div><b>${ad} ~${B}</b> · ${r.n} komb. · <b>${f2(r.n*1.25)} TL</b> · tutma %${(r.pr*100).toFixed(2).replace('.',',')} (piyasa %${(prP*100).toFixed(2).replace('.',',')}, ×${f2(r.pr/Math.max(prP,1e-9))})<br><span style="font-family:monospace">${r.sets.map(x=>x.map(i=>no(idx[i])).join(',')).join(' | ')}</span></div>`; }); });
   return s+'</div></details>';
@@ -521,6 +520,7 @@ function modelP(pp,z,w0,lp2){
 // Harville'in kalibre edilmiş hâli: 2023-2025, 20 bin koşuda ikinci/üçüncü sıra için üstel ağırlık (γ<1) bulundu.
 // Model olasılıkları: γ2=0.80, γ3=0.69 · piyasa olasılıkları: γ2=0.87, γ3=0.74 (2025 sınamasında log-loss: 2. sıra -0.009, 3. sıra -0.033)
 const G_MODEL=[1,0.80,0.69], G_PIYASA=[1,0.87,0.74];
+function GB(){ const a=VERI&&VERI.a_g1; return (a&&a.length>=3)?a:G_MODEL; }   // Benter (ana model, G1-S v3) sıra üstelleri
 function harville(p,G){
   G=G||G_MODEL;
   const n=p.length, k=Math.min(3,n); const top=Array.from({length:n},()=>[0,0,0]);
@@ -634,12 +634,12 @@ function hesapla(h,k,kaynakZorla,yedek){
     if(ix.length>=5&&ix.every(i=>atlar[i].z7!=null)){ const zz=ix.map(i=>atlar[i].z7), mx=Math.max(...zz), e=zz.map(v=>Math.exp(v-mx)), t=e.reduce((x,y)=>x+y,0), pn=e.map(v=>v/t);
       const out={kaynak:'model',map:{}}; ix.forEach((i,j)=>{ out.map[i]={pn:pn[j],pm:pn[j],pj:null,pp:null,ev:null}; }); return out; } }
   if(!pp||idx.length<2) return null;
-  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(idx.every(i=>atlar[i].z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6b!=null?atlar[i].z6b:atlar[i].z6),VERI.w0_g1,idx.every(i=>atlar[i].z6b!=null)?(VERI.lp2_g1||0):0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA);
+  const z=idx.map(i=>atlar[i].z||0), hasJ=atlar.every(a=>a.z2!=null)&&VERI.w0_aday!=null, pj=hasJ?modelP(pp,idx.map(i=>atlar[i].z2),VERI.w0_aday,VERI.lp2_aday||0):null, pm=modelP(pp,z,w0), hasS=atlar.every(a=>a.z4!=null)&&VERI.w0_s!=null, ps=hasS?modelP(pp,idx.map(i=>atlar[i].z4),VERI.w0_s,VERI.lp2_s||0):null, pf=(atlar.every(a=>a.z5!=null)&&VERI.w0_f!=null)?modelP(pp,idx.map(i=>atlar[i].z5),VERI.w0_f,VERI.lp2_f||0):null, pg=(idx.every(i=>atlar[i].z6!=null)&&VERI.w0_g1!=null)?modelP(pp,idx.map(i=>atlar[i].z6b!=null?atlar[i].z6b:atlar[i].z6),VERI.w0_g1,idx.every(i=>atlar[i].z6b!=null)?(VERI.lp2_g1||0):0):null, hm=harville(pm,G_MODEL), hj=pj?harville(pj,G_MODEL):null, hp=harville(pp,G_PIYASA), hb=pg?harville(pg,GB()):null;
   const out={kaynak,map:{}};
   idx.forEach((i,j)=>{
     let gp=pm[j]; if(pp.grp[j]!==-1){ gp=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gp+=pm[l]; }); }
     let gj=pj?pj[j]:null; if(pj&&pp.grp[j]!==-1){ gj=0; pp.grp.forEach((v,l)=>{ if(v===pp.grp[j]) gj+=pj[l]; }); }
-    out.map[i]={ejg:(gj!=null&&!isNaN(g[j]))?gj*g[j]:null,pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
+    out.map[i]={i2b:hb?hb[j][0]:null,i3b:hb?hb[j][1]:null,ejg:(gj!=null&&!isNaN(g[j]))?gj*g[j]:null,pj:pj?pj[j]:null,ps:ps?ps[j]:null,pf:pf?pf[j]:null,pg:pg?pg[j]:null,ejv:(pj&&!isNaN(g[j]))?pj[j]*g[j]:null,pp:pp[j],pm:pm[j],oran:g[j],ev:isNaN(g[j])?null:gp*g[j],ekuri:pp.grp[j]!==-1,i2m:hm[j][0],i3m:hm[j][1],i2j:hj?hj[j][0]:null,i3j:hj?hj[j][1]:null,i2p:hp[j][0],i3p:hp[j][1]};
   });
   try{ const gr={}; idx.forEach((i,j)=>{ const e=atlar[i].ek>0?'e'+atlar[i].ek:(pp.grp[j]!==-1?'g'+pp.grp[j]:null); if(e){ (gr[e]=gr[e]||[]).push(j); } });
     Object.values(gr).forEach(m=>{ if(m.length!==2) return; const q=m.map(j=>ps?ps[j]:pm[j]), P=q[0]+q[1]; if(!(P>0)) return;
@@ -699,7 +699,7 @@ function renderKosu(){
 }
 function hesapGoster(){
   const {h,k}=cur; const out=hesapla(h,k,undefined,true); const yed=!!(out&&out.kaynak==='model'); curOut=yed?null:out;
-  { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0); if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!yed&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
+  { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0)+'|'+JSON.stringify(ODDS[okey(h.id,k.kosu)]||{}); /* elle girilen oran değişince de yenilenir */ if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!yed&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
   $('kaynak').innerHTML=out?`<span class="pill ${KAYNAK[out.kaynak][1]}">Piyasa: ${KAYNAK[out.kaynak][0]}${out.kaynak==='agf'&&k.agf_saat?' · '+esc(k.agf_saat):''}</span>${out.kaynak==='agf'?' <span class="note">AGF ganyan oranı değildir; EV hesaplanmaz. Güncel ganyanı girersen EV çıkar.</span>':''}`:'<span class="pill">Piyasa verisi yok</span> <span class="note">Ganyanları girince model çalışır.</span>';
   const sira=[];
   k.atlar.forEach((a,i)=>{
@@ -712,8 +712,8 @@ function hesapGoster(){
     if(x&&yed){ sira.push(i); t=`<span class="note">piyasa verisi yok: piyasasız tahmin (Benter'in piyasasız modeli); Jason, AGF/ganyan gelince hesaplanır</span>`; }
     else if(x){
       sira.push(i);
-      const f3=x.i3j!=null?x.i3j/x.i3p:1;
-      t+=`<span>piyasa ${pct(x.pp)}%</span>${x.i2j!=null?`<span>ilk2 ${pct(x.i2j)}%</span><span>ilk3 ${pct(x.i3j)}%</span>`:''}`;
+      const f3=x.i3b!=null?x.i3b/x.i3p:1;   // sıralı/ilk-N bilgisi Benter'den (ana model; ganyan Jason) — 6 Kasım 2026 Doğan
+      t+=`<span>piyasa ${pct(x.pp)}%</span>${x.i2b!=null?`<span>ilk2 ${pct(x.i2b)}% · ilk3 ${pct(x.i3b)}% (Benter)</span>`:''}`;
       if(a.agf&&out.kaynak!=='agf') t+=`<span>AGF ${String(a.agf).replace('.',',')}</span>`;
       if(x.ekuri&&jA) t+='<span class="tag dus" style="color:var(--muted)">ekürlü: EV çifte göre (ekürilerin Jason olasılığı toplanır)</span>';
       if(x.ekb!=null) t+=`<span class="tag" style="color:var(--muted)">ekür çift içi (gölge, kupona girmiyor): ${a.no} %${pct(x.ekb)} · ${k.atlar[x.ekes].no} %${pct(1-x.ekb)}</span>`;
@@ -741,7 +741,8 @@ function hesapGoster(){
 
 // ---------- kombinasyonlar ----------
 function kombolar(out){
-  const idx=Object.keys(out.map).map(Number); const P=i=>out.map[i].pj, Q=i=>out.map[i].pp;   // Jason (6 Kasım 2026; Bolton Koşu ekranından kaldırıldı)
+  const idx=Object.keys(out.map).map(Number); const P=i=>out.map[i].pg, Q=i=>out.map[i].pp;   // sıralı bahisler Benter (ana model, 6 Kasım 2026 Doğan)
+  const G_MODEL=GB();
   const sm=(f,g)=>idx.reduce((t,i)=>t+Math.pow(f(i),g),0);
   const S2m=sm(P,G_MODEL[1]), S3m=sm(P,G_MODEL[2]), S2q=sm(Q,G_PIYASA[1]), S3q=sm(Q,G_PIYASA[2]);
   const ik=[],ik0=new Map(),uc=[];
@@ -755,7 +756,7 @@ function kombolar(out){
   return {ik:srt(ik,8),ik0:srt([...ik0.values()],8),uc:srt(uc,10)};
 }
 function komboHtml(list,atlar){
-  let h='<div class="cr hd"><span>Kombinasyon</span><span style="text-align:right">Model</span><span style="text-align:right">Piyasa</span><span style="text-align:right">Fark</span></div>';
+  let h='<div class="cr hd"><span>Kombinasyon</span><span style="text-align:right">Benter</span><span style="text-align:right">Piyasa</span><span style="text-align:right">Fark</span></div>';
   list.forEach(c=>{const f=c.m/c.q;
     h+=`<div class="cr"><span><b>${c.k.map(i=>atlar[i].no).join('-')}</b><small>${esc(c.k.map(i=>String(atlar[i].at).split(' ')[0]).join(' · '))}</small></span>
     <span class="num">${pct(c.m)}%</span><span class="num">${pct(c.q)}%</span><span class="num${f>=1.25?' hi':''}">${f>=1?'+':''}${Math.round((f-1)*100)}%</span></div>`});
@@ -763,7 +764,7 @@ function komboHtml(list,atlar){
 }
 function renderKombo(out){
   ['ik','ik0','uc'].forEach(id=>{const el=$('kb_'+id); if(!el)return;
-    const jv=out&&Object.values(out.map).every(x=>x.pj!=null); el.innerHTML=jv?komboHtml(kombolar(out)[id],cur.k.atlar):'<div class="empty">Jason olasılıkları gelince çıkar.</div>';});
+    const bv=out&&Object.values(out.map).every(x=>x.pg!=null); el.innerHTML=bv?komboHtml(kombolar(out)[id],cur.k.atlar):'<div class="empty">Benter olasılıkları gelince çıkar.</div>';});
 }
 
 // k ayaktan en az/tam n tanesini tutma olasılığı (bağımsız ayaklar)
