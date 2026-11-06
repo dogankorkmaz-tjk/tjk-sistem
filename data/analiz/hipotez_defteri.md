@@ -2404,3 +2404,9 @@ BİRİNCİL (2 karşılaştırma → %97,5, gün-küme bootstrap): favori olmaya
 İlk 5 (23.971 at, 3.876 koşu): +0,0181 [+0,0080; +0,0281] → uzman KÖTÜ. AUC: Benter 0,721, piyasa 0,690, kontrol 0,723, uzman 0,719.
 Grup çıkarma (betimsel): hiçbir grup anlamlı katkı vermiyor (şerit ilk 3'te +0,0036 sınırda).
 KARAR: kayıt; T173 yapılmaz. OKUMA: Benter favori olmayan atları piyasadan belirgin iyi sıralıyor (AUC +0,02–0,03) ve ek veri (Jason özellikleri, video şeridi, yer tutma) bunun üstüne bir şey katmıyor; ayrı model kısıtlı eğitim döneminde (Benter puanı yalnız 2025-10'dan beri) aşırı uyuyor. Sürpriz bilgisi zaten Benter'in içinde.
+
+## 2026-11-07 02:16 — ÖN KAYIT T174 koşu seçimi (kullanıcı: "hangi koşulara oynayıp hangilerine oynamayacağımızı bilebilsek… Başlat")
+Bahisler (kayıtlı geriye test satırları): (a) sıralı ikili kombine, taban kuralı (T169-B); (b) ikili kombine (T169, 0,75); (c) sıralı 5'li kombine (T170, eşik 1,2, bütçe 1.000, havuz paylaşımlı getiri).
+Bölmeler (5, sabit; ikiye ayırma): 1) hipodrom büyük {istanbul, ankara, izmir, bursa, adana, antalya, kocaeli} / küçük; 2) at sayısı ≤10 / ≥11; 3) pist çim / kum-sentetik; 4) Benter–piyasa ayrışması KL(p_Benter‖p_piyasa) yüksek / düşük (eşik = 1. dönem medyanı); 5) favori gücü (piyasa en yüksek olasılığı) yüksek / düşük (eşik = 1. dönem medyanı).
+Yöntem: SEÇİM dönemi 2025-10..2026-04: her bahis × bölme için iki taraftan ROI'si yüksek olan "oyna" tarafı, fark ≥ 10 puan ise seçilir (aksi: bölme seçilmez). DOĞRULAMA dönemi 2026-05..2026-10 (seçime dokunmadan): oyna tarafı ROI − oynama tarafı ROI, gün-küme bootstrap.
+KARAR: doğrulamada fark aynı yönde ve %95 GA alt > 0 → "doğrulanmış aday"; ayrıca Bonferroni (15 karşılaştırma, %99,67) alt > 0 ise Canlı/gölge kayda koşu filtresi önerilir (ayrı onayla). Aksi → kayıt. Büyük ödemeler dahil.
