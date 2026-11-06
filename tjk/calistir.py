@@ -1515,7 +1515,7 @@ def main():
             OD.yaz()
         except Exception as ex:
             print("oynadim özeti atlandı:", ex)
-    if mod in ("canli", "hepsi"):
+    if mod in ("sabah", "canli", "hizli", "hepsi"):   # 7 Kas 2026: sabah (09:15/12:40) ve hızlı modda da — ilk koşu 13:00–13:30 ise 13:00 canlı çalışması gecikince ilk koşular kaçmasın
         try:                                   # T131 ileri testi: günün uyum puanı + başlamamış koşuların seçim kaydı (6 Kasım 2026; önceden elle yapılıyordu, 6 Kasım atlanmıştı)
             from . import uyum_secim as _US
             _US.gunluk()
