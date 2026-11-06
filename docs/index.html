@@ -1539,9 +1539,15 @@ function canliCiz(){
   s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[150],5,'⚠ Testte zararlı (T166: −%95) — yalnız ileriye dönük takip. Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: 5 at (6. at 250 kombinasyonu aştığı için eklenmez).',0.05);
   s+=kupKart('Sıralı 5’li kupon',5,1.25,[150,190,400],5,'Birim 1,25 TL. Sırasız kombine 5 at = 120 komb. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.',0.01);
   s+=dkKart('Sıralı 5’li · değer kuponu',5,500,'Testte (T167) bu kupon: +%11 [−56; +100] (500 TL bütçeyle +%31), kâr kanıtlanmadı, çok oynak. Birim 1,25 TL, bütçe ≤500 TL. Tahmini getiri havuz paylaşımını içermez.');
+  s+=`<div class="card" id="dgKart" style="border-left:4px solid #15803d"><b>İleriye dönük kâğıt kaydı · değer kuponları (gölge)</b><div class="sub" id="dgIc">Yükleniyor…</div></div>`;
   s+=`<div class="card" id="ucDegerKart"><b>İleriye dönük takip: değer odaklı vs kapsama (sıralı üçlü)</b><div class="sub" id="ucDegerIc">Yükleniyor…</div></div>`;
   s+=atlarJ;
-  el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; ucDegerYukle();
+  el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; ucDegerYukle(); dgYukle();
+}
+async function dgYukle(){ const el=$('dgIc'); if(!el) return;
+  try{ const d=await getJSON('data/deger_golge.json'); const T=d.toplam||[], f=x=>x==null?'–':String(x).replace('.',',');
+    el.innerHTML=T.length?`<div style="margin:2px 0 4px">${esc(d.baslangic)} tarihinden beri · ${d.gun} gün</div><table class="t" style="margin-top:4px"><tr><th>Kupon</th><th class="n">Koşu</th><th class="n">Tuttu</th><th class="n">Harcanan</th><th class="n">Kazanç</th><th class="n">Geri dönüş</th></tr>${T.map(t=>`<tr><td>${esc(t.ad)}</td><td class="n">${t.kosu}</td><td class="n">${t.isabet}${t.devir?' ('+t.devir+' devir)':''}</td><td class="n">${f(t.harcama)}</td><td class="n">${f(t.kazanc)}</td><td class="n">${t.geri_donus==null?'–':'×'+f(t.geri_donus)}</td></tr>`).join('')}</table><div style="margin-top:4px;font-size:11px">${esc(d.not||'')} Az koşuda sonuç gürültüdür.</div>`:'Henüz sonuçlanmış koşu yok (kayıt 7 Kasım 2026 başladı).';
+  }catch(e){ el.textContent='Henüz veri yok (kayıt 7 Kasım 2026 başladı, ilk koşular bitince dolacak).'; }
 }
 async function ucDegerYukle(){ const el=$('ucDegerIc'); if(!el) return;
   try{ const d=await getJSON('data/uc_deger.json'); const T=d.toplam||[], f=x=>x==null?'–':String(x).replace('.',',');

@@ -743,6 +743,11 @@ def hizli(t):
         except Exception as e:
             print("uc_deger (hızlı) hatası:", repr(e))
         try:
+            from . import deger_golge as _DG
+            _DG.guncelle(c)          # 7 Kas 2026: Canlı değer kuponları (gölge) — koşu öncesi dondur, sonuç gelince değerlendir
+        except Exception as e:
+            print("deger_golge (hızlı) hatası:", repr(e))
+        try:
             from . import egzotik as _EG
             print("geç tabela:", TB.gec_guncelle(c), "geç egzotik:", _EG.gec_guncelle(c))
         except Exception as e:
@@ -1019,6 +1024,11 @@ def canli(t):
         UD.guncelle(obj)             # T25: sıralı üçlü değer odaklı vs kapsama (ileriye dönük gölge; yarışa son 15 dk'daki canlı muhtemel ile dondurulur)
     except Exception as e:
         print("uc_deger hatası:", repr(e))
+    try:
+        from . import deger_golge as _DG
+        _DG.guncelle(obj)
+    except Exception as e:
+        print("deger_golge hatası:", repr(e))
     try:
         ES.guncelle(obj)
     except Exception as e:
