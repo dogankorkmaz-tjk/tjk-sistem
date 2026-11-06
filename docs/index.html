@@ -1404,6 +1404,32 @@ const CB={si:{taban:0.753,C:[0.441,0.397,0.716]},ik:{taban:0.729,C:[0.570,0.442,
 function plOlas(W,T,sira){ let pr=1,den=0; const kul=[]; for(let k=0;k<sira.length;k++){ den=T[k]; for(const u of kul) den-=W[k][u]; if(den<=1e-12) return 0; pr*=W[k][sira[k]]/den; kul.push(sira[k]); } return pr; }
 function permler(a){ if(a.length<=1) return [a]; const o=[]; a.forEach((x,i)=>permler(a.filter((_,j)=>j!==i)).forEach(r=>o.push([x,...r]))); return o; }
 function kombler(a,n){ if(n===0) return [[]]; const o=[]; for(let i=0;i<=a.length-n;i++) kombler(a.slice(i+1),n-1).forEach(r=>o.push([a[i],...r])); return o; }
+// 7 Kas 2026 — değer bahisleri (gölge): T163 ikili kuralı, T166/T167 virgüllü değer kuponu, T168 kapanış kayması
+let FM=null; (async()=>{ try{ FM=await getJSON('data/fiyat_modeli.json'); }catch(e){ FM=null; } })();
+const DK_MEMO=new Map();
+function degerKupon(p,qd,K,gm,GP,th,B){
+  if(!FM||!FM[K]||p.length<K+2) return null; const fm=FM[K], kay=FM.kayma||1, bi=fm.birim;
+  const mk=K+'|'+th+'|'+B+'|'+p.map(v=>v.toFixed(4)).join(',')+'|'+qd.map(v=>v.toFixed(4)).join(','); if(DK_MEMO.has(mk)) return DK_MEMO.get(mk);
+  const cand=p.map((v,j)=>j).sort((a,b)=>p[b]-p[a]).slice(0,9);
+  const W=gm.slice(0,K).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
+  const QW=GP.slice(0,K).map(g=>qd.map(v=>Math.pow(Math.max(v,1e-9),g))), QT=QW.map(w=>w.reduce((a,b)=>a+b,0));
+  const P=[]; (function rec(cur){ if(cur.length===K){ P.push(cur.slice()); return; } for(const c of cand){ if(cur.indexOf(c)<0){ cur.push(c); rec(cur); cur.pop(); } } })([]);
+  const N=P.length, oran=new Float64Array(N), ev=new Float64Array(N), pmA=new Float64Array(N);
+  let bst=-1;
+  for(let i=0;i<N;i++){ const pm=Math.max(plOlas(W,T,P[i]),1e-15), pq=Math.max(plOlas(QW,QT,P[i]),1e-15);
+    const oh=Math.exp(fm.b[0]+fm.b[1]*Math.log(1/pq)+fm.b[2]*Math.log(pm/pq)+fm.s2/2)*kay; pmA[i]=pm; ev[i]=pm*oh; oran[i]=pm*oh/bi; if(bst<0||oran[i]>oran[bst]) bst=i; }
+  const nDeger=oran.reduce((a,v)=>a+(v>=th?1:0),0);
+  if(oran[bst]<th){ const r={yok:true,nDeger}; DK_MEMO.set(mk,r); return r; }
+  const S=Array.from({length:K},(_,k)=>new Set([P[bst][k]])), miss=new Int8Array(N);
+  for(let i=0;i<N;i++){ let m=0; for(let k=0;k<K;k++) if(!S[k].has(P[i][k])) m++; miss[i]=m; }
+  let cnt=1;
+  for(let it=0;it<400;it++){ const D=Array.from({length:K},()=>new Map());
+    for(let i=0;i<N;i++){ if(miss[i]!==1) continue; let k=0; while(S[k].has(P[i][k])) k++; const h=P[i][k], e=D[k].get(h)||{d:0,c:0}; e.d+=oran[i]-th; e.c++; D[k].set(h,e); }
+    let sec=null; D.forEach((M,k)=>M.forEach((e,h)=>{ if(e.d>0&&(cnt+e.c)*bi<=B&&(!sec||e.d>sec.d)) sec={k,h,d:e.d,c:e.c}; }));
+    if(!sec) break; S[sec.k].add(sec.h); cnt+=sec.c; for(let i=0;i<N;i++) if(P[i][sec.k]===sec.h) miss[i]--; }
+  let evT=0,pT=0,dIn=0; for(let i=0;i<N;i++) if(miss[i]===0){ evT+=ev[i]; pT+=pmA[i]; if(oran[i]>=th) dIn++; }
+  const cost=cnt*bi, misli=cost<20?Math.ceil(20/cost):1;
+  const r={sets:S.map(x=>[...x].sort((a,b)=>p[b]-p[a])),n:cnt,cost,misli,toplam:cost*misli,beklenen:evT/cost-1,tutma:pT,nDeger,dIn}; DK_MEMO.set(mk,r); return r; }
 function canliCiz(){
   const el=$('canliIc'); if(!el||!VERI) return;
   const sig=s=>1/(1+Math.exp(-s));
@@ -1442,8 +1468,22 @@ function canliCiz(){
   const havVar=((L.hv||{}).si||[]).length>0;
   s+=`<div class="card yk"><div class="ykbas"><div class="ykno"><small>Koşu</small><b>${k.kosu}</b></div><div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat)} · güncelleme ${esc(L.t||'')} · ${esc(String(L.durum||'').toLocaleLowerCase('tr'))}</span>${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}</div></div><div class="sub">Model: ${gYok?'<b>Benter puanı bu koşu için henüz hesaplanmadı</b>, sıralı kuponlar o gelince çıkar; ganyan listesi Jason':'sıralı bahisler Benter, ganyan listesi Jason'} olasılıkları, canlı ganyanla her 10 sn yenilenir. Bilgi amaçlıdır, bahis tavsiyesi değildir; hiçbir kural henüz kâr kanıtlamadı.</div></div>`;
   if(gYok){ s+=atlarJ; el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; return; }
-  s+=kart('Sıralı ikili (1.→2.)','Havuzdaki canlı ödeme (1 TL başına) + model×havuz birleşimi (T22, yaklaşık). Sıralama birleşik olasılığa göre. Gri EV (olasılık × ödeme) yalnız bilgi: kâr kanıtı yok.',havVar?satir(havuzSatir('si',true),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
-  s+=kart('Sırasız ikili (ilk 2, sırasız)','Aynı yöntem, “İKİLİ” havuzu.',((L.hv||{}).ik||[]).length?satir(havuzSatir('ik',false),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
+  // değer bahisleri (gölge, T163 kuralı + T168 kayma): listelenen her kombinasyon için Benter p × canlı oran × 0,96 ≥ 1,2
+  const KAY=(FM&&FM.kayma)||0.96;
+  const degerIk=(tur,sirali)=>{ const L2=((L.hv||{})[tur]||[]), dg=[];
+    L2.forEach(([a,b,G])=>{ const ja=noj[a], jb=noj[b]; if(ja==null||jb==null||!(G>1)) return; const mp=sirali?plOlas(W,T,[ja,jb]):plOlas(W,T,[ja,jb])+plOlas(W,T,[jb,ja]); const e=mp*G*KAY; if(e>=1.2) dg.push({ja,jb,G,mp,e}); });
+    if(!L2.length) return ''; dg.sort((x,y)=>y.e-x.e);
+    if(!dg.length) return `<div class="deger" style="border:1px dashed var(--line);border-radius:8px;padding:6px 8px;margin-bottom:6px"><b>Değer bahsi (gölge):</b> <span class="sub">bu koşuda yok — hiçbir kombinasyon eşiği (model × oran × 0,96 ≥ 1,2) geçmiyor.</span></div>`;
+    const tl=Math.max(1,Math.ceil(20/dg.length)), top=tl*dg.length;
+    return `<div class="deger" style="border:1px solid #15803d;border-radius:8px;padding:6px 8px;margin-bottom:6px;background:rgba(21,128,61,.06)"><b style="color:#15803d">Değer bahsi (gölge)</b> <span class="sub">· ${dg.length} kombinasyon · her birine <b>${tl} TL</b> · toplam <b>${top} TL</b></span>${dg.map(x=>`<div style="display:flex;align-items:center;gap:6px;margin-top:4px">${rozet([x.ja,x.jb],sirali)}<span class="sub">oran ${f2(x.G)} · model %${(x.mp*100).toFixed(1).replace('.',',')} · beklenen ×${f2(x.e)}</span></div>`).join('')}<div class="sub" style="margin-top:4px;font-size:11px">Kural T163 (geçmiş: sıralı ikili +%7,7, ikili +%6,3; kâr kanıtlanmadı). Oran yarış öncesine göre ~%4 düşük alınır (T168). Her gün kâğıt üstünde kaydedilir.</div></div>`; };
+  const dkKart=(baslik,K,Bt,not)=>{ const qn=ppAll.map(v=>Math.max(v||0,1e-9)), qs=qn.reduce((a,b)=>a+b,0), qd=qn.map(v=>v/qs), r=degerKupon(p,qd,K,a5,GP,1.2,Bt);
+    let g; if(!FM) g='<div class="sub">Fiyat modeli yüklenemedi.</div>'; else if(!r) g='<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>';
+    else if(r.yok) g='<div class="sub">Bu koşuda değer kuponu yok — hiçbir kombinasyon eşiği (tahmini ödeme × model ≥ 1,2 × birim) geçmiyor.</div>';
+    else { const chip=j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`;
+      g=`<div style="padding:4px 0"><div><b>${r.n} komb. · ${f2(r.cost)} TL</b>${r.misli>1?` · <b>${r.misli} misli = ${f2(r.toplam)} TL</b> (20 TL alt sınırı)`:''}</div><div class="sub">Tahmini beklenen getiri ${r.beklenen>=0?'+':''}%${(r.beklenen*100).toFixed(0)} · tutma %${(r.tutma*100).toFixed(r.tutma<0.1?2:1).replace('.',',')} · değerli kombinasyonların ${r.dIn}/${r.nDeger}'i kuponda</div>`+r.sets.map((x,q)=>`<div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:34px">${q+1}. at</span>${x.map(chip).join('')}</div>`).join('')+'</div>'; }
+    return `<div class="card" style="border-left:4px solid #15803d"><b>${baslik}</b> <span class="sub" style="color:#15803d;font-weight:600">GÖLGE · DENEYSEL</span><div class="sub" style="margin:2px 0 6px">${not}</div>${g}</div>`; };
+  s+=kart('Sıralı ikili (1.→2.)','Havuzdaki canlı ödeme (1 TL başına) + model×havuz birleşimi (T22, yaklaşık). Sıralama birleşik olasılığa göre. Gri EV (olasılık × ödeme) yalnız bilgi: kâr kanıtı yok.',havVar?degerIk('si',true)+satir(havuzSatir('si',true),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
+  s+=kart('Sırasız ikili (ilk 2, sırasız)','Aynı yöntem, “İKİLİ” havuzu.',((L.hv||{}).ik||[]).length?degerIk('ik',false)+satir(havuzSatir('ik',false),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
   // kombine kuponlar: her sıraya birden fazla at; bütçeye göre genişletilir (besliKupon), tutma olasılığı model ve piyasa için
   const ppAll=idxs.map(i=>hs.map[i].pp), GP=G5_P;
   const kupSatir=(sets,L,birim,etiket)=>{ const n=kombSay(sets), pW=a5.slice(0,L).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), pT=pW.map(w=>w.reduce((a,b)=>a+b,0));
@@ -1474,8 +1514,10 @@ function canliCiz(){
     else g='<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>';
     s+=kart('Sıralı üçlü · değer odaklı kupon (ayrı)','Model 4 atı yalnız tutma olasılığına değil “olasılık / piyasa fiyatı”na bakarak seçer: favorileri bırakmadan piyasadan değerli gördüğü atlar öne çıkar. Geçmişte (1.429 koşu) kapsama kuponundan +0,06–0,10 ROI (T24); yine de ROI 1’in altında, kâr kanıtı yok.',g);
   }
-  s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[150],5,'Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: 5 at (6. at 250 kombinasyonu aştığı için eklenmez).',0.05);
+  s+=dkKart('Sıralı üçlü · değer kuponu',3,500,'Testte (T167) geçmiş koşularda bayide oynanabilir bu kupon: +%17 [−26; +66], kâr kanıtlanmadı. Birim 2 TL, bütçe ≤500 TL. Tahmini getiri havuz paylaşımını içermez. Her gün kâğıt üstünde kaydedilir.');
+  s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[150],5,'⚠ Testte zararlı (T166: −%95) — yalnız ileriye dönük takip. Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: 5 at (6. at 250 kombinasyonu aştığı için eklenmez).',0.05);
   s+=kupKart('Sıralı 5’li kupon',5,1.25,[150,190,400],5,'Birim 1,25 TL. Sırasız kombine 5 at = 120 komb. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.',0.01);
+  s+=dkKart('Sıralı 5’li · değer kuponu',5,500,'Testte (T167) bu kupon: +%11 [−56; +100] (500 TL bütçeyle +%31), kâr kanıtlanmadı, çok oynak. Birim 1,25 TL, bütçe ≤500 TL. Tahmini getiri havuz paylaşımını içermez.');
   s+=`<div class="card" id="ucDegerKart"><b>İleriye dönük takip: değer odaklı vs kapsama (sıralı üçlü)</b><div class="sub" id="ucDegerIc">Yükleniyor…</div></div>`;
   s+=atlarJ;
   el.innerHTML=s; $('canliSel').onchange=e=>{CANLI_SEC=e.target.value;canliCiz();}; ucDegerYukle();
