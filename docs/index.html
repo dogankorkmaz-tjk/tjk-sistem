@@ -1407,9 +1407,9 @@ function kombler(a,n){ if(n===0) return [[]]; const o=[]; for(let i=0;i<=a.lengt
 // 7 Kas 2026 — değer bahisleri (gölge): T163 ikili kuralı, T166/T167 virgüllü değer kuponu, T168 kapanış kayması
 let FM=null; (async()=>{ try{ FM=await getJSON('data/fiyat_modeli.json'); }catch(e){ FM=null; } })();
 const DK_MEMO=new Map();
-function degerKupon(p,qd,K,gm,GP,th,B){
+function degerKupon(p,qd,K,gm,GP,th,B,kip){
   if(!FM||!FM[K]||p.length<K+2) return null; const fm=FM[K], kay=FM.kayma||1, bi=fm.birim;
-  const mk=K+'|'+th+'|'+B+'|'+p.map(v=>v.toFixed(4)).join(',')+'|'+qd.map(v=>v.toFixed(4)).join(','); if(DK_MEMO.has(mk)) return DK_MEMO.get(mk);
+  const mk=(kip||'v')+'|'+K+'|'+th+'|'+B+'|'+p.map(v=>v.toFixed(4)).join(',')+'|'+qd.map(v=>v.toFixed(4)).join(','); if(DK_MEMO.has(mk)) return DK_MEMO.get(mk);
   const cand=p.map((v,j)=>j).sort((a,b)=>p[b]-p[a]).slice(0,9);
   const W=gm.slice(0,K).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
   const QW=GP.slice(0,K).map(g=>qd.map(v=>Math.pow(Math.max(v,1e-9),g))), QT=QW.map(w=>w.reduce((a,b)=>a+b,0));
@@ -1420,6 +1420,16 @@ function degerKupon(p,qd,K,gm,GP,th,B){
     const oh=Math.exp(fm.b[0]+fm.b[1]*Math.log(1/pq)+fm.b[2]*Math.log(pm/pq)+fm.s2/2)*kay; pmA[i]=pm; ev[i]=pm*oh; oran[i]=pm*oh/bi; if(bst<0||oran[i]>oran[bst]) bst=i; }
   const nDeger=oran.reduce((a,v)=>a+(v>=th?1:0),0);
   if(oran[bst]<th){ const r={yok:true,nDeger}; DK_MEMO.set(mk,r); return r; }
+  if(kip==='kombine'){   // T170: n at yazılır, tüm sıralar; her adımda Σ(oran−eşik)'i en çok artıran at
+    const mem=new Set(P[bst]), dis=new Int8Array(N); for(let i=0;i<N;i++){ let m=0; for(let k=0;k<K;k++) if(!mem.has(P[i][k])) m++; dis[i]=m; }
+    let cnt=0; for(let i=0;i<N;i++) if(dis[i]===0) cnt++;   // başlangıç atlarının tüm sıraları (K!)
+    for(let it=0;it<20;it++){ const D=new Map();
+      for(let i=0;i<N;i++){ if(dis[i]!==1) continue; let h=-1; for(let k=0;k<K;k++) if(!mem.has(P[i][k])){ h=P[i][k]; break; } const e=D.get(h)||{d:0,c:0}; e.d+=oran[i]-th; e.c++; D.set(h,e); }
+      let sec=null; D.forEach((e,h)=>{ if(e.d>0&&(cnt+e.c)*bi<=B&&(!sec||e.d>sec.d)) sec={h,d:e.d,c:e.c}; });
+      if(!sec) break; mem.add(sec.h); cnt+=sec.c; for(let i=0;i<N;i++){ for(let k=0;k<K;k++) if(P[i][k]===sec.h){ dis[i]--; break; } } }
+    let evT=0,pT=0,dIn=0; for(let i=0;i<N;i++) if(dis[i]===0){ evT+=ev[i]; pT+=pmA[i]; if(oran[i]>=th) dIn++; }
+    const cost=cnt*bi, misli=cost<20?Math.ceil(20/cost):1;
+    const r={kombine:true,atlar:[...mem].sort((a,b)=>p[b]-p[a]),n:cnt,cost,misli,toplam:cost*misli,beklenen:evT/cost-1,tutma:pT,nDeger,dIn}; DK_MEMO.set(mk,r); return r; }
   const S=Array.from({length:K},(_,k)=>new Set([P[bst][k]])), miss=new Int8Array(N);
   for(let i=0;i<N;i++){ let m=0; for(let k=0;k<K;k++) if(!S[k].has(P[i][k])) m++; miss[i]=m; }
   let cnt=1;
@@ -1497,11 +1507,17 @@ function canliCiz(){
     if(sirali) g+=satir('Virgüllü: '+srt(A).map(no).join(',')+' / '+srt(Bs).map(no).join(','),`<div style="display:flex;align-items:center;gap:6px;margin-top:4px"><span class="sub" style="width:44px">1. at</span>${chips(A)}</div><div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:44px">2. at</span>${chips(Bs)}</div>`,cV(A,Bs).length);
     g+=satir('Kombine: '+srt(K1).map(no).join(','),`<div style="display:flex;align-items:center;gap:6px;margin-top:4px"><span class="sub" style="width:44px">Atlar</span>${chips(K1)}</div>`,cK(K1).length);
     return kutu(`<b style="color:#15803d">Değer kuponu (gölge)</b>${g}<div class="sub" style="margin-top:4px;font-size:11px">Geçmiş ~5.000 koşu: ${sirali?'kombine +%20 [+3; +38], virgüllü +%15 [−1; +31] (T169-B)':'kombine +%17 [−2; +37]'}; ${sirali?'kural sonuçlara bakılarak adım adım seçildi, ileriye dönük doğrulanmalı':'kâr kanıtlanmadı'}. Oran yarış öncesine göre ~%4 düşük alınır (T168). Her gün kâğıt üstünde kaydedilir.</div>`,true); };
-  const dkKart=(baslik,K,Bt,not)=>{ const qn=ppAll.map(v=>Math.max(v||0,1e-9)), qs=qn.reduce((a,b)=>a+b,0), qd=qn.map(v=>v/qs), r=degerKupon(p,qd,K,a5,GP,1.2,Bt);
-    let g; if(!FM) g='<div class="sub">Fiyat modeli yüklenemedi.</div>'; else if(!r) g='<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>';
-    else if(r.yok) g='<div class="sub">Bu koşuda değer kuponu yok — hiçbir kombinasyon eşiği (tahmini ödeme × model ≥ 1,2 × birim) geçmiyor.</div>';
-    else { const chip=j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`;
-      g=`<div style="padding:4px 0"><div><b>${r.n} komb. · ${f2(r.cost)} TL</b>${r.misli>1?` · <b>${r.misli} misli = ${f2(r.toplam)} TL</b> (20 TL alt sınırı)`:''}</div><div class="sub">Tahmini beklenen getiri ${r.beklenen>=0?'+':''}%${(r.beklenen*100).toFixed(0)} · tutma %${(r.tutma*100).toFixed(r.tutma<0.1?2:1).replace('.',',')} · değerli kombinasyonların ${r.dIn}/${r.nDeger}'i kuponda</div>`+r.sets.map((x,q)=>`<div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:34px">${q+1}. at</span>${x.map(chip).join('')}</div>`).join('')+'</div>'; }
+  const dkKart=(baslik,K,Bt,not,kombineDe)=>{ const qn=ppAll.map(v=>Math.max(v||0,1e-9)), qs=qn.reduce((a,b)=>a+b,0), qd=qn.map(v=>v/qs);
+    const chip=j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`;
+    const tut=r=>`${r.n} komb. · ${f2(r.cost)} TL${r.misli>1?` · ${r.misli} misli = ${f2(r.toplam)} TL`:''}`;
+    const alt=r=>`<div class="sub">Tahmini beklenen getiri ${r.beklenen>=0?'+':''}%${(r.beklenen*100).toFixed(0)} · tutma %${(r.tutma*100).toFixed(r.tutma<0.1?2:1).replace('.',',')}</div>`;
+    let g='';
+    if(!FM) g='<div class="sub">Fiyat modeli yüklenemedi.</div>';
+    else { const r=degerKupon(p,qd,K,a5,GP,1.2,Bt);
+      if(!r) g='<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>';
+      else if(r.yok) g='<div class="sub">Bu koşuda değer kuponu yok — hiçbir kombinasyon eşiği geçmiyor.</div>';
+      else { g+=`<div style="padding:4px 0"><div><b>Virgüllü: ${r.sets.map(x=>x.map(no).join(',')).join(' / ')}</b> <span class="sub">· ${tut(r)}</span></div>${alt(r)}`+r.sets.map((x,q)=>`<div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:34px">${q+1}. at</span>${x.map(chip).join('')}</div>`).join('')+'</div>';
+        if(kombineDe){ const rk=degerKupon(p,qd,K,a5,GP,1.2,Bt,'kombine'); if(rk&&!rk.yok) g+=`<div style="border-top:1px solid var(--line);padding:6px 0"><div><b>Kombine: ${rk.atlar.map(no).join(',')}</b> <span class="sub">· ${tut(rk)}</span></div>${alt(rk)}<div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:34px">Atlar</span>${rk.atlar.map(chip).join('')}</div></div>`; } } }
     return `<div class="card" style="border-left:4px solid #15803d"><b>${baslik}</b> <span class="sub" style="color:#15803d;font-weight:600">GÖLGE · DENEYSEL</span><div class="sub" style="margin:2px 0 6px">${not}</div>${g}</div>`; };
   s+=kart('Sıralı ikili (1.→2.)','Havuzdaki canlı ödeme (1 TL başına) + model×havuz birleşimi (T22, yaklaşık). Sıralama birleşik olasılığa göre. Gri EV (olasılık × ödeme) yalnız bilgi: kâr kanıtı yok.',havVar?degerIk('si',true)+satir(havuzSatir('si',true),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
   s+=kart('Sırasız ikili (ilk 2, sırasız)','Aynı yöntem, “İKİLİ” havuzu.',((L.hv||{}).ik||[]).length?degerIk('ik',false)+satir(havuzSatir('ik',false),true):'<div class="sub">Havuz verisi henüz gelmedi.</div>');
@@ -1535,10 +1551,10 @@ function canliCiz(){
     else g='<div class="sub">Bu koşuda kupon çıkarılamadı (at sayısı az).</div>';
     s+=kart('Sıralı üçlü · değer odaklı kupon (ayrı)','Model 4 atı yalnız tutma olasılığına değil “olasılık / piyasa fiyatı”na bakarak seçer: favorileri bırakmadan piyasadan değerli gördüğü atlar öne çıkar. Geçmişte (1.429 koşu) kapsama kuponundan +0,06–0,10 ROI (T24); yine de ROI 1’in altında, kâr kanıtı yok.',g);
   }
-  s+=dkKart('Sıralı üçlü · değer kuponu',3,500,'Testte (T167) geçmiş koşularda bayide oynanabilir bu kupon: +%17 [−26; +66], kâr kanıtlanmadı. Birim 2 TL, bütçe ≤500 TL. Tahmini getiri havuz paylaşımını içermez. Her gün kâğıt üstünde kaydedilir.');
+  s+=dkKart('Sıralı üçlü · değer kuponu',3,500,'Geçmiş koşularda (havuz paylaşımı dahil): virgüllü +%17 [−26; +66] (T167), kombine +%18 [−25; +69] (T170); kâr kanıtlanmadı. Birim 2 TL, bütçe ≤500 TL. Tahmini getiri havuz paylaşımını içermez. Her gün kâğıt üstünde kaydedilir.',true);
   s+=kupKart('Tabela kupon (ilk 4)',4,1.5,[150],5,'⚠ Testte zararlı (T166: −%95) — yalnız ileriye dönük takip. Birim 1,5 TL. Sıralı: sıra başına çok at. Sırasız kombine: 5 at (6. at 250 kombinasyonu aştığı için eklenmez).',0.05);
   s+=kupKart('Sıralı 5’li kupon',5,1.25,[150,190,400],5,'Birim 1,25 TL. Sırasız kombine 5 at = 120 komb. Tutma olasılığı küçüktür; “piyasa” = aynı kuponun piyasa ganyanına göre olasılığı.',0.01);
-  s+=dkKart('Sıralı 5’li · değer kuponu',5,500,'Testte (T167) bu kupon: +%11 [−56; +100] (500 TL bütçeyle +%31), kâr kanıtlanmadı, çok oynak. Birim 1,25 TL, bütçe ≤500 TL. Tahmini getiri havuz paylaşımını içermez.');
+  s+=dkKart('Sıralı 5’li · değer kuponu',5,500,'Geçmiş koşularda (havuz paylaşımı dahil, 500 TL bütçe): virgüllü +%31 [−43; +131] (T167), kombine +%126 [−21; +315] (T170; yalnız 16 isabet, çok oynak); kâr kanıtlanmadı. Birim 1,25 TL. Tahmini getiri havuz paylaşımını içermez.',true);
   s+=`<div class="card" id="dgKart" style="border-left:4px solid #15803d"><b>İleriye dönük kâğıt kaydı · değer kuponları (gölge)</b><div class="sub" id="dgIc">Yükleniyor…</div></div>`;
   s+=`<div class="card" id="ucDegerKart"><b>İleriye dönük takip: değer odaklı vs kapsama (sıralı üçlü)</b><div class="sub" id="ucDegerIc">Yükleniyor…</div></div>`;
   s+=atlarJ;

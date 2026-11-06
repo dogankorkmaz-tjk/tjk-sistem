@@ -2,7 +2,7 @@
 Koşu başlamadan önceki son 15 dk'da, en son AÇIK canlı muhtemelle (ganyan + kapanış öncesi son ikili/sıralı ikili listesi 'havuz_acik')
 Canlı sekmesindeki kurallarla kuponlar kurulur ve koşu başlayınca donar; koşu bitince resmî ödemelerle (data/odeme) değerlendirilir.
 Kuponlar: sıralı ikili virgüllü + kombine (liste dışı çift = model × listedeki en yüksek oran, T169-B), ikili kombine (liste dışı 0,75, T169),
-üçlü / tabela / sıralı 5'li virgüllü değer kuponu (T167 kurucusu, fiyat modeli docs/data/fiyat_modeli.json, bütçe 500 TL).
+üçlü / tabela / sıralı 5'li virgüllü değer kuponu + üçlü/5'li kombine (T167/T170 kurucuları, fiyat modeli docs/data/fiyat_modeli.json, bütçe 500 TL).
 Ortak: eşik 1,2; canlı oran × 0,96 (T168); kupon < 20 TL → misli. Çıktılar: data/deger_golge/<gün>.json, docs/data/deger_golge.json.
 Tarayıcıdan küçük farklar: piyasa olasılığı ekürisiz 1/oran normalizasyonu (uc_deger ile aynı); eşitlikte seçim sırası farklı olabilir."""
 import os, json, glob, math, itertools
@@ -133,10 +133,39 @@ def _deger(nos, p, qd, a5, K, fm, B=500.0):
             "tahmini_ev": round(float((pm[m] * oh[m]).sum() / (n * bi)), 3)}
 
 
+def _kombine(nos, p, qd, a5, K, fm, B=500.0):
+    """Canlı degerKupon(kip='kombine') — T170: n at, tüm sıralar."""
+    f = (fm or {}).get(str(K))
+    if not f or len(nos) < K + 2:
+        return None
+    bi = f["birim"]; cand = list(np.argsort(-p)[:9])
+    P = np.array(list(itertools.permutations(cand, K)))
+    pm = np.maximum(_pl_vec(P, p, a5, K), 1e-15); pq = np.maximum(_pl_vec(P, qd, GP, K), 1e-15)
+    oh = np.exp(f["b"][0] + f["b"][1] * np.log(1 / pq) + f["b"][2] * np.log(pm / pq) + f["s2"] / 2) * (fm.get("kayma") or 1.0)
+    oran = pm * oh / bi; b = int(np.argmax(oran))
+    if oran[b] < TH:
+        return None
+    mem = np.zeros(len(p), bool); mem[P[b]] = True; cur = mem[P].all(1)
+    while True:
+        sec = None
+        for h in cand:
+            if mem[h]: continue
+            m2 = mem.copy(); m2[h] = True; nw = m2[P].all(1); yeni = nw & ~cur
+            if nw.sum() * bi > B or not yeni.any(): continue
+            d = (oran[yeni] - TH).sum()
+            if d > 0 and (sec is None or d > sec[0]): sec = (d, h, nw)
+        if sec is None: break
+        mem[sec[1]] = True; cur = sec[2]
+    n = int(cur.sum()); at = sorted(np.where(mem)[0], key=lambda i: -p[i])
+    return {"tur": f"kombine{K}", "atlar": [int(nos[i]) for i in at], "n": n, "misli": _misli(n, bi), "tahmini_ev": round(float((pm[cur] * oh[cur]).sum() / (n * bi)), 3)}
+
+
 def _kombolar(q):
     t = q["tur"]
     if t == "si_kombine":
         return {c for c in itertools.permutations(q["atlar"], 2)}
+    if t.startswith("kombine"):
+        return {c for c in itertools.permutations(q["atlar"], int(t[-1]))}
     if t == "ik_kombine":
         return {tuple(sorted(c)) for c in itertools.combinations(q["atlar"], 2)}
     return {c for c in itertools.product(*q["sets"]) if len(set(c)) == len(c)}
@@ -192,6 +221,12 @@ def guncelle(obj, simdi=None):
                                 except Exception as e:
                                     print("deger_golge", anahtar, K, repr(e)); q = None
                                 if q: kup.append(q)
+                                if K in (3, 5):          # T170: üçlü ve 5'li kombine
+                                    try:
+                                        q2 = _kombine(nos, p, qd, a5, K, fm)
+                                    except Exception as e:
+                                        print("deger_golge kombine", anahtar, K, repr(e)); q2 = None
+                                    if q2: kup.append(q2)
                             for q in kup:
                                 q["bedel"] = round(q["n"] * _birim(q) * q["misli"], 2)
                             kay[anahtar] = c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "goruntu": sn[-1]["t"],
@@ -226,7 +261,7 @@ def guncelle(obj, simdi=None):
 
 
 ADLAR = {"si_virgul": "Sıralı ikili · virgüllü", "si_kombine": "Sıralı ikili · kombine", "ik_kombine": "İkili · kombine",
-         "deger3": "Sıralı üçlü · değer", "deger4": "Tabela · değer", "deger5": "Sıralı 5'li · değer"}
+         "deger3": "Sıralı üçlü · virgüllü", "kombine3": "Sıralı üçlü · kombine", "deger4": "Tabela · virgüllü", "deger5": "Sıralı 5'li · virgüllü", "kombine5": "Sıralı 5'li · kombine"}
 
 
 def ozet_yaz():

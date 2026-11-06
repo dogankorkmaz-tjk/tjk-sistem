@@ -1,0 +1,35 @@
+5'li kendi havuz medyanı: {'adana': 213245, 'ankara': 213245, 'antalya': 89408, 'bursa': 88203, 'diyarbakir': 169635, 'elazig': 281759, 'istanbul': 419943, 'izmir': 307102, 'kocaeli': 213245, 'sanliurfa': 118601} | grup {True: 213245, False: 150967}
+2025-10 tamam
+2025-11 tamam
+2025-12 tamam
+2026-01 tamam
+2026-02 tamam
+2026-03 tamam
+2026-04 tamam
+2026-05 tamam
+2026-06 tamam
+2026-07 tamam
+2026-08 tamam
+2026-09 tamam
+2026-10 tamam
+=== üçlü
+üçlü eşik 1.2 bütçe 1000: VİRGÜLLÜ +0.172 [-0.258; +0.661] (1475 koşu, ort 32 TL, 69 isabet) | KOMBİNE +0.176 [-0.253; +0.691] (1475 koşu, ort 35 TL, ort 13 komb, 96 isabet, dolgu %33) | FARK +0.004 [-0.342; +0.402]
+     kombine at sayısı dağılımı %: {3: 78.9, 4: 15.8, 5: 4.1, 6: 1.1, 7: 0.1}
+üçlü eşik 1.0 bütçe 1000: VİRGÜLLÜ +0.110 [-0.121; +0.340] (2656 koşu, ort 51 TL, 233 isabet) | KOMBİNE +0.072 [-0.127; +0.294] (2656 koşu, ort 54 TL, ort 23 komb, 267 isabet, dolgu %24) | FARK -0.038 [-0.244; +0.163]
+     kombine at sayısı dağılımı %: {3: 55.8, 4: 27.9, 5: 11.8, 6: 3.5, 7: 0.8, 8: 0.1}
+üçlü eşik 1.2 bütçe 500: VİRGÜLLÜ +0.172 [-0.183; +0.589] (1475 koşu, ort 32 TL, 69 isabet) | KOMBİNE +0.176 [-0.190; +0.578] (1475 koşu, ort 35 TL, ort 13 komb, 96 isabet, dolgu %33) | FARK +0.004 [-0.295; +0.314]
+     kombine at sayısı dağılımı %: {3: 78.9, 4: 15.8, 5: 4.1, 6: 1.1, 7: 0.1}
+=== tabela
+tabela eşik 1.2 bütçe 1000: VİRGÜLLÜ -1.000 [-1.000; -1.000] (193 koşu, ort 53 TL, 0 isabet) | KOMBİNE -1.000 [-1.000; -1.000] (193 koşu, ort 66 TL, ort 44 komb, 0 isabet, dolgu %45) | FARK +0.000 [+0.000; +0.000]
+     kombine at sayısı dağılımı %: {4: 89.6, 5: 6.2, 6: 4.1}
+tabela eşik 1.0 bütçe 1000: VİRGÜLLÜ -0.541 [-0.953; +0.127] (539 koşu, ort 80 TL, 7 isabet) | KOMBİNE -0.324 [-0.935; +0.649] (539 koşu, ort 88 TL, ort 59 komb, 7 isabet, dolgu %34) | FARK +0.217 [-0.720; +1.307]
+     kombine at sayısı dağılımı %: {4: 80.9, 5: 12.2, 6: 6.9}
+tabela eşik 1.2 bütçe 500: VİRGÜLLÜ -1.000 [-1.000; -1.000] (193 koşu, ort 53 TL, 0 isabet) | KOMBİNE -1.000 [-1.000; -1.000] (193 koşu, ort 51 TL, ort 34 komb, 0 isabet, dolgu %46) | FARK +0.000 [+0.000; +0.000]
+     kombine at sayısı dağılımı %: {4: 89.6, 5: 10.4}
+=== sıralı 5'li
+sıralı 5'li eşik 1.2 bütçe 1000: VİRGÜLLÜ +0.115 [-0.525; +1.013] (1309 koşu, ort 324 TL, 28 isabet) | KOMBİNE +0.719 [-0.286; +2.051] (1309 koşu, ort 377 TL, ort 302 komb, 30 isabet, dolgu %33) | FARK +0.604 [-0.569; +2.042]
+     kombine at sayısı dağılımı %: {5: 69.7, 6: 30.3}
+sıralı 5'li eşik 1.0 bütçe 1000: VİRGÜLLÜ +0.025 [-0.362; +0.522] (1470 koşu, ort 730 TL, 72 isabet) | KOMBİNE +0.300 [-0.176; +0.894] (1470 koşu, ort 713 TL, ort 571 komb, 71 isabet, dolgu %18) | FARK +0.275 [-0.396; +0.965]
+     kombine at sayısı dağılımı %: {5: 24.9, 6: 75.1}
+sıralı 5'li eşik 1.2 bütçe 500: VİRGÜLLÜ +0.314 [-0.428; +1.308] (1309 koşu, ort 229 TL, 23 isabet) | KOMBİNE +1.257 [-0.208; +3.154] (1309 koşu, ort 150 TL, ort 120 komb, 16 isabet, dolgu %40) | FARK +0.943 [-0.841; +3.011]
+     kombine at sayısı dağılımı %: {5: 100.0}

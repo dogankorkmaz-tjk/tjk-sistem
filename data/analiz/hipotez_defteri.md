@@ -2368,3 +2368,11 @@ BİRİNCİL (3 karşılaştırma → %98,33, eşleştirilmiş gün-küme bootstr
 Başlangıç 2026-11-07. Koşu başlamadan önceki son 15 dk'daki en son AÇIK canlı ganyan + kapanış öncesi son ikili/sıralı ikili listesi (havuz_acik) ile kurulur, koşu başlayınca donar; resmî ödeme × misli ile değerlendirilir (havuz paylaşımı dahil değil; DEVİR isabeti 0 TL + ayrıca sayılır).
 Kuponlar ve kurallar (Canlı ile aynı): sıralı ikili virgüllü + kombine (liste dışı çift = model × listedeki en yüksek oran, T169-B), ikili kombine (liste dışı 0,75, T169); üçlü / tabela / sıralı 5'li virgüllü değer kuponu (T167 kurucusu, fiyat modeli docs/data/fiyat_modeli.json, bütçe 500 TL); eşik 1,2; canlı oran × 0,96 (T168); <20 TL → misli. Model: üretim Benter (G1-S, z6b, w0_g1/lp2_g1).
 Değerlendirme: ilk 3 ay sonunda (≈ 2027-02) her kupon türü için ROI + gün-küme bootstrap %95, büyük ödemeler dahil; kural değişikliği ancak kullanıcı onayıyla ve ayrı kayıtla. Kapsama notu: geçmiş günlerde yurt içi koşuların ~%50–75'inde son 15 dk'da canlı görüntü var (toplayıcı sıklığı).
+## 2026-11-07 01:51 SONUÇ T170 (data/analiz/t170_kombine.py → t170_sonuc.txt)
+BİRİNCİL (eşik 1,2, bütçe 1.000 TL, %98,33, büyük ödemeler dahil, havuz paylaşımı dahil):
+  üçlü: virgüllü +0,172 [−0,258; +0,661] vs KOMBİNE +0,176 [−0,253; +0,691] (ort. 35 TL, 13 komb., 96 isabet; 3 at %79, 4 at %16); fark +0,004.
+  tabela: ikisi de −1,000 (193 koşu, 0 isabet).
+  sıralı 5'li: virgüllü +0,115 [−0,525; +1,013] vs KOMBİNE +0,719 [−0,286; +2,051] (ort. 377 TL, 302 komb., 30 isabet; 5 at %70, 6 at %30); fark +0,604 [−0,569; +2,042].
+Betimsel: 5'li bütçe 500 kombine +1,257 [−0,208; +3,154] (hep 5 at, 120 komb. = 150 TL, 16 isabet); eşik 1,0 kombine +0,300. Üçlü eşik 1,0 kombine +0,072 (virgüllüden −0,04). Tabela eşik 1,0 kombine −0,324.
+KARAR (ön kayıt): üçlü ve 5'li kombine ≥ virgüllü ve > 0 → Canlı'da kombine kupon da gösterilir (+ gölge kayıt); tabela → yalnız virgüllü kayıt (zararlı uyarısı). ÇEKİNCE: 5'li sonucu 16–30 isabete dayanıyor, aralıklar çok geniş; üçlüde fark sıfır. Kâr kanıtı yok.
+## 2026-11-07 01:51 — GÖLGE KAYIT EKİ (T170 kararı gereği, aynı gün, ilk koşulardan önce): deger_golge'ye üçlü ve sıralı 5'li KOMBİNE kupon eklendi (Canlı ile aynı kurucu, bütçe 500 TL); tabela yalnız virgüllü. Diğer kurallar değişmedi.
