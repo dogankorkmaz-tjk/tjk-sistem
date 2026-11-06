@@ -90,7 +90,7 @@ def kontrol(obj=None, bugun=None):
         _ekle(L, "gün dosyası", "uyari", repr(e)[:120])
     sira = {"ok": 0, "uyari": 1, "hata": 2}
     genel = max((x["durum"] for x in L), key=lambda d: sira[d]) if L else "ok"
-    out = {"tarih": bugun, "zaman": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), "genel": genel, "kontroller": L}
+    out = {"tarih": bugun, "zaman": dt.datetime.now(dt.timezone(dt.timedelta(hours=3))).strftime("%Y-%m-%d %H:%M TR"), "genel": genel, "kontroller": L}
     try:
         os.makedirs(SITE, exist_ok=True); json.dump(out, open(os.path.join(SITE, "saglik.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     except Exception as e:
