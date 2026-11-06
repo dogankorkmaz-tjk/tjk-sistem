@@ -1,0 +1,9 @@
+pseudo-R²: Benter 0.1924, kalibre piyasa 0.1826, ham piyasa 0.1819
+AŞAMA 2 birleşik kazanç (Benter − kalibre piyasa, pseudo-R²): +0.0098 [+0.0065; +0.0132]  | Benter 1994: +0,0090 (9 faktör, OOS), +0,0178 (tam, örnek tipi belirsiz)
+  aynı aylar (2026-03..10) galopsuz: +0.0099 [+0.0055; +0.0144]
+  aynı aylar (2026-03..10) galoplu (üretim Benter v3): +0.0118 [+0.0069; +0.0164]
+  kazanan  Benter 1.8433 kalibre piyasa 1.8657 fark -0.0224
+  ikili    Benter 3.7021 kalibre piyasa 3.7666 fark -0.0645
+  üçlü     Benter 5.5123 kalibre piyasa 5.6250 fark -0.1127
+  ilk4     Benter 7.2287 kalibre piyasa 7.3828 fark -0.1541
+  ilk5     Benter 8.8023 kalibre piyasa 8.9893 fark -0.1869
