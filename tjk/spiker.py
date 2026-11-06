@@ -2,7 +2,8 @@
 Video listesi resmî atyarisi arşivinden (data/atyarisi/<gün>.json.gz → sonuc[].video). Video indirilir, ses çıkarılır, faster-whisper 'small'
 (CPU int8, Türkçe) ile yazıya dökülür, video silinir. Çıktı: data/spiker/<YYYY-MM>/<tarih>_<hip>_<koşu>.json.gz = {"model", "url", "sure", "seg": [[bas, son, metin], ...]}.
 Nezaket: indirmeler sırayla ve aralarında ≥2 sn; çalıştırma başına üst sınır (N).
-Kullanım: python3 -m tjk.spiker calis N   (önce dünün eksikleri, sonra arşivden en yeniden geriye; toplam en çok N video)
+Kullanım: python3 -m tjk.spiker calis N [PAY TOPLAM]   (önce dünün eksikleri, sonra arşivden en yeniden geriye; en çok N video;
+          PAY/TOPLAM: paralel işler listeyi paylaşır — iş PAY, sırası PAY mod TOPLAM olan videoları alır)
           python3 -m tjk.spiker gun YYYY-MM-DD"""
 import os, sys, json, gzip, glob, time, subprocess, tempfile, datetime as dt
 from multiprocessing import Pool
@@ -88,6 +89,7 @@ if __name__ == "__main__":
     else:
         N = int(sys.argv[2]); dun = (dt.date.today() - dt.timedelta(days=1)).isoformat()
         I = liste({dun}) + [x for x in liste() if x[0] != dun]
-        I = I[:N]
+        pay, top = (int(sys.argv[3]), int(sys.argv[4])) if len(sys.argv) > 4 else (0, 1)
+        I = I[pay::top][:N]
     t0 = time.time(); print("iş", len(I), flush=True)
     n = calis(I); print(f"tamam {n}/{len(I)} | {time.time() - t0:.0f} sn", flush=True)
