@@ -15,7 +15,9 @@ TUR = [
     ("dis_acilma", r"dışa açıl|dışı açıl|dışarı açıl|dışa doğru açıl|dışarıya açıl|geniş dön|dışa kaç|dışarı kaç"),
     ("dusme_tokezleme", r"tökezle|jokeyini düşür|jokey düş|eyer kay|sendele"),
     ("huysuz", r"huysuz|şahlan|dik dur|yüklenmek istemed"),
+    ("lehine", r"boşluk bul|yol açıl|yolu açıl|rakipsiz|zorlanmadan|rahat önde|rahat koş|kimse zorlamad|tek başına önde|baskısız"),   # T161 (6 Kasım 23:25): lehine akış
 ]
+SORUN = {"gec_cikis", "avantaj_kaybi", "sikisma", "dis_acilma", "dusme_tokezleme", "huysuz"}   # "lehine" sorun değildir
 TUR = [(a, re.compile(b, re.I)) for a, b in TUR]
 
 
@@ -95,7 +97,7 @@ def konum(seg, sure, gecerli=None):
         for s, t in _cumleler(seg):
             if not (a * sure <= s < b * sure): continue
             t = kucuk(t)
-            if any(rx.search(t) for _, rx in TUR): continue            # olay cümleleri (geç çıkış vb.) sıra anlatımı değildir
+            if any(rx.search(t) for a_, rx in TUR if a_ in SORUN): continue   # sorun cümleleri (geç çıkış vb.) sıra anlatımı değildir
             for p, n in anilanlar(t):
                 if (not gecerli or n in gecerli) and n not in sira: sira.append(n)
         for i, n in enumerate(sira, 1):

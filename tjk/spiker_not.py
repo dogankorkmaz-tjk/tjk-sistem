@@ -8,7 +8,7 @@ from . import ortak as O
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AD = {"gec_cikis": "geç çıktı", "avantaj_kaybi": "avantaj kaybetti", "sikisma": "sıkıştı/kapandı", "dis_acilma": "dışa açıldı",
-      "dusme_tokezleme": "tökezledi/düştü", "huysuz": "huysuzlandı"}
+      "dusme_tokezleme": "tökezledi/düştü", "huysuz": "huysuzlandı", "lehine": "koşu lehine aktı"}
 
 
 def _transkript(t, hip, k):
