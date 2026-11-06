@@ -1,0 +1,3296 @@
+{
+ "aciklama": "Video pilotu örneği (video_pilot_plani.md, adım 1): 40 koşu = 20 'şüpheli' (hipodrom dengeli) + 20 rastgele (tüm koşulardan, taban oranı için).",
+ "aday_sayisi": {
+  "supheli": 1578,
+  "rastgele": 584
+ },
+ "kosular": [
+  {
+   "tarih": "2026-09-18",
+   "hipodrom": "istanbul",
+   "kosu": 9,
+   "saat": "21:30",
+   "mesafe": "1900",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/9/26091839_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/9/26091839.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "DEEP IRON",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ARNAVUT KIZ",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "STEEL ROCK",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "CROWN OF HONOR",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "MARISCAL",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "MİSAKA",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "ERULİNA",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "SOUTHERN SECRET",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "HOLY BEERY",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "SWISS DANCER",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "CLARISSA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "MOON STREAM",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "RUN LOLA RUN",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "LIBERTA MIA",
+     "sira": 9,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P01"
+  },
+  {
+   "tarih": "2026-05-07",
+   "hipodrom": "ankara",
+   "kosu": 2,
+   "saat": "15:00",
+   "mesafe": "1600",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26050752_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26050752.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "TUVA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ABİDİN BEY",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "BROTHER LOVIE",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "PRENS NADİR",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "MY STERY",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "ACTION WONDER",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "PRENSES MAVİŞ",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "TRAİDORA",
+     "sira": 2,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "5 erken önde, 7. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P02"
+  },
+  {
+   "tarih": "2026-08-21",
+   "hipodrom": "bursa",
+   "kosu": 1,
+   "saat": "13:00",
+   "mesafe": "1300",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/8/26082141_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/8/26082141.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "ADA KÖPRÜSÜ",
+     "sira": 10,
+     "gec": "15 Boy"
+    },
+    {
+     "no": 2,
+     "ad": "ATEŞ KRALI",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "DENİZBERK",
+     "sira": 9,
+     "gec": "4 Boy"
+    },
+    {
+     "no": 4,
+     "ad": "FIRTINA FEDAİSİ",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "GÖLGE ADAM",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "KOÇİNOĞLU",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "ÖZGÜR KAPTAN",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "AŞKENAZ",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "GOLAÇİYA",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "KINALIIRMAK",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "ÖZASYALI",
+     "sira": 6,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "4 erken önde, 8. bitirdi",
+    "3 startta geç çıktı (4 Boy)",
+    "1 startta geç çıktı (15 Boy)"
+   ],
+   "grup": "rastgele",
+   "id": "P03"
+  },
+  {
+   "tarih": "2026-07-02",
+   "hipodrom": "kocaeli",
+   "kosu": 8,
+   "saat": "21:30",
+   "mesafe": "1200",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/7/26070298_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/7/26070298.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "SEMENDİN OĞLU",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "SEHERYELİ",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "BİÇERROZA",
+     "sira": 15,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "BABA ENİS",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "TARLABAŞI",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "BAY UTKU",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "HALİDAĞA",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "KÜLÜNÇE BEYİ",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "KAPGAN KAĞAN",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "KAZDAĞI EFESİ",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "BABA SELAH",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "İYİMSER",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "İLCİN HATUN",
+     "sira": 14,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "RAHİK",
+     "sira": 16,
+     "gec": ""
+    },
+    {
+     "no": 15,
+     "ad": "COŞDUR",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 16,
+     "ad": "BEYAZ ALEV",
+     "sira": 12,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "6 erken önde, 10. bitirdi",
+    "3 erken önde, 15. bitirdi"
+   ],
+   "grup": "rastgele",
+   "id": "P04"
+  },
+  {
+   "tarih": "2026-06-21",
+   "hipodrom": "izmir",
+   "kosu": 5,
+   "saat": "20:00",
+   "mesafe": "2200",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26062125_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26062125.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "TILISIM",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ASLAN KILICI",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "KÖYCÜ BEY",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "KÜLÜNÇ AĞASI",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "GÜRSELHAN",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "KAZANCI",
+     "sira": 8,
+     "gec": "10 Boy"
+    },
+    {
+     "no": 7,
+     "ad": "SARSALA",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "DEMİR NİHAT",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "ILDIRLI",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "BAY TURBO",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "FOTOROMAN",
+     "sira": 6,
+     "gec": "4 Boy"
+    },
+    {
+     "no": 12,
+     "ad": "HALAY",
+     "sira": 9,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "11 startta geç çıktı (4 Boy)",
+    "6 startta geç çıktı (10 Boy)",
+    "4 erken önde, 11. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P05"
+  },
+  {
+   "tarih": "2026-05-11",
+   "hipodrom": "bursa",
+   "kosu": 7,
+   "saat": "16:30",
+   "mesafe": "2100",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26051147_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26051147.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "DÜNDARZADE",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "KATI ZAMANI",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "KOZMOS",
+     "sira": 3,
+     "gec": "3 Boy"
+    },
+    {
+     "no": 4,
+     "ad": "TAŞAN",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "EMİR İLYAS",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "SADIK AĞANIN OĞLU",
+     "sira": 4,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "3 startta geç çıktı (3 Boy)"
+   ],
+   "grup": "şüpheli",
+   "id": "P06"
+  },
+  {
+   "tarih": "2026-07-04",
+   "hipodrom": "izmir",
+   "kosu": 3,
+   "saat": "18:30",
+   "mesafe": "1400",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/7/26070423_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/7/26070423.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "PERSONA NON GRATA",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "CREATIVE",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "LA PUERTA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "MAMDANI",
+     "sira": 16,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "SPEEDY WINNER",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "WAR PRINCE",
+     "sira": 14,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "YOU ARE BIG",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "ÇİFTÇİ STELLA",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "SENGÜLDE",
+     "sira": 17,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "DAISY DUKE",
+     "sira": 19,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "DARK RİSHA",
+     "sira": 20,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "DUBLIN DREAM",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "ETERNAL STORM",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "GÜLFEM HATUN",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 15,
+     "ad": "MAMBERAMO",
+     "sira": 18,
+     "gec": ""
+    },
+    {
+     "no": 16,
+     "ad": "MANEKİ NEKO",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 17,
+     "ad": "NICE COLT",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 18,
+     "ad": "NİMET ABLAM",
+     "sira": 15,
+     "gec": ""
+    },
+    {
+     "no": 19,
+     "ad": "PARMIGIANO",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 20,
+     "ad": "RAINBOW GLOW",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 21,
+     "ad": "VICTORIFLY",
+     "sira": 9,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P07"
+  },
+  {
+   "tarih": "2026-09-13",
+   "hipodrom": "istanbul",
+   "kosu": 1,
+   "saat": "14:00",
+   "mesafe": "2100",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/9/26091331_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/9/26091331.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "NAERYS",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "VERAGORN",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "SUN OF THE GÖKSU",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "FINALLY ITS TIME",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "WAR STORM",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "HENNAS SPOON",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "RICHWOOD",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "WASABI",
+     "sira": 10,
+     "gec": "1,5 boy"
+    },
+    {
+     "no": 9,
+     "ad": "VICTORY GIRL",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "JACKAL TROUBLE",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "BOLD STAR",
+     "sira": 11,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "8 startta geç çıktı (1,5 boy)"
+   ],
+   "grup": "şüpheli",
+   "id": "P08"
+  },
+  {
+   "tarih": "2026-06-30",
+   "hipodrom": "kocaeli",
+   "kosu": 4,
+   "saat": "19:30",
+   "mesafe": "1700",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26063094_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26063094.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "HEP BİRLİKTE",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ŞAHLANTAY",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "JET ÇELİK",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "GEZGİNÇ BEY",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "PRENSES SEDA",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "ALTAYBORA",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "TANJU BEY",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "TUTMAÇ",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "EMİRHAT",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "KOÇBAŞI",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "SEDEFLİ",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "ZENG",
+     "sira": 5,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "6 erken önde, 10. bitirdi",
+    "11 erken önde, 11. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P09"
+  },
+  {
+   "tarih": "2026-05-30",
+   "hipodrom": "ankara",
+   "kosu": 1,
+   "saat": "13:00",
+   "mesafe": "1200",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26053051_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26053051.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "AKÇALIKIZ",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ARKAZGÜLÜ",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "AŞİNATAY",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "BEYZA SU",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "CABİREKIZIM",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "ÇENGER",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "HAYDİ BİTANEM",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "HOŞBAKIŞ",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "VARGASKAYA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "ZEYTİN DİBİ",
+     "sira": 6,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "7 erken önde, 9. bitirdi",
+    "3 erken önde, 10. bitirdi"
+   ],
+   "grup": "rastgele",
+   "id": "P10"
+  },
+  {
+   "tarih": "2026-07-27",
+   "hipodrom": "bursa",
+   "kosu": 1,
+   "saat": "13:30",
+   "mesafe": "1300",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/7/26072741_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/7/26072741.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "KÖSTENCELİ BEY",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "LAMPO NERO",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "ŞEVRAN",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "ZEALANDIA",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "CETRION",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "KRALİÇE NONİKA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "LADY ALARA",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "MY LIFE ELİF",
+     "sira": 3,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "3 erken önde, 7. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P11"
+  },
+  {
+   "tarih": "2026-05-26",
+   "hipodrom": "ankara",
+   "kosu": 3,
+   "saat": "15:30",
+   "mesafe": "1400",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26052653_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26052653.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "KARDAHA",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "GRINGA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "BARBOOM",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "DOLCE MARE",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "SWEET DREAMS",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "LAGRIMAS DEL SOL",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "LADY ATAŞ",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "SEQUOIA",
+     "sira": 3,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P12"
+  },
+  {
+   "tarih": "2026-09-01",
+   "hipodrom": "kocaeli",
+   "kosu": 3,
+   "saat": "19:00",
+   "mesafe": "1900",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/9/26090193_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/9/26090193.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "GECE GÜZELİ",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "SEVDA MEVSİMİ",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "ARKEN TAŞI",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "KIVIRCIKKIZ",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "PONÇİKTAY",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "SEHERYELİ",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "MEVHİDE HANIM",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "Bİ ANKA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "KANATLANAN",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "ELMAPINAR",
+     "sira": 7,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "10 erken önde, 7. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P13"
+  },
+  {
+   "tarih": "2026-05-31",
+   "hipodrom": "adana",
+   "kosu": 1,
+   "saat": "17:15",
+   "mesafe": "1200",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26053111_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26053111.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "BEMBEYAZ ADAM",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "FERİTBATUR",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "HÜKÜMSÜREN",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "YURTÇU",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "KIR PENÇE",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "KIZIM DAMLA",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "RENGİNKIZ",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "ŞİRİSTAN",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "TRIAN",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "TUANA KIZI",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "ZÜMRÜTCAN",
+     "sira": 7,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "10 erken önde, 11. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P14"
+  },
+  {
+   "tarih": "2026-07-30",
+   "hipodrom": "kocaeli",
+   "kosu": 9,
+   "saat": "21:00",
+   "mesafe": "1800",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/7/26073099_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/7/26073099.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "RACING RAPTURE",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ERKOÇUM",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "AFTER YOU",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "RİYAD",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "SÖNMEZ YİĞİT",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "TIZONA",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "ADANALI KIZ",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "CALEDONIE",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "KUMKAPILI",
+     "sira": 7,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P15"
+  },
+  {
+   "tarih": "2026-06-11",
+   "hipodrom": "ankara",
+   "kosu": 1,
+   "saat": "13:30",
+   "mesafe": "1000",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26061151_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26061151.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "FOREVER DALLAS",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "HAYRETBİŞEY",
+     "sira": 1,
+     "gec": "2,5 Boy"
+    },
+    {
+     "no": 3,
+     "ad": "KING ASHERON",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "MİRANHAN",
+     "sira": 7,
+     "gec": "5 Boy"
+    },
+    {
+     "no": 5,
+     "ad": "SAGENDOR",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "SUPER BLOOM",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "BOMBOLONI",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "CEYHAN SULTANI",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "MISSBANG",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "QUEENS LEGACY",
+     "sira": 6,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "2 startta geç çıktı (2,5 Boy)",
+    "4 startta geç çıktı (5 Boy)"
+   ],
+   "grup": "rastgele",
+   "id": "P16"
+  },
+  {
+   "tarih": "2026-07-26",
+   "hipodrom": "izmir",
+   "kosu": 3,
+   "saat": "19:30",
+   "mesafe": "1400",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/7/26072623_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/7/26072623.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "UZUN TAY",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "BAD REFTAR",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "FROZEN LOVE",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "RİGEL",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "HUMAY KIZIM",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "HALAY",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "UÇANEMİRHAN",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "ŞİFNE EFESİ",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "BABY ARYA",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "KING GÖKÇE",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "BABA ÇAKMAK",
+     "sira": 13,
+     "gec": "150 Metre"
+    },
+    {
+     "no": 12,
+     "ad": "SERTTAYKUT",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "FEHİMOĞLU",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "AYTEKİNBEY",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 15,
+     "ad": "DEMİRNAL",
+     "sira": 11,
+     "gec": "5 Boy"
+    }
+   ],
+   "neden": [
+    "15 startta geç çıktı (5 Boy)",
+    "11 startta geç çıktı (150 Metre)"
+   ],
+   "grup": "şüpheli",
+   "id": "P17"
+  },
+  {
+   "tarih": "2026-05-08",
+   "hipodrom": "bursa",
+   "kosu": 1,
+   "saat": "14:00",
+   "mesafe": "1400",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26050841_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26050841.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "WARRIORS PATH",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "MEGA POWER",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "GENÇAY NALAN",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "WOODLAND CRY",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "KUMSALIM",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "KING OF THE SEA",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "TOLGA REİS",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "KING OF ALİ",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "PAKSUHAN",
+     "sira": 7,
+     "gec": "7 Boy"
+    }
+   ],
+   "neden": [
+    "9 startta geç çıktı (7 Boy)"
+   ],
+   "grup": "rastgele",
+   "id": "P18"
+  },
+  {
+   "tarih": "2026-07-23",
+   "hipodrom": "kocaeli",
+   "kosu": 8,
+   "saat": "21:30",
+   "mesafe": "1800",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/7/26072398_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/7/26072398.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "KAŞMİR TAY",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "KIRMÜJDE",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "ÖZTAMER",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "SAADINSOYU",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "TRAKTÖR",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "MEGA STAR",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "SUBİKE",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "ASIL OĞUL",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "LE PATRON",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "FUNDO",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "OĞUZHANTAY",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "ODABAŞI",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "SEHERYELİ",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "KIZGIN YÜREK",
+     "sira": 8,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "5 erken önde, 12. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P19"
+  },
+  {
+   "tarih": "2026-06-16",
+   "hipodrom": "ankara",
+   "kosu": 2,
+   "saat": "14:30",
+   "mesafe": "1900",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26061652_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26061652.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "MY RAINY HEART",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "LOOK NEWS",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "FAST PILOT",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "HARDOLD",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "KING DAVUT",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "ATOMIC CAT",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "QUEIMADA GRANDE",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "SHINING FORCE",
+     "sira": 6,
+     "gec": "4 Boy"
+    }
+   ],
+   "neden": [
+    "8 startta geç çıktı (4 Boy)"
+   ],
+   "grup": "şüpheli",
+   "id": "P20"
+  },
+  {
+   "tarih": "2026-05-16",
+   "hipodrom": "ankara",
+   "kosu": 5,
+   "saat": "15:30",
+   "mesafe": "1600",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26051655_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26051655.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "BALİNKA",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "DEJAME",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "GARBIN AFAKI",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "KIZIL ORMAN",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "LUNA ESTRELLA",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "MISFIT",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "RUN LOLA RUN",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "SERAHİRA",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "SYNTAGMA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "TATÇAĞ",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "TRAİDORA",
+     "sira": 3,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P21"
+  },
+  {
+   "tarih": "2026-05-10",
+   "hipodrom": "adana",
+   "kosu": 1,
+   "saat": "17:15",
+   "mesafe": "1100",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26051011_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26051011.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "ALARASİ",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "BEŞİRHAT",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "İSKENDER HAN",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "MERTOLTAY",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "MY EAGLE",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "TÜMERK",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "YURTÇU",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "AKÇALIKIZ",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "ASUMAN ABLA",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "BALLIBİKE",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "KIZIM ERVA",
+     "sira": 7,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "2 erken önde, 8. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P22"
+  },
+  {
+   "tarih": "2026-06-01",
+   "hipodrom": "bursa",
+   "kosu": 5,
+   "saat": "16:00",
+   "mesafe": "1800",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26060145_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26060145.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "VISERRA",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "MAEGELLE",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "SILENT TOUCH",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "MAFDET",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "FLOWING FLOOD",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "YAĞIZ BİKE",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "ŞEKER PİRAYE",
+     "sira": 7,
+     "gec": "2 Boy"
+    },
+    {
+     "no": 8,
+     "ad": "TEBLİGAT",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "YOU AND ME",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "ALİN ECE",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "LIFE AND LIGHT",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "QUEEN OF NİĞDE",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "EMERY",
+     "sira": 14,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "POP ART",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 15,
+     "ad": "LAST CHANCE GIRL",
+     "sira": 10,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "7 startta geç çıktı (2 Boy)",
+    "11 erken önde, 9. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P23"
+  },
+  {
+   "tarih": "2026-05-31",
+   "hipodrom": "adana",
+   "kosu": 6,
+   "saat": "20:00",
+   "mesafe": "1300",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26053116_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26053116.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "QUEEN SEÇİL",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "GİZLİ KAHRAMAN",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "MEKANSIZ KRAL",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "KADIKÖY GÜZELİ",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "SKY CRUISE",
+     "sira": 14,
+     "gec": "10 Boy"
+    },
+    {
+     "no": 6,
+     "ad": "SUN OF MY HOME",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "SYRENA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "SON OF FEARLESS",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "MONETA FLY",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "BORGA",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "SIRRIN BEYİ",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "DREAM ASIYA",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "ÇEVİK DEVRANI",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "LUCKY ANGEL",
+     "sira": 2,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "4 erken önde, 7. bitirdi",
+    "5 startta geç çıktı (10 Boy)"
+   ],
+   "grup": "rastgele",
+   "id": "P24"
+  },
+  {
+   "tarih": "2026-05-12",
+   "hipodrom": "kocaeli",
+   "kosu": 2,
+   "saat": "18:30",
+   "mesafe": "1200",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26051292_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26051292.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "BOZKIR YİĞİDİ",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ÖZTATMAR",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "CEO ENDER",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "SALGUR",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "YEŞİL ADA",
+     "sira": 4,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P25"
+  },
+  {
+   "tarih": "2026-09-18",
+   "hipodrom": "istanbul",
+   "kosu": 7,
+   "saat": "20:30",
+   "mesafe": "1500",
+   "pist": "Sentetik",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/9/26091837_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/9/26091837.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "SAÇANŞAH",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "HIZLI ÇOCUK",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "İNEBOLU",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "O BİR ÇELİK",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "SOYLUŞAH",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "ÇELİKGİLLER",
+     "sira": 1,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P26"
+  },
+  {
+   "tarih": "2026-06-02",
+   "hipodrom": "kocaeli",
+   "kosu": 6,
+   "saat": "20:00",
+   "mesafe": "1400",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26060296_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26060296.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "HIZLI ÇOCUK",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "BELKIS ANA",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "GÜROBASI",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "HIZLI VEYSEL",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "KULAGER",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "TUNCER",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "KAYALARIN ŞAHI",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "SER ŞÖVALYE",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "ROCK IRON",
+     "sira": 5,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "8 erken önde, 7. bitirdi"
+   ],
+   "grup": "rastgele",
+   "id": "P27"
+  },
+  {
+   "tarih": "2026-06-14",
+   "hipodrom": "izmir",
+   "kosu": 8,
+   "saat": "21:30",
+   "mesafe": "1600",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26061428_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26061428.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "HOT CONTACK",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "LAYETEZELZEL",
+     "sira": 14,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "TOROS GÜZELİ",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "HIZLI GÖR",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "TIMELESS",
+     "sira": 8,
+     "gec": "7 Boy"
+    },
+    {
+     "no": 6,
+     "ad": "RÜZGAR AKARCA",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "SABALENKA",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "NO BRAKES",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "PRIMUS",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "FASTEST ÇINAR",
+     "sira": 16,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "GULAZER",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "RAMONA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "DEAR BRIANA",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "PRENSES DALAKA",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 15,
+     "ad": "WINGS OF FREEDOM",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 16,
+     "ad": "YAĞMUR FIRTINASI",
+     "sira": 15,
+     "gec": ""
+    },
+    {
+     "no": 17,
+     "ad": "CRAZYGOLD",
+     "sira": 12,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "5 startta geç çıktı (7 Boy)"
+   ],
+   "grup": "şüpheli",
+   "id": "P28"
+  },
+  {
+   "tarih": "2026-09-19",
+   "hipodrom": "ankara",
+   "kosu": 3,
+   "saat": "14:00",
+   "mesafe": "1300",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/9/26091953_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/9/26091953.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "CAPRENO",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "RADAGIA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "SAND PIPER",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "LADY SOVEREIGN",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "MONIQUE",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "SHALLOW",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "VELOS THALOR",
+     "sira": 7,
+     "gec": "2 Boy"
+    }
+   ],
+   "neden": [
+    "7 startta geç çıktı (2 Boy)"
+   ],
+   "grup": "şüpheli",
+   "id": "P29"
+  },
+  {
+   "tarih": "2026-08-18",
+   "hipodrom": "kocaeli",
+   "kosu": 4,
+   "saat": "19:30",
+   "mesafe": "1700",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/8/26081894_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/8/26081894.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "RİGEL",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "BARBUDA",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "BAŞARAN TAY",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "KADER GÜCÜ",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "KÖKŞUBAR",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "NECMİ BABA",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "ALTINTEPE",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "EL FURAT",
+     "sira": 14,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "MÜZEYYEN ABLA",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "CEBEBEY",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "YENERSULTAN",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "BERTUĞHAN",
+     "sira": 15,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "ERDİ BEY",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "TUTMAÇ",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 15,
+     "ad": "BAY YAKUT",
+     "sira": 16,
+     "gec": ""
+    },
+    {
+     "no": 16,
+     "ad": "YER TİTRETEN",
+     "sira": 11,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "12 erken önde, 15. bitirdi"
+   ],
+   "grup": "rastgele",
+   "id": "P30"
+  },
+  {
+   "tarih": "2026-09-02",
+   "hipodrom": "istanbul",
+   "kosu": 4,
+   "saat": "15:30",
+   "mesafe": "1400",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/9/26090234_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/9/26090234.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "GÜLERYÜZ",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "HASHEYBETLİ",
+     "sira": 8,
+     "gec": "3 boy"
+    },
+    {
+     "no": 3,
+     "ad": "ŞİMŞEKKIRAN",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "NAMSAL",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "CEMHAN",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "ERDEK",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "DEMİRHAN TAYI",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "DİLAN KIZ",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "CESURSOY",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "BAY UMUT",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "DOĞUYURT",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "KRAL YAZICI",
+     "sira": 7,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "2 startta geç çıktı (3 boy)"
+   ],
+   "grup": "rastgele",
+   "id": "P31"
+  },
+  {
+   "tarih": "2026-10-25",
+   "hipodrom": "adana",
+   "kosu": 9,
+   "saat": "21:30",
+   "mesafe": "1800",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/10/26102519_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/10/26102519.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "SON OF FEARLESS",
+     "sira": 13,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "BARAKHAN",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "DARK REIGN",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "FEARLESS QUEEN",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "KİP MUSA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "LORD SEYFO",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "MONETA FLY",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "SWORD OF GOLD",
+     "sira": 16,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "DİRİLİŞ KARTALI",
+     "sira": 12,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "MORİ PAŞA",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "STEELL FOOT",
+     "sira": 17,
+     "gec": ""
+    },
+    {
+     "no": 12,
+     "ad": "DREAM OF THE STAR",
+     "sira": 15,
+     "gec": ""
+    },
+    {
+     "no": 13,
+     "ad": "SEASON OF HOPE",
+     "sira": 14,
+     "gec": ""
+    },
+    {
+     "no": 14,
+     "ad": "UGLY BLUE",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 15,
+     "ad": "SHIRIN WARRIOR",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 16,
+     "ad": "PACIFIC GROVE",
+     "sira": 5,
+     "gec": "3 Boy"
+    },
+    {
+     "no": 17,
+     "ad": "ROCKIN TIZWAY",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 18,
+     "ad": "TAKEACHANCEONME",
+     "sira": 2,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "16 startta geç çıktı (3 Boy)",
+    "17 erken önde, 7. bitirdi",
+    "3 erken önde, 8. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P32"
+  },
+  {
+   "tarih": "2026-08-09",
+   "hipodrom": "istanbul",
+   "kosu": 2,
+   "saat": "15:00",
+   "mesafe": "1200",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/8/26080932_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/8/26080932.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "THE LAST DRAGON",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "COSE DELLA VITA",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "LA PERLE RARE",
+     "sira": 4,
+     "gec": "1,5 boy"
+    },
+    {
+     "no": 4,
+     "ad": "YONAGUNI",
+     "sira": 5,
+     "gec": "1 boy"
+    },
+    {
+     "no": 5,
+     "ad": "KUZGUN GÖKMEN",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "NON MOLLARE",
+     "sira": 1,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "3 startta geç çıktı (1,5 boy)",
+    "4 startta geç çıktı (1 boy)"
+   ],
+   "grup": "şüpheli",
+   "id": "P33"
+  },
+  {
+   "tarih": "2026-05-23",
+   "hipodrom": "izmir",
+   "kosu": 2,
+   "saat": "16:45",
+   "mesafe": "1900",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26052322_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26052322.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "FROST CAT",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ÇEPNİ",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "MOĞOL",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "ÖNDERBEYİM",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "MİGRAKOM BEYİ",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "LAST FORCE",
+     "sira": 4,
+     "gec": "1,5 Boy"
+    }
+   ],
+   "neden": [
+    "6 startta geç çıktı (1,5 Boy)"
+   ],
+   "grup": "rastgele",
+   "id": "P34"
+  },
+  {
+   "tarih": "2026-08-19",
+   "hipodrom": "istanbul",
+   "kosu": 2,
+   "saat": "15:00",
+   "mesafe": "1400",
+   "pist": "Sentetik",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/8/26081932_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/8/26081932.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "GÜMRÜKCÜ MURAT",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "MERCIER",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "WOLF BROTHERS",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "AGUA REGIA",
+     "sira": 6,
+     "gec": "3 boy"
+    },
+    {
+     "no": 5,
+     "ad": "EXTENSIVE",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "ÇAKIR ASLANI",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "PHANTOM RULER",
+     "sira": 7,
+     "gec": "7 boy"
+    },
+    {
+     "no": 8,
+     "ad": "LUNA DEL CUORE",
+     "sira": 8,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "4 startta geç çıktı (3 boy)",
+    "7 startta geç çıktı (7 boy)"
+   ],
+   "grup": "şüpheli",
+   "id": "P35"
+  },
+  {
+   "tarih": "2026-06-11",
+   "hipodrom": "kocaeli",
+   "kosu": 1,
+   "saat": "17:15",
+   "mesafe": "1200",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/6/26061191_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/6/26061191.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "AKİFBERK",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "ALTIN NOKTA",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "ASRAL",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "KRALIN OĞLU",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "KIR ZİNCİRLERİNİ",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "AHSURBİKE",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "ÇİRKİN VE GÜZEL",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "KADİFE KIZ",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "NİLÜFER",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "OKAYGÜN",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "ULU CİHAN",
+     "sira": 2,
+     "gec": ""
+    }
+   ],
+   "neden": [],
+   "grup": "rastgele",
+   "id": "P36"
+  },
+  {
+   "tarih": "2026-08-13",
+   "hipodrom": "kocaeli",
+   "kosu": 6,
+   "saat": "20:00",
+   "mesafe": "1200",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/8/26081396_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/8/26081396.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "AZER IN MY HEART",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "AVCI OĞLUM",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "ORÇUNTAY",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "TUNCER",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "TUNÇDAĞ",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "İLBAN BEYİ",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "DOĞAN KARDEŞLER",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "KILIÇ İBO",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "YAĞIZATEŞ",
+     "sira": 9,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "6 erken önde, 7. bitirdi",
+    "7 erken önde, 8. bitirdi"
+   ],
+   "grup": "rastgele",
+   "id": "P37"
+  },
+  {
+   "tarih": "2026-10-24",
+   "hipodrom": "ankara",
+   "kosu": 5,
+   "saat": "15:00",
+   "mesafe": "1400",
+   "pist": "Çim",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/10/26102455_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/10/26102455.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "LO SIENTO BB",
+     "sira": 10,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "COSTA ADEJE",
+     "sira": 3,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "PETRIKORA",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "GRAN CANARIA",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "HÜRREM HANIM",
+     "sira": 11,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "JOYFUL RUNNER",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "KARMASHA",
+     "sira": 8,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "KIZIM FATMA",
+     "sira": 9,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "PAYİZ",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "TOALA",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "WELL SUPPORTED",
+     "sira": 7,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "1 erken önde, 10. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P38"
+  },
+  {
+   "tarih": "2026-08-15",
+   "hipodrom": "izmir",
+   "kosu": 6,
+   "saat": "19:30",
+   "mesafe": "2100",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/8/26081526_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/8/26081526.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "ASİLİKOM",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "COLOUR OF LIGHT",
+     "sira": 5,
+     "gec": "5 Boy"
+    },
+    {
+     "no": 3,
+     "ad": "DRAGON RUNNER",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 4,
+     "ad": "MR MONK",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "HARVEY WALLBANGER",
+     "sira": 3,
+     "gec": "5 Boy"
+    },
+    {
+     "no": 6,
+     "ad": "EAGLE KHAN",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "FALCON OF MUTAFLAR",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "MÜNÜRTOR",
+     "sira": 7,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "5 startta geç çıktı (5 Boy)",
+    "2 startta geç çıktı (5 Boy)",
+    "8 erken önde, 7. bitirdi"
+   ],
+   "grup": "rastgele",
+   "id": "P39"
+  },
+  {
+   "tarih": "2026-05-03",
+   "hipodrom": "adana",
+   "kosu": 5,
+   "saat": "20:00",
+   "mesafe": "1300",
+   "pist": "Kum",
+   "video": "https://video-cdn.tjk.org/videoftp/2026/5/26050315_m.mp4",
+   "video_hd": "https://video-cdn.tjk.org/videoftp/2026/5/26050315.mp4",
+   "atlar": [
+    {
+     "no": 1,
+     "ad": "SERAHİRA",
+     "sira": 7,
+     "gec": ""
+    },
+    {
+     "no": 2,
+     "ad": "KING OF THE FIELD",
+     "sira": 1,
+     "gec": ""
+    },
+    {
+     "no": 3,
+     "ad": "WARRIOR MAN",
+     "sira": 3,
+     "gec": "1 Boy"
+    },
+    {
+     "no": 4,
+     "ad": "QUEEN SEÇİL",
+     "sira": 5,
+     "gec": ""
+    },
+    {
+     "no": 5,
+     "ad": "ALPHECCA",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 6,
+     "ad": "FRÜHLİNG",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 7,
+     "ad": "KING GÖKALP",
+     "sira": 2,
+     "gec": ""
+    },
+    {
+     "no": 8,
+     "ad": "GİZLİ KAHRAMAN",
+     "sira": 4,
+     "gec": ""
+    },
+    {
+     "no": 9,
+     "ad": "CASH FOR YOU",
+     "sira": 6,
+     "gec": ""
+    },
+    {
+     "no": 10,
+     "ad": "LALOCURA",
+     "sira": null,
+     "gec": ""
+    },
+    {
+     "no": 11,
+     "ad": "NAMASTE",
+     "sira": null,
+     "gec": ""
+    }
+   ],
+   "neden": [
+    "3 startta geç çıktı (1 Boy)",
+    "1 erken önde, 7. bitirdi"
+   ],
+   "grup": "şüpheli",
+   "id": "P40"
+  }
+ ]
+}

@@ -294,6 +294,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
     <button data-s="kanit"><b>Kanıt</b><span>Kanıt durumu</span></button>
     <button data-s="skor"><b>Test</b><span>Canlı model testi</span></button>
     <button data-s="abd"><b>Yabancı</b><span>Yurt dışı yarışlar</span></button>
+    <button data-href="etiket.html"><b>Video etiketle</b><span>Pilot: 40 koşu, olay işaretleme</span></button>
     <button data-s="saglik"><b>Sistem sağlığı</b><span>Veri, model ve puan denetimi</span></button>
     <button data-s="arsiv"><b>Arşiv</b><span>Kanıt dışı kâğıt testler</span></button>
     <button data-s="dosya"><b>Dosya yükle</b><span>CSV, PDF, ekran görüntüsü</span></button>
@@ -1329,7 +1330,7 @@ async function saglikYukle(){ await saglikAl(); saglikBant(); const el=$('saglik
   el.innerHTML='<div class="card" style="padding:10px 14px"><b style="color:'+SG_RENK[S.genel]+'">Genel: '+SG_AD[S.genel]+'</b> <span class="sub">· '+esc(S.tarih)+' · '+esc(S.zaman||'')+'</span></div>'
    +L.map(x=>'<div class="card" style="padding:8px 14px;border-left:4px solid '+SG_RENK[x.durum]+'"><b>'+esc(x.ad)+'</b> <span style="color:'+SG_RENK[x.durum]+'">'+SG_AD[x.durum]+'</span><div class="sub">'+esc(x.detay)+'</div></div>').join(''); }
 saglikAl().then(saglikBant);
-document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>sekme(b.dataset.s));
+document.querySelectorAll('#digerPanel button').forEach(b=>b.onclick=()=>{ if(b.dataset.href){ location.href=b.dataset.href; return; } sekme(b.dataset.s); });
 document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>sekme(b.dataset.k));
 { const hh=location.hash.slice(1); if(TABS[hh]) sekme(hh); }
 

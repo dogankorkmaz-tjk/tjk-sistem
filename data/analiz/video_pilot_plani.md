@@ -29,3 +29,13 @@ Amaç: yarış videosundan, şeridin (ilk 10 sıra) veremediği olayları çıka
 
 ## Senden gereken
 - Pilot için onay ve ~1,5 saatlik etiketleme zamanı (istediğin zaman, parça parça olabilir).
+
+## Durum — 6 Kasım 2026 12:25
+- **Örnek hazır**: `data/analiz/video_pilot_liste.py` (tohum 40, ağ isteği yok) → `data/video_pilot/liste.json` (+ site kopyası `docs/data/video_pilot.json`). 20 şüpheli (hipodrom dengeli; ölçüt: resmî `delayedExit` VEYA şeritte erken ilk 3'te olup 7.+ bitiren at) + 20 rastgele (TÜM koşulardan; 12'si şüpheli ölçütünü de karşılıyor → taban oranı ölçülebilir). Dönem 2026-05..10; adana, ankara, bursa, istanbul, izmir, kocaeli. Ölçüt gevşek: 2.162 adayın 1.578'i "şüpheli" — yani ölçüt olay ayırt etmekte zayıf; pilot tam bunu da ölçecek.
+- **Etiket sayfası**: `docs/etiket.html` (Ganyan Masası → Diğer → Video etiketle). Video tarayıcıda TJK'nin herkese açık CDN'inden oynar (izleyen sensin; otomatik çekim yok). Kör etiketleme: grup ve neden GÖSTERİLMEZ. Olay türleri: huysuzlanma/geç yükleme, kötü çıkış/tökezleme, kapanma/sıkışma, geniş dönüş, jokey sorunu, diğer; o anki video saniyesiyle. Kayıt: `data/video_pilot/etiket/Pxx.json` (GitHub anahtarıyla, diğer kayıt sayfaları gibi).
+- **Otomatik tespit (CV) fizibilitesi — dürüst değerlendirme, henüz koşulmadı**:
+  - Kolay/umutlu: (a) start bölümü (sabit kamera, kutu hizası) → geç çıkış; ama resmî `delayedExit` bunu zaten veriyor, CV'nin ek değeri düşük. (b) jokey düşmesi/bitirememe → resmî sonuçta zaten var.
+  - Orta: kapanma/sıkışma — şeritte ani sıra kaybı + kutuların üst üste binmesi; yalnız öndeki ~10 atta görülür.
+  - Zor: geniş dönüş (yayın kamerası pan/zoom yapıyor, ray çizgisi her karede yok) ve kimlik eşleştirme (hangi kutu hangi at: forma rengi/numara; 480p'de numara okunmuyor, HD gerekir).
+  - Maliyet: HD koşu başı ~80 MB, CPU'da YOLO ~1–2 dk/koşu → 40 koşu ≈ 1 saat GitHub Actions, 3,2 GB indirme (mevcut video_gunluk hattının nezaket kurallarıyla).
+  - Öneri: önce elle etiket (taban oranı + olayların gerçekten ne sıklıkta olduğu); CV denemesi yalnız elle etiketlerde olay sıklığı koşu başına ≥0,3 çıkarsa — aksi halde istatistiksel güç zaten yetmez (fedai örneğinde 154 olay bile anlamsızdı). CV koşusu ayrı onay ister.

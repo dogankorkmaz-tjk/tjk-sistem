@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Video etiketle · Ganyan Masası</title>
+<style>
+:root{--bg:#07100c;--surface:#0f1a15;--raise:#14211b;--fg:#e4ede8;--muted:#8c9f95;--line:#1e2e27;--good:#6fd596;--good-bg:#13301f;--hot:#e3b45a;--bad:#f08a82;
+--f:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 var(--f);padding:12px 12px 90px;max-width:640px;margin:0 auto}
+h1{font-size:19px;margin:4px 0 2px}
+.sub{color:var(--muted);font-size:13px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0}
+button{font:600 14px var(--f);border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:10px 12px;border-radius:12px;cursor:pointer}
+button[aria-pressed=true]{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+button.ana{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.izgara{display:flex;flex-wrap:wrap;gap:6px}
+.izgara button{min-width:44px;padding:9px 10px}
+.liste button{display:flex;justify-content:space-between;width:100%;margin:5px 0;text-align:left}
+.ok{color:var(--good)}
+video{width:100%;border-radius:10px;background:#000;margin-top:8px}
+input{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--raise);color:var(--fg);font:14px var(--f)}
+.olay{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:7px 0}
+.olay button{padding:4px 9px}
+a{color:var(--good)}
+</style>
+</head>
+<body>
+<h1>Video etiketle (pilot)</h1>
+<div class="sub">40 koşu. Videoyu izle, olay gördüğün anda durdur, atı ve olayı seç. Olay yoksa "Olay yok" ile kaydet. <a href="index.html">← Ganyan Masası</a></div>
+<div id="ust"></div>
+<div id="ic"></div>
+<script>
+const GH='dogankorkmaz-tjk/tjk-sistem', $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TUR=[['huysuz','Startta huysuzlanma / geç yükleme'],['kotu_cikis','Kötü çıkış / tökezleme'],['kapanma','Kapanma / sıkışma / çekilme'],['genis','Geniş dönüş (fazladan yol)'],['jokey','Jokey sorunu / denge'],['diger','Diğer']];
+let L=[], BIT={}, AKTIF=null, OLAY=[], SECAT=null;
+function tok(){ try{return localStorage.getItem('gm2_gh')||'';}catch(e){return '';} }
+function ld(){ try{return JSON.parse(localStorage.getItem('gm2_etiket')||'{}');}catch(e){return {};} }
+function sv(){ try{localStorage.setItem('gm2_etiket',JSON.stringify(BIT));}catch(e){} }
+async function basla(){
+  try{ L=(await (await fetch('data/video_pilot.json?'+Date.now())).json()).kosular||[]; }catch(e){ $('ic').innerHTML='<div class="card">Liste yüklenemedi.</div>'; return; }
+  BIT=ld();
+  const t=tok();
+  if(t){ try{ const r=await fetch(`https://api.github.com/repos/${GH}/contents/data/video_pilot/etiket`,{headers:{Authorization:'Bearer '+t,Accept:'application/vnd.github+json'}});
+    if(r.ok){ for(const f of await r.json()){ const id=(f.name||'').replace('.json',''); if(id) BIT[id]=BIT[id]||1; } sv(); } }catch(e){} }
+  liste();
+}
+function liste(){
+  AKTIF=null; const n=L.filter(k=>BIT[k.id]).length;
+  $('ust').innerHTML=`<div class="card"><b>${n}/${L.length}</b> koşu etiketlendi${tok()?'':'<div class="sub" style="color:var(--hot)">GitHub anahtarı yok: Ganyan Masası → Diğer → Dosya yükle bölümünde bir kez gir, yoksa kayıt gönderilemez.</div>'}</div>`;
+  $('ic').innerHTML='<div class="liste">'+L.map(k=>`<button data-id="${k.id}"><span>${k.id} · ${esc(k.tarih)} ${esc(k.hipodrom)} ${k.kosu}. koşu</span><span class="${BIT[k.id]?'ok':''}">${BIT[k.id]?'✓':'›'}</span></button>`).join('')+'</div>';
+  document.querySelectorAll('.liste button').forEach(b=>b.onclick=()=>ac(b.dataset.id));
+  window.scrollTo(0,0);
+}
+function ac(id){
+  const k=L.find(x=>x.id===id); AKTIF=k; OLAY=[]; SECAT=null;
+  $('ust').innerHTML=`<div class="card"><b>${k.id} · ${esc(k.tarih)} ${esc(k.hipodrom)} ${k.kosu}. koşu</b><div class="sub">${esc(k.mesafe||'')} m · ${esc(k.pist||'')} · ${k.atlar.length} at</div>
+   <video id="vid" src="${esc(k.video)}" controls playsinline preload="metadata"></video>
+   <div class="izgara" style="margin-top:8px"><button data-h="0.5">0,5×</button><button data-h="1" aria-pressed="true">1×</button><button id="geri">−3 sn</button><button id="hd">Yüksek çözünürlük</button></div></div>`;
+  const v=$('vid');
+  document.querySelectorAll('[data-h]').forEach(b=>b.onclick=()=>{ v.playbackRate=+b.dataset.h; document.querySelectorAll('[data-h]').forEach(x=>x.setAttribute('aria-pressed',x===b)); });
+  $('geri').onclick=()=>{ v.currentTime=Math.max(0,v.currentTime-3); };
+  $('hd').onclick=()=>{ const t=v.currentTime; v.src=k.video_hd; v.currentTime=t; $('hd').disabled=true; };
+  v.onerror=()=>{ if(v.src.includes('_m.mp4')) return; v.src=k.video; };
+  ciz();
+}
+function ciz(){
+  const k=AKTIF, notv=($('not')&&$('not').value)||'';
+  $('ic').innerHTML=`<div class="card"><b>1) At</b><div class="izgara" style="margin-top:6px">${k.atlar.map(a=>`<button data-at="${a.no}" aria-pressed="${SECAT===a.no}" title="${esc(a.ad)}">${a.no}</button>`).join('')}</div>
+    <div class="sub" style="margin-top:4px">${SECAT!=null?esc((k.atlar.find(a=>a.no===SECAT)||{}).ad||''):'Videoyu olay anında durdur, sonra atı seç.'}</div></div>
+   <div class="card"><b>2) Olay</b> <span class="sub">(videonun o anki saniyesiyle eklenir)</span><div class="izgara" style="margin-top:6px">${TUR.map(([c,a])=>`<button data-tur="${c}">${a}</button>`).join('')}</div>
+    <input id="not" placeholder="Not (isteğe bağlı)" style="margin-top:8px" value="${esc(notv)}"></div>
+   <div class="card"><b>Olaylar (${OLAY.length})</b>${OLAY.map((o,i)=>`<div class="olay"><span>${o.t.toFixed(1)} sn · <b>${o.no}</b> · ${esc((TUR.find(t=>t[0]===o.tur)||[])[1])}${o.not?' · '+esc(o.not):''}</span><button data-sil="${i}">Sil</button></div>`).join('')||'<div class="sub">Henüz yok.</div>'}</div>
+   <div class="izgara"><button class="ana" id="kaydet">Kaydet</button><button id="yok">Olay yok, kaydet</button><button id="don">Listeye dön</button></div>
+   <div id="out" class="sub" style="margin-top:8px"></div>`;
+  document.querySelectorAll('[data-at]').forEach(b=>b.onclick=()=>{ SECAT=+b.dataset.at; ciz(); });
+  document.querySelectorAll('[data-tur]').forEach(b=>b.onclick=()=>{
+    if(SECAT==null){ $('out').textContent='Önce atı seç.'; return; }
+    const v=$('vid'); OLAY.push({no:SECAT,tur:b.dataset.tur,t:v?+v.currentTime:0,not:$('not').value.trim()}); SECAT=null; $('not').value=''; ciz(); });
+  document.querySelectorAll('[data-sil]').forEach(b=>b.onclick=()=>{ OLAY.splice(+b.dataset.sil,1); ciz(); });
+  $('kaydet').onclick=()=>gonder(false); $('yok').onclick=()=>gonder(true); $('don').onclick=liste;
+}
+async function gonder(yok){
+  const o=$('out'), k=AKTIF, t=tok();
+  if(!yok&&!OLAY.length){ o.textContent='Olay eklemedin; olay yoksa "Olay yok, kaydet"e bas.'; return; }
+  if(!t){ o.textContent='GitHub anahtarı yok (Ganyan Masası → Diğer → Dosya yükle).'; return; }
+  const kay={id:k.id,tarih:k.tarih,hipodrom:k.hipodrom,kosu:k.kosu,video:k.video,olay_yok:!!yok,olaylar:yok?[]:OLAY,zaman:new Date().toISOString()};
+  const url=`https://api.github.com/repos/${GH}/contents/data/video_pilot/etiket/${k.id}.json`, h={Authorization:'Bearer '+t,Accept:'application/vnd.github+json'};
+  o.textContent='Gönderiliyor…';
+  try{ let sha; try{ const g=await fetch(url,{headers:h}); if(g.ok) sha=(await g.json()).sha; }catch(e){}
+    const body={message:'Video etiketi '+k.id,content:btoa(unescape(encodeURIComponent(JSON.stringify(kay,null,1)))),branch:'main'}; if(sha) body.sha=sha;
+    const r=await fetch(url,{method:'PUT',headers:h,body:JSON.stringify(body)});
+    if(r.ok){ BIT[k.id]=1; sv(); o.textContent='✓ Kaydedildi.'; setTimeout(liste,700); } else o.textContent='Gönderilemedi (hata '+r.status+').';
+  }catch(e){ o.textContent='Gönderilemedi.'; }
+}
+basla();
+</script>
+</body>
+</html>
