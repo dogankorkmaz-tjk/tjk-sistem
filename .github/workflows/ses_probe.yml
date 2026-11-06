@@ -15,7 +15,7 @@ jobs:
           python-version: "3.12"
       - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null && pip install -q faster-whisper
       - run: |
-          mkdir -p data/ses_probe /tmp/v; out=data/ses_probe/sonuc.txt; : > $out
+          set +e; mkdir -p data/ses_probe /tmp/v; out=data/ses_probe/sonuc.txt; : > $out
           for u in https://video-cdn.tjk.org/videoftp/2026/8/26082141_m.mp4 https://video-cdn.tjk.org/videoftp/2026/6/26062125_m.mp4 https://video-cdn.tjk.org/videoftp/2026/9/26091839_m.mp4; do
             b=$(basename $u .mp4); curl -s -m 120 -A "Mozilla/5.0" -o /tmp/v/$b.mp4 "$u"; sleep 3
             echo "=== $b ($(stat -c %s /tmp/v/$b.mp4) bayt)" >> $out
