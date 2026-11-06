@@ -1383,7 +1383,7 @@ async function canliTick(){
     LIVES.t=new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul'}); LIVES.hata=null; LIVES.hedef=yak.h.id+'|'+yak.k.kosu; LIVES.kosu=L?`${yak.h.ad} ${yak.k.kosu}. koşu · ${L.durum==='AÇIK'?'bahis açık':'bahis '+String(L.durum||'?').toLowerCase()}`:'';
     canliPill();
     if(degisti){ const a=document.activeElement; if(a&&a.classList&&a.classList.contains('oran')) return;
-      try{ if(cur&&cur.k) hesapGoster(); }catch(e){} try{ renderSecim(); }catch(e){} try{ tumModel(); }catch(e){} try{ if(typeof egzCiz==='function') egzCiz(); }catch(e){} try{ besliYukle(); }catch(e){} try{ if(!$('canli').hidden) canliCiz(); }catch(e){} }
+      try{ if(cur&&cur.k) hesapGoster(); }catch(e){} try{ renderSecim(); }catch(e){} try{ tumModel(); }catch(e){} try{ if(typeof egzCiz==='function') egzCiz(); }catch(e){} try{ besliYukle(); }catch(e){} try{ if(!$('canli').hidden) canliCiz(); }catch(e){} try{ oynaCiz(); }catch(e){} }
   }catch(e){
     // proxy (vhs.tjk.org) 504/erişilemez: sunucu tarafı toplanan son oranlara düş (muh_canli.json, ~3 dk eski)
     try{
@@ -2458,10 +2458,42 @@ function tuyolar(){ tuyoYukle();
   }));
   return R.sort((u,v)=>u.t<v.t?-1:u.t>v.t?1:0).slice(0,24).map(x=>x.h);
 }
+// 7 Kas 2026 (Doğan: "gerçekten değerli bir şey varsa orada görünsün"): "oyna" kutusu yalnız geriye testte kanıt eşiğini geçen kurallar.
+// Şu an: sıralı ikili kombine (T169-B, +%20 [+3; +38]) ve ikili kombine yalnız ≥11 atlı koşuda (T174 doğrulama dönemi +%55 vs −%9). Canlı oran (son ~15 dk) gerekir.
+function ikiliKombine(h,k,L,sirali){
+  const hs=hesapla(h,k); if(!hs||hs.kaynak!=='canli') return null;
+  const idxs=Object.keys(hs.map).map(Number).filter(i=>hs.map[i].pg!=null); if(idxs.length<5) return null;
+  const pg=idxs.map(i=>hs.map[i].pg), tp=pg.reduce((a,b)=>a+b,0), p=pg.map(v=>v/tp), a5=GMO('G1-S');
+  const W=a5.slice(0,2).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), T=W.map(w=>w.reduce((a,b)=>a+b,0));
+  const no=j=>k.atlar[idxs[j]].no, noj=Object.fromEntries(idxs.map((i,j)=>[k.atlar[i].no,j])), ord=p.map((v,j)=>j).sort((a,b)=>p[b]-p[a]);
+  const L2=((L.hv||{})[sirali?'si':'ik']||[]); if(!L2.length) return null;
+  const KAY=(FM&&FM.kayma)||0.96, key=(a,b)=>sirali?a+'-'+b:Math.min(a,b)+'-'+Math.max(a,b), Q={};
+  L2.forEach(([a,b,G])=>{ const ja=noj[a], jb=noj[b]; if(ja==null||jb==null||!(G>1)) return; Q[key(ja,jb)]=G; });
+  const MXG=Math.max(...L2.map(x=>x[2]).filter(v=>v>1),1);
+  const val=(a,b)=>{ const G=Q[key(a,b)]; if(G==null){ if(!sirali) return 0.75; return plOlas(W,T,[a,b])*MXG*KAY; } const mp=sirali?plOlas(W,T,[a,b]):plOlas(W,T,[a,b])+plOlas(W,T,[b,a]); return mp*G*KAY; };
+  const cand=ord.slice(0,Math.min(9,ord.length)), TH=1.2;
+  let best=null; cand.forEach(a=>cand.forEach(b=>{ if(a!==b){ const v=val(a,b); if(!best||v>best.v) best={a,b,v}; } }));
+  if(!best||best.v<TH) return {yok:true};
+  const cK=S=>{ const x=[...S], o=[]; for(let i=0;i<x.length;i++) for(let j=0;j<x.length;j++){ if(i===j) continue; if(!sirali&&j<i) continue; o.push([x[i],x[j]]); } return o; };
+  const K1=new Set([best.a,best.b]);
+  for(let it=0;it<20;it++){ let sec=null; const cur=new Set(cK(K1).map(c=>key(c[0],c[1]))); cand.forEach(h_=>{ if(K1.has(h_)) return; const nw=cK(new Set([...K1,h_])); if(nw.length>100) return; const d=nw.filter(c=>!cur.has(key(c[0],c[1]))).reduce((t,c)=>t+val(c[0],c[1])-TH,0); if(d>0&&(!sec||d>sec.d)) sec={d,h:h_}; }); if(!sec) break; K1.add(sec.h); }
+  const n=cK(K1).length, ms=n<20?Math.ceil(20/n):1;
+  return {atlar:[...K1].sort((x,y)=>p[y]-p[x]).map(no),n,ms,top:n*ms,atSay:idxs.length};
+}
+function degerOneri(){
+  const R=[]; if(!VERI||GUN!==trBugun()) return R;
+  (VERI.hipodromlar||[]).forEach(h=>h.kosular.forEach(k=>{
+    if(k.sonuc) return; const L=LIVE[h.id+'|'+k.kosu]; if(!L||Date.now()-L.ts>150000||(L.durum&&L.durum!=='AÇIK')) return;
+    const sd=saatDuz(h,k)||k.saat;
+    try{ const r=ikiliKombine(h,k,L,true); if(r&&!r.yok) R.push({t:sd,h:`<div><b>★ ${esc(sd||'')} · ${esc(h.ad)} ${k.kosu}. koşu · sıralı ikili kombine: ${r.atlar.join(',')}</b> · ${r.n} komb.${r.ms>1?` · ${r.ms} misli`:''} = <b>${r.top} TL</b><div class="sub">Geriye test (T169-B, ~5.000 koşu): +%20 [+3; +38]. İleriye dönük doğrulanıyor.</div></div>`}); }catch(e){}
+    try{ const r=ikiliKombine(h,k,L,false); if(r&&!r.yok&&r.atSay>=11) R.push({t:sd,h:`<div><b>★ ${esc(sd||'')} · ${esc(h.ad)} ${k.kosu}. koşu · ikili kombine: ${r.atlar.join(',')}</b> · ${r.n} komb.${r.ms>1?` · ${r.ms} misli`:''} = <b>${r.top} TL</b><div class="sub">Yalnız 11+ atlı koşu: geriye test doğrulama döneminde +%55 (10 ve altı atlıda −%9, T174). İleriye dönük doğrulanıyor.</div></div>`}); }catch(e){}
+  }));
+  return R.sort((a,b)=>a.t<b.t?-1:1).map(x=>x.h);
+}
 let OYNA_L=[], oynaT=null;
 function oynaCiz(){ try{ guvenCiz(); }catch(e){ console.error(e); }
-  const el=$('oynaKutu'); if(!el) return; const G=ganyanOneri().concat(besliOneri()), L=G.concat(OYNA_L);
-  el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Bunlar kağıt üstü deney önerileridir, kâr garantisi yoktur. Kaybetmeyi göze alabileceğin tutarla oyna.</div></div>':'<div class="card empty">Şu an sistemin önerdiği bahis yok. Bu normal; çoğu gün öneri çıkmaz.</div>')+(()=>{const T=tuyolar(); return '<h2>Jason\'ın tüyoları: bunlara dikkat</h2>'+(T.length?'<div class="card">'+T.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Jason\'ın piyasadan belirgin yüksek gördüğü atlar. Yorumlar otomatik, sayılardan çıkar. Tüyo bahis önerisi değil, bakılacak at demek; oynamadan önce Bolton/Jason sekmesindeki min ganyana bak.</div></div>':'<div class="card empty">Jason şu an piyasanın gözden kaçırdığı belirgin bir at görmüyor.</div>');})();
+  const el=$('oynaKutu'); if(!el) return; const L=degerOneri();
+  el.innerHTML='<h2>Sistemin bugün "oyna" dedikleri</h2>'+(L.length?'<div class="card">'+L.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Yalnız geriye testte kanıt eşiğini geçen kurallar, koşuya ~15 dk kala canlı oranla. Kâr garantisi yoktur.</div></div>':'<div class="card empty">Şu an değerli bahis yok. Burada yalnız geriye testte kanıtlı kurallar (sıralı ikili kombine; 11+ atlı koşuda ikili kombine) koşuya ~15 dk kala canlı oranla değer bulursa görünür.</div>')+(()=>{const T=tuyolar(); return '<h2>Jason\'ın tüyoları: bunlara dikkat</h2>'+(T.length?'<div class="card">'+T.join('<hr style="border:0;border-top:1px solid var(--line);margin:8px 0">')+'<div style="font-size:12px;opacity:.7;margin-top:8px">Jason\'ın piyasadan belirgin yüksek gördüğü atlar. Yorumlar otomatik, sayılardan çıkar. Tüyo bahis önerisi değil, bakılacak at demek; oynamadan önce Bolton/Jason sekmesindeki min ganyana bak.</div></div>':'<div class="card empty">Jason şu an piyasanın gözden kaçırdığı belirgin bir at görmüyor.</div>');})();
 }
 oynaOzet();
 // Açıklama metinleri katlı (6 Kasım 2026, Doğan): 140+ karakterlik açıklama blokları (.bolum-not/.note/.sub) "Açıklama" altında kapalı başlar.
