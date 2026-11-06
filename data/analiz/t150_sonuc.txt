@@ -1,0 +1,69 @@
+satır 202994 sütun 95 tarih 2023-01-01 → 2026-11-05 11 sn
+özellik sayısı (f_lp2 dahil) 38
+tabloda olmayan özellik: []
+kazandi dolu koşu satırı 202994 koşu 21246
+bitti
+arsiv_mp 21865 koşu 2023-06-01 → 2026-11-05 pist {'Kum': 12693, 'Çim': 5996, 'Sentetik': 3176}
+doğrulama (jason_d'de mesafe dolu, arşivde var): 18361 koşu | mesafe aynı 18361 | pist aynı 18361
+dolduracağı koşu (jason_d'de mesafe boş): 0 / jason_d'de boş toplam 2516
+2026-04 17344 1 sn
+2026-05 17856 1 sn
+2026-06 18418 1 sn
+2026-07 18947 1 sn
+2026-08 19504 1 sn
+2026-09 20072 1 sn
+2026-10 20586 1 sn
+bitti
+koşu 22939
+Jason özellikli koşu 19743
+2025-10 tamam
+2025-11 tamam
+2025-12 tamam
+2026-01 tamam
+2026-02 tamam
+2026-03 tamam
+2026-04 tamam
+2026-05 tamam
+2026-06 tamam
+2026-07 tamam
+2026-08 tamam
+2026-09 tamam
+2026-10 tamam
+kaydedildi False
+PM0 (ANA) [2025-10..2026-10] 6363 koşu, 396 gün; kontrol: NaN p 0, m 0, u 0
+  kazanan  kayıp model 1.9326 piyasa 1.8672 eşit 2.2825 | pseudo-R² model 0.1533 piyasa 0.1819 | Ρ 0.843 [0.812, 0.872]
+     eşik 0.82: ayırt edilemedi
+     eşik 1.02: altında
+  ikili    kayıp model 3.8392 piyasa 3.7729 eşit 4.4523 | pseudo-R² model 0.1377 piyasa 0.1526 | Ρ 0.902 [0.877, 0.930]
+  üçlü     kayıp model 5.6759 piyasa 5.6532 eşit 6.4934 | pseudo-R² model 0.1259 piyasa 0.1294 | Ρ 0.973 [0.946, 1.001]
+  ilk4     kayıp model 7.4122 piyasa 7.4492 eşit 8.3836 | pseudo-R² model 0.1159 piyasa 0.1115 | Ρ 1.040 [1.009, 1.070]
+  ilk5     kayıp model 9.0018 piyasa 9.1038 eşit 10.0897 | pseudo-R² model 0.1078 piyasa 0.0977 | Ρ 1.103 [1.069, 1.139]
+    2025-10 n=549 PM0 1.9097 piyasa 1.8566 eşit 2.2721 Ρ 0.872
+    2025-11 n=522 PM0 1.9230 piyasa 1.8737 eşit 2.2620 Ρ 0.873
+    2025-12 n=467 PM0 1.9231 piyasa 1.8011 eşit 2.2575 Ρ 0.733
+    2026-01 n=427 PM0 1.9209 piyasa 1.8711 eşit 2.2609 Ρ 0.872
+    2026-02 n=382 PM0 1.7871 piyasa 1.7881 eşit 2.2666 Ρ 1.002
+    2026-03 n=438 PM0 1.8514 piyasa 1.7776 eşit 2.2639 Ρ 0.848
+    2026-04 n=475 PM0 1.8887 piyasa 1.8604 eşit 2.2853 Ρ 0.934
+    2026-05 n=529 PM0 1.9659 piyasa 1.8880 eşit 2.3111 Ρ 0.816
+    2026-06 n=498 PM0 2.0008 piyasa 1.8947 eşit 2.3039 Ρ 0.741
+    2026-07 n=515 PM0 1.9588 piyasa 1.8803 eşit 2.2786 Ρ 0.803
+    2026-08 n=528 PM0 2.0202 piyasa 1.9168 eşit 2.2774 Ρ 0.713
+    2026-09 n=490 PM0 1.9732 piyasa 1.8956 eşit 2.3208 Ρ 0.817
+    2026-10 n=543 PM0 1.9470 piyasa 1.9281 eşit 2.3017 Ρ 0.949
+PM0g (galoplu, betimsel) [2026-03..2026-10] 4016 koşu, 245 gün; kontrol: NaN p 0, m 0, u 0
+  kazanan  kayıp model 1.9431 piyasa 1.8827 eşit 2.2933 | pseudo-R² model 0.1527 piyasa 0.1791 | Ρ 0.853 [0.812, 0.890]
+     eşik 0.82: ayırt edilemedi
+     eşik 1.02: altında
+  ikili    kayıp model 3.8515 piyasa 3.7866 eşit 4.4749 | pseudo-R² model 0.1393 piyasa 0.1538 | Ρ 0.906 [0.875, 0.941]
+  üçlü     kayıp model 5.6933 piyasa 5.6728 eşit 6.5291 | pseudo-R² model 0.1280 piyasa 0.1312 | Ρ 0.976 [0.943, 1.011]
+  ilk4     kayıp model 7.4396 piyasa 7.4779 eşit 8.4340 | pseudo-R² model 0.1179 piyasa 0.1134 | Ρ 1.040 [1.001, 1.075]
+  ilk5     kayıp model 9.0485 piyasa 9.1605 eşit 10.1571 | pseudo-R² model 0.1091 piyasa 0.0981 | Ρ 1.112 [1.072, 1.160]
+PM0 aynı aylar (kıyas) [2026-03..2026-10] 4016 koşu, 245 gün; kontrol: NaN p 0, m 0, u 0
+  kazanan  kayıp model 1.9532 piyasa 1.8827 eşit 2.2933 | pseudo-R² model 0.1483 piyasa 0.1791 | Ρ 0.828 [0.791, 0.864]
+     eşik 0.82: ayırt edilemedi
+     eşik 1.02: altında
+  ikili    kayıp model 3.8686 piyasa 3.7866 eşit 4.4749 | pseudo-R² model 0.1355 piyasa 0.1538 | Ρ 0.881 [0.849, 0.916]
+  üçlü     kayıp model 5.7120 piyasa 5.6728 eşit 6.5291 | pseudo-R² model 0.1251 piyasa 0.1312 | Ρ 0.954 [0.921, 0.989]
+  ilk4     kayıp model 7.4598 piyasa 7.4779 eşit 8.4340 | pseudo-R² model 0.1155 piyasa 0.1134 | Ρ 1.019 [0.985, 1.056]
+  ilk5     kayıp model 9.0705 piyasa 9.1605 eşit 10.1571 | pseudo-R² model 0.1070 piyasa 0.0981 | Ρ 1.090 [1.050, 1.133]
