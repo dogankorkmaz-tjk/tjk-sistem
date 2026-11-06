@@ -98,6 +98,32 @@ def satirlar(t, getir=True):
     return S, P
 
 
+MP_YOL = os.path.join(KOK, "data", "yillik", "atyarisi_mp.csv.gz")
+
+
+def mp_tablo_yaz():
+    """Arşivdeki her koşunun resmî mesafe/pisti -> data/yillik/atyarisi_mp.csv.gz (tjk.mesafe.tablo kaynağı).
+    6 Kasım 2026: yıllık PDF eşleştirmesi (eslesme_*) 2025-06..12'de mesafeleri yanlış koşu numaralarına dağıtmıştı (871 koşu);
+    TJK sitesinden elle kontrol (1 Haz 2025 Adana 7: 1300 Çim, Adana 9: 1200 Kum) resmî API'yi doğruladı."""
+    import glob, pandas as pd
+    S = []
+    for f in sorted(glob.glob(os.path.join(KL, "*.json.gz"))):
+        o = json.load(gzip.open(f, "rt")); t = o["tarih"]
+        for kaynak in ("sonuc", "program"):
+            for hid, kos in (o.get(kaynak) or {}).items():
+                if hid not in O.TRH:
+                    continue
+                for k in kos:
+                    m = str(k.get("distance") or "")
+                    if m.isdigit() and k.get("raceCourseType") in ("Kum", "Çim", "Sentetik"):
+                        S.append((t, hid, int(k["number"]), int(m), k["raceCourseType"]))
+    A = pd.DataFrame(S, columns=["tarih", "hipodrom", "kosu", "mesafe", "pist"]).drop_duplicates(["tarih", "hipodrom", "kosu"])
+    os.makedirs(os.path.dirname(MP_YOL), exist_ok=True)
+    A.sort_values(["tarih", "hipodrom", "kosu"]).to_csv(MP_YOL, index=False)
+    print("atyarisi mesafe/pist tablosu:", len(A), "koşu", A.tarih.min() if len(A) else "", "→", A.tarih.max() if len(A) else "")
+    return A
+
+
 def eksik_doldur(gunler, yaz=False, getir=True):
     """gunler: ISO tarih listesi. sonuclar'da OLMAYAN (tarih, hipodrom) çiftlerini arşivden ekler (sonuclar, temiz, program)."""
     import pandas as pd
@@ -121,7 +147,9 @@ def eksik_doldur(gunler, yaz=False, getir=True):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 4 and sys.argv[1] == "doldur":
+    if len(sys.argv) >= 2 and sys.argv[1] == "mp":
+        mp_tablo_yaz()
+    elif len(sys.argv) >= 4 and sys.argv[1] == "doldur":
         a, b = datetime.date.fromisoformat(sys.argv[2]), datetime.date.fromisoformat(sys.argv[3])
         gl = [(a + datetime.timedelta(days=i)).isoformat() for i in range((b - a).days + 1)]
         eksik_doldur(gl, yaz="--yaz" in sys.argv, getir="--getirme" not in sys.argv)

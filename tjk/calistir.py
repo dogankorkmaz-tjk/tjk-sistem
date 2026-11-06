@@ -1118,6 +1118,7 @@ def gece(bugun):
         from . import atyarisi_gecmis as _AG            # son 14 gün + son kayıtlı günden sonrası; yalnız sonuclar'da olmayan çiftler eklenir
         bas = min(son + datetime.timedelta(days=1), bugun - datetime.timedelta(days=14))
         _AG.eksik_doldur([(bas + datetime.timedelta(days=i)).isoformat() for i in range((bugun - bas).days)], yaz=True)
+        _AG.mp_tablo_yaz()                              # resmî mesafe/pist tablosu (tjk.mesafe.tablo kaynağı)
     except Exception as e:
         print("atyarisi yedek hatası:", repr(e))
     skor()

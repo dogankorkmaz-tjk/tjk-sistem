@@ -50,12 +50,15 @@ def tablo():
             parcalar.append(pd.read_csv(f)[["tarih", "hipodrom", "kosu", "mesafe", "pist"]])
         except Exception:
             pass
+    ay = os.path.join(VERI, "yillik", "atyarisi_mp.csv.gz")    # TJK resmî atyarisi API arşivi (6 Kasım 2026): eslesme'yi düzeltir, 2023-06 →
+    if os.path.exists(ay):
+        parcalar.append(pd.read_csv(ay)[["tarih", "hipodrom", "kosu", "mesafe", "pist"]])
     rows = _basliklar("tjk_sonuc") + _basliklar("tjk_csv")
     if rows:
         parcalar.append(pd.DataFrame(rows, columns=["tarih", "hipodrom", "kosu", "mesafe", "pist"]))
     if not parcalar:
         return pd.DataFrame(columns=["tarih", "hipodrom", "kosu", "mesafe", "pist"])
-    t = pd.concat(parcalar, ignore_index=True)           # sıra: yıllık eşleştirme, data/kosu, gerçek başlıklar (sonuncu kazanır)
+    t = pd.concat(parcalar, ignore_index=True)           # sıra: yıllık eşleştirme, data/kosu, atyarisi arşivi, gerçek başlıklar (sonuncu kazanır)
     return t.drop_duplicates(["tarih", "hipodrom", "kosu"], keep="last")
 
 
