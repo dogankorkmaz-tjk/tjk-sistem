@@ -2358,3 +2358,8 @@ Sıralı ikili KOMBİNE: T169 +0,111 → T169-B (taban) +0,198 [+0,026; +0,384] 
 Sıralı ikili VİRGÜLLÜ (betimsel): +0,123 → +0,152 [−0,007; +0,311].
 İkili KOMBİNE: T169 +0,171 → T169-B +0,165 [−0,027; +0,369]; fark −0,006 → KARAR: T169 (0,75) kuralı kalır.
 OKUMA: sıralı ikili kombine (taban) birincil GA alt sınırı ilk kez sıfırın üstünde. ÇEKİNCE: bu kural T163 → T169 → T169-B zincirinde, sonuçlar görülerek adım adım daraltıldı (çoklu deneme); kapanış muhtemeli kullanıldı (T168: kazananlarda ~%4 kayma) ve havuz etkisi yok sayıldı. Kâr KANITI sayılmaz; ileri pencerede (gölge kayıt) doğrulanmalı.
+
+## 2026-11-07 01:47 — ÖN KAYIT T170 üçlü / tabela / sıralı 5'li: KOMBİNE kupon (n at, tüm sıralar) vs T167 virgüllü kupon (kullanıcı: "bunları şimdi yeni bilgilerinle üçlü/tabela ve sıralı 5'li için de dene")
+Yeni bilgiler: (1) kombine yazım (n at yazılır, hangi sırayla gelirse gelsin; maliyet n!/(n−K)! × birim) — T169'da ikilide virgüllüden iyi/eşit çıktı; (2) 20 TL alt sınırı → misli (T167'de vardı); (3) liste dışı taban oranı bu bahislerde uygulanamaz (muhtemel listesi yok; fiyat modeli tahmini kullanılır).
+Her şey T167 ile aynı (veri, olasılık, fiyat modeli, havuz paylaşımı, eşik 1,2, bütçe 1.000 TL). KOMBİNE kurucu: başlangıç = en yüksek oranlı değer kombinasyonunun K atı; her adımda Σ(oran − eşik)'i en çok artıran at eklenir (maliyet ≤ bütçe); artış ≤0 → dur; <20 TL → misli.
+BİRİNCİL (3 karşılaştırma → %98,33, eşleştirilmiş gün-küme bootstrap, büyük ödemeler dahil): üçlü, tabela, 5'li için KOMBİNE ROI ve KOMBİNE − VİRGÜLLÜ farkı. KARAR: kombine ROI ≥ virgüllü (nokta) ve > 0 → Canlı'da kombine kupon da gösterilir; aksi → yalnız virgüllü kalır. Betimsel: eşik 1,0, bütçe 500, at sayısı dağılımı.
