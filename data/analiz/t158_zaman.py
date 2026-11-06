@@ -30,7 +30,7 @@ for f in sorted(glob.glob("data/agf_zaman/2026-*.csv.gz")):
             def L(p, mod):
                 p = p / p.sum(); s_ = G["w0_g1"] * np.log(p) + (z if mod else 0); s_ = s_ - s_.max(); return -(s_[w] - np.log(np.exp(s_).sum()))
             R.append(dict(gun=gun, BE=L(pe, 1), BS=L(ps, 1), BK=L(pk, 1), ME=L(pe, 0), MS=L(ps, 0), MK=L(pk, 0), fark=post - e.t.max()))
-D = pd.DataFrame(R); print("koşu", len(D), "gün", D.gun.nunique(), "| E ile koşu arası medyan dk", D.fark.median(), "(düzeltme 21:10: değişen-at biçimi ileri doldurma)")
+D = pd.DataFrame(R); print("koşu", len(D), "gün", D.gun.nunique(), "| E ile koşu arası medyan dk", D.fark.median(), "(düzeltme 20:41: değişen-at biçimi ileri doldurma)")
 def ga(a, b):
     d = D[a] - D[b]; S = d.groupby(D.gun).sum(); N = D.groupby("gun").size(); ug = S.index.values; bs = []
     for _ in range(4000):
