@@ -2134,5 +2134,89 @@
 "acik_son_dk": -9.0,
 "kapali_ilk_dk": null,
 "n": 8
+},
+"2026-11-05|ANKARA-1": {
+"saat": "14:00",
+"acik_son_dk": 1.8,
+"kapali_ilk_dk": 4.7,
+"n": 22
+},
+"2026-11-05|ANKARA-2": {
+"saat": "14:30",
+"acik_son_dk": -19.4,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-11-05|ANKARA-3": {
+"saat": "15:00",
+"acik_son_dk": 3.2,
+"kapali_ilk_dk": 6.2,
+"n": 24
+},
+"2026-11-05|ANKARA-4": {
+"saat": "15:30",
+"acik_son_dk": -23.8,
+"kapali_ilk_dk": null,
+"n": 3
+},
+"2026-11-05|ANKARA-5": {
+"saat": "16:00",
+"acik_son_dk": 3.7,
+"kapali_ilk_dk": 6.6,
+"n": 24
+},
+"2026-11-05|ANKARA-6": {
+"saat": "16:30",
+"acik_son_dk": -19.3,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-11-05|ANKARA-8": {
+"saat": "17:30",
+"acik_son_dk": -1.1,
+"kapali_ilk_dk": null,
+"n": 12
+},
+"2026-11-05|IZMIR-2": {
+"saat": "17:15",
+"acik_son_dk": 7.3,
+"kapali_ilk_dk": 10.3,
+"n": 24
+},
+"2026-11-05|IZMIR-4": {
+"saat": "18:30",
+"acik_son_dk": 1.0,
+"kapali_ilk_dk": 1.8,
+"n": 18
+},
+"2026-11-05|IZMIR-5": {
+"saat": "19:00",
+"acik_son_dk": -16.3,
+"kapali_ilk_dk": null,
+"n": 5
+},
+"2026-11-05|IZMIR-6": {
+"saat": "19:30",
+"acik_son_dk": -6.2,
+"kapali_ilk_dk": 8.9,
+"n": 2
+},
+"2026-11-05|IZMIR-7": {
+"saat": "20:00",
+"acik_son_dk": -21.1,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-11-05|IZMIR-9": {
+"saat": "21:00",
+"acik_son_dk": -3.3,
+"kapali_ilk_dk": null,
+"n": 4
+},
+"2026-11-05|IZMIR-10": {
+"saat": "21:30",
+"acik_son_dk": 0.9,
+"kapali_ilk_dk": 10.0,
+"n": 3
 }
 }
