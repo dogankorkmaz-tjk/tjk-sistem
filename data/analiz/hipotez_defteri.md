@@ -2257,3 +2257,17 @@ T162-B (spiker transkriptleri test penceresini kapsayınca): sorunları "spikeri
 ## 2026-11-06 23:44 SONUÇ T162 (data/analiz/t162_rapor.py → t162_sonuc.txt; 6.363 koşu, 396 gün)
 BİRİNCİL MJT9S − MJT9 kazanan: piyasasız −0,00074 [−0,00158; +0,00018] (9/13 ay) → etkisiz; piyasalı −0,00022 [−0,00075; +0,00032] → etkisiz. Betimsel: piyasasızda sıra konumlarında küçük ama GA'sı 0'ı dışlayan iyileşme (ilk5 −0,0019 [−0,0035; −0,0003]); piyasalıda hiçbiri.
 Okuma: yalnız SIRA bilgisi taşıyan şeritten türetilen "ani sıra kaybı / son bölüm kazancı / tempo baskısı", mevcut V2 şerit özelliklerinin (T149) üstüne piyasanın bilmediği bilgi eklemiyor. Şerit mesafe (boy) ve yanal konum vermiyor; kullanıcının işaret ettiği "detaylı video" bilgisi için gerçek görüntü ölçümü gerekiyor → görüntü pilotu (cv_pilot, 20 koşu, YOLO) sürüyor. T162-B (spiker-anılan / yalnız-video ayrımı) transkript kapsamı gelince yine yapılacak (bu sonuçtan bağımsız ön kayıt).
+
+## 2026-11-07 00:08 — ÖN KAYIT T163 kombinasyon düzeyinde değer: ikili / sıralı ikili muhtemelleri (kullanıcı: "Başlat"; Benter'in çoklu bahis yaklaşımı)
+Veri: data/muh_gecmis (resmî kapanış muhtemelleri; koşu başına ~22 en düşük oranlı kombinasyon: 'ik' ikili, 'si' sıralı ikili) ∩ harness MJ örneklem dışı önbellekleri (cache_MJ_<ay>.pkl: S3, g3) 2025-10..2026-10-13.
+Model olasılıkları: Benter (MJ) puanından PL + sıra üsleri g3; sıralı ikili P(i,j) = adım1(i)·adım2(j|i); ikili P({i,j}) = P(i,j)+P(j,i).
+Kural: listedeki her kombinasyon için model p × muhtemel oran ≥ 1,2 ise 1 birim (koşu başına çok bahis olabilir). Getiri: kazanan kombinasyonun muhtemel oranı (resmî; data/odeme ile örnek kontrolü raporlanır).
+BİRİNCİL (2 karşılaştırma → %97,5, gün-küme bootstrap 4000, büyük ödemeler DAHİL): (1) sıralı ikili ROI, (2) ikili ROI. KARAR: GA alt >0 → kârlı ADAY (üretimde gölge kayıt + ileri pencere); aksi → kayıt.
+Betimsel: eşik 1,0/1,5/2,0; bahis/koşu sayısı; isabet; en büyük ödeme çıkarılınca (bilgi); karşılaştırma tabanı: aynı kombinasyonlara rastgele/hepsine 1 birim ROI (kesinti tabanı).
+SINIRLAR: (a) kapanış muhtemeli bahis anında tam bilinmez (son dakika oynayana yakın; iyimser); (b) yalnız listelenen ~22 kombinasyon değerlendirilebilir (uzun oranlı değer kombinasyonları görünmez); (c) bizim bahsimizin havuza etkisi yok sayılır.
+## 2026-11-07 00:11 SONUÇ T163 (data/analiz/t163_kombine.py → t163_sonuc.txt; 6.002 koşu, 375 gün, 2025-10..2026-10-13)
+Ödeme kontrolü: resmî muhtemel oranı = data/odeme ödemesi (ikili 148, sıralı ikili 136 koşuda oran tam 1,00).
+Taban (listelenen tüm kombinasyonlara 1 birim): sıralı ikili ROI −0,253, ikili −0,274 (≈ kesinti). Kazanan kombinasyon listede: sıralı ikili %73, ikili %88 koşu.
+BİRİNCİL (p×o ≥ 1,2, %97,5, büyük ödemeler dahil): sıralı ikili ROI +0,077 [−0,034; +0,192] (14.622 bahis, 4.939 koşu, 461 isabet; en büyük çıkarılınca +0,071); ikili +0,063 [−0,047; +0,174] (13.712 bahis, 574 isabet; +0,054) → KARAR (kurala göre): kârlı DEĞİL (GA 0'ı kapsıyor).
+Betimsel: eşikle tekdüze artış (sıralı ikili ≥1,0 −0,041 / ≥1,2 +0,077 / ≥1,5 +0,116 / ≥2,0 +0,178); kazanç tek büyük ödemeye bağlı değil.
+OKUMA: Benter, halkın kombinasyon fiyatlarına karşı kesinti tabanından (−%25) ~33 puan yukarı çıkarıyor; sıfırın üstü ama bir yıllık veride kesin değil. En güçlü sinyal bugüne kadarki kâr testlerinin içinde. Sınır: kapanış oranı (iyimser), yalnız listelenen ~22 kombinasyon. Önerilen devam (ayrı onay): üretimde koşuya yakın canlı muhtemellerle gölge ikili/sıralı ikili kaydı (ileri pencere) — kapanış iyimserliğini de ölçer.

@@ -1,0 +1,15 @@
+koşu 6002 gün 375 | listelenen kombinasyon 253268
+si: kazanan kombinasyon listede: %73 koşu | hepsine 1 birim ROI -0.253
+ik: kazanan kombinasyon listede: %88 koşu | hepsine 1 birim ROI -0.274
+--- sıralı ikili ---
+   p×o ≥ 1.0: bahis 28337 koşu 5843 isabet 875 ROI -0.041 [-0.105; +0.021] (%95) | en büyük çıkarılınca -0.046
+   p×o ≥ 1.2: bahis 14622 koşu 4939 isabet 461 ROI +0.077 [-0.034; +0.192] (%97,5 BİRİNCİL) | en büyük çıkarılınca +0.071
+   p×o ≥ 1.5: bahis 5456 koşu 2819 isabet 158 ROI +0.116 [-0.048; +0.289] (%95) | en büyük çıkarılınca +0.098
+   p×o ≥ 2.0: bahis 1207 koşu 819 isabet 33 ROI +0.178 [-0.209; +0.634] (%95) | en büyük çıkarılınca +0.099
+   KARAR (sıralı ikili): kârlı değil
+--- ikili ---
+   p×o ≥ 1.0: bahis 26204 koşu 5553 isabet 1101 ROI -0.029 [-0.094; +0.035] (%95) | en büyük çıkarılınca -0.034
+   p×o ≥ 1.2: bahis 13712 koşu 4848 isabet 574 ROI +0.063 [-0.047; +0.174] (%97,5 BİRİNCİL) | en büyük çıkarılınca +0.054
+   p×o ≥ 1.5: bahis 5329 koşu 2889 isabet 183 ROI +0.029 [-0.143; +0.216] (%95) | en büyük çıkarılınca +0.007
+   p×o ≥ 2.0: bahis 1385 koşu 928 isabet 42 ROI +0.185 [-0.195; +0.620] (%95) | en büyük çıkarılınca +0.099
+   KARAR (ikili): kârlı değil
