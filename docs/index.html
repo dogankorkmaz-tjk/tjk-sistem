@@ -1271,6 +1271,7 @@ let SON_KUPON=ld('gm2_kupsek','egz');
 
 async function uyumYukle(){
   const ic=$('uyumIc'); try{ const d=await getJSON('data/uyum_secim.json?'+Date.now()); const esc=x=>String(x==null?'':x).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    if(d.gun!==trBugun()){ ic.innerHTML='<div class="card" style="padding:12px 14px"><b>Uyum seçimi (T131)</b><div class="sub">Bugünün kaydı henüz yok (son kayıt: '+esc(d.gun||'?')+'). Kayıt ilk canlı güncellemede, AGF geldikten sonra ve yalnız başlamamış koşular için alınır.</div></div>'; return; }
     let h='<div class="card" style="padding:12px 14px"><b>Uyum seçimi (T131)</b><div class="sub">'+esc(d.gun||'')+' · '+esc(d.kural||'')+'<br>Deneysel, kâğıt üstü, bahis önerisi değil. Katsayılar donduruldu; sonuçlar Ocak 2027\'de değerlendirilecek. '+(d.olusturma?'Güncelleme: '+esc(d.olusturma):'')+'</div></div>'; let n=0;
     (d.kosular||[]).forEach(k=>{ if(!(k.secimler||[]).length) return; n+=k.secimler.length;
       h+='<div class="card" style="padding:10px 14px"><b>'+esc(String(k.hipodrom).toUpperCase())+' '+k.kosu+'. koşu</b> <span class="sub">'+esc(k.saat||'')+'</span>'+k.secimler.map(x=>'<div style="display:flex;justify-content:space-between;gap:8px;padding:3px 0"><span>#'+x.no+' '+esc(x.at)+'</span><span class="sub">uyum '+x.uyum_sirasi+'. · AGF '+x.agf_sirasi+'. ('+String(x.agf).replace('.',',')+')</span></div>').join('')+'</div>'; });

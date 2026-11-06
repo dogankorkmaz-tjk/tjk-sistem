@@ -1,316 +1,258 @@
 {
- "gun": "2026-11-05",
- "olusturma": "2026-11-05 09:41 UTC",
+ "gun": "2026-11-06",
+ "olusturma": "2026-11-06 15:38 TR",
  "kural": "AGF sırası >=3 ve uyum sırası <=2 (T131, deneysel, bahis önerisi değil)",
  "kosular": [
   {
-   "hipodrom": "ankara",
-   "kosu": 1,
-   "saat": "14:00",
-   "agf_saat": "12:41",
+   "hipodrom": "bursa",
+   "kosu": 5,
+   "saat": "16:00",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 8,
+     "at": "YAYLA ÇİÇEĞİ",
+     "uyum_sirasi": 1,
+     "agf_sirasi": 5,
+     "agf": 9.06,
+     "U": 0.244
+    },
+    {
+     "no": 5,
+     "at": "ALPARSLANIN TAYI",
+     "uyum_sirasi": 2,
+     "agf_sirasi": 4,
+     "agf": 9.45,
+     "U": 0.109
+    }
+   ]
+  },
+  {
+   "hipodrom": "bursa",
+   "kosu": 6,
+   "saat": "16:30",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
    "secimler": [
     {
      "no": 1,
-     "at": "OY YARE",
+     "at": "LION OF HONOUR",
      "uyum_sirasi": 2,
      "agf_sirasi": 4,
-     "agf": 9.07,
-     "U": 0.041
+     "agf": 9.86,
+     "U": 0.097
     }
    ]
   },
   {
-   "hipodrom": "ankara",
-   "kosu": 2,
-   "saat": "14:30",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 4,
-     "at": "SEQUOIA",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 3,
-     "agf": 15.57,
-     "U": 0.245
-    }
-   ]
-  },
-  {
-   "hipodrom": "ankara",
-   "kosu": 3,
-   "saat": "15:00",
-   "agf_saat": "12:41",
+   "hipodrom": "bursa",
+   "kosu": 7,
+   "saat": "17:00",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
    "secimler": [
     {
      "no": 9,
-     "at": "ZEYTİN GÜLÜ",
-     "uyum_sirasi": 2,
-     "agf_sirasi": 8,
-     "agf": 3.76,
-     "U": 0.199
-    }
-   ]
-  },
-  {
-   "hipodrom": "ankara",
-   "kosu": 4,
-   "saat": "15:30",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 5,
-     "at": "RAVENCO",
-     "uyum_sirasi": 2,
-     "agf_sirasi": 6,
-     "agf": 5.85,
-     "U": 0.199
-    }
-   ]
-  },
-  {
-   "hipodrom": "ankara",
-   "kosu": 5,
-   "saat": "16:00",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 1,
-     "at": "ADEN PAPATYA",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 8,
-     "agf": 2.24,
-     "U": 0.016
-    }
-   ]
-  },
-  {
-   "hipodrom": "ankara",
-   "kosu": 6,
-   "saat": "16:30",
-   "agf_saat": "12:41",
-   "secimler": []
-  },
-  {
-   "hipodrom": "ankara",
-   "kosu": 7,
-   "saat": "17:00",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 4,
-     "at": "MAXIMUS MAN",
+     "at": "LADY BRIDGERTON",
      "uyum_sirasi": 2,
      "agf_sirasi": 5,
-     "agf": 4.65,
-     "U": 0.258
+     "agf": 6.94,
+     "U": 0.012
     }
    ]
   },
   {
-   "hipodrom": "ankara",
+   "hipodrom": "istanbul",
+   "kosu": 1,
+   "saat": "17:15",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 4,
+     "at": "SHEVCHENKO",
+     "uyum_sirasi": 1,
+     "agf_sirasi": 5,
+     "agf": 8.7,
+     "U": 0.141
+    }
+   ]
+  },
+  {
+   "hipodrom": "bursa",
    "kosu": 8,
    "saat": "17:30",
-   "agf_saat": "12:41",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
    "secimler": [
     {
      "no": 2,
-     "at": "DİLMAKIZ",
+     "at": "ERSELEFE",
      "uyum_sirasi": 1,
-     "agf_sirasi": 7,
-     "agf": 5.2,
-     "U": 0.119
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 1,
-   "saat": "16:45",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 4,
-     "at": "SHINE AGAIN",
-     "uyum_sirasi": 2,
-     "agf_sirasi": 4,
-     "agf": 14.57,
-     "U": 0.208
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 2,
-   "saat": "17:15",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 4,
-     "at": "CHUMLEE",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 7,
-     "agf": 1.43,
-     "U": 0.252
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 3,
-   "saat": "18:00",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 2,
-     "at": "ADANIN OĞLU",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 6,
-     "agf": 3.21,
-     "U": 0.016
-    },
-    {
-     "no": 10,
-     "at": "ALYA HANIM",
-     "uyum_sirasi": 2,
-     "agf_sirasi": 11,
-     "agf": 1.5,
-     "U": -0.008
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 4,
-   "saat": "18:30",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 2,
-     "at": "SOMEBODY LOVES YOU",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 3,
-     "agf": 4.71,
-     "U": 0.209
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 5,
-   "saat": "19:00",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 7,
-     "at": "SİLLETOKAT",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 10,
-     "agf": 1.83,
-     "U": 0.051
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 6,
-   "saat": "19:30",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 4,
-     "at": "FIRTINA FEDAİSİ",
-     "uyum_sirasi": 2,
-     "agf_sirasi": 9,
-     "agf": 1.84,
-     "U": 0.111
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 7,
-   "saat": "20:00",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 10,
-     "at": "BAD REFTAR",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 7,
-     "agf": 3.19,
-     "U": 0.422
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 8,
-   "saat": "20:30",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 5,
-     "at": "ÖKE HATUN",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 4,
-     "agf": 12.55,
-     "U": 0.303
-    },
-    {
-     "no": 7,
-     "at": "FELHAN GÜLÜ",
-     "uyum_sirasi": 2,
-     "agf_sirasi": 7,
-     "agf": 2.33,
-     "U": 0.288
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 9,
-   "saat": "21:00",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 2,
-     "at": "DRAGON RUNNER",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 3,
-     "agf": 14.56,
-     "U": 0.144
-    },
-    {
-     "no": 4,
-     "at": "DRAGON BORA",
-     "uyum_sirasi": 2,
-     "agf_sirasi": 6,
-     "agf": 8.98,
-     "U": 0.117
-    }
-   ]
-  },
-  {
-   "hipodrom": "izmir",
-   "kosu": 10,
-   "saat": "21:30",
-   "agf_saat": "12:41",
-   "secimler": [
-    {
-     "no": 13,
-     "at": "YURTKURAN",
-     "uyum_sirasi": 1,
-     "agf_sirasi": 9,
-     "agf": 1.87,
-     "U": 0.057
+     "agf_sirasi": 5,
+     "agf": 9.46,
+     "U": 0.127
     },
     {
      "no": 12,
-     "at": "VAİ VAİ",
+     "at": "İHTİMAL",
+     "uyum_sirasi": 2,
+     "agf_sirasi": 11,
+     "agf": 1.09,
+     "U": 0.037
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 2,
+   "saat": "18:00",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 8,
+     "at": "DOĞANGİR",
+     "uyum_sirasi": 1,
+     "agf_sirasi": 7,
+     "agf": 6.67,
+     "U": 0.146
+    },
+    {
+     "no": 2,
+     "at": "AHMOZE",
      "uyum_sirasi": 2,
      "agf_sirasi": 6,
-     "agf": 2.15,
-     "U": -0.008
+     "agf": 9.27,
+     "U": 0.139
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 3,
+   "saat": "18:30",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 4,
+     "at": "RADAGIA",
+     "uyum_sirasi": 1,
+     "agf_sirasi": 3,
+     "agf": 13.44,
+     "U": 0.368
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 4,
+   "saat": "19:00",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 10,
+     "at": "CHICA BRAVA",
+     "uyum_sirasi": 1,
+     "agf_sirasi": 9,
+     "agf": 1.87,
+     "U": 0.261
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 5,
+   "saat": "19:30",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 13,
+     "at": "SEMRAKAYA",
+     "uyum_sirasi": 2,
+     "agf_sirasi": 13,
+     "agf": 0.91,
+     "U": 0.218
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 6,
+   "saat": "20:00",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 1,
+     "at": "AMMAYAMAN",
+     "uyum_sirasi": 2,
+     "agf_sirasi": 3,
+     "agf": 17.08,
+     "U": 0.335
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 7,
+   "saat": "20:30",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 5,
+     "at": "ERHANHAN",
+     "uyum_sirasi": 1,
+     "agf_sirasi": 5,
+     "agf": 9.45,
+     "U": 0.35
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 8,
+   "saat": "21:00",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 2,
+     "at": "NİLÜFER",
+     "uyum_sirasi": 2,
+     "agf_sirasi": 3,
+     "agf": 11.68,
+     "U": 0.199
+    }
+   ]
+  },
+  {
+   "hipodrom": "istanbul",
+   "kosu": 9,
+   "saat": "21:30",
+   "agf_saat": "15:19",
+   "kayit_saati": "2026-11-06 15:38",
+   "secimler": [
+    {
+     "no": 5,
+     "at": "ŞENALPTUĞ",
+     "uyum_sirasi": 1,
+     "agf_sirasi": 3,
+     "agf": 11.1,
+     "U": 0.422
+    },
+    {
+     "no": 15,
+     "at": "TUTKUNLAR",
+     "uyum_sirasi": 2,
+     "agf_sirasi": 6,
+     "agf": 2.97,
+     "U": 0.353
     }
    ]
   }

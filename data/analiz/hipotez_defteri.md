@@ -2152,3 +2152,9 @@ Doğrulamalar (devreye almadan önce): (1) üretim özellikleri = araştırma ö
 Bilinen sınır: canlı/elle oranla Koşu kartında zk6 içindeki lp² terimi AGF'den kalır (gölge için kabul; kuponlar zaten AGF ile).
 Takip: data/analiz/benterk_ayrisma.py [başlangıç] → K−Benter kazanan..ilk5 kayıp farkı (gün-küme %95), favori/ilk-5 ayrışan koşularda kim tuttu, Benter-K-G vs G1-S-G kupon harcama/kazanç (büyük ödemeler dahil). Betimsel; resmî karar harness ile Ocak sonu.
   15:25 üretim doğrulaması: kullanıcının eklediği gün için sabah (15:05) ve canlı (15:17) çalışmaları elle tetiklendi (GitHub zamanlaması gecikiyordu). Sonuç: başlamamış 162 atın 162'sinde zk/zk6, sağlık genel = tamam; Benter-K-G kuponları 7 beşli koşuda 48/96/150 bütçeleriyle G1-S-G'nin yanına eklendi (ör. İstanbul 2. koşu ≤48: Benter-K tutma %3,32, Benter %2,89; 5. ayakta sıra farkı). İleriye dönük takip 6 Kasım akşamından başlıyor.
+
+## T131 kayıt 3 (6 Kasım 2026, 15:38 TR) + kayıt yöntemi düzeltmesi
+- Hata: T131 günlük kaydı otomatik değildi (5 Kasım elle yapılmıştı); 6 Kasım için kimse çalıştırmadı, sitede 5 Kasım kaydı "bugün" gibi görünüyordu (kullanıcı fark etti 15:36).
+- 6 Kasım: uyum puanı 15:37'de üretildi (t131_bugun.py, dondurulmuş c, yalnız önceki günler, piyasasız); seçim 15:38'de YALNIZ henüz başlamamış 13 koşu için kaydedildi (Bursa 5–8, İstanbul 1–9; 17 seçim). Bursa 1–4 başlamış olduğundan KAYDEDİLMEDİ (kayıp; sonuç görüldükten sonra eklenmez).
+- Kayıt yöntemi (kural değil): tjk/uyum_secim.py artık (a) yalnız saat > şimdi olan koşuları kaydeder, (b) kaydedilmiş koşuyu dondurur (sonraki çalıştırma değiştirmez), (c) kayit_saati yazar. Günlük otomatik: calistir canlı modu sonunda uyum_secim.gunluk() (uyum puanı yoksa ~50 sn üretir, sonra kaydeder). İlk canlı çalışma 13:00 TR civarı → ilk koşudan önce. Site: gün eski ise "bugünün kaydı henüz yok" der.
+- Değerlendirmede 5 Kasım (12:41 AGF) ve 6 Kasım (15:38 AGF, eksik 4 koşu) kayıt koşulları ayrıca raporlanır.

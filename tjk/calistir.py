@@ -1488,6 +1488,12 @@ def main():
             OD.yaz()
         except Exception as ex:
             print("oynadim özeti atlandı:", ex)
+    if mod in ("canli", "hepsi"):
+        try:                                   # T131 ileri testi: günün uyum puanı + başlamamış koşuların seçim kaydı (6 Kasım 2026; önceden elle yapılıyordu, 6 Kasım atlanmıştı)
+            from . import uyum_secim as _US
+            _US.gunluk()
+        except Exception as ex:
+            print("T131 kaydı atlandı:", ex)
     if mod in ("sabah", "canli", "gece", "hepsi"):
         try:                                   # sağlık kontrolü (docs/data/saglik.json; hata işi durdurmaz)
             from . import saglik as _SG
