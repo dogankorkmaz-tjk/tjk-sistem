@@ -1,0 +1,17 @@
+{
+ "id": "P09",
+ "tarih": "2026-06-30",
+ "hipodrom": "kocaeli",
+ "kosu": 4,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/6/26063094_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 1,
+   "tur": "diger",
+   "t": 7.823129,
+   "not": "Kulvarından çıkmadı"
+  }
+ ],
+ "zaman": "2026-11-06T18:52:50.231Z"
+}
