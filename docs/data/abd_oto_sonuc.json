@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-06 21:32 UTC",
- "kayitli_kosu": 1656,
- "eslesmeyen_kosu": 1132,
+ "uretim": "2026-11-06 21:59 UTC",
+ "kayitli_kosu": 1660,
+ "eslesmeyen_kosu": 1133,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 891,
- "kosu": 524,
- "isabet": 57,
- "roi": 0.917,
+ "bahis": 899,
+ "kosu": 527,
+ "isabet": 58,
+ "roi": 0.918,
  "ga95": [
-  0.653,
-  1.2
+  0.657,
+  1.199
  ],
  "ulke": {
   "abd": {
-   "bahis": 566,
-   "roi": 0.762
+   "bahis": 574,
+   "roi": 0.766
   },
   "birlesik-krallik": {
    "bahis": 156,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1113,
-  "kosu": 512,
-  "isabet": 106,
-  "roi": 0.61,
+  "bahis": 1123,
+  "kosu": 515,
+  "isabet": 107,
+  "roi": 0.606,
   "ga95": [
-   0.447,
-   0.781
+   0.443,
+   0.776
   ]
  },
  "bahis_t1": {
-  "bahis": 1127,
-  "kosu": 504,
-  "isabet": 108,
-  "roi": 0.656,
+  "bahis": 1139,
+  "kosu": 507,
+  "isabet": 110,
+  "roi": 0.657,
   "ga95": [
-   0.444,
-   0.897
+   0.449,
+   0.896
   ]
  },
  "bahis_t3": {
-  "bahis": 1106,
-  "kosu": 489,
-  "isabet": 117,
-  "roi": 0.646,
+  "bahis": 1116,
+  "kosu": 492,
+  "isabet": 119,
+  "roi": 0.649,
   "ga95": [
-   0.45,
-   0.889
+   0.454,
+   0.891
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Musselburgh",
-   "kosu": 8,
-   "at": "JKR COBBLER",
-   "q": 0.146,
-   "g": 11.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 1,
-   "at": "MISS KY TAP",
-   "q": 0.28,
-   "g": 5.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 1,
-   "at": "TRISTAR EMPRESS",
-   "q": 0.16,
-   "g": 10.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 3,
-   "at": "CAUSE IT'S TIME",
-   "q": 0.107,
-   "g": 14.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 3,
-   "at": "LITTLE ROUND TOP",
-   "q": 0.168,
-   "g": 12.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 4,
-   "at": "ECLIPTICALS BEAR",
-   "q": 0.115,
-   "g": 37.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 4,
-   "at": "AARAJ",
-   "q": 0.09,
-   "g": 17.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 6,
-   "at": "AQUITANIA ARRIVAL",
-   "q": 0.224,
-   "g": 6.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-04",
    "pist": "Penn National",
@@ -364,6 +292,69 @@
   },
   {
    "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 2,
+   "at": "IRISEACH",
+   "q": 0.114,
+   "g": 19.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 2,
+   "at": "LUCKY N SMART",
+   "q": 0.114,
+   "g": 13.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 2,
+   "at": "WIKI KANE",
+   "q": 0.114,
+   "g": 11.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 2,
+   "at": "CHROMEFLASH",
+   "q": 0.061,
+   "g": 85.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 3,
+   "at": "ROOSKI DOO",
+   "q": 0.158,
+   "g": 10.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 3,
+   "at": "FIGHTING THUNDER",
+   "q": 0.088,
+   "g": 20.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 3,
+   "at": "HUNGOVER",
+   "q": 0.197,
+   "g": 8.3,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-06",
    "pist": "Gulfstream",
    "kosu": 2,
    "at": "CRYPTIC THUNDER",
@@ -423,6 +414,15 @@
    "at": "LOBO SALVAJE",
    "q": 0.059,
    "g": 54.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 5,
+   "at": "TIEMPOS BUENOS",
+   "q": 0.176,
+   "g": 17.75,
    "kazandi": false
   }
  ]
