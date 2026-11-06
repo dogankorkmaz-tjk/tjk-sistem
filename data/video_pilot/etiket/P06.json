@@ -1,0 +1,17 @@
+{
+ "id": "P06",
+ "tarih": "2026-05-11",
+ "hipodrom": "bursa",
+ "kosu": 7,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/5/26051147_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 3,
+   "tur": "kotu_cikis",
+   "t": 9.479674,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:47:36.279Z"
+}
