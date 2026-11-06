@@ -1,0 +1,23 @@
+{
+ "id": "P16",
+ "tarih": "2026-06-11",
+ "hipodrom": "ankara",
+ "kosu": 1,
+ "video": "https://video-cdn.tjk.org/videoftp/2026/6/26061151_m.mp4",
+ "olay_yok": false,
+ "olaylar": [
+  {
+   "no": 4,
+   "tur": "kotu_cikis",
+   "t": 6.547428,
+   "not": ""
+  },
+  {
+   "no": 2,
+   "tur": "kotu_cikis",
+   "t": 6.547428,
+   "not": ""
+  }
+ ],
+ "zaman": "2026-11-06T18:58:27.171Z"
+}
