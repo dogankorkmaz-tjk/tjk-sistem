@@ -1528,7 +1528,7 @@ function canliCiz(){
     const prM=besliProb(pW,pT,sets), prP=besliProb(mW,mT,sets), fx=(v)=>(v*100).toFixed(v<0.1?2:1).replace('.',',');
     return `<div style="border-top:1px solid var(--line);padding:6px 0"><div><b>${etiket}</b> · ${n} komb. · <b>${f2(n*birim)} TL</b></div><div class="sub">Tutma %${fx(prM)} (piyasa %${fx(prP)}, ×${f2(prM/Math.max(prP,1e-9))})</div>`+sets.map((x,q)=>`<div style="display:flex;align-items:center;gap:6px;margin-top:3px"><span class="sub" style="width:34px">${q+1}. at</span>${x.map(j=>`<span class="no c${(no(j)-1)%16+1}" style="display:inline-flex">${no(j)}</span>`).join('')}</div>`).join('')+'</div>'; };
   const kupKart=(baslik,L,birim,butceler,sirasizN,not,eT,maxK)=>{ maxK=maxK||250; let g='';
-    butceler.forEach(B=>{ const r=besliKupon(p,B,a5,L,true); if(r) g+=kupSatir(r.sets,L,birim,'Sıralı kombine ≤'+B); });
+    butceler.forEach(B=>{ const r=besliKupon(p,B,a5,L,true); if(r) g+=kupSatir(r.sets,L,birim,'Sıralı kombine (en çok '+B+' komb.)'); });
     if(sirasizN&&p.length>=sirasizN){ const pW2=a5.slice(0,L).map(g=>p.map(v=>Math.pow(Math.max(v,1e-9),g))), pT2=pW2.map(w=>w.reduce((a,b)=>a+b,0)), kp=N=>{ const U=ord.slice(0,N); return besliProb(pW2,pT2,Array.from({length:L},()=>U)); };
       let N=sirasizN; const KS=n=>{ let c=1; for(let i=0;i<L;i++) c*=(n-i); return c; };
       while(N<sirasizN+2&&N<p.length&&KS(N+1)<=maxK&&(kp(N+1)-kp(N))*100/((KS(N+1)-KS(N))*birim)>=eT) N++;   // model: ek at, TL başına kapsama kazancı ≥ eşik (puan/TL) ve ≤250 komb. ise eklenir

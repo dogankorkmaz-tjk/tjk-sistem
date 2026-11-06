@@ -747,6 +747,14 @@ def hizli(t):
             _DG.guncelle(c)          # 7 Kas 2026: Canlı değer kuponları (gölge) — koşu öncesi dondur, sonuç gelince değerlendir
         except Exception as e:
             print("deger_golge (hızlı) hatası:", repr(e))
+        try:   # 7 Kas 2026: yarışa ≤16 dk varsa ~3,5 dk sık yokla (ganyan + ikili listesi), sonra gölge kuponları taze görüntüyle yeniden dondur (Actions çalışmaları seyrek geldiği için kapsama %50–75 idi)
+            if any(0 <= m - dk <= 16 for m in yakin):
+                MUH.yakin(int(os.environ.get("YAKIN_SN", "210")), aralik=30, ust=15.0, alt=0.0)
+                UD.guncelle(c)
+                from . import deger_golge as _DG
+                _DG.guncelle(c)
+        except Exception as e:
+            print("yakın yoklama hatası:", repr(e))
         try:
             from . import egzotik as _EG
             print("geç tabela:", TB.gec_guncelle(c), "geç egzotik:", _EG.gec_guncelle(c))

@@ -57,7 +57,8 @@ def kontrol(obj=None, bugun=None):
         y = os.path.join(VERI, "atyarisi", dun + ".json.gz")
         if os.path.exists(y):
             tam = AR.tam_mi(json.load(gzip.open(y, "rt")))
-            _ekle(L, "atyarisi arşivi (dün)", "ok" if tam else "uyari", "tam" if tam else "sonuçları eksik")
+            erken = O.tr_simdi().hour < 5 if hasattr(O, "tr_simdi") else False      # dünün tam sonuçları 03:40'taki arşiv çalışmasıyla gelir
+            _ekle(L, "atyarisi arşivi (dün)", "ok" if (tam or erken) else "uyari", "tam" if tam else ("sonuçlar 03:40'ta tamamlanacak" if erken else "sonuçları eksik"))
         else:
             _ekle(L, "atyarisi arşivi (dün)", "uyari", "dosya yok")
     except Exception as e:
@@ -83,8 +84,13 @@ def kontrol(obj=None, bugun=None):
                 for key, ad in (("z2", "Jason puanı (z2)"), ("z6", "Benter puanı (z6)"), ("z7", "piyasasız puan (z7)")):
                     pc = 100.0 * sum(1 for a in A if a.get(key) is not None) / len(A)
                     _ekle(L, ad, "ok" if pc >= 95 else ("uyari" if pc >= 50 else "hata"), f"kapsam %{pc:.0f} (başlamamış koşulardaki atlar)")
-                pk = 100.0 * sum(1 for a in A if a.get("zk6") is not None) / len(A)          # gölge: en fazla uyarı
-                _ekle(L, "Benter-K gölge puanı (zk6)", "ok" if pk >= 95 else "uyari", f"kapsam %{pk:.0f} (başlamamış koşulardaki atlar)")
+                AK = [a for h in obj["hipodromlar"] for k in h["kosular"] if not k.get("sonuc") and sum(1 for x in k["atlar"] if x.get("agf") and not x.get("kosmaz")) >= 5
+                      for a in k["atlar"] if not a.get("kosmaz")]          # zk6 yalnız AGF'si gelmiş koşulara yazılır (g1k.doldur); gece AGF yokken uyarı vermesin
+                if AK:
+                    pk = 100.0 * sum(1 for a in AK if a.get("zk6") is not None) / len(AK)          # gölge: en fazla uyarı
+                    _ekle(L, "Benter-K gölge puanı (zk6)", "ok" if pk >= 95 else "uyari", f"kapsam %{pk:.0f} (AGF'si gelmiş başlamamış koşulardaki atlar)")
+                else:
+                    _ekle(L, "Benter-K gölge puanı (zk6)", "ok", "AGF henüz yok — sabah AGF gelince yazılır")
                 _ekle(L, "Benter sıra üstelleri (a_g1)", "ok" if obj.get("a_g1") else "hata", "var" if obj.get("a_g1") else "YOK — sitede sıralı bahisler çıkmaz")
             al = sum(1 for h in obj["hipodromlar"] if h.get("altili"))
             _ekle(L, "altılı yapısı", "ok" if al else "uyari", f"{al}/{len(obj['hipodromlar'])} hipodromda")

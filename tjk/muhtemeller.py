@@ -238,6 +238,14 @@ def yakin(sure_s, aralik=40, ust=5.0, alt=-1.5):
                         if g:
                             kay["anlik"].append({"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 2), "durum": dr, "g": {str(a): v for a, v in g.items()}, "fav": fav})
                             kay["anlik"] = kay["anlik"][-40:]; yaz += 1
+                            try:                                     # 7 Kas 2026: ikili/sıralı ikili listesi de (Canlı değer kuponları gölge kaydı için)
+                                hv = _havuz(run)
+                                if hv.get("si") and hv.get("ik"):
+                                    kay["havuz"] = {"t": simdi.strftime("%H:%M:%S"), "dk": round(dk, 1), "durum": dr, **hv}
+                                    if dr == "AÇIK":
+                                        kay["havuz_acik"] = kay["havuz"]
+                            except Exception:
+                                pass
             if yaz:
                 json.dump(D, open(dosya, "w", encoding="utf-8"), ensure_ascii=False); n += yaz
         kal = aralik - (time.time() - t0)
