@@ -1114,6 +1114,12 @@ def gece(bugun):
         if len(npg):
             ekle("program", npg, oku("program").columns)
         print("EKLENDİ: sonuç", len(ns), "program", len(npg))
+    try:                                                # agftablosu'ndan gelmeyen (tarih, hipodrom): atyarisi arşivi yedeği (6 Kasım 2026; agftablosu 22 Ekim'den beri engelli)
+        from . import atyarisi_gecmis as _AG            # son 14 gün + son kayıtlı günden sonrası; yalnız sonuclar'da olmayan çiftler eklenir
+        bas = min(son + datetime.timedelta(days=1), bugun - datetime.timedelta(days=14))
+        _AG.eksik_doldur([(bas + datetime.timedelta(days=i)).isoformat() for i in range((bugun - bas).days)], yaz=True)
+    except Exception as e:
+        print("atyarisi yedek hatası:", repr(e))
     skor()
     try:
         GL.egit()                                   # aday model: dünün sonuna kadar yeniden eğit
