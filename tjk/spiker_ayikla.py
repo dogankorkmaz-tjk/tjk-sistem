@@ -9,11 +9,11 @@ _K = "|".join(sorted((re.escape(k) for k in SAYI), key=len, reverse=True))
 NO_RE = re.compile(rf"(?<![\w,.])(\d{{1,2}}|{_K})\s*(?:numara\w*|nolu|no\.?|maradı|ma(?=\s))", re.I)
 BOY_RE = re.compile(rf"(\d{{1,2}}(?:[.,]5)?|{_K}|yarım|bir buçuk|iki buçuk)\s*(?:[-–,]\s*(?:\d{{1,2}}|{_K})\s*)?boy", re.I)
 TUR = [
-    ("gec_cikis", r"geç başla|geç çık|oyalan|ancak başla|başlayamad|yarışa başlamad|start\w* kaçır|kötü çık|kötü başla|startta kald|geriden başla|çıkışta kald|geriye düş|geride kald|çıkamad"),
+    ("gec_cikis", r"geç başla|geç çık|oyalan|ancak başla|başlayamad|yarışa başlamad|start\w* kaçır|kötü çık|kötü başla|startta kald|geriden başla|çıkışta kald|geriye düş|geride kald|çıkamad|başlayabild|gecik|ağır al|geç kald|sonra koşuya|sonra başla"),
     ("avantaj_kaybi", r"avantaj kaybet|boy kaybet|zemin kaybet"),
-    ("sikisma", r"sıkış|önü kapan|yol bulama|kapalı kald|arada kald|çekilmek zorunda|sert çekil"),
+    ("sikisma", r"sıkış|önü kapan|yol bulama|kapalı kald|arada kald|çekilmek zorunda|sert çekil|etkilen|engellen|önünü kes|çarp"),
     ("dis_acilma", r"dışa açıl|dışı açıl|dışarı açıl|dışa doğru açıl|dışarıya açıl|geniş dön|dışa kaç|dışarı kaç"),
-    ("dusme_tokezleme", r"tökezle|jokeyini düşür|jokey düş|eyer kay|sendele"),
+    ("dusme_tokezleme", r"tökezle|jokeyini düşür|jokey\w* düş|attan düş|yere düş|binicisini|eyerden|jokeysiz|yere bırak|eyer kay|sendele|yarışı tamamlayamad|yarıştan kopt|başıboş|binicisiz|jokeysiz koş"),
     ("huysuz", r"huysuz|şahlan|dik dur|yüklenmek istemed"),
     ("lehine", r"boşluk bul|yol açıl|yolu açıl|rakipsiz|zorlanmadan|rahat önde|rahat koş|kimse zorlamad|tek başına önde|baskısız"),   # T161 (6 Kasım 23:25): lehine akış
 ]
@@ -65,16 +65,43 @@ def _cumleler(seg):
     return out
 
 
-def olaylar(seg, gecerli=None):
+def _jokey_anilan(t, jokeyler):
+    """Cümlede jokey soyadı geçen (≥4 harf) atlar: [(konum, no)]. jokeyler: {no: 'V.ABİŞ' / 'VEDAT ABİŞ'}."""
+    out = []
+    for no, ad in (jokeyler or {}).items():
+        soy = kucuk(str(ad)).replace(".", " ").split()
+        if not soy or len(soy[-1]) < 4: continue
+        for m in re.finditer(rf"\b{re.escape(soy[-1])}", t):
+            out.append((m.start(), no))
+    return out
+
+
+START_RAKIP = re.compile(r"rakipler\w*.{0,40}?boy.{0,30}?(geri|sonra|gecik|gel)", re.I)   # start anlatımında "rakiplerinin N boy gerisinde/sonra"
+
+
+def _ad_anilan(t, adlar):
+    """At adı (ilk ≥4 harfli sözcüğü) geçen konumlar: [(konum, no)]; numarasız anılan atlar için. adlar: {no: 'RENES PAŞA'}."""
+    out = []
+    for no, ad in (adlar or {}).items():
+        w = [x for x in kucuk(str(ad)).split() if len(x) >= 4]
+        if not w: continue
+        for m in re.finditer(rf"\b{re.escape(w[0])}", t):
+            out.append((m.start(), no))
+    return out
+
+
+def olaylar(seg, gecerli=None, jokeyler=None, adlar=None):
     """gecerli: koşan at numaraları kümesi. Olay ifadesi cümle içinde kendinden ÖNCE anılan ata bağlanır (COK_AT türlerinde hepsine, her birinin
     kendinden sonraki ilk 'N boy' miktarıyla); cümlede at yoksa bir önceki cümlenin son anılan atına."""
     out = {}; onceki = None
     for s, t in _cumleler(seg):
         t = kucuk(t)
-        A = [(p, n) for p, n in anilanlar(t) if not gecerli or n in gecerli]
+        A = sorted([(p, n) for p, n in anilanlar(t) if not gecerli or n in gecerli] + _jokey_anilan(t, jokeyler) + _ad_anilan(t, adlar))
         for tur, rx in TUR:
             if tur == "gec_cikis" and s > START_SN: continue
-            for m in rx.finditer(t):
+            M = list(rx.finditer(t))
+            if tur == "gec_cikis" and not M: M = list(START_RAKIP.finditer(t))
+            for m in M:
                 aday = [(p, n) for p, n in A if p < m.start()]
                 if not aday:
                     if onceki is None: continue
@@ -84,6 +111,9 @@ def olaylar(seg, gecerli=None):
                     son = aday[i + 1][0] if i + 1 < len(aday) else len(t)
                     out.setdefault(n, []).append((tur, s, _boy(t[p:son + 1]), t))
         if A: onceki = A[-1][1]
+    for n in out:                                   # start bölümündeki avantaj kaybı / dışa açılma → start sorunu olarak da işaretlenir
+        if any(o[0] in ("avantaj_kaybi", "dis_acilma") and o[1] <= START_SN for o in out[n]) and not any(o[0] == "gec_cikis" for o in out[n]):
+            o = [o for o in out[n] if o[0] in ("avantaj_kaybi", "dis_acilma") and o[1] <= START_SN][0]; out[n].append(("gec_cikis", o[1], o[2], o[3]))
     for n in out:                                   # aynı at, aynı tür tekrarı (ör. bölünmüş cümle) → bir kez
         g = {}; [g.setdefault(o[0], o) for o in out[n]]; out[n] = list(g.values())
     return out

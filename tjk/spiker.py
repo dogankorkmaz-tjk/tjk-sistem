@@ -86,6 +86,9 @@ def calis(isler):
 if __name__ == "__main__":
     if sys.argv[1] == "gun":
         I = liste({sys.argv[2]})
+    elif sys.argv[1] == "tek":                     # tek TARIH_HİP_KOŞU ... (belirli koşular)
+        H = {tuple(x.rsplit("_", 2)) for x in sys.argv[2:]}
+        I = [x for x in liste({h[0] for h in H}) if (x[0], x[1], str(x[2])) in H]
     else:
         N = int(sys.argv[2]); dun = (dt.date.today() - dt.timedelta(days=1)).isoformat()
         I = liste({dun}) + [x for x in liste() if x[0] != dun]
