@@ -1,0 +1,23 @@
+=== 26082141_m (21785096 bayt)
+stream|codec_name=h264|codec_type=video
+stream|codec_name=aac|codec_type=audio|sample_rate=48000|channels=2
+format|duration=115.080000
+=== 26062125_m (23943855 bayt)
+stream|codec_name=h264|codec_type=video
+stream|codec_name=aac|codec_type=audio|sample_rate=48000|channels=2
+format|duration=195.979333
+=== 26091839_m (18176162 bayt)
+stream|codec_name=h264|codec_type=video
+stream|codec_name=aac|codec_type=audio|sample_rate=48000|channels=2
+format|duration=150.951333
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/faster_whisper/transcribe.py", line 876, in transcribe
+    audio = decode_audio(audio, sampling_rate=sampling_rate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/faster_whisper/audio.py", line 46, in decode_audio
+    with av.open(input_file, mode="r", metadata_errors="ignore") as container:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "av/container/core.py", line 479, in av.container.core.open
+TypeError: open() got an unexpected keyword argument 'metadata_errors'
