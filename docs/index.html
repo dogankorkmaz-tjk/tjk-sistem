@@ -189,6 +189,10 @@ input.oran:focus{background:var(--surface);border-color:var(--accent)}
 .lejant .bp{width:2px;height:12px;background:var(--mk)}
 .lejant .bj{width:9px;height:9px;border-radius:50%;background:var(--jas)}
 .tag{padding:2px 8px;border-radius:6px;font:600 11.5px var(--f-body)}
+.ekb{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:5px;font:700 11px/1.4 var(--f-body);color:#fff;background:#6a4fc4;vertical-align:middle;white-space:nowrap}
+.ekb.g2{background:#0f7b6c}.ekb.g3{background:#b5651d}.ekb.g4{background:#a23a6f}
+.eknot{font-weight:600}
+.nm span.ekb{display:inline-block;width:auto;color:#fff;font:700 11px/1.4 var(--f-body);margin:4px 0 2px;padding:1px 7px}
 .tag.ev{background:var(--brass-bg);color:var(--brass)}
 .tag.sur{background:var(--hot-bg);color:var(--hot)}
 .tag.dus{color:var(--bad);border:1px solid var(--line)}
@@ -643,13 +647,17 @@ function hesapla(h,k,kaynakZorla,yedek){
 }
 const KAYNAK={canli:['Canlı muhtemel ganyan (TJK)','on'],elle:['Senin girdiğin oranlar','on'],kapanis:['Kapanış ganyanları','on'],agf:['AGF (altılı oynanma yüzdesi)','hot'],model:['YOK — gri: piyasasız tahmin (yalnız at, jokey ve geçmiş verisi; AGF/canlı oran gelince değişir)','']};
 
+// ekür gösterimi (6 Kasım 2026, Doğan): a.ek>0 aynı sayı = aynı ekür grubu (TJK resmî 'stablemate'); gruplar A, B, C... rengiyle
+function ekGrup(k){ const g={}; (k.atlar||[]).forEach(a=>{ if(a.ek>0) (g[a.ek]=g[a.ek]||[]).push(a.no); }); const ids=Object.keys(g).filter(x=>g[x].length>1).sort((x,y)=>x-y); return ids.map((id,i)=>({id:+id,harf:String.fromCharCode(65+i),r:(i%4)+1,nolar:g[id]})); }
+function ekRozet(k,a){ if(!(a.ek>0)) return ''; const G=ekGrup(k).find(x=>x.id===a.ek); if(!G) return ''; const es=G.nolar.filter(n=>n!==a.no).join('-'); return `<span class="ekb${G.r>1?' g'+G.r:''}" title="Ekürisi: ${esc(es)}">Ekür ${G.harf} · ${esc(es)} ile</span>`; }
+function ekOzet(k){ const G=ekGrup(k); if(!G.length) return ''; return `<span class="note eknot">Ekür: ${G.map(x=>`<span class="ekb${x.r>1?' g'+x.r:''}" style="margin-left:0">${x.harf}</span> ${x.nolar.join('-')}`).join(' · ')} <span style="font-weight:400">(aynı ganyanı paylaşırlar)</span></span>`; }
 function renderKosu(){
   const h=hipBul(sel.hip), k=h&&h.kosular.find(x=>x.kosu===sel.kosu); cur={h,k}; if(!k){$('kosuAlani').innerHTML='';return}
   const o=ODDS[okey(h.id,k.kosu)]||{};
   const bitti=!!k.sonuc;
   const podyum=bitti?k.atlar.filter(a=>k.sonuc[a.no]&&k.sonuc[a.no].sira<=3).sort((x,y)=>k.sonuc[x.no].sira-k.sonuc[y.no].sira):[];
   let s=`<div class="card yk"><div class="kbas"><div class="ykbas"><div class="ykno"><small>Koşu</small><b>${k.kosu}</b></div>
-      <div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat||'')}${bitti?' · bitti':''}</span>${k.bilgi?`<span class="note">${esc(k.bilgi)}</span>`:''}${(((VERI.pist_durumu||{})[h.id])||[]).map(c=>`<span class="note">Pist durumu: ${esc(c.pist)} ${esc(String(c.durum||'').toLocaleLowerCase('tr'))}${c.agirlik?' '+String(c.agirlik).replace('.',','):''}</span>`).join('')}${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}</div></div>
+      <div class="ykb"><b>${esc(h.ad)}</b><span class="ykt">${esc(k.saat||'')}${bitti?' · bitti':''}</span>${k.bilgi?`<span class="note">${esc(k.bilgi)}</span>`:''}${(((VERI.pist_durumu||{})[h.id])||[]).map(c=>`<span class="note">Pist durumu: ${esc(c.pist)} ${esc(String(c.durum||'').toLocaleLowerCase('tr'))}${c.agirlik?' '+String(c.agirlik).replace('.',','):''}</span>`).join('')}${(k.degisiklik||[]).map(x=>`<span class="note" style="color:var(--hot);font-weight:600">⚠ ${esc(x)}</span>`).join('')}${ekOzet(k)}</div></div>
     <div id="kaynak"></div></div>
     ${podyum.length?'<div class="podyum">'+podyum.map(a=>`<div class="p${k.sonuc[a.no].sira}"><small>${k.sonuc[a.no].sira}.</small><span class="no c${(a.no-1)%16+1}">${a.no}</span><b>${esc(a.at)}</b></div>`).join('')+'</div>':''}
     <div class="rkbas">Model sırası (Jason)</div><div class="rank" id="rank"></div>
@@ -657,7 +665,7 @@ function renderKosu(){
   k.atlar.forEach((a,i)=>{
     const sn=bitti&&k.sonuc[a.no]; const ph=a.kosmaz?'KOŞMAZ':sn?f2(sn.g):(a.agf?'AGF '+Math.round(a.agf):'—');
     s+=`<div class="row at${sn&&sn.sira===1?' kazanan':sn&&sn.sira===2?' ikinci':sn&&sn.sira===3?' ucuncu':''}" id="r${i}"><span class="no c${(a.no-1)%16+1}">${a.no}${sn&&sn.sira?`<em>${sn.sira}.</em>`:''}</span>
-      <div class="nm"><b${a.kosmaz?' style="text-decoration:line-through;opacity:.5"':''}>${esc(a.at)}</b>${a.kosmaz?'<span style="color:var(--hot)">KOŞMAZ</span>':''}<span>${esc(a.jokey||'')}${a.st?' · start '+a.st:''}</span></div>
+      <div class="nm"><b${a.kosmaz?' style="text-decoration:line-through;opacity:.5"':''}>${esc(a.at)}</b>${ekRozet(k,a)}${a.kosmaz?'<span style="color:var(--hot)">KOŞMAZ</span>':''}<span>${esc(a.jokey||'')}${a.st?' · start '+a.st:''}</span></div>
       <label class="gn"><small>Ganyan</small><input class="oran" id="o${i}" data-i="${i}" inputmode="decimal" autocomplete="off" placeholder="${esc(ph)}" value="${esc(o[a.no]||'')}" aria-label="${esc(a.at)} ganyan"></label>
       <div class="bar" id="bar${i}" aria-hidden="true"><i class="bm"></i><i class="bp"></i><i class="bj"></i></div>
       <div class="ozt"><span><b class="num" id="m${i}">–</b> <em id="ml${i}" style="font-style:normal">Jason</em></span><span><b class="num" id="e${i}">–</b> EV</span></div>
