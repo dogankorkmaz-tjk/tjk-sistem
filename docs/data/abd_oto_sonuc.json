@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 15:31 UTC",
- "kayitli_kosu": 1699,
- "eslesmeyen_kosu": 1158,
+ "uretim": "2026-11-07 15:58 UTC",
+ "kayitli_kosu": 1702,
+ "eslesmeyen_kosu": 1159,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 917,
- "kosu": 541,
- "isabet": 58,
- "roi": 0.9,
+ "bahis": 921,
+ "kosu": 543,
+ "isabet": 59,
+ "roi": 0.906,
  "ga95": [
-  0.642,
-  1.192
+  0.654,
+  1.197
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.757
   },
   "birlesik-krallik": {
-   "bahis": 156,
-   "roi": 1.586
+   "bahis": 159,
+   "roi": 1.617
   },
   "fransa": {
-   "bahis": 92,
-   "roi": 0.536
+   "bahis": 93,
+   "roi": 0.53
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1165,
-  "kosu": 528,
-  "isabet": 111,
-  "roi": 0.6,
+  "bahis": 1173,
+  "kosu": 530,
+  "isabet": 112,
+  "roi": 0.604,
   "ga95": [
-   0.443,
-   0.759
+   0.448,
+   0.762
   ]
  },
  "bahis_t1": {
-  "bahis": 1178,
-  "kosu": 519,
-  "isabet": 115,
-  "roi": 0.653,
+  "bahis": 1190,
+  "kosu": 521,
+  "isabet": 117,
+  "roi": 0.663,
   "ga95": [
-   0.452,
-   0.895
+   0.465,
+   0.903
   ]
  },
  "bahis_t3": {
-  "bahis": 1161,
-  "kosu": 504,
-  "isabet": 124,
-  "roi": 0.642,
+  "bahis": 1175,
+  "kosu": 506,
+  "isabet": 125,
+  "roi": 0.643,
   "ga95": [
-   0.461,
-   0.873
+   0.462,
+   0.87
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 1,
-   "at": "A LADY FOREVER",
-   "q": 0.03,
-   "g": 96.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 1,
-   "at": "LOCHABER",
-   "q": 0.052,
-   "g": 52.55,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 3,
-   "at": "LILLIE MARGOT",
-   "q": 0.16,
-   "g": 15.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 3,
-   "at": "MIDSUMMER STORM",
-   "q": 0.123,
-   "g": 26.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-06",
    "pist": "Belmont Park",
@@ -364,6 +328,15 @@
   },
   {
    "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 5,
+   "at": "SEVEN TIMER",
+   "q": 0.179,
+   "g": 9.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
    "pist": "Marseille-borely",
    "kosu": 2,
    "at": "MARCH MADNESS",
@@ -423,6 +396,33 @@
    "at": "CAMELOT CITY",
    "q": 0.168,
    "g": 7.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 3,
+   "at": "SOLID BOND",
+   "q": 0.054,
+   "g": 27.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 3,
+   "at": "CROWN THE FUTURE",
+   "q": 0.178,
+   "g": 9.65,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 3,
+   "at": "RAMON DI LORIA",
+   "q": 0.047,
+   "g": 66.25,
    "kazandi": false
   }
  ]
