@@ -1,25 +1,25 @@
 {
- "uretim": "2026-11-07 17:25 UTC",
- "kayitli_kosu": 1710,
- "eslesmeyen_kosu": 1164,
+ "uretim": "2026-11-07 18:00 UTC",
+ "kayitli_kosu": 1715,
+ "eslesmeyen_kosu": 1167,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 931,
- "kosu": 546,
+ "bahis": 935,
+ "kosu": 548,
  "isabet": 59,
- "roi": 0.897,
+ "roi": 0.893,
  "ga95": [
-  0.642,
-  1.187
+  0.64,
+  1.181
  ],
  "ulke": {
   "abd": {
-   "bahis": 581,
-   "roi": 0.757
+   "bahis": 582,
+   "roi": 0.755
   },
   "birlesik-krallik": {
-   "bahis": 164,
-   "roi": 1.568
+   "bahis": 167,
+   "roi": 1.54
   },
   "fransa": {
    "bahis": 98,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1184,
-  "kosu": 533,
-  "isabet": 113,
-  "roi": 0.611,
+  "bahis": 1188,
+  "kosu": 535,
+  "isabet": 114,
+  "roi": 0.612,
   "ga95": [
    0.458,
    0.771
   ]
  },
  "bahis_t1": {
-  "bahis": 1197,
-  "kosu": 524,
-  "isabet": 117,
-  "roi": 0.659,
+  "bahis": 1201,
+  "kosu": 526,
+  "isabet": 118,
+  "roi": 0.66,
   "ga95": [
-   0.463,
+   0.464,
    0.895
   ]
  },
  "bahis_t3": {
-  "bahis": 1182,
-  "kosu": 509,
-  "isabet": 125,
-  "roi": 0.639,
+  "bahis": 1185,
+  "kosu": 511,
+  "isabet": 126,
+  "roi": 0.64,
   "ga95": [
-   0.461,
+   0.462,
    0.866
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 3,
-   "at": "FIGHTING THUNDER",
-   "q": 0.088,
-   "g": 20.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 3,
-   "at": "HUNGOVER",
-   "q": 0.197,
-   "g": 8.3,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 7,
-   "at": "SUGAREE",
-   "q": 0.071,
-   "g": 21.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Gulfstream",
-   "kosu": 2,
-   "at": "CRYPTIC THUNDER",
-   "q": 0.262,
-   "g": 5.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-06",
    "pist": "Gulfstream",
@@ -198,6 +162,15 @@
    "at": "TIMS",
    "q": 0.27,
    "g": 8.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "MAD BANKER",
+   "q": 0.06,
+   "g": 21.7,
    "kazandi": false
   },
   {
@@ -423,6 +396,33 @@
    "at": "MOIRA EXPRESS",
    "q": 0.056,
    "g": 25.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 7,
+   "at": "TOOLATETONEGOTIATE",
+   "q": 0.087,
+   "g": 15.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 7,
+   "at": "WATEEN",
+   "q": 0.037,
+   "g": 60.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 7,
+   "at": "CALL MARGOT",
+   "q": 0.13,
+   "g": 14.55,
    "kazandi": false
   }
  ]
