@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-07 01:38 UTC",
- "kayitli_kosu": 1667,
- "eslesmeyen_kosu": 1134,
+ "uretim": "2026-11-07 07:05 UTC",
+ "kayitli_kosu": 1672,
+ "eslesmeyen_kosu": 1137,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 904,
- "kosu": 533,
+ "bahis": 906,
+ "kosu": 535,
  "isabet": 58,
- "roi": 0.913,
+ "roi": 0.911,
  "ga95": [
-  0.653,
-  1.194
+  0.65,
+  1.192
  ],
  "ulke": {
   "abd": {
-   "bahis": 579,
-   "roi": 0.759
+   "bahis": 581,
+   "roi": 0.757
   },
   "birlesik-krallik": {
    "bahis": 156,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1130,
-  "kosu": 520,
-  "isabet": 107,
-  "roi": 0.602,
+  "bahis": 1138,
+  "kosu": 522,
+  "isabet": 109,
+  "roi": 0.605,
   "ga95": [
-   0.439,
-   0.771
+   0.445,
+   0.772
   ]
  },
  "bahis_t1": {
-  "bahis": 1144,
-  "kosu": 512,
-  "isabet": 110,
-  "roi": 0.654,
+  "bahis": 1152,
+  "kosu": 514,
+  "isabet": 112,
+  "roi": 0.656,
   "ga95": [
-   0.447,
+   0.451,
    0.893
   ]
  },
  "bahis_t3": {
-  "bahis": 1123,
-  "kosu": 497,
-  "isabet": 119,
-  "roi": 0.645,
+  "bahis": 1132,
+  "kosu": 499,
+  "isabet": 121,
+  "roi": 0.646,
   "ga95": [
-   0.451,
+   0.454,
    0.884
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-05",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "KAPKAN",
-   "q": 0.16,
-   "g": 8.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "RUN VICTORIA",
-   "q": 0.066,
-   "g": 28.4,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-05",
    "pist": "Chantilly",
@@ -243,6 +225,24 @@
    "at": "YO DADDY",
    "q": 0.273,
    "g": 9.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Charles Town",
+   "kosu": 3,
+   "at": "CIDERHOUSE WAY",
+   "q": 0.072,
+   "g": 34.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Charles Town",
+   "kosu": 3,
+   "at": "YORK TAVERN",
+   "q": 0.113,
+   "g": 13.8,
    "kazandi": false
   },
   {
