@@ -1,0 +1,24 @@
+name: cv_tum
+# T183 görüntü pilotu (tjk/cv_tum.py): tüm koşu boyunca at tespiti kapsamı (betimsel); sonuçlar data/cv_tum/
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  cv:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
+        timeout-minutes: 10
+      - run: pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q ultralytics opencv-python-headless
+        timeout-minutes: 15
+      - run: |
+          python3 tjk/cv_tum.py 2>&1 | tail -60
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/cv_tum; git commit -qm "cv_tum pilot" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && exit 0; sleep 10; done; exit 1
