@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 18:04 UTC",
- "kayitli_kosu": 1715,
- "eslesmeyen_kosu": 1167,
+ "uretim": "2026-11-07 18:33 UTC",
+ "kayitli_kosu": 1721,
+ "eslesmeyen_kosu": 1171,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 935,
- "kosu": 548,
+ "bahis": 936,
+ "kosu": 550,
  "isabet": 59,
- "roi": 0.893,
+ "roi": 0.892,
  "ga95": [
-  0.64,
-  1.181
+  0.639,
+  1.18
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.755
   },
   "birlesik-krallik": {
-   "bahis": 167,
-   "roi": 1.54
+   "bahis": 168,
+   "roi": 1.53
   },
   "fransa": {
    "bahis": 98,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1188,
-  "kosu": 535,
+  "bahis": 1189,
+  "kosu": 537,
   "isabet": 114,
   "roi": 0.612,
   "ga95": [
    0.458,
-   0.771
+   0.77
   ]
  },
  "bahis_t1": {
-  "bahis": 1201,
-  "kosu": 526,
+  "bahis": 1204,
+  "kosu": 528,
   "isabet": 118,
-  "roi": 0.66,
+  "roi": 0.658,
   "ga95": [
    0.464,
-   0.895
+   0.894
   ]
  },
  "bahis_t3": {
-  "bahis": 1185,
-  "kosu": 511,
+  "bahis": 1187,
+  "kosu": 513,
   "isabet": 126,
-  "roi": 0.64,
+  "roi": 0.639,
   "ga95": [
    0.462,
-   0.866
+   0.865
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-06",
-   "pist": "Gulfstream",
-   "kosu": 2,
-   "at": "HIGHER SELF",
-   "q": 0.049,
-   "g": 41.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-06",
    "pist": "Gulfstream",
@@ -423,6 +414,15 @@
    "at": "CALL MARGOT",
    "q": 0.13,
    "g": 14.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 8,
+   "at": "CLIPSHAM NOBLE",
+   "q": 0.385,
+   "g": 5.05,
    "kazandi": false
   }
  ]
