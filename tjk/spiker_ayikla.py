@@ -13,7 +13,7 @@ TUR = [
     ("avantaj_kaybi", r"avantaj kaybet|boy kaybet|zemin kaybet"),
     ("sikisma", r"sıkış|önü kapan|yol bulama|kapalı kald|arada kald|çekilmek zorunda|sert çekil|etkilen|engellen|önünü kes|çarp"),
     ("dis_acilma", r"dışa açıl|dışı açıl|dışarı açıl|dışa doğru açıl|dışarıya açıl|geniş dön|dışa kaç|dışarı kaç"),
-    ("dusme_tokezleme", r"tökezle|jokeyini düşür|jokey\w* düş|attan düş|yere düş|binicisini|eyerden|jokeysiz|yere bırak|eyer kay|sendele|yarışı tamamlayamad|yarıştan kopt|başıboş|binicisiz|jokeysiz koş"),
+    ("dusme_tokezleme", r"tökezle|jokeyini düşür|jokey\w* düş|attan düş|yere düş|binicisini|eyerden|jokeysiz|yere bırak|eyer kay|sendele|yarışı tamamlayamad|yarıştan kopt|başıboş|binicisiz|jokeysiz koş|joke'?s[iı]z|üzerinde jok\w* yok|safkandan düş|üzerinden düşür|jok\w* üzerinden"),   # 7 Kas 2026 vaka (İst 6 Kas 5): whisper "jokey"i "Joke" yazıyor
     ("huysuz", r"huysuz|şahlan|dik dur|yüklenmek istemed"),
     ("lehine", r"boşluk bul|yol açıl|yolu açıl|rakipsiz|zorlanmadan|rahat önde|rahat koş|kimse zorlamad|tek başına önde|baskısız"),   # T161 (6 Kasım 23:25): lehine akış
 ]
