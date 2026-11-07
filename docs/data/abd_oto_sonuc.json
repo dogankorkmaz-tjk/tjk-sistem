@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 11:29 UTC",
- "kayitli_kosu": 1677,
+ "uretim": "2026-11-07 12:02 UTC",
+ "kayitli_kosu": 1678,
  "eslesmeyen_kosu": 1140,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 909,
- "kosu": 537,
+ "bahis": 911,
+ "kosu": 538,
  "isabet": 58,
- "roi": 0.908,
+ "roi": 0.906,
  "ga95": [
-  0.65,
-  1.202
+  0.647,
+  1.2
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.586
   },
   "fransa": {
-   "bahis": 84,
-   "roi": 0.587
+   "bahis": 86,
+   "roi": 0.573
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1145,
-  "kosu": 524,
-  "isabet": 109,
-  "roi": 0.601,
+  "bahis": 1150,
+  "kosu": 525,
+  "isabet": 110,
+  "roi": 0.603,
   "ga95": [
-   0.441,
-   0.763
+   0.444,
+   0.764
   ]
  },
  "bahis_t1": {
-  "bahis": 1156,
-  "kosu": 515,
-  "isabet": 112,
-  "roi": 0.654,
+  "bahis": 1161,
+  "kosu": 516,
+  "isabet": 113,
+  "roi": 0.656,
   "ga95": [
-   0.446,
-   0.901
+   0.45,
+   0.902
   ]
  },
  "bahis_t3": {
-  "bahis": 1136,
-  "kosu": 500,
-  "isabet": 121,
-  "roi": 0.644,
+  "bahis": 1141,
+  "kosu": 501,
+  "isabet": 122,
+  "roi": 0.646,
   "ga95": [
-   0.457,
+   0.461,
    0.879
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-05",
-   "pist": "Chelmsford City",
-   "kosu": 2,
-   "at": "READ ALL ABOUT IT",
-   "q": 0.066,
-   "g": 18.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chelmsford City",
-   "kosu": 2,
-   "at": "SUITCASE SMITH",
-   "q": 0.051,
-   "g": 41.85,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-05",
    "pist": "Chelmsford City",
@@ -423,6 +405,24 @@
    "at": "SAINTE ROMY",
    "q": 0.1,
    "g": 77.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Marseille-borely",
+   "kosu": 4,
+   "at": "MEFIE TOI",
+   "q": 0.203,
+   "g": 6.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Marseille-borely",
+   "kosu": 4,
+   "at": "COUNSELOR",
+   "q": 0.305,
+   "g": 5.8,
    "kazandi": false
   }
  ]
