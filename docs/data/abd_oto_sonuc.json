@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 12:06 UTC",
- "kayitli_kosu": 1679,
- "eslesmeyen_kosu": 1141,
+ "uretim": "2026-11-07 12:44 UTC",
+ "kayitli_kosu": 1684,
+ "eslesmeyen_kosu": 1145,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 911,
- "kosu": 538,
+ "bahis": 913,
+ "kosu": 539,
  "isabet": 58,
- "roi": 0.906,
+ "roi": 0.904,
  "ga95": [
-  0.647,
-  1.2
+  0.645,
+  1.197
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.586
   },
   "fransa": {
-   "bahis": 86,
-   "roi": 0.573
+   "bahis": 88,
+   "roi": 0.56
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1150,
-  "kosu": 525,
+  "bahis": 1153,
+  "kosu": 526,
   "isabet": 110,
-  "roi": 0.603,
+  "roi": 0.601,
   "ga95": [
-   0.444,
-   0.764
+   0.443,
+   0.761
   ]
  },
  "bahis_t1": {
-  "bahis": 1161,
-  "kosu": 516,
-  "isabet": 113,
-  "roi": 0.656,
+  "bahis": 1166,
+  "kosu": 517,
+  "isabet": 114,
+  "roi": 0.655,
   "ga95": [
-   0.45,
-   0.902
+   0.451,
+   0.899
   ]
  },
  "bahis_t3": {
-  "bahis": 1141,
-  "kosu": 501,
-  "isabet": 122,
-  "roi": 0.646,
+  "bahis": 1146,
+  "kosu": 502,
+  "isabet": 123,
+  "roi": 0.645,
   "ga95": [
-   0.461,
-   0.879
+   0.462,
+   0.878
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-05",
-   "pist": "Chelmsford City",
-   "kosu": 2,
-   "at": "WILD ROSIE",
-   "q": 0.041,
-   "g": 87.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chelmsford City",
-   "kosu": 4,
-   "at": "ENZIYA",
-   "q": 0.148,
-   "g": 10.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-05",
    "pist": "Southwell",
@@ -423,6 +405,24 @@
    "at": "COUNSELOR",
    "q": 0.305,
    "g": 5.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Marseille-borely",
+   "kosu": 5,
+   "at": "TOUESSROK",
+   "q": 0.126,
+   "g": 12.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Marseille-borely",
+   "kosu": 5,
+   "at": "CAMELOT CITY",
+   "q": 0.168,
+   "g": 7.95,
    "kazandi": false
   }
  ]
