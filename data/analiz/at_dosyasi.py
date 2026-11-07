@@ -50,13 +50,17 @@ FARK = {(r.tarih, r.hipodrom, int(r.kosu), int(r.no)): (None if pd.isna(r.fark_b
 log("sonuç:", len(SON), "fark:", len(FARK))
 
 # ---------------------------------------------------------------- 3) video özeti
-VID = {}
+VID = {}; VZ = {}
 for f in glob.glob("data/video_seyir/20*_*.json"):
     b = os.path.basename(f)[:-5]; m = re.match(r"(\d{4}-\d\d-\d\d)_(.+)_(\d+)$", b)
     if not m: continue
     try: d = json.load(open(f))
     except Exception: continue
     oz = d.get("ozet") or {}; n = d.get("at_sayisi") or len(oz) or None
+    zz = [x.get("sira") for x in (d.get("zaman") or []) if x.get("sira")]           # her 0,5 sn: öndeki atların sırası (en çok 5)
+    for no in d.get("numaralar") or []:
+        if zz:
+            VZ[(m.group(1), m.group(2), int(m.group(3)), int(no))] = "".join(str(q.index(no) + 1) if no in q[:5] else "6" for q in zz)
     for no, v in oz.items():
         try: v2 = {kk: (round(vv, 2) if isinstance(vv, float) else vv) for kk, vv in v.items()}
         except Exception: continue
@@ -122,6 +126,7 @@ for kk in sorted(SATIR):
     if so: r.update(sira=so["sira"], derece=so["derece"], gan=so["gan"], kosmadi=so["kosmadi"])
     if kk in FARK and FARK[kk] is not None: r["fark_boy"] = FARK[kk]
     if kk in VID: r["video"] = VID[kk]
+    if kk in VZ: r["video_z"] = VZ[kk]          # karakter başına 0,5 sn; 1-5 = sıra, 6 = ilk 5 dışı
     if kk in SP: r["spiker"] = SP[kk]
     if kk in TAH: r["tahmin"] = TAH[kk]
     a["kosular"].append(r)
@@ -179,6 +184,7 @@ n = len(AT); L = [a["karne"] for a in AT.values()]
 oz = [f"at: {n}", f"koşu-at kaydı: {sum(l['n_kosu'] for l in L)}", f"≥5 koşusu olan at: {sum(l['n_kosu']>=5 for l in L)}",
       f"sonuçlu koşu-at: {sum(l['n_sonuc'] for l in L)}",
       f"videosu olan koşu-at: {sum(1 for a in AT.values() for r in a['kosular'] if 'video' in r)}",
+      f"tam zaman serisi olan koşu-at: {sum(1 for a in AT.values() for r in a['kosular'] if 'video_z' in r)}",
       f"spiker kaydı olan koşu-at: {sum(1 for a in AT.values() for r in a['kosular'] if 'spiker' in r)}",
       f"tahmin izi olan koşu-at: {sum(1 for a in AT.values() for r in a['kosular'] if 'tahmin' in r)}",
       f"galop kaydı olan at: {sum(1 for a in AT.values() if a['galop'])}  (galop satırı {sum(len(a['galop']) for a in AT.values())})",

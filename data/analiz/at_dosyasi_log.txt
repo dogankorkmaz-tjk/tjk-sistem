@@ -1,20 +1,21 @@
-[    11s] atyarisi satır: 222951 koşu: 22883
-[    13s] sonuç: 235684 fark: 66017
-[    15s] video at-koşu: 82209
-[    26s] spiker at-koşu: 19488
-[    26s] tahmin izi: 12783
-/home/claude/tjk-sistem/data/analiz/at_dosyasi.py:101: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+[    12s] atyarisi satır: 222951 koşu: 22883
+[    14s] sonuç: 235684 fark: 66017
+[    21s] video at-koşu: 82209
+[    32s] spiker at-koşu: 19488
+[    32s] tahmin izi: 12783
+/home/claude/tjk-sistem/data/analiz/at_dosyasi.py:105: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
   try: y = _dt.datetime.utcfromtimestamp(int(e)).year
-[    29s] karma çift kayıt çıkarıldı: 9941
-[    29s] at sayısı: 15294 koşu-at: 213010
-[    31s] galop satırı eşleşti: 133850 belirsiz ad (atlandı): 18
-[    36s] karne bitti
-[    46s] 
+[    35s] karma çift kayıt çıkarıldı: 9941
+[    35s] at sayısı: 15294 koşu-at: 213010
+[    37s] galop satırı eşleşti: 133850 belirsiz ad (atlandı): 18
+[    42s] karne bitti
+[    52s] 
 at: 15294
 koşu-at kaydı: 213010
 ≥5 koşusu olan at: 10833
 sonuçlu koşu-at: 206451
 videosu olan koşu-at: 78919
+tam zaman serisi olan koşu-at: 80807
 spiker kaydı olan koşu-at: 14953
 tahmin izi olan koşu-at: 8774
 galop kaydı olan at: 7256  (galop satırı 133850)

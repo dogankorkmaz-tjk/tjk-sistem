@@ -3,6 +3,7 @@ koşu-at kaydı: 213010
 ≥5 koşusu olan at: 10833
 sonuçlu koşu-at: 206451
 videosu olan koşu-at: 78919
+tam zaman serisi olan koşu-at: 80807
 spiker kaydı olan koşu-at: 14953
 tahmin izi olan koşu-at: 8774
 galop kaydı olan at: 7256  (galop satırı 133850)
