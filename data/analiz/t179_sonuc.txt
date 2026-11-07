@@ -1,0 +1,21 @@
+tam altılı: 42 gün: 14
+kural   n  ort.ayak         [aralık]  ≥5 oranı  6/6  ort.komb   bedel      ROI
+F48    42     3.238 [ 2.75; 3.71]     0.143    2      47.8    2438    +0.31
+F192   42     3.714 [ 3.23; 4.15]     0.238    2     185.3    9454    -0.66
+D48    42     2.881 [ 2.45; 3.26]     0.071    1      47.9    2445    -0.25
+D192   42     3.095 [ 2.71; 3.45]     0.119    1     183.0    9338    -0.80
+K50    42     3.571 [ 3.13; 4.02]     0.214    2     174.7    8871    -0.56
+K65    42     4.452 [ 4.02; 4.86]     0.571    6    1307.0   66504    -0.64
+=== Eşleşmiş fark (kural − F192): ayak ort. | ≥5 oranı | maliyet oranı
+  F48  : ayak -0.476 [-0.551;-0.395] | ≥5 -0.095 [-0.178;-0.023] | maliyet ×0.26
+  D48  : ayak -0.833 [-1.195;-0.486] | ≥5 -0.167 [-0.319;-0.022] | maliyet ×0.26
+  D192 : ayak -0.619 [-0.935;-0.289] | ≥5 -0.119 [-0.293;+0.049] | maliyet ×0.99
+  K50  : ayak -0.143 [-0.544;+0.222] | ≥5 -0.024 [-0.170;+0.109] | maliyet ×0.94
+  K65  : ayak +0.738 [+0.439;+1.071] | ≥5 +0.333 [+0.158;+0.512] | maliyet ×7.05
+=== G (gün filtresi): F192, eşik = ilk yarının tutma_model medyanı; değerlendirme ikinci yarı
+  oynanan : n 7  ort.ayak 4.000  ≥5 0.429  6/6 0  bedel 1620  kazanç 0
+  elenen  : n 14  ort.ayak 3.714  ≥5 0.286  6/6 1  bedel 3147  kazanç 1360
+  hepsi   : n 21  ort.ayak 3.810  ≥5 0.333  6/6 1  bedel 4767  kazanç 1360
+  eşik (tutma_model): 0.0904
+  oynanan − elenen ortalama ayak farkı: +0.286
+=== Kalibrasyon: model tutma beklentisi vs gerçek 6/6 (F192, tüm altılılar): 3.74 beklenen | 2 gerçek
