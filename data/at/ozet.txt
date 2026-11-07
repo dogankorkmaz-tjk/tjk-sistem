@@ -1,0 +1,10 @@
+at: 15294
+koşu-at kaydı: 222951
+≥5 koşusu olan at: 11147
+sonuçlu koşu-at: 206451
+videosu olan koşu-at: 78919
+spiker kaydı olan koşu-at: 15423
+tahmin izi olan koşu-at: 8774
+galop kaydı olan at: 7256  (galop satırı 133850)
+anahtar çakışması (aynı ad, birden çok anahtar): 5 ad
+belirsiz doğum yılı (?) anahtarı: 0
