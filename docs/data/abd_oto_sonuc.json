@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-06 22:22 UTC",
- "kayitli_kosu": 1661,
- "eslesmeyen_kosu": 1133,
+ "uretim": "2026-11-07 01:38 UTC",
+ "kayitli_kosu": 1667,
+ "eslesmeyen_kosu": 1134,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 899,
- "kosu": 528,
+ "bahis": 904,
+ "kosu": 533,
  "isabet": 58,
- "roi": 0.918,
+ "roi": 0.913,
  "ga95": [
-  0.657,
-  1.199
+  0.653,
+  1.194
  ],
  "ulke": {
   "abd": {
-   "bahis": 574,
-   "roi": 0.766
+   "bahis": 579,
+   "roi": 0.759
   },
   "birlesik-krallik": {
    "bahis": 156,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1125,
-  "kosu": 516,
+  "bahis": 1130,
+  "kosu": 520,
   "isabet": 107,
-  "roi": 0.605,
+  "roi": 0.602,
   "ga95": [
-   0.442,
-   0.774
+   0.439,
+   0.771
   ]
  },
  "bahis_t1": {
-  "bahis": 1139,
-  "kosu": 508,
+  "bahis": 1144,
+  "kosu": 512,
   "isabet": 110,
-  "roi": 0.657,
+  "roi": 0.654,
   "ga95": [
-   0.449,
-   0.896
+   0.447,
+   0.893
   ]
  },
  "bahis_t3": {
-  "bahis": 1116,
-  "kosu": 493,
+  "bahis": 1123,
+  "kosu": 497,
   "isabet": 119,
-  "roi": 0.649,
+  "roi": 0.645,
   "ga95": [
-   0.454,
-   0.891
+   0.451,
+   0.884
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 6,
-   "at": "LAFITTE'S FLEET",
-   "q": 0.187,
-   "g": 6.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-04",
-   "pist": "Penn National",
-   "kosu": 6,
-   "at": "THE SINNER IS YOU",
-   "q": 0.16,
-   "g": 11.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chantilly",
-   "kosu": 4,
-   "at": "ASSEREJE",
-   "q": 0.108,
-   "g": 25.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "CHARMING CECILIA",
-   "q": 0.248,
-   "g": 6.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "YOHIO",
-   "q": 0.102,
-   "g": 13.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-05",
    "pist": "Chantilly",
@@ -355,6 +310,15 @@
   },
   {
    "gun": "2026-11-06",
+   "pist": "Del Mar",
+   "kosu": 7,
+   "at": "SUGAREE",
+   "q": 0.071,
+   "g": 21.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
    "pist": "Gulfstream",
    "kosu": 2,
    "at": "CRYPTIC THUNDER",
@@ -423,6 +387,42 @@
    "at": "TIEMPOS BUENOS",
    "q": 0.176,
    "g": 17.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "IL MARCHESSE",
+   "q": 0.063,
+   "g": 26.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Horseshoe Indianapolis",
+   "kosu": 8,
+   "at": "THE EXODUS TWIST",
+   "q": 0.143,
+   "g": 11.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Penn National",
+   "kosu": 2,
+   "at": "SONG TO REMEMBER",
+   "q": 0.162,
+   "g": 7.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-06",
+   "pist": "Penn National",
+   "kosu": 5,
+   "at": "TIMS",
+   "q": 0.27,
+   "g": 8.05,
    "kazandi": false
   }
  ]
