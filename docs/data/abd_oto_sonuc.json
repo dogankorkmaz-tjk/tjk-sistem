@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 16:37 UTC",
- "kayitli_kosu": 1705,
- "eslesmeyen_kosu": 1162,
+ "uretim": "2026-11-07 16:42 UTC",
+ "kayitli_kosu": 1707,
+ "eslesmeyen_kosu": 1163,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 921,
- "kosu": 543,
+ "bahis": 923,
+ "kosu": 544,
  "isabet": 59,
- "roi": 0.906,
+ "roi": 0.904,
  "ga95": [
-  0.654,
-  1.197
+  0.652,
+  1.194
  ],
  "ulke": {
   "abd": {
@@ -18,8 +18,8 @@
    "roi": 0.757
   },
   "birlesik-krallik": {
-   "bahis": 159,
-   "roi": 1.617
+   "bahis": 161,
+   "roi": 1.597
   },
   "fransa": {
    "bahis": 93,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1173,
-  "kosu": 530,
+  "bahis": 1176,
+  "kosu": 531,
   "isabet": 112,
-  "roi": 0.604,
+  "roi": 0.603,
   "ga95": [
-   0.448,
-   0.762
+   0.447,
+   0.76
   ]
  },
  "bahis_t1": {
-  "bahis": 1190,
-  "kosu": 521,
+  "bahis": 1193,
+  "kosu": 522,
   "isabet": 117,
-  "roi": 0.663,
+  "roi": 0.661,
   "ga95": [
-   0.465,
-   0.903
+   0.464,
+   0.9
   ]
  },
  "bahis_t3": {
-  "bahis": 1175,
-  "kosu": 506,
+  "bahis": 1178,
+  "kosu": 507,
   "isabet": 125,
-  "roi": 0.643,
+  "roi": 0.641,
   "ga95": [
    0.462,
-   0.87
+   0.868
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-06",
-   "pist": "Belmont Park",
-   "kosu": 3,
-   "at": "SHAKE MY HAND",
-   "q": 0.122,
-   "g": 30.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Belmont Park",
-   "kosu": 3,
-   "at": "SPHINX",
-   "q": 0.095,
-   "g": 20.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-06",
    "pist": "Belmont Park",
@@ -423,6 +405,24 @@
    "at": "RAMON DI LORIA",
    "q": 0.047,
    "g": 66.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 5,
+   "at": "DRISH SAMPHIRE",
+   "q": 0.136,
+   "g": 12.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 5,
+   "at": "AUNTIE JO",
+   "q": 0.091,
+   "g": 14.3,
    "kazandi": false
   }
  ]
