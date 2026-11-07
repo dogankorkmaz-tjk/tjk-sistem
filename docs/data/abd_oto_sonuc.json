@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 14:28 UTC",
- "kayitli_kosu": 1693,
+ "uretim": "2026-11-07 14:33 UTC",
+ "kayitli_kosu": 1694,
  "eslesmeyen_kosu": 1153,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 916,
- "kosu": 540,
+ "bahis": 917,
+ "kosu": 541,
  "isabet": 58,
- "roi": 0.901,
+ "roi": 0.9,
  "ga95": [
   0.642,
-  1.193
+  1.192
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.586
   },
   "fransa": {
-   "bahis": 91,
-   "roi": 0.542
+   "bahis": 92,
+   "roi": 0.536
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1156,
-  "kosu": 527,
+  "bahis": 1165,
+  "kosu": 528,
   "isabet": 111,
-  "roi": 0.605,
+  "roi": 0.6,
   "ga95": [
-   0.446,
-   0.765
+   0.443,
+   0.759
   ]
  },
  "bahis_t1": {
-  "bahis": 1169,
-  "kosu": 518,
+  "bahis": 1178,
+  "kosu": 519,
   "isabet": 115,
-  "roi": 0.659,
+  "roi": 0.653,
   "ga95": [
-   0.457,
-   0.902
+   0.452,
+   0.895
   ]
  },
  "bahis_t3": {
-  "bahis": 1149,
-  "kosu": 503,
+  "bahis": 1161,
+  "kosu": 504,
   "isabet": 124,
-  "roi": 0.649,
+  "roi": 0.642,
   "ga95": [
-   0.465,
-   0.881
+   0.461,
+   0.873
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 1,
-   "at": "TEN CUIDADO",
-   "q": 0.131,
-   "g": 10.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-05",
    "pist": "Southwell",
@@ -360,6 +351,15 @@
    "at": "SQUARE DU CROISIC",
    "q": 0.265,
    "g": 16.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 3,
+   "at": "CICCIO BOY",
+   "q": 0.046,
+   "g": 28.3,
    "kazandi": false
   },
   {
