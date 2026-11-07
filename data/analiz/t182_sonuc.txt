@@ -1,0 +1,23 @@
+video at-koşu satırı 80742 video 8552
+video özet satırı 82209
+v2_var oranı (2025-10+): 0.771 ; ov_var 0.772
+Zr>0 koşu oranı (2025-10+): 0.831 ; n_front=1 koşu oranı 0.288
+2025-10 n 589 JV2 -1.8072 JVT -1.8067 ZV2 -1.9117 ZVT -1.9114 2 sn
+2025-11 n 539 JV2 -1.8438 JVT -1.8453 ZV2 -1.9307 ZVT -1.9326 2 sn
+2025-12 n 487 JV2 -1.7530 JVT -1.7534 ZV2 -1.8933 ZVT -1.8924 2 sn
+2026-01 n 454 JV2 -1.8075 JVT -1.8118 ZV2 -1.8804 ZVT -1.8832 2 sn
+2026-02 n 422 JV2 -1.6778 JVT -1.6766 ZV2 -1.7574 ZVT -1.7573 3 sn
+2026-03 n 479 JV2 -1.7018 JVT -1.7019 ZV2 -1.8025 ZVT -1.8025 3 sn
+2026-04 n 512 JV2 -1.7662 JVT -1.7661 ZV2 -1.8547 ZVT -1.8544 3 sn
+2026-05 n 562 JV2 -1.8336 JVT -1.8341 ZV2 -1.9398 ZVT -1.9399 3 sn
+2026-06 n 529 JV2 -1.8361 JVT -1.8378 ZV2 -1.9389 ZVT -1.9395 3 sn
+2026-07 n 557 JV2 -1.8231 JVT -1.8238 ZV2 -1.9232 ZVT -1.9230 3 sn
+2026-08 n 568 JV2 -1.8520 JVT -1.8519 ZV2 -1.9914 ZVT -1.9912 3 sn
+2026-09 n 514 JV2 -1.8615 JVT -1.8628 ZV2 -1.9789 ZVT -1.9788 3 sn
+  son ay katsayıları (ZVT özellik sırası: f_int1,f_int2,f_solo): [0.0328, 0.0132, -0.0348] | JVT: [0.0111, 0.0042, -0.0173]
+2026-10 n 574 JV2 -1.8604 JVT -1.8604 ZV2 -1.9316 ZVT -1.9310 4 sn
+=== T149 koşu 6786
+  piyasasız ZVT−ZV2 (ANA)      -0.00020 [-0.00068, +0.00024]  pozitif ay 9/13
+  piyasalı JVT−JV2             -0.00065 [-0.00133, +0.00005]  pozitif ay 4/13
+KARAR: ADAY DEĞİL (tempo etkileşimi, tam video verisiyle de kanıtlanamadı)
+bitti
