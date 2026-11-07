@@ -1,0 +1,16 @@
+tam altılı: 42 gün: 14
+kural  ROI_tahmin           %95 aralık  ort.komb
+F48          0.59 [    0.14;     1.51]      47.8
+F192         0.65 [    0.21;     1.38]     185.1
+D48          2.74 [    0.53;     7.80]      47.9
+D192         2.11 [    0.53;     5.10]     182.2
+K50          1.23 [    0.38;     2.70]     101.5
+K65          1.58 [    0.78;     2.75]     685.6
+=== Fark (kural − F192) ve maliyet
+  F48  :   -0.07 [  -0.30;   +0.26] | maliyet ×0.26
+  D48  :   +2.09 [  +0.05;   +6.74] | maliyet ×0.26
+  D192 :   +1.45 [  +0.07;   +4.03] | maliyet ×0.98
+  K50  :   +0.58 [  -0.21;   +1.72] | maliyet ×0.55
+  K65  :   +0.93 [  +0.22;   +1.96] | maliyet ×3.70
+=== Ödeme modeli doğrulaması: gerçek altılı ödemesi / (0,69/Π p_AGF(kazanan))
+  n 40  medyan oran 1.06  geometrik ort 0.91  [%10 0.23; %90 2.37]
