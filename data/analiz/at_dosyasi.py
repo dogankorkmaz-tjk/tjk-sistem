@@ -125,6 +125,12 @@ for kk in sorted(SATIR):
     if kk in SP: r["spiker"] = SP[kk]
     if kk in TAH: r["tahmin"] = TAH[kk]
     a["kosular"].append(r)
+_cift = 0      # 'karma' programı, başka hipodromdaki aynı koşuyu yeniden listeliyor (aynı gün, aynı at) → çift kayıt, çıkar
+for _a in AT.values():
+    _gunler = {r["t"] for r in _a["kosular"] if r["hip"] != "karma"}
+    _yeni = [r for r in _a["kosular"] if not (r["hip"] == "karma" and r["t"] in _gunler)]
+    _cift += len(_a["kosular"]) - len(_yeni); _a["kosular"] = _yeni
+log("karma çift kayıt çıkarıldı:", _cift)
 log("at sayısı:", len(AT), "koşu-at:", sum(len(a["kosular"]) for a in AT.values()))
 
 # ---------------------------------------------------------------- 7) galop (ad ile; belirsiz adlar atlanır)
