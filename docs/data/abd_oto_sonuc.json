@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-07 19:33 UTC",
- "kayitli_kosu": 1731,
- "eslesmeyen_kosu": 1177,
+ "uretim": "2026-11-07 20:11 UTC",
+ "kayitli_kosu": 1735,
+ "eslesmeyen_kosu": 1179,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 942,
- "kosu": 554,
+ "bahis": 943,
+ "kosu": 556,
  "isabet": 59,
- "roi": 0.886,
+ "roi": 0.885,
  "ga95": [
-  0.633,
-  1.172
+  0.632,
+  1.171
  ],
  "ulke": {
   "abd": {
-   "bahis": 585,
-   "roi": 0.752
+   "bahis": 586,
+   "roi": 0.75
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1199,
-  "kosu": 541,
+  "bahis": 1204,
+  "kosu": 543,
   "isabet": 115,
-  "roi": 0.613,
+  "roi": 0.61,
   "ga95": [
-   0.459,
-   0.77
+   0.458,
+   0.764
   ]
  },
  "bahis_t1": {
-  "bahis": 1213,
-  "kosu": 531,
+  "bahis": 1218,
+  "kosu": 533,
   "isabet": 120,
-  "roi": 0.662,
+  "roi": 0.66,
   "ga95": [
-   0.466,
-   0.895
+   0.465,
+   0.892
   ]
  },
  "bahis_t3": {
-  "bahis": 1196,
-  "kosu": 516,
+  "bahis": 1201,
+  "kosu": 518,
   "isabet": 128,
-  "roi": 0.643,
+  "roi": 0.641,
   "ga95": [
-   0.467,
-   0.867
+   0.465,
+   0.864
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-06",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "IL MARCHESSE",
-   "q": 0.063,
-   "g": 26.85,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-06",
    "pist": "Horseshoe Indianapolis",
@@ -423,6 +414,15 @@
    "at": "BEGGARMAN",
    "q": 0.049,
    "g": 34.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 4,
+   "at": "WATSONVILLE RED",
+   "q": 0.075,
+   "g": 22.0,
    "kazandi": false
   }
  ]
