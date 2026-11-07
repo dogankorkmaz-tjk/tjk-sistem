@@ -1,25 +1,25 @@
 {
- "uretim": "2026-11-07 18:49 UTC",
- "kayitli_kosu": 1727,
+ "uretim": "2026-11-07 19:29 UTC",
+ "kayitli_kosu": 1730,
  "eslesmeyen_kosu": 1177,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 936,
- "kosu": 550,
+ "bahis": 942,
+ "kosu": 553,
  "isabet": 59,
- "roi": 0.892,
+ "roi": 0.886,
  "ga95": [
-  0.639,
-  1.18
+  0.633,
+  1.172
  ],
  "ulke": {
   "abd": {
-   "bahis": 582,
-   "roi": 0.755
+   "bahis": 585,
+   "roi": 0.752
   },
   "birlesik-krallik": {
-   "bahis": 168,
-   "roi": 1.53
+   "bahis": 171,
+   "roi": 1.504
   },
   "fransa": {
    "bahis": 98,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1189,
-  "kosu": 537,
-  "isabet": 114,
-  "roi": 0.612,
+  "bahis": 1197,
+  "kosu": 540,
+  "isabet": 115,
+  "roi": 0.614,
   "ga95": [
-   0.458,
-   0.77
+   0.461,
+   0.771
   ]
  },
  "bahis_t1": {
-  "bahis": 1204,
-  "kosu": 528,
-  "isabet": 118,
-  "roi": 0.658,
+  "bahis": 1213,
+  "kosu": 531,
+  "isabet": 120,
+  "roi": 0.662,
   "ga95": [
-   0.464,
-   0.894
+   0.466,
+   0.895
   ]
  },
  "bahis_t3": {
-  "bahis": 1187,
-  "kosu": 513,
-  "isabet": 126,
-  "roi": 0.639,
+  "bahis": 1196,
+  "kosu": 516,
+  "isabet": 128,
+  "roi": 0.643,
   "ga95": [
-   0.462,
-   0.865
+   0.467,
+   0.867
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-06",
-   "pist": "Gulfstream",
-   "kosu": 4,
-   "at": "YASTRZEMSKI",
-   "q": 0.06,
-   "g": 24.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 4,
-   "at": "LOU MAN",
-   "q": 0.086,
-   "g": 16.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 4,
-   "at": "SOUTH OF BIRMINHAM",
-   "q": 0.059,
-   "g": 44.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 4,
-   "at": "KING ANTHONY",
-   "q": 0.105,
-   "g": 17.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 4,
-   "at": "LOBO SALVAJE",
-   "q": 0.059,
-   "g": 54.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 5,
-   "at": "TIEMPOS BUENOS",
-   "q": 0.176,
-   "g": 17.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-06",
    "pist": "Horseshoe Indianapolis",
@@ -162,6 +108,24 @@
    "at": "MAD BANKER",
    "q": 0.06,
    "g": 21.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "VINTAGE VINO",
+   "q": 0.06,
+   "g": 24.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Belmont Park",
+   "kosu": 5,
+   "at": "METATRON",
+   "q": 0.112,
+   "g": 12.3,
    "kazandi": false
   },
   {
@@ -252,6 +216,15 @@
    "at": "WARDAMA",
    "q": 0.016,
    "g": 88.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Gulfstream",
+   "kosu": 4,
+   "at": "DIAMOND DEB",
+   "q": 0.055,
+   "g": 28.95,
    "kazandi": false
   },
   {
@@ -423,6 +396,33 @@
    "at": "CLIPSHAM NOBLE",
    "q": 0.385,
    "g": 5.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 9,
+   "at": "JACK LANGLEY",
+   "q": 0.103,
+   "g": 13.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 9,
+   "at": "SISTERANDBROTHER",
+   "q": 0.15,
+   "g": 11.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 9,
+   "at": "BEGGARMAN",
+   "q": 0.049,
+   "g": 34.5,
    "kazandi": false
   }
  ]
