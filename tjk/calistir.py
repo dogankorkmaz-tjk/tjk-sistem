@@ -1410,6 +1410,13 @@ def main():
         SC.isle()
         canli(bugun)
     elif mod == "gece":
+        try:   # 7 Kas 2026: değer kuponları gölge kaydı — dün gündüz yakalanamayan koşular, muh dosyasında saklı yarış öncesi (AÇIK) görüntüyle doldurulup değerlendirilir
+            from . import deger_golge as _DG
+            _dun = (bugun - datetime.timedelta(days=1)).isoformat(); _yol = os.path.join(KOK, "docs", "data", "gun", _dun + ".json")
+            if os.path.exists(_yol):
+                _DG.guncelle(json.load(open(_yol, encoding="utf-8")), simdi="23:59", geriye=True)
+        except Exception as e:
+            print("deger_golge gece hatası:", repr(e))
         SC.isle()
         gece(bugun)
         try:                                   # yabancı koşu kaydı (yalnız kayıt; hata gece işini durdurmaz)

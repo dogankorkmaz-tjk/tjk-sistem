@@ -181,7 +181,8 @@ def _resmi(q):
     return TUR["si"] if t.startswith("si") else TUR["ik"] if t.startswith("ik") else TUR[int(t[-1])]
 
 
-def guncelle(obj, simdi=None):
+def guncelle(obj, simdi=None, geriye=False):
+    """geriye=True (gece): gündüz yakalanamayan koşular, muh dosyasında saklı en son AÇIK (yarış öncesi) görüntüyle sonradan kurulur — yalnız yarış öncesi zaman damgalı veri kullanılır."""
     tarih = obj["tarih"]
     if tarih < BASLA:
         return
@@ -198,9 +199,9 @@ def guncelle(obj, simdi=None):
     for h in obj["hipodromlar"]:
         for k in h["kosular"]:
             anahtar = f"{h['id']}|{k['kosu']}"; saat = k.get("saat") or "99:99"; c = kay.get(anahtar)
-            if not k.get("sonuc") and simdi < saat:
+            if (not k.get("sonuc") and simdi < saat) or (geriye and k.get("sonuc") and not c):
                 m = muh.get(f"{HIPKEY.get(h['id'], h['id'].upper())}-{k['kosu']}") or {}
-                sn = [x for x in m.get("anlik", []) if x.get("dk") is not None and 0 <= x["dk"] <= PENCERE_DK and x.get("durum") in ("AÇIK", None)]
+                sn = [x for x in m.get("anlik", []) if x.get("dk") is not None and -5 <= x["dk"] <= PENCERE_DK and x.get("durum") in ("AÇIK", None)]   # start gecikirse bahis açıkken (dk<0, AÇIK) da geçerli
                 if sn:
                     g = {int(n): v for n, v in sn[-1]["g"].items() if v}
                     nos_ok = [a["no"] for a in k["atlar"] if not a.get("kosmaz") and a["no"] in g]
@@ -210,7 +211,7 @@ def guncelle(obj, simdi=None):
                         if r:
                             nos, p = r; p = np.asarray(p, float); qd = np.array([pp[n] for n in nos])
                             kup = []; hv = m.get("havuz_acik") or {}
-                            if hv.get("dk") is not None and hv["dk"] >= 0:
+                            if hv.get("dk") is not None and hv["dk"] >= -5 and hv.get("durum", "AÇIK") == "AÇIK":
                                 kup += _ikili(nos, p, a5, hv.get("si"), True) + _ikili(nos, p, a5, hv.get("ik"), False)
                             for K in (3, 4, 5):
                                 if K == 3 and k.get("uclu") is False: continue
@@ -230,7 +231,7 @@ def guncelle(obj, simdi=None):
                             for q in kup:
                                 q["bedel"] = round(q["n"] * _birim(q) * q["misli"], 2)
                             kay[anahtar] = c = {"hipodrom": h["id"], "ad": h.get("ad"), "kosu": k["kosu"], "saat": saat, "uretim": simdi, "goruntu": sn[-1]["t"],
-                                                "dk": sn[-1]["dk"], "ikili_liste_dk": hv.get("dk"), "at_sayisi": len(nos), "cins": k.get("cins"), "kuponlar": kup}   # at_sayisi: T174 ileri pencere (≥11 alt kümesi)
+                                                "dk": sn[-1]["dk"], "ikili_liste_dk": hv.get("dk"), "at_sayisi": len(nos), "cins": k.get("cins"), "kuponlar": kup, **({"gece_dolduruldu": True} if geriye and k.get("sonuc") else {})}   # at_sayisi: T174 ileri pencere (≥11 alt kümesi)
             if c and "sonuc" not in c and k.get("sonuc"):
                 if od is None:
                     try:
