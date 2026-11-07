@@ -119,16 +119,36 @@ def olaylar(seg, gecerli=None, jokeyler=None, adlar=None):
     return out
 
 
+START_ANI = re.compile(r"start verildi|koşu başladı|yarış başladı|start ver|kapılar açıldı|start alındı")
+SORUN_RX = None
+def _sorun_mu(t):
+    return any(rx.search(t) for a_, rx in TUR if a_ in SORUN)
 def konum(seg, sure, gecerli=None):
-    """Pencere içinde ilk anılış sırası → sıra (1 = ilk anılan). Pencereler sürenin %0–35 / 35–65 / 65–90'ı (son %10 bitiş özeti; atlanır)."""
+    """Pencere içinde ilk anılış sırası → sıra (1 = ilk anılan). Pencereler sürenin %0–35 / 35–65 / 65–90'ı (son %10 bitiş özeti; atlanır).
+    7 Kas 2026 düzeltmesi (Doğan'ın örneği: 22.10 Ankara 5 'Motor 5 boy geç çıktı; erken 1./11'): (i) start anından ÖNCEKİ cümleler
+    (kulvardaki atların tanıtımı) sayılmaz; (ii) sorunlu cümlede yalnız son sorun ifadesinden SONRA anılan atlar sayılır (aynı uzun cümlede sorundan sonra
+    liderin anlatılması korunur; sorunlu atlar ve sorundan önce anılanlar atlanır); (iii) geç çıkış olayı bulunan atlara
+    erken sıra verilmez (ilk anılışları geç çıkış anlatımıdır, konum değil)."""
     P = {"erken": (0.0, 0.35), "orta": (0.35, 0.65), "gec": (0.65, 0.90)}; out = {}
+    C = _cumleler(seg); bas = 0
+    try: GEC = {n for n, L in olaylar(seg, gecerli).items() if any(e[0] == "gec_cikis" for e in L)}   # (iii) geç çıkanların ilk anılışı sıra değildir
+    except Exception: GEC = set()
+    for i_, (s_, t_) in enumerate(C):
+        if s_ is not None and s_ <= 0.35 * sure and START_ANI.search(kucuk(t_)): bas = i_; break
     for ad, (a, b) in P.items():
         sira = []
-        for s, t in _cumleler(seg):
-            if not (a * sure <= s < b * sure): continue
-            t = kucuk(t)
-            if any(rx.search(t) for a_, rx in TUR if a_ in SORUN): continue   # sorun cümleleri (geç çıkış vb.) sıra anlatımı değildir
-            for p, n in anilanlar(t):
+        for i_, (s, t) in enumerate(C):
+            if i_ < bas or not (a * sure <= s < b * sure): continue
+            t = kucuk(t); A = anilanlar(t)
+            if not A: continue
+            son = -1                                         # sorunlu cümlede: son sorun ifadesinin bittiği yere kadar olan anılışlar atlanır
+            for a_, rx in TUR:
+                if a_ in SORUN:
+                    for m in rx.finditer(t): son = max(son, m.end())
+            for m in START_RAKIP.finditer(t): son = max(son, m.end())
+            for k, (p, n) in enumerate(A):
+                if p < son: continue
+                if ad == "erken" and n in GEC: continue
                 if (not gecerli or n in gecerli) and n not in sira: sira.append(n)
         for i, n in enumerate(sira, 1):
             out.setdefault(n, {})[ad] = i
