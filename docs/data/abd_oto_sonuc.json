@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-07 20:16 UTC",
- "kayitli_kosu": 1735,
- "eslesmeyen_kosu": 1178,
+ "uretim": "2026-11-07 20:53 UTC",
+ "kayitli_kosu": 1743,
+ "eslesmeyen_kosu": 1183,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 943,
- "kosu": 557,
+ "bahis": 949,
+ "kosu": 560,
  "isabet": 59,
- "roi": 0.885,
+ "roi": 0.88,
  "ga95": [
-  0.632,
-  1.171
+  0.627,
+  1.168
  ],
  "ulke": {
   "abd": {
-   "bahis": 586,
-   "roi": 0.75
+   "bahis": 592,
+   "roi": 0.743
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,90 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1206,
-  "kosu": 544,
-  "isabet": 115,
-  "roi": 0.609,
+  "bahis": 1214,
+  "kosu": 547,
+  "isabet": 116,
+  "roi": 0.611,
   "ga95": [
-   0.458,
-   0.762
+   0.459,
+   0.763
   ]
  },
  "bahis_t1": {
-  "bahis": 1223,
-  "kosu": 534,
-  "isabet": 121,
-  "roi": 0.659,
+  "bahis": 1231,
+  "kosu": 537,
+  "isabet": 122,
+  "roi": 0.66,
   "ga95": [
-   0.466,
+   0.467,
    0.892
   ]
  },
  "bahis_t3": {
-  "bahis": 1204,
-  "kosu": 519,
-  "isabet": 128,
-  "roi": 0.639,
+  "bahis": 1209,
+  "kosu": 522,
+  "isabet": 130,
+  "roi": 0.647,
   "ga95": [
-   0.462,
-   0.862
+   0.471,
+   0.868
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-06",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 8,
-   "at": "THE EXODUS TWIST",
-   "q": 0.143,
-   "g": 11.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Penn National",
-   "kosu": 2,
-   "at": "SONG TO REMEMBER",
-   "q": 0.162,
-   "g": 7.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Penn National",
-   "kosu": 5,
-   "at": "TIMS",
-   "q": 0.27,
-   "g": 8.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Belmont Park",
-   "kosu": 3,
-   "at": "MAD BANKER",
-   "q": 0.06,
-   "g": 21.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "VINTAGE VINO",
-   "q": 0.06,
-   "g": 24.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Belmont Park",
-   "kosu": 5,
-   "at": "METATRON",
-   "q": 0.112,
-   "g": 12.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Deauville",
@@ -216,6 +162,24 @@
    "at": "DIAMOND DEB",
    "q": 0.055,
    "g": 28.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Gulfstream",
+   "kosu": 7,
+   "at": "EL REY DE ORO",
+   "q": 0.04,
+   "g": 64.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Gulfstream",
+   "kosu": 7,
+   "at": "GREAT CHIEF",
+   "q": 0.04,
+   "g": 43.8,
    "kazandi": false
   },
   {
@@ -423,6 +387,42 @@
    "at": "WATSONVILLE RED",
    "q": 0.075,
    "g": 22.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "FEARLESS SOLDIER",
+   "q": 0.037,
+   "g": 47.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "ONE MORE BREW",
+   "q": 0.049,
+   "g": 45.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "NOBURU",
+   "q": 0.06,
+   "g": 39.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "TREVALLY",
+   "q": 0.049,
+   "g": 35.25,
    "kazandi": false
   }
  ]
