@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 13:48 UTC",
- "kayitli_kosu": 1689,
- "eslesmeyen_kosu": 1150,
+ "uretim": "2026-11-07 14:28 UTC",
+ "kayitli_kosu": 1693,
+ "eslesmeyen_kosu": 1153,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 913,
- "kosu": 539,
+ "bahis": 916,
+ "kosu": 540,
  "isabet": 58,
- "roi": 0.904,
+ "roi": 0.901,
  "ga95": [
-  0.645,
-  1.197
+  0.642,
+  1.193
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.586
   },
   "fransa": {
-   "bahis": 88,
-   "roi": 0.56
+   "bahis": 91,
+   "roi": 0.542
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1153,
-  "kosu": 526,
-  "isabet": 110,
-  "roi": 0.601,
+  "bahis": 1156,
+  "kosu": 527,
+  "isabet": 111,
+  "roi": 0.605,
   "ga95": [
-   0.443,
-   0.761
+   0.446,
+   0.765
   ]
  },
  "bahis_t1": {
-  "bahis": 1166,
-  "kosu": 517,
-  "isabet": 114,
-  "roi": 0.655,
+  "bahis": 1169,
+  "kosu": 518,
+  "isabet": 115,
+  "roi": 0.659,
   "ga95": [
-   0.451,
-   0.899
+   0.457,
+   0.902
   ]
  },
  "bahis_t3": {
-  "bahis": 1146,
-  "kosu": 502,
-  "isabet": 123,
-  "roi": 0.645,
+  "bahis": 1149,
+  "kosu": 503,
+  "isabet": 124,
+  "roi": 0.649,
   "ga95": [
-   0.462,
-   0.878
+   0.465,
+   0.881
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 1,
-   "at": "MACANUDO",
-   "q": 0.241,
-   "g": 5.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 1,
-   "at": "WILD ACT",
-   "q": 0.03,
-   "g": 53.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Southwell",
-   "kosu": 1,
-   "at": "SANDS OF SEVE",
-   "q": 0.06,
-   "g": 62.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-05",
    "pist": "Southwell",
@@ -360,6 +333,33 @@
    "at": "TIMS",
    "q": 0.27,
    "g": 8.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 2,
+   "at": "LILLY'S LIGHT",
+   "q": 0.151,
+   "g": 11.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 2,
+   "at": "SYDNEY SUNSET",
+   "q": 0.133,
+   "g": 42.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 2,
+   "at": "SQUARE DU CROISIC",
+   "q": 0.265,
+   "g": 16.7,
    "kazandi": false
   },
   {
