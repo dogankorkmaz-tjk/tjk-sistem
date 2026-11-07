@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 10:36 UTC",
- "kayitli_kosu": 1675,
+ "uretim": "2026-11-07 10:48 UTC",
+ "kayitli_kosu": 1676,
  "eslesmeyen_kosu": 1139,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 906,
- "kosu": 536,
+ "bahis": 909,
+ "kosu": 537,
  "isabet": 58,
- "roi": 0.911,
+ "roi": 0.908,
  "ga95": [
   0.65,
-  1.192
+  1.202
  ],
  "ulke": {
   "abd": {
@@ -22,8 +22,8 @@
    "roi": 1.586
   },
   "fransa": {
-   "bahis": 81,
-   "roi": 0.609
+   "bahis": 84,
+   "roi": 0.587
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,13 +35,13 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1142,
-  "kosu": 523,
+  "bahis": 1145,
+  "kosu": 524,
   "isabet": 109,
-  "roi": 0.603,
+  "roi": 0.601,
   "ga95": [
-   0.443,
-   0.765
+   0.441,
+   0.763
   ]
  },
  "bahis_t1": {
@@ -65,33 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-05",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "TERRA PROXIMA",
-   "q": 0.086,
-   "g": 29.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chantilly",
-   "kosu": 6,
-   "at": "LANDED",
-   "q": 0.075,
-   "g": 22.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-05",
-   "pist": "Chelmsford City",
-   "kosu": 2,
-   "at": "MAKES ME WONDER",
-   "q": 0.096,
-   "g": 21.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-05",
    "pist": "Chelmsford City",
@@ -423,6 +396,33 @@
    "at": "TIMS",
    "q": 0.27,
    "g": 8.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Marseille-borely",
+   "kosu": 2,
+   "at": "MARCH MADNESS",
+   "q": 0.183,
+   "g": 7.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Marseille-borely",
+   "kosu": 2,
+   "at": "NAQOURA",
+   "q": 0.122,
+   "g": 69.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Marseille-borely",
+   "kosu": 2,
+   "at": "SAINTE ROMY",
+   "q": 0.1,
+   "g": 77.05,
    "kazandi": false
   }
  ]
