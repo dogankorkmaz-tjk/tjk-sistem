@@ -1,0 +1,21 @@
+2026-10-31_ankara_1 sure 105s kare 105 | ≥5 at: tüm 0.74 | start-ilk%20 0.76 orta 0.95 son%20 0.1 | ≥3 at 0.9 | medyan kutu 7 | 48 sn
+2026-10-31_ankara_10 sure 115s kare 115 | ≥5 at: tüm 0.65 | start-ilk%20 0.83 orta 0.75 son%20 0.17 | ≥3 at 0.79 | medyan kutu 5 | 51 sn
+2026-10-31_ankara_4 sure 128s kare 127 | ≥5 at: tüm 0.64 | start-ilk%20 0.84 orta 0.79 son%20 0.0 | ≥3 at 0.72 | medyan kutu 7 | 56 sn
+2026-10-31_ankara_7 sure 175s kare 175 | ≥5 at: tüm 0.74 | start-ilk%20 0.29 orta 0.81 son%20 1.0 | ≥3 at 0.85 | medyan kutu 7 | 75 sn
+2026-10-31_ankara_8 sure 130s kare 130 | ≥5 at: tüm 0.84 | start-ilk%20 0.5 orta 1.0 son%20 0.69 | ≥3 at 0.86 | medyan kutu 8 | 57 sn
+2026-10-31_ankara_9 sure 137s kare 137 | ≥5 at: tüm 0.74 | start-ilk%20 0.67 orta 0.95 son%20 0.18 | ≥3 at 0.83 | medyan kutu 7 | 60 sn
+2026-10-31_izmir_1 sure 110s kare 110 | ≥5 at: tüm 0.62 | start-ilk%20 0.32 orta 0.89 son%20 0.09 | ≥3 at 0.74 | medyan kutu 6 | 49 sn
+2026-11-01_adana_1 sure 105s kare 105 | ≥5 at: tüm 0.66 | start-ilk%20 0.62 orta 0.86 son%20 0.1 | ≥3 at 0.71 | medyan kutu 6 | 47 sn
+2026-11-01_adana_2 sure 165s kare 165 | ≥5 at: tüm 0.65 | start-ilk%20 0.82 orta 0.74 son%20 0.24 | ≥3 at 0.83 | medyan kutu 6 | 71 sn
+2026-11-01_adana_3 sure 120s kare 120 | ≥5 at: tüm 0.63 | start-ilk%20 0.75 orta 0.81 son%20 0.0 | ≥3 at 0.71 | medyan kutu 7 | 53 sn
+2026-11-01_adana_4 sure 95s kare 95 | ≥5 at: tüm 0.66 | start-ilk%20 0.89 orta 0.81 son%20 0.0 | ≥3 at 0.74 | medyan kutu 9 | 43 sn
+2026-11-01_adana_5 sure 120s kare 120 | ≥5 at: tüm 0.59 | start-ilk%20 0.46 orta 0.78 son%20 0.17 | ≥3 at 0.68 | medyan kutu 5 | 53 sn
+2026-11-01_adana_6 sure 140s kare 140 | ≥5 at: tüm 0.54 | start-ilk%20 0.75 orta 0.5 son%20 0.46 | ≥3 at 0.69 | medyan kutu 5 | 61 sn
+2026-11-01_adana_8 sure 95s kare 95 | ≥5 at: tüm 0.64 | start-ilk%20 0.79 orta 0.75 son%20 0.16 | ≥3 at 0.72 | medyan kutu 8 | 42 sn
+2026-11-01_istanbul_1 sure 100s kare 100 | ≥5 at: tüm 0.8 | start-ilk%20 0.75 orta 1.0 son%20 0.25 | ≥3 at 0.86 | medyan kutu 7 | 45 sn
+2026-11-01_istanbul_2 sure 105s kare 105 | ≥5 at: tüm 0.7 | start-ilk%20 0.67 orta 0.95 son%20 0.0 | ≥3 at 0.8 | medyan kutu 6 | 46 sn
+2026-11-01_istanbul_4 sure 100s kare 100 | ≥5 at: tüm 0.79 | start-ilk%20 0.8 orta 0.98 son%20 0.2 | ≥3 at 0.83 | medyan kutu 8 | 45 sn
+2026-11-01_istanbul_5 sure 105s kare 105 | ≥5 at: tüm 0.74 | start-ilk%20 0.81 orta 0.95 son%20 0.05 | ≥3 at 0.82 | medyan kutu 6 | 46 sn
+2026-11-01_istanbul_6 sure 115s kare 115 | ≥5 at: tüm 0.77 | start-ilk%20 0.87 orta 0.88 son%20 0.35 | ≥3 at 0.84 | medyan kutu 10 | 50 sn
+2026-11-01_istanbul_7 sure 130s kare 130 | ≥5 at: tüm 0.55 | start-ilk%20 0.69 orta 0.68 son%20 0.0 | ≥3 at 0.65 | medyan kutu 6 | 57 sn
+KOŞU 20; ≥5 at görülen kare payı medyan 0.66, ortalama 0.68
