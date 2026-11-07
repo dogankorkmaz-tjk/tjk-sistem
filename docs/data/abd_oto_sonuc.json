@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-07 16:42 UTC",
- "kayitli_kosu": 1707,
- "eslesmeyen_kosu": 1163,
+ "uretim": "2026-11-07 17:20 UTC",
+ "kayitli_kosu": 1710,
+ "eslesmeyen_kosu": 1164,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 923,
- "kosu": 544,
+ "bahis": 931,
+ "kosu": 546,
  "isabet": 59,
- "roi": 0.904,
+ "roi": 0.897,
  "ga95": [
-  0.652,
-  1.194
+  0.642,
+  1.187
  ],
  "ulke": {
   "abd": {
@@ -18,12 +18,12 @@
    "roi": 0.757
   },
   "birlesik-krallik": {
-   "bahis": 161,
-   "roi": 1.597
+   "bahis": 164,
+   "roi": 1.568
   },
   "fransa": {
-   "bahis": 93,
-   "roi": 0.53
+   "bahis": 98,
+   "roi": 0.503
   },
   "guney-afrika": {
    "bahis": 52,
@@ -35,108 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1176,
-  "kosu": 531,
-  "isabet": 112,
-  "roi": 0.603,
+  "bahis": 1184,
+  "kosu": 533,
+  "isabet": 113,
+  "roi": 0.611,
   "ga95": [
-   0.447,
-   0.76
+   0.458,
+   0.771
   ]
  },
  "bahis_t1": {
-  "bahis": 1193,
-  "kosu": 522,
+  "bahis": 1197,
+  "kosu": 524,
   "isabet": 117,
-  "roi": 0.661,
+  "roi": 0.659,
   "ga95": [
-   0.464,
-   0.9
+   0.463,
+   0.895
   ]
  },
  "bahis_t3": {
-  "bahis": 1178,
-  "kosu": 507,
+  "bahis": 1182,
+  "kosu": 509,
   "isabet": 125,
-  "roi": 0.641,
+  "roi": 0.639,
   "ga95": [
-   0.462,
-   0.868
+   0.461,
+   0.866
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-06",
-   "pist": "Belmont Park",
-   "kosu": 7,
-   "at": "YO DADDY",
-   "q": 0.273,
-   "g": 9.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Charles Town",
-   "kosu": 3,
-   "at": "CIDERHOUSE WAY",
-   "q": 0.072,
-   "g": 34.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Charles Town",
-   "kosu": 3,
-   "at": "YORK TAVERN",
-   "q": 0.113,
-   "g": 13.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 2,
-   "at": "IRISEACH",
-   "q": 0.114,
-   "g": 19.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 2,
-   "at": "LUCKY N SMART",
-   "q": 0.114,
-   "g": 13.0,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 2,
-   "at": "WIKI KANE",
-   "q": 0.114,
-   "g": 11.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 2,
-   "at": "CHROMEFLASH",
-   "q": 0.061,
-   "g": 85.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-06",
-   "pist": "Del Mar",
-   "kosu": 3,
-   "at": "ROOSKI DOO",
-   "q": 0.158,
-   "g": 10.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-06",
    "pist": "Del Mar",
@@ -319,6 +247,51 @@
   },
   {
    "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "LA DOLOISE",
+   "q": 0.101,
+   "g": 15.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "KALAFA",
+   "q": 0.186,
+   "g": 7.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "SEE THE LIGHT",
+   "q": 0.086,
+   "g": 22.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "HARRISON POINT",
+   "q": 0.139,
+   "g": 19.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Deauville",
+   "kosu": 7,
+   "at": "WARDAMA",
+   "q": 0.016,
+   "g": 88.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
    "pist": "Marseille-borely",
    "kosu": 2,
    "at": "MARCH MADNESS",
@@ -423,6 +396,33 @@
    "at": "AUNTIE JO",
    "q": 0.091,
    "g": 14.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 6,
+   "at": "BUTTERFLY BEACH",
+   "q": 0.282,
+   "g": 6.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 6,
+   "at": "MARCH OF TIME",
+   "q": 0.225,
+   "g": 6.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Southwell",
+   "kosu": 6,
+   "at": "MOIRA EXPRESS",
+   "q": 0.056,
+   "g": 25.1,
    "kazandi": false
   }
  ]
