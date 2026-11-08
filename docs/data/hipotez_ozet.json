@@ -1,8 +1,8 @@
 {
- "guncelleme": "2026-11-08T03:28",
+ "guncelleme": "2026-11-08T08:20",
  "sayim": {
   "Geçti": 16,
-  "Elendi": 51,
+  "Elendi": 52,
   "Karar belirsiz": 39,
   "Tanımlayıcı / keşif": 6,
   "Sonuç bekleniyor": 15,
@@ -1235,13 +1235,22 @@
    "satir": 2566
   },
   {
-   "id": "T185",
-   "konu": "devirli sıralı 5'li, daha geniş bütçe (kullanıcı: \"Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra…",
+   "id": "T184-B",
+   "konu": "kamera kayması düzeltmesi (kullanıcı: \"Onaylıdır, yap\")",
    "tarih": "2026-11-08",
    "durum": "Sonuç bekleniyor",
    "ozet": "",
    "neden": "",
    "satir": 0
+  },
+  {
+   "id": "T185",
+   "konu": "devirli sıralı 5'li, daha geniş bütçe (kullanıcı: \"Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra…",
+   "tarih": "2026-11-08",
+   "durum": "Elendi",
+   "ozet": "(devirli sıralı 5'li geniş bütçe; Actions devir_t185.yml, data/analiz/t185_sonuc.txt; devirli 232 koşu, devirsiz örnek 250; 2025-03→2026-11) Devirli ROI [%95 aralık], vuruş: b600 G1-S +21,1% [−39,5; +83,7] (26 vuruş) | piyasa +3,…",
+   "neden": "KARAR KURALI (ön kayıt T185): (GA alt > −%30) VE (nokta ROI > 0) VE (G1-S − piyasa > 0). b600: alt −39,5 → SAĞLANMADI. b1200: alt −26,7 ✓, ROI >0 ✓ ama G1-S − piyasa = −13,4 puan → SAĞLANMADI (piyasa kuponu daha iyi). b2400: alt −37,0 → SAĞLANMADI. SONUÇ: hiç…",
+   "satir": 2572
   }
  ]
 }

@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 03:28 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 08:20 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 51 · Karar belirsiz: 39 · Geçti: 16 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 52 · Karar belirsiz: 39 · Geçti: 16 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 16
 
@@ -26,7 +26,7 @@ Toplam: Elendi: 51 · Karar belirsiz: 39 · Geçti: 16 · Sonuç bekleniyor: 15 
 | T175 | koşu türü (kullanıcı: "Maiden mesela genelde süprize açıktır"; "tüm koşu tipleri için… hem sıralı bahisler he… | Geçti | (data/analiz/t175_kosu_turu.py → t175_sonuc.txt; 6.363 koşu, tür bilinmeyen 357) A) İlk 3'te favori-dışı at: Handikap %92,6, Satış %91,8, Maiden %89,6, Şartlı %88,0, KV %85,9; favori kazanma: Handikap %31,6 (en düşük), KV %39,7 (… | KARAR: filtre/özellik yok. İLERİ PENCERE ÖN KAYDI (şimdi): deger_golge kayıtlarına koşu türü eklenir; 2027-02'de (i) Handikap vs Şartlı, (ii) Maiden vs diğer ROI farkı ileri veride test edilir (2 karşılaştırma, %97,5). |
 | T183 | görüntü pilotu: tüm koşu boyunca kamera kapsamı (kullanıcı: "bu videoları bize faydalı hale getirecek bir şey… | Geçti ~ | (cv_tum.yml 42425744816; data/cv_tum/ozet.txt; 20 koşu): ≥5 at görülen kare payı medyan %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan kon… | (açık karar satırı yok, son cümlelerden çıkarıldı) %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan konum koşunun büyük kısmında ölçülebilir, bitiş bölümü hariç. |
 
-## Elenenler (modele eklenmedi / kural sağlanmadı) — 51
+## Elenenler (modele eklenmedi / kural sağlanmadı) — 52
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -81,6 +81,7 @@ Toplam: Elendi: 51 · Karar belirsiz: 39 · Geçti: 16 · Sonuç bekleniyor: 15 
 | T174 | koşu seçimi (kullanıcı: "hangi koşulara oynayıp hangilerine oynamayacağımızı bilebilsek… Başlat") | Elendi | (data/analiz/t174_kosu_secimi.py → t174_sonuc.txt) Tek doğrulanan (%95, Bonferroni'de değil): İKİLİ KOMBİNE + AT SAYISI ≥11 — seçimde +0,432 vs −0,086; doğrulamada +0,552 (1.086 koşu, 88 isabet) vs −0,091 (1.240 koşu); fark +0,64… | KARAR: Canlı'ya koşu filtresi YOK (Bonferroni sağlanmadı). İLERİ PENCERE ÖN KAYDI (şimdi, ileri veri görülmeden): deger_golge kaydında ikili ve sıralı ikili kombine için "≥11 at" alt kümesi ayrıca raporlanır; 2027-02 değerlendirmesinde ≥11 − ≤10 ROI farkı tek… |
 | T177 | AGF'den kapanış tahmini (kullanıcı: "agf'den kapanış tahminini dene") | Elendi ~ | (data/analiz/t177_agf_kapanis.py → t177_sonuc.txt; 294 ayak-koşu, 15 gün; eğitim 60 / test 234) BİRİNCİL P3 (momentum + eğim) − P0: kazanan LL −0,0001 [−0,0262; +0,0270] → kanıt yok (kazananı bulmayı iyileştirmiyor). Betimsel: eğ… | (açık karar satırı yok, son cümlelerden çıkarıldı) yor: 1. ayak 0,077 → 6. ayak 0,099. OKUMA: AGF'den kapanış FİYATI kısmen tahmin edilebilir (değer/ödeme hesabı için yararlı olabilir), ama kazanan tahmini değişmiyor. Kupon seçimine düzeltme eklenmez. |
 | T182 | koşu stili × tempo etkileşimi, TAM kapsamlı video verisiyle (kullanıcı: "Onaylıdır, yap") | Elendi (yeniden test planlı) | (data/analiz/t182_sonuc.txt; 6.786 koşu, 2025-10→2026-10, video kapsamı %77, Zr>0 koşu %83, tek öncülü koşu %29) Piyasasız ZVT − ZV2: −0,00020 [−0,00068; +0,00024] (pozitif ay 9/13). Piyasalı JVT − JV2: −0,00065 [−0,00133; +0,000… | KARAR: ADAY DEĞİL — tempo etkileşimi (sondan gelen × sert tempo, baskı altında öncü, tek öncü) tam video verisiyle de ek bilgi taşımıyor (kazanç sıfıra yakın). Not: video_ozet.pkl /tmp'de kayıptı; video_seyir 'ozet' alanından aynen yeniden üretildi (82.209 sa… |
+| T185 | devirli sıralı 5'li, daha geniş bütçe (kullanıcı: "Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra… | Elendi | (devirli sıralı 5'li geniş bütçe; Actions devir_t185.yml, data/analiz/t185_sonuc.txt; devirli 232 koşu, devirsiz örnek 250; 2025-03→2026-11) Devirli ROI [%95 aralık], vuruş: b600 G1-S +21,1% [−39,5; +83,7] (26 vuruş) \| piyasa +3,… | KARAR KURALI (ön kayıt T185): (GA alt > −%30) VE (nokta ROI > 0) VE (G1-S − piyasa > 0). b600: alt −39,5 → SAĞLANMADI. b1200: alt −26,7 ✓, ROI >0 ✓ ama G1-S − piyasa = −13,4 puan → SAĞLANMADI (piyasa kuponu daha iyi). b2400: alt −37,0 → SAĞLANMADI. SONUÇ: hiç… |
 
 ## Aday: ileri takipte (henüz kanıt değil) — 8
 
@@ -175,4 +176,4 @@ Toplam: Elendi: 51 · Karar belirsiz: 39 · Geçti: 16 · Sonuç bekleniyor: 15 
 | T160 | spiker özellikleri (veri gelmeden yazıldı; test penceresi transkript kapsamı ≥%80 olunca koşulur) | Sonuç bekleniyor |  |  |
 | T161 | "şanslı sonuç" (kullanıcı: "favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d… | Sonuç bekleniyor |  |  |
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
-| T185 | devirli sıralı 5'li, daha geniş bütçe (kullanıcı: "Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra… | Sonuç bekleniyor |  |  |
+| T184-B | kamera kayması düzeltmesi (kullanıcı: "Onaylıdır, yap") | Sonuç bekleniyor |  |  |
