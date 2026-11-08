@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-07 21:03 UTC",
- "kayitli_kosu": 1743,
- "eslesmeyen_kosu": 1182,
+ "uretim": "2026-11-08 00:20 UTC",
+ "kayitli_kosu": 1754,
+ "eslesmeyen_kosu": 1184,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 953,
- "kosu": 561,
- "isabet": 60,
- "roi": 0.885,
+ "bahis": 965,
+ "kosu": 570,
+ "isabet": 61,
+ "roi": 0.881,
  "ga95": [
-  0.635,
-  1.168
+  0.634,
+  1.166
  ],
  "ulke": {
   "abd": {
-   "bahis": 596,
-   "roi": 0.751
+   "bahis": 608,
+   "roi": 0.748
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,126 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1221,
-  "kosu": 548,
-  "isabet": 117,
-  "roi": 0.614,
+  "bahis": 1239,
+  "kosu": 557,
+  "isabet": 118,
+  "roi": 0.613,
   "ga95": [
    0.463,
-   0.766
+   0.762
   ]
  },
  "bahis_t1": {
-  "bahis": 1238,
-  "kosu": 538,
-  "isabet": 123,
-  "roi": 0.663,
+  "bahis": 1259,
+  "kosu": 547,
+  "isabet": 125,
+  "roi": 0.666,
   "ga95": [
-   0.471,
+   0.474,
    0.892
   ]
  },
  "bahis_t3": {
-  "bahis": 1216,
-  "kosu": 523,
-  "isabet": 131,
-  "roi": 0.65,
+  "bahis": 1224,
+  "kosu": 531,
+  "isabet": 133,
+  "roi": 0.66,
   "ga95": [
-   0.473,
-   0.87
+   0.483,
+   0.877
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 2,
-   "at": "LILLY'S LIGHT",
-   "q": 0.151,
-   "g": 11.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 2,
-   "at": "SYDNEY SUNSET",
-   "q": 0.133,
-   "g": 42.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 2,
-   "at": "SQUARE DU CROISIC",
-   "q": 0.265,
-   "g": 16.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 3,
-   "at": "CICCIO BOY",
-   "q": 0.046,
-   "g": 28.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 5,
-   "at": "SEVEN TIMER",
-   "q": 0.179,
-   "g": 9.1,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "LA DOLOISE",
-   "q": 0.101,
-   "g": 15.7,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "KALAFA",
-   "q": 0.186,
-   "g": 7.35,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "SEE THE LIGHT",
-   "q": 0.086,
-   "g": 22.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "HARRISON POINT",
-   "q": 0.139,
-   "g": 19.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Deauville",
-   "kosu": 7,
-   "at": "WARDAMA",
-   "q": 0.016,
-   "g": 88.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Gulfstream",
@@ -180,6 +90,33 @@
    "at": "GREAT CHIEF",
    "q": 0.04,
    "g": 43.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "MINTY",
+   "q": 0.07,
+   "g": 23.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "OSHALA",
+   "q": 0.086,
+   "g": 14.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Gulfstream",
+   "kosu": 10,
+   "at": "WOOTUN",
+   "q": 0.129,
+   "g": 12.3,
    "kazandi": false
   },
   {
@@ -423,6 +360,69 @@
    "at": "TREVALLY",
    "q": 0.049,
    "g": 35.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "FLATTER FOR CAT",
+   "q": 0.209,
+   "g": 7.05,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "GLOBAL LOVE",
+   "q": 0.04,
+   "g": 34.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "LONGTIMERUNNING",
+   "q": 0.076,
+   "g": 32.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 8,
+   "at": "KEEPNUPAPPEARANCES",
+   "q": 0.093,
+   "g": 14.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 9,
+   "at": "WICKED DJANGO",
+   "q": 0.142,
+   "g": 9.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "ULTIMATE AUTHORITY",
+   "q": 0.091,
+   "g": 14.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-07",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "EPONINE",
+   "q": 0.117,
+   "g": 11.8,
    "kazandi": false
   }
  ]
