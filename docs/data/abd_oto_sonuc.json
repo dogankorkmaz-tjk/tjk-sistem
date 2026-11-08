@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-08 20:51 UTC",
- "kayitli_kosu": 1758,
- "eslesmeyen_kosu": 1184,
+ "uretim": "2026-11-08 21:12 UTC",
+ "kayitli_kosu": 1761,
+ "eslesmeyen_kosu": 1185,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 967,
- "kosu": 574,
- "isabet": 61,
- "roi": 0.879,
+ "bahis": 969,
+ "kosu": 576,
+ "isabet": 62,
+ "roi": 0.889,
  "ga95": [
-  0.632,
-  1.164
+  0.642,
+  1.183
  ],
  "ulke": {
   "abd": {
-   "bahis": 610,
-   "roi": 0.746
+   "bahis": 612,
+   "roi": 0.761
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1241,
-  "kosu": 558,
-  "isabet": 118,
-  "roi": 0.612,
+  "bahis": 1243,
+  "kosu": 560,
+  "isabet": 119,
+  "roi": 0.62,
   "ga95": [
-   0.463,
-   0.761
+   0.474,
+   0.778
   ]
  },
  "bahis_t1": {
-  "bahis": 1261,
-  "kosu": 548,
-  "isabet": 125,
-  "roi": 0.665,
+  "bahis": 1263,
+  "kosu": 550,
+  "isabet": 126,
+  "roi": 0.673,
   "ga95": [
-   0.474,
-   0.891
+   0.49,
+   0.881
   ]
  },
  "bahis_t3": {
-  "bahis": 1227,
-  "kosu": 532,
-  "isabet": 133,
-  "roi": 0.658,
+  "bahis": 1229,
+  "kosu": 533,
+  "isabet": 134,
+  "roi": 0.666,
   "ga95": [
-   0.482,
-   0.875
+   0.492,
+   0.877
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Gulfstream",
-   "kosu": 4,
-   "at": "DIAMOND DEB",
-   "q": 0.055,
-   "g": 28.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "EL REY DE ORO",
-   "q": 0.04,
-   "g": 64.25,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Gulfstream",
@@ -424,6 +406,24 @@
    "q": 0.117,
    "g": 11.8,
    "kazandi": false
+  },
+  {
+   "gun": "2026-11-08",
+   "pist": "Laurel Park",
+   "kosu": 8,
+   "at": "MOONBLAZE",
+   "q": 0.33,
+   "g": 4.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-08",
+   "pist": "Laurel Park",
+   "kosu": 8,
+   "at": "TACIT VALUE",
+   "q": 0.165,
+   "g": 11.1,
+   "kazandi": true
   }
  ]
 }
