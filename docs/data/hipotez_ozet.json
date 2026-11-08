@@ -1,13 +1,13 @@
 {
- "guncelleme": "2026-11-08T10:19",
+ "guncelleme": "2026-11-08T10:21",
  "sayim": {
   "Geçti": 17,
   "Elendi": 52,
   "Karar belirsiz": 40,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 15,
+  "Sonuç bekleniyor": 14,
   "Karma": 2,
-  "Aday / ileri takipte": 8
+  "Aday / ileri takipte": 9
  },
  "testler": [
   {
@@ -1265,10 +1265,10 @@
    "id": "T186",
    "konu": "yer kaybı (Accurace fazladan mesafe) yeniden sınama, büyük örnek (kullanıcı: \"Kur\"; 15 Ekim ön kaydının 1 Ara…",
    "tarih": "2026-11-08",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Aday / ileri takipte",
+   "ozet": "(t186_sonuc.txt): Accurace eşleşen 6.102 at-koşu / 649 koşu; sınama koşusu (2026-06…11) 1.357, özelliği olan at %18. ANA piyasalı JVT − JV2 +0,00051 [−0,00356; +0,00449] (pozitif ay 3/6); piyasasız +0,00051 [−0,00280; +0,00403] (…",
+   "neden": "KARAR: ADAY DEĞİL — yer kaybı, 15 Ekim'in 3,4 katı örnekte de ölçülemedi; GA üst sınırı +0,0045 → ≥ +0,005'lik etki bu veriyle dışlandı. 1 Aralık'taki planlı tekrar bununla karşılandı; yeni tekrar ancak sınama koşusu ~4.000'e çıkarsa anlamlı (küçük etki gücü)…",
+   "satir": 2601
   }
  ]
 }

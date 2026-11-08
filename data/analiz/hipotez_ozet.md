@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 10:19 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 10:21 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 · Aday / ileri takipte: 9 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -84,7 +84,7 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 15 
 | T182 | koşu stili × tempo etkileşimi, TAM kapsamlı video verisiyle (kullanıcı: "Onaylıdır, yap") | Elendi (yeniden test planlı) | (data/analiz/t182_sonuc.txt; 6.786 koşu, 2025-10→2026-10, video kapsamı %77, Zr>0 koşu %83, tek öncülü koşu %29) Piyasasız ZVT − ZV2: −0,00020 [−0,00068; +0,00024] (pozitif ay 9/13). Piyasalı JVT − JV2: −0,00065 [−0,00133; +0,000… | KARAR: ADAY DEĞİL — tempo etkileşimi (sondan gelen × sert tempo, baskı altında öncü, tek öncü) tam video verisiyle de ek bilgi taşımıyor (kazanç sıfıra yakın). Not: video_ozet.pkl /tmp'de kayıptı; video_seyir 'ozet' alanından aynen yeniden üretildi (82.209 sa… |
 | T185 | devirli sıralı 5'li, daha geniş bütçe (kullanıcı: "Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra… | Elendi | (devirli sıralı 5'li geniş bütçe; Actions devir_t185.yml, data/analiz/t185_sonuc.txt; devirli 232 koşu, devirsiz örnek 250; 2025-03→2026-11) Devirli ROI [%95 aralık], vuruş: b600 G1-S +21,1% [−39,5; +83,7] (26 vuruş) \| piyasa +3,… | KARAR KURALI (ön kayıt T185): (GA alt > −%30) VE (nokta ROI > 0) VE (G1-S − piyasa > 0). b600: alt −39,5 → SAĞLANMADI. b1200: alt −26,7 ✓, ROI >0 ✓ ama G1-S − piyasa = −13,4 puan → SAĞLANMADI (piyasa kuponu daha iyi). b2400: alt −37,0 → SAĞLANMADI. SONUÇ: hiç… |
 
-## Aday: ileri takipte (henüz kanıt değil) — 8
+## Aday: ileri takipte (henüz kanıt değil) — 9
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -96,6 +96,7 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 15 
 | T154 | sıraya özgü katsayılar ("plase atı" yapısı; kullanıcı onayı: "Evet devam et", taslak data/analiz/t154_plani.m… | Aday / ileri takipte | (data/analiz/t154_sonuc.txt; t154_harness.py, t154_rapor.py; 6.363 koşu, 396 gün; taban MJ birebir 1,9326 / 1,8433; %97,5) Kod doğrulaması (sonuçtan önce): δ sıfıra kilitli MJP, MJ galopsuz çıktısını 2025-10'da birebir verdi (en… | KARAR: ana model ADAYI (üretime yalnız 2026-11→2027-01 ileri pencere doğrulamasıyla). Okuma: kazanan da iyileşiyor — adım 0 yapı gereği değişmez ama ortak eğitimde s artık 2.–5. sıraları da açıklamak zorunda kalmadığı için kazanmaya daha iyi uyuyor (beklenen… |
 | T155 | birleşik aday modeli (kullanıcı: "kalan işlere devam et" | Aday / ileri takipte | (data/analiz/t155_sonuc.txt; 6.363 koşu, 396 gün; taban MJ birebir; %97,5) BİRİNCİL MJPK − MJP: piyasalı ilk5 −0,00795 [−0,01165; −0,00491] 11/13 ay; kazanan −0,00186 [−0,00373; +0,00001] (koruma sağlandı); ikili −0,0047, üçlü −0… | KARAR: birleşik ANA MODEL ADAYI (ileri pencere gerekli). Piyasasız ilk5 −0,01311 [−0,01760; −0,00919] 13/13 ay; kazanan −0,00488 [−0,00702; −0,00277] → aşama-1 birleşik ADAYI. Betimsel toplam MJPK − MJ: piyasalı kazanan −0,00460 [−0,00787; −0,00183], ilk5 −0,… |
 | T171 | (kullanıcı: "Başlat"; fikirler: "ilk 5'e mutlaka bir sürpriz at girer… doğru sürpriz atları bulursak"; "favor… | Aday / ileri takipte | (t171a_surpriz.py → t171a_sonuc.txt; t171b_yer.py → t171b_sonuc.txt) A) Sürpriz kuponu, her koşuda sabit yapı (havuz paylaşımı, misli, büyük ödemeler dahil; %98,33): üçlü: Benter sürprizi −0,206 [−0,305; −0,107] vs piyasa sürpriz… | KARAR: GA 0'ı kapsıyor → kayıt (aday değil). Not: jokeyin "bırakma" alışkanlığı bu ölçüyle görünmüyor; atın kendi yer tutma artığı küçük bir işaret. |
+| T186 | yer kaybı (Accurace fazladan mesafe) yeniden sınama, büyük örnek (kullanıcı: "Kur"; 15 Ekim ön kaydının 1 Ara… | Aday / ileri takipte | (t186_sonuc.txt): Accurace eşleşen 6.102 at-koşu / 649 koşu; sınama koşusu (2026-06…11) 1.357, özelliği olan at %18. ANA piyasalı JVT − JV2 +0,00051 [−0,00356; +0,00449] (pozitif ay 3/6); piyasasız +0,00051 [−0,00280; +0,00403] (… | KARAR: ADAY DEĞİL — yer kaybı, 15 Ekim'in 3,4 katı örnekte de ölçülemedi; GA üst sınırı +0,0045 → ≥ +0,005'lik etki bu veriyle dışlandı. 1 Aralık'taki planlı tekrar bununla karşılandı; yeni tekrar ancak sınama koşusu ~4.000'e çıkarsa anlamlı (küçük etki gücü)… |
 
 ## Karma sonuç (bir kısmı geçti, bir kısmı olmadı) — 2
 
@@ -160,7 +161,7 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 15 
 | T184 | videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: "Başlat"; model Opus) | Karar belirsiz | (data/analiz/t184_sonuc.txt, ön kayıtlı betik DEĞİŞTİRİLMEDEN; 569 koşu algılandı, 301'i analize girdi) BİRİNCİL koşu içi Spearman(LAT, FM) ort −0,024 [−0,064; +0,015], medyan 0,000. İKİNCİL kapı kontrollü kısmi −0,040 [−0,102; +… | KARAR (ön kayıt): ÖLÇÜLEMEDİ → teşhis. TEŞHİS: 144.324 karenin yalnız 8.521'i (%6) yön bulabildi, 3.653'ü kullanıldı. Kamera kayması ölçümü bozuk: ±1 sn penceredeki \|Σdx\| medyan 0,9 px (yüzdelik 90: 3,7; eşik 5), faz korelasyonu çoğu karede ~0 kayma veriyor.… |
 | T184-B | kamera kayması düzeltmesi (kullanıcı: "Onaylıdır, yap") | Karar belirsiz | (t184b_sonuc.txt; ön kayıtlı betik değiştirilmeden) ÖN KOŞUL SAĞLANDI: kullanılan kare 51.655/144.324 = %35,8 (eşik %20; T184'te %2,5) → yön düzeltmesi çalıştı; 562 koşu analize girdi, ölçülmüş at/alan 0,93. BİRİNCİL Spearman(LAT… | KARAR (ön kayıt): \|ort\| < 0,25 ve işaret ≤ −0,25 değil → "ÖLÇÜLEMEDİ → teşhis". Sinyal istatistik olarak net ama ters ve zayıf. TEŞHİS (data/analiz/t184b_tani.py/.txt; betimsel): LAT ~ şeritteki öndelik −0,523 (önde giden atların kutusu büyük: kamera öncüleri… |
 
-## Ön kayıtlı, sonucu henüz yok — 15
+## Ön kayıtlı, sonucu henüz yok — 14
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -178,4 +179,3 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 15 
 | T160 | spiker özellikleri (veri gelmeden yazıldı; test penceresi transkript kapsamı ≥%80 olunca koşulur) | Sonuç bekleniyor |  |  |
 | T161 | "şanslı sonuç" (kullanıcı: "favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d… | Sonuç bekleniyor |  |  |
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
-| T186 | yer kaybı (Accurace fazladan mesafe) yeniden sınama, büyük örnek (kullanıcı: "Kur"; 15 Ekim ön kaydının 1 Ara… | Sonuç bekleniyor |  |  |
