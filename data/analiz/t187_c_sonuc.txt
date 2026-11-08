@@ -1,0 +1,30 @@
+koşu 22975
+2025-03 452
+2025-04 497
+2025-05 558
+2025-06 516
+2025-07 547
+2025-08 549
+2025-09 529
+2025-10 552
+2025-11 524
+2025-12 469
+2026-01 442
+2026-02 385
+2026-03 438
+2026-04 477
+2026-05 529
+2026-06 498
+2026-07 516
+2026-08 529
+2026-09 492
+2026-10 548
+2026-11 117
+at-koşu 102603
+
+=== ADIM C ===
+p>=0.06 & p/pm>=1.3 (ANA): n=3250 kazanan 446 (model beklenen 552.6, piyasa beklenen 393.2) ROI -22.0% [-29.9%;-13.8%]  model-beklenen ROI -4.3%
+p>=0.06 & p/pm>=1.2 (duyarlılık): n=7656 kazanan 1100 (model beklenen 1331.3, piyasa beklenen 1020.0) ROI -25.7% [-30.4%;-21.1%]  model-beklenen ROI -10.5%
+p>=0.06 & p/pm>=1.5 (duyarlılık): n=581 kazanan 79 (model beklenen 96.0, piyasa beklenen 60.0) ROI -12.3% [-32.5%;+9.2%]  model-beklenen ROI +7.5%
+referans: pm>=0.06 tüm atlar: n=52833 kazanan 8788 (model beklenen 8759.9, piyasa beklenen 8657.4) ROI -30.9% [-31.9%;-29.8%]  model-beklenen ROI -30.6%
+ANA, yalnız 2026 (G1-S v3 dönemi öncesi dahil): n=1913 kazanan 276 (model beklenen 326.2, piyasa beklenen 231.7) ROI -17.8% [-28.3%;-6.8%]  model-beklenen ROI -6.2%
