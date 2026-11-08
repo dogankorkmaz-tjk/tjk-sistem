@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-08T03:52",
+ "guncelleme": "2026-11-08T01:04",
  "sayim": {
   "Geçti": 16,
   "Elendi": 51,
   "Karar belirsiz": 38,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 15,
+  "Sonuç bekleniyor": 16,
   "Karma": 2,
   "Aday / ileri takipte": 8
  },
@@ -1228,6 +1228,15 @@
   {
    "id": "T184",
    "konu": "videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: \"Başlat\"; model Opus)",
+   "tarih": "2026-11-08",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T185",
+   "konu": "devirli sıralı 5'li, daha geniş bütçe (kullanıcı: \"Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra…",
    "tarih": "2026-11-08",
    "durum": "Sonuç bekleniyor",
    "ozet": "",

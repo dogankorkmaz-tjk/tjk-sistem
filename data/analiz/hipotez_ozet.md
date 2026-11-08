@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 03:52 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 01:04 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 16
 
@@ -156,7 +156,7 @@ Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 15 
 | T179 | altılı kupon kurma kuralları, geriye dönük karşılaştırma (kullanıcı: "Önerdiğin fikirleri test et, başlat") | Karar belirsiz | (data/analiz/t179_sonuc.txt; yalnız 42 tam altılı, 14 gün — AGF'li tam kayıt bu kadar) • Favori mi değer mi (eşit maliyet ~185 kombinasyon): D192 − F192 ortalama tutan ayak −0,62 [−0,94; −0,29] (F192 3,71, D192 3,10); ≥5 ayak far… | KARAR: canlıda değişiklik yok. Altılıda değer kuralı için "favori daha iyi" bulgusu ileriye dönük gölge (j_favori/favori/deger zaten çalışıyor) ile yeniden ölçülecek. Kapsama (zorluğa göre genişlik) eşit maliyette favoriden iyi görünmüyor; K65 gölgesi maliyet… |
 | T180 | altılı kupon kuralları, ayak bazlı düşük-varyanslı ROI tahmini (kullanıcı: "favori kazandıkça altılı yeterinc… | Karar belirsiz | (t180_sonuc.txt, t180b_*.txt, t180c_sonuc.txt) — İLK TAHMİN EDİCİ HATALI ÇIKTI, DÜZELTİLDİ (ön kayıtlı karar kuralı aynı) İlk çalışma (ön kayıtlı formül) tüm kurallar için ROI >1 verdi (F192 2,27; D48 34,7): akıl kontrolü başarıs… |  |
 
-## Ön kayıtlı, sonucu henüz yok — 15
+## Ön kayıtlı, sonucu henüz yok — 16
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -175,3 +175,4 @@ Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 15 
 | T161 | "şanslı sonuç" (kullanıcı: "favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d… | Sonuç bekleniyor |  |  |
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T184 | videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: "Başlat"; model Opus) | Sonuç bekleniyor |  |  |
+| T185 | devirli sıralı 5'li, daha geniş bütçe (kullanıcı: "Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra… | Sonuç bekleniyor |  |  |
