@@ -3,6 +3,7 @@
 import os, sys, json, subprocess, tempfile, time, glob
 import numpy as np, cv2
 UA = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36"
+os.makedirs("data/cv_t184b", exist_ok=True)
 p, n = int(sys.argv[1]), int(sys.argv[2])
 L = [s.split() for s in open("data/cv_t184/liste.txt").read().split("\n") if s.strip()][p::n]
 for ad, url in L:
