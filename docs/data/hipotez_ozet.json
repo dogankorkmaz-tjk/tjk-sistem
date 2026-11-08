@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-08T19:28",
+ "guncelleme": "2026-11-08T19:35",
  "sayim": {
   "Geçti": 17,
   "Elendi": 53,
   "Karar belirsiz": 41,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 14,
+  "Sonuç bekleniyor": 15,
   "Karma": 2,
   "Aday / ileri takipte": 9
  },
@@ -1287,6 +1287,15 @@
    "ozet": "(t187_c_sonuc.txt; ay-ay ileri-yürüyüş 2025-03→2026-11, 102.603 at-koşu) ANA (p≥0,06 ve p/pm≥1,3): 3.250 at, kazanan 446 (piyasa beklenen 393, model beklenen 553), ROI −22,0% [−29,9; −13,8]. Duyarlılık: ≥1,2 → 7.656 at ROI −25,7%…",
    "neden": "KARAR (ön kayıt): ANA ROI nokta <0, GA alt <0 → 'YOK' (aday değil). Yorum: model piyasanın 'az fiyatladığı' atları gerçekten seçiyor (kazanan piyasa beklentisinin +13%'i; ROI referanstan ~9 puan iyi) ama model kendi olasılığını şişiriyor (553 beklenen, 446 ge…",
    "satir": 2617
+  },
+  {
+   "id": "T187-D",
+   "konu": "\"piyasa sıralı bahislerde nerede yanılıyor?\" (kullanıcı: \"Başlat\"). Sonuçlar görülmeden yazıldı; betik değişt…",
+   "tarih": "2026-11-08",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
   }
  ]
 }
