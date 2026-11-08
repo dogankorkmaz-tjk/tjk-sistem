@@ -1,0 +1,195 @@
+{
+ "tarih": "2026-11-08",
+ "kuponlar": {
+  "fenomen-tilki|istanbul|2": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "ERSANŞAH",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     3,
+     8,
+     5,
+     9,
+     1,
+     2,
+     6,
+     7
+    ],
+    [
+     3
+    ],
+    [
+     1,
+     5,
+     3,
+     2,
+     6,
+     9,
+     8,
+     10,
+     7,
+     4
+    ],
+    [
+     5,
+     6,
+     2,
+     3,
+     4,
+     1
+    ],
+    [
+     3
+    ],
+    [
+     3,
+     1,
+     2,
+     6,
+     5,
+     4,
+     9,
+     10,
+     7,
+     11,
+     8
+    ]
+   ],
+   "ilk_gorulme": "11:28:55"
+  },
+  "editorun-kuponu|istanbul|2": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "CANCANER",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     7,
+     8,
+     3,
+     9,
+     1,
+     5,
+     2,
+     6
+    ],
+    [
+     8
+    ],
+    [
+     1,
+     4,
+     5,
+     3,
+     7,
+     2,
+     6,
+     10,
+     9,
+     8
+    ],
+    [
+     1
+    ],
+    [
+     3,
+     1,
+     2,
+     4,
+     6,
+     5
+    ],
+    [
+     3,
+     4,
+     1,
+     2,
+     5,
+     6,
+     7,
+     9,
+     10,
+     8,
+     11
+    ]
+   ],
+   "ilk_gorulme": "11:28:55"
+  },
+  "hipodrom-guzeli|istanbul|2": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "SHINNY",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     7,
+     8,
+     2,
+     9,
+     3,
+     5,
+     6,
+     1
+    ],
+    [
+     4,
+     8,
+     3,
+     6,
+     5,
+     2,
+     1,
+     7
+    ],
+    [
+     4
+    ],
+    [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    [
+     6,
+     1,
+     3,
+     2,
+     5,
+     4
+    ],
+    [
+     3
+    ]
+   ],
+   "ilk_gorulme": "11:28:55"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|istanbul|5": {
+   "ad": "SPRINTMASTER",
+   "at": "SEYRET BENİ",
+   "hip": "istanbul",
+   "kosu": 5,
+   "ilk_gorulme": "11:28:55"
+  },
+  "BEYGİRBOOSTER|istanbul|9": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "KOKO LOKO",
+   "hip": "istanbul",
+   "kosu": 9,
+   "ilk_gorulme": "11:28:55"
+  }
+ },
+ "degisiklik": []
+}
