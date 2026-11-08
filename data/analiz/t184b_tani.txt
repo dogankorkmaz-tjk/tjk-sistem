@@ -1,0 +1,5 @@
+TEŞHİS (koşu içi Spearman ortalamaları, n=562):
+  LAT ~ şeritte öndelik sırası (0=önde)      -0.523
+  sıra (öndelik) ~ fazladan mesafe           +0.195
+  kutu tabanı düşey konumu ~ fazladan mesafe -0.184
+  LAT ~ kutu tabanı düşey konumu             +0.645
