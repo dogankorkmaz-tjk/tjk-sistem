@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-08T01:04",
+ "guncelleme": "2026-11-08T03:28",
  "sayim": {
   "Geçti": 16,
   "Elendi": 51,
-  "Karar belirsiz": 38,
+  "Karar belirsiz": 39,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 16,
+  "Sonuç bekleniyor": 15,
   "Karma": 2,
   "Aday / ileri takipte": 8
  },
@@ -1229,10 +1229,10 @@
    "id": "T184",
    "konu": "videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: \"Başlat\"; model Opus)",
    "tarih": "2026-11-08",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t184_sonuc.txt, ön kayıtlı betik DEĞİŞTİRİLMEDEN; 569 koşu algılandı, 301'i analize girdi) BİRİNCİL koşu içi Spearman(LAT, FM) ort −0,024 [−0,064; +0,015], medyan 0,000. İKİNCİL kapı kontrollü kısmi −0,040 [−0,102; +…",
+   "neden": "KARAR (ön kayıt): ÖLÇÜLEMEDİ → teşhis. TEŞHİS: 144.324 karenin yalnız 8.521'i (%6) yön bulabildi, 3.653'ü kullanıldı. Kamera kayması ölçümü bozuk: ±1 sn penceredeki |Σdx| medyan 0,9 px (yüzdelik 90: 3,7; eşik 5), faz korelasyonu çoğu karede ~0 kayma veriyor.…",
+   "satir": 2566
   },
   {
    "id": "T185",

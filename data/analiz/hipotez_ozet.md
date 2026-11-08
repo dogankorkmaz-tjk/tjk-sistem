@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 01:04 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 03:28 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 51 · Karar belirsiz: 39 · Geçti: 16 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 16
 
@@ -113,7 +113,7 @@ Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 16 
 | T137 | yorumcu bilgi taşıyor mu? (kullanıcı: "Başlat") | Tanımlayıcı / keşif (karar yok) | kayıt 1 (betimsel; | KARAR YOK) n(A)=36 (<300) → karar yok. A: 6 kazanan / 4,1 beklenen, O/E 1,47 [0,85–1,88]. B tümü n=247, 31 / 21,8, O/E 1,42 [1,16–1,66]; oy=1 (164) 1,52 [1,04–1,98]; oy≥2 (83) 1,28 [0,88–1,45]. Eklenen TABAN: aynı gün/hipodromlardaki TÜM piyasa sırası ≥3 atla… |
 | T168 | kapanış öncesi görülen fiyatla bahis: ikili / sıralı ikili ve ganyan (kullanıcı: "Başlat"; "canlı sekmemiz he… | Tanımlayıcı / keşif (karar yok) ~ | (data/analiz/t168_once.py → t168_sonuc.txt) Kapsam: 116 AÇIK havuz kaydının çoğu yurt dışı/Kasım → model önbelleğiyle eşleşen yurt içi ikili koşusu yalnız ~10 (Ekim 15–31, 4 gün). Ganyan: 146 koşu, 14 gün, ortalama koşuya 1,7 dk.… | (açık karar satırı yok, son cümlelerden çıkarıldı) il: kazananlarda tipik ~%4 aşağı kayma. Canlı'da EV gösterilirken kapanış kayması payı (ikili/ganyan ×0,96) uygulanmalı; ileri pencere (havuz_acik kaydı, 7 Kasım'dan itibaren) bunu her gün büyütecek. |
 
-## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 38
+## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 39
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -155,8 +155,9 @@ Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 16 
 | T176 | altılı/7'li kuponda canlı bilgi kaybı (kullanıcı: "kupon sekmesinde… yarışlar başlamadan tüm koşuların seçiml… | Karar belirsiz | (data/analiz/t176_altili_kayip.py → t176_sonuc.txt) Veri yetersiz: Benter puanı (z6, w0_g1) + 1. altılı AGF'si (agf_a1) birlikte yalnız 14 günde var → 1. altılı 142 ayak-koşu. 1) Kayıp (kapanış − ilk ayak öncesi AGF, Benter, nats… | KARAR: kayıt; kupon değişikliği yok. YENİDEN ÖLÇÜM (ön kayıt, aynı betik + agf_zaman ile momentum): ≥60 günlük z6+AGF zaman serisi biriktiğinde (≈ 2026-12-20). |
 | T179 | altılı kupon kurma kuralları, geriye dönük karşılaştırma (kullanıcı: "Önerdiğin fikirleri test et, başlat") | Karar belirsiz | (data/analiz/t179_sonuc.txt; yalnız 42 tam altılı, 14 gün — AGF'li tam kayıt bu kadar) • Favori mi değer mi (eşit maliyet ~185 kombinasyon): D192 − F192 ortalama tutan ayak −0,62 [−0,94; −0,29] (F192 3,71, D192 3,10); ≥5 ayak far… | KARAR: canlıda değişiklik yok. Altılıda değer kuralı için "favori daha iyi" bulgusu ileriye dönük gölge (j_favori/favori/deger zaten çalışıyor) ile yeniden ölçülecek. Kapsama (zorluğa göre genişlik) eşit maliyette favoriden iyi görünmüyor; K65 gölgesi maliyet… |
 | T180 | altılı kupon kuralları, ayak bazlı düşük-varyanslı ROI tahmini (kullanıcı: "favori kazandıkça altılı yeterinc… | Karar belirsiz | (t180_sonuc.txt, t180b_*.txt, t180c_sonuc.txt) — İLK TAHMİN EDİCİ HATALI ÇIKTI, DÜZELTİLDİ (ön kayıtlı karar kuralı aynı) İlk çalışma (ön kayıtlı formül) tüm kurallar için ROI >1 verdi (F192 2,27; D48 34,7): akıl kontrolü başarıs… |  |
+| T184 | videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: "Başlat"; model Opus) | Karar belirsiz | (data/analiz/t184_sonuc.txt, ön kayıtlı betik DEĞİŞTİRİLMEDEN; 569 koşu algılandı, 301'i analize girdi) BİRİNCİL koşu içi Spearman(LAT, FM) ort −0,024 [−0,064; +0,015], medyan 0,000. İKİNCİL kapı kontrollü kısmi −0,040 [−0,102; +… | KARAR (ön kayıt): ÖLÇÜLEMEDİ → teşhis. TEŞHİS: 144.324 karenin yalnız 8.521'i (%6) yön bulabildi, 3.653'ü kullanıldı. Kamera kayması ölçümü bozuk: ±1 sn penceredeki \|Σdx\| medyan 0,9 px (yüzdelik 90: 3,7; eşik 5), faz korelasyonu çoğu karede ~0 kayma veriyor.… |
 
-## Ön kayıtlı, sonucu henüz yok — 16
+## Ön kayıtlı, sonucu henüz yok — 15
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -174,5 +175,4 @@ Toplam: Elendi: 51 · Karar belirsiz: 38 · Geçti: 16 · Sonuç bekleniyor: 16 
 | T160 | spiker özellikleri (veri gelmeden yazıldı; test penceresi transkript kapsamı ≥%80 olunca koşulur) | Sonuç bekleniyor |  |  |
 | T161 | "şanslı sonuç" (kullanıcı: "favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d… | Sonuç bekleniyor |  |  |
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
-| T184 | videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: "Başlat"; model Opus) | Sonuç bekleniyor |  |  |
 | T185 | devirli sıralı 5'li, daha geniş bütçe (kullanıcı: "Yap hatta belki 600 ile de sınırlamamak gerekir çünkü sıra… | Sonuç bekleniyor |  |  |
