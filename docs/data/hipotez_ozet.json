@@ -1,0 +1,1238 @@
+{
+ "guncelleme": "2026-11-08T03:52",
+ "sayim": {
+  "Geçti": 16,
+  "Elendi": 51,
+  "Karar belirsiz": 38,
+  "Tanımlayıcı / keşif": 6,
+  "Sonuç bekleniyor": 15,
+  "Karma": 2,
+  "Aday / ileri takipte": 8
+ },
+ "testler": [
+  {
+   "id": "T28",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Geçti",
+   "ozet": "(2026-10-28 03:25; fark = varyant − taban v3+Elo, nats/koşu, negatif=iyi): Varyant C (hücre Elo): A kazanan +0,0006 [0,0000,+0,0012], ilk4 −0,0001 [−0,0010,+0,0008], ilk5 −0,0002 [−0,0012,+0,0008]; B kazanan +0,0010 [+0,0002,+0,0…",
+   "neden": "Karar kuralı SAĞLANDI (iki dönem, tüm ölçüler) -> G1-S'ye EKLENİR. Çoklu karşılaştırma: iki varyanttan biri geçti, aralıklar çok uzak olduğundan şans açıklaması zayıf. ENTEGRASYON T28 (2026-10-28 03:50): tjk/elo.py marjlı Elo (f_elo_m, f_rak3_m) ile genişleti…",
+   "satir": 913
+  },
+  {
+   "id": "T29",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi",
+   "ozet": "(2026-10-28 02:55; ekipman değişimi, taban = v3 + marjlı Elo; fark = varyant − taban, nats/koşu, negatif=iyi): A (6.408 koşu) kazanan −0,0001 [−0,0004,+0,0002], ikili −0,0002, üçlü −0,0003 [−0,0007,+0,0002], ilk4 −0,0001 [−0,0006…",
+   "neden": "Karar kuralı sağlanmadı -> KESİN KAPANDI: ekipman değişimi (3 özellik, güncel tabanda) bilgi katmıyor; eski testin zararı aşırı uyum, yenisi sıfır. Betik: data/analiz/ekip_tablo.py, elo2_ozellik.py (ME).",
+   "satir": 922
+  },
+  {
+   "id": "T30",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi",
+   "ozet": "(2026-10-28 03:10; sınıf değişimi, taban = v3 + marjlı Elo; fark = varyant − taban, nats/koşu): A (6.408 koşu) kazanan +0,0001 [−0,0001,+0,0002], ikili 0,0000, üçlü 0,0000, ilk4 0,0000 [−0,0004,+0,0003], ilk5 −0,0001 [−0,0004,+0,…",
+   "neden": "Karar kuralı sağlanmadı -> KAPANDI: ikramiye farkıyla ölçülen sınıf değişimi mevcut modele (rakip gücü Elo dahil) bilgi katmıyor; marjlı Elo bu bilgiyi zaten taşıyor görünüyor (f_rak3_m rakip seviyesini yakalıyor). Betik: data/analiz/sinif_tablo.py, elo2_ozel…",
+   "satir": 928
+  },
+  {
+   "id": "T31",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi",
+   "ozet": "(2026-10-28 03:30; data/analiz/galop_jokey.py; 2.799 koşu, 2026-05..10, yürüyen aylık, taban = Jason OOS + 7 galop özelliği; fark = (G+GJ) − G, nats/koşu, pozitif=iyi): kazanan +0,0000 [−0,0008,+0,0008], ikili −0,0004, üçlü −0,00…",
+   "neden": "Karar kuralı (ilk5 GA alt sınırı >0) sağlanmadı -> KAPANDI (bu örnekte idman jokeyi bilgisi yok; küçük örnek, güç sınırlı, 'yok' değil 'ölçülemedi'). Galop verisi biriktikçe (2027 başı) yeniden sınanabilir.",
+   "satir": 935
+  },
+  {
+   "id": "T32",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Geçti ~",
+   "ozet": "(2026-10-28 04:10; bağımsız dönem 2024-04..2024-12, 3.810 koşu, taban v3+marjlı Elo): kazanan −0,0007 [−0,0028,+0,0013], ikili −0,0026 [−0,0054,0,0000], üçlü −0,0045 [−0,0074,−0,0016], ilk4 −0,0058 [−0,0089,−0,0028], ilk5 −0,0073…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) ntrenör ortak Elo (f_jel, f_tel) G1-S v3'e EKLENİR. tjk/elo.py ve g1v3.egit güncellendi (EXTRA_FEAT 6 özellik), katsayılar yeniden eğitildi; ze 6 Elo özelliğinin toplamı. T27 ileri gölge aynen sürer.",
+   "satir": 941
+  },
+  {
+   "id": "T33",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-10-28 04:30; taban v3+marjlı Elo; fark = varyant − taban, nats/koşu, negatif=iyi): C (2024-04..12, 3.810 koşu) kazanan −0,0009 [−0,0015,−0,0003], ikili −0,0010, üçlü −0,0010, ilk4 −0,0013 [−0,0023,−0,0003], ilk5 −0,0012 [−0…",
+   "neden": "",
+   "satir": 946
+  },
+  {
+   "id": "T34",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Geçti",
+   "ozet": "(2026-10-28 04:50; data/analiz/ekur_bolusum.py; 2025Q1–2026Q3 yürüyen, 2.113 ekür koşusu, θ her çeyrekte yalnız önceki ekür koşularıyla fit): θ̂ = 3,59–3,85 (üst sınır 4'e yakın; tüm veri 3,75) → ekür çiftinde modelin bölüşümü ge…",
+   "neden": "Karar: >=100 ekür koşusunda kazanan VE ilk5 GA alt sınırı >0 -> G1-S'ye (tarayıcı + Python kupon kurucuları) çift içi bölüşüm düzeltmesi eklenir; GA'nın tamamı <0 -> kapanır; aksi halde izleme sürer. Başlangıç: 2026-10-29. Model değişikliği ŞİMDİ YOK.",
+   "satir": 952
+  },
+  {
+   "id": "T35",
+   "konu": "kapı ≤1300 ve hipodrom×mesafe hücresi (kullanıcı önerisi)",
+   "tarih": "2026-10-28",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-10-28; data/analiz/kapi13.py, k13_karsilastir.py; fark = varyant − MJ, nats/koşu, negatif=iyi): - MJK (yalnız f_k13): A ilk5 −0,0006 [−0,0020,+0,0007]; B +0,0002 [−0,0017,+0,0021]; C −0,0015 [−0,0037,+0,0005]. Kanıt yok. -…",
+   "neden": "Karar (kural değişmez): A döneminde kazanan ve ilk5 üst sınırı >0 → kural sağlanmadı, ana modele EKLENMEZ. Not: üç dönemde de nokta tahmin negatif, B ve C'de ilk4/ilk5 anlamlı, A sınırda (+0,0002); etki küçük (≈0,002–0,005 nat/koşu). Aday olarak tutulur: iler…",
+   "satir": 965
+  },
+  {
+   "id": "T36",
+   "konu": "jokeyin ata aşinalığı (kaçıncı biniş) (kullanıcı önerisi)",
+   "tarih": "2026-10-28",
+   "durum": "Elendi",
+   "ozet": "(2026-10-28 04:15; jokey–at aşinalığı, taban MJ; MJB/MJB2; çökmüş iki koşu MJB-C ve MJB2-B yeniden çalıştırılmadı, kural A'da zaten sağlanmadı): MJB A: kazanan +0,0000 [−0,0008,+0,0007], ilk5 −0,0004 [−0,0018,+0,0009]; B: kazanan…",
+   "neden": "Karar: kural sağlanmadı (GA hepsinde 0'ı kapsıyor, nokta tahminler ≈0) → jokey–at aşinalığı EKLENMEZ, fikir kapatıldı. Not: f_jdeg (jokey değişti) zaten modelde.",
+   "satir": 985
+  },
+  {
+   "id": "T38",
+   "konu": "soy–mesafe (kullanıcı önerisi)",
+   "tarih": "2026-10-28",
+   "durum": "Elendi",
+   "ozet": "(2026-10-28 04:30; soy–mesafe, taban MJ; entegre_v3_elo2.py VAR=MJM): A kazanan +0,0001 [−0,0004,+0,0005], ilk5 −0,0003 [−0,0010,+0,0004]; B kazanan −0,0003 [−0,0009,+0,0003], ilk5 −0,0001 [−0,0010,+0,0009]; C kazanan +0,0000, il…",
+   "neden": "Karar: kural sağlanmadı (GA hepsinde 0'ı kapsıyor, etki ≈0) → soy–mesafe EKLENMEZ, kapatıldı (soyun mesafe bilgisi modelde zaten at geçmişi/piyasa tarafından alınıyor).",
+   "satir": 993
+  },
+  {
+   "id": "T39",
+   "konu": "sürpriz bulma",
+   "tarih": "2026-10-28",
+   "durum": "Tanımlayıcı / keşif (karar yok) ~",
+   "ozet": "(sürpriz bulma, data/analiz/surpriz_analiz.py, OOS 2024-04+, 137.437 at): uzun oranlı atlarda (piyasa p<0,08) Jason/piyasa oranı beşlikleri: üst beşlik kazanma−piyasa +1,02 puan [+0,67,+1,39], alt −1,19 [−1,33,−1,03] → Jason uzun…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) 1,03] → Jason uzun oranlılar arasında iyiyi kötüden ayırıyor. Sürpriz kazananlara (ganyan≥15, koşuların %15'i) Jason ort. 0,93× piyasa p veriyor → tek tek sürpriz seçilemiyor. Tanımlayıcı, karar yok.",
+   "satir": 989
+  },
+  {
+   "id": "T40",
+   "konu": "galopta dil bağı; tempo notu",
+   "tarih": "2026-10-28",
+   "durum": "Tanımlayıcı / keşif (karar yok)",
+   "ozet": "(galopta dil bağı, galop_dilbagi.py, 2026-01-15+): piyasaya göre kazanma farkı (ex) — DB eklendi+galop var n=1885: −0,0001 [−0,0111,+0,0114]; DB değişmedi n=40297: +0,0001; DB eklendi+galop yok n=103: −0,0377 [−0,0537,−0,0141] (k…",
+   "neden": "Karar yok.",
+   "satir": 991
+  },
+  {
+   "id": "T41",
+   "konu": "video özellikleri",
+   "tarih": "2026-10-28",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-10-29 19:30; video özellikleri, VAR=MJV − MJ; 4.978 videolu koşu 2025-10..2026-10): B (2026-04..2026-10, 3.388 koşu): kazanan −0,0021 [−0,0038;−0,0003], ikili −0,0057 [−0,0076;−0,0035], üçlü −0,0061 [−0,0089;−0,0035], ilk4…",
+   "neden": "KARAR: kural harfiyen sağlanmadı (H ters yönde, zarar kuralı H'de aşıldı) → modele EKLENMEZ. Ancak desen (artan eğitim verisiyle iyileşme) video özelliklerinin yeterli geçmişle çalıştığını gösteriyor; yeni ön kayıtlı, tek pencereli yeniden test: 2026-11..2027…",
+   "satir": 1045
+  },
+  {
+   "id": "T41-P",
+   "konu": "(plasebo kontrolü, kullanıcı: \"testi tekrarla\"; yeni pencere henüz yok)",
+   "tarih": "2026-10-29",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-10-29 21:25; plasebo MJVP − MJ): H (2025-12..2026-03): kazanan −0,0009 [−0,0026;+0,0009], ikili −0,0001, üçlü +0,0003, ilk4 +0,0010, ilk5 +0,0009 [−0,0017;+0,0039]. B (2026-04..2026-10): kazanan −0,0002 [−0,0010;+0,0006], i…",
+   "neden": "Karar: plasebo her iki dönemde de ≈0 → T41'in B'deki iyileşmesi (kazanan −0,0021, ikili −0,0057, üçlü −0,0061, ilk5 −0,0052, GA<0) fazladan özellik/eğitim etkisi değil, atlara doğru bağlanmış video bilgisinden geliyor. T41 yeniden test planı (2026-11..2027-01…",
+   "satir": 1054
+  },
+  {
+   "id": "T42",
+   "konu": "kör etiket testi",
+   "tarih": "2026-10-28",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T43",
+   "konu": "hipodrom kalibrasyonu (kullanıcı onayı)",
+   "tarih": "2026-10-28",
+   "durum": "Elendi",
+   "ozet": "(2026-10-29 00:10; hip_kalibrasyon.py; 137.437 at, 13.814 koşu, 2024-04..2026-10): logit eğimleri 0,95–1,06 aralığında; 9 hipodromda %99,4 GA 1'i kapsıyor (kalibre). Tek ADAY: Diyarbakır eğim 0,84 [0,73;0,99] (I. yarı 0,86, II. y…",
+   "neden": "Karar: genel düzeltme YOK, 9 hipodrom kapatıldı. Diyarbakır için yalnızca ileri gözlem: 2027-04'te (≈+150 koşu) eğim tekrar ölçülür; ≤0,90 ve GA<1 kalırsa Diyarbakır için büzme (Jason'ı piyasaya doğru çekme) denenir. Şu an modele bir şey eklenmedi.",
+   "satir": 1011
+  },
+  {
+   "id": "T44",
+   "konu": "gün içi kapı eğilimi",
+   "tarih": "2026-10-29",
+   "durum": "Elendi",
+   "ozet": "(2026-10-29 01:15; gün içi kapı eğilimi, taban MJ, VAR=MJG): A kazanan −0,0005 [−0,0012,+0,0001], ilk5 −0,0006 [−0,0017,+0,0004]; B kazanan −0,0001 [−0,0011,+0,0008], ilk5 −0,0013 [−0,0030,+0,0004]; C kazanan +0,0006 [−0,0005,+0,…",
+   "neden": "Karar: kural sağlanmadı (GA 0'ı kapsıyor, C ters yönde) → gün içi kapı eğilimi EKLENMEZ, kapatıldı. Not: B dönemi Ekim 2026'da kapı verisi eksik; video stil verisiyle (T41) gün içi eğilim farklı bir ölçüyle yeniden denenebilir.",
+   "satir": 1036
+  },
+  {
+   "id": "T45",
+   "konu": "piyasa-ağırlığı etkileşimleri (kullanıcı onayı)",
+   "tarih": "2026-10-29",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-10-29 12:25; piyasa-ağırlığı etkileşimleri, taban MJ, VAR=MJW): A kazanan −0,0000 [−0,0004,+0,0003], ilk5 +0,0002 [−0,0004,+0,0009]; B kazanan −0,0006 [−0,0011,−0,0001], ikili −0,0010, üçlü −0,0011, ilk4 −0,0008, ilk5 −0,00…",
+   "neden": "Karar: kural sağlanmadı (A'da etki ≈0, C'de GA 0'ı kapsıyor; yalnız B anlamlı) → EKLENMEZ. B'deki iyileşme tek dönem; yeniden bakış 1 Mart 2027 (B dönemi +5 ay uzatılmış hâliyle, aynı VAR=MJW).",
+   "satir": 1038
+  },
+  {
+   "id": "T46",
+   "konu": "dilim kalibrasyonu (öneri 2 ve 3, kullanıcı onayı)",
+   "tarih": "2026-10-29",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-10-29 00:50; 137.437 at): logit eğimi çoğu dilimde 0,95–1,05 (kalibre). ADAY (GA %99,8 1'i dışlıyor + iki yarıda aynı yön): önceki koşusu 0 → 1,11 [1,00;1,25]; 1–2 koşu → 1,08 [1,03;1,16]; handikap dışı → 1,10 [1,04;1,18] (…",
+   "neden": "",
+   "satir": 1021
+  },
+  {
+   "id": "T47",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karma (hem olumlu hem olumsuz ifade, deftere bak) ~",
+   "ozet": "(2026-10-29 00:55): 2025-01..2026-10, 9.979 koşu. Yürüyen kalibrasyon (b≈1,08–1,09, a≈+0,13) kazanan log-kaybını koşu başına −0,00045 azaltıyor: TÜM [−0,00099;+0,00011]; I (…2025-09) −0,00075 [−0,00174;+0,00023]; II (2025-10…) −0…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) ma GA üst sınırı 0'ı aşıyor → kural SAĞLANMADI, düzeltme EKLENMEZ. Etki çok küçük (kazanan başına ≈0,0005 nats). Yeniden bakış: 1 Mart 2027'de (≈+1.500 koşu) aynı betikle; GA<0 olursa katman eklenir.",
+   "satir": 1024
+  },
+  {
+   "id": "T48",
+   "konu": "avantaj haritası + güven filtresi (kullanıcı onayı: öneri 1 ve 2)",
+   "tarih": "2026-10-29",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-10-29 01:05; 13.814 koşu 2024-04..2026-10): ort. d=+0,0157 nats/koşu (model piyasadan iyi). Avantaj dilimlere DAĞILIMLI, yoğunlaşma yok: hipodromların 6'sı (Adana, Antalya, Bursa, İstanbul, İzmir; Ankara sınırda +0,0087 [−0…",
+   "neden": "Karar: (a) seçici filtre kuralı çıkmadı, \"ADAY\" dilimlerin neredeyse hepsi aday olduğu için bilgi taşımıyor; (b) tek net sinyal: handikap dışı koşularda avantaj yok (T46'daki az-koşmuş-at çekingenliğiyle tutarlı) → ileri gölge takibinde handikap/diğer ayrı ra…",
+   "satir": 1033
+  },
+  {
+   "id": "T49",
+   "konu": "piyasasız model (kullanıcı onayı; video eklenebilir mi sorusu dahil)",
+   "tarih": "2026-10-29",
+   "durum": "Geçti",
+   "ozet": "(2026-10-29 23:55; piyasasız model PM0, nolp_karsilastir.py; yürüyen, bugünün oranı YOK, geçmiş-piyasa artığı özellikleri var): A (2025-03..2026-03, 6.408 koşu): kayıp kazanan PM0 1,914 / piyasa 1,842 / eşit 2,259 → eşit−PM0 +0,3…",
+   "neden": "KARAR (ön kayıtlı kural: iki dönemde Ρ(kazanan)≥0,50 ve eşit−PM0 GA alt >0): SAĞLANDI → piyasasız tahmin, YALNIZ piyasa verisi (AGF/canlı/elle oran) yokken, gri 'piyasasız tahmin' olarak gösterilecek; kupona/EV'ye bağlanmaz. Uygulama adımı: lp'siz üretim mode…",
+   "satir": 1062
+  },
+  {
+   "id": "T50",
+   "konu": "ince pencereli video özellikleri (kullanıcı: \"1-2-3\", öneri 3)",
+   "tarih": "2026-10-29",
+   "durum": "Elendi",
+   "ozet": "(2026-10-30 00:20; MJV2 = MJV + f_v6..f_v8; v2_karsilastir.py): piyasalı MJV2−MJV: B kazanan +0,0002 [−0,0006;+0,0009], ikili −0,0001, üçlü −0,0003, ilk5 −0,0005 [−0,0016;+0,0006] (artımlı fayda yok); H üçlü +0,0031 [+0,0005;+0,0…",
+   "neden": "KARAR: artımlı fayda kuralı sağlanmadı (B'de kazanan/ilk5 GA<0 yok [piyasalı], H'de zarar) → f_v6–f_v8 ATILDI, video özellik seti 5 özellikli MJV olarak kalır. Çıkış ve son hamle bilgisi MJV'nin stil/kapanış özelliklerinde zaten var.",
+   "satir": 1073
+  },
+  {
+   "id": "T51",
+   "konu": "ekür çift-içi bölüşüm: video modeli (kullanıcı: \"1-2-3\", öneri 1)",
+   "tarih": "2026-10-30",
+   "durum": "Elendi",
+   "ozet": "(2026-10-30 00:55; ekür çift-içi bölüşüm, ekur_video.py): H (2025-12..2026-03; 408 çift): MJ kayıp 0,6026, MJV 0,6060, MJV−MJ +0,0034 [−0,0017;+0,0089], isabet MJ %69,4 / MJV %67,6. B (2026-04..2026-10; 714 çift): MJ 0,6035, MJV…",
+   "neden": "Karar: kural sağlanmadı (B'de GA üst >0; H'de nokta >0) → ekür bölüşümünde MJV'nin faydası gösterilemedi; mevcut Jason bölüşümü kalır. Güç düşük (toplam 1.122 çift; ±0,003–0,005 duyarlılık). Yeniden bakış: ekür çifti sayısı ≥2.000 olunca (≈2027 Mart) aynı bet…",
+   "satir": 1080
+  },
+  {
+   "id": "T52",
+   "konu": "piyasasız modelle süpriz bulma (kullanıcı: \"sadece süpriz bulmak için kullansak\")",
+   "tarih": "2026-10-30",
+   "durum": "Elendi",
+   "ozet": "(2026-10-30 00:50; surpriz_t52.py; bayrak: q/p_m≥1,5 ve p_m≤0,10; kazanma oranı − beklenen, pp): PM0 bayrağı: A (15.035 at) ex_m +0,58 [+0,25;+0,92]; B (8.307 at) ex_m +0,72 [+0,30;+1,16]; H (3.528 at) ex_m +0,02 [−0,52;+0,61]. A…",
+   "neden": "KARAR (kural: iki dönemde ex_m>0 VE ex_j>0, GA alt >0): SAĞLANMADI. PM0 süprizi piyasadan hafif iyi (A,B'de +0,6–0,7 pp, H'de 0) ama ana modelin üstüne ek bilgi vermiyor (ex_j negatif) → ayrı süpriz dedektörü yok. Gerçek sinyal ana modelin kendi süprizi (B'de…",
+   "satir": 1094
+  },
+  {
+   "id": "T53",
+   "konu": "video modeli (MJV) sıralı ikili / ikili / üçlü gerçek ödemeli ROI (kullanıcı: \"test et\")",
+   "tarih": "2026-10-30",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-10-30 01:10; video_roi_t53.py; 2026-01..10, donmuş kural, galopsuz S3, gerçek ödemeler; ROI MJ → MJV, fark [GA]): Sıralı ikili (3.670 bilet): −4,3% → −2,4%, fark +1,9 [−0,6;+4,5]; H (Oca–Mar) +4,2 [+0,9;+8,1]; B +0,8 [−2,3;…",
+   "neden": "KARAR (toplam fark GA alt >0 gerekiyordu): SAĞLANMADI → video sıralı havuzlarda paraya çevrildiği kanıtlanamadı. Fark nokta tahminde pozitif ve her iki dönemde aynı yönde (≥0), ama GA geniş (±3 pp); sıralı ikilide H'de tek başına anlamlı (+4,2 [+0,9;+8,1]) am…",
+   "satir": 1107
+  },
+  {
+   "id": "T54",
+   "konu": "uzun oranlı kazananlar: ayırt eden özellikler (KEŞİF → 2026'da doğrulama; kullanıcı: \"geriye dönük süprizleri…",
+   "tarih": "2026-10-30",
+   "durum": "Elendi",
+   "ozet": "(2026-10-30 01:15; supriz_ozellik_t54.py; oran≥15: keşif 44.506 at/1.009 kazanan, doğrulama 2026 17.808 at/367 kazanan; katsayı = log-olasılık etkisi, standartlaştırılmış, piyasa kontrollü): Keşifte GA 0'ı kapsamayanlar: gevşeme…",
+   "neden": "KARAR: sağlanmadı (kural 3 koşulun hepsi). f_st zaten üretim modelinde (kapı etkisi); kapı_iyileşme f_st/kapı ile çakışık. Sonuç: uzun oranlı atlarda piyasa+mevcut model dışında ayırt edici yeni özellik YOK; tek tutarlı sinyal kapı (iç kapı avantajı), o da mo…",
+   "satir": 1118
+  },
+  {
+   "id": "T55",
+   "konu": "uzun oranlı atlarda ağaç modeli (+video) araması (kullanıcı: \"başlat\")",
+   "tarih": "2026-10-30",
+   "durum": "Elendi",
+   "ozet": "(2026-10-30 01:25; supriz_agac_t55.py; oran≥15; LightGBM taban-ofsetli, sabit hiperparametre; milli-nats/at, taban−model, pozitif=iyi): F1 N (test 2025-10..2026-03, 10.442 at/208 kazanan): +0,832 [+0,065;+1,654]; en yüksek %5 (mo…",
+   "neden": "KARAR (kural): N 'örüntü buluyor' ⇔ iki katta GA alt >0 → F1 evet, F2 hayır (alt −0,249) → SAĞLANMADI (sınırda). V − N: alt −0,008 → SAĞLANMADI (sınırda). Ancak yön her iki katta ve video ekinde aynı, en yüksek %5 grubunda kazanma oranı taban beklentisinin ≈2…",
+   "satir": 1130
+  },
+  {
+   "id": "T56",
+   "konu": "süpriz sayısını ayırt etme: mutlak eşik ve gün/koşu düzeyi (kullanıcı: \"günde 2, 4 ya da hiç; model ayırt ede…",
+   "tarih": "2026-10-30",
+   "durum": "Elendi",
+   "ozet": "(2026-10-30 01:30; supriz_say_t56.py; F2 test 2026-04..2026-10, 204 gün, 3.317 koşu, 312 uzun oranlı kazanan; mutlak eşik r≥1,686 = F1 %95'i): (a) Günlük bayrak sayısı 0–14, ortalama 5,1 (0 bayrak 8 gün, 1: 14, 2: 23, 3: 30, 4: 3…",
+   "neden": "KARAR (kural: (b) VE (c) AUC farkı GA alt >0): SAĞLANMADI. Model hangi atın süpriz olabileceğini seçiyor (a), ama hangi gün/koşuda süpriz çıkacağını (sayıyı) ayırt etmiyor. Sayıdaki değişkenlik büyük ölçüde şans+alan yapısı. Pratik sonuç: bayrak sayısı mutlak…",
+   "satir": 1144
+  },
+  {
+   "id": "T57",
+   "konu": "süpriz gölgesi, ileriye dönük sınav (kullanıcı: \"gölge olarak ekleyelim\")",
+   "tarih": "2026-10-30",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T58",
+   "konu": "ücretli yorumcunun altılı seçimleri (Doğan: \"bir yorumcunun tahminlerini yazdım, parayla kupon satıyormuş\")",
+   "tarih": "2026-10-30",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T59",
+   "konu": "süprizli sıralı 5'li (kullanıcı isteği)",
+   "tarih": "2026-10-30",
+   "durum": "Karma (hem olumlu hem olumsuz ifade, deftere bak) ~",
+   "ozet": "(2026-10-30 14:10): T2 (2026-04+) 14472 at, bayraklı 1037. Bayraklı: kazanma %3,76, ilk3 %14,1, ilk5 %27,4; ganyan dilimine eşleşmiş bayraksız beklenti ilk5 %23,9 → fark +3,48pp [+1,00; +6,27] (gün kümeli). Kural sağlandı (alt sı…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) z atlar sıralı 5'li için YEDEK AYAK ADAYI olarak ileri takibe alındı; kupona/modele otomatik eklenmedi. Uyarı: etki küçük (ilk5'te ~3,5 puan), ödeme/ROI test edilmedi; T55'te kazanan için de sınırdı.",
+   "satir": 1173
+  },
+  {
+   "id": "T60",
+   "konu": "sıralı 5'li süpriz yedek ayağı: ödeme/ROI (kullanıcı isteği",
+   "tarih": "2026-10-30",
+   "durum": "Elendi",
+   "ozet": "(2026-10-30 14:10): 353 koşu (2025-10+). Piyasa tabanlı B=96 kupon: maliyet 40925 TL, getiri 20117 (ROI 0,49; 12 isabet). Bayraklı atlar 3.-5. ayağa eklenince maliyet 118608 (≈2,9x), getiri 44774 (14 isabet). Marjinal: ek maliyet…",
+   "neden": "Karar kuralı sağlanmadı: süpriz yedek ayak sıralı 5'li için KANITSIZ/KÖTÜ (3 ayağa birden eklemek kombinasyonu ~3 katına çıkarıyor, fazladan isabet iki tane). Kupona eklenmez. T59 ilk5 farkı ödemeye çevrilemedi.",
+   "satir": 1178
+  },
+  {
+   "id": "T61",
+   "konu": "geriye dönük yorumcu testi: Milliyet/Misli altılı analizleri (kullanıcı isteği)",
+   "tarih": "2026-10-31",
+   "durum": "Tanımlayıcı / keşif (karar yok) ~",
+   "ozet": "(2026-10-31 11:40; tanımlayıcı, karar yok): 13 yazıdan 24 kupon; 15'i ayak numaralarıyla koşu eşlenebildi (9'u eşlenemedi: altılı koşu aralığı ya da özetleyici çıkarma hatası; 25 Ekim temiz sonuçlarda yok; 4 yazıya erişilemedi).…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) a/yorumcu_gecmis/milliyet_misli.json; betik data/analiz/milliyet_misli_t61.py. Uyarı: piyasa kapanış oranından (yorumcuya karşı avantajlı), kupon verisi WebFetch özetleyicisinden (elle doğrulanmadı).",
+   "satir": 1185
+  },
+  {
+   "id": "T62",
+   "konu": "hangi koşu tiplerinde süpriz çıkıyor (kullanıcı isteği, geriye dönük)",
+   "tarih": "2026-11-01",
+   "durum": "Elendi ~",
+   "ozet": "(2026-11-01 13:30): 13.876 koşu (2024-01..2026-10), süpriz (kazanan ganyan ≥15) %7,9. Ham tabloda Bonferroni+iki yarı yinelemesini geçenler: alan büyüklüğü (≤8 at %3,7; 9-10 %7,1; 11-12 %11,2; ≥13 %16,0), ayrıca Antalya (−), Şanl…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) Handikap bayrağı çalışmadı (hk her satırda dolu), koşu cinsi (handikap/şartlı/maiden) verisi 2026-10'dan önce yok, test edilemedi. Dosya: data/analiz/supriz_tip_t62_sonuc.txt. Modele/kupona etki yok.",
+   "satir": 1189
+  },
+  {
+   "id": "T63",
+   "konu": "süpriz eşiği ≥7 (kullanıcı önerisi: \"15 çok değil mi\")",
+   "tarih": "2026-11-01",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-01 13:35): eşik ≥7 (kazanan ganyan ≥7 = %25,0 koşu; dağılım: <3 %38,5, 3–5 %24,2, 5–7 %12,3, 7–10 %9,8, 10–15 %7,2, ≥15 %7,9). Alan büyüklüğü yine baskın (≤8 at %16, 9–10 ≈%24, 11–12 %31, ≥13 %40). At sayısına göre bekle…",
+   "neden": "",
+   "satir": 1193
+  },
+  {
+   "id": "T64",
+   "konu": "süpriz gölgesi ikinci evren: ganyan ≥10 (kullanıcı: \"10 üstüne çekelim bayrağı\")",
+   "tarih": "2026-11-01",
+   "durum": "Karar belirsiz",
+   "ozet": "dondurma (2026-11-01 13:50): eşik r≥1,5727 (F1/T1 %95 yüzdeliği, ganyan≥10 evreni). Tanı (karar yok), eğitim 2023-06..2026-03 → test 2026-04+ dış-örnek: 19.551 at, bayraklı 1.191 (%6,1); kazanma %4,45 vs taban %2,46 → +1,99 pp [+…",
+   "neden": "",
+   "satir": 1197
+  },
+  {
+   "id": "T65",
+   "konu": "AGF'de ekür payı (kullanıcı: \"test et\"; Adana 8 gözlemi)",
+   "tarih": "2026-11-01",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 00:05; data/analiz/ekur_agf_t65.py, çıktı ekur_agf_t65_sonuc.txt): kullanılabilir ekür koşusu yalnız 42 (2026-10-23..11-01; sonuçlu+AGF'li gün dosyaları ancak 23 Ekim'den). Betimleyici: ekür çiftinde ikinci numaranın…",
+   "neden": "Karar kuralı SAĞLANMADI (iki modelde de alt sınır >0 değil; Bolton kazananda anlamlı kötü). Kupon kurucu DEĞİŞMEDİ. Güç düşük: ≥100 ekür koşusu birikince (~Aralık) aynı betik yeniden koşulur; ayrıca eşit bölme yerine kısmi düzeltme (HAM'a doğru büzme) ayrı ön…",
+   "satir": 1208
+  },
+  {
+   "id": "T66",
+   "konu": "ekür çift içi bölüşümü sıralı ikili/ikili havuzundan okumak (kullanıcı: \"ekürlerin kendi sıralı oranları bell…",
+   "tarih": "2026-11-02",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 00:08; ekur_havuz_t66_sonuc.txt): 41 ekür koşusu (23 Eki–1 Kas), 46 çiftten yalnız 15'inde havuzdan bölüşüm çıkarılabildi (havuzda yalnız ilk 22 kombinasyon var; çiftin iki üyesinin de ortak partnerli kombinasyonu çoğ…",
+   "neden": "Karar kuralı SAĞLANMADI (ilk5 GA alt sınırları <0). Nokta tahminler pozitif ama küçük ve anlamsız. Kupon kurucu DEĞİŞMEDİ. Yeniden: ≥100 ekür koşusu; ayrıca havuz kapsamı (ilk 22) darlığı asıl sınır; tam havuz alınabilirse (vhs.tjk.org daha fazla kombinasyon…",
+   "satir": 1215
+  },
+  {
+   "id": "T66b",
+   "konu": "ekür bölüşümü havuzdan — UZUN GEÇMİŞ (kullanıcı: \"araştır\")",
+   "tarih": "2026-11-02",
+   "durum": "Geçti",
+   "ozet": "(2026-11-02 01:30; ekur_havuz_t66b_sonuc.txt; 648 gün havuz × 2025-01..2026-10 oos_p; 2.948 ekür koşusu, 3.318 tam-iki-atlı çift, 1.485 çiftte havuzdan bölüşüm çıktı = %45; 1.395 koşu): HAVUZ−TABAN (Jason p'ye göre, nats/koşu) TÜ…",
+   "neden": "Karar kuralı SAĞLANDI (ilk5 ve kazanan GA alt sınırı >0, havuz parametresiz: yalnız T66 formülü, uyarlanmış katsayı yok). Uyarılar: (1) havuz KAPANIŞ örneği; canlıda kapanışa yakın (geç kupon) gerekir, erken kuponda havuz seyrek/gürültülü; (2) yalnız ilk-22 k…",
+   "satir": 1221
+  },
+  {
+   "id": "T67",
+   "konu": "geç kuponda piyasa p'sinde ekür çifti çift sayılıyor mu, düzeltmek işe yarar mı? (kullanıcı: \"onu da test et\")",
+   "tarih": "2026-11-02",
+   "durum": "Geçti",
+   "ozet": "(2026-11-02 01:50; ekur_piyasa_t67_sonuc.txt; 3.040 ekür koşusu 2024-04..2026-10): Jason sabitleriyle HAM−DÜZELT ilk5 −0,137 [−0,152,−0,123], kazanan −0,026 [−0,034,−0,018] (geç yolun düzeltmesiz piyasası belirgin KÖTÜ); EK−DÜZEL…",
+   "neden": "Karar kuralı SAĞLANDI. Uygulama (ön kayıttaki gibi önce gölge): tjk/besli.gec_p(ek=True) ve besli.gec_guncelle'de ekür grubu olan koşularda AYRI 'G1-S-EK (geç)' kolu (48/96/150). Ana geç kuponlar değişmedi; ≥100 ekür koşusunda canlı doğrulama sonrası EK varsa…",
+   "satir": 1230
+  },
+  {
+   "id": "T68",
+   "konu": "ekür kenarı sıralı ikili havuzunda para getiriyor mu? (kullanıcı: \"1-2-3-4\", madde 1)",
+   "tarih": "2026-11-02",
+   "durum": "Geçti",
+   "ozet": "(2026-11-02 01:35; ekur_roi_t68_sonuc.txt; 826 gün havuz, sıralı ikili ilk-22, içinde tam bir ekür üyesi olan kombinasyonlar): birincil eşik 1,15: TABAN 1.915 bahis, 41 isabet, ROI 0,871; TETA 2.222 bahis, 65 isabet, ROI 1,022; İ…",
+   "neden": "Karar kuralı SAĞLANDI ama ZAR ZOR: alt sınır +0,001; İKİSİ ROI'nin kendi GA'sı 1'in altını kapsıyor (0,80–1,51); betimleyici eşiklerde (1,0: ROI 1,015, fark GA [−0,046,+0,325]; 1,3: ROI 1,233, fark GA [−0,105,+0,504]) fark anlamsız; TETA−TABAN her eşikte anla…",
+   "satir": 1238
+  },
+  {
+   "id": "T69",
+   "konu": "havuz faktörünü kupon kurucunun ağırlıklarına katmak (kullanıcı: \"2 ve 3'ü şimdi yaz\"; madde 2)",
+   "tarih": "2026-11-02",
+   "durum": "Geçti",
+   "ozet": "(2026-11-02 02:15; havuz_faktor_t69_sonuc.txt; 8.627 koşu, fit 5.136 / test 3.491, kesim 2026-01-31): katsayılar (sıra 2..5; β2,βq) = (0,012; 0,045), (0,033; −0,010), (0,002; 0,010), (−0,011; 0,000). Test kazancı (G sabit, yalnız…",
+   "neden": "Karar kuralı SAĞLANDI ama etki küçük (T17'deki +0,03'ün üçte biri: orada lj/lm yeniden fit ediliyordu; burada yalnız 8 katsayı, G sabit). Uygulama: tjk/besli._havuz_off + kupon_g/_acgozlu_g/_W 'off' argümanı; geç kuponda AYRI 'G1-S-H (geç)' kolu (48/96/150),…",
+   "satir": 1244
+  },
+  {
+   "id": "T70",
+   "konu": "doğrudan karşılaşma (head-to-head) geçmişi (kullanıcı: \"deneyelim\"; yorumcu: \"bu 4 at daha önce birlikte koşt…",
+   "tarih": "2026-11-02",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 03:20; h2h_t70_sonuc.txt; MJH−MJ nats/koşu, negatif = iyi): A (2025-03..2026-03) kazanan +0,0020 [+0,0005,+0,0034] (KÖTÜ), ikili +0,0006, üçlü −0,0011, ilk4 −0,0027 [−0,0051,−0,0003], ilk5 −0,0044 [−0,0068,−0,0021]; B…",
+   "neden": "Karar kuralı (A ve B'de kazanan VE ilk5 GA üst sınırı <0) SAĞLANMADI: kazanan iki dönemde de anlamlı kötüleşti; ilk5 yalnız A'da anlamlı iyileşti. Doğrudan karşılaşma özelliği (MJH) EKLENMEZ. Not: yön tutarlı bir ayrışma var (ilk4/ilk5 iyi, kazanan kötü), yan…",
+   "satir": 1278
+  },
+  {
+   "id": "T71",
+   "konu": "jokey/antrenör × pist/hipodrom hücre etkileri (kullanıcı: \"hangi pist, hangi jokey, hangi şartlarda? ölçebili…",
+   "tarih": "2026-11-02",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-11-02 03:20; hucre_t71_sonuc.txt; MJC−MJ): A kazanan +0,0001 [−0,0004,+0,0006], ilk5 −0,0007 [−0,0015,+0,0001]; B kazanan −0,0009 [−0,0017,−0,0001], ikili −0,0008, üçlü −0,0013 [−0,0024,−0,0001], ilk4 −0,0014 [−0,0025,−0,00…",
+   "neden": "Karar kuralı (A ve B'de kazanan VE ilk5 GA üst sınırı <0; C aynı yön) SAĞLANMADI: A'da üst sınır >0 (kazanan +0,0001, ilk5 +0,0001). B'de tüm ölçüler anlamlı iyileşti (T35'teki gibi: yeni dönemde anlamlı, eski dönemlerde yok). Jokey/antrenör × pist/hipodrom E…",
+   "satir": 1279
+  },
+  {
+   "id": "T72",
+   "konu": "koşu cinsi (şartlı grupları) × sürpriz/favori güvenilirliği/model üstünlüğü (kullanıcının paylaştığı yarış an…",
+   "tarih": "2026-11-02",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 02:15; cins_t72_sonuc.txt; 17.456 programlı koşu, 2024-04..2026-10, oos_p ile eşleşen ~14,2k koşu; Bonferroni %98,3 GA): C1 SAĞLANDI (sınırda, n=213): Şartlı 2'de kazananın ganyanı ≥10 oranı %20,7, diğer şartlılar (1,…",
+   "neden": "Karar (kural gereği model değişikliği yok): (a) T57/T64 süpriz gölgesine 'cins' kırılımı ileri ölçüt olarak eklenir (Şartlı 2 ve Handikap'ta bayraklı at isabeti ayrı raporlanır); (b) 'Handikap'ta model üstünlüğü' ayrı ön kayıtla GA'lı doğrulanır (Jason p eski…",
+   "satir": 1261
+  },
+  {
+   "id": "T73",
+   "konu": "handikap puanı stratejisi (video özeti: \"hnd en yüksek ilk 2-3 at öne çıkar; düşük hnd'liyi ele\")",
+   "tarih": "2026-11-02",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 02:35; hnd_t73_sonuc.txt; 118.966 at / 884 gün-kümesi, 6–14 atlı koşular; %97,5 GA): İDDİA1 SAĞLANMADI: Şartlı 3–5'te hnd sırası 1–3 atların ilk-3 oranı 0,5288, piyasa beklentisi (Harville) 0,5342; fark −0,0054 [−0,01…",
+   "neden": "Karar: ayrı ön kayıt açılmaz; ek olarak Şartlı 3–5 alt-yarı hnd için 'model p ≥ piyasa p' koşuluyla kupon dışlama ileri notu tutulur (yalnız gözlem).",
+   "satir": 1265
+  },
+  {
+   "id": "T74",
+   "konu": "şartlı koşu püf noktaları (video özeti 2)",
+   "tarih": "2026-11-02",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 02:55; sartli_t74_sonuc.txt; %98,75 GA): D1 SAĞLANMADI: Maiden'i son koşuda kazanan atlar Şartlı 3'te %19,8 kazandı, piyasa %18,7; fark +0,011 [−0,019,+0,042], n=566 (3 yaşlı Arap alt kümesi n=250: +0,012 [−0,033,+0,0…",
+   "neden": "Karar: model değişikliği yok; D4 için alan büyüklüğü kontrollü ek test (T75) ön kaydı açılacak; D1-D3 kapanır (D3 yön olumlu, ≥2× veriyle yeniden bakılabilir).",
+   "satir": 1270
+  },
+  {
+   "id": "T74-D",
+   "konu": "4 alan büyüklüğü kontrolü; (b) Maiden/Şartlı 1'de antrenör kalitesi (video özeti 3: \"eküri/ahır, antrenör, bi…",
+   "tarih": "2026-11-02",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T75",
+   "konu": "(a)",
+   "tarih": "2026-11-02",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 03:10; sartli_t75_sonuc.txt): (a) KARIŞIK: sürpriz oranı alanla güçlü artıyor (tüm gruplarda ≤8 at ~%8, 9–11 ~%15–16, ≥12 %21–33); bant içi grup farkı büyük ölçüde kayboluyor: A4−I3 ≤8 atlıda −0,001, 9–11'de +0,007, ≥…",
+   "neden": "Karar: kapanır; ileri gölge yok. Video özeti 3'ün iddiaları (büyük ahır T74-D3 yön olumlu ama anlamsız, antrenör kalitesi anlamsız, binlik galop T31/T41'de ölçülmüş) toplamda piyasa üstü kenar vermiyor.",
+   "satir": 1276
+  },
+  {
+   "id": "T76",
+   "konu": "sıralı bahis önceliği — özellikleri 2.–5. SIRA ölçütüyle yeniden değerlendirme (kullanıcı: \"ana önceliğimiz s…",
+   "tarih": "2026-11-02",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-02 03:40; sirali_tarama_t76_sonuc.txt; 2.–5. sıra NLL farkı = MJH/… − MJ, negatif iyi, %99,5 GA): MJH (doğrudan karşılaşma) A −0,0064 [−0,0090,−0,0036], B −0,0048 [−0,0090,−0,0015], C −0,0036 [−0,0077,+0,0006] -> KURAL S…",
+   "neden": "Karar: ≥100 koşuda 2.–5. sıra olasılık kalitesi (G1-S-G geç'e karşı) GA alt sınırı >0 → ana kupona; aksi halde kapanır. UYGULAMA İŞİ (yarın gündüz): canlı h2h özellik hesabı (tjk/g1v3.z6 özellik hattına), katsayı dondurma, besli _off argümanıyla pozisyon-özel…",
+   "satir": 1284
+  },
+  {
+   "id": "T77",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "+T78 (2026-11-02 03:10; sirali_t77_hizli_sonuc.txt; oos_p p_Jason + G_M, 406 oynanabilir sıralı 5'li koşusu 2025-01→2026-10-13; B=48/96/150 tutan 8/11/17, ROI −49%/−64%/−12%): T78 KALİBRASYON: toplam beklenen tutan 7,5/12,4/15,9…",
+   "neden": "KARAR: 'önerilen' filtresi ve bütçeler değişmez. Güç düşük (11–17 tutan), ileri veriyle (Mart 2027, ≥800 koşu) yeniden bakılır.",
+   "satir": 1337
+  },
+  {
+   "id": "T78",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "+T78 (2026-11-02 03:10; sirali_t77_hizli_sonuc.txt; oos_p p_Jason + G_M, 406 oynanabilir sıralı 5'li koşusu 2025-01→2026-10-13; B=48/96/150 tutan 8/11/17, ROI −49%/−64%/−12%): T78 KALİBRASYON: toplam beklenen tutan 7,5/12,4/15,9…",
+   "neden": "KARAR: 'önerilen' filtresi ve bütçeler değişmez. Güç düşük (11–17 tutan), ileri veriyle (Mart 2027, ≥800 koşu) yeniden bakılır.",
+   "satir": 1337
+  },
+  {
+   "id": "T79",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 ~03:00; cins_elo_t79_sonuc.txt; MJS−MJ nats/koşu, negatif=iyi, %99,5 GA): A kazanan +0,0001 [−0,0001,+0,0003], 2–5. −0,0000 [−0,0004,+0,0002]; B kazanan −0,0001, 2–5. −0,0000 [−0,0005,+0,0004]; C kazanan +0,0005, 2–5.…",
+   "neden": "cinse özgü Elo hiçbir dönemde kuralı sağlamadı (defterde 'KURAL SAĞLANMADI')",
+   "satir": 1310
+  },
+  {
+   "id": "T80",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi ~",
+   "ozet": "(2026-11-02 02:30; hnd_t80_sonuc.txt; 43.866 Handikap atı, 4.249 koşu; %99,2 GA): I1 H13 en yüksek hnd n=165 fark −0,024 [−0,082,+0,031] SAĞLANMADI; I2 H14 hnd40–50 n=4809 +0,005 [−0,002,+0,012] SAĞLANMADI; I3 H15 hnd45–60 hafif…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) u bilgi zaten var. Model − piyasa kazanan NLL: Handikap 14 −0,014 [−0,024,−0,003], 15 −0,019 [−0,027,−0,010], 16 −0,021 [−0,030,−0,011], 13 +0,013 ve 17 −0,006 (anlamsız, n az). Model değişikliği yok.",
+   "satir": 1309
+  },
+  {
+   "id": "T81",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi ~",
+   "ozet": "(soy–pist, baba × kum/çim/sentetik; MJY−MJ, %99,5 GA): A kazanan +0,0001 [−0,0006,+0,0006], 2–5. −0,0003 [−0,0011,+0,0004]; B kazanan −0,0003, 2–5. +0,0002 [−0,0009,+0,0011]; C kazanan −0,0002, 2–5. −0,0004 [−0,0010,+0,0001] -> K…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) A kazanan +0,0001 [−0,0006,+0,0006], 2–5. −0,0003 [−0,0011,+0,0004]; B kazanan −0,0003, 2–5. +0,0002 [−0,0009,+0,0011]; C kazanan −0,0002, 2–5. −0,0004 [−0,0010,+0,0001] -> KURAL SAĞLANMADI, eklenmez.",
+   "satir": 1338
+  },
+  {
+   "id": "T82",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi ~",
+   "ozet": "(2026-11-02 02:50; soy_t82_sonuc.txt; 14.729 koşu, kesim 2025-10-18; %98,33 GA): (a) ilk 3 koşu β=+0,04 test 2387 koşu kazanç +0,0000 [−0,0000,+0,0000]; (b) mesafe artışı ≥200 m β=+0,42 test 3998 koşu +0,0001 [−0,0001,+0,0003]; (…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) larda da kazanan olasılığına bir şey katmıyor (β≈0; özellik ölçeği küçük ama fit sıfıra gidiyor). Soy ailesi (T38, T37, T81 bekleyen, T82) için baba tabanlı özellik kapanır; anne hattı verimizde yok.",
+   "satir": 1318
+  },
+  {
+   "id": "T83",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi ~",
+   "ozet": "(anne + baba hattı birlikte, 8 soy özelliği; MJZ−MJ, %99,5 GA): A kazanan +0,0001 [−0,0007,+0,0011], 2–5. −0,0000 [−0,0013,+0,0013]; B kazanan −0,0008 [−0,0021,+0,0003], 2–5. +0,0003 [−0,0011,+0,0017]; C kazanan +0,0004, 2–5. −0,…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) 06] -> KURAL SAĞLANMADI (hiçbir GA 0'ı dışlamıyor; etki ≈0). Soy ailesi (baba, anne, anne babası, kardeş, pist/mesafe; T37, T38, T81, T82, T83) kapanır; baba×anne etkileşimi için ikinci adım gerekmez.",
+   "satir": 1339
+  },
+  {
+   "id": "T84",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi ~",
+   "ozet": "(2026-11-02 02:55; takip_t84_sonuc.txt; 103.833 sonraki-koşu satırı, %98,75 GA): hayal kırıklığı grubu (önceki koşuda piyasa ilk 3, sıralama alt yarı; n=7.954): sonraki koşuda kazanma 0,1099 vs piyasa beklentisi 0,1095 (fark +0,0…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) e anlamsız. SAĞLANMADI: 'kötü bitirdi, geri döner' etkisi yok; piyasa bu atları doğru fiyatlıyor (hatta model onlara fazla p veriyor, anlamsız). Takip atının öznel kısmı (izleyici gözlemi) ölçülemez.",
+   "satir": 1327
+  },
+  {
+   "id": "T85",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi ~",
+   "ozet": "(2026-11-02 03:15; altili_t85_sonuc.txt; %98,75 GA): (a) 'sürekli 3.' (n=4.543): sonraki koşuda 3. bitirme 0,1092 vs piyasa Harville 0,1011 (+0,0081 [−0,0020,+0,0186]) ve model 0,1012 (+0,0080 [−0,0023,+0,0192]) SAĞLANMADI (yön o…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) (n=310): 0,2355 vs model 0,2544 (−0,0189 [−0,0691,+0,0328]) SAĞLANMADI. (a) için yön olumlu: 3.lük kalıcılığı ileri 12 ay veriyle yeniden bakılabilir (sıralı 3. ayak ile ilgili), şimdilik gölge yok.",
+   "satir": 1340
+  },
+  {
+   "id": "T86",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-02 03:25; kacak_t86_sonuc.txt): TEST GEÇERSİZ / İDDİA ÖLÇÜLEMEZ. (1) Accurace yalnız İstanbul (çim, ~90 koşu) ve İzmir (kum, 276) kapsıyor; iddianın hipodromları (İzmir ÇİM, Bursa, Kocaeli, Antalya kum) pratikte yok (idd…",
+   "neden": "",
+   "satir": 1344
+  },
+  {
+   "id": "T86b",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi",
+   "ozet": "(2026-11-02 03:50; kacak_t86b_sonuc.txt; 3.949 videolu koşu 2025-10..2026-10, kaçak = önceki videolu koşulardan en düşük büzmeli erken sıra; %98,75 GA, model p_Jason'a göre): C1 (İzmir çim + Bursa/Kocaeli kum) n=686: kaçak kazanm…",
+   "neden": "model/kupon değişikliği yok; T41 yeniden test penceresine betimleyici ek",
+   "satir": 1349
+  },
+  {
+   "id": "T111",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "geriye dönük (bilgi amaçlı; 10 gün, 172 yarış; gerçek sabit oran yalnız ~13:00'ten sonra toplanmış, sabah verisi yok): ilk yayın/7 dk kala oran medyanı 0,944 → erken oran ortalamada DAHA DÜŞÜK (oranlar yarışa doğru yükseliyor), e…",
+   "neden": "Karar: canlı GE kolu (sabah toplama ile) ≥300 bahse kadar izlenir.",
+   "satir": 1594
+  },
+  {
+   "id": "T111b",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(diğer sabit türler, 10 gün, bilgi amaçlı): ilk/7dk oran medyanı ilk2/ilk3/ilk4/FH için 1,00, ganyan 0,94; tüm atlar ROI ~0,69–0,70 her iki zamanda (erken +0,5–2,5 puan). Erken oynamanın genel avantajı yok; Jason EV≥1,2 alt kümes…",
+   "neden": "",
+   "satir": 1595
+  },
+  {
+   "id": "T112",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Tanımlayıcı / keşif (karar yok) ~",
+   "ozet": "(keşif, 10 gün, tüyo atı n=32–39/tür): ROI7 [GA] — G 1,36 [0,65–2,11]; P2 1,21 [0,93–1,57]; P3 0,92 [0,70–1,19]; P4 0,94 [0,60–1,35]; FH 1,38 [0,79–2,02]; tüm atlar ~0,66–0,69. Hiçbir GA alt sınırı 1'in üstünde değil → sonuç yok;…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) üm atlar ~0,66–0,69. Hiçbir GA alt sınırı 1'in üstünde değil → sonuç yok; örüntü: oran yüksek türlerde (G, FH, P2) tüyo atları fiyatın üstünde, ilk3/ilk4'te (düşük oran) fark yok. Canlı izleme sürer.",
+   "satir": 1600
+  },
+  {
+   "id": "T113",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(keşif, 8 gün, kombine n=43–69): ilk3 ROI 0,92 → 2'li 0,64 → 3'lü 0,34 (matematiğe uygun, düşüyor); G 2'li 1,34 [0,23–2,93], P2 2'li 1,06, P4 3'lü 1,59 [0–4,96] ama GA'lar çok geniş (birkaç şanslı isabet). Kombine hiçbir türde ka…",
+   "neden": "",
+   "satir": 1604
+  },
+  {
+   "id": "T114",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(4 Kasım 2026; data/analiz/t114_stil_tempo.py; 50.716 at, 6.155 koşu, 381 gün; stil yalnız önceki koşulardan): O/E (gerçek kazanan / piyasa beklentisi) — öncü 1,072 [1,02;1,13] (kısa 1,135 [1,04;1,23], orta 1,096 [1,01;1,18], uzu…",
+   "neden": "Karar: aday; modele eklenmez. T41 (video özellikleri) 2026-11..2027-01 yeniden sınavında zaten aynı bilgi (f_v1) yer alıyor; yeni bir ön kayıt gerekmez.",
+   "satir": 1617
+  },
+  {
+   "id": "T115",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Geçti ~",
+   "ozet": "–T117 (4 Kasım 2026, 14:47; data/analiz/t115_117.py, t115_117_sonuc.txt) — KEŞİF, modele eklenmez Veri: video-hedefli 79.397 at, 8.363 koşu (2024-10→2026-10); T115 test 2025-10→ (4.414 koşu, 363 gün). Nisan 2025 videoları yarım (…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) ilir (T115 geçti) ama T115 bilgisi neredeyse yalnız stil kalıcılığı; simülasyon için Doğan'ın kararı beklenir. Ek öneri (ön kayıt gerekir): stil × tempo kurbanı için ROI (büyük ödemeler dahil) testi.",
+   "satir": 1634
+  },
+  {
+   "id": "T119",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Aday / ileri takipte ~",
+   "ozet": "(5 Kasım 2026, 00:00; data/analiz/t119_stil_mesafe_pist.py, t119_sonuc.txt) — KEŞİF Veri: 66.962 at, 7.623 koşu, 659 gün; hücre sayısı k=34 (Bonferroni %99,85 GA). Endeks = O/E(öncü) − O/E(kapanışçı). Genel: O/E öncü 1,095, orta…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) ÇILARDAN KAÇINMAK (ROI 0,49). Yorum: avantaj gerçek ama piyasa öncü ucuzluğunu büyük ölçüde fiyatlıyor; kapanışçılar fazla fiyatlı. Aday = 'öncü avantajı kısa mesafede' bulgusu, 'bahis kuralı' değil.",
+   "satir": 1647
+  },
+  {
+   "id": "T120",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(5 Kasım 2026, 00:25; data/analiz/t120_tempo_zengin.py, t120_sonuc.txt) — KEŞİF Not: ilk çalıştırma GEÇERSİZDİ (VO.ekle satırları yeniden sıraladığı için video hedefi satırlara kaymış; belirti: M0 AUC 0,53 ≠ T115'in 0,79; çıktı t…",
+   "neden": "KARAR (kayıtlı kurala göre): H1 'öngörülebilir ama ZAYIF' (ρ farkı <0,10); H3 ve H2 'öngörülemez (yapıdan fazlası yok)'. Yani yarış temposu ve öncü sayısının büyük kısmı zaten at sayısı/mesafe/pistten geliyor (ρ≈0,22–0,28); at stilleri, rakip karşılaşmaları,…",
+   "satir": 1675
+  },
+  {
+   "id": "T121-A",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "ve T122 (5 Kasım 2026, 00:35; t121_galop.py, t122_tempo_yapi.py; t121_sonuc.txt, t122_sonuc.txt) — KEŞİF T121-A (at düzeyi, öncü=erken sıra ilk 2; test 2026-02→, 2.933 koşu, 241 gün): AUC M0 0,7948, M1 0,7974, M2 (galop + anne ba…",
+   "neden": "",
+   "satir": 1690
+  },
+  {
+   "id": "T123",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Geçti",
+   "ozet": "(hücre içi tempo hedefi, hipodrom/kamera etkisi çıkarıldı) - H2c (sönme, hücre içi z): ρ S0 0.274 → S3 0.421 (fark +0.147, CI [0.118,0.174]) → S4 0.417 (S4−S3 −0.004, CI [−0.017,0.009]). - H5 (kazanan derecesi hücre içi z): S3 0.…",
+   "neden": "Karar: S3−S0 geçti (koşu yapısı bilgi veriyor). S4−S3 BAŞARISIZ: at bazlı özetler hücre içinde de ek bilgi vermiyor. T120/T122 sonucu hipodrom/kamera karışıklığından kaynaklanmıyor. - Not: kullanıcı önerisi: pist kenarı mesafe direklerinden saniye ölçümü (ekr…",
+   "satir": 1702
+  },
+  {
+   "id": "T124",
+   "konu": "(videodan direk geçiş süresi ölçümü — tempo hedefi için)",
+   "tarih": "",
+   "durum": "Elendi",
+   "ozet": "pilot adım 1 (kare incelemesi, 00:50 TR) - 4 videodan 14'er kare (6 sn aralık) görsel incelendi. Yayın sürekli kamera değiştiriyor (kapıdan yaklaşma, yandan pan, tepe açısı, ön görünüm); mesafe direği/işareti yalnız birkaç karede…",
+   "neden": "Karar: T124'ün direk yöntemi TERK. Yerine T124b: `bolum` temizliği (monoton artış, makul hız, 4000/4400 gibi bozuk anahtarları ele) + doğrudan süreleri tempo hedefi yap (ilk 400 m, 400–800 m; hipodrom×pist×mesafe hücresine göre z). Kapsam ~%96.",
+   "satir": 1747
+  },
+  {
+   "id": "T125",
+   "konu": "(koşu yapısı tempo beklentisi piyasanın üstüne bilgi katıyor mu?)",
+   "tarih": "",
+   "durum": "Geçti",
+   "ozet": "(tempo/stil piyasa ofseti üstünde) — 5 Kasım 02:20 Veri: test 2025-12→, 5.058 koşu, 50.715 at. Model: p_i ∝ exp(log p_piyasa + c·X), X = [öncülük fe=1−f_v1, fe×rakip öncü baskısı, kapanışçı cl=f_v2 × baskı, cl, fe×mesafe]. Tüm te…",
+   "neden": "KARAR: log-olabilirlik kazancı 0,0067 nat/koşu, %95 GA [0,0044; 0,0108] → alt GA>0 → KAYITLI KURAL GEÇTİ: stil bilgisi piyasa ofsetinin üstüne bilgi taşıyor. - Ama kaynak tempo etkileşimi değil, ana etkiler: öncülük +0,157 [0,119; 0,197] (öncü atlar piyasada…",
+   "satir": 1813
+  },
+  {
+   "id": "T126",
+   "konu": "(koşu uyumu: AGF 3.–6. sıradaki, koşuya uygun at değer verir mi?)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(koşu uyumu: piyasa sırası ≥3 ∧ uyum sırası ≤2) — 5 Kasım 03:00 Yöntem: uyum skoru U = X·c (X: öncülük, öncülük×rakip öncü baskısı, kapanışçılık×baskı, kapanışçılık, öncülük×mesafe, atın aynı pistteki geçmiş artığı); c her ay yal…",
+   "neden": "",
+   "satir": 1836
+  },
+  {
+   "id": "T127",
+   "konu": "(son dakika zemin/pist değişimi: piyasa geç mi uyum sağlıyor?)",
+   "tarih": "",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T128",
+   "konu": "(piyasa fiyatı neden böyle? Açıklanan/artık ayrıştırması)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(piyasa fiyatı neden böyle? Açıklanan/artık) — 5 Kasım 01:35 Not: ilk bootstrap sürümü (200 tekrar, yavaş optimizasyon) 40 dk'da bitmediği için iptal edildi; AYNI hesap vektörleşik skor/Newton + gün ağırlıklı bootstrap (1000) ile…",
+   "neden": "KARAR (kayıtlı kural): c GA'sı 0'ı kapsıyor → artık (piyasanın açıklanamayan %43'ü) sonucu piyasanın üstünde öngörmüyor; ne bilgili para ne sistematik hata izi. Betimleyici: artık beşliğinde O/E 0,91 / 1,02 / 1,02 / 0,98 / 1,02 (en düşük beşlik 0,91, karar ve…",
+   "satir": 1792
+  },
+  {
+   "id": "T129",
+   "konu": "(piyasa neyi, ne kadar fiyatlıyor? Tek tek etki + güven aralığı)",
+   "tarih": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(piyasa neyi, ne kadar fiyatlıyor? tek tek) — 5 Kasım 01:50 Koşu sabit etkili doğrusal model (test 2025-12→, 50.715 at, 5.068 koşu, 43 terim), koşu içi R² = 0,525; katsayı = özellik 1 SS artınca koşu içi log(p) değişimi (≈ oran %…",
+   "neden": "",
+   "satir": 1799
+  },
+  {
+   "id": "T130",
+   "konu": "(soy–zemin uyumu: baba çamur seviyor mu?)",
+   "tarih": "",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(soy–zemin uyumu) — 5 Kasım 02:10 Veri: 202.929 at, 21.268 koşu; ıslak vekil (3 günlük yağış ≥12,5 mm) koşu 3.229; değerlendirme 2025-01→ (ıslak 1.696 koşu, kuru 9.281). Özellik: baba / anne babası / anne yavrularının (aynı pistt…",
+   "neden": "Karar: modele EKLENMEZ. Ekstra veri (gerçek pist durumu etiketi birikince) veya daha az yumuşatma ile yeniden sınama adayı; bu yeni test olarak ayrıca ön kayıt ister (şimdi yapılmaz, çoklu test).",
+   "satir": 1806
+  },
+  {
+   "id": "T131",
+   "konu": "(",
+   "tarih": "",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T132",
+   "konu": "özellik katsayıları mesafe/pistle değişiyor mu? (kullanıcı: \"mesafe ve pist değiştikçe özelliklerin ağırlıkla…",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-06 01:30; t132_katsayi_degisim.py; 12.711 koşu, test 2025-04..2026-10 = 9.586 koşu / 548 gün, 18 aylık yürüyüş; pist: Kum 73k at, Çim 32k, Sentetik 18k — sentetik 'çim değil' sayıldı):",
+   "neden": "Karar ölçüsü B−A: −0,00143 nat/koşu [−0,00289; +0,00002] → KURAL: ayırt edilemedi (GA alt >0 değil; nokta tahmin NEGATİF, yani etkileşimler ek öğrenince hafif gürültü öğrendi). 18 aydan 7'si pozitif. Betimsel (tam örneklem B, gün-ağırlıklı bootstrap, 400): an…",
+   "satir": 1867
+  },
+  {
+   "id": "T133",
+   "konu": "kilo × uzun mesafe, Benter ve Jason tabanları üstünde (kullanıcı: \"evet test et, jason ile de test et\")",
+   "tarih": "2026-11-06",
+   "durum": "Elendi",
+   "ozet": "(2026-11-06 01:50; t133_kilo_uzun.py; kilo_r std 2,385 kg; uzun mesafe payı ≈%31; 2026-10 ayı kilo/mesafe eşlemesi eksik olduğu için üç tabanda da dışarıda kaldı): (A) Benter (S3g, 3.471 koşu 2026-03..09; test 3.035 koşu/183 gün)…",
+   "neden": "KARAR (kural): üç tabanda da KABUL değil. Gözlem (betimsel): β̂ zamanla işaret değiştiriyor — erken aylarda + (Benter 2026-04 +0,11), 2026-08/09'da − (−0,02/−0,04); tam pencere β̂ üç tabanda da −0,03…−0,05 (kullanıcı hipoteziyle aynı yön) ama GA 0'ı kapsıyor.…",
+   "satir": 1880
+  },
+  {
+   "id": "T134",
+   "konu": "Jason'a mesafe/pist etkileşimleri (tam geçmişle yürüyen test; üretim Jason'a DOKUNULMAZ) (kullanıcı: \"Jason'u…",
+   "tarih": "2026-11-06",
+   "durum": "Elendi",
+   "ozet": "(2026-11-06 01:45; t134_jason_etkilesim.py; Jason tarifi, λ=100, 37 özellik × {orta, uzun, çim} = 111 etkileşim; 13 ay yürüyüş 2025-10..2026-10, 6.587 test koşusu / 386 gün): GEÇERSİZ ÇALIŞTIRMALAR (kendi hatam): (1) ilk iki çalı…",
+   "neden": "KARAR (kural): ayırt edilemedi, etkileşimler Jason'u iyileştirmiyor (nokta tahmin hafif NEGATİF: 111 fazla katsayı gürültü öğreniyor, GA tamamen 0'ın altında). Betimsel en büyük etkileşimler küçük (|0,03–0,05|): f_t3_e×orta, f_kgs×uzun, f_t3_a×çim; tutarlı ör…",
+   "satir": 1893
+  },
+  {
+   "id": "T135",
+   "konu": "egzotik havuz verimlilik atlası: sıralı ikili ve ikili (modelsiz) (kullanıcı: \"Başlat\")",
+   "tarih": "2026-11-06",
+   "durum": "Aday / ileri takipte",
+   "ozet": "(2026-11-06 02:05; t135_egzotik_atlas.py; 17.869 koşu, 2024-01 → 2026-11-05; sınıf = kombinasyon olasılığı, \"sınıftaki tüm kombinasyonlara 1 TL\" geri dönüşü, %99 gün-küme GA): SIRALI İKİLİ (havuz geneli 0,646): <%0,5 → 0,542 [0,4…",
+   "neden": "KARAR (kural): hiçbir sınıfın GA alt sınırı 1,00'in üstünde değil → ADAY YOK. Betimsel: klasik 'favori–uzun şanslı yanlılığı' var: en olasılıksız kombinasyonlar çok kayıplı (0,46–0,54), orta/yüksek olasılıklılar kesinti sınırına yakın (0,74–0,80), yıllara gör…",
+   "satir": 1906
+  },
+  {
+   "id": "T136",
+   "konu": "egzotik havuz verimlilik atlası, 2. kısım: ÜÇLÜ BAHİS ve SIRALI 5'Lİ (modelsiz) (kullanıcı: \"Evet başla\")",
+   "tarih": "2026-11-06",
+   "durum": "Elendi",
+   "ozet": "(ÜÇLÜ + SIRALI 5'Lİ) ÜÇLÜ BAHİS (9207 koşu): plausibl birim = 1 TL (havuz geneli ROI 0,838). Sınıflar: <0,1% 0,730 [0,617–0,863]; 0,1–0,3% 1,064 [0,985–1,145]; 0,3–1% 1,030 [0,966–1,092]; 1–3% 1,014 [0,942–1,077]; ≥3% 0,929 [0,82…",
+   "neden": "KARAR VERİLMEZ; ödeme semantiği (devir, kombinasyon sayısı) doğrulanmadan yorum yok. En yüksek sınıf 1e-5..1e-4 ROI 0,88 [0,79–0,98] ama bu birim belirsizliği altında anlamsız. Sonuç: T135+T136 birlikte: sıralı/üçlü havuzlarda takeout üstü sınıf bulunamadı. A…",
+   "satir": 1926
+  },
+  {
+   "id": "T137",
+   "konu": "yorumcu bilgi taşıyor mu? (kullanıcı: \"Başlat\")",
+   "tarih": "2026-11-06",
+   "durum": "Tanımlayıcı / keşif (karar yok)",
+   "ozet": "kayıt 1 (betimsel;",
+   "neden": "KARAR YOK) n(A)=36 (<300) → karar yok. A: 6 kazanan / 4,1 beklenen, O/E 1,47 [0,85–1,88]. B tümü n=247, 31 / 21,8, O/E 1,42 [1,16–1,66]; oy=1 (164) 1,52 [1,04–1,98]; oy≥2 (83) 1,28 [0,88–1,45]. Eklenen TABAN: aynı gün/hipodromlardaki TÜM piyasa sırası ≥3 atla…",
+   "satir": 1931
+  },
+  {
+   "id": "T138",
+   "konu": "(kullanıcı: \"piyasaya bu denli güvenmiyorum... eksik ne? fikirlerimi piyasa fiyatlıyor diye reddettin; hem bu…",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "+ T139 (6.587 koşu, 386 gün, yürüyen aylık 2025-10..2026-10; /tmp/t138.log) T138 (kazanan log-olasılığı, yüksek iyi): ham piyasa −1,8254; kalibre piyasa −1,8218; Jason (piyasa+özellik) −1,8058; PİYASASIZ özellik modeli Z −1,9109.…",
+   "neden": "",
+   "satir": 1944
+  },
+  {
+   "id": "T139",
+   "konu": "(kullanıcı: \"piyasaya bu denli güvenmiyorum... eksik ne? fikirlerimi piyasa fiyatlıyor diye reddettin; hem bu…",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "+ T139 (6.587 koşu, 386 gün, yürüyen aylık 2025-10..2026-10; /tmp/t138.log) T138 (kazanan log-olasılığı, yüksek iyi): ham piyasa −1,8254; kalibre piyasa −1,8218; Jason (piyasa+özellik) −1,8058; PİYASASIZ özellik modeli Z −1,9109.…",
+   "neden": "",
+   "satir": 1944
+  },
+  {
+   "id": "T140",
+   "konu": "(kullanıcı: \"önce Benter'in 1994'te o teknolojiyle yaptığı PİYASASIZ modelin üstüne çıkalım; ana hedef bu\")",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "+ T141 (6.587 koşu, 386 gün, yürüyen aylık 2025-10..2026-10; /tmp/t140.log) T141 (LightGBM, piyasasız, 74 özellik): kazanan log-olasılığı P −1,8254; Z −1,9109; G −1,9054; pseudo-R² P 0,1874, J 0,1962, Z 0,1494, G 0,1518. G−P −0,0…",
+   "neden": "",
+   "satir": 1956
+  },
+  {
+   "id": "T141",
+   "konu": "(kullanıcı: \"önce Benter'in 1994'te o teknolojiyle yaptığı PİYASASIZ modelin üstüne çıkalım; ana hedef bu\")",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "+ T141 (6.587 koşu, 386 gün, yürüyen aylık 2025-10..2026-10; /tmp/t140.log) T141 (LightGBM, piyasasız, 74 özellik): kazanan log-olasılığı P −1,8254; Z −1,9109; G −1,9054; pseudo-R² P 0,1874, J 0,1962, Z 0,1494, G 0,1518. G−P −0,0…",
+   "neden": "",
+   "satir": 1956
+  },
+  {
+   "id": "T142",
+   "konu": "(yarış içi olay özellikleri, videodan) ve",
+   "tarih": "2026-11-06",
+   "durum": "Elendi ~",
+   "ozet": "(video yarış içi olay özellikleri; 6.587 koşu, 386 gün; ov_var kapsamı %77; Jason özellik tabanı, Elo'suz): J+olay − J +0,00095 [+0,00003; +0,00182], pozitif ay 10/13 → kayıtlı kural gereği ADAY (GA alt sınırı sıfıra çok yakın);…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) çük (~0,001 nat). Eklenmez: önce AYRI ön kayıtla (a) Benter tabanı (Elo+galop+stil dahil) üstünde, (b) ileriye dönük 2026-11..2027-01 penceresinde sınanır; gerekirse stil (T125) ile örtüşme kontrolü.",
+   "satir": 1968
+  },
+  {
+   "id": "T143",
+   "konu": "(padok pilotu) — kullanıcı: \"yarış içi olayları video analizden bulabilirsin, padok taytv canlı yayında var;…",
+   "tarih": "2026-11-06",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T143-B",
+   "konu": "padok yoğun kayıt fizibilitesi (kullanıcı onayı 20:02: \"Onaylıdır, yap\")",
+   "tarih": "2026-11-06",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T143-D",
+   "konu": "görüntüde at kimliği: jokey forması + sırt/eyer örtüsü rengi (kullanıcı: \"en azından jokey formalarından ayır…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(cv_forma.yml çalışma 42358616573; data/cv_forma/ozet.txt) Öndeki atı doğru bilme %11 (19 koşu; rastgele ≈ %10), sıra Spearman ortalama −0,03 (15 koşu) → başarı eşiği (%50 / 0,5) KARŞILANMADI; eşleştirme rastgele düzeyde. Teşhis…",
+   "neden": "KARAR: forma-renk yaklaşımı bu hâliyle durduruldu. Önerilen sonraki adım (kullanıcı onayıyla): eyer örtüsü numarasını okuma (rakam tanıma) + yönü at başının yönünden belirleme + spiker dökümünde bitişte adı geçen atlarla doğrulama.",
+   "satir": 2473
+  },
+  {
+   "id": "T143-E",
+   "konu": "görüntüde at kimliği: eyer örtüsü numarasını okuma (kullanıcı: \"spiker illa dile getirmez, bunları bizim izle…",
+   "tarih": "2026-11-07",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T144",
+   "konu": "hız puanı derinleştirme (kullanıcı: \"hız puanını derinleştir\"; ana hedef: piyasasız modeli güçlendirmek)",
+   "tarih": "2026-11-06",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(hız puanı derinleştirme; 6.587 koşu, 386 gün; figür kapsamı 2025-10+ %76,5) (İlk çalıştırma geçersiz: sabit sütun fg_var_yok sd=0 → NaN ağırlık → log-olasılık 0 görünüyordu; sütun çıkarıldı, yeniden koşuldu.) Piyasasız ZH − Z (A…",
+   "neden": "KARAR) +0,00054 [−0,00069; +0,00168], pozitif ay 7/13 → ayırt edilemedi. Piyasa ofsetli JH − J +0,00021 [−0,00055; +0,00102], 8/13. Karar: ADAY DEĞİL. Okuma: gün/pist düzeltmeli figürün (son, ort5, en5, trend, mesafe hücresi) bilgisi mevcut özelliklerde (form…",
+   "satir": 1979
+  },
+  {
+   "id": "T145",
+   "konu": "–",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "(segment haritası), T146 (soy/sahip/yaş), T148 (ayrışma); 6.587 koşu, yürüyen aylık 2025-10..2026-10 T145 Ρ (piyasasız Z / piyasa; tümü 0,80 [0,77; 0,82]): alan ≤8 0,79; 9–11 0,77; ≥12 0,84; mesafe <1400 0,79, 1400–1799 0,82, ≥18…",
+   "neden": "",
+   "satir": 1992
+  },
+  {
+   "id": "T146",
+   "konu": "adaylarının RESMİ TABANDA (",
+   "tarih": "2026-11-06",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T147",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(at bazında zemin tercihi; gün-pist eşleşme %83,8; test döneminde ıslak koşu payı %22,4 = 1.310 koşu; ıslak = sayısal pist ağırlığı ≥1) Piyasasız ZG−Z +0,00000 [−0,00096; +0,00093]; piyasalı JG−J −0,00015 [−0,00029; −0,00001]; ya…",
+   "neden": "Karar: ADAY DEĞİL (etki yok / piyasalıda hafif zarar). Okuma: atın geçmişinden ıslak−kuru bitiş yüzdesi farkı yeni bilgi taşımıyor (örnek az: atın ıslakta koştuğu geçmiş koşu sayısı küçük; shrink n/(n+3)); 'yok' değil 'bu tanımla ayırt edilemedi'. Kapatıldı;…",
+   "satir": 1997
+  },
+  {
+   "id": "T148",
+   "konu": "(kullanıcı: \"sırayla hepsini yap\"; ana hedef aşama 1: piyasasız modeli güçlendirmek, Ρ 0,82 → yukarı)",
+   "tarih": "2026-11-06",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T149",
+   "konu": "(videonun TAM sıra zaman serisi; kullanıcı: \"tüm videoların verileri sende var, nasıl kullanamıyoruz?\")",
+   "tarih": "2026-11-06",
+   "durum": "Geçti",
+   "ozet": "(videonun tam sıra zaman serisi; 6.587 koşu, 386 gün; video özelliği kapsamı test satırlarında %77) Piyasasız ZV2−Z +0,00442 [+0,00243; +0,00661], pozitif ay 12/13. ZV2−ZV (T142'ye ek değer) +0,00285 [+0,00101; +0,00460]. Piyasal…",
+   "neden": "KARAR: ADAY. Not: şimdiye dek hem piyasasızda hem piyasalıda GA alt sınırı >0 olan İLK özellik grubu; ama etki küçük (~0,002 nat piyasalıda), yalnız ön-5 atları görür, tek geriye dönük test. Üretime EKLENMEZ. Sonraki (ayrı ön kayıt gerekir): (a) Benter tabanı…",
+   "satir": 2004
+  },
+  {
+   "id": "T150",
+   "konu": "Benter-piyasasız RESMİ TABAN (aşama 1 ölçüsü) (kullanıcı: \"sırasıyla hepsini yapalım\")",
+   "tarih": "2026-11-06",
+   "durum": "Aday / ileri takipte ~",
+   "ozet": "Benter-piyasasız resmi taban (yürüyen aylık 2025-10..2026-10; 6.363 koşu, 396 gün; veri 2026-11-05'e kadar, mesafe düzeltmesi dahil; NaN yok; data/analiz/t150_sonuc.txt) PM0 (ANA): kazanan kaybı PM0 1,9326 / piyasa 1,8672 / eşit…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) undan sonraki aşama-1 adayları (T151) bu tabanın (PM0, aynı harness, aynı aylar) üstünde ölçülür. Galop eklemenin piyasasız üretim modeline (z7) alınması ayrı karar konusu (öneri: T151 ile birlikte).",
+   "satir": 2040
+  },
+  {
+   "id": "T151",
+   "konu": "startta kalma (TJK resmî 'delayedExit') + son koşu / eski geçmiş ayrımı (kullanıcı: \"sırasıyla hepsini yapalı…",
+   "tarih": "2026-11-06",
+   "durum": "Elendi",
+   "ozet": "startta kalma (delayedExit) + son/eski ayrımı (data/analiz/t151_sonuc.txt; 6.363 koşu, 396 gün; PM0 T150 ile birebir 1,9326 → aynı veri) P1 piyasasız MJDE−MJ kazanan −0,00042 [−0,00127; +0,00055] (%97,5) →",
+   "neden": "KARAR: etkisiz. P2 piyasalı −0,00028 [−0,00118; +0,00068] → KARAR: etkisiz (eklenmez). Betimsel (karar dışı): sıra konumlarında tutarlı küçük iyileşme — piyasasız ikili −0,0012 [−0,0023; −0,00003] (%97,5), ilk5 −0,0014 (10/13 ay −); piyasalı ikili −0,0010, il…",
+   "satir": 2072
+  },
+  {
+   "id": "T152",
+   "konu": "T142/T149/T146 adaylarının RESMİ TABANDA (T150, Benter-piyasasız ve piyasalı) yeniden sınanması (kullanıcı: \"…",
+   "tarih": "2026-11-06",
+   "durum": "Aday / ileri takipte ~",
+   "ozet": "(data/analiz/t152_sonuc.txt; 6.363 koşu, 396 gün; taban MJ birebir 1,9326 / 1,8433; Bonferroni %99,17) T142 olay (MJOV): piyasasız −0,00093 [−0,00167; −0,00022] 13/13 ay → aşama-1 ADAYI; piyasalı −0,00064 [−0,00119; −0,00007] 12/…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) sahip = yarış günü programındaki sahip (jason_d.sahip, agftablosu; %99,9 dolu). MJSYG de aynı kuralla ADAY ise T146 kararı geçerli; değilse T146 sonucu sızıntıya bağlanır ve MJSYG sonucu esas alınır.",
+   "satir": 2092
+  },
+  {
+   "id": "T152-S",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Aday / ileri takipte",
+   "ozet": "(sahip sızıntı kontrolü; data/analiz/t152s_rapor.py → t152s_sonuc.txt; 6.363 koşu, 396 gün; taban MJ birebir; %99,17) MJSYG (sahip = yarış günü programındaki sahip) − MJ: piyasasız −0,00175 [−0,00321; −0,00025] 10/13 ay → aşama-1…",
+   "neden": "KARAR (ön kayıtlı kural): T146 \"ana model ADAYI\" kararı GERİ ALINIR — piyasalı kazancın ~%70'i geleceği bilen sahip bilgisinden geliyordu. Geçerli sonuç MJSYG: soy/yaş/yetiştirici piyasasız modele küçük bilgi ekler (aşama-1 adayı), piyasalı modele eklemez. DE…",
+   "satir": 2106
+  },
+  {
+   "id": "T153",
+   "konu": "galop piyasasız modelde (kullanıcı: \"galoplu bu kadar olumluysa neden birleştirmiyoruz\")",
+   "tarih": "2026-11-06",
+   "durum": "Geçti",
+   "ozet": "(~11:55): 4.016 koşu, 245 gün (2026-03..10). PM0g − PM0 kazanan −0,01008 [−0,01348; −0,00644], 8/8 ay −; ikili −0,0171, üçlü −0,0187, ilk4 −0,0202, ilk5 −0,0220 (hepsi GA<0, 8/8 ay).",
+   "neden": "KARAR: galop piyasasız modele EKLENİR. Aşama-1 resmi ölçüsü bundan sonra PM0g (≥2026-03): Ρ 0,853 [0,812; 0,890] (T150). Sıradaki iş: üretim z7 (g1v3.egit(nolp=True)) galoplu yapılır.",
+   "satir": 2090
+  },
+  {
+   "id": "T154",
+   "konu": "sıraya özgü katsayılar (\"plase atı\" yapısı; kullanıcı onayı: \"Evet devam et\", taslak data/analiz/t154_plani.m…",
+   "tarih": "2026-11-06",
+   "durum": "Aday / ileri takipte",
+   "ozet": "(data/analiz/t154_sonuc.txt; t154_harness.py, t154_rapor.py; 6.363 koşu, 396 gün; taban MJ birebir 1,9326 / 1,8433; %97,5) Kod doğrulaması (sonuçtan önce): δ sıfıra kilitli MJP, MJ galopsuz çıktısını 2025-10'da birebir verdi (en…",
+   "neden": "KARAR: ana model ADAYI (üretime yalnız 2026-11→2027-01 ileri pencere doğrulamasıyla). Okuma: kazanan da iyileşiyor — adım 0 yapı gereği değişmez ama ortak eğitimde s artık 2.–5. sıraları da açıklamak zorunda kalmadığı için kazanmaya daha iyi uyuyor (beklenen…",
+   "satir": 2130
+  },
+  {
+   "id": "T155",
+   "konu": "birleşik aday modeli (kullanıcı: \"kalan işlere devam et\"",
+   "tarih": "2026-11-06",
+   "durum": "Aday / ileri takipte",
+   "ozet": "(data/analiz/t155_sonuc.txt; 6.363 koşu, 396 gün; taban MJ birebir; %97,5) BİRİNCİL MJPK − MJP: piyasalı ilk5 −0,00795 [−0,01165; −0,00491] 11/13 ay; kazanan −0,00186 [−0,00373; +0,00001] (koruma sağlandı); ikili −0,0047, üçlü −0…",
+   "neden": "KARAR: birleşik ANA MODEL ADAYI (ileri pencere gerekli). Piyasasız ilk5 −0,01311 [−0,01760; −0,00919] 13/13 ay; kazanan −0,00488 [−0,00702; −0,00277] → aşama-1 birleşik ADAYI. Betimsel toplam MJPK − MJ: piyasalı kazanan −0,00460 [−0,00787; −0,00183], ilk5 −0,…",
+   "satir": 2143
+  },
+  {
+   "id": "T156",
+   "konu": "beklenen kazanca (EV) göre sıralı 5'li kupon (kullanıcı: \"Sırayla hepsini dene\"; fikir 1/5)",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t156_ev_kupon.py, t156_rapor.py → t156_sonuc.txt; 1.521 beşli koşusu, 355 gün, 2025-11..2026-10) BİRİNCİL (1) bütçe 96 ROI(B) − ROI(A) −0,652 [−3,300; +1,000] (%97,5) → EV kurucu ADAY DEĞİL. (2) ROI(C) +0,068 [−0,679…",
+   "neden": "Karar: üretim kurucusu (A) değişmez. Olası devam (ayrı ön kayıt gerekir): ödeme tahminine model-piyasa oranı terimi ekleyip şişkinliği kalibre etmek; ya da EV yerine tutma×(piyasa/model düzeltmeli) melez ölçüt.",
+   "satir": 2217
+  },
+  {
+   "id": "T157",
+   "konu": "sabit ihtimalli oran ikinci piyasa olarak (fikir 2/5)",
+   "tarih": "2026-11-06",
+   "durum": "Elendi",
+   "ozet": "(data/analiz/t157_sabit.py → t157_sonuc.txt; 230 koşu, 13 gün) L1−L0 kazanan log kaybı +0,0078 [+0,0020; +0,0156], 0/13 gün iyileşme; LODO c −0,08..+0,06 (sıfır çevresinde) →",
+   "neden": "KARAR (kurala göre): ZARAR — sabit ihtimalli oran, Benter + kapanış ganyanı üstüne bilgi TAŞIMIYOR; serbest c yalnız gürültü ekliyor. Sabit oranın değeri bilgi değil FİYAT olabilir (aynı at için daha iyi oran) → bu zaten T95 gölge kolunda (p×o ≥ 1,2) ileriye…",
+   "satir": 2196
+  },
+  {
+   "id": "T158",
+   "konu": "son dakika oranının değeri (fikir 3/5; ÖLÇÜM)",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "(ölçüm; data/analiz/t158_zaman.py → t158_sonuc.txt; 64 koşu, 13 gün) Uygulama düzeltmesi (sonuç yorumlanmadan, ilk çalıştırmadan sonra): agf_zaman yalnız DEĞİŞEN atları yazdığı için anlık görüntü at başına son değerle ileri doldu…",
+   "neden": "",
+   "satir": 2204
+  },
+  {
+   "id": "T159",
+   "konu": "bahis büyüklüğü: düz vs kesirli Kelly (fikir 4/5)",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t159_kelly.py → t159_sonuc.txt; 1.241 bahis, 354 gün, 171 isabet, ort. ganyan 10,4) Düz (Benter değer ganyanı p×g ≥ 1,2, kapanış ganyanıyla — iyimser): ROI +0,093 [−0,070; +0,276] (büyük ödemeler dahil; en büyük çıka…",
+   "neden": "KARAR: düz kalır (Kelly önerilmez; ½ Kelly açıkça zararlı oynaklık). Not: kenar (edge) belirsizken Kelly'nin kazancı da belirsiz; değer kanıtlanırsa (ileri pencere) yeniden bakılır.",
+   "satir": 2215
+  },
+  {
+   "id": "T160",
+   "konu": "spiker özellikleri (veri gelmeden yazıldı; test penceresi transkript kapsamı ≥%80 olunca koşulur)",
+   "tarih": "",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T161",
+   "konu": "\"şanslı sonuç\" (kullanıcı: \"favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d…",
+   "tarih": "2026-11-06",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T162",
+   "konu": "video şeridinden \"sessiz sorun\", son bölüm kazancı, tempo baskısı (kullanıcı 23:27: \"esas piyasanın gözden ka…",
+   "tarih": "2026-11-06",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t162_rapor.py → t162_sonuc.txt; 6.363 koşu, 396 gün) BİRİNCİL MJT9S − MJT9 kazanan: piyasasız −0,00074 [−0,00158; +0,00018] (9/13 ay) → etkisiz; piyasalı −0,00022 [−0,00075; +0,00032] → etkisiz. Betimsel: piyasasızda…",
+   "neden": "",
+   "satir": 2257
+  },
+  {
+   "id": "T163",
+   "konu": "kombinasyon düzeyinde değer: ikili / sıralı ikili muhtemelleri (kullanıcı: \"Başlat\"; Benter'in çoklu bahis ya…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t163_kombine.py → t163_sonuc.txt; 6.002 koşu, 375 gün, 2025-10..2026-10-13) Ödeme kontrolü: resmî muhtemel oranı = data/odeme ödemesi (ikili 148, sıralı ikili 136 koşuda oran tam 1,00). Taban (listelenen tüm kombinas…",
+   "neden": "KARAR (kurala göre): kârlı DEĞİL (GA 0'ı kapsıyor). Betimsel: eşikle tekdüze artış (sıralı ikili ≥1,0 −0,041 / ≥1,2 +0,077 / ≥1,5 +0,116 / ≥2,0 +0,178); kazanç tek büyük ödemeye bağlı değil.",
+   "satir": 2268
+  },
+  {
+   "id": "T164",
+   "konu": "aynı değer fikri: üçlü / tabela / sıralı 5'li (kullanıcı: \"Kurmadan önce 3'lü/tabela ve sıralı 5'li için de t…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "— BİRİM DÜZELTMELİ (data/analiz/t164_birim_duzeltme.txt) Resmî birim fiyatları (tjk.org Yarışsever → Bahisler; bitalih/ebayi teyit): ikili/sıralı ikili 1 TL, sıralı üçlü 2 TL, tabela 1,50 TL, sıralı beşli 1,25 TL; ilan edilen öde…",
+   "neden": "",
+   "satir": 2286
+  },
+  {
+   "id": "T165",
+   "konu": "üçlü / tabela / sıralı 5'li değer bahsi, GERÇEKÇİ kurallarla (kullanıcı: \"Bu bilgiler ışığında tekrar düzgünc…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t165_gercekci.py → t165_sonuc.txt; 2025-11..2026-10) BİRİNCİL (eşik 1,2× maliyet, bütçe 1.000 TL/koşu, havuz etkili, %98,33): üçlü ROI +0,193 [−0,246; +0,710] (720 koşu, ort. 59 TL, 87 isabet) → kârlı değil; tabela −…",
+   "neden": "",
+   "satir": 2299
+  },
+  {
+   "id": "T166",
+   "konu": "=",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t166_havuz.py → t166_sonuc.txt) 5'li kendi havuz medyanları (tüm 2023+ ardışık devir farkları; ≥3 örnekli hipodromlar, diğerleri grup medyanı): İstanbul 420 bin, İzmir 307 bin, Elazığ 282 bin, büyük grup 213 bin, küç…",
+   "neden": "",
+   "satir": 2310
+  },
+  {
+   "id": "T167",
+   "konu": "=",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t167_kupon.py → t167_sonuc.txt) BİRİNCİL (eşik 1,2, bütçe 1.000 TL, 1 kupon, %98,33, büyük ödemeler dahil): üçlü: liste +0,196 → KUPON +0,172 [−0,256; +0,662] (1.475 koşu, ort. 32 TL / 10 komb., 69 isabet, dolgu %7);…",
+   "neden": "KARAR (ön kayıt kuralı): hiçbir kupon GA alt > 0 değil → \"değer\" kartı YOK. Üçlü ve 5'li (nokta > 0) → Canlı'da \"gölge/deneysel\" kart + kâğıt kaydı; tabela (nokta ≤ 0) → yalnız kâğıt kaydı, kart \"testte zararlı\" uyarılı (kullanıcı: ileriye dönük test için kal…",
+   "satir": 2322
+  },
+  {
+   "id": "T168",
+   "konu": "kapanış öncesi görülen fiyatla bahis: ikili / sıralı ikili ve ganyan (kullanıcı: \"Başlat\"; \"canlı sekmemiz he…",
+   "tarih": "2026-11-07",
+   "durum": "Tanımlayıcı / keşif (karar yok) ~",
+   "ozet": "(data/analiz/t168_once.py → t168_sonuc.txt) Kapsam: 116 AÇIK havuz kaydının çoğu yurt dışı/Kasım → model önbelleğiyle eşleşen yurt içi ikili koşusu yalnız ~10 (Ekim 15–31, 4 gün). Ganyan: 146 koşu, 14 gün, ortalama koşuya 1,7 dk.…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) il: kazananlarda tipik ~%4 aşağı kayma. Canlı'da EV gösterilirken kapanış kayması payı (ikili/ganyan ×0,96) uygulanmalı; ileri pencere (havuz_acik kaydı, 7 Kasım'dan itibaren) bunu her gün büyütecek.",
+   "satir": 2337
+  },
+  {
+   "id": "T169",
+   "konu": "ikili / sıralı ikili: AYRI kuponlar vs KOMBİNE kupon (kullanıcı: \"Eveg hepsi doğru, testi başlat\"; kurallar k…",
+   "tarih": "2026-11-07",
+   "durum": "Geçti",
+   "ozet": "(data/analiz/t169_ikili_kupon.py → t169_sonuc.txt; kullanıcı çalışma sırasında durdurdu ama betik tamamlanmıştı) BİRİNCİL (%97,5, büyük ödemeler dahil): sıralı ikili AYRI +0,077 [−0,037; +0,190] (ort. 59 TL/koşu, 3,0 komb.) vs KO…",
+   "neden": "KARAR (ön kayıt): kombine ROI ≥ ayrı ve > 0 → Canlı'ya kombine eklenir (her iki bahis). Kâr kanıtı yok (birincil GA alt < 0). Havuz etkisi yok sayıldı (kullanıcı gözlemi: 500 TL'lik ikili oranı kıpırdatmıyor).",
+   "satir": 2348
+  },
+  {
+   "id": "T169-B",
+   "konu": "liste dışı ikili/sıralı ikili çiftlerine TABAN oran (kullanıcı: \"Başlat\"; bilgi: \"listede olmayan kombinasyon…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t169b_taban.py → t169b_sonuc.txt) Sıralı ikili KOMBİNE: T169 +0,111 → T169-B (taban) +0,198 [+0,026; +0,384] (%97,5; 5.236 koşu, ort. 21 TL, 2,9 komb., 528 isabet); fark +0,088 [−0,036; +0,217] →",
+   "neden": "KARAR: T169 (0,75) kuralı kalır. OKUMA: sıralı ikili kombine (taban) birincil GA alt sınırı ilk kez sıfırın üstünde. ÇEKİNCE: bu kural T163 → T169 → T169-B zincirinde, sonuçlar görülerek adım adım daraltıldı (çoklu deneme); kapanış muhtemeli kullanıldı (T168:…",
+   "satir": 2356
+  },
+  {
+   "id": "T170",
+   "konu": "üçlü / tabela / sıralı 5'li: KOMBİNE kupon (n at, tüm sıralar) vs",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t170_kombine.py → t170_sonuc.txt) BİRİNCİL (eşik 1,2, bütçe 1.000 TL, %98,33, büyük ödemeler dahil, havuz paylaşımı dahil): üçlü: virgüllü +0,172 [−0,258; +0,661] vs KOMBİNE +0,176 [−0,253; +0,691] (ort. 35 TL, 13 ko…",
+   "neden": "KARAR (ön kayıt): üçlü ve 5'li kombine ≥ virgüllü ve > 0 → Canlı'da kombine kupon da gösterilir (+ gölge kayıt); tabela → yalnız virgüllü kayıt (zararlı uyarısı). ÇEKİNCE: 5'li sonucu 16–30 isabete dayanıyor, aralıklar çok geniş; üçlüde fark sıfır. Kâr kanıtı…",
+   "satir": 2371
+  },
+  {
+   "id": "T171",
+   "konu": "(kullanıcı: \"Başlat\"; fikirler: \"ilk 5'e mutlaka bir sürpriz at girer… doğru sürpriz atları bulursak\"; \"favor…",
+   "tarih": "2026-11-07",
+   "durum": "Aday / ileri takipte",
+   "ozet": "(t171a_surpriz.py → t171a_sonuc.txt; t171b_yer.py → t171b_sonuc.txt) A) Sürpriz kuponu, her koşuda sabit yapı (havuz paylaşımı, misli, büyük ödemeler dahil; %98,33): üçlü: Benter sürprizi −0,206 [−0,305; −0,107] vs piyasa sürpriz…",
+   "neden": "KARAR: GA 0'ı kapsıyor → kayıt (aday değil). Not: jokeyin \"bırakma\" alışkanlığı bu ölçüyle görünmüyor; atın kendi yer tutma artığı küçük bir işaret.",
+   "satir": 2387
+  },
+  {
+   "id": "T172",
+   "konu": "sürpriz uzmanı model (kullanıcı: \"Kurup bir etki gösteriyor mu test eder misin. Elimizdeki tüm verileri en ef…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t172_surpriz_model.py → t172_sonuc.txt) İlk 3 (33.899 favori olmayan at, 4.420 koşu, test 2026-01..10): uzman − kontrol +0,0084 nats/koşu [+0,0021; +0,0149] (%97,5) → uzman KÖTÜ. AUC: Benter tek 0,734, piyasa 0,712,…",
+   "neden": "KARAR: kayıt; T173 yapılmaz. OKUMA: Benter favori olmayan atları piyasadan belirgin iyi sıralıyor (AUC +0,02–0,03) ve ek veri (Jason özellikleri, video şeridi, yer tutma) bunun üstüne bir şey katmıyor; ayrı model kısıtlı eğitim döneminde (Benter puanı yalnız…",
+   "satir": 2402
+  },
+  {
+   "id": "T174",
+   "konu": "koşu seçimi (kullanıcı: \"hangi koşulara oynayıp hangilerine oynamayacağımızı bilebilsek… Başlat\")",
+   "tarih": "2026-11-07",
+   "durum": "Elendi",
+   "ozet": "(data/analiz/t174_kosu_secimi.py → t174_sonuc.txt) Tek doğrulanan (%95, Bonferroni'de değil): İKİLİ KOMBİNE + AT SAYISI ≥11 — seçimde +0,432 vs −0,086; doğrulamada +0,552 (1.086 koşu, 88 isabet) vs −0,091 (1.240 koşu); fark +0,64…",
+   "neden": "KARAR: Canlı'ya koşu filtresi YOK (Bonferroni sağlanmadı). İLERİ PENCERE ÖN KAYDI (şimdi, ileri veri görülmeden): deger_golge kaydında ikili ve sıralı ikili kombine için \"≥11 at\" alt kümesi ayrıca raporlanır; 2027-02 değerlendirmesinde ≥11 − ≤10 ROI farkı tek…",
+   "satir": 2413
+  },
+  {
+   "id": "T175",
+   "konu": "koşu türü (kullanıcı: \"Maiden mesela genelde süprize açıktır\"; \"tüm koşu tipleri için… hem sıralı bahisler he…",
+   "tarih": "2026-11-07",
+   "durum": "Geçti",
+   "ozet": "(data/analiz/t175_kosu_turu.py → t175_sonuc.txt; 6.363 koşu, tür bilinmeyen 357) A) İlk 3'te favori-dışı at: Handikap %92,6, Satış %91,8, Maiden %89,6, Şartlı %88,0, KV %85,9; favori kazanma: Handikap %31,6 (en düşük), KV %39,7 (…",
+   "neden": "KARAR: filtre/özellik yok. İLERİ PENCERE ÖN KAYDI (şimdi): deger_golge kayıtlarına koşu türü eklenir; 2027-02'de (i) Handikap vs Şartlı, (ii) Maiden vs diğer ROI farkı ileri veride test edilir (2 karşılaştırma, %97,5).",
+   "satir": 2424
+  },
+  {
+   "id": "T176",
+   "konu": "altılı/7'li kuponda canlı bilgi kaybı (kullanıcı: \"kupon sekmesinde… yarışlar başlamadan tüm koşuların seçiml…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t176_altili_kayip.py → t176_sonuc.txt) Veri yetersiz: Benter puanı (z6, w0_g1) + 1. altılı AGF'si (agf_a1) birlikte yalnız 14 günde var → 1. altılı 142 ayak-koşu. 1) Kayıp (kapanış − ilk ayak öncesi AGF, Benter, nats…",
+   "neden": "KARAR: kayıt; kupon değişikliği yok. YENİDEN ÖLÇÜM (ön kayıt, aynı betik + agf_zaman ile momentum): ≥60 günlük z6+AGF zaman serisi biriktiğinde (≈ 2026-12-20).",
+   "satir": 2441
+  },
+  {
+   "id": "T177",
+   "konu": "AGF'den kapanış tahmini (kullanıcı: \"agf'den kapanış tahminini dene\")",
+   "tarih": "2026-11-07",
+   "durum": "Elendi ~",
+   "ozet": "(data/analiz/t177_agf_kapanis.py → t177_sonuc.txt; 294 ayak-koşu, 15 gün; eğitim 60 / test 234) BİRİNCİL P3 (momentum + eğim) − P0: kazanan LL −0,0001 [−0,0262; +0,0270] → kanıt yok (kazananı bulmayı iyileştirmiyor). Betimsel: eğ…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) yor: 1. ayak 0,077 → 6. ayak 0,099. OKUMA: AGF'den kapanış FİYATI kısmen tahmin edilebilir (değer/ödeme hesabı için yararlı olabilir), ama kazanan tahmini değişmiyor. Kupon seçimine düzeltme eklenmez.",
+   "satir": 2452
+  },
+  {
+   "id": "T178",
+   "konu": "(gölge, kullanıcı: \"Ayaklara göre genişliği yap\"): altılı kuponunda son ayakları genişletme. Gerekçe",
+   "tarih": "2026-11-07",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  },
+  {
+   "id": "T179",
+   "konu": "altılı kupon kurma kuralları, geriye dönük karşılaştırma (kullanıcı: \"Önerdiğin fikirleri test et, başlat\")",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(data/analiz/t179_sonuc.txt; yalnız 42 tam altılı, 14 gün — AGF'li tam kayıt bu kadar) • Favori mi değer mi (eşit maliyet ~185 kombinasyon): D192 − F192 ortalama tutan ayak −0,62 [−0,94; −0,29] (F192 3,71, D192 3,10); ≥5 ayak far…",
+   "neden": "KARAR: canlıda değişiklik yok. Altılıda değer kuralı için \"favori daha iyi\" bulgusu ileriye dönük gölge (j_favori/favori/deger zaten çalışıyor) ile yeniden ölçülecek. Kapsama (zorluğa göre genişlik) eşit maliyette favoriden iyi görünmüyor; K65 gölgesi maliyet…",
+   "satir": 2505
+  },
+  {
+   "id": "T180",
+   "konu": "altılı kupon kuralları, ayak bazlı düşük-varyanslı ROI tahmini (kullanıcı: \"favori kazandıkça altılı yeterinc…",
+   "tarih": "2026-11-07",
+   "durum": "Karar belirsiz",
+   "ozet": "(t180_sonuc.txt, t180b_*.txt, t180c_sonuc.txt) — İLK TAHMİN EDİCİ HATALI ÇIKTI, DÜZELTİLDİ (ön kayıtlı karar kuralı aynı) İlk çalışma (ön kayıtlı formül) tüm kurallar için ROI >1 verdi (F192 2,27; D48 34,7): akıl kontrolü başarıs…",
+   "neden": "",
+   "satir": 2516
+  },
+  {
+   "id": "T182",
+   "konu": "koşu stili × tempo etkileşimi, TAM kapsamlı video verisiyle (kullanıcı: \"Onaylıdır, yap\")",
+   "tarih": "2026-11-08",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(data/analiz/t182_sonuc.txt; 6.786 koşu, 2025-10→2026-10, video kapsamı %77, Zr>0 koşu %83, tek öncülü koşu %29) Piyasasız ZVT − ZV2: −0,00020 [−0,00068; +0,00024] (pozitif ay 9/13). Piyasalı JVT − JV2: −0,00065 [−0,00133; +0,000…",
+   "neden": "KARAR: ADAY DEĞİL — tempo etkileşimi (sondan gelen × sert tempo, baskı altında öncü, tek öncü) tam video verisiyle de ek bilgi taşımıyor (kazanç sıfıra yakın). Not: video_ozet.pkl /tmp'de kayıptı; video_seyir 'ozet' alanından aynen yeniden üretildi (82.209 sa…",
+   "satir": 2538
+  },
+  {
+   "id": "T183",
+   "konu": "görüntü pilotu: tüm koşu boyunca kamera kapsamı (kullanıcı: \"bu videoları bize faydalı hale getirecek bir şey…",
+   "tarih": "2026-11-08",
+   "durum": "Geçti ~",
+   "ozet": "(cv_tum.yml 42425744816; data/cv_tum/ozet.txt; 20 koşu): ≥5 at görülen kare payı medyan %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan kon…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan konum koşunun büyük kısmında ölçülebilir, bitiş bölümü hariç.",
+   "satir": 2547
+  },
+  {
+   "id": "T184",
+   "konu": "videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: \"Başlat\"; model Opus)",
+   "tarih": "2026-11-08",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
+  }
+ ]
+}

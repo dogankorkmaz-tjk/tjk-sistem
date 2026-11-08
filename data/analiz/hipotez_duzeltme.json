@@ -1,0 +1,10 @@
+{
+ "T79": {
+  "durum": "Elendi",
+  "neden": "cinse özgü Elo hiçbir dönemde kuralı sağlamadı (defterde 'KURAL SAĞLANMADI')"
+ },
+ "T86b": {
+  "durum": "Elendi",
+  "neden": "model/kupon değişikliği yok; T41 yeniden test penceresine betimleyici ek"
+ }
+}
