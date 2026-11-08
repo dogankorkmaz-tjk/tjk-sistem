@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-08T20:34",
+ "guncelleme": "2026-11-08T20:39",
  "sayim": {
   "Geçti": 17,
   "Elendi": 53,
-  "Karar belirsiz": 41,
+  "Karar belirsiz": 42,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 16,
+  "Sonuç bekleniyor": 15,
   "Karma": 2,
   "Aday / ileri takipte": 10
  },
@@ -1310,10 +1310,10 @@
    "id": "T189",
    "konu": "PLASE (ilk 2) geriye dönük piyasa-yanlış-fiyat testi (kullanıcı: \"Başlat\", 8 Kasım 2026 23:31; kaynak: Dr Z /…",
    "tarih": "2026-11-08",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-08 23:38; t189_sonuc.txt; 2025-04→2026-11, ileri-yürüyüş): R0 (tüm atlara) ROI −23,4% [−26,2;−20,5] (plase takeout ≈ %23). ANA (oran ≥1,15, pg≥0,10): 7.533 bahis, isabet 1.740, ROI −15,8% [Bonf. −21,6;−10,0]; referanslar…",
+   "neden": "KARAR: YOK (nokta ≤ 0, üst sınır < 0). Plase için kural/kupon değişikliği yok; mevcut pm-ilk2 canlı kağıt kaydı (240 bahis, 1,054) bu sonuçla çelişen küçük örnek gürültüsü sayılır, kural değişmeden sürer. Not: plase havuz tutarları kayıtlı olmadığı için gerçe…",
+   "satir": 2652
   }
  ]
 }
