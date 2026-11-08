@@ -1,8 +1,8 @@
 {
- "guncelleme": "2026-11-08T19:25",
+ "guncelleme": "2026-11-08T19:28",
  "sayim": {
   "Geçti": 17,
-  "Elendi": 52,
+  "Elendi": 53,
   "Karar belirsiz": 41,
   "Tanımlayıcı / keşif": 6,
   "Sonuç bekleniyor": 14,
@@ -1275,9 +1275,18 @@
    "konu": "\"piyasa nerede sistematik yanılıyor?\" (kullanıcı: \"Başlat sırayla hepsini dene\"). Sonuçlar görülmeden yazıldı…",
    "tarih": "2026-11-08",
    "durum": "Karar belirsiz",
-   "ozet": "A+B (t187_ab_sonuc.txt; 226.994 at-koşu, 2.923 koşu-günü eşleşmiş meta, 1.391 gün; keşif ≤2025-03, doğrulama 2025-04→) A: Piyasa favori-uzunşans yanlılığı VAR: pm<0,03 oran 0,74 [0,69;0,79], ROI −53%; pm 0,03–0,06 oran 0,95; orta…",
+   "ozet": "A+B (t187_ab_sonuc.txt; 226.994 at-koşu, 2.923 hipodrom-günü, 1.391 gün; meta atyarisi'nden; keşif ≤2025-03, doğrulama 2025-04→) A: Piyasa favori-uzunşans yanlılığı VAR: pm<0,03 oran 0,74 [0,69;0,79], ROI −53%; pm 0,03–0,06 oran…",
    "neden": "KARAR (ön kayıt): piyasa sistematik yanlış fiyatlıyor ama yanlış yön (uzun atların fazla fiyatlandığı) takeout içinde kalıyor; bu boyutlarda kâr çıkarılabilir yanlış fiyat YOK. Tüm bantlar + doğrulamada en iyi hücreler −24…−30% ROI. Adım C: Actions t187_c.yml…",
    "satir": 2612
+  },
+  {
+   "id": "T187-C",
+   "konu": "(başlık yok)",
+   "tarih": "",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(t187_c_sonuc.txt; ay-ay ileri-yürüyüş 2025-03→2026-11, 102.603 at-koşu) ANA (p≥0,06 ve p/pm≥1,3): 3.250 at, kazanan 446 (piyasa beklenen 393, model beklenen 553), ROI −22,0% [−29,9; −13,8]. Duyarlılık: ≥1,2 → 7.656 at ROI −25,7%…",
+   "neden": "KARAR (ön kayıt): ANA ROI nokta <0, GA alt <0 → 'YOK' (aday değil). Yorum: model piyasanın 'az fiyatladığı' atları gerçekten seçiyor (kazanan piyasa beklentisinin +13%'i; ROI referanstan ~9 puan iyi) ama model kendi olasılığını şişiriyor (553 beklenen, 446 ge…",
+   "satir": 2617
   }
  ]
 }
