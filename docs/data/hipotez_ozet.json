@@ -1,7 +1,7 @@
 {
- "guncelleme": "2026-11-08T10:00",
+ "guncelleme": "2026-11-08T10:06",
  "sayim": {
-  "Geçti": 16,
+  "Geçti": 17,
   "Elendi": 52,
   "Karar belirsiz": 40,
   "Tanımlayıcı / keşif": 6,
@@ -1242,6 +1242,15 @@
    "ozet": "(t184b_sonuc.txt; ön kayıtlı betik değiştirilmeden) ÖN KOŞUL SAĞLANDI: kullanılan kare 51.655/144.324 = %35,8 (eşik %20; T184'te %2,5) → yön düzeltmesi çalıştı; 562 koşu analize girdi, ölçülmüş at/alan 0,93. BİRİNCİL Spearman(LAT…",
    "neden": "KARAR (ön kayıt): |ort| < 0,25 ve işaret ≤ −0,25 değil → \"ÖLÇÜLEMEDİ → teşhis\". Sinyal istatistik olarak net ama ters ve zayıf. TEŞHİS (data/analiz/t184b_tani.py/.txt; betimsel): LAT ~ şeritteki öndelik −0,523 (önde giden atların kutusu büyük: kamera öncüleri…",
    "satir": 2584
+  },
+  {
+   "id": "T184-C",
+   "konu": "yan konumun sıra/perspektif etkisinden arındırılması (kullanıcı: \"Yap\")",
+   "tarih": "2026-11-08",
+   "durum": "Geçti",
+   "ozet": "(t184c_sonuc.txt; 562 koşu) Birincil LAT (x'e göre artık log h) ~ FM: −0,048 [−0,076; −0,021]; kapı kontrollü −0,047; taban konumu artığı −0,037 [−0,067; −0,005]; öndelik kontrollü −0,039.",
+   "neden": "KARAR: ÖLÇÜLEMEDİ. Sıra/perspektif etkisi çıkarılınca kutu ölçülerinde yan konum bilgisi kalmıyor (|r| < 0,05). SONUÇ (T184/B/C birlikte): Bu yayın görüntüsünden 2B at kutularıyla (tek kamera, sürekli zoom/pan, kamera konumu bilinmiyor) fazladan mesafe ölçüle…",
+   "satir": 2593
   },
   {
    "id": "T185",

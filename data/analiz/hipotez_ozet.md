@@ -1,11 +1,11 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 10:00 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 10:06 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 16 · Sonuç bekleniyor: 14 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
 
-## Geçenler (kural sağlandı) — 16
+## Geçenler (kural sağlandı) — 17
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -25,6 +25,7 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 16 · Sonuç bekleniyor: 14 
 | T169 | ikili / sıralı ikili: AYRI kuponlar vs KOMBİNE kupon (kullanıcı: "Eveg hepsi doğru, testi başlat"; kurallar k… | Geçti | (data/analiz/t169_ikili_kupon.py → t169_sonuc.txt; kullanıcı çalışma sırasında durdurdu ama betik tamamlanmıştı) BİRİNCİL (%97,5, büyük ödemeler dahil): sıralı ikili AYRI +0,077 [−0,037; +0,190] (ort. 59 TL/koşu, 3,0 komb.) vs KO… | KARAR (ön kayıt): kombine ROI ≥ ayrı ve > 0 → Canlı'ya kombine eklenir (her iki bahis). Kâr kanıtı yok (birincil GA alt < 0). Havuz etkisi yok sayıldı (kullanıcı gözlemi: 500 TL'lik ikili oranı kıpırdatmıyor). |
 | T175 | koşu türü (kullanıcı: "Maiden mesela genelde süprize açıktır"; "tüm koşu tipleri için… hem sıralı bahisler he… | Geçti | (data/analiz/t175_kosu_turu.py → t175_sonuc.txt; 6.363 koşu, tür bilinmeyen 357) A) İlk 3'te favori-dışı at: Handikap %92,6, Satış %91,8, Maiden %89,6, Şartlı %88,0, KV %85,9; favori kazanma: Handikap %31,6 (en düşük), KV %39,7 (… | KARAR: filtre/özellik yok. İLERİ PENCERE ÖN KAYDI (şimdi): deger_golge kayıtlarına koşu türü eklenir; 2027-02'de (i) Handikap vs Şartlı, (ii) Maiden vs diğer ROI farkı ileri veride test edilir (2 karşılaştırma, %97,5). |
 | T183 | görüntü pilotu: tüm koşu boyunca kamera kapsamı (kullanıcı: "bu videoları bize faydalı hale getirecek bir şey… | Geçti ~ | (cv_tum.yml 42425744816; data/cv_tum/ozet.txt; 20 koşu): ≥5 at görülen kare payı medyan %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan kon… | (açık karar satırı yok, son cümlelerden çıkarıldı) %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan konum koşunun büyük kısmında ölçülebilir, bitiş bölümü hariç. |
+| T184-C | yan konumun sıra/perspektif etkisinden arındırılması (kullanıcı: "Yap") | Geçti | (t184c_sonuc.txt; 562 koşu) Birincil LAT (x'e göre artık log h) ~ FM: −0,048 [−0,076; −0,021]; kapı kontrollü −0,047; taban konumu artığı −0,037 [−0,067; −0,005]; öndelik kontrollü −0,039. | KARAR: ÖLÇÜLEMEDİ. Sıra/perspektif etkisi çıkarılınca kutu ölçülerinde yan konum bilgisi kalmıyor (\|r\| < 0,05). SONUÇ (T184/B/C birlikte): Bu yayın görüntüsünden 2B at kutularıyla (tek kamera, sürekli zoom/pan, kamera konumu bilinmiyor) fazladan mesafe ölçüle… |
 
 ## Elenenler (modele eklenmedi / kural sağlanmadı) — 52
 
