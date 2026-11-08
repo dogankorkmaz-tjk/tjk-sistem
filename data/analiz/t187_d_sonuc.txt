@@ -1,0 +1,71 @@
+koşu 22975
+2025-03 452
+2025-04 497
+2025-05 558
+2025-06 516
+2025-07 547
+2025-08 549
+2025-09 529
+2025-10 552
+2025-11 524
+2025-12 469
+2026-01 442
+2026-02 385
+2026-03 438
+2026-04 477
+2026-05 529
+2026-06 498
+2026-07 516
+2026-08 529
+2026-09 492
+2026-10 548
+2026-11 117
+
+=== R0 birim doğrulaması (tüm kombinasyonlar) ===
+SIRALI İKİLİ: koşu 10120 maliyet 1010810 ödeme 649240 ROI -35.8%
+ÜÇLÜ BAHİS: koşu 5320 maliyet 6579348 ödeme 3716566 ROI -43.5%
+
+=== A kalibrasyon: kutu → n, Σp_piyasa, Σp_model, isabet, isabet/Σpm, isabet/Σpg, tüm-kutu-ROI [GA] ===
+SIRALI İKİLİ
+  p_piyasa≥0: n=374568 Σpm 1651.9 Σpg 1733.1 isabet 1743 oran_pm 1.055 oran_pg 1.006 ROI -34.2% [-37.9%;-30.5%]
+  p_piyasa≥0.01: n=124780 Σpm 1769.0 Σpg 1806.6 isabet 1854 oran_pm 1.048 oran_pg 1.026 ROI -21.6% [-25.1%;-18.2%]
+  p_piyasa≥0.02: n=81330 Σpm 2270.5 Σpg 2281.1 isabet 2279 oran_pm 1.004 oran_pg 0.999 ROI -22.3% [-25.8%;-18.5%]
+  p_piyasa≥0.04: n=39332 Σpm 2147.6 Σpg 2117.8 isabet 2081 oran_pm 0.969 oran_pg 0.983 ROI -25.4% [-28.7%;-22.3%]
+  p_piyasa≥0.08: n=13096 Σpm 1514.2 Σpg 1471.9 isabet 1527 oran_pm 1.008 oran_pg 1.037 ROI -23.5% [-27.0%;-19.8%]
+ÜÇLÜ BAHİS
+  p_piyasa≥0: n=1512245 Σpm 1008.4 Σpg 1044.7 isabet 1091 oran_pm 1.082 oran_pg 1.044 ROI -43.1% [-48.0%;-38.0%]
+  p_piyasa≥0.002: n=377148 Σpm 1187.4 Σpg 1203.3 isabet 1251 oran_pm 1.054 oran_pg 1.040 ROI -28.3% [-32.6%;-23.6%]
+  p_piyasa≥0.005: n=156996 Σpm 1090.7 Σpg 1089.8 isabet 1063 oran_pm 0.975 oran_pg 0.975 ROI -30.0% [-35.5%;-23.7%]
+  p_piyasa≥0.01: n=85673 Σpm 1331.1 Σpg 1316.3 isabet 1293 oran_pm 0.971 oran_pg 0.982 ROI -33.9% [-37.6%;-30.1%]
+  p_piyasa≥0.03: n=8198 Σpm 339.1 Σpg 336.0 isabet 349 oran_pm 1.029 oran_pg 1.039 ROI -38.3% [-45.2%;-31.2%]
+TABELA BAHİS
+  p_piyasa≥0: n=5160366 Σpm 574.9 Σpg 612.8 isabet 676 oran_pm 1.176 oran_pg 1.103 ROI -35.0% [-45.4%;-22.2%]
+  p_piyasa≥0.0005: n=233107 Σpm 157.4 Σpg 162.9 isabet 194 oran_pm 1.233 oran_pg 1.191 ROI -40.8% [-49.9%;-31.2%]
+  p_piyasa≥0.001: n=65947 Σpm 94.2 Σpg 97.5 isabet 119 oran_pm 1.264 oran_pg 1.221 ROI -48.1% [-57.6%;-37.5%]
+  p_piyasa≥0.003: n=2258 Σpm 8.7 Σpg 8.9 isabet 11 oran_pm 1.269 oran_pg 1.235 ROI +10.2% [-61.2%;+114.6%]
+  p_piyasa≥0.01: n=2 Σpm 0.0 Σpg 0.0 isabet 0 oran_pm 0.000 oran_pg 0.000 ROI -100.0% [-100.0%;-100.0%]
+
+=== D değer işareti (Bonferroni %95/3 → %0,83–%99,17) ===
+SIRALI İKİLİ
+  D_ANA_model          maliyet     17642 ödeme     15902 isabet  649 koşu  5944 ROI -9.9% [-19.7%;-0.4%]  beklenen isabet: model 720.2 piyasa 493.4
+  D_ref_piyasaTopN     maliyet     17642 ödeme     13670 isabet 1310 koşu  5944 ROI -22.5% [-27.0%;-17.9%]  beklenen isabet: model 1238.2 piyasa 1286.0
+  D_ref_modelTopN      maliyet     17642 ödeme     13632 isabet 1299 koşu  5944 ROI -22.7% [-27.1%;-18.2%]  beklenen isabet: model 1294.9 piyasa 1231.1
+  D_s1.2_model         maliyet     30439 ödeme     26690 isabet 1182 koşu  8116 ROI -12.3% [-18.0%;-6.3%]  beklenen isabet: model 1291.1 piyasa 952.0
+  D_s1.5_model         maliyet      5867 ödeme      5551 isabet  208 koşu  2526 ROI -5.4% [-19.4%;+9.7%]  beklenen isabet: model 231.5 piyasa 138.7
+  D_s2.0_model         maliyet       483 ödeme       795 isabet   21 koşu   270 ROI +64.5% [-10.6%;+148.7%]  beklenen isabet: model 17.5 piyasa 8.0
+ÜÇLÜ BAHİS
+  D_ANA_model          maliyet     83210 ödeme     68951 isabet  421 koşu  4181 ROI -17.1% [-29.2%;-4.5%]  beklenen isabet: model 456.2 piyasa 307.7
+  D_ref_piyasaTopN     maliyet     83210 ödeme     54204 isabet  789 koşu  4181 ROI -34.9% [-40.8%;-28.4%]  beklenen isabet: model 786.0 piyasa 790.1
+  D_ref_modelTopN      maliyet     83210 ödeme     57633 isabet  826 koşu  4181 ROI -30.7% [-36.2%;-24.6%]  beklenen isabet: model 819.7 piyasa 756.7
+  D_s1.2_model         maliyet    132428 ödeme    105205 isabet  704 koşu  4826 ROI -20.6% [-27.9%;-12.8%]  beklenen isabet: model 742.7 piyasa 537.6
+  D_s1.5_model         maliyet     32150 ödeme     30983 isabet  162 koşu  2395 ROI -3.6% [-22.0%;+14.6%]  beklenen isabet: model 166.7 piyasa 98.1
+  D_s2.0_model         maliyet      4212 ödeme      3567 isabet   17 koşu   475 ROI -15.3% [-56.5%;+30.9%]  beklenen isabet: model 19.3 piyasa 8.6
+TABELA BAHİS
+  D_ANA_model          maliyet     43772 ödeme     30798 isabet   61 koşu   933 ROI -29.6% [-51.3%;-5.8%]  beklenen isabet: model 47.7 piyasa 30.6
+  D_ref_piyasaTopN     maliyet     43772 ödeme     29166 isabet   73 koşu   933 ROI -33.4% [-49.9%;-15.8%]  beklenen isabet: model 55.5 piyasa 48.7
+  D_ref_modelTopN      maliyet     43772 ödeme     31116 isabet   78 koşu   933 ROI -28.9% [-45.3%;-11.6%]  beklenen isabet: model 59.0 piyasa 45.8
+  D_s1.2_model         maliyet     58042 ödeme     39695 isabet   79 koşu  1052 ROI -31.6% [-47.9%;-15.6%]  beklenen isabet: model 62.8 piyasa 42.8
+  D_s1.5_model         maliyet     23000 ödeme     17119 isabet   35 koşu   704 ROI -25.6% [-50.8%;+2.4%]  beklenen isabet: model 25.4 piyasa 14.6
+  D_s2.0_model         maliyet      3608 ödeme      1123 isabet    3 koşu   228 ROI -68.9% [-100.0%;-28.2%]  beklenen isabet: model 3.9 piyasa 1.7
+
+KARAR (ön kayıt): ANA ROI GA(Bonf.) alt > 0 → ADAY; nokta>0 ama alt<=0 → işaret; nokta<=0 → YOK.
