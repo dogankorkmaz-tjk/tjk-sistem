@@ -1,0 +1,39 @@
+name: nabiz
+# Yedek zamanlayıcı (8 Kasım 2026): GitHub zamanlanmış tetiklemeleri bugün 10:22–16:29 UTC arası hiç oluşturmadı (tjk.yml dün 33, bugün 7 çalışma) →
+# canlı oranlar, gölge kayıt, sonuçlar ve ekür güncellenmedi. Bu iş 6 saate kadar açık kalır ve 5 dakikada bir, son 4 dk içinde tjk çalışması
+# OLUŞMADIYSA tjk.yml'i elle tetikler (her 20. dakikada canli, arada hizli). Zamanlama çalışırsa hiçbir şey yapmaz (çift çalışma yok).
+on:
+  schedule:
+    - cron: "55 9 * * *"
+    - cron: "55 12 * * *"
+    - cron: "55 15 * * *"
+    - cron: "55 18 * * *"
+  workflow_dispatch:
+concurrency:
+  group: nabiz
+  cancel-in-progress: false
+permissions:
+  actions: write
+  contents: read
+jobs:
+  nabiz:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          R: ${{ github.repository }}
+        run: |
+          bitis=$(( $(date +%s) + 350*60 ))
+          while [ $(date +%s) -lt $bitis ]; do
+            H=$(date -u +%H); M=$(date -u +%M)
+            if [ $((10#$H)) -ge 10 ] && [ $((10#$H)) -le 21 ]; then
+              son=$(gh api "repos/$R/actions/workflows/tjk.yml/runs?per_page=1" -q '.workflow_runs[0].created_at' 2>/dev/null)
+              yas=$(( $(date +%s) - $(date -d "${son:-1970-01-01}" +%s) ))
+              if [ $yas -gt 240 ]; then
+                if [ $(( 10#$M % 20 )) -lt 5 ]; then MOD=canli; else MOD=hizli; fi
+                gh api -X POST "repos/$R/actions/workflows/tjk.yml/dispatches" -f ref=main -f "inputs[mod]=$MOD" && echo "$(date -u +%H:%M) tetiklendi: $MOD (son çalışma ${yas}s önce)"
+              fi
+            fi
+            sleep 300
+          done
