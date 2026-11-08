@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-08T08:20",
+ "guncelleme": "2026-11-08T10:00",
  "sayim": {
   "Geçti": 16,
   "Elendi": 52,
-  "Karar belirsiz": 39,
+  "Karar belirsiz": 40,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 15,
+  "Sonuç bekleniyor": 14,
   "Karma": 2,
   "Aday / ileri takipte": 8
  },
@@ -1238,10 +1238,10 @@
    "id": "T184-B",
    "konu": "kamera kayması düzeltmesi (kullanıcı: \"Onaylıdır, yap\")",
    "tarih": "2026-11-08",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(t184b_sonuc.txt; ön kayıtlı betik değiştirilmeden) ÖN KOŞUL SAĞLANDI: kullanılan kare 51.655/144.324 = %35,8 (eşik %20; T184'te %2,5) → yön düzeltmesi çalıştı; 562 koşu analize girdi, ölçülmüş at/alan 0,93. BİRİNCİL Spearman(LAT…",
+   "neden": "KARAR (ön kayıt): |ort| < 0,25 ve işaret ≤ −0,25 değil → \"ÖLÇÜLEMEDİ → teşhis\". Sinyal istatistik olarak net ama ters ve zayıf. TEŞHİS (data/analiz/t184b_tani.py/.txt; betimsel): LAT ~ şeritteki öndelik −0,523 (önde giden atların kutusu büyük: kamera öncüleri…",
+   "satir": 2584
   },
   {
    "id": "T185",
