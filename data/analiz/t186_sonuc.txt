@@ -1,0 +1,17 @@
+video at-koşu satırı 80894 video 8569
+video özet satırı 82361
+v2_var oranı (2025-10+): 0.771 ; ov_var 0.772
+Accurace eşleşen at-koşu 6102 koşu 649
+özelliği olan at (2026-06+): 0.180 ; sınama koşusu (2026-06+): 1357
+2026-06 n 87 JV2 -1.8280 JVT -1.8257 ZV2 -1.9970 ZVT -1.9971 3 sn
+2026-07 n 214 JV2 -1.7955 JVT -1.7967 ZV2 -1.8906 ZVT -1.8910 4 sn
+2026-08 n 250 JV2 -1.8742 JVT -1.8720 ZV2 -2.0257 ZVT -2.0226 4 sn
+2026-09 n 247 JV2 -1.8345 JVT -1.8335 ZV2 -1.9384 ZVT -1.9371 4 sn
+2026-10 n 476 JV2 -1.8548 JVT -1.8548 ZV2 -1.9171 ZVT -1.9176 4 sn
+  son ay katsayıları (f_yk,f_maz): [0.0304, 0.0176] | JVT: [0.0064, 0.0162]
+2026-11 n 83 JV2 -1.7806 JVT -1.7815 ZV2 -1.8844 ZVT -1.8855 5 sn
+=== T186 sınama koşusu 1357
+  piyasasız ZVT−ZV2            +0.00051 [-0.00280, +0.00403]  pozitif ay 2/6
+  piyasalı JVT−JV2 (ANA)       +0.00051 [-0.00356, +0.00449]  pozitif ay 3/6
+KARAR: ADAY DEĞİL (yer kaybı büyük örnekte de ölçülemedi)
+bitti
