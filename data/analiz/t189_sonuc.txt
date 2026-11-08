@@ -1,0 +1,42 @@
+koşu 22975
+2025-03 452
+2025-04 497
+2025-05 558
+2025-06 516
+2025-07 547
+2025-08 549
+2025-09 529
+2025-10 552
+2025-11 524
+2025-12 469
+2026-01 442
+2026-02 385
+2026-03 438
+2026-04 477
+2026-05 529
+2026-06 498
+2026-07 516
+2026-08 529
+2026-09 492
+2026-10 548
+2026-11 117
+
+=== R0 (koşudaki tüm atlara 1 TL) ===
+  R0                 bahis    68643 ödeme     52564 isabet 12394 ROI -23.4% [-26.2%;-20.5%]
+
+=== A kalibrasyon: kutu (piyasa P(ilk2)) → n, Σpm, Σpg, isabet, ROI ===
+  kutu0: n=28153 Σpm 1615 Σpg 1583 isabet 1454 oran_pm 0.900 oran_pg 0.918 ROI -37.2% [-42.2%;-31.4%]
+  kutu1: n=17845 Σpm 2577 Σpg 2627 isabet 2748 oran_pm 1.066 oran_pg 1.046 ROI -15.7% [-20.7%;-10.7%]
+  kutu2: n=12979 Σpm 3440 Σpg 3481 isabet 3506 oran_pm 1.019 oran_pg 1.007 ROI -15.1% [-19.2%;-10.5%]
+  kutu3: n=5887 Σpm 2440 Σpg 2426 isabet 2476 oran_pm 1.015 oran_pg 1.021 ROI -7.2% [-11.7%;-2.0%]
+  kutu4: n=3779 Σpm 2324 Σpg 2279 isabet 2210 oran_pm 0.951 oran_pg 0.970 ROI -10.4% [-15.2%;-5.1%]
+
+=== D değer işareti ===
+  D_ANA              bahis     7533 ödeme      6341 isabet  1740 ROI -15.8% [-21.6%;-10.0%]  beklenen isabet: model 1835.2 piyasa 1481.1
+  D_ref_piyasaTopN   bahis     7533 ödeme      6583 isabet  3221 ROI -12.6% [-16.0%;-8.9%]  beklenen isabet: model 3271.4 piyasa 3333.2
+  D_ref_modelTopN    bahis     7533 ödeme      6633 isabet  3229 ROI -12.0% [-15.2%;-8.5%]  beklenen isabet: model 3322.3 piyasa 3278.7
+  D_s1.1             bahis    11632 ödeme     10063 isabet  2823 ROI -13.5% [-17.6%;-9.0%]  beklenen isabet: model 2925.0 piyasa 2451.2
+  D_s1.25            bahis     2837 ödeme      2385 isabet   627 ROI -15.9% [-23.5%;-8.4%]  beklenen isabet: model 667.0 piyasa 500.1
+  D_s1.4             bahis      564 ödeme       407 isabet   103 ROI -27.9% [-42.4%;-12.8%]  beklenen isabet: model 128.4 piyasa 86.6
+
+KARAR (ön kayıt): ANA ROI GA(Bonf.) alt > 0 → ADAY; nokta>0 ama alt<=0 → işaret; nokta<=0 → YOK.
