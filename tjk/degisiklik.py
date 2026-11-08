@@ -203,8 +203,14 @@ def kilo_isaretle(obj):
 def ekur_isaretle(obj):
     """Ekür (aynı sahibin ortak oranlı atları) grup numarasını atlara 'ek' olarak yazar (atyarisi 'stablemate'); T34 ileri gölge için kayıt amaçlı, model kullanmaz."""
     g = atyapi.gun(obj["tarih"])
-    if not g:
-        return 0
+    if not g:                                     # API boş dönerse (8 Kasım 2026: gün boyu ekür 0 kaldı) sabah kaydedilen program arşivinden oku
+        try:
+            import gzip as _gz, json as _js
+            _x = _js.load(_gz.open(os.path.join(VERI, "atyarisi", obj["tarih"] + ".json.gz")))
+            g = {h: {"kosular": L or []} for h, L in (_x.get("program") or {}).items()}
+            print("ekür: API boş, arşivden okundu")
+        except Exception:
+            return 0
     n = 0
     for h in obj["hipodromlar"]:
         v = g.get(h["id"])
