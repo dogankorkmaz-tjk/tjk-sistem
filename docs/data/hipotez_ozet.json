@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-08T10:06",
+ "guncelleme": "2026-11-08T10:19",
  "sayim": {
   "Geçti": 17,
   "Elendi": 52,
   "Karar belirsiz": 40,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 14,
+  "Sonuç bekleniyor": 15,
   "Karma": 2,
   "Aday / ileri takipte": 8
  },
@@ -1260,6 +1260,15 @@
    "ozet": "(devirli sıralı 5'li geniş bütçe; Actions devir_t185.yml, data/analiz/t185_sonuc.txt; devirli 232 koşu, devirsiz örnek 250; 2025-03→2026-11) Devirli ROI [%95 aralık], vuruş: b600 G1-S +21,1% [−39,5; +83,7] (26 vuruş) | piyasa +3,…",
    "neden": "KARAR KURALI (ön kayıt T185): (GA alt > −%30) VE (nokta ROI > 0) VE (G1-S − piyasa > 0). b600: alt −39,5 → SAĞLANMADI. b1200: alt −26,7 ✓, ROI >0 ✓ ama G1-S − piyasa = −13,4 puan → SAĞLANMADI (piyasa kuponu daha iyi). b2400: alt −37,0 → SAĞLANMADI. SONUÇ: hiç…",
    "satir": 2572
+  },
+  {
+   "id": "T186",
+   "konu": "yer kaybı (Accurace fazladan mesafe) yeniden sınama, büyük örnek (kullanıcı: \"Kur\"; 15 Ekim ön kaydının 1 Ara…",
+   "tarih": "2026-11-08",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
   }
  ]
 }

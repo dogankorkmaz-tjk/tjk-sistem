@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 10:06 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 10:19 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 8 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -160,7 +160,7 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 
 | T184 | videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: "Başlat"; model Opus) | Karar belirsiz | (data/analiz/t184_sonuc.txt, ön kayıtlı betik DEĞİŞTİRİLMEDEN; 569 koşu algılandı, 301'i analize girdi) BİRİNCİL koşu içi Spearman(LAT, FM) ort −0,024 [−0,064; +0,015], medyan 0,000. İKİNCİL kapı kontrollü kısmi −0,040 [−0,102; +… | KARAR (ön kayıt): ÖLÇÜLEMEDİ → teşhis. TEŞHİS: 144.324 karenin yalnız 8.521'i (%6) yön bulabildi, 3.653'ü kullanıldı. Kamera kayması ölçümü bozuk: ±1 sn penceredeki \|Σdx\| medyan 0,9 px (yüzdelik 90: 3,7; eşik 5), faz korelasyonu çoğu karede ~0 kayma veriyor.… |
 | T184-B | kamera kayması düzeltmesi (kullanıcı: "Onaylıdır, yap") | Karar belirsiz | (t184b_sonuc.txt; ön kayıtlı betik değiştirilmeden) ÖN KOŞUL SAĞLANDI: kullanılan kare 51.655/144.324 = %35,8 (eşik %20; T184'te %2,5) → yön düzeltmesi çalıştı; 562 koşu analize girdi, ölçülmüş at/alan 0,93. BİRİNCİL Spearman(LAT… | KARAR (ön kayıt): \|ort\| < 0,25 ve işaret ≤ −0,25 değil → "ÖLÇÜLEMEDİ → teşhis". Sinyal istatistik olarak net ama ters ve zayıf. TEŞHİS (data/analiz/t184b_tani.py/.txt; betimsel): LAT ~ şeritteki öndelik −0,523 (önde giden atların kutusu büyük: kamera öncüleri… |
 
-## Ön kayıtlı, sonucu henüz yok — 14
+## Ön kayıtlı, sonucu henüz yok — 15
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -178,3 +178,4 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 
 | T160 | spiker özellikleri (veri gelmeden yazıldı; test penceresi transkript kapsamı ≥%80 olunca koşulur) | Sonuç bekleniyor |  |  |
 | T161 | "şanslı sonuç" (kullanıcı: "favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d… | Sonuç bekleniyor |  |  |
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
+| T186 | yer kaybı (Accurace fazladan mesafe) yeniden sınama, büyük örnek (kullanıcı: "Kur"; 15 Ekim ön kaydının 1 Ara… | Sonuç bekleniyor |  |  |
