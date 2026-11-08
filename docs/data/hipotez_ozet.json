@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-08T19:41",
+ "guncelleme": "2026-11-08T19:46",
  "sayim": {
   "Geçti": 17,
   "Elendi": 53,
   "Karar belirsiz": 41,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 14,
+  "Sonuç bekleniyor": 15,
   "Karma": 2,
   "Aday / ileri takipte": 10
  },
@@ -1296,6 +1296,15 @@
    "ozet": "(t187_d_sonuc.txt; Actions t187_d.yml, 5 dk; ay-ay ileri-yürüyüş 2025-03→2026-11) R0 birim doğrulaması GEÇTİ: tüm kombinasyonlar ROI sıralı ikili −35,8% (10.120 koşu), üçlü −43,5% (5.320 koşu) → 'tutar' birimi doğru (aralık −15…−…",
    "neden": "KARAR (ön kayıt): üç bahiste de ANA nokta ROI < 0 → 'YOK' (aday değil). Yorum: model piyasanın az fiyatladığı sıralı kombinasyonları gerçekten seçiyor (isabet piyasa beklentisinin +31…+37%'i; ROI referanslardan ~13 puan iyi), ama modelin kendi olasılığı da %1…",
    "satir": 2630
+  },
+  {
+   "id": "T188",
+   "konu": "sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: \"o kuponları da canlı sekmesine ekle\"",
+   "tarih": "2026-11-08",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
   }
  ]
 }

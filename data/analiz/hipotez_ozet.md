@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 19:41 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 19:46 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 53 · Karar belirsiz: 41 · Geçti: 17 · Sonuç bekleniyor: 14 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 53 · Karar belirsiz: 41 · Geçti: 17 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -164,7 +164,7 @@ Toplam: Elendi: 53 · Karar belirsiz: 41 · Geçti: 17 · Sonuç bekleniyor: 14 
 | T184-B | kamera kayması düzeltmesi (kullanıcı: "Onaylıdır, yap") | Karar belirsiz | (t184b_sonuc.txt; ön kayıtlı betik değiştirilmeden) ÖN KOŞUL SAĞLANDI: kullanılan kare 51.655/144.324 = %35,8 (eşik %20; T184'te %2,5) → yön düzeltmesi çalıştı; 562 koşu analize girdi, ölçülmüş at/alan 0,93. BİRİNCİL Spearman(LAT… | KARAR (ön kayıt): \|ort\| < 0,25 ve işaret ≤ −0,25 değil → "ÖLÇÜLEMEDİ → teşhis". Sinyal istatistik olarak net ama ters ve zayıf. TEŞHİS (data/analiz/t184b_tani.py/.txt; betimsel): LAT ~ şeritteki öndelik −0,523 (önde giden atların kutusu büyük: kamera öncüleri… |
 | T187 | "piyasa nerede sistematik yanılıyor?" (kullanıcı: "Başlat sırayla hepsini dene"). Sonuçlar görülmeden yazıldı… | Karar belirsiz | A+B (t187_ab_sonuc.txt; 226.994 at-koşu, 2.923 hipodrom-günü, 1.391 gün; meta atyarisi'nden; keşif ≤2025-03, doğrulama 2025-04→) A: Piyasa favori-uzunşans yanlılığı VAR: pm<0,03 oran 0,74 [0,69;0,79], ROI −53%; pm 0,03–0,06 oran… | KARAR (ön kayıt): piyasa sistematik yanlış fiyatlıyor ama yanlış yön (uzun atların fazla fiyatlandığı) takeout içinde kalıyor; bu boyutlarda kâr çıkarılabilir yanlış fiyat YOK. Tüm bantlar + doğrulamada en iyi hücreler −24…−30% ROI. Adım C: Actions t187_c.yml… |
 
-## Ön kayıtlı, sonucu henüz yok — 14
+## Ön kayıtlı, sonucu henüz yok — 15
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -182,3 +182,4 @@ Toplam: Elendi: 53 · Karar belirsiz: 41 · Geçti: 17 · Sonuç bekleniyor: 14 
 | T160 | spiker özellikleri (veri gelmeden yazıldı; test penceresi transkript kapsamı ≥%80 olunca koşulur) | Sonuç bekleniyor |  |  |
 | T161 | "şanslı sonuç" (kullanıcı: "favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d… | Sonuç bekleniyor |  |  |
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
+| T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
