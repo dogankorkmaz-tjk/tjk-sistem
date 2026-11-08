@@ -1,11 +1,11 @@
 name: spiker
-# Spiker anlatımı → yazı (tjk/spiker.py). Her 3 saatte bir, 2 paralel iş: önce dünün eksikleri, sonra arşivden en yeniden geriye; çalıştırma başına en çok N video.
+# Spiker anlatımı → yazı (tjk/spiker.py). Her 3 saatte bir, 8 paralel iş: önce dünün eksikleri, sonra arşivden en yeniden geriye; çalıştırma başına en çok N video.
 on:
   workflow_dispatch:
     inputs:
       n:
         description: "en çok video"
-        default: "120"
+        default: "400"
       kosular:
         description: "belirli koşular (TARIH_HİP_KOŞU boşlukla); doluysa yalnız bunlar"
         default: ""
@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pay: [0, 1]          # 2 paralel iş (6 Kasım 22:35, kullanıcı: hızlanalım) → ~1.900 video/gün
+        pay: [0, 1, 2, 3, 4, 5, 6, 7]   # 8 paralel iş (8 Kasım 12:17, kullanıcı: "Hızlandır"); iş başına ~400 video ≈ 2,3 sa
     runs-on: ubuntu-24.04
     timeout-minutes: 170
     steps:
@@ -38,6 +38,6 @@ jobs:
           git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
           ( while true; do sleep 600; git add data/spiker; git commit -qm "spiker (ara kayıt)"; for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && break; sleep $((RANDOM % 20 + 5)); done; done ) &
           if [ -n "${{ github.event.inputs.kosular }}" ]; then [ "${{ matrix.pay }}" = "0" ] && python3 -m tjk.spiker tek ${{ github.event.inputs.kosular }} 2>&1 | grep -v "HF_TOKEN\|unauthenticated" | tail -40; else
-          python3 -m tjk.spiker calis ${{ github.event.inputs.n || '120' }} ${{ matrix.pay }} 2 2>&1 | grep -v "HF_TOKEN\|unauthenticated" | tail -80; fi
+          python3 -m tjk.spiker calis ${{ github.event.inputs.n || '400' }} ${{ matrix.pay }} 8 2>&1 | grep -v "HF_TOKEN\|unauthenticated" | tail -80; fi
           git add data/spiker; git commit -qm "spiker yazı" || exit 0
           for i in 1 2 3 4 5 6 7 8; do git pull --rebase -q && git push -q && exit 0; sleep $((RANDOM % 25 + 5)); done; exit 1
