@@ -160,8 +160,27 @@ def _kombine(nos, p, qd, a5, K, fm, B=500.0):
     return {"tur": f"kombine{K}", "atlar": [int(nos[i]) for i in at], "n": n, "misli": _misli(n, bi), "tahmini_ev": round(float((pm[cur] * oh[cur]).sum() / (n * bi)), 3)}
 
 
+def _esik(nos, p, qd, a5):
+    """T188: sıralı ikili 'yüksek eşik' kolları (T187-D). Bayrak: p_model(a,b) ≥ 0,02 VE p_model/p_piyasa ≥ eşik; evren = G1-S ilk 9 at; 1 birim/çift."""
+    n = len(nos)
+    if n < 6:
+        return []
+    cand = list(np.argsort(-p)[:9]); P = np.array(list(itertools.permutations(cand, 2)))
+    pm = _pl_vec(P, p, a5, 2); pq = np.maximum(_pl_vec(P, qd, GP, 2), 1e-12); r = pm / pq
+    out = []
+    for ad, es in (("si_e13", 1.3), ("si_e15", 1.5), ("si_e20", 2.0)):
+        f = (r >= es) & (pm >= 0.02); N = int(f.sum())
+        if N == 0:
+            continue
+        out.append({"tur": ad, "pairs": [[int(nos[a]), int(nos[b])] for a, b in P[f]], "n": N, "misli": 1,
+                    "p_model": round(float(pm[f].sum()), 4), "p_piyasa": round(float(pq[f].sum()), 4)})
+    return out
+
+
 def _kombolar(q):
     t = q["tur"]
+    if t.startswith("si_e"):
+        return {tuple(c) for c in q["pairs"]}
     if t == "si_kombine":
         return {c for c in itertools.permutations(q["atlar"], 2)}
     if t.startswith("kombine"):
@@ -213,6 +232,10 @@ def guncelle(obj, simdi=None, geriye=False):
                             kup = []; hv = m.get("havuz_acik") or {}
                             if hv.get("dk") is not None and hv["dk"] >= -5 and hv.get("durum", "AÇIK") == "AÇIK":
                                 kup += _ikili(nos, p, a5, hv.get("si"), True) + _ikili(nos, p, a5, hv.get("ik"), False)
+                            try:
+                                kup += _esik(nos, p, qd, a5)    # T188: sıralı ikili yüksek eşik (liste gerekmez)
+                            except Exception as e:
+                                print("deger_golge esik", anahtar, repr(e))
                             for K in (3, 4, 5):
                                 if K == 3 and k.get("uclu") is False: continue
                                 if K == 4 and k.get("tabela") is False: continue
@@ -261,7 +284,7 @@ def guncelle(obj, simdi=None, geriye=False):
     ozet_yaz()
 
 
-ADLAR = {"si_virgul": "Sıralı ikili · virgüllü", "si_kombine": "Sıralı ikili · kombine", "ik_kombine": "İkili · kombine",
+ADLAR = {"si_virgul": "Sıralı ikili · virgüllü", "si_kombine": "Sıralı ikili · kombine", "si_e13": "Sıralı ikili · değer işareti ≥1,3 (referans)", "si_e15": "Sıralı ikili · değer işareti ≥1,5 (ANA)", "si_e20": "Sıralı ikili · değer işareti ≥2,0 (küçük örnek)", "ik_kombine": "İkili · kombine",
          "deger3": "Sıralı üçlü · virgüllü", "kombine3": "Sıralı üçlü · kombine", "deger4": "Tabela · virgüllü", "deger5": "Sıralı 5'li · virgüllü", "kombine5": "Sıralı 5'li · kombine"}
 
 
