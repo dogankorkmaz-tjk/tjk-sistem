@@ -1,1 +1,12 @@
-koşu (analize giren, ≥5 ölçülmüş at) 0 / algılanan 0; kare: toplam 0, yönlü 0, kullanılan 0
+koşu (analize giren, ≥5 ölçülmüş at) 301 / algılanan 569; kare: toplam 144324, yönlü 8521, kullanılan 3653
+BİRİNCİL koşu içi Spearman(LAT, FM) ort -0.024 [-0.064; +0.015] medyan +0.000
+İKİNCİL kapı kontrollü kısmi korelasyon ort -0.040 [-0.102; +0.023] (n 200) | karşılaştırma: Spearman(kapı, FM) ort +0.468
+kapsama: ölçülmüş at / alan ortalama 0.86
+  adana: n 15 ort -0.068
+  ankara: n 25 ort +0.089
+  bursa: n 11 ort -0.142
+  elazig: n 7 ort +0.054
+  istanbul: n 115 ort -0.040
+  izmir: n 126 ort -0.017
+  kocaeli: n 2 ort -0.270
+KARAR: ÖLÇÜLEMEDİ → teşhis
