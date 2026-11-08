@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 10:21 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-08 19:25 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 · Aday / ileri takipte: 9 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 52 · Karar belirsiz: 41 · Geçti: 17 · Sonuç bekleniyor: 14 · Aday / ileri takipte: 9 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -116,7 +116,7 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 
 | T137 | yorumcu bilgi taşıyor mu? (kullanıcı: "Başlat") | Tanımlayıcı / keşif (karar yok) | kayıt 1 (betimsel; | KARAR YOK) n(A)=36 (<300) → karar yok. A: 6 kazanan / 4,1 beklenen, O/E 1,47 [0,85–1,88]. B tümü n=247, 31 / 21,8, O/E 1,42 [1,16–1,66]; oy=1 (164) 1,52 [1,04–1,98]; oy≥2 (83) 1,28 [0,88–1,45]. Eklenen TABAN: aynı gün/hipodromlardaki TÜM piyasa sırası ≥3 atla… |
 | T168 | kapanış öncesi görülen fiyatla bahis: ikili / sıralı ikili ve ganyan (kullanıcı: "Başlat"; "canlı sekmemiz he… | Tanımlayıcı / keşif (karar yok) ~ | (data/analiz/t168_once.py → t168_sonuc.txt) Kapsam: 116 AÇIK havuz kaydının çoğu yurt dışı/Kasım → model önbelleğiyle eşleşen yurt içi ikili koşusu yalnız ~10 (Ekim 15–31, 4 gün). Ganyan: 146 koşu, 14 gün, ortalama koşuya 1,7 dk.… | (açık karar satırı yok, son cümlelerden çıkarıldı) il: kazananlarda tipik ~%4 aşağı kayma. Canlı'da EV gösterilirken kapanış kayması payı (ikili/ganyan ×0,96) uygulanmalı; ileri pencere (havuz_acik kaydı, 7 Kasım'dan itibaren) bunu her gün büyütecek. |
 
-## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 40
+## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 41
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -160,6 +160,7 @@ Toplam: Elendi: 52 · Karar belirsiz: 40 · Geçti: 17 · Sonuç bekleniyor: 14 
 | T180 | altılı kupon kuralları, ayak bazlı düşük-varyanslı ROI tahmini (kullanıcı: "favori kazandıkça altılı yeterinc… | Karar belirsiz | (t180_sonuc.txt, t180b_*.txt, t180c_sonuc.txt) — İLK TAHMİN EDİCİ HATALI ÇIKTI, DÜZELTİLDİ (ön kayıtlı karar kuralı aynı) İlk çalışma (ön kayıtlı formül) tüm kurallar için ROI >1 verdi (F192 2,27; D48 34,7): akıl kontrolü başarıs… |  |
 | T184 | videodan yan konum → gerçek fazladan mesafe (Accurace) doğrulaması (kullanıcı: "Başlat"; model Opus) | Karar belirsiz | (data/analiz/t184_sonuc.txt, ön kayıtlı betik DEĞİŞTİRİLMEDEN; 569 koşu algılandı, 301'i analize girdi) BİRİNCİL koşu içi Spearman(LAT, FM) ort −0,024 [−0,064; +0,015], medyan 0,000. İKİNCİL kapı kontrollü kısmi −0,040 [−0,102; +… | KARAR (ön kayıt): ÖLÇÜLEMEDİ → teşhis. TEŞHİS: 144.324 karenin yalnız 8.521'i (%6) yön bulabildi, 3.653'ü kullanıldı. Kamera kayması ölçümü bozuk: ±1 sn penceredeki \|Σdx\| medyan 0,9 px (yüzdelik 90: 3,7; eşik 5), faz korelasyonu çoğu karede ~0 kayma veriyor.… |
 | T184-B | kamera kayması düzeltmesi (kullanıcı: "Onaylıdır, yap") | Karar belirsiz | (t184b_sonuc.txt; ön kayıtlı betik değiştirilmeden) ÖN KOŞUL SAĞLANDI: kullanılan kare 51.655/144.324 = %35,8 (eşik %20; T184'te %2,5) → yön düzeltmesi çalıştı; 562 koşu analize girdi, ölçülmüş at/alan 0,93. BİRİNCİL Spearman(LAT… | KARAR (ön kayıt): \|ort\| < 0,25 ve işaret ≤ −0,25 değil → "ÖLÇÜLEMEDİ → teşhis". Sinyal istatistik olarak net ama ters ve zayıf. TEŞHİS (data/analiz/t184b_tani.py/.txt; betimsel): LAT ~ şeritteki öndelik −0,523 (önde giden atların kutusu büyük: kamera öncüleri… |
+| T187 | "piyasa nerede sistematik yanılıyor?" (kullanıcı: "Başlat sırayla hepsini dene"). Sonuçlar görülmeden yazıldı… | Karar belirsiz | A+B (t187_ab_sonuc.txt; 226.994 at-koşu, 2.923 koşu-günü eşleşmiş meta, 1.391 gün; keşif ≤2025-03, doğrulama 2025-04→) A: Piyasa favori-uzunşans yanlılığı VAR: pm<0,03 oran 0,74 [0,69;0,79], ROI −53%; pm 0,03–0,06 oran 0,95; orta… | KARAR (ön kayıt): piyasa sistematik yanlış fiyatlıyor ama yanlış yön (uzun atların fazla fiyatlandığı) takeout içinde kalıyor; bu boyutlarda kâr çıkarılabilir yanlış fiyat YOK. Tüm bantlar + doğrulamada en iyi hücreler −24…−30% ROI. Adım C: Actions t187_c.yml… |
 
 ## Ön kayıtlı, sonucu henüz yok — 14
 

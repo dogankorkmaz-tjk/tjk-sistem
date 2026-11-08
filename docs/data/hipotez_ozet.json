@@ -1,9 +1,9 @@
 {
- "guncelleme": "2026-11-08T10:21",
+ "guncelleme": "2026-11-08T19:25",
  "sayim": {
   "Geçti": 17,
   "Elendi": 52,
-  "Karar belirsiz": 40,
+  "Karar belirsiz": 41,
   "Tanımlayıcı / keşif": 6,
   "Sonuç bekleniyor": 14,
   "Karma": 2,
@@ -1269,6 +1269,15 @@
    "ozet": "(t186_sonuc.txt): Accurace eşleşen 6.102 at-koşu / 649 koşu; sınama koşusu (2026-06…11) 1.357, özelliği olan at %18. ANA piyasalı JVT − JV2 +0,00051 [−0,00356; +0,00449] (pozitif ay 3/6); piyasasız +0,00051 [−0,00280; +0,00403] (…",
    "neden": "KARAR: ADAY DEĞİL — yer kaybı, 15 Ekim'in 3,4 katı örnekte de ölçülemedi; GA üst sınırı +0,0045 → ≥ +0,005'lik etki bu veriyle dışlandı. 1 Aralık'taki planlı tekrar bununla karşılandı; yeni tekrar ancak sınama koşusu ~4.000'e çıkarsa anlamlı (küçük etki gücü)…",
    "satir": 2601
+  },
+  {
+   "id": "T187",
+   "konu": "\"piyasa nerede sistematik yanılıyor?\" (kullanıcı: \"Başlat sırayla hepsini dene\"). Sonuçlar görülmeden yazıldı…",
+   "tarih": "2026-11-08",
+   "durum": "Karar belirsiz",
+   "ozet": "A+B (t187_ab_sonuc.txt; 226.994 at-koşu, 2.923 koşu-günü eşleşmiş meta, 1.391 gün; keşif ≤2025-03, doğrulama 2025-04→) A: Piyasa favori-uzunşans yanlılığı VAR: pm<0,03 oran 0,74 [0,69;0,79], ROI −53%; pm 0,03–0,06 oran 0,95; orta…",
+   "neden": "KARAR (ön kayıt): piyasa sistematik yanlış fiyatlıyor ama yanlış yön (uzun atların fazla fiyatlandığı) takeout içinde kalıyor; bu boyutlarda kâr çıkarılabilir yanlış fiyat YOK. Tüm bantlar + doğrulamada en iyi hücreler −24…−30% ROI. Adım C: Actions t187_c.yml…",
+   "satir": 2612
   }
  ]
 }
