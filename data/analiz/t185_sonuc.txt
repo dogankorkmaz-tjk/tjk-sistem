@@ -16,3 +16,20 @@ koşu 22975
 2026-05 154
 2026-06 148
 2026-07 131
+2026-08 137
+2026-09 150
+2026-10 145
+2026-11 34
+devirli 232 devirsiz örnek 250
+b 600 piyasa  devirli  n= 232 vuruş 21 (beklenen model 14.6) ROI +3.4% [-51.0%,+70.3%] ort.oran 1.000
+b 600 piyasa  devirsiz n= 250 vuruş 29 (beklenen model 17.9) ROI -14.0% [-62.5%,+41.4%] ort.oran 1.000
+b 600 G1-S    devirli  n= 232 vuruş 26 (beklenen model 15.8) ROI +21.1% [-39.5%,+83.7%] ort.oran 1.178
+b 600 G1-S    devirsiz n= 250 vuruş 31 (beklenen model 18.9) ROI +8.5% [-45.0%,+66.4%] ort.oran 1.136
+b1200 piyasa  devirli  n= 232 vuruş 40 (beklenen model 23.0) ROI +48.4% [-18.4%,+135.3%] ort.oran 1.000
+b1200 piyasa  devirsiz n= 250 vuruş 35 (beklenen model 27.9) ROI -26.1% [-60.1%,+14.2%] ort.oran 1.000
+b1200 G1-S    devirli  n= 232 vuruş 35 (beklenen model 24.9) ROI +35.0% [-26.7%,+116.4%] ort.oran 1.176
+b1200 G1-S    devirsiz n= 250 vuruş 43 (beklenen model 29.7) ROI -11.3% [-47.7%,+34.7%] ort.oran 1.133
+b2400 piyasa  devirli  n= 232 vuruş 50 (beklenen model 35.3) ROI +16.6% [-31.0%,+76.8%] ort.oran 1.000
+b2400 piyasa  devirsiz n= 250 vuruş 52 (beklenen model 42.2) ROI -35.9% [-62.0%,-5.5%] ort.oran 1.000
+b2400 G1-S    devirli  n= 232 vuruş 47 (beklenen model 38.5) ROI +10.3% [-37.0%,+66.5%] ort.oran 1.150
+b2400 G1-S    devirsiz n= 250 vuruş 51 (beklenen model 44.9) ROI -38.6% [-62.8%,-8.5%] ort.oran 1.123
