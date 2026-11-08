@@ -74,6 +74,9 @@ def _havuz(run):
         t = b.get("B")
         if t in ("SIRALI İKİLİ", "İKİLİ"):
             o["si" if t == "SIRALI İKİLİ" else "ik"] = [[x.get("S1"), x.get("S2"), x.get("G")] for x in (b.get("muhtemeller") or [])]
+        elif t and "PLASE" in str(t).upper():   # 8 Kas 2026 (veri toplama, kural değil): plase muhtemelleri varsa olduğu gibi kaydet (Dr Z testi için)
+            o.setdefault("pl", {})[str(t)] = [[x.get("S1"), x.get("S2"), x.get("G"), x.get("A")] for x in (b.get("muhtemeller") or [])]
+    o["turler"] = [b.get("B") for b in m.get("bahisler", [])]   # hangi bahis türleri yayında (ilk kayıt: plase var mı?)
     return o
 
 
