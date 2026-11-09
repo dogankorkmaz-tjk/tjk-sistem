@@ -2685,3 +2685,9 @@ USUL NOTU: betik yazıldı; yalnız özellik üretimi (T195_DEBUG, sonuç ölçm
 Kollar (aynı _fit lam=100, çeyreklik ileri-yürüyüş 2025Q3→): J=Jason, E=J+Elo, EP=E+f_pl, EM=E+f_plm, P=J+f_pl.
 Ölçü: kazananın (log p − log p_piyasa) farkı, gün-kümeli bootstrap (seed 1950). ANA: EP−E ve EM−E, Bonferroni %98,75 GA; ayrıca 2025H2 ve 2026 ayrı nokta tahmini. P−J, E−J bilgi amaçlı (%95).
 KARAR (önceden): bir ANA için alt sınır>0 VE iki yarıda da nokta>0 → ADAY (canlı değişiklik yok; ayrı onay+ileri kayıt gerekir); aksi → YOK. Model/kural değişmez. Çalışma: Actions t195.yml.
+
+SONUÇ T195 (2026-11-10 01:58; t195_sonuc.txt; 2025Q3→2026Q4, ileri-yürüyüş; kazanan log-olabilirlik farkı, nats/koşu): EP−E +0,00128 [+0,00067; +0,00188] (2025H2 +0,00064, 2026 +0,00168); EM−E +0,00045 [+0,00015; +0,00077] (2025H2 +0,00028, 2026 +0,00057); bilgi: P−J +0,00154, E−J +0,00825. KARAR (kurala göre): ADAY (her iki kol). YORUM: etki çok küçük (Elo'nun kendi kazancının ~%15'i), ROI'ye çevrilmedi; canlı model DEĞİŞMEDİ; kullanmak için ayrı onay + ROI/ileri kayıt ön kaydı gerekir.
+
+## 2026-11-10 02:00 — ÖN KAYIT T194 komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: "Tamam bitince onayıma gerek kalmadan testi başlat"; arşiv: 999 rapor, 2025-07→2026-11, 10 hipodrom; ayrıştırma: gec_start 181, sakat 341, kamci_ceza 203 olay)
+Hipotez: raporda adı geçen at, SONRAKİ koşusunda piyasa p'sinden sistematik sapar. Yönler: gec_start + (piyasa gecikmeyi fazla cezalandırır), sakat − (piyasa yetersiz cezalandırır), kamci_ceza iki yönlü.
+Ölçü: sonraki start (≤90 gün) için (kazandı − p_piyasa) ortalaması − aynı rapor penceresindeki tüm sonraki startların ortalaması (taban); bayrak başına n≥30 şart (altı: karar yok); gün-kümeli bootstrap seed 1940, Bonferroni 3 → %98,33 GA. KARAR: GA 0'ı dışlarsa 'işaret' (ileri kayıt gerekir), aksi 'yok'. Model/kural değişmez. Çalışma: Actions t194.yml.
