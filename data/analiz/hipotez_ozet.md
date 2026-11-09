@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-09 08:21 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-09 08:25 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 54 · Karar belirsiz: 44 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -119,7 +119,7 @@ Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T137 | yorumcu bilgi taşıyor mu? (kullanıcı: "Başlat") | Tanımlayıcı / keşif (karar yok) | kayıt 1 (betimsel; | KARAR YOK) n(A)=36 (<300) → karar yok. A: 6 kazanan / 4,1 beklenen, O/E 1,47 [0,85–1,88]. B tümü n=247, 31 / 21,8, O/E 1,42 [1,16–1,66]; oy=1 (164) 1,52 [1,04–1,98]; oy≥2 (83) 1,28 [0,88–1,45]. Eklenen TABAN: aynı gün/hipodromlardaki TÜM piyasa sırası ≥3 atla… |
 | T168 | kapanış öncesi görülen fiyatla bahis: ikili / sıralı ikili ve ganyan (kullanıcı: "Başlat"; "canlı sekmemiz he… | Tanımlayıcı / keşif (karar yok) ~ | (data/analiz/t168_once.py → t168_sonuc.txt) Kapsam: 116 AÇIK havuz kaydının çoğu yurt dışı/Kasım → model önbelleğiyle eşleşen yurt içi ikili koşusu yalnız ~10 (Ekim 15–31, 4 gün). Ganyan: 146 koşu, 14 gün, ortalama koşuya 1,7 dk.… | (açık karar satırı yok, son cümlelerden çıkarıldı) il: kazananlarda tipik ~%4 aşağı kayma. Canlı'da EV gösterilirken kapanış kayması payı (ikili/ganyan ×0,96) uygulanmalı; ileri pencere (havuz_acik kaydı, 7 Kasım'dan itibaren) bunu her gün büyütecek. |
 
-## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 43
+## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 44
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -166,8 +166,9 @@ Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T187 | "piyasa nerede sistematik yanılıyor?" (kullanıcı: "Başlat sırayla hepsini dene"). Sonuçlar görülmeden yazıldı… | Karar belirsiz | A+B (t187_ab_sonuc.txt; 226.994 at-koşu, 2.923 hipodrom-günü, 1.391 gün; meta atyarisi'nden; keşif ≤2025-03, doğrulama 2025-04→) A: Piyasa favori-uzunşans yanlılığı VAR: pm<0,03 oran 0,74 [0,69;0,79], ROI −53%; pm 0,03–0,06 oran… | KARAR (ön kayıt): piyasa sistematik yanlış fiyatlıyor ama yanlış yön (uzun atların fazla fiyatlandığı) takeout içinde kalıyor; bu boyutlarda kâr çıkarılabilir yanlış fiyat YOK. Tüm bantlar + doğrulamada en iyi hücreler −24…−30% ROI. Adım C: Actions t187_c.yml… |
 | T189 | PLASE (ilk 2) geriye dönük piyasa-yanlış-fiyat testi (kullanıcı: "Başlat", 8 Kasım 2026 23:31; kaynak: Dr Z /… | Karar belirsiz | (2026-11-08 23:38; t189_sonuc.txt; 2025-04→2026-11, ileri-yürüyüş): R0 (tüm atlara) ROI −23,4% [−26,2;−20,5] (plase takeout ≈ %23). ANA (oran ≥1,15, pg≥0,10): 7.533 bahis, isabet 1.740, ROI −15,8% [Bonf. −21,6;−10,0]; referanslar… | KARAR: YOK (nokta ≤ 0, üst sınır < 0). Plase için kural/kupon değişikliği yok; mevcut pm-ilk2 canlı kağıt kaydı (240 bahis, 1,054) bu sonuçla çelişen küçük örnek gürültüsü sayılır, kural değişmeden sürer. Not: plase havuz tutarları kayıtlı olmadığı için gerçe… |
 | T192 | tay (≤3 yaş) ve yetişkin koşuları için AYRI model (kullanıcı: "Çalıştır; tay ve yetişkin koşularında farklı k… | Karar belirsiz | (2026-11-09 11:45; t192_sonuc.txt; düzeltilmiş çalışma; 2025Q3→2026Q4, 8.682 koşu, tay 4.374 / yetişkin 4.308; Bonf. %98,75 GA): Ayrı − Jason (nats/koşu): TAY −0,00032 [−0,0029; +0,0024] (2025 −0,0011, 2026 +0,0002); YETİŞKİN −0,… | KARAR: tay YOK, yetişkin YOK. Ayrı model tek modele göre kazanmıyor (nokta tahminleri hafif negatif, GA sıfırı kapsıyor). Betimleyici katsayı farkları (son fold, std ölçekli, yetişkin/tay): f_kgs −0,03/+0,13 (tayda son koşudan beri gün sayısı daha önemli), f_… |
+| T193 | galop katsayıları tay ve yetişkin için AYRI (kullanıcı: "Çalıştır" | Karar belirsiz | (2026-11-09 11:50; t193_sonuc.txt; 2026-04..10 ileri-yürüyüş, tay 2.081 / yetişkin 1.873 koşu, 23 koşu yaş eşleşmedi; Bonf. %98,75 GA; fark = ayrı − ortak, negatif iyi): TAY +0,0026 [−0,0004; +0,0057] (04–07 +0,0028, 08–10 +0,002… | KARAR: tay YOK, yetişkin YOK. Ayrı galop katsayıları ortak katsayıdan HAFİF KÖTÜ (toplamda GA sıfırın üstünde yani ayrı model anlamlı biçimde daha kötü): galobun etkisi zaten çok küçük (~%0,2), eğitim verisini ikiye bölmek gürültüyü artırıyor. Betimleyici (so… |
 
-## Ön kayıtlı, sonucu henüz yok — 17
+## Ön kayıtlı, sonucu henüz yok — 16
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -187,4 +188,3 @@ Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
-| T193 | galop katsayıları tay ve yetişkin için AYRI (kullanıcı: "Çalıştır" | Sonuç bekleniyor |  |  |

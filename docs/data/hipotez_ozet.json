@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-09T08:21",
+ "guncelleme": "2026-11-09T08:25",
  "sayim": {
   "Geçti": 17,
   "Elendi": 54,
-  "Karar belirsiz": 43,
+  "Karar belirsiz": 44,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 17,
+  "Sonuç bekleniyor": 16,
   "Karma": 2,
   "Aday / ileri takipte": 10
  },
@@ -1346,10 +1346,10 @@
    "id": "T193",
    "konu": "galop katsayıları tay ve yetişkin için AYRI (kullanıcı: \"Çalıştır\"",
    "tarih": "2026-11-09",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-09 11:50; t193_sonuc.txt; 2026-04..10 ileri-yürüyüş, tay 2.081 / yetişkin 1.873 koşu, 23 koşu yaş eşleşmedi; Bonf. %98,75 GA; fark = ayrı − ortak, negatif iyi): TAY +0,0026 [−0,0004; +0,0057] (04–07 +0,0028, 08–10 +0,002…",
+   "neden": "KARAR: tay YOK, yetişkin YOK. Ayrı galop katsayıları ortak katsayıdan HAFİF KÖTÜ (toplamda GA sıfırın üstünde yani ayrı model anlamlı biçimde daha kötü): galobun etkisi zaten çok küçük (~%0,2), eğitim verisini ikiye bölmek gürültüyü artırıyor. Betimleyici (so…",
+   "satir": 2679
   }
  ]
 }
