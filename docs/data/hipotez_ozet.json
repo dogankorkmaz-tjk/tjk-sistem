@@ -1,8 +1,8 @@
 {
- "guncelleme": "2026-11-09T07:39",
+ "guncelleme": "2026-11-09T07:58",
  "sayim": {
   "Geçti": 17,
-  "Elendi": 53,
+  "Elendi": 54,
   "Karar belirsiz": 42,
   "Tanımlayıcı / keşif": 6,
   "Sonuç bekleniyor": 16,
@@ -1323,6 +1323,15 @@
    "ozet": "",
    "neden": "",
    "satir": 0
+  },
+  {
+   "id": "T191",
+   "konu": "kilo-düzeltmeli (K) ve rakip-gücü ('zorluk merkezi', Z) hız figürü (kullanıcı: \"İkisini de test et\"; kaynak:…",
+   "tarih": "2026-11-09",
+   "durum": "Elendi",
+   "ozet": "(2026-11-09 11:10): β = −0,218 sn/kg (n=116.885) → K KOLU ÇALIŞTIRILMADI (kuralı gereği). Neden: veride ağır kilo taşıyan at daha hızlı bitiriyor, çünkü iyi atlara (handikap) daha fazla kilo yükleniyor; kalite ile kilo karışık, v…",
+   "neden": "KARAR: K = test edilemedi; Z = YOK (GA alt ≤ 0). Etki ≈ %0,05 olasılık kazancı, ROI'ye çevrilmesi beklenmez. Açık: K için sabit, dışarıdan (literatür) bir β ile ayrı ön kayıt yapılabilir; β sonucu gördükten sonra seçilemeyeceğinden onay + yeni giriş gerekir.",
+   "satir": 2663
   }
  ]
 }
