@@ -1,0 +1,35 @@
+name: komiser
+# Komiserler Kurulu raporları (PDF → metin). Günlük: dünün/bugünün raporları (ek raporlar sonradan eklenir). Elle: indeks | geri BAS BIT MAX
+on:
+  workflow_dispatch:
+    inputs:
+      komut: {description: "indeks | gun 4 | geri 2025-01-01 2025-07-19 1500", default: "indeks"}
+  schedule:
+    - cron: "40 20 * * *"   # 23:40 TR: bugünün raporları
+    - cron: "30 4 * * *"    # 07:30 TR: dünün nihai + ek raporlar
+concurrency:
+  group: komiser
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  k:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 345
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests pandas pdfplumber
+      - name: Çalıştır
+        run: |
+          set +e
+          K="${{ github.event.inputs.komut }}"; [ -z "$K" ] && K="gun 4"
+          python3 -m tjk.komiser $K 2>&1 | tee /tmp/komiser_log.txt | tail -40
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name "tjk-bot"; git config user.email "tjk-bot@users.noreply.github.com"
+          git add data/komiser; git commit -qm "komiser raporları ($(tail -1 /tmp/komiser_log.txt | cut -c1-80))" || exit 0
+          for i in 1 2 3 4 5 6; do git pull --rebase -q && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done; exit 1
