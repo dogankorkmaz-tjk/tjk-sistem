@@ -31,10 +31,11 @@ for kq in [q for q in sorted(d.q.unique()) if q >= "2025Q3"]:
     te["p_A"] = np.nan
     for g in (0, 1):
         trg = tr[tr.tay == g]
-        thg, mug, sdg, nkg = _fit(trg, feat, M.get("lam", 100.0))
-        pg = skorla(te, feat, thg, mug, sdg)
+        fg = [c for c in feat if trg[c].std(ddof=0) > 0]      # grupta sabit özellik (sd=0) → çıkar (NaN önlemi)
+        thg, mug, sdg, nkg = _fit(trg, fg, M.get("lam", 100.0))
+        pg = skorla(te, fg, thg, mug, sdg)
         te.loc[te.tay == g, "p_A"] = pg[(te.tay == g).values]
-        kats[(kq, g)] = (len(trg), thg)
+        kats[(kq, g)] = (len(trg), thg, fg)
     w = te[te.kazandi == 1]
     rows.append(pd.DataFrame({"fold": kq, "tarih": w.tarih.values, "tay": w.tay.values,
                               "J": (np.log(w.p_J) - np.log(w.p_piyasa)).values, "A": (np.log(w.p_A) - np.log(w.p_piyasa)).values}))
@@ -57,9 +58,9 @@ def ok(ad):
 print("KARAR: tay", "ADAY" if ok("tay") else "YOK", "| yetiskin", "ADAY" if ok("yetiskin") else "YOK", "(toplam bilgi amaçlı)")
 # betimleyici: son foldda iki grubun katsayıları (std ölçekli), farkı en büyük 12 özellik
 kq = sorted({k for k, _ in kats})[-1]
-(n0, t0), (n1, t1) = kats[(kq, 0)], kats[(kq, 1)]
-names = ["lp(piyasa)"] + feat
-dif = sorted(zip(names, t0, t1), key=lambda x: -abs(x[2] - x[1]))[:12]
+(n0, t0, f0), (n1, t1, f1) = kats[(kq, 0)], kats[(kq, 1)]
+c0 = dict(zip(["lp(piyasa)"] + f0, t0)); c1 = dict(zip(["lp(piyasa)"] + f1, t1))
+dif = sorted([(a, c0.get(a, 0.0), c1.get(a, 0.0)) for a in set(c0) | set(c1)], key=lambda x: -abs(x[2] - x[1]))[:12]
 print("KATSAYI (son fold", kq, "; eğitim n yetişkin", n0, "tay", n1, ") özellik: yetişkin / tay")
 for a, b, c in dif: print(f"  {a}: {b:+.3f} / {c:+.3f}")
 json.dump(res, open(os.path.join(KOK, "data", "analiz", "t192.json"), "w"), indent=1)
