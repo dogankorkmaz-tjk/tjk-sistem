@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-09 20:19 UTC",
+ "uretim": "2026-11-09 20:28 UTC",
  "kayitli_kosu": 1769,
- "eslesmeyen_kosu": 1188,
+ "eslesmeyen_kosu": 1186,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 976,
- "kosu": 581,
- "isabet": 62,
- "roi": 0.882,
+ "bahis": 980,
+ "kosu": 583,
+ "isabet": 63,
+ "roi": 0.899,
  "ga95": [
-  0.638,
-  1.167
+  0.654,
+  1.184
  ],
  "ulke": {
   "abd": {
-   "bahis": 618,
-   "roi": 0.754
+   "bahis": 622,
+   "roi": 0.781
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,72 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1256,
-  "kosu": 565,
-  "isabet": 120,
-  "roi": 0.62,
+  "bahis": 1262,
+  "kosu": 567,
+  "isabet": 121,
+  "roi": 0.633,
   "ga95": [
-   0.477,
-   0.769
+   0.489,
+   0.784
   ]
  },
  "bahis_t1": {
-  "bahis": 1276,
-  "kosu": 555,
-  "isabet": 127,
-  "roi": 0.672,
+  "bahis": 1282,
+  "kosu": 557,
+  "isabet": 128,
+  "roi": 0.685,
   "ga95": [
-   0.489,
-   0.88
+   0.501,
+   0.89
   ]
  },
  "bahis_t3": {
-  "bahis": 1244,
-  "kosu": 538,
-  "isabet": 137,
-  "roi": 0.671,
+  "bahis": 1252,
+  "kosu": 540,
+  "isabet": 139,
+  "roi": 0.686,
   "ga95": [
-   0.496,
-   0.884
+   0.509,
+   0.9
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Marseille-borely",
-   "kosu": 4,
-   "at": "MEFIE TOI",
-   "q": 0.203,
-   "g": 6.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Marseille-borely",
-   "kosu": 4,
-   "at": "COUNSELOR",
-   "q": 0.305,
-   "g": 5.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Marseille-borely",
-   "kosu": 5,
-   "at": "TOUESSROK",
-   "q": 0.126,
-   "g": 12.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Marseille-borely",
-   "kosu": 5,
-   "at": "CAMELOT CITY",
-   "q": 0.168,
-   "g": 7.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Southwell",
@@ -409,6 +373,24 @@
   },
   {
    "gun": "2026-11-09",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "NOSTALGIA'S SMILE",
+   "q": 0.125,
+   "g": 12.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "ISOMARSHALL",
+   "q": 0.055,
+   "g": 27.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
    "pist": "Horseshoe Indianapolis",
    "kosu": 3,
    "at": "SPEIGHT KNIGHT",
@@ -423,6 +405,24 @@
    "at": "LEVER DE RIDEAU",
    "q": 0.473,
    "g": 2.75,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mahoning Valley",
+   "kosu": 6,
+   "at": "QUARANTINO",
+   "q": 0.102,
+   "g": 19.85,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mahoning Valley",
+   "kosu": 6,
+   "at": "MCVICKER",
+   "q": 0.166,
+   "g": 18.3,
    "kazandi": false
   }
  ]
