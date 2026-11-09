@@ -2542,5 +2542,65 @@
 "acik_son_dk": 1.4,
 "kapali_ilk_dk": 4.3,
 "n": 16
+},
+"2026-11-08|ADANA-5": {
+"saat": "19:30",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": 4.4,
+"n": 10
+},
+"2026-11-08|ADANA-6": {
+"saat": "20:00",
+"acik_son_dk": -11.0,
+"kapali_ilk_dk": null,
+"n": 8
+},
+"2026-11-08|MARONAS-1": {
+"saat": "22:30",
+"acik_son_dk": -1.4,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-11-08|MARONAS-2": {
+"saat": "23:00",
+"acik_son_dk": 5.2,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-11-08|MARONAS-3": {
+"saat": "23:30",
+"acik_son_dk": -4.6,
+"kapali_ilk_dk": 11.2,
+"n": 2
+},
+"2026-11-08|MARONAS-4": {
+"saat": "00:00",
+"acik_son_dk": 1439.8,
+"kapali_ilk_dk": null,
+"n": 23
+},
+"2026-11-08|WOODBINE-1": {
+"saat": "22:34",
+"acik_son_dk": -5.4,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-11-08|WOODBINE-2": {
+"saat": "23:04",
+"acik_son_dk": 1.2,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-11-08|WOODBINE-3": {
+"saat": "23:34",
+"acik_son_dk": -8.6,
+"kapali_ilk_dk": 7.2,
+"n": 2
+},
+"2026-11-08|WOODBINE-4": {
+"saat": "00:04",
+"acik_son_dk": 1435.8,
+"kapali_ilk_dk": null,
+"n": 17
 }
 }

@@ -1,22 +1,22 @@
 {
  "tarih": "2026-11-09",
- "zaman": "2026-11-09 03:40 TR",
+ "zaman": "2026-11-09 10:11 TR",
  "genel": "ok",
  "kontroller": [
   {
    "ad": "veri: sonuclar",
    "durum": "ok",
-   "detay": "son gün 2026-11-07 (2 gün önce)"
+   "detay": "son gün 2026-11-08 (1 gün önce)"
   },
   {
    "ad": "veri: temiz",
    "durum": "ok",
-   "detay": "son gün 2026-11-07 (2 gün önce)"
+   "detay": "son gün 2026-11-08 (1 gün önce)"
   },
   {
    "ad": "veri: program",
    "durum": "ok",
-   "detay": "son gün 2026-11-07 (2 gün önce)"
+   "detay": "son gün 2026-11-08 (1 gün önce)"
   },
   {
    "ad": "veri: odeme",
@@ -26,7 +26,7 @@
   {
    "ad": "veri: agf",
    "durum": "ok",
-   "detay": "son gün 2026-11-07 (2 gün önce)"
+   "detay": "son gün 2026-11-08 (1 gün önce)"
   },
   {
    "ad": "veri: galop",
@@ -36,22 +36,22 @@
   {
    "ad": "atyarisi arşivi (dün)",
    "durum": "ok",
-   "detay": "sonuçlar 03:40'ta tamamlanacak"
+   "detay": "tam"
   },
   {
    "ad": "Jason eğitimi",
    "durum": "ok",
-   "detay": "2026-11-07 (2 gün önce)"
+   "detay": "2026-11-08 (1 gün önce)"
   },
   {
    "ad": "Benter eğitimi",
    "durum": "ok",
-   "detay": "2026-11-08 (1 gün önce)"
+   "detay": "2026-11-09 (0 gün önce)"
   },
   {
    "ad": "piyasasız model eğitimi",
    "durum": "ok",
-   "detay": "2026-11-08 (1 gün önce)"
+   "detay": "2026-11-09 (0 gün önce)"
   },
   {
    "ad": "piyasasız model galop",
@@ -61,7 +61,7 @@
   {
    "ad": "Benter-K (gölge) eğitimi",
    "durum": "ok",
-   "detay": "2026-11-08 (1 gün önce)"
+   "detay": "2026-11-09 (0 gün önce)"
   },
   {
    "ad": "Jason puanı (z2)",
