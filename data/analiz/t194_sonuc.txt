@@ -1,0 +1,6 @@
+tay koşu payı (satır): 0.459 koşu: 10041 / 21304
+olay: {'sakat': 341, 'kamci_ceza': 203, 'gec_start': 181} rapor günü-hipodrom: 366
+taban (rapor penceresi, tüm sonraki koşular) kazanma−piyasa: 0.00071 n 70414
+gec_start {"n": 132, "ort_res": -0.014460665323263979, "ga": [-0.04643038513275435, 0.02460353477180555], "taban": 0.0007142302299394173, "fark_taban": -0.015174895553203397, "kazanma": 0.03787878787878788, "piyasa_beklenti": 0.052339453202051855, "medyan_gun": 14.0, "karar": "yok"}
+sakat {"n": 50, "ort_res": 0.03603053464492327, "ga": [-0.050641241284503494, 0.14230322055495007], "taban": 0.0007142302299394173, "fark_taban": 0.03531630441498385, "kazanma": 0.12, "piyasa_beklenti": 0.08396946535507674, "medyan_gun": 16.0, "karar": "yok"}
+kamci_ceza {"n": 172, "ort_res": 0.0007846783767569876, "ga": [-0.04859284256954364, 0.05507493948457321], "taban": 0.0007142302299394173, "fark_taban": 7.044814681757034e-05, "kazanma": 0.10465116279069768, "piyasa_beklenti": 0.10386648441394068, "medyan_gun": 14.0, "karar": "yok"}
