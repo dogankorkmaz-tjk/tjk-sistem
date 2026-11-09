@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-08 20:39 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-09 07:39 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 53 · Karar belirsiz: 42 · Geçti: 17 · Sonuç bekleniyor: 15 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 53 · Karar belirsiz: 42 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -165,7 +165,7 @@ Toplam: Elendi: 53 · Karar belirsiz: 42 · Geçti: 17 · Sonuç bekleniyor: 15 
 | T187 | "piyasa nerede sistematik yanılıyor?" (kullanıcı: "Başlat sırayla hepsini dene"). Sonuçlar görülmeden yazıldı… | Karar belirsiz | A+B (t187_ab_sonuc.txt; 226.994 at-koşu, 2.923 hipodrom-günü, 1.391 gün; meta atyarisi'nden; keşif ≤2025-03, doğrulama 2025-04→) A: Piyasa favori-uzunşans yanlılığı VAR: pm<0,03 oran 0,74 [0,69;0,79], ROI −53%; pm 0,03–0,06 oran… | KARAR (ön kayıt): piyasa sistematik yanlış fiyatlıyor ama yanlış yön (uzun atların fazla fiyatlandığı) takeout içinde kalıyor; bu boyutlarda kâr çıkarılabilir yanlış fiyat YOK. Tüm bantlar + doğrulamada en iyi hücreler −24…−30% ROI. Adım C: Actions t187_c.yml… |
 | T189 | PLASE (ilk 2) geriye dönük piyasa-yanlış-fiyat testi (kullanıcı: "Başlat", 8 Kasım 2026 23:31; kaynak: Dr Z /… | Karar belirsiz | (2026-11-08 23:38; t189_sonuc.txt; 2025-04→2026-11, ileri-yürüyüş): R0 (tüm atlara) ROI −23,4% [−26,2;−20,5] (plase takeout ≈ %23). ANA (oran ≥1,15, pg≥0,10): 7.533 bahis, isabet 1.740, ROI −15,8% [Bonf. −21,6;−10,0]; referanslar… | KARAR: YOK (nokta ≤ 0, üst sınır < 0). Plase için kural/kupon değişikliği yok; mevcut pm-ilk2 canlı kağıt kaydı (240 bahis, 1,054) bu sonuçla çelişen küçük örnek gürültüsü sayılır, kural değişmeden sürer. Not: plase havuz tutarları kayıtlı olmadığı için gerçe… |
 
-## Ön kayıtlı, sonucu henüz yok — 15
+## Ön kayıtlı, sonucu henüz yok — 16
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -184,3 +184,4 @@ Toplam: Elendi: 53 · Karar belirsiz: 42 · Geçti: 17 · Sonuç bekleniyor: 15 
 | T161 | "şanslı sonuç" (kullanıcı: "favorinin veya normalde gelmeyecek atın diğer atın şanssızlığından faydalanması d… | Sonuç bekleniyor |  |  |
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
+| T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
