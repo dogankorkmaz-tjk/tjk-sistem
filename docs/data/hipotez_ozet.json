@@ -1,5 +1,5 @@
 {
- "guncelleme": "2026-11-09T22:16",
+ "guncelleme": "2026-11-09T22:58",
  "sayim": {
   "Geçti": 17,
   "Elendi": 54,
@@ -7,7 +7,7 @@
   "Tanımlayıcı / keşif": 6,
   "Sonuç bekleniyor": 17,
   "Karma": 2,
-  "Aday / ileri takipte": 10
+  "Aday / ileri takipte": 11
  },
  "testler": [
   {
@@ -1352,13 +1352,22 @@
    "satir": 2679
   },
   {
-   "id": "T195",
-   "konu": "Plackett-Luce at gücü (kullanıcı: \"Yap\"; fikir: TayDex arXiv 'ranking' videosu)",
+   "id": "T194",
+   "konu": "komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: \"Tamam bitince onayıma gerek kalmadan testi b…",
    "tarih": "2026-11-10",
    "durum": "Sonuç bekleniyor",
    "ozet": "",
    "neden": "",
    "satir": 0
+  },
+  {
+   "id": "T195",
+   "konu": "Plackett-Luce at gücü (kullanıcı: \"Yap\"; fikir: TayDex arXiv 'ranking' videosu)",
+   "tarih": "2026-11-10",
+   "durum": "Aday / ileri takipte",
+   "ozet": "(2026-11-10 01:58; t195_sonuc.txt; 2025Q3→2026Q4, ileri-yürüyüş; kazanan log-olabilirlik farkı, nats/koşu): EP−E +0,00128 [+0,00067; +0,00188] (2025H2 +0,00064, 2026 +0,00168); EM−E +0,00045 [+0,00015; +0,00077] (2025H2 +0,00028,…",
+   "neden": "KARAR (kurala göre): ADAY (her iki kol). YORUM: etki çok küçük (Elo'nun kendi kazancının ~%15'i), ROI'ye çevrilmedi; canlı model DEĞİŞMEDİ; kullanmak için ayrı onay + ROI/ileri kayıt ön kaydı gerekir.",
+   "satir": 2689
   }
  ]
 }
