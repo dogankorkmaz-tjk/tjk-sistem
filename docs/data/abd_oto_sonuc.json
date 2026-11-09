@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-09 00:12 UTC",
- "kayitli_kosu": 1762,
- "eslesmeyen_kosu": 1186,
+ "uretim": "2026-11-09 00:40 UTC",
+ "kayitli_kosu": 1763,
+ "eslesmeyen_kosu": 1184,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 969,
- "kosu": 576,
+ "bahis": 974,
+ "kosu": 579,
  "isabet": 62,
- "roi": 0.889,
+ "roi": 0.884,
  "ga95": [
-  0.642,
-  1.183
+  0.637,
+  1.177
  ],
  "ulke": {
   "abd": {
-   "bahis": 612,
-   "roi": 0.761
+   "bahis": 617,
+   "roi": 0.755
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1243,
-  "kosu": 560,
-  "isabet": 119,
-  "roi": 0.62,
+  "bahis": 1254,
+  "kosu": 563,
+  "isabet": 120,
+  "roi": 0.621,
   "ga95": [
-   0.474,
+   0.477,
    0.778
   ]
  },
  "bahis_t1": {
-  "bahis": 1263,
-  "kosu": 550,
-  "isabet": 126,
+  "bahis": 1274,
+  "kosu": 553,
+  "isabet": 127,
   "roi": 0.673,
   "ga95": [
-   0.49,
-   0.881
+   0.491,
+   0.88
   ]
  },
  "bahis_t3": {
-  "bahis": 1229,
-  "kosu": 533,
-  "isabet": 134,
-  "roi": 0.666,
+  "bahis": 1241,
+  "kosu": 536,
+  "isabet": 136,
+  "roi": 0.669,
   "ga95": [
-   0.492,
-   0.877
+   0.496,
+   0.879
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "GREAT CHIEF",
-   "q": 0.04,
-   "g": 43.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "MINTY",
-   "q": 0.07,
-   "g": 23.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "OSHALA",
-   "q": 0.086,
-   "g": 14.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Gulfstream",
-   "kosu": 10,
-   "at": "WOOTUN",
-   "q": 0.129,
-   "g": 12.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Marseille-borely",
-   "kosu": 2,
-   "at": "MARCH MADNESS",
-   "q": 0.183,
-   "g": 7.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Marseille-borely",
@@ -409,6 +364,33 @@
   },
   {
    "gun": "2026-11-08",
+   "pist": "Del Mar",
+   "kosu": 2,
+   "at": "LUKA'S CHOICE",
+   "q": 0.116,
+   "g": 23.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-08",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "HANDS OF TIME",
+   "q": 0.086,
+   "g": 21.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-08",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "PARIS SURPRISE",
+   "q": 0.155,
+   "g": 14.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-08",
    "pist": "Laurel Park",
    "kosu": 8,
    "at": "MOONBLAZE",
@@ -424,6 +406,24 @@
    "q": 0.165,
    "g": 11.1,
    "kazandi": true
+  },
+  {
+   "gun": "2026-11-08",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "LITTLE LOLA",
+   "q": 0.087,
+   "g": 17.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-08",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "I'VE GOT THE HONEY",
+   "q": 0.049,
+   "g": 35.4,
+   "kazandi": false
   }
  ]
 }
