@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-09 08:12 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-09 08:21 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 10 · Tanımlayıcı / keşif: 6 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -167,7 +167,7 @@ Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T189 | PLASE (ilk 2) geriye dönük piyasa-yanlış-fiyat testi (kullanıcı: "Başlat", 8 Kasım 2026 23:31; kaynak: Dr Z /… | Karar belirsiz | (2026-11-08 23:38; t189_sonuc.txt; 2025-04→2026-11, ileri-yürüyüş): R0 (tüm atlara) ROI −23,4% [−26,2;−20,5] (plase takeout ≈ %23). ANA (oran ≥1,15, pg≥0,10): 7.533 bahis, isabet 1.740, ROI −15,8% [Bonf. −21,6;−10,0]; referanslar… | KARAR: YOK (nokta ≤ 0, üst sınır < 0). Plase için kural/kupon değişikliği yok; mevcut pm-ilk2 canlı kağıt kaydı (240 bahis, 1,054) bu sonuçla çelişen küçük örnek gürültüsü sayılır, kural değişmeden sürer. Not: plase havuz tutarları kayıtlı olmadığı için gerçe… |
 | T192 | tay (≤3 yaş) ve yetişkin koşuları için AYRI model (kullanıcı: "Çalıştır; tay ve yetişkin koşularında farklı k… | Karar belirsiz | (2026-11-09 11:45; t192_sonuc.txt; düzeltilmiş çalışma; 2025Q3→2026Q4, 8.682 koşu, tay 4.374 / yetişkin 4.308; Bonf. %98,75 GA): Ayrı − Jason (nats/koşu): TAY −0,00032 [−0,0029; +0,0024] (2025 −0,0011, 2026 +0,0002); YETİŞKİN −0,… | KARAR: tay YOK, yetişkin YOK. Ayrı model tek modele göre kazanmıyor (nokta tahminleri hafif negatif, GA sıfırı kapsıyor). Betimleyici katsayı farkları (son fold, std ölçekli, yetişkin/tay): f_kgs −0,03/+0,13 (tayda son koşudan beri gün sayısı daha önemli), f_… |
 
-## Ön kayıtlı, sonucu henüz yok — 16
+## Ön kayıtlı, sonucu henüz yok — 17
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -187,3 +187,4 @@ Toplam: Elendi: 54 · Karar belirsiz: 43 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
+| T193 | galop katsayıları tay ve yetişkin için AYRI (kullanıcı: "Çalıştır" | Sonuç bekleniyor |  |  |
