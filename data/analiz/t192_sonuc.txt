@@ -1,48 +1,24 @@
 tay koşu payı (satır): 0.459 koşu: 10041 / 21304
-/home/runner/work/tjk-sistem/tjk-sistem/tjk/walkforward.py:17: RuntimeWarning: invalid value encountered in matmul
-  s = th[0] * te.lp.values + X @ th[1:]
-2025Q3 1752 tay 941 J 0.01084 A 0.0078
-/home/runner/work/tjk-sistem/tjk-sistem/tjk/walkforward.py:17: RuntimeWarning: invalid value encountered in matmul
-  s = th[0] * te.lp.values + X @ th[1:]
-2025Q4 1615 tay 908 J 0.01435 A 0.00904
-/home/runner/work/tjk-sistem/tjk-sistem/tjk/walkforward.py:17: RuntimeWarning: invalid value encountered in matmul
-  s = th[0] * te.lp.values + X @ th[1:]
-2026Q1 1355 tay 440 J 0.02919 A 0.03027
-/home/runner/work/tjk-sistem/tjk-sistem/tjk/walkforward.py:17: RuntimeWarning: invalid value encountered in matmul
-  s = th[0] * te.lp.values + X @ th[1:]
-2026Q2 1603 tay 769 J 0.02255 A 0.02335
-/home/runner/work/tjk-sistem/tjk-sistem/tjk/walkforward.py:17: RuntimeWarning: invalid value encountered in matmul
-  s = th[0] * te.lp.values + X @ th[1:]
-2026Q3 1639 tay 906 J 0.01321 A 0.01959
-/home/runner/work/tjk-sistem/tjk-sistem/tjk/walkforward.py:17: RuntimeWarning: invalid value encountered in matmul
-  s = th[0] * te.lp.values + X @ th[1:]
-2026Q4 718 tay 410 J 0.02812 A 0.02853
-/home/runner/work/tjk-sistem/tjk-sistem/data/analiz/t192.py:46: RuntimeWarning: invalid value encountered in divide
-  n = len(s); idx = rng.integers(0, n, (B, n)); m = s[idx].sum(1) / c[idx].sum(1)
-/home/runner/work/tjk-sistem/tjk-sistem/data/analiz/t192.py:47: RuntimeWarning: invalid value encountered in scalar divide
-  return float(s.sum() / c.sum()), float(np.percentile(m, lo)), float(np.percentile(m, hi)), int(len(v))
-/home/runner/work/tjk-sistem/tjk-sistem/data/analiz/t192.py:46: RuntimeWarning: invalid value encountered in divide
-  n = len(s); idx = rng.integers(0, n, (B, n)); m = s[idx].sum(1) / c[idx].sum(1)
-/home/runner/work/tjk-sistem/tjk-sistem/data/analiz/t192.py:47: RuntimeWarning: invalid value encountered in scalar divide
-  return float(s.sum() / c.sum()), float(np.percentile(m, lo)), float(np.percentile(m, hi)), int(len(v))
-/home/runner/work/tjk-sistem/tjk-sistem/data/analiz/t192.py:46: RuntimeWarning: invalid value encountered in divide
-  n = len(s); idx = rng.integers(0, n, (B, n)); m = s[idx].sum(1) / c[idx].sum(1)
-/home/runner/work/tjk-sistem/tjk-sistem/data/analiz/t192.py:47: RuntimeWarning: invalid value encountered in scalar divide
-  return float(s.sum() / c.sum()), float(np.percentile(m, lo)), float(np.percentile(m, hi)), int(len(v))
-tay {'tum': [nan, nan, nan, 4374], '2025': [nan, nan, nan, 1849], '2026': [nan, nan, nan, 2525]}
+2025Q3 1752 tay 941 J 0.01084 A 0.00998
+2025Q4 1615 tay 908 J 0.01435 A 0.01135
+2026Q1 1355 tay 440 J 0.02919 A 0.02935
+2026Q2 1603 tay 769 J 0.02255 A 0.02027
+2026Q3 1639 tay 906 J 0.01321 A 0.01665
+2026Q4 718 tay 410 J 0.02812 A 0.02568
+tay {'tum': [-0.00032, -0.00292, 0.00235, 4374], '2025': [-0.00105, -0.00523, 0.00314, 1849], '2026': [0.0002, -0.00322, 0.00346, 2525]}
 yetiskin {'tum': [-0.00105, -0.00328, 0.00125, 4308], '2025': [-0.00292, -0.00697, 0.00107, 1518], '2026': [-3e-05, -0.00281, 0.00274, 2790]}
-toplam {'tum': [-0.00105, -0.00306, 0.00094, 8682], '2025': [-0.00292, -0.00646, 0.00068, 3367], '2026': [-3e-05, -0.00242, 0.00233, 5315]}
+toplam {'tum': [-0.00068, -0.00224, 0.00088, 8682], '2025': [-0.00189, -0.00456, 0.00079, 3367], '2026': [8e-05, -0.00183, 0.00196, 5315]}
 KARAR: tay YOK | yetiskin YOK (toplam bilgi amaçlı)
 KATSAYI (son fold 2026Q4 ; eğitim n yetişkin 106826 tay 89429 ) özellik: yetişkin / tay
-  lp(piyasa): +0.714 / +1.000
-  f_lp2: -0.250 / +0.000
-  f_hnd: +0.160 / +0.000
+  f_kgs: -0.025 / +0.130
+  lp(piyasa): +0.714 / +0.851
   f_t3_a: +0.136 / +0.000
-  f_jgen100: +0.135 / +0.000
-  f_jwin: +0.128 / +0.000
-  f_hpctson: +0.091 / +0.000
-  f_hippct: -0.087 / +0.000
-  f_kilo: -0.086 / +0.000
-  f_s6ort: +0.084 / +0.000
-  f_sonrel: -0.084 / +0.000
-  f_apr: -0.083 / +0.000
+  f_hnd: +0.160 / +0.043
+  f_t3_e: +0.035 / +0.118
+  f_s6ort: +0.084 / +0.003
+  f_gun_orta: -0.032 / +0.032
+  f_jdeg: +0.022 / -0.033
+  f_gun_kisa: -0.031 / +0.019
+  f_kilodeg: -0.043 / +0.006
+  f_cift: +0.028 / -0.020
+  f_lp2: -0.250 / -0.203
