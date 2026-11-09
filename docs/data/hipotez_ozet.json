@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-09T22:58",
+ "guncelleme": "2026-11-09T23:01",
  "sayim": {
   "Geçti": 17,
   "Elendi": 54,
-  "Karar belirsiz": 44,
+  "Karar belirsiz": 45,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 17,
+  "Sonuç bekleniyor": 16,
   "Karma": 2,
   "Aday / ileri takipte": 11
  },
@@ -1355,10 +1355,10 @@
    "id": "T194",
    "konu": "komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: \"Tamam bitince onayıma gerek kalmadan testi b…",
    "tarih": "2026-11-10",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-10 02:05; t194_sonuc.txt; 366 rapor günü-hipodrom, Bonf. %98,33 GA; fark = kazanma − piyasa p, taban +0,0007): gec_start n=132 −0,0145 [−0,046; +0,025] YOK; sakat n=50 +0,036 [−0,051; +0,142] YOK (yön beklenenin tersi, n…",
    "neden": "",
-   "satir": 0
+   "satir": 2695
   },
   {
    "id": "T195",
