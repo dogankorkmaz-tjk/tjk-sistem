@@ -1,17 +1,17 @@
 {
  "not": "2.–5. sıra negatif log-olabilirlik toplamı (düşük iyi). fark = mevcut − yeni (+ yeni daha iyi). Ön-kayıt: 25 Ekim 2026.",
- "kosu": 228,
+ "kosu": 245,
  "ort": {
-  "harville": 7.0686,
-  "mevcut": 6.8441,
-  "yeni": 6.8789
+  "harville": 7.1789,
+  "mevcut": 6.952,
+  "yeni": 6.9989
  },
- "fark": -0.0349,
+ "fark": -0.047,
  "ga": [
-  -0.0943,
-  0.0269
+  -0.1074,
+  0.0125
  ],
- "gun": 15,
+ "gun": 16,
  "kupon_5li": {
   "48": {
    "kosu": 48,
