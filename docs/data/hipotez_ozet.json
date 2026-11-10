@@ -1,8 +1,8 @@
 {
- "guncelleme": "2026-11-10T19:37",
+ "guncelleme": "2026-11-10T19:39",
  "sayim": {
   "Geçti": 17,
-  "Elendi": 54,
+  "Elendi": 55,
   "Karar belirsiz": 45,
   "Tanımlayıcı / keşif": 7,
   "Sonuç bekleniyor": 16,
@@ -1386,6 +1386,15 @@
    "ozet": "(2026-11-10 23:05; t197_sonuc.txt; 18 gün 2026-10-24→11-10, 309 koşu, 2.892 at; etiketli 750 = %26, koşu başına 2,43; %95,5 koşuda ≥1 etiketli at var): etiketli kazanma %18,9 vs piyasa %15,0 → +3,9 pp [+2,7; +5,2]; vs model %21,2…",
    "neden": "KARAR (kurala göre): GERÇEK (alt sınır > 0). Keşif (ön kayıtsız, bilgi): kapanış ganyanıyla 1 TL ROI etiketli −%2,3 [−13,7; +11,3], etiketsiz −%39,0, tüm atlar −%29,5. YORUM: etiket gerçekten piyasadan iyi seçiyor ama ilk-3 etiketi aşırı yaygın (her koşuda ~2…",
    "satir": 2710
+  },
+  {
+   "id": "T198",
+   "konu": "seçici 'ilk3 sürpriz' filtreleri (kullanıcı: \"Evet test et\"",
+   "tarih": "2026-11-10",
+   "durum": "Elendi ~",
+   "ozet": "(2026-11-10 23:25; t198_sonuc.txt; T197 verisi, 295 koşu, Bonf. %97,5 GA): S1 (koşuda en yüksek f3'lü etiketli): kazanma %17,3 vs piyasa %13,7 → +3,6 pp [+1,0; +6,5]; ilk-3 %51,9 vs %43,2 → +8,7 pp [+2,0; +15,7] → ADAY; ROI (bilg…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) gücü etiketin tamamıyla benzer (+3,9 pp) → seçicilik belirgin ek kazanç vermedi; ROI'de kanıt yok; pencere 18 gün. Canlı kural/etiket DEĞİŞMEDİ; aynı betik ileride (daha çok gün) yeniden koşulabilir.",
+   "satir": 2717
   }
  ]
 }
