@@ -1,13 +1,13 @@
 {
- "guncelleme": "2026-11-10T07:31",
+ "guncelleme": "2026-11-10T07:36",
  "sayim": {
   "Geçti": 17,
   "Elendi": 54,
   "Karar belirsiz": 45,
   "Tanımlayıcı / keşif": 6,
-  "Sonuç bekleniyor": 17,
+  "Sonuç bekleniyor": 16,
   "Karma": 2,
-  "Aday / ileri takipte": 11
+  "Aday / ileri takipte": 12
  },
  "testler": [
   {
@@ -1373,10 +1373,10 @@
    "id": "T196",
    "konu": "PL gücü (EP) ROI'ye çevrilir (kullanıcı: \"Evet\"",
    "tarih": "2026-11-10",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Aday / ileri takipte",
+   "ozet": "(2026-11-10 10:50; t196_sonuc.txt; ganyan, 2025Q3→2026Q4; 36/8.682 kazananın ödemesi eşleşmedi → ROI hafif aşağı yanlı, iki kolda aynı): ANA (≥1,15, p≥0,10) E: 8.796 bahis, ROI −%10,9 [−14,7; −6,9]; EP: 8.859 bahis, ROI −%10,7 [−…",
+   "neden": "KARAR (kurala göre): nokta ≥ 0 → ADAY, ama fark GA'sı 0'ı bol bol içeriyor: ROI'de ayırt edilemez. İKİ KOL DA ZARARDA (ganyan değer-bahsi bu filtreyle kârlı değil). Canlı model DEĞİŞMEDİ.",
+   "satir": 2702
   }
  ]
 }
