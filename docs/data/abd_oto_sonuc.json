@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-10 18:40 UTC",
+ "uretim": "2026-11-10 18:50 UTC",
  "kayitli_kosu": 1775,
- "eslesmeyen_kosu": 1190,
+ "eslesmeyen_kosu": 1188,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 988,
- "kosu": 585,
+ "bahis": 990,
+ "kosu": 587,
  "isabet": 63,
- "roi": 0.892,
+ "roi": 0.89,
  "ga95": [
-  0.651,
-  1.169
+  0.642,
+  1.176
  ],
  "ulke": {
   "abd": {
-   "bahis": 630,
-   "roi": 0.771
+   "bahis": 632,
+   "roi": 0.769
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1262,
-  "kosu": 567,
-  "isabet": 121,
+  "bahis": 1269,
+  "kosu": 569,
+  "isabet": 123,
   "roi": 0.633,
   "ga95": [
-   0.489,
-   0.784
+   0.484,
+   0.789
   ]
  },
  "bahis_t1": {
-  "bahis": 1282,
-  "kosu": 557,
-  "isabet": 128,
-  "roi": 0.685,
+  "bahis": 1290,
+  "kosu": 559,
+  "isabet": 130,
+  "roi": 0.684,
   "ga95": [
-   0.501,
-   0.89
+   0.499,
+   0.892
   ]
  },
  "bahis_t3": {
-  "bahis": 1252,
-  "kosu": 540,
-  "isabet": 139,
+  "bahis": 1260,
+  "kosu": 542,
+  "isabet": 141,
   "roi": 0.686,
   "ga95": [
-   0.509,
-   0.9
+   0.512,
+   0.904
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 7,
-   "at": "TOOLATETONEGOTIATE",
-   "q": 0.087,
-   "g": 15.15,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 7,
-   "at": "WATEEN",
-   "q": 0.037,
-   "g": 60.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Southwell",
@@ -423,6 +405,24 @@
    "at": "VIOLIN FINGERS",
    "q": 0.071,
    "g": 23.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-10",
+   "pist": "Mahoning Valley",
+   "kosu": 3,
+   "at": "NO QUALMS ABOUT IT",
+   "q": 0.114,
+   "g": 14.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-10",
+   "pist": "Mahoning Valley",
+   "kosu": 3,
+   "at": "FLASHY IDOL",
+   "q": 0.199,
+   "g": 14.3,
    "kazandi": false
   }
  ]
