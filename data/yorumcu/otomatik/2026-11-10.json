@@ -1,0 +1,203 @@
+{
+ "tarih": "2026-11-10",
+ "kuponlar": {
+  "fenomen-tilki|kocaeli|2": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "ZULEMA",
+   "altili": "Kocaeli II. Altılı Ganyan",
+   "hip": "kocaeli",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     2
+    ],
+    [
+     9,
+     2,
+     1,
+     4,
+     6,
+     7,
+     5,
+     8,
+     3,
+     10,
+     11
+    ],
+    [
+     4,
+     1,
+     5,
+     2,
+     3,
+     6
+    ],
+    [
+     5
+    ],
+    [
+     1,
+     4,
+     6,
+     3,
+     2,
+     7,
+     5
+    ],
+    [
+     5,
+     8,
+     4,
+     9,
+     2,
+     3,
+     1,
+     7,
+     10,
+     6,
+     11
+    ]
+   ],
+   "ilk_gorulme": "18:48:00"
+  },
+  "editorun-kuponu|kocaeli|2": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "SEMENDİN GÜCÜ",
+   "altili": "Kocaeli II. Altılı Ganyan",
+   "hip": "kocaeli",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     3
+    ],
+    [
+     9,
+     1,
+     2,
+     7,
+     4,
+     6,
+     5,
+     8,
+     3,
+     11,
+     10
+    ],
+    [
+     1,
+     2,
+     4,
+     5,
+     3,
+     6
+    ],
+    [
+     4
+    ],
+    [
+     1,
+     3,
+     4,
+     2,
+     6,
+     5,
+     7
+    ],
+    [
+     8,
+     5,
+     9,
+     4,
+     2,
+     3,
+     1,
+     10,
+     7,
+     6,
+     11
+    ]
+   ],
+   "ilk_gorulme": "18:48:00"
+  },
+  "hipodrom-guzeli|kocaeli|2": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "I RO",
+   "altili": "Kocaeli II. Altılı Ganyan",
+   "hip": "kocaeli",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     3,
+     4,
+     6,
+     5,
+     1,
+     2,
+     10,
+     8,
+     7,
+     9,
+     11
+    ],
+    [
+     1
+    ],
+    [
+     2,
+     1,
+     4,
+     5,
+     3,
+     6
+    ],
+    [
+     1,
+     2,
+     5,
+     6,
+     4,
+     7,
+     3,
+     8
+    ],
+    [
+     1
+    ],
+    [
+     5,
+     8,
+     9,
+     4,
+     2,
+     3,
+     10,
+     1,
+     7,
+     6,
+     11
+    ]
+   ],
+   "ilk_gorulme": "18:48:00"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|kocaeli|4": {
+   "ad": "SPRINTMASTER",
+   "at": "Bİ ANKA",
+   "hip": "kocaeli",
+   "kosu": 4,
+   "ilk_gorulme": "18:48:00"
+  },
+  "BEYGİRBOOSTER|kocaeli|7": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "BRAVE ATHENA",
+   "hip": "kocaeli",
+   "kosu": 7,
+   "ilk_gorulme": "18:48:00"
+  }
+ },
+ "degisiklik": []
+}
