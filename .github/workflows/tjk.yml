@@ -5,6 +5,7 @@ on:
     - cron: "30 0 * * *"         # 03:30 TR  gece: dünün sonuçları geçmişe, canlı test skoru
     - cron: "15 6 * * *"         # 09:15 TR  sabah: bugünün programı + model + AGF
     - cron: "40 9 * * *"         # 12:40 TR  sabah tekrarı (son program/AGF)
+    - cron: "10,40 7-9 * * *"    # 10:10-12:40 TR, yarım saatte bir: AGF öğleden önce yakalansın (10 Kasım 2026: AGF 13:24'te görünüyordu, Adana 14:00 koşusu piyasasız kaldı)
     - cron: "*/20 10-21 * * *"   # 13:00-00:59 TR, 20 dakikada bir: AGF + biten koşuların sonuçları
     - cron: "5,10,15,25,30,35,45,50,55 10-21 * * *"   # arada 5 dakikada bir: yalnızca yarışa son 40 dk içindeyse AGF anlık görüntüsü (hızlı mod)
   push:
