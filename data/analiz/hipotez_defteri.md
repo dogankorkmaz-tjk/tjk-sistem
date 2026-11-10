@@ -2693,3 +2693,8 @@ Hipotez: raporda adı geçen at, SONRAKİ koşusunda piyasa p'sinden sistematik 
 Ölçü: sonraki start (≤90 gün) için (kazandı − p_piyasa) ortalaması − aynı rapor penceresindeki tüm sonraki startların ortalaması (taban); bayrak başına n≥30 şart (altı: karar yok); gün-kümeli bootstrap seed 1940, Bonferroni 3 → %98,33 GA. KARAR: GA 0'ı dışlarsa 'işaret' (ileri kayıt gerekir), aksi 'yok'. Model/kural değişmez. Çalışma: Actions t194.yml.
 
 SONUÇ T194 (2026-11-10 02:05; t194_sonuc.txt; 366 rapor günü-hipodrom, Bonf. %98,33 GA; fark = kazanma − piyasa p, taban +0,0007): gec_start n=132 −0,0145 [−0,046; +0,025] YOK; sakat n=50 +0,036 [−0,051; +0,142] YOK (yön beklenenin tersi, n küçük); kamci_ceza n=172 +0,0008 [−0,049; +0,055] YOK. Piyasa bu olayları zaten fiyatlıyor; geri-doldurma (2025-01→07) ile n artınca sakat yeniden bakılabilir (yeni ön kayıt gerekir).
+
+## 2026-11-10 10:40 — ÖN KAYIT T196 PL gücü (EP) ROI'ye çevrilir (kullanıcı: "Evet" — T195 sonrası "neden faydalanmayalım?")
+Neden: T195'te log-olabilirlik kazancı çok küçük (+0,0013 nats/koşu); bahis kârına yansıyıp yansımadığı bilinmiyor.
+Düzen: T195'in kolları E (Jason+Elo) ve EP (E+f_pl), aynı ileri-yürüyüş 2025Q3→2026Q4. Bahis: GANYAN, her ata 1 TL, kural T189 ile aynı: p_model/p_piyasa ≥ 1,15 VE p_model ≥ 0,10 (duyarlılık: 1,10 ve 1,25 yalnız bilgi). Ödeme: data/odeme GANYAN (büyük ödemeler DAHİL). ROI + gün-kümeli bootstrap %95 GA (seed 1960); ANA fark = ROI(EP) − ROI(E), eşleştirilmiş gün-kümeli bootstrap.
+KARAR (kullanıcıyla konuşulan): ANA fark nokta tahmini ≥ 0 → G1-S v4 ADAY (canlı değişiklik yok; ileri kayıt + ayrı onay); < 0 → YOK. GA yalnız belirsizlik göstergesi; GA'nın 0'ı içermesi 'kanıt' sayılmaz, rapor edilir. Model/kural değişmez. Actions: t196.yml.
