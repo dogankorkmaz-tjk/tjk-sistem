@@ -1,10 +1,10 @@
 {
- "guncelleme": "2026-11-10T19:39",
+ "guncelleme": "2026-11-10T19:42",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
   "Karar belirsiz": 45,
-  "Tanımlayıcı / keşif": 7,
+  "Tanımlayıcı / keşif": 8,
   "Sonuç bekleniyor": 16,
   "Karma": 2,
   "Aday / ileri takipte": 12
@@ -1395,6 +1395,15 @@
    "ozet": "(2026-11-10 23:25; t198_sonuc.txt; T197 verisi, 295 koşu, Bonf. %97,5 GA): S1 (koşuda en yüksek f3'lü etiketli): kazanma %17,3 vs piyasa %13,7 → +3,6 pp [+1,0; +6,5]; ilk-3 %51,9 vs %43,2 → +8,7 pp [+2,0; +15,7] → ADAY; ROI (bilg…",
    "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) gücü etiketin tamamıyla benzer (+3,9 pp) → seçicilik belirgin ek kazanç vermedi; ROI'de kanıt yok; pencere 18 gün. Canlı kural/etiket DEĞİŞMEDİ; aynı betik ileride (daha çok gün) yeniden koşulabilir.",
    "satir": 2717
+  },
+  {
+   "id": "T199",
+   "konu": "AGF'den hesaplanan 'ilk3 sürpriz' etiketi (kullanıcı: \"Yap\"; gerekçe: altılıda ilk ayağa kadar yalnız en yakı…",
+   "tarih": "2026-11-10",
+   "durum": "Tanımlayıcı / keşif (karar yok)",
+   "ozet": "(2026-11-10 23:50; t199_sonuc.txt; 18 gün, 307 koşu, 2.874 at; AGF-etiketli 568, kapanış-etiketli 748, ortak 541; Bonf. %97,5 GA): ANA (son AGF'den etiket): kazanma %16,4 vs AGF beklentisi %16,0 → +0,4 pp [−1,7; +2,6]; vs kapanış…",
+   "neden": "KARAR: işaret (nokta>0, alt ≤0; ilk-3 de alt<0) → 'AGF etiketi çalışıyor' DEĞİL. Bilgi: ilk görülen (sabah) AGF'den etiket: kazanma +2,1 pp [−0,2; +4,5], ilk-3 +4,3 pp [+1,5; +7,3], ROI −%12,9 [−26,3; +1,9]. Kapanış etiketi (T197) +3,9 pp [+2,5; +5,3]. Koşuda…",
+   "satir": 2724
   }
  ]
 }
