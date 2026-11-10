@@ -1,7 +1,7 @@
 {
  "tarih": "2026-11-10",
- "zaman": "2026-11-10 00:09 TR",
- "genel": "ok",
+ "zaman": "2026-11-10 06:00 TR",
+ "genel": "uyari",
  "kontroller": [
   {
    "ad": "veri: sonuclar",
@@ -35,8 +35,8 @@
   },
   {
    "ad": "atyarisi arşivi (dün)",
-   "durum": "ok",
-   "detay": "sonuçlar 03:40'ta tamamlanacak"
+   "durum": "uyari",
+   "detay": "sonuçları eksik"
   },
   {
    "ad": "Jason eğitimi",

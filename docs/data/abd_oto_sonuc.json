@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-09 22:00 UTC",
- "kayitli_kosu": 1769,
- "eslesmeyen_kosu": 1186,
+ "uretim": "2026-11-10 03:00 UTC",
+ "kayitli_kosu": 1770,
+ "eslesmeyen_kosu": 1185,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 980,
- "kosu": 583,
+ "bahis": 988,
+ "kosu": 585,
  "isabet": 63,
- "roi": 0.899,
+ "roi": 0.892,
  "ga95": [
-  0.654,
-  1.184
+  0.651,
+  1.169
  ],
  "ulke": {
   "abd": {
-   "bahis": 622,
-   "roi": 0.781
+   "bahis": 630,
+   "roi": 0.771
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -65,78 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 3,
-   "at": "SOLID BOND",
-   "q": 0.054,
-   "g": 27.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 3,
-   "at": "CROWN THE FUTURE",
-   "q": 0.178,
-   "g": 9.65,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 3,
-   "at": "RAMON DI LORIA",
-   "q": 0.047,
-   "g": 66.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 5,
-   "at": "DRISH SAMPHIRE",
-   "q": 0.136,
-   "g": 12.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 5,
-   "at": "AUNTIE JO",
-   "q": 0.091,
-   "g": 14.3,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 6,
-   "at": "BUTTERFLY BEACH",
-   "q": 0.282,
-   "g": 6.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 6,
-   "at": "MARCH OF TIME",
-   "q": 0.225,
-   "g": 6.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 6,
-   "at": "MOIRA EXPRESS",
-   "q": 0.056,
-   "g": 25.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Southwell",
@@ -423,6 +351,78 @@
    "at": "MCVICKER",
    "q": 0.166,
    "g": 18.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "YEARS AGO",
+   "q": 0.076,
+   "g": 29.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "GHOSTLY GIRL",
+   "q": 0.104,
+   "g": 25.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "BLUE OPAL",
+   "q": 0.093,
+   "g": 15.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "WILDWOOD BYE",
+   "q": 0.139,
+   "g": 10.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 2,
+   "at": "LOADED ONCE MORE",
+   "q": 0.167,
+   "g": 11.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 3,
+   "at": "MICKELEENE",
+   "q": 0.049,
+   "g": 31.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 3,
+   "at": "CLARE'S CAUSE",
+   "q": 0.06,
+   "g": 24.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-09",
+   "pist": "Mountaineer",
+   "kosu": 3,
+   "at": "VIOLIN FINGERS",
+   "q": 0.071,
+   "g": 23.95,
    "kazandi": false
   }
  ]
