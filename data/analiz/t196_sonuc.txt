@@ -1,0 +1,58 @@
+tay koşu payı (satır): 0.459 koşu: 10041 / 21304
+2023-07 fit 1 sn
+2023-08 fit 2 sn
+2023-09 fit 3 sn
+2023-10 fit 4 sn
+2023-11 fit 5 sn
+2023-12 fit 6 sn
+2024-01 fit 7 sn
+2024-02 fit 9 sn
+2024-03 fit 10 sn
+2024-04 fit 12 sn
+2024-05 fit 13 sn
+2024-06 fit 14 sn
+2024-07 fit 15 sn
+2024-08 fit 17 sn
+2024-09 fit 18 sn
+2024-10 fit 19 sn
+2024-11 fit 20 sn
+2024-12 fit 22 sn
+2025-01 fit 23 sn
+2025-02 fit 24 sn
+2025-03 fit 26 sn
+2025-04 fit 28 sn
+2025-05 fit 29 sn
+2025-06 fit 31 sn
+2025-07 fit 33 sn
+2025-08 fit 34 sn
+2025-09 fit 36 sn
+2025-10 fit 38 sn
+2025-11 fit 39 sn
+2025-12 fit 41 sn
+2026-01 fit 43 sn
+2026-02 fit 45 sn
+2026-03 fit 47 sn
+2026-04 fit 50 sn
+2026-05 fit 52 sn
+2026-06 fit 53 sn
+2026-07 fit 56 sn
+2026-08 fit 58 sn
+2026-09 fit 60 sn
+2026-10 fit 62 sn
+2026-11 fit 64 sn
+std f_pl 0.4167100471339938 f_plm 0.3379658221705275 korelasyon f_pl~f_elo 0.750449174966527 f_plm~f_elo 0.512618752809547
+2025Q3 16400
+2025Q4 15770
+2026Q1 13076
+2026Q2 16290
+2026Q3 16496
+2026Q4 7296
+koşu ödemesi bulunamayan kazanan: 36 / 8682
+esik 1.15 E   bahis   8796 isabet  1991 ROI -10.9% [-14.7%;-6.9%]
+esik 1.15 EP  bahis   8859 isabet  2034 ROI -10.7% [-14.4%;-7.0%]
+esik 1.1 E   bahis  11765 isabet  2676 ROI -14.5% [-17.6%;-11.4%]
+esik 1.1 EP  bahis  11816 isabet  2734 ROI -13.4% [-16.5%;-10.3%]
+esik 1.25 E   bahis   4514 isabet   979 ROI -7.2% [-13.0%;-1.4%]
+esik 1.25 EP  bahis   4572 isabet  1007 ROI -7.1% [-12.7%;-1.4%]
+ANA fark ROI(EP)−ROI(E): +0.21% [-1.42%;+1.78%]
+KARAR: ADAY (G1-S v4, ileri kayıt)
