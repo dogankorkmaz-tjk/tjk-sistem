@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-10 07:36 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-10 19:37 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 54 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 12 · Tanımlayıcı / keşif: 6 · Karma: 2
+Toplam: Elendi: 54 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 12 · Tanımlayıcı / keşif: 7 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -110,7 +110,7 @@ Toplam: Elendi: 54 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T47 | (başlık yok) | Karma (hem olumlu hem olumsuz ifade, deftere bak) ~ | (2026-10-29 00:55): 2025-01..2026-10, 9.979 koşu. Yürüyen kalibrasyon (b≈1,08–1,09, a≈+0,13) kazanan log-kaybını koşu başına −0,00045 azaltıyor: TÜM [−0,00099;+0,00011]; I (…2025-09) −0,00075 [−0,00174;+0,00023]; II (2025-10…) −0… | (açık karar satırı yok, son cümlelerden çıkarıldı) ma GA üst sınırı 0'ı aşıyor → kural SAĞLANMADI, düzeltme EKLENMEZ. Etki çok küçük (kazanan başına ≈0,0005 nats). Yeniden bakış: 1 Mart 2027'de (≈+1.500 koşu) aynı betikle; GA<0 olursa katman eklenir. |
 | T59 | süprizli sıralı 5'li (kullanıcı isteği) | Karma (hem olumlu hem olumsuz ifade, deftere bak) ~ | (2026-10-30 14:10): T2 (2026-04+) 14472 at, bayraklı 1037. Bayraklı: kazanma %3,76, ilk3 %14,1, ilk5 %27,4; ganyan dilimine eşleşmiş bayraksız beklenti ilk5 %23,9 → fark +3,48pp [+1,00; +6,27] (gün kümeli). Kural sağlandı (alt sı… | (açık karar satırı yok, son cümlelerden çıkarıldı) z atlar sıralı 5'li için YEDEK AYAK ADAYI olarak ileri takibe alındı; kupona/modele otomatik eklenmedi. Uyarı: etki küçük (ilk5'te ~3,5 puan), ödeme/ROI test edilmedi; T55'te kazanan için de sınırdı. |
 
-## Tanımlayıcı / keşif (karar kuralı yok) — 6
+## Tanımlayıcı / keşif (karar kuralı yok) — 7
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -120,6 +120,7 @@ Toplam: Elendi: 54 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T112 | (başlık yok) | Tanımlayıcı / keşif (karar yok) ~ | (keşif, 10 gün, tüyo atı n=32–39/tür): ROI7 [GA] — G 1,36 [0,65–2,11]; P2 1,21 [0,93–1,57]; P3 0,92 [0,70–1,19]; P4 0,94 [0,60–1,35]; FH 1,38 [0,79–2,02]; tüm atlar ~0,66–0,69. Hiçbir GA alt sınırı 1'in üstünde değil → sonuç yok;… | (açık karar satırı yok, son cümlelerden çıkarıldı) üm atlar ~0,66–0,69. Hiçbir GA alt sınırı 1'in üstünde değil → sonuç yok; örüntü: oran yüksek türlerde (G, FH, P2) tüyo atları fiyatın üstünde, ilk3/ilk4'te (düşük oran) fark yok. Canlı izleme sürer. |
 | T137 | yorumcu bilgi taşıyor mu? (kullanıcı: "Başlat") | Tanımlayıcı / keşif (karar yok) | kayıt 1 (betimsel; | KARAR YOK) n(A)=36 (<300) → karar yok. A: 6 kazanan / 4,1 beklenen, O/E 1,47 [0,85–1,88]. B tümü n=247, 31 / 21,8, O/E 1,42 [1,16–1,66]; oy=1 (164) 1,52 [1,04–1,98]; oy≥2 (83) 1,28 [0,88–1,45]. Eklenen TABAN: aynı gün/hipodromlardaki TÜM piyasa sırası ≥3 atla… |
 | T168 | kapanış öncesi görülen fiyatla bahis: ikili / sıralı ikili ve ganyan (kullanıcı: "Başlat"; "canlı sekmemiz he… | Tanımlayıcı / keşif (karar yok) ~ | (data/analiz/t168_once.py → t168_sonuc.txt) Kapsam: 116 AÇIK havuz kaydının çoğu yurt dışı/Kasım → model önbelleğiyle eşleşen yurt içi ikili koşusu yalnız ~10 (Ekim 15–31, 4 gün). Ganyan: 146 koşu, 14 gün, ortalama koşuya 1,7 dk.… | (açık karar satırı yok, son cümlelerden çıkarıldı) il: kazananlarda tipik ~%4 aşağı kayma. Canlı'da EV gösterilirken kapanış kayması payı (ikili/ganyan ×0,96) uygulanmalı; ileri pencere (havuz_acik kaydı, 7 Kasım'dan itibaren) bunu her gün büyütecek. |
+| T197 | "ilk3 sürpriz" etiketi gerçekten kazanan/ilk-3 seçiyor mu? (kullanıcı gözlemi: Koşu sekmesinde 'ilk3 sürpriz'… | Tanımlayıcı / keşif (karar yok) | (2026-11-10 23:05; t197_sonuc.txt; 18 gün 2026-10-24→11-10, 309 koşu, 2.892 at; etiketli 750 = %26, koşu başına 2,43; %95,5 koşuda ≥1 etiketli at var): etiketli kazanma %18,9 vs piyasa %15,0 → +3,9 pp [+2,7; +5,2]; vs model %21,2… | KARAR (kurala göre): GERÇEK (alt sınır > 0). Keşif (ön kayıtsız, bilgi): kapanış ganyanıyla 1 TL ROI etiketli −%2,3 [−13,7; +11,3], etiketsiz −%39,0, tüm atlar −%29,5. YORUM: etiket gerçekten piyasadan iyi seçiyor ama ilk-3 etiketi aşırı yaygın (her koşuda ~2… |
 
 ## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 45
 

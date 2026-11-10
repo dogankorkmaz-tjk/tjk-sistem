@@ -1,10 +1,10 @@
 {
- "guncelleme": "2026-11-10T07:36",
+ "guncelleme": "2026-11-10T19:37",
  "sayim": {
   "Geçti": 17,
   "Elendi": 54,
   "Karar belirsiz": 45,
-  "Tanımlayıcı / keşif": 6,
+  "Tanımlayıcı / keşif": 7,
   "Sonuç bekleniyor": 16,
   "Karma": 2,
   "Aday / ileri takipte": 12
@@ -1377,6 +1377,15 @@
    "ozet": "(2026-11-10 10:50; t196_sonuc.txt; ganyan, 2025Q3→2026Q4; 36/8.682 kazananın ödemesi eşleşmedi → ROI hafif aşağı yanlı, iki kolda aynı): ANA (≥1,15, p≥0,10) E: 8.796 bahis, ROI −%10,9 [−14,7; −6,9]; EP: 8.859 bahis, ROI −%10,7 [−…",
    "neden": "KARAR (kurala göre): nokta ≥ 0 → ADAY, ama fark GA'sı 0'ı bol bol içeriyor: ROI'de ayırt edilemez. İKİ KOL DA ZARARDA (ganyan değer-bahsi bu filtreyle kârlı değil). Canlı model DEĞİŞMEDİ.",
    "satir": 2702
+  },
+  {
+   "id": "T197",
+   "konu": "\"ilk3 sürpriz\" etiketi gerçekten kazanan/ilk-3 seçiyor mu? (kullanıcı gözlemi: Koşu sekmesinde 'ilk3 sürpriz'…",
+   "tarih": "2026-11-10",
+   "durum": "Tanımlayıcı / keşif (karar yok)",
+   "ozet": "(2026-11-10 23:05; t197_sonuc.txt; 18 gün 2026-10-24→11-10, 309 koşu, 2.892 at; etiketli 750 = %26, koşu başına 2,43; %95,5 koşuda ≥1 etiketli at var): etiketli kazanma %18,9 vs piyasa %15,0 → +3,9 pp [+2,7; +5,2]; vs model %21,2…",
+   "neden": "KARAR (kurala göre): GERÇEK (alt sınır > 0). Keşif (ön kayıtsız, bilgi): kapanış ganyanıyla 1 TL ROI etiketli −%2,3 [−13,7; +11,3], etiketsiz −%39,0, tüm atlar −%29,5. YORUM: etiket gerçekten piyasadan iyi seçiyor ama ilk-3 etiketi aşırı yaygın (her koşuda ~2…",
+   "satir": 2710
   }
  ]
 }
