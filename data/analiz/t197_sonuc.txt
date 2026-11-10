@@ -1,0 +1,6 @@
+gün 18 koşu 309 at 2892 etiketli 750
+etiketli {"n": 750, "kazanma": 0.1893, "ort_pp": 0.1503, "ort_pg": 0.2119, "ilk3": 0.5067, "ort_i3p": 0.4338, "ort_i3b": 0.5765, "kaz\u2212pp": [0.039, 0.0269, 0.0515], "kaz\u2212pg": [-0.0226, -0.0344, -0.0106], "ilk3\u2212i3p": [0.0729, 0.0499, 0.0976], "ilk3\u2212i3b": [-0.0698, -0.0932, -0.0445]}
+etiketsiz {"n": 2142, "kazanma": 0.078, "ort_pp": 0.0916, "ort_pg": 0.0701, "ilk3": 0.2554, "ort_i3p": 0.2809, "ort_i3b": 0.2309, "kaz\u2212pp": [-0.0137, -0.0179, -0.0095], "kaz\u2212pg": [0.0079, 0.0038, 0.0122], "ilk3\u2212i3p": [-0.0255, -0.034, -0.0177], "ilk3\u2212i3b": [0.0245, 0.0151, 0.033]}
+koşu: 309; ≥1 etiketli at olan: 295 (95.5%); ortalama etiketli/koşu 2.43
+≥1 etiketli at olan koşularda etiketlilerden biri kazandı: 48.1% (modelin beklentisi 44.8%; piyasa beklentisi 33.2%)
+KARAR: GERÇEK (etiket piyasadan iyi seçiyor)
