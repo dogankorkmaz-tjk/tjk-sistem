@@ -1,0 +1,6 @@
+gün 18 koşu 307 at 2874 etiketli(AGF) 568 etiketli(kapanış) 748 ikisi 541
+A_son_AGF {"n": 568, "kazanma": 0.1637, "ort_p_agf": 0.1596, "kaz-p": [0.0041, -0.0166, 0.0261], "kaz-p_kapanis": [0.0136, -0.0085, 0.0377], "ilk3": 0.4877, "ilk3-i3p": [0.0109, -0.0241, 0.0504], "ort_i3p": 0.4767, "ROI_bilgi": [-0.1695, -0.2781, -0.0615]}
+A0_ilk_AGF {"n": 598, "kazanma": 0.1722, "ort_p_agf": 0.1516, "kaz-p": [0.0206, -0.0024, 0.0449], "kaz-p_kapanis": [0.0162, -0.0027, 0.0359], "ilk3": 0.5033, "ilk3-i3p": [0.0433, 0.0154, 0.0726], "ort_i3p": 0.4601, "ROI_bilgi": [-0.1289, -0.2628, 0.0186]}
+kapanis_T197 {"n": 748, "kazanma": 0.1898, "ort_p_agf": 0.1506, "kaz-p": [0.0392, 0.0251, 0.0532], "kaz-p_kapanis": [0.0392, 0.0252, 0.0537], "ilk3": 0.508, "ROI_bilgi": [-0.0203, -0.1354, 0.1249]}
+AGF-etiketli koşu 277/307 (90.2%), koşu başına 1.85; kazanan etiketli: 33.6% (AGF beklentisi 29.3%, kapanış beklentisi 27.9%)
+KARAR: işaret
