@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-11 23:00 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-11 23:01 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 19 · Geçti: 17 · Aday / ileri takipte: 14 · Tanımlayıcı / keşif: 9 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 18 · Geçti: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -87,7 +87,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 19 · Geçti: 17 
 | T191 | kilo-düzeltmeli (K) ve rakip-gücü ('zorluk merkezi', Z) hız figürü (kullanıcı: "İkisini de test et"; kaynak:… | Elendi | (2026-11-09 11:10): β = −0,218 sn/kg (n=116.885) → K KOLU ÇALIŞTIRILMADI (kuralı gereği). Neden: veride ağır kilo taşıyan at daha hızlı bitiriyor, çünkü iyi atlara (handikap) daha fazla kilo yükleniyor; kalite ile kilo karışık, v… | KARAR: K = test edilemedi; Z = YOK (GA alt ≤ 0). Etki ≈ %0,05 olasılık kazancı, ROI'ye çevrilmesi beklenmez. Açık: K için sabit, dışarıdan (literatür) bir β ile ayrı ön kayıt yapılabilir; β sonucu gördükten sonra seçilemeyeceğinden onay + yeni giriş gerekir. |
 | T198 | seçici 'ilk3 sürpriz' filtreleri (kullanıcı: "Evet test et" | Elendi ~ | (2026-11-10 23:25; t198_sonuc.txt; T197 verisi, 295 koşu, Bonf. %97,5 GA): S1 (koşuda en yüksek f3'lü etiketli): kazanma %17,3 vs piyasa %13,7 → +3,6 pp [+1,0; +6,5]; ilk-3 %51,9 vs %43,2 → +8,7 pp [+2,0; +15,7] → ADAY; ROI (bilg… | (açık karar satırı yok, son cümlelerden çıkarıldı) gücü etiketin tamamıyla benzer (+3,9 pp) → seçicilik belirgin ek kazanç vermedi; ROI'de kanıt yok; pencere 18 gün. Canlı kural/etiket DEĞİŞMEDİ; aynı betik ileride (daha çok gün) yeniden koşulabilir. |
 
-## Aday: ileri takipte (henüz kanıt değil) — 14
+## Aday: ileri takipte (henüz kanıt değil) — 15
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -105,6 +105,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 19 · Geçti: 17 
 | T196 | PL gücü (EP) ROI'ye çevrilir (kullanıcı: "Evet" | Aday / ileri takipte | (2026-11-10 10:50; t196_sonuc.txt; ganyan, 2025Q3→2026Q4; 36/8.682 kazananın ödemesi eşleşmedi → ROI hafif aşağı yanlı, iki kolda aynı): ANA (≥1,15, p≥0,10) E: 8.796 bahis, ROI −%10,9 [−14,7; −6,9]; EP: 8.859 bahis, ROI −%10,7 [−… | KARAR (kurala göre): nokta ≥ 0 → ADAY, ama fark GA'sı 0'ı bol bol içeriyor: ROI'de ayırt edilemez. İKİ KOL DA ZARARDA (ganyan değer-bahsi bu filtreyle kârlı değil). Canlı model DEĞİŞMEDİ. |
 | T200 | altılıda AGF + piyasasız model (PM0) karışımı (kullanıcı: "Başlat test edelim") | Aday / ileri takipte | (2026-11-11 11:55; t200_sonuc.txt, t200_altili.csv; 1.016 altılı: 2025 277 [w fit], 2026 739 [sınama]; PM0 43 özellik): w tek = 0,15; ayak başına w_j = [0; 0; 0,25; 0; 0,20; 0,50]. 2026 sınama, Bonf. %97,5 GA: BC−A kazanan log-ol… | KARAR (kurala göre): BL YOK; BC 'tek w adayı' (ll GA alt>0 ve iki bütçede nokta>0). YORUM: kazanan olabilirliğinde küçük ama tutarlı kazanç (AGF'ye %15 PM0 karışımı); kupon düzeyinde etki ayak başına ~%1 (B=64: 3,54→3,57), tutan ayak GA'sı 0'ı kapsıyor, 2025'… |
 | T203 | → | Aday / ileri takipte | (2026-11-12 02:55; t203_sonuc.txt, t203.json; E kolu, 8.716 kazananlı koşu, 2025Q3→2026Q4; genel kazanç +0,0265 nats/koşu): | KARAR kuralına göre 18 bölüm 'ZAYIF PİYASA ADAYI' (Bonf. GA alt > 0 ve iki yarıda nokta > 0), 2 'işaret' (kocaeli, elazig), 1 'yok' (diyarbakir +0,005); toplam 21 bölüm. DÜZELTME/KURAL KUSURU (sonuç görüldükten sonra tespit): ön kayıtlı kural bölümün kazancın… |
+| T204 | bahis anı denetimi → | Aday / ileri takipte ~ | (2026-11-12 03:35; t204_sonuc.txt, t204.json; 23 gün, 297 yerli koşu (ANA ≥1 dk kala), 348 bahis; model 2026-10-15 öncesiyle fit; ödeme RESMÎ kapanış ganyanı): RB (bahis anı oranıyla seçim) ROI 0,873 [0,679; 1,051], 82 isabet; RC… | (açık karar satırı yok, son cümlelerden çıkarıldı) yeni ön kayıt, n ≥ 500): değer oranı hesabında bahis anı oranını beklenen kapanışa (≈ −%12) indirerek seçmek. Canlı kural DEĞİŞMEDİ. Betik yeni veriyle aynen yeniden koşulabilir (data/muh birikiyor). |
 
 ## Karma sonuç (bir kısmı geçti, bir kısmı olmadı) — 2
 
@@ -179,7 +180,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 19 · Geçti: 17 
 | T201 | TAM piyasasız model (elenen tüm özellikler geri eklenmiş) AGF'ye karşı (kullanıcı: "piyasa zaten biliyor diyi… | Karar belirsiz | (2026-11-11 13:25; t201_sonuc.txt, t201.json, t201_ozellik.json; 28 grup, 143 özellik, sızıntı şüphesi yok; AGF'li 5.521 koşu: 2025 1.689 / 2026 3.832; 1.016 altılı). Kazanan kaybı (nats/koşu, düşük iyi) 2025 / 2026: AGF 1,791 /… | KARAR: (1) AGF DAHA İSABETLİ; (2) FAYDA KANITLANMADI (2025'te zararlı, 2026'da faydalı: geri eklenen özellikler — çoğu 2024-10 sonrası video/galop — eğitimde yokken 2025'te zarar, veri biriktikçe 2026'da +0,023); (3) KUPONDA AGF'NİN GERİSİNDE. YORUM: piyasası… |
 | T202 | altılıda DEĞER seçimi: AGF'nin az oynadığı ama modelin yüksek gördüğü kombinasyonlar (kullanıcı: "Dene") | Karar belirsiz | (2026-11-12 01:55; t202_sonuc.txt, t202.json, t202_altili.csv; 1.016 altılı; Bonf. %98,75 GA): ANA eşleşmiş ROI farkı (V−AX), 2025+2026 birlikte: V15 B64 −0,546 [−0,764; −0,340]; V50 B64 −0,546 [−0,764; −0,344] (ikisinde 0 adet 6… | KARAR (kurala göre): V15_B64 yok; V50_B64 yok; V50_B256 yok; V15_B256 'işaret' (nokta > 0 iki yılda da, GA alt ≤ 0). YORUM: değer seçimi isabeti ağır düşürüyor (B64'te 1.016 altılıda hiç 6/6 yok); tek 'işaret' yalnız 6 adet 6/6'ya dayanıyor, güven aralığı çok… |
 
-## Ön kayıtlı, sonucu henüz yok — 19
+## Ön kayıtlı, sonucu henüz yok — 18
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -199,6 +200,5 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 19 · Geçti: 17 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
-| T204 | bahis anı denetimi → | Sonuç bekleniyor |  |  |
 | T205 | pist gecikmesi → | Sonuç bekleniyor |  |  |
 | T207 | kısa dizili ganyan) | Sonuç bekleniyor |  |  |

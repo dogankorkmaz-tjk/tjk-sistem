@@ -1,13 +1,13 @@
 {
- "guncelleme": "2026-11-11T23:00",
+ "guncelleme": "2026-11-11T23:01",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
   "Karar belirsiz": 47,
   "Tanımlayıcı / keşif": 9,
-  "Sonuç bekleniyor": 19,
+  "Sonuç bekleniyor": 18,
   "Karma": 2,
-  "Aday / ileri takipte": 14
+  "Aday / ileri takipte": 15
  },
  "testler": [
   {
@@ -1445,10 +1445,10 @@
    "id": "T204",
    "konu": "bahis anı denetimi →",
    "tarih": "2026-11-12",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Aday / ileri takipte ~",
+   "ozet": "(2026-11-12 03:35; t204_sonuc.txt, t204.json; 23 gün, 297 yerli koşu (ANA ≥1 dk kala), 348 bahis; model 2026-10-15 öncesiyle fit; ödeme RESMÎ kapanış ganyanı): RB (bahis anı oranıyla seçim) ROI 0,873 [0,679; 1,051], 82 isabet; RC…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) yeni ön kayıt, n ≥ 500): değer oranı hesabında bahis anı oranını beklenen kapanışa (≈ −%12) indirerek seçmek. Canlı kural DEĞİŞMEDİ. Betik yeni veriyle aynen yeniden koşulabilir (data/muh birikiyor).",
+   "satir": 2795
   },
   {
    "id": "T205",
