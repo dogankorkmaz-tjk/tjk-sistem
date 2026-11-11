@@ -1,7 +1,7 @@
 {
  "tarih": "2026-11-11",
- "zaman": "2026-11-11 12:19 TR",
- "genel": "uyari",
+ "zaman": "2026-11-11 13:13 TR",
+ "genel": "ok",
  "kontroller": [
   {
    "ad": "veri: sonuclar",
@@ -70,8 +70,8 @@
   },
   {
    "ad": "Benter puanı (z6)",
-   "durum": "uyari",
-   "detay": "kapsam %68 (başlamamış koşulardaki atlar)"
+   "durum": "ok",
+   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
   },
   {
    "ad": "piyasasız puan (z7)",
@@ -81,7 +81,7 @@
   {
    "ad": "Benter-K gölge puanı (zk6)",
    "durum": "ok",
-   "detay": "AGF henüz yok — sabah AGF gelince yazılır"
+   "detay": "kapsam %100 (AGF'si gelmiş başlamamış koşulardaki atlar)"
   },
   {
    "ad": "Benter sıra üstelleri (a_g1)",
