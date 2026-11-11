@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-11 08:15 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-11 08:18 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 12 · Tanımlayıcı / keşif: 8 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 13 · Tanımlayıcı / keşif: 8 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -87,7 +87,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T191 | kilo-düzeltmeli (K) ve rakip-gücü ('zorluk merkezi', Z) hız figürü (kullanıcı: "İkisini de test et"; kaynak:… | Elendi | (2026-11-09 11:10): β = −0,218 sn/kg (n=116.885) → K KOLU ÇALIŞTIRILMADI (kuralı gereği). Neden: veride ağır kilo taşıyan at daha hızlı bitiriyor, çünkü iyi atlara (handikap) daha fazla kilo yükleniyor; kalite ile kilo karışık, v… | KARAR: K = test edilemedi; Z = YOK (GA alt ≤ 0). Etki ≈ %0,05 olasılık kazancı, ROI'ye çevrilmesi beklenmez. Açık: K için sabit, dışarıdan (literatür) bir β ile ayrı ön kayıt yapılabilir; β sonucu gördükten sonra seçilemeyeceğinden onay + yeni giriş gerekir. |
 | T198 | seçici 'ilk3 sürpriz' filtreleri (kullanıcı: "Evet test et" | Elendi ~ | (2026-11-10 23:25; t198_sonuc.txt; T197 verisi, 295 koşu, Bonf. %97,5 GA): S1 (koşuda en yüksek f3'lü etiketli): kazanma %17,3 vs piyasa %13,7 → +3,6 pp [+1,0; +6,5]; ilk-3 %51,9 vs %43,2 → +8,7 pp [+2,0; +15,7] → ADAY; ROI (bilg… | (açık karar satırı yok, son cümlelerden çıkarıldı) gücü etiketin tamamıyla benzer (+3,9 pp) → seçicilik belirgin ek kazanç vermedi; ROI'de kanıt yok; pencere 18 gün. Canlı kural/etiket DEĞİŞMEDİ; aynı betik ileride (daha çok gün) yeniden koşulabilir. |
 
-## Aday: ileri takipte (henüz kanıt değil) — 12
+## Aday: ileri takipte (henüz kanıt değil) — 13
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -103,6 +103,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T187-D | "piyasa sıralı bahislerde nerede yanılıyor?" (kullanıcı: "Başlat"). Sonuçlar görülmeden yazıldı; betik değişt… | Aday / ileri takipte | (t187_d_sonuc.txt; Actions t187_d.yml, 5 dk; ay-ay ileri-yürüyüş 2025-03→2026-11) R0 birim doğrulaması GEÇTİ: tüm kombinasyonlar ROI sıralı ikili −35,8% (10.120 koşu), üçlü −43,5% (5.320 koşu) → 'tutar' birimi doğru (aralık −15…−… | KARAR (ön kayıt): üç bahiste de ANA nokta ROI < 0 → 'YOK' (aday değil). Yorum: model piyasanın az fiyatladığı sıralı kombinasyonları gerçekten seçiyor (isabet piyasa beklentisinin +31…+37%'i; ROI referanslardan ~13 puan iyi), ama modelin kendi olasılığı da %1… |
 | T195 | Plackett-Luce at gücü (kullanıcı: "Yap"; fikir: TayDex arXiv 'ranking' videosu) | Aday / ileri takipte | (2026-11-10 01:58; t195_sonuc.txt; 2025Q3→2026Q4, ileri-yürüyüş; kazanan log-olabilirlik farkı, nats/koşu): EP−E +0,00128 [+0,00067; +0,00188] (2025H2 +0,00064, 2026 +0,00168); EM−E +0,00045 [+0,00015; +0,00077] (2025H2 +0,00028,… | KARAR (kurala göre): ADAY (her iki kol). YORUM: etki çok küçük (Elo'nun kendi kazancının ~%15'i), ROI'ye çevrilmedi; canlı model DEĞİŞMEDİ; kullanmak için ayrı onay + ROI/ileri kayıt ön kaydı gerekir. |
 | T196 | PL gücü (EP) ROI'ye çevrilir (kullanıcı: "Evet" | Aday / ileri takipte | (2026-11-10 10:50; t196_sonuc.txt; ganyan, 2025Q3→2026Q4; 36/8.682 kazananın ödemesi eşleşmedi → ROI hafif aşağı yanlı, iki kolda aynı): ANA (≥1,15, p≥0,10) E: 8.796 bahis, ROI −%10,9 [−14,7; −6,9]; EP: 8.859 bahis, ROI −%10,7 [−… | KARAR (kurala göre): nokta ≥ 0 → ADAY, ama fark GA'sı 0'ı bol bol içeriyor: ROI'de ayırt edilemez. İKİ KOL DA ZARARDA (ganyan değer-bahsi bu filtreyle kârlı değil). Canlı model DEĞİŞMEDİ. |
+| T200 | altılıda AGF + piyasasız model (PM0) karışımı (kullanıcı: "Başlat test edelim") | Aday / ileri takipte | (2026-11-11 11:55; t200_sonuc.txt, t200_altili.csv; 1.016 altılı: 2025 277 [w fit], 2026 739 [sınama]; PM0 43 özellik): w tek = 0,15; ayak başına w_j = [0; 0; 0,25; 0; 0,20; 0,50]. 2026 sınama, Bonf. %97,5 GA: BC−A kazanan log-ol… | KARAR (kurala göre): BL YOK; BC 'tek w adayı' (ll GA alt>0 ve iki bütçede nokta>0). YORUM: kazanan olabilirliğinde küçük ama tutarlı kazanç (AGF'ye %15 PM0 karışımı); kupon düzeyinde etki ayak başına ~%1 (B=64: 3,54→3,57), tutan ayak GA'sı 0'ı kapsıyor, 2025'… |
 
 ## Karma sonuç (bir kısmı geçti, bir kısmı olmadı) — 2
 
@@ -174,7 +175,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T193 | galop katsayıları tay ve yetişkin için AYRI (kullanıcı: "Çalıştır" | Karar belirsiz | (2026-11-09 11:50; t193_sonuc.txt; 2026-04..10 ileri-yürüyüş, tay 2.081 / yetişkin 1.873 koşu, 23 koşu yaş eşleşmedi; Bonf. %98,75 GA; fark = ayrı − ortak, negatif iyi): TAY +0,0026 [−0,0004; +0,0057] (04–07 +0,0028, 08–10 +0,002… | KARAR: tay YOK, yetişkin YOK. Ayrı galop katsayıları ortak katsayıdan HAFİF KÖTÜ (toplamda GA sıfırın üstünde yani ayrı model anlamlı biçimde daha kötü): galobun etkisi zaten çok küçük (~%0,2), eğitim verisini ikiye bölmek gürültüyü artırıyor. Betimleyici (so… |
 | T194 | komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: "Tamam bitince onayıma gerek kalmadan testi b… | Karar belirsiz | (2026-11-10 02:05; t194_sonuc.txt; 366 rapor günü-hipodrom, Bonf. %98,33 GA; fark = kazanma − piyasa p, taban +0,0007): gec_start n=132 −0,0145 [−0,046; +0,025] YOK; sakat n=50 +0,036 [−0,051; +0,142] YOK (yön beklenenin tersi, n… |  |
 
-## Ön kayıtlı, sonucu henüz yok — 17
+## Ön kayıtlı, sonucu henüz yok — 16
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -194,4 +195,3 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
-| T200 | altılıda AGF + piyasasız model (PM0) karışımı (kullanıcı: "Başlat test edelim") | Sonuç bekleniyor |  |  |

@@ -1,13 +1,13 @@
 {
- "guncelleme": "2026-11-11T08:15",
+ "guncelleme": "2026-11-11T08:18",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
   "Karar belirsiz": 45,
   "Tanımlayıcı / keşif": 8,
-  "Sonuç bekleniyor": 17,
+  "Sonuç bekleniyor": 16,
   "Karma": 2,
-  "Aday / ileri takipte": 12
+  "Aday / ileri takipte": 13
  },
  "testler": [
   {
@@ -1409,10 +1409,10 @@
    "id": "T200",
    "konu": "altılıda AGF + piyasasız model (PM0) karışımı (kullanıcı: \"Başlat test edelim\")",
    "tarih": "2026-11-11",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Aday / ileri takipte",
+   "ozet": "(2026-11-11 11:55; t200_sonuc.txt, t200_altili.csv; 1.016 altılı: 2025 277 [w fit], 2026 739 [sınama]; PM0 43 özellik): w tek = 0,15; ayak başına w_j = [0; 0; 0,25; 0; 0,20; 0,50]. 2026 sınama, Bonf. %97,5 GA: BC−A kazanan log-ol…",
+   "neden": "KARAR (kurala göre): BL YOK; BC 'tek w adayı' (ll GA alt>0 ve iki bütçede nokta>0). YORUM: kazanan olabilirliğinde küçük ama tutarlı kazanç (AGF'ye %15 PM0 karışımı); kupon düzeyinde etki ayak başına ~%1 (B=64: 3,54→3,57), tutan ayak GA'sı 0'ı kapsıyor, 2025'…",
+   "satir": 2734
   }
  ]
 }
