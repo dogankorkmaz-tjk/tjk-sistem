@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-10 19:42 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-11 08:15 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 12 · Tanımlayıcı / keşif: 8 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 12 · Tanımlayıcı / keşif: 8 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -174,7 +174,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T193 | galop katsayıları tay ve yetişkin için AYRI (kullanıcı: "Çalıştır" | Karar belirsiz | (2026-11-09 11:50; t193_sonuc.txt; 2026-04..10 ileri-yürüyüş, tay 2.081 / yetişkin 1.873 koşu, 23 koşu yaş eşleşmedi; Bonf. %98,75 GA; fark = ayrı − ortak, negatif iyi): TAY +0,0026 [−0,0004; +0,0057] (04–07 +0,0028, 08–10 +0,002… | KARAR: tay YOK, yetişkin YOK. Ayrı galop katsayıları ortak katsayıdan HAFİF KÖTÜ (toplamda GA sıfırın üstünde yani ayrı model anlamlı biçimde daha kötü): galobun etkisi zaten çok küçük (~%0,2), eğitim verisini ikiye bölmek gürültüyü artırıyor. Betimleyici (so… |
 | T194 | komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: "Tamam bitince onayıma gerek kalmadan testi b… | Karar belirsiz | (2026-11-10 02:05; t194_sonuc.txt; 366 rapor günü-hipodrom, Bonf. %98,33 GA; fark = kazanma − piyasa p, taban +0,0007): gec_start n=132 −0,0145 [−0,046; +0,025] YOK; sakat n=50 +0,036 [−0,051; +0,142] YOK (yön beklenenin tersi, n… |  |
 
-## Ön kayıtlı, sonucu henüz yok — 16
+## Ön kayıtlı, sonucu henüz yok — 17
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -194,3 +194,4 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
+| T200 | altılıda AGF + piyasasız model (PM0) karışımı (kullanıcı: "Başlat test edelim") | Sonuç bekleniyor |  |  |
