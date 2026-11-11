@@ -987,6 +987,10 @@ def canli(t):
     except Exception as e:                       # kupon kaydı isteğe bağlı; ana işi durdurmasın
         print("kupon hatası:", repr(e))
     try:
+        KP.guncelle_pm0(obj)
+    except Exception as e:
+        print("pm0 kupon hatası:", repr(e))
+    try:
         KP.guncelle7(obj)
     except Exception as e:
         print("7'li kupon hatası:", repr(e))
@@ -1100,6 +1104,10 @@ def gece(bugun):
                 KP.guncelle(obj)
             except Exception as e:
                 print("kupon hatası:", repr(e))
+            try:
+                KP.guncelle_pm0(obj)
+            except Exception as e:
+                print("pm0 kupon hatası:", repr(e))
             try:
                 KP.guncelle7(obj)
             except Exception as e:

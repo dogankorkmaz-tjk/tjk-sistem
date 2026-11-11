@@ -242,6 +242,98 @@ def ozet_yaz(tarih):
               open(os.path.join(SITE, "kupon.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
 
+# ------------------------------------------------------------------ AGF + piyasasız model (PM0) karışımı, gölge (T200, 11 Kasım 2026)
+W_PM0 = 0.15          # T200: q ∝ AGF^(1-w) · PM0^w ; w yalnız 2025 altılılarında fit edildi, DONDURULDU (değişirse ayrı deftere kayıt + onay)
+STRAT_PM0 = [("agf_favori", 64), ("agf_favori", 256), ("pm0_favori", 64), ("pm0_favori", 256)]    # agf_favori = kontrol (yalnız AGF), pm0_favori = karışım
+
+
+def _ayaklar_pm0(h, son, w=W_PM0):
+    """Altılının 6 ayağı için ([{no:(agf,agf)}], [{no:(karışım,agf)}], adlar); AGF veya z7 (piyasasız puan) eksikse None."""
+    k = {x["kosu"]: x for x in h["kosular"]}
+    ay_a, ay_b, ad = [], [], []
+    for kn in range(son - 5, son + 1):
+        at = [a for a in (k.get(kn) or {}).get("atlar", []) if a.get("agf") and not a.get("kosmaz")]
+        if not at or any(a.get("z7") is None for a in at):
+            return None
+        tot = sum(a["agf"] for a in at); pa = {a["no"]: max(a["agf"] / tot, 1e-4) for a in at}
+        zs = {a["no"]: a["z7"] for a in at}; mz = max(zs.values()); e = {no: math.exp(v - mz) for no, v in zs.items()}; ez = sum(e.values())
+        raw = {no: math.exp((1 - w) * math.log(pa[no]) + w * math.log(max(e[no] / ez, 1e-9))) for no in pa}; rz = sum(raw.values())
+        ay_a.append({no: (pa[no], pa[no]) for no in pa}); ay_b.append({no: (raw[no] / rz, pa[no]) for no in pa}); ad.append({a["no"]: a["at"] for a in at})
+    return ay_a, ay_b, ad
+
+
+def guncelle_pm0(obj):
+    """AGF + PM0 karışımı kuponları (gölge). Ana kupon kayıtlarına dokunmaz: data/kupon_pm0/<tarih>.json ve docs/data/kupon_pm0.json."""
+    tarih = obj["tarih"]
+    yol = os.path.join(VERI, "kupon_pm0", tarih + ".json")
+    kay = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
+    try:
+        from . import ortak as O
+        simdi = O.tr_simdi().strftime("%H:%M")
+    except Exception:
+        simdi = None
+    od = None
+    for h in obj["hipodromlar"]:
+        k = {x["kosu"]: x for x in h["kosular"]}
+        for alt, son in (h.get("altili") or {}).items():
+            anahtar = f"{h['id']}|{son}"
+            ilk_saat = (k.get(son - 5) or {}).get("saat") or "99:99"
+            c = kay.get(anahtar)
+            if c is None or (not c.get("dondu") and simdi and simdi < ilk_saat):
+                r = _ayaklar_pm0(h, son)
+                if r:
+                    ay_a, ay_b, ad = r
+                    c = {"hipodrom": h["id"], "ad": h.get("ad"), "altili": int(alt), "son": son, "ilk_saat": ilk_saat, "uretim": simdi, "dondu": False, "w": W_PM0, "kuponlar": []}
+                    for mod, B in STRAT_PM0:
+                        ay = ay_a if mod.startswith("agf") else ay_b
+                        s = kur(ay, B, "favori"); o = ozet(ay, s)
+                        c["kuponlar"].append({"mod": mod, "butce": B, "birim": birim(h["id"]), "bedel": round(o["kombinasyon"] * birim(h["id"]), 2), "ayaklar": [sorted(x) for x in s],
+                                              "isimler": [{str(no): ad[i][no] for no in sorted(x)} for i, x in enumerate(s)],
+                                              **{kk: round(v, 4) if isinstance(v, float) else v for kk, v in o.items()}})
+                    kay[anahtar] = c
+            if c and not c.get("dondu") and simdi and simdi >= ilk_saat:
+                c["dondu"] = True
+            if c and "sonuc" not in c:
+                kaz = []
+                for kn in range(son - 5, son + 1):
+                    sn = (k.get(kn) or {}).get("sonuc")
+                    if not sn:
+                        break
+                    kaz.append([int(no) for no, v in sn.items() if v["sira"] == 1])
+                if len(kaz) == 6:
+                    if od is None:
+                        try:
+                            od = pd.read_csv(os.path.join(VERI, "odeme", tarih[:7] + ".csv.gz"))
+                            od = od[(od.tarih == tarih) & (od.tur == "6'LI GANYAN")]
+                        except Exception:
+                            od = pd.DataFrame()
+                    odeme = od[(od.hipodrom == h["id"]) & (od.kosu == son)].tutar.max() if len(od) else float("nan")
+                    c["kazananlar"] = kaz; c["odeme"] = None if odeme != odeme else float(odeme)
+                    if c["odeme"] is not None:
+                        c["sonuc"] = True
+                        for q in c["kuponlar"]:
+                            ayak = sum(1 for i in range(6) if set(kaz[i]) & set(q["ayaklar"][i]))
+                            q["ayak_isabet"] = ayak; q["isabet"] = ayak == 6; q["kazanc"] = c["odeme"] if q["isabet"] else 0.0
+    if kay:
+        os.makedirs(os.path.dirname(yol), exist_ok=True)
+        json.dump(kay, open(yol, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    top = {}
+    for y in sorted(glob.glob(os.path.join(VERI, "kupon_pm0", "*.json"))):
+        for c in json.load(open(y, encoding="utf-8")).values():
+            if not c.get("sonuc"):
+                continue
+            for q in c["kuponlar"]:
+                t = top.setdefault(f"{q['mod']}-{q['butce']}", {"mod": q["mod"], "butce": q["butce"], "altili": 0, "harcama": 0.0, "ayak": 0, "isabet": 0, "kazanc": 0.0})
+                t["altili"] += 1; t["harcama"] += q.get("bedel", q["kombinasyon"] * 1.25); t["ayak"] += q["ayak_isabet"]; t["isabet"] += int(q["isabet"]); t["kazanc"] += q["kazanc"]
+    for t in top.values():
+        t["ort_ayak"] = round(t["ayak"] / t["altili"], 3) if t["altili"] else None
+        t["geri_donus"] = round(t["kazanc"] / t["harcama"], 3) if t["harcama"] else None
+        t["harcama"] = round(t["harcama"], 2); t["kazanc"] = round(t["kazanc"], 2)
+    bugun = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
+    os.makedirs(SITE, exist_ok=True)
+    json.dump({"tarih": tarih, "w": W_PM0, "bugun": list(bugun.values()), "toplam": list(top.values())}, open(os.path.join(SITE, "kupon_pm0.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+
+
 if __name__ == "__main__":
     for tur, L in TURLER.items():
         veri = gecmis_ayaklar(tur)

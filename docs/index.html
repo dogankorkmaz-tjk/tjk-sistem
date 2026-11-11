@@ -373,6 +373,7 @@ input[type=file]::file-selector-button{font:600 13.5px var(--f-body);margin-righ
   <section id="kanit" class="sec" hidden><div id="kanitIc"><div class="card empty">Yükleniyor…</div></div><div id="supKanit"></div><div id="eskiKupKanit"></div><h2 style="margin-top:14px">Sistemin kurduğu kuponların kâğıt kaydı (eski Kuponlar sekmesi)</h2><div class="bolum"><h2>Sıralı 5'li kombine kupon</h2><div class="bolum-not">Ana test: Jason, 150 kombinasyonluk bütçe.</div><div id="otoBesli"><div class="card empty">Yükleniyor…</div></div></div>
     <div class="bolum"><h2>Değer filtresi: ikili ve üçlü</h2><div id="otoDeger"><div class="card empty">Yükleniyor…</div></div></div>
     <div class="bolum"><h2>Altılı kupon testi</h2><div class="bolum-not">Sistemin her gün kurduğu altılı kuponlar; kâğıt üstü.</div><div id="otoKupon"><div class="card empty">Yükleniyor…</div></div></div>
+    <div class="bolum"><h2>Altılı kupon: AGF + piyasasız model (gölge)</h2><div class="bolum-not">T200 (11 Kasım 2026): AGF'nin %85'i + piyasasız modelin %15'i; yalnız AGF'li kontrol kuponuyla yan yana. Kâğıt üstü, kâr kanıtı yok; kural dondurulmuş. Asıl ölçü: kupon başına tutan ayak sayısı.</div><div id="pm0Kupon"><div class="card empty">Yükleniyor…</div></div></div>
   </section>
   <section id="abd" class="sec" hidden>
     <div class="card">
@@ -1612,6 +1613,27 @@ async function otoKuponYukle(){
   }catch(e){el.innerHTML='<div class="card empty">Kupon verisi henüz yok.</div>'}
 }
 otoKuponYukle();
+async function pm0KuponYukle(){
+  const el=$('pm0Kupon'); if(!el) return;
+  try{
+    const d=await getJSON('data/kupon_pm0.json'); let s=''; const ad={agf_favori:'Yalnız AGF (kontrol)',pm0_favori:'AGF + piyasasız model'};
+    if(d.toplam&&d.toplam.length){
+      s+='<div class="card"><b>Şimdiye kadar (sonuçlanan altılılar)</b><table style="width:100%;font-size:13px"><tr><th align=left>Kupon</th><th>Altılı</th><th>Ort. tutan ayak</th><th>6/6</th><th>Harcanan TL</th><th>Geri dönüş</th></tr>';
+      d.toplam.slice().sort((x,y)=>x.butce-y.butce||(x.mod<y.mod?-1:1)).forEach(t=>{s+=`<tr><td>${ad[t.mod]} ~${t.butce}</td><td align=center>${t.altili}</td><td align=center>${t.ort_ayak==null?'–':String(t.ort_ayak).replace('.',',')}</td><td align=center>${t.isabet}</td><td align=center>${t.harcama}</td><td align=center>${t.geri_donus==null?'–':String(t.geri_donus).replace('.',',')}</td></tr>`});
+      s+='</table><div style="font-size:12px;opacity:.7;margin-top:6px">Karar için en az 100 altılı gerekir. Geri dönüş 6/6 sayısına bağlı, güvenilir değil; ayak sayısına bak.</div></div>';
+    }
+    (d.bugun||[]).forEach(c=>{
+      s+=`<div class="card"><b>${esc(c.ad||c.hipodrom)} ${c.altili}. altılı</b> <span style="opacity:.7">(${c.son-5}–${c.son}. koşu, ${c.dondu?'dondu':'güncelleniyor'}, ${c.uretim||''})</span>`;
+      c.kuponlar.forEach(q=>{
+        s+=`<div style="margin-top:8px"><b>${ad[q.mod]} ~${q.butce}</b> · ${q.kombinasyon} kombinasyon · <b>${(q.bedel||q.kombinasyon*1.25).toFixed(2)} TL</b>${q.ayak_isabet!=null?` · <b>${q.ayak_isabet}/6 ayak</b>${q.isabet?' ✓ 6/6':''}`:''}<div class="sub">`+q.ayaklar.map((a,i)=>`${i+1}. ayak: ${a.map(no=>no+' '+esc((q.isimler[i]||{})[no]||'')).join(', ')}`).join('<br>')+'</div></div>';
+      });
+      s+='</div>';
+    });
+    el.innerHTML=s||'<div class="card empty">Bugün için kupon henüz yok (AGF gelince oluşur).</div>';
+  }catch(e){el.innerHTML='<div class="card empty">Kupon verisi henüz yok.</div>'}
+}
+pm0KuponYukle();
+
 
 async function canliKaydet(h,k){
   const out=$('kaydetSonuc'), o=ODDS[okey(h.id,k.kosu)]||{}, tok=($('ghTok').value||'').trim()||(()=>{try{return localStorage.getItem('gm2_gh')||''}catch(e){return ''}})();
