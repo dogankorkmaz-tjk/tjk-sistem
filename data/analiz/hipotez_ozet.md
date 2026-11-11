@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-11 10:24 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-11 22:36 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 46 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 13 · Tanımlayıcı / keşif: 8 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 46 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 13 · Tanımlayıcı / keşif: 8 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -176,7 +176,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 46 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T194 | komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: "Tamam bitince onayıma gerek kalmadan testi b… | Karar belirsiz | (2026-11-10 02:05; t194_sonuc.txt; 366 rapor günü-hipodrom, Bonf. %98,33 GA; fark = kazanma − piyasa p, taban +0,0007): gec_start n=132 −0,0145 [−0,046; +0,025] YOK; sakat n=50 +0,036 [−0,051; +0,142] YOK (yön beklenenin tersi, n… |  |
 | T201 | TAM piyasasız model (elenen tüm özellikler geri eklenmiş) AGF'ye karşı (kullanıcı: "piyasa zaten biliyor diyi… | Karar belirsiz | (2026-11-11 13:25; t201_sonuc.txt, t201.json, t201_ozellik.json; 28 grup, 143 özellik, sızıntı şüphesi yok; AGF'li 5.521 koşu: 2025 1.689 / 2026 3.832; 1.016 altılı). Kazanan kaybı (nats/koşu, düşük iyi) 2025 / 2026: AGF 1,791 /… | KARAR: (1) AGF DAHA İSABETLİ; (2) FAYDA KANITLANMADI (2025'te zararlı, 2026'da faydalı: geri eklenen özellikler — çoğu 2024-10 sonrası video/galop — eğitimde yokken 2025'te zarar, veri biriktikçe 2026'da +0,023); (3) KUPONDA AGF'NİN GERİSİNDE. YORUM: piyasası… |
 
-## Ön kayıtlı, sonucu henüz yok — 16
+## Ön kayıtlı, sonucu henüz yok — 17
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -196,3 +196,4 @@ Toplam: Elendi: 55 · Karar belirsiz: 46 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
+| T202 | altılıda DEĞER seçimi: AGF'nin az oynadığı ama modelin yüksek gördüğü kombinasyonlar (kullanıcı: "Dene") | Sonuç bekleniyor |  |  |
