@@ -1,0 +1,197 @@
+{
+ "tarih": "2026-11-11",
+ "kuponlar": {
+  "fenomen-tilki|istanbul|2": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "TORUNCALAS",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     3
+    ],
+    [
+     2,
+     3,
+     4,
+     5,
+     1
+    ],
+    [
+     5
+    ],
+    [
+     3,
+     1,
+     4,
+     2,
+     5,
+     6
+    ],
+    [
+     6,
+     2,
+     1,
+     3,
+     4,
+     5,
+     9,
+     12,
+     10,
+     8,
+     7
+    ],
+    [
+     15,
+     13,
+     8,
+     5,
+     2,
+     4,
+     12,
+     6,
+     3,
+     10
+    ]
+   ],
+   "ilk_gorulme": "18:38:38"
+  },
+  "editorun-kuponu|istanbul|2": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "FATİH BAŞKAN",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     1,
+     2,
+     3,
+     6,
+     5,
+     11,
+     7,
+     8,
+     9,
+     10,
+     12
+    ],
+    [
+     2,
+     4,
+     3,
+     5,
+     1
+    ],
+    [
+     1,
+     5,
+     2,
+     8,
+     3,
+     6,
+     4,
+     7
+    ],
+    [
+     3,
+     1,
+     2,
+     4,
+     5,
+     6
+    ],
+    [
+     6
+    ],
+    [
+     4
+    ]
+   ],
+   "ilk_gorulme": "18:38:38"
+  },
+  "hipodrom-guzeli|istanbul|2": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "IRON SKY",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     1,
+     2,
+     3,
+     6,
+     5,
+     11,
+     8,
+     7,
+     9,
+     10,
+     12
+    ],
+    [
+     2
+    ],
+    [
+     2
+    ],
+    [
+     3,
+     1,
+     2,
+     4,
+     5,
+     6
+    ],
+    [
+     6,
+     2,
+     1,
+     13,
+     4,
+     5,
+     9,
+     10,
+     8,
+     12,
+     7
+    ],
+    [
+     15,
+     8,
+     12,
+     5,
+     1,
+     2,
+     4,
+     3,
+     13,
+     10
+    ]
+   ],
+   "ilk_gorulme": "18:38:38"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|istanbul|7": {
+   "ad": "SPRINTMASTER",
+   "at": "COSE DELLA VITA",
+   "hip": "istanbul",
+   "kosu": 7,
+   "ilk_gorulme": "18:38:38"
+  },
+  "BEYGİRBOOSTER|istanbul|6": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "GÖZPINARI",
+   "hip": "istanbul",
+   "kosu": 6,
+   "ilk_gorulme": "18:38:38"
+  }
+ },
+ "degisiklik": []
+}
