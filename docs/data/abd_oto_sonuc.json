@@ -1,16 +1,16 @@
 {
- "uretim": "2026-11-11 10:58 UTC",
- "kayitli_kosu": 1775,
- "eslesmeyen_kosu": 1188,
+ "uretim": "2026-11-11 17:29 UTC",
+ "kayitli_kosu": 1779,
+ "eslesmeyen_kosu": 1191,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 990,
- "kosu": 587,
+ "bahis": 991,
+ "kosu": 588,
  "isabet": 63,
- "roi": 0.89,
+ "roi": 0.889,
  "ga95": [
-  0.642,
-  1.176
+  0.643,
+  1.172
  ],
  "ulke": {
   "abd": {
@@ -30,50 +30,41 @@
    "roi": 1.706
   },
   "irlanda": {
-   "bahis": 36,
+   "bahis": 37,
    "roi": 0.0
   }
  },
  "bahis_ani": {
-  "bahis": 1269,
-  "kosu": 569,
+  "bahis": 1271,
+  "kosu": 570,
   "isabet": 123,
-  "roi": 0.633,
+  "roi": 0.632,
   "ga95": [
-   0.484,
-   0.789
+   0.485,
+   0.786
   ]
  },
  "bahis_t1": {
-  "bahis": 1290,
-  "kosu": 559,
+  "bahis": 1292,
+  "kosu": 560,
   "isabet": 130,
-  "roi": 0.684,
+  "roi": 0.683,
   "ga95": [
-   0.499,
-   0.892
+   0.496,
+   0.891
   ]
  },
  "bahis_t3": {
-  "bahis": 1260,
-  "kosu": 542,
+  "bahis": 1263,
+  "kosu": 543,
   "isabet": 141,
-  "roi": 0.686,
+  "roi": 0.684,
   "ga95": [
-   0.512,
-   0.904
+   0.51,
+   0.892
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 7,
-   "at": "CALL MARGOT",
-   "q": 0.13,
-   "g": 14.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Southwell",
@@ -423,6 +414,15 @@
    "at": "FLASHY IDOL",
    "q": 0.199,
    "g": 14.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-11",
+   "pist": "Dundalk",
+   "kosu": 6,
+   "at": "THALORIA",
+   "q": 0.057,
+   "g": 22.65,
    "kazandi": false
   }
  ]
