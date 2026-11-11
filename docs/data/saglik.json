@@ -1,7 +1,7 @@
 {
  "tarih": "2026-11-11",
- "zaman": "2026-11-11 10:00 TR",
- "genel": "ok",
+ "zaman": "2026-11-11 12:19 TR",
+ "genel": "uyari",
  "kontroller": [
   {
    "ad": "veri: sonuclar",
@@ -70,8 +70,8 @@
   },
   {
    "ad": "Benter puanı (z6)",
-   "durum": "ok",
-   "detay": "kapsam %100 (başlamamış koşulardaki atlar)"
+   "durum": "uyari",
+   "detay": "kapsam %68 (başlamamış koşulardaki atlar)"
   },
   {
    "ad": "piyasasız puan (z7)",
