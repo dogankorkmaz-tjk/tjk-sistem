@@ -1,13 +1,13 @@
 {
- "guncelleme": "2026-11-11T22:56",
+ "guncelleme": "2026-11-11T22:59",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
   "Karar belirsiz": 47,
   "Tanımlayıcı / keşif": 8,
-  "Sonuç bekleniyor": 21,
+  "Sonuç bekleniyor": 20,
   "Karma": 2,
-  "Aday / ileri takipte": 13
+  "Aday / ileri takipte": 14
  },
  "testler": [
   {
@@ -1436,10 +1436,10 @@
    "id": "T203",
    "konu": "→",
    "tarih": "2026-11-12",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Aday / ileri takipte",
+   "ozet": "(2026-11-12 02:55; t203_sonuc.txt, t203.json; E kolu, 8.716 kazananlı koşu, 2025Q3→2026Q4; genel kazanç +0,0265 nats/koşu):",
+   "neden": "KARAR kuralına göre 17 bölüm 'ZAYIF PİYASA ADAYI' (Bonf. GA alt > 0 ve iki yarıda nokta > 0), 2 'işaret' (kocaeli, elazig), 1 'yok' (diyarbakir +0,005), 1 yetersiz değil. DÜZELTME/KURAL KUSURU (sonuç görüldükten sonra tespit): ön kayıtlı kural bölümün kazancı…",
+   "satir": 2783
   },
   {
    "id": "T204",
