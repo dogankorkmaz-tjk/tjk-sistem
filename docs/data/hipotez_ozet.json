@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-11T22:36",
+ "guncelleme": "2026-11-11T22:52",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
-  "Karar belirsiz": 46,
+  "Karar belirsiz": 47,
   "Tanımlayıcı / keşif": 8,
-  "Sonuç bekleniyor": 17,
+  "Sonuç bekleniyor": 16,
   "Karma": 2,
   "Aday / ileri takipte": 13
  },
@@ -1427,10 +1427,10 @@
    "id": "T202",
    "konu": "altılıda DEĞER seçimi: AGF'nin az oynadığı ama modelin yüksek gördüğü kombinasyonlar (kullanıcı: \"Dene\")",
    "tarih": "2026-11-12",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-12 01:55; t202_sonuc.txt, t202.json, t202_altili.csv; 1.016 altılı; Bonf. %98,75 GA): ANA eşleşmiş ROI farkı (V−AX), 2025+2026 birlikte: V15 B64 −0,546 [−0,764; −0,340]; V50 B64 −0,546 [−0,764; −0,344] (ikisinde 0 adet 6…",
+   "neden": "KARAR (kurala göre): V15_B64 yok; V50_B64 yok; V50_B256 yok; V15_B256 'işaret' (nokta > 0 iki yılda da, GA alt ≤ 0). YORUM: değer seçimi isabeti ağır düşürüyor (B64'te 1.016 altılıda hiç 6/6 yok); tek 'işaret' yalnız 6 adet 6/6'ya dayanıyor, güven aralığı çok…",
+   "satir": 2766
   }
  ]
 }
