@@ -1,0 +1,23 @@
+name: t201
+# T201 (data/analiz/t201.py): tam piyasasız model AGF'ye karşı; sonuç data/analiz/t201_sonuc.txt
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  t201:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q -r requirements.txt
+      - run: python3 data/analiz/t201_hazirla.py
+      - run: python3 data/analiz/t201.py 2>&1 | grep -v -e Warning -e "^  " | tee data/analiz/t201_sonuc.txt | tail -80
+      - if: always()
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@users.noreply.github.com"
+          git add data/analiz/t201_sonuc.txt data/analiz/t201.json data/analiz/t201_ozellik.json; git commit -qm "T201 sonuç" || exit 0
+          for i in 1 2 3 4 5 6; do git pull --rebase -q && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done; exit 1
