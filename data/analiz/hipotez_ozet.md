@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-11 22:52 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-11 22:56 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 47 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 13 · Tanımlayıcı / keşif: 8 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 21 · Geçti: 17 · Aday / ileri takipte: 13 · Tanımlayıcı / keşif: 8 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -177,7 +177,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T201 | TAM piyasasız model (elenen tüm özellikler geri eklenmiş) AGF'ye karşı (kullanıcı: "piyasa zaten biliyor diyi… | Karar belirsiz | (2026-11-11 13:25; t201_sonuc.txt, t201.json, t201_ozellik.json; 28 grup, 143 özellik, sızıntı şüphesi yok; AGF'li 5.521 koşu: 2025 1.689 / 2026 3.832; 1.016 altılı). Kazanan kaybı (nats/koşu, düşük iyi) 2025 / 2026: AGF 1,791 /… | KARAR: (1) AGF DAHA İSABETLİ; (2) FAYDA KANITLANMADI (2025'te zararlı, 2026'da faydalı: geri eklenen özellikler — çoğu 2024-10 sonrası video/galop — eğitimde yokken 2025'te zarar, veri biriktikçe 2026'da +0,023); (3) KUPONDA AGF'NİN GERİSİNDE. YORUM: piyasası… |
 | T202 | altılıda DEĞER seçimi: AGF'nin az oynadığı ama modelin yüksek gördüğü kombinasyonlar (kullanıcı: "Dene") | Karar belirsiz | (2026-11-12 01:55; t202_sonuc.txt, t202.json, t202_altili.csv; 1.016 altılı; Bonf. %98,75 GA): ANA eşleşmiş ROI farkı (V−AX), 2025+2026 birlikte: V15 B64 −0,546 [−0,764; −0,340]; V50 B64 −0,546 [−0,764; −0,344] (ikisinde 0 adet 6… | KARAR (kurala göre): V15_B64 yok; V50_B64 yok; V50_B256 yok; V15_B256 'işaret' (nokta > 0 iki yılda da, GA alt ≤ 0). YORUM: değer seçimi isabeti ağır düşürüyor (B64'te 1.016 altılıda hiç 6/6 yok); tek 'işaret' yalnız 6 adet 6/6'ya dayanıyor, güven aralığı çok… |
 
-## Ön kayıtlı, sonucu henüz yok — 16
+## Ön kayıtlı, sonucu henüz yok — 21
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -197,3 +197,8 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Geçti: 17 · Sonuç bekleniyor: 16 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
+| T203 | → | Sonuç bekleniyor |  |  |
+| T204 | bahis anı denetimi → | Sonuç bekleniyor |  |  |
+| T205 | pist gecikmesi → | Sonuç bekleniyor |  |  |
+| T206 | oran dilimi → | Sonuç bekleniyor |  |  |
+| T207 | kısa dizili ganyan) | Sonuç bekleniyor |  |  |
