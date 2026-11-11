@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-11 09:41 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-11 10:24 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 13 · Tanımlayıcı / keşif: 8 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 46 · Geçti: 17 · Sonuç bekleniyor: 16 · Aday / ileri takipte: 13 · Tanımlayıcı / keşif: 8 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -125,7 +125,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T197 | "ilk3 sürpriz" etiketi gerçekten kazanan/ilk-3 seçiyor mu? (kullanıcı gözlemi: Koşu sekmesinde 'ilk3 sürpriz'… | Tanımlayıcı / keşif (karar yok) | (2026-11-10 23:05; t197_sonuc.txt; 18 gün 2026-10-24→11-10, 309 koşu, 2.892 at; etiketli 750 = %26, koşu başına 2,43; %95,5 koşuda ≥1 etiketli at var): etiketli kazanma %18,9 vs piyasa %15,0 → +3,9 pp [+2,7; +5,2]; vs model %21,2… | KARAR (kurala göre): GERÇEK (alt sınır > 0). Keşif (ön kayıtsız, bilgi): kapanış ganyanıyla 1 TL ROI etiketli −%2,3 [−13,7; +11,3], etiketsiz −%39,0, tüm atlar −%29,5. YORUM: etiket gerçekten piyasadan iyi seçiyor ama ilk-3 etiketi aşırı yaygın (her koşuda ~2… |
 | T199 | AGF'den hesaplanan 'ilk3 sürpriz' etiketi (kullanıcı: "Yap"; gerekçe: altılıda ilk ayağa kadar yalnız en yakı… | Tanımlayıcı / keşif (karar yok) | (2026-11-10 23:50; t199_sonuc.txt; 18 gün, 307 koşu, 2.874 at; AGF-etiketli 568, kapanış-etiketli 748, ortak 541; Bonf. %97,5 GA): ANA (son AGF'den etiket): kazanma %16,4 vs AGF beklentisi %16,0 → +0,4 pp [−1,7; +2,6]; vs kapanış… | KARAR: işaret (nokta>0, alt ≤0; ilk-3 de alt<0) → 'AGF etiketi çalışıyor' DEĞİL. Bilgi: ilk görülen (sabah) AGF'den etiket: kazanma +2,1 pp [−0,2; +4,5], ilk-3 +4,3 pp [+1,5; +7,3], ROI −%12,9 [−26,3; +1,9]. Kapanış etiketi (T197) +3,9 pp [+2,5; +5,3]. Koşuda… |
 
-## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 45
+## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 46
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -174,8 +174,9 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T192 | tay (≤3 yaş) ve yetişkin koşuları için AYRI model (kullanıcı: "Çalıştır; tay ve yetişkin koşularında farklı k… | Karar belirsiz | (2026-11-09 11:45; t192_sonuc.txt; düzeltilmiş çalışma; 2025Q3→2026Q4, 8.682 koşu, tay 4.374 / yetişkin 4.308; Bonf. %98,75 GA): Ayrı − Jason (nats/koşu): TAY −0,00032 [−0,0029; +0,0024] (2025 −0,0011, 2026 +0,0002); YETİŞKİN −0,… | KARAR: tay YOK, yetişkin YOK. Ayrı model tek modele göre kazanmıyor (nokta tahminleri hafif negatif, GA sıfırı kapsıyor). Betimleyici katsayı farkları (son fold, std ölçekli, yetişkin/tay): f_kgs −0,03/+0,13 (tayda son koşudan beri gün sayısı daha önemli), f_… |
 | T193 | galop katsayıları tay ve yetişkin için AYRI (kullanıcı: "Çalıştır" | Karar belirsiz | (2026-11-09 11:50; t193_sonuc.txt; 2026-04..10 ileri-yürüyüş, tay 2.081 / yetişkin 1.873 koşu, 23 koşu yaş eşleşmedi; Bonf. %98,75 GA; fark = ayrı − ortak, negatif iyi): TAY +0,0026 [−0,0004; +0,0057] (04–07 +0,0028, 08–10 +0,002… | KARAR: tay YOK, yetişkin YOK. Ayrı galop katsayıları ortak katsayıdan HAFİF KÖTÜ (toplamda GA sıfırın üstünde yani ayrı model anlamlı biçimde daha kötü): galobun etkisi zaten çok küçük (~%0,2), eğitim verisini ikiye bölmek gürültüyü artırıyor. Betimleyici (so… |
 | T194 | komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: "Tamam bitince onayıma gerek kalmadan testi b… | Karar belirsiz | (2026-11-10 02:05; t194_sonuc.txt; 366 rapor günü-hipodrom, Bonf. %98,33 GA; fark = kazanma − piyasa p, taban +0,0007): gec_start n=132 −0,0145 [−0,046; +0,025] YOK; sakat n=50 +0,036 [−0,051; +0,142] YOK (yön beklenenin tersi, n… |  |
+| T201 | TAM piyasasız model (elenen tüm özellikler geri eklenmiş) AGF'ye karşı (kullanıcı: "piyasa zaten biliyor diyi… | Karar belirsiz | (2026-11-11 13:25; t201_sonuc.txt, t201.json, t201_ozellik.json; 28 grup, 143 özellik, sızıntı şüphesi yok; AGF'li 5.521 koşu: 2025 1.689 / 2026 3.832; 1.016 altılı). Kazanan kaybı (nats/koşu, düşük iyi) 2025 / 2026: AGF 1,791 /… | KARAR: (1) AGF DAHA İSABETLİ; (2) FAYDA KANITLANMADI (2025'te zararlı, 2026'da faydalı: geri eklenen özellikler — çoğu 2024-10 sonrası video/galop — eğitimde yokken 2025'te zarar, veri biriktikçe 2026'da +0,023); (3) KUPONDA AGF'NİN GERİSİNDE. YORUM: piyasası… |
 
-## Ön kayıtlı, sonucu henüz yok — 17
+## Ön kayıtlı, sonucu henüz yok — 16
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -195,4 +196,3 @@ Toplam: Elendi: 55 · Karar belirsiz: 45 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T178 | (gölge, kullanıcı: "Ayaklara göre genişliği yap"): altılı kuponunda son ayakları genişletme. Gerekçe | Sonuç bekleniyor |  |  |
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
-| T201 | TAM piyasasız model (elenen tüm özellikler geri eklenmiş) AGF'ye karşı (kullanıcı: "piyasa zaten biliyor diyi… | Sonuç bekleniyor |  |  |

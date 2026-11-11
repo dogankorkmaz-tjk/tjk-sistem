@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-11T09:41",
+ "guncelleme": "2026-11-11T10:24",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
-  "Karar belirsiz": 45,
+  "Karar belirsiz": 46,
   "Tanımlayıcı / keşif": 8,
-  "Sonuç bekleniyor": 17,
+  "Sonuç bekleniyor": 16,
   "Karma": 2,
   "Aday / ileri takipte": 13
  },
@@ -1418,10 +1418,10 @@
    "id": "T201",
    "konu": "TAM piyasasız model (elenen tüm özellikler geri eklenmiş) AGF'ye karşı (kullanıcı: \"piyasa zaten biliyor diyi…",
    "tarih": "2026-11-11",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-11 13:25; t201_sonuc.txt, t201.json, t201_ozellik.json; 28 grup, 143 özellik, sızıntı şüphesi yok; AGF'li 5.521 koşu: 2025 1.689 / 2026 3.832; 1.016 altılı). Kazanan kaybı (nats/koşu, düşük iyi) 2025 / 2026: AGF 1,791 /…",
+   "neden": "KARAR: (1) AGF DAHA İSABETLİ; (2) FAYDA KANITLANMADI (2025'te zararlı, 2026'da faydalı: geri eklenen özellikler — çoğu 2024-10 sonrası video/galop — eğitimde yokken 2025'te zarar, veri biriktikçe 2026'da +0,023); (3) KUPONDA AGF'NİN GERİSİNDE. YORUM: piyasası…",
+   "satir": 2751
   }
  ]
 }
