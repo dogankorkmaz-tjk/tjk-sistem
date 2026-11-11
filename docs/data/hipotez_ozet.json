@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-11T22:59",
+ "guncelleme": "2026-11-11T23:00",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
   "Karar belirsiz": 47,
-  "Tanımlayıcı / keşif": 8,
-  "Sonuç bekleniyor": 20,
+  "Tanımlayıcı / keşif": 9,
+  "Sonuç bekleniyor": 19,
   "Karma": 2,
   "Aday / ileri takipte": 14
  },
@@ -1438,7 +1438,7 @@
    "tarih": "2026-11-12",
    "durum": "Aday / ileri takipte",
    "ozet": "(2026-11-12 02:55; t203_sonuc.txt, t203.json; E kolu, 8.716 kazananlı koşu, 2025Q3→2026Q4; genel kazanç +0,0265 nats/koşu):",
-   "neden": "KARAR kuralına göre 17 bölüm 'ZAYIF PİYASA ADAYI' (Bonf. GA alt > 0 ve iki yarıda nokta > 0), 2 'işaret' (kocaeli, elazig), 1 'yok' (diyarbakir +0,005), 1 yetersiz değil. DÜZELTME/KURAL KUSURU (sonuç görüldükten sonra tespit): ön kayıtlı kural bölümün kazancı…",
+   "neden": "KARAR kuralına göre 18 bölüm 'ZAYIF PİYASA ADAYI' (Bonf. GA alt > 0 ve iki yarıda nokta > 0), 2 'işaret' (kocaeli, elazig), 1 'yok' (diyarbakir +0,005); toplam 21 bölüm. DÜZELTME/KURAL KUSURU (sonuç görüldükten sonra tespit): ön kayıtlı kural bölümün kazancın…",
    "satir": 2783
   },
   {
@@ -1463,10 +1463,10 @@
    "id": "T206",
    "konu": "oran dilimi →",
    "tarih": "2026-11-12",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Tanımlayıcı / keşif (karar yok) ~",
+   "ozet": "(2026-11-12 03:20; t206.json; 236.480 at, 2023-06→2026-11; ödeme dosyasıyla çapraz kontrol tutarlı: 2025 0,641, 2026 0,607): kör 1 TL ganyan ROI (büyük ödemeler dahil) oran diliminde: <1,5 0,651 [0,631; 0,672]; 1,5–2 0,653; 2–3 0…",
+   "neden": "(açık karar satırı yok, son cümlelerden çıkarıldı) ) T196'daki model kuralı ROI 0,89 (−%10,9) kör tabanın (0,62) çok üstünde: modelin seçimi ~+0,27 ROI puanı değer katıyor, ama kalan fark (1,0'a ulaşmak için ~+0,11) kapanmadı. Betimleyici; karar yok.",
+   "satir": 2793
   },
   {
    "id": "T207",
