@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-11T23:01",
+ "guncelleme": "2026-11-11T23:11",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
-  "Karar belirsiz": 47,
+  "Karar belirsiz": 48,
   "Tanımlayıcı / keşif": 9,
-  "Sonuç bekleniyor": 18,
+  "Sonuç bekleniyor": 17,
   "Karma": 2,
   "Aday / ileri takipte": 15
  },
@@ -1472,10 +1472,10 @@
    "id": "T207",
    "konu": "kısa dizili ganyan)",
    "tarih": "2026-11-12",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-12 03:50; t207_sonuc.txt, t207.json; hizalama: 'son ayak = kosu' kuralı tüm türlerde %97–99 uyum, 'ilk' kuralı düşük → son seçildi; 20.410 kupon satırı; AGF-favori kuponu, ayak başına ilk 5 aday, Πa'ya göre ilk B kombina…",
    "neden": "",
-   "satir": 0
+   "satir": 2802
   }
  ]
 }

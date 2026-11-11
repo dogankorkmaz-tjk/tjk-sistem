@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-11 23:01 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-11 23:11 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 18 · Geçti: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 48 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -128,7 +128,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 18 · Geçti: 17 
 | T199 | AGF'den hesaplanan 'ilk3 sürpriz' etiketi (kullanıcı: "Yap"; gerekçe: altılıda ilk ayağa kadar yalnız en yakı… | Tanımlayıcı / keşif (karar yok) | (2026-11-10 23:50; t199_sonuc.txt; 18 gün, 307 koşu, 2.874 at; AGF-etiketli 568, kapanış-etiketli 748, ortak 541; Bonf. %97,5 GA): ANA (son AGF'den etiket): kazanma %16,4 vs AGF beklentisi %16,0 → +0,4 pp [−1,7; +2,6]; vs kapanış… | KARAR: işaret (nokta>0, alt ≤0; ilk-3 de alt<0) → 'AGF etiketi çalışıyor' DEĞİL. Bilgi: ilk görülen (sabah) AGF'den etiket: kazanma +2,1 pp [−0,2; +4,5], ilk-3 +4,3 pp [+1,5; +7,3], ROI −%12,9 [−26,3; +1,9]. Kapanış etiketi (T197) +3,9 pp [+2,5; +5,3]. Koşuda… |
 | T206 | oran dilimi → | Tanımlayıcı / keşif (karar yok) ~ | (2026-11-12 03:20; t206.json; 236.480 at, 2023-06→2026-11; ödeme dosyasıyla çapraz kontrol tutarlı: 2025 0,641, 2026 0,607): kör 1 TL ganyan ROI (büyük ödemeler dahil) oran diliminde: <1,5 0,651 [0,631; 0,672]; 1,5–2 0,653; 2–3 0… | (açık karar satırı yok, son cümlelerden çıkarıldı) ) T196'daki model kuralı ROI 0,89 (−%10,9) kör tabanın (0,62) çok üstünde: modelin seçimi ~+0,27 ROI puanı değer katıyor, ama kalan fark (1,0'a ulaşmak için ~+0,11) kapanmadı. Betimleyici; karar yok. |
 
-## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 47
+## Sonuç var ama karar cümlesi ayrıştırılamadı (deftere bak) — 48
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -179,8 +179,9 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 18 · Geçti: 17 
 | T194 | komiser raporu olayları → sonraki koşu artığı (kullanıcı onayı: "Tamam bitince onayıma gerek kalmadan testi b… | Karar belirsiz | (2026-11-10 02:05; t194_sonuc.txt; 366 rapor günü-hipodrom, Bonf. %98,33 GA; fark = kazanma − piyasa p, taban +0,0007): gec_start n=132 −0,0145 [−0,046; +0,025] YOK; sakat n=50 +0,036 [−0,051; +0,142] YOK (yön beklenenin tersi, n… |  |
 | T201 | TAM piyasasız model (elenen tüm özellikler geri eklenmiş) AGF'ye karşı (kullanıcı: "piyasa zaten biliyor diyi… | Karar belirsiz | (2026-11-11 13:25; t201_sonuc.txt, t201.json, t201_ozellik.json; 28 grup, 143 özellik, sızıntı şüphesi yok; AGF'li 5.521 koşu: 2025 1.689 / 2026 3.832; 1.016 altılı). Kazanan kaybı (nats/koşu, düşük iyi) 2025 / 2026: AGF 1,791 /… | KARAR: (1) AGF DAHA İSABETLİ; (2) FAYDA KANITLANMADI (2025'te zararlı, 2026'da faydalı: geri eklenen özellikler — çoğu 2024-10 sonrası video/galop — eğitimde yokken 2025'te zarar, veri biriktikçe 2026'da +0,023); (3) KUPONDA AGF'NİN GERİSİNDE. YORUM: piyasası… |
 | T202 | altılıda DEĞER seçimi: AGF'nin az oynadığı ama modelin yüksek gördüğü kombinasyonlar (kullanıcı: "Dene") | Karar belirsiz | (2026-11-12 01:55; t202_sonuc.txt, t202.json, t202_altili.csv; 1.016 altılı; Bonf. %98,75 GA): ANA eşleşmiş ROI farkı (V−AX), 2025+2026 birlikte: V15 B64 −0,546 [−0,764; −0,340]; V50 B64 −0,546 [−0,764; −0,344] (ikisinde 0 adet 6… | KARAR (kurala göre): V15_B64 yok; V50_B64 yok; V50_B256 yok; V15_B256 'işaret' (nokta > 0 iki yılda da, GA alt ≤ 0). YORUM: değer seçimi isabeti ağır düşürüyor (B64'te 1.016 altılıda hiç 6/6 yok); tek 'işaret' yalnız 6 adet 6/6'ya dayanıyor, güven aralığı çok… |
+| T207 | kısa dizili ganyan) | Karar belirsiz | (2026-11-12 03:50; t207_sonuc.txt, t207.json; hizalama: 'son ayak = kosu' kuralı tüm türlerde %97–99 uyum, 'ilk' kuralı düşük → son seçildi; 20.410 kupon satırı; AGF-favori kuponu, ayak başına ilk 5 aday, Πa'ya göre ilk B kombina… |  |
 
-## Ön kayıtlı, sonucu henüz yok — 18
+## Ön kayıtlı, sonucu henüz yok — 17
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -201,4 +202,3 @@ Toplam: Elendi: 55 · Karar belirsiz: 47 · Sonuç bekleniyor: 18 · Geçti: 17 
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
 | T205 | pist gecikmesi → | Sonuç bekleniyor |  |  |
-| T207 | kısa dizili ganyan) | Sonuç bekleniyor |  |  |
