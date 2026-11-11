@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-11 17:36 UTC",
+ "uretim": "2026-11-11 17:40 UTC",
  "kayitli_kosu": 1779,
- "eslesmeyen_kosu": 1191,
+ "eslesmeyen_kosu": 1190,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 991,
- "kosu": 588,
+ "bahis": 992,
+ "kosu": 589,
  "isabet": 63,
- "roi": 0.889,
+ "roi": 0.888,
  "ga95": [
-  0.643,
-  1.172
+  0.642,
+  1.171
  ],
  "ulke": {
   "abd": {
-   "bahis": 632,
-   "roi": 0.769
+   "bahis": 633,
+   "roi": 0.768
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,8 +35,8 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1271,
-  "kosu": 570,
+  "bahis": 1272,
+  "kosu": 571,
   "isabet": 123,
   "roi": 0.632,
   "ga95": [
@@ -46,7 +46,7 @@
  },
  "bahis_t1": {
   "bahis": 1292,
-  "kosu": 560,
+  "kosu": 561,
   "isabet": 130,
   "roi": 0.683,
   "ga95": [
@@ -55,25 +55,16 @@
   ]
  },
  "bahis_t3": {
-  "bahis": 1263,
-  "kosu": 543,
+  "bahis": 1265,
+  "kosu": 544,
   "isabet": 141,
-  "roi": 0.684,
+  "roi": 0.683,
   "ga95": [
    0.51,
-   0.892
+   0.89
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 8,
-   "at": "CLIPSHAM NOBLE",
-   "q": 0.385,
-   "g": 5.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Southwell",
@@ -423,6 +414,15 @@
    "at": "THALORIA",
    "q": 0.057,
    "g": 22.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-11",
+   "pist": "Finger Lakes",
+   "kosu": 1,
+   "at": "GRANDMA'S GIRL",
+   "q": 0.125,
+   "g": 11.05,
    "kazandi": false
   }
  ]
