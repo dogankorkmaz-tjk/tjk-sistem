@@ -2602,5 +2602,35 @@
 "acik_son_dk": 1435.8,
 "kapali_ilk_dk": null,
 "n": 17
+},
+"2026-11-10|ADANA-1": {
+"saat": "14:00",
+"acik_son_dk": -23.2,
+"kapali_ilk_dk": null,
+"n": 2
+},
+"2026-11-10|KOCAELI-8": {
+"saat": "21:00",
+"acik_son_dk": -4.4,
+"kapali_ilk_dk": 3.1,
+"n": 9
+},
+"2026-11-10|KOCAELI-9": {
+"saat": "21:30",
+"acik_son_dk": -4.1,
+"kapali_ilk_dk": 15.6,
+"n": 9
+},
+"2026-11-10|GAVEA-6": {
+"saat": "02:30",
+"acik_son_dk": 16.9,
+"kapali_ilk_dk": 19.8,
+"n": 5
+},
+"2026-11-10|GAVEA-7": {
+"saat": "03:00",
+"acik_son_dk": -1.4,
+"kapali_ilk_dk": null,
+"n": 10
 }
 }
