@@ -1,0 +1,470 @@
+{
+ "gruplar": {
+  "jokey_at_asinalik_T36": [
+   "f_jn",
+   "f_j1"
+  ],
+  "dogrudan_karsilasma_T70": [
+   "f_h2h_s",
+   "f_h2h_m",
+   "f_h2h_n"
+  ],
+  "soy_baba_pist_T81": [
+   "f_sp",
+   "f_spd"
+  ],
+  "soy_baba_mesafe_T38": [
+   "f_sm",
+   "f_sd"
+  ],
+  "soy_anne_T83": [
+   "f_an",
+   "f_ab",
+   "f_abp",
+   "f_abm"
+  ],
+  "soy_yas_yetistirici_T146": [
+   "e_fm",
+   "e_ff",
+   "e_br",
+   "e_ow",
+   "e_bmb",
+   "e_bpist",
+   "age_g",
+   "age_g3",
+   "age_gf"
+  ],
+  "jokey_antrenor_hucre_T71": [
+   "f_jp",
+   "f_jh",
+   "f_tp"
+  ],
+  "kapi_1300_T35": [
+   "f_k13",
+   "f_kh"
+  ],
+  "kapi_mesafe_bandi": [
+   "f_kk",
+   "f_ko",
+   "f_ku"
+  ],
+  "mesafe_pist_ek": [
+   "f_ps",
+   "f_dpp",
+   "f_pchg",
+   "f_dup",
+   "f_ddn"
+  ],
+  "cins_elo_T79": [
+   "f_elo_s",
+   "f_ns"
+  ],
+  "pist_mesafe_hucre_elo": [
+   "f_elo_c",
+   "f_nc"
+  ],
+  "ekipman_degisim_T29": [
+   "f_ek_ekle",
+   "f_ek_cikar",
+   "f_ek_ilk"
+  ],
+  "dil_bagi_T33": [
+   "f_db_ekle",
+   "f_db_cikar"
+  ],
+  "sinif_degisim_T30": [
+   "f_sf",
+   "f_sf3"
+  ],
+  "fazla_kilo": [
+   "kfz",
+   "kfz_pos"
+  ],
+  "zorluk_figuru_T191": [
+   "f_fZ"
+  ],
+  "pl_at_gucu_T195": [
+   "f_pl"
+  ],
+  "accurace_yer_kaybi_son_bolum": [
+   "f_yk",
+   "f_maz",
+   "f_k"
+  ],
+  "islak_pist_T147": [
+   "f_gp",
+   "f_gp_n"
+  ],
+  "galop_idman": [
+   "g_n",
+   "g_gun",
+   "g_spr",
+   "g_son",
+   "g_min",
+   "g_yog",
+   "g_yok"
+  ],
+  "komiser_bayraklari_T194": [
+   "k_gec_start",
+   "k_sakat",
+   "k_kamci_ceza"
+  ],
+  "video_T41": [
+   "f_v1",
+   "f_v2",
+   "f_v3",
+   "f_v4",
+   "f_v5",
+   "f_v6",
+   "f_v7",
+   "f_v8"
+  ],
+  "video_olay_OV": [
+   "ov_gain",
+   "ov_fin",
+   "ov_tot",
+   "ov_flop",
+   "ov_unl",
+   "ov_var"
+  ],
+  "video_serit_V2": [
+   "v2_lead_frac",
+   "v2_top3_frac",
+   "v2_mean_rank",
+   "v2_early_rank",
+   "v2_late_rank",
+   "v2_vol",
+   "v2_fade",
+   "v2_lead_lost",
+   "v2_var"
+  ],
+  "video_sessiz_sorun_T162": [
+   "sv_sorun_n",
+   "sv_sorun_kayip",
+   "sv_son_kazanc",
+   "sv_erken",
+   "sv_orta",
+   "sv_tempo_on",
+   "sv_var"
+  ],
+  "start_kalma_T151": [
+   "f_de1",
+   "f_deE"
+  ],
+  "fedai_T151": [
+   "f_fd1",
+   "f_fdE",
+   "f_fdP"
+  ]
+ },
+ "kapsam": {
+  "jokey_at_asinalik_T36": {
+   "sifir_olmayan": 0.92,
+   "2025+": 0.94
+  },
+  "dogrudan_karsilasma_T70": {
+   "sifir_olmayan": 0.754,
+   "2025+": 0.783
+  },
+  "soy_baba_pist_T81": {
+   "sifir_olmayan": 0.877,
+   "2025+": 0.996
+  },
+  "soy_baba_mesafe_T38": {
+   "sifir_olmayan": 0.877,
+   "2025+": 0.996
+  },
+  "soy_anne_T83": {
+   "sifir_olmayan": 0.97,
+   "2025+": 0.996
+  },
+  "soy_yas_yetistirici_T146": {
+   "sifir_olmayan": 0.998,
+   "2025+": 1.0
+  },
+  "jokey_antrenor_hucre_T71": {
+   "sifir_olmayan": 0.983,
+   "2025+": 1.0
+  },
+  "kapi_1300_T35": {
+   "sifir_olmayan": 0.271,
+   "2025+": 0.305
+  },
+  "kapi_mesafe_bandi": {
+   "sifir_olmayan": 0.776,
+   "2025+": 0.868
+  },
+  "mesafe_pist_ek": {
+   "sifir_olmayan": 0.805,
+   "2025+": 0.935
+  },
+  "cins_elo_T79": {
+   "sifir_olmayan": 0.942,
+   "2025+": 0.954
+  },
+  "pist_mesafe_hucre_elo": {
+   "sifir_olmayan": 0.924,
+   "2025+": 0.938
+  },
+  "ekipman_degisim_T29": {
+   "sifir_olmayan": 0.164,
+   "2025+": 0.188
+  },
+  "dil_bagi_T33": {
+   "sifir_olmayan": 0.06,
+   "2025+": 0.069
+  },
+  "sinif_degisim_T30": {
+   "sifir_olmayan": 0.76,
+   "2025+": 0.867
+  },
+  "fazla_kilo": {
+   "sifir_olmayan": 0.667,
+   "2025+": 0.655
+  },
+  "zorluk_figuru_T191": {
+   "sifir_olmayan": 0.959,
+   "2025+": 0.962
+  },
+  "pl_at_gucu_T195": {
+   "sifir_olmayan": 0.928,
+   "2025+": 0.96
+  },
+  "accurace_yer_kaybi_son_bolum": {
+   "sifir_olmayan": 0.033,
+   "2025+": 0.051
+  },
+  "islak_pist_T147": {
+   "sifir_olmayan": 0.189,
+   "2025+": 0.221
+  },
+  "galop_idman": {
+   "sifir_olmayan": 0.242,
+   "2025+": 0.452
+  },
+  "komiser_bayraklari_T194": {
+   "sifir_olmayan": 0.002,
+   "2025+": 0.004
+  },
+  "video_T41": {
+   "sifir_olmayan": 0.446,
+   "2025+": 0.818
+  },
+  "video_olay_OV": {
+   "sifir_olmayan": 0.403,
+   "2025+": 0.738
+  },
+  "video_serit_V2": {
+   "sifir_olmayan": 0.399,
+   "2025+": 0.733
+  },
+  "video_sessiz_sorun_T162": {
+   "sifir_olmayan": 0.397,
+   "2025+": 0.731
+  },
+  "start_kalma_T151": {
+   "sifir_olmayan": 0.26,
+   "2025+": 0.31
+  },
+  "fedai_T151": {
+   "sifir_olmayan": 0.007,
+   "2025+": 0.013
+  }
+ },
+ "disarida": {
+  "gun_ici_kapi_T44": "BİLEREK: aynı günün önceki koşu sonuçlarını kullanır; altılı kuponu ilk ayaktan önce kurulduğu için sızıntı olur",
+  "piyasa_etkilesimleri_T45": "BİLEREK: bugünün piyasa olasılığını kullanır (piyasasız modele girmez)",
+  "padok_T143": "veri yok (pilot, birkaç gün)",
+  "kamci_T190": "veri yok (elle gözlem, n<30)"
+ },
+ "taban": [
+  "f_hwin",
+  "f_hpct3",
+  "f_hpctson",
+  "f_ilk",
+  "f_gun",
+  "f_jwin",
+  "f_kilo",
+  "f_apr",
+  "f_jdeg",
+  "f_kilodeg",
+  "f_sonrel",
+  "f_hnd",
+  "f_cift",
+  "f_hippct",
+  "f_no",
+  "f_gun_kisa",
+  "f_gun_orta",
+  "f_gun_uzun",
+  "f_twin",
+  "f_swin",
+  "f_bwin",
+  "f_yas",
+  "f_st",
+  "f_st1",
+  "f_s6ort",
+  "f_s6top3",
+  "f_s6n",
+  "f_kgs",
+  "f_t2_d",
+  "f_t2_a",
+  "f_t2_k",
+  "f_t3_a",
+  "f_t3_e",
+  "f_t3_d",
+  "f_dp150_m",
+  "f_jgen100",
+  "f_fig3",
+  "f_elo",
+  "f_rak3",
+  "f_elo_m",
+  "f_rak3_m",
+  "f_jel",
+  "f_tel"
+ ],
+ "sizinti_z": {
+  "f_hwin": 0.292,
+  "f_hpct3": -0.437,
+  "f_hpctson": -0.374,
+  "f_ilk": -0.035,
+  "f_gun": -0.044,
+  "f_jwin": 0.41,
+  "f_kilo": 0.255,
+  "f_apr": -0.204,
+  "f_jdeg": -0.139,
+  "f_kilodeg": 0.094,
+  "f_sonrel": -0.347,
+  "f_hnd": 0.473,
+  "f_cift": 0.251,
+  "f_hippct": -0.393,
+  "f_no": -0.227,
+  "f_gun_kisa": -0.013,
+  "f_gun_orta": 0.079,
+  "f_gun_uzun": -0.067,
+  "f_twin": 0.2,
+  "f_swin": 0.262,
+  "f_bwin": 0.15,
+  "f_yas": -0.022,
+  "f_st": -0.026,
+  "f_st1": 0.022,
+  "f_s6ort": -0.4,
+  "f_s6top3": 0.402,
+  "f_s6n": 0.011,
+  "f_kgs": 0.005,
+  "f_t2_d": -0.002,
+  "f_t2_a": -0.001,
+  "f_t2_k": 0.005,
+  "f_t3_a": 0.047,
+  "f_t3_e": 0.095,
+  "f_t3_d": -0.082,
+  "f_dp150_m": -0.018,
+  "f_jgen100": -0.335,
+  "f_fig3": -0.345,
+  "f_elo": 0.517,
+  "f_rak3": 0.109,
+  "f_elo_m": 0.51,
+  "f_rak3_m": 0.102,
+  "f_jel": 0.446,
+  "f_tel": 0.244,
+  "f_jn": 0.131,
+  "f_j1": -0.142,
+  "f_h2h_s": 0.381,
+  "f_h2h_m": 0.346,
+  "f_h2h_n": 0.03,
+  "f_sp": -0.069,
+  "f_spd": 0.003,
+  "f_sm": -0.05,
+  "f_sd": 0.029,
+  "f_an": -0.07,
+  "f_ab": -0.051,
+  "f_abp": 0.013,
+  "f_abm": 0.032,
+  "e_fm": 0.129,
+  "e_ff": 0.117,
+  "e_br": 0.195,
+  "e_ow": 0.283,
+  "e_bmb": 0.13,
+  "e_bpist": 0.158,
+  "age_g": -0.045,
+  "age_g3": 0.056,
+  "age_gf": -0.008,
+  "f_jp": 0.05,
+  "f_jh": 0.03,
+  "f_tp": 0.028,
+  "f_k13": -0.041,
+  "f_kh": 0.048,
+  "f_kk": -0.025,
+  "f_ko": -0.0,
+  "f_ku": -0.001,
+  "f_ps": -0.015,
+  "f_dpp": -0.0,
+  "f_pchg": -0.077,
+  "f_dup": -0.043,
+  "f_ddn": -0.005,
+  "f_elo_s": 0.402,
+  "f_ns": 0.029,
+  "f_elo_c": 0.338,
+  "f_nc": 0.022,
+  "f_ek_ekle": -0.081,
+  "f_ek_cikar": -0.08,
+  "f_ek_ilk": -0.044,
+  "f_db_ekle": -0.039,
+  "f_db_cikar": -0.033,
+  "f_sf": -0.133,
+  "f_sf3": -0.136,
+  "kfz": -0.386,
+  "kfz_pos": -0.269,
+  "f_fZ": -0.4,
+  "f_pl": 0.513,
+  "f_yk": 0.007,
+  "f_maz": 0.006,
+  "f_k": 0.06,
+  "f_gp": 0.039,
+  "f_gp_n": 0.02,
+  "g_n": 0.029,
+  "g_gun": -0.038,
+  "g_spr": 0.017,
+  "g_son": -0.03,
+  "g_min": -0.039,
+  "g_yog": -0.035,
+  "g_yok": -0.038,
+  "k_gec_start": -0.02,
+  "k_sakat": 0.0,
+  "k_kamci_ceza": 0.0,
+  "f_v1": -0.107,
+  "f_v2": 0.099,
+  "f_v3": -0.111,
+  "f_v4": -0.006,
+  "f_v5": 0.03,
+  "f_v6": -0.095,
+  "f_v7": 0.038,
+  "f_v8": 0.04,
+  "ov_gain": 0.118,
+  "ov_fin": 0.056,
+  "ov_tot": 0.112,
+  "ov_flop": -0.067,
+  "ov_unl": 0.011,
+  "ov_var": 0.011,
+  "v2_lead_frac": 0.106,
+  "v2_top3_frac": 0.144,
+  "v2_mean_rank": -0.087,
+  "v2_early_rank": -0.062,
+  "v2_late_rank": -0.121,
+  "v2_vol": 0.001,
+  "v2_fade": -0.002,
+  "v2_lead_lost": 0.032,
+  "v2_var": 0.011,
+  "sv_sorun_n": -0.038,
+  "sv_sorun_kayip": -0.036,
+  "sv_son_kazanc": 0.086,
+  "sv_erken": -0.047,
+  "sv_orta": -0.056,
+  "sv_tempo_on": 0.021,
+  "sv_var": 0.011,
+  "f_de1": -0.087,
+  "f_deE": -0.064,
+  "f_fd1": -0.011,
+  "f_fdE": -0.007,
+  "f_fdP": 0.008
+ }
+}

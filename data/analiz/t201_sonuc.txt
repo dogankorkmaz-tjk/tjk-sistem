@@ -1,0 +1,102 @@
+tay koşu payı (satır): 0.459 koşu: 10061 / 21338
+[10s] OK jokey_at_asinalik_T36 ['f_jn', 'f_j1'] kapsam {'sifir_olmayan': 0.92, '2025+': 0.94} 1sn
+[32s] OK dogrudan_karsilasma_T70 ['f_h2h_s', 'f_h2h_m', 'f_h2h_n'] kapsam {'sifir_olmayan': 0.754, '2025+': 0.783} 22sn
+[33s] OK soy_baba_pist_T81 ['f_sp', 'f_spd'] kapsam {'sifir_olmayan': 0.877, '2025+': 0.996} 1sn
+[34s] OK soy_baba_mesafe_T38 ['f_sm', 'f_sd'] kapsam {'sifir_olmayan': 0.877, '2025+': 0.996} 1sn
+[36s] OK soy_anne_T83 ['f_an', 'f_ab', 'f_abp', 'f_abm'] kapsam {'sifir_olmayan': 0.97, '2025+': 0.996} 2sn
+[41s] OK soy_yas_yetistirici_T146 ['e_fm', 'e_ff', 'e_br', 'e_ow', 'e_bmb', 'e_bpist', 'age_g', 'age_g3', 'age_gf'] kapsam {'sifir_olmayan': 0.998, '2025+': 1.0} 4sn
+[43s] OK jokey_antrenor_hucre_T71 ['f_jp', 'f_jh', 'f_tp'] kapsam {'sifir_olmayan': 0.983, '2025+': 1.0} 2sn
+[44s] OK kapi_1300_T35 ['f_k13', 'f_kh'] kapsam {'sifir_olmayan': 0.271, '2025+': 0.305} 1sn
+[44s] OK kapi_mesafe_bandi ['f_kk', 'f_ko', 'f_ku'] kapsam {'sifir_olmayan': 0.776, '2025+': 0.868} 0sn
+[53s] OK mesafe_pist_ek ['f_ps', 'f_dpp', 'f_pchg', 'f_dup', 'f_ddn'] kapsam {'sifir_olmayan': 0.805, '2025+': 0.935} 9sn
+[69s] OK cins_elo_T79 ['f_elo_s', 'f_ns'] kapsam {'sifir_olmayan': 0.942, '2025+': 0.954} 16sn
+[73s] OK pist_mesafe_hucre_elo ['f_elo_c', 'f_nc'] kapsam {'sifir_olmayan': 0.924, '2025+': 0.938} 4sn
+[78s] OK ekipman_degisim_T29 ['f_ek_ekle', 'f_ek_cikar', 'f_ek_ilk'] kapsam {'sifir_olmayan': 0.164, '2025+': 0.188} 4sn
+[82s] OK dil_bagi_T33 ['f_db_ekle', 'f_db_cikar'] kapsam {'sifir_olmayan': 0.06, '2025+': 0.069} 4sn
+[90s] OK sinif_degisim_T30 ['f_sf', 'f_sf3'] kapsam {'sifir_olmayan': 0.76, '2025+': 0.867} 8sn
+[93s] OK fazla_kilo ['kfz', 'kfz_pos'] kapsam {'sifir_olmayan': 0.667, '2025+': 0.655} 3sn
+[97s] OK zorluk_figuru_T191 ['f_fZ'] kapsam {'sifir_olmayan': 0.959, '2025+': 0.962} 4sn
+[141s] OK pl_at_gucu_T195 ['f_pl'] kapsam {'sifir_olmayan': 0.928, '2025+': 0.96} 44sn
+[142s] OK accurace_yer_kaybi_son_bolum ['f_yk', 'f_maz', 'f_k'] kapsam {'sifir_olmayan': 0.033, '2025+': 0.051} 1sn
+[143s] OK islak_pist_T147 ['f_gp', 'f_gp_n'] kapsam {'sifir_olmayan': 0.189, '2025+': 0.221} 1sn
+[196s] OK galop_idman ['g_n', 'g_gun', 'g_spr', 'g_son', 'g_min', 'g_yog', 'g_yok'] kapsam {'sifir_olmayan': 0.242, '2025+': 0.452} 52sn
+[198s] OK komiser_bayraklari_T194 ['k_gec_start', 'k_sakat', 'k_kamci_ceza'] kapsam {'sifir_olmayan': 0.002, '2025+': 0.004} 2sn
+[211s] OK video_T41 ['f_v1', 'f_v2', 'f_v3', 'f_v4', 'f_v5', 'f_v6', 'f_v7', 'f_v8'] kapsam {'sifir_olmayan': 0.446, '2025+': 0.818} 13sn
+[239s] OK video_olay_OV ['ov_gain', 'ov_fin', 'ov_tot', 'ov_flop', 'ov_unl', 'ov_var'] kapsam {'sifir_olmayan': 0.403, '2025+': 0.738} 29sn
+[279s] OK video_serit_V2 ['v2_lead_frac', 'v2_top3_frac', 'v2_mean_rank', 'v2_early_rank', 'v2_late_rank', 'v2_vol', 'v2_fade', 'v2_lead_lost', 'v2_var'] kapsam {'sifir_olmayan': 0.399, '2025+': 0.733} 39sn
+[314s] OK video_sessiz_sorun_T162 ['sv_sorun_n', 'sv_sorun_kayip', 'sv_son_kazanc', 'sv_erken', 'sv_orta', 'sv_tempo_on', 'sv_var'] kapsam {'sifir_olmayan': 0.397, '2025+': 0.731} 35sn
+[328s] OK start_kalma_T151 ['f_de1', 'f_deE'] kapsam {'sifir_olmayan': 0.26, '2025+': 0.31} 14sn
+[346s] OK fedai_T151 ['f_fd1', 'f_fdE', 'f_fdP'] kapsam {'sifir_olmayan': 0.007, '2025+': 0.013} 18sn
+[346s] taban 43 tam 143 videosuz 108 grup 28 dışarıda ['gun_ici_kapi_T44', 'piyasa_etkilesimleri_T45', 'padok_T143', 'kamci_T190']
+[347s] sızıntı denetimi |z|>0,5: yok | en büyük 8: [('f_elo', 0.517), ('f_pl', 0.513), ('f_elo_m', 0.51), ('f_hnd', 0.473), ('f_jel', 0.446), ('f_hpct3', -0.437), ('f_jwin', 0.41), ('f_s6top3', 0.402)]
+[350s] 2025Q1 6978
+[355s] 2025Q2 16372
+[360s] 2025Q3 16400
+[366s] 2025Q4 15770
+[373s] 2026Q1 13076
+[380s] 2026Q2 16290
+[389s] 2026Q3 16496
+[398s] 2026Q4 7697
+[400s] AGF'li koşu 5521 gün 426 2025-01-01 2026-10-22
+[401s] 2025_PF-AGF [-0.1252, -0.1572, -0.0936]
+[401s] 2025_PF-P0 [-0.0347, -0.0589, -0.0128]
+[401s] 2025_P0-AGF [-0.0905, -0.1116, -0.0691]
+[401s] 2025_PFV-AGF [-0.0805, -0.1027, -0.0581]
+[401s] 2025_PF3-AGF [-0.1115, -0.1357, -0.0877]
+[401s] 2025_PF-PFV [-0.0447, -0.064, -0.0272]
+[401s] 2025_PF3-PF [0.0137, 0.0014, 0.0266]
+[401s] 2025_AGF-kapanis [0.0098, -0.0027, 0.022]
+[401s] 2025_kayip {'AGF': 1.7914571700720114, 'kapanis': 1.8012433010610505, 'P0': 1.881955286671902, 'PF': 1.9166679229376686, 'PFV': 1.8719673468380913, 'PF3': 1.9029351608381047}
+[401s] 2025_kosu 1689
+[401s] 2026_PF-AGF [-0.0509, -0.071, -0.0308]
+[401s] 2026_PF-P0 [0.0234, 0.0152, 0.0317]
+[401s] 2026_P0-AGF [-0.0743, -0.091, -0.0576]
+[401s] 2026_PFV-AGF [-0.057, -0.0734, -0.0405]
+[401s] 2026_PF3-AGF [-0.0503, -0.0674, -0.0334]
+[401s] 2026_PF-PFV [0.0061, 0.0023, 0.01]
+[401s] 2026_PF3-PF [0.0007, -0.0037, 0.005]
+[401s] 2026_AGF-kapanis [0.0232, 0.0136, 0.0328]
+[401s] 2026_kayip {'AGF': 1.7901514784734878, 'kapanis': 1.8133523569216419, 'P0': 1.8644801470799928, 'PF': 1.8410877403764745, 'PFV': 1.8471643161385585, 'PF3': 1.8404321158910777}
+[401s] 2026_kosu 3832
+[401s] tum_PF-AGF [-0.0737, -0.0911, -0.0562]
+[401s] tum_PF-P0 [0.0056, -0.0041, 0.0149]
+[401s] tum_P0-AGF [-0.0793, -0.0923, -0.0659]
+[401s] tum_PFV-AGF [-0.0642, -0.0775, -0.051]
+[401s] tum_PF3-AGF [-0.069, -0.0833, -0.0551]
+[401s] tum_PF-PFV [-0.0095, -0.0164, -0.0032]
+[401s] tum_PF3-PF [0.0047, -0.0002, 0.0096]
+[401s] tum_AGF-kapanis [0.0191, 0.0113, 0.0268]
+[401s] tum_kayip {'AGF': 1.790550919355557, 'kapanis': 1.8096479201622615, 'P0': 1.8698261914144858, 'PF': 1.8642094444782418, 'PFV': 1.8547521297323837, 'PF3': 1.8595532249139957}
+[401s] tum_kosu 5521
+[404s] altılı 1016 | karışım w (2025 fit, PF): 0.1
+[416s] altili_2025_tutan_PF-AGF_B64 [-0.3935, -0.565, -0.2277]
+[416s] altili_2025_tutan_PF-AGF_B256 [-0.4477, -0.6216, -0.2793]
+[416s] altili_2025_tutan_P0-AGF_B64 [-0.278, -0.4122, -0.1372]
+[416s] altili_2025_tutan_P0-AGF_B256 [-0.3718, -0.4964, -0.2431]
+[416s] altili_2025_tutan_KARISIM-AGF_B64 [0.0036, -0.0453, 0.052]
+[416s] altili_2025_tutan_KARISIM-AGF_B256 [-0.0253, -0.0652, 0.0145]
+[416s] altili_2025_betim_AGF_B64 {'altili': 277, 'ort_ayak': 3.51985559566787, '6/6': 10, 'ROI': 0.15331738437001596}
+[416s] altili_2025_betim_AGF_B256 {'altili': 277, 'ort_ayak': 4.007220216606498, '6/6': 27, 'ROI': 0.2992189733206289}
+[416s] altili_2025_betim_PF_B64 {'altili': 277, 'ort_ayak': 3.1263537906137184, '6/6': 6, 'ROI': 0.1803909489396991}
+[416s] altili_2025_betim_PF_B256 {'altili': 277, 'ort_ayak': 3.55956678700361, '6/6': 14, 'ROI': 0.428862231424799}
+[416s] altili_2025_betim_P0_B64 {'altili': 277, 'ort_ayak': 3.2418772563176894, '6/6': 5, 'ROI': 0.06439028692380057}
+[416s] altili_2025_betim_P0_B256 {'altili': 277, 'ort_ayak': 3.6353790613718413, '6/6': 11, 'ROI': 0.1911874478732277}
+[416s] altili_2025_betim_KARISIM_B64 {'altili': 277, 'ort_ayak': 3.523465703971119, '6/6': 10, 'ROI': 0.15385358624777712}
+[416s] altili_2025_betim_KARISIM_B256 {'altili': 277, 'ort_ayak': 3.9819494584837547, '6/6': 20, 'ROI': 0.20885969224352385}
+[416s] altili_2026_tutan_PF-AGF_B64 [-0.1543, -0.2525, -0.0549]
+[416s] altili_2026_tutan_PF-AGF_B256 [-0.1678, -0.2665, -0.0697]
+[416s] altili_2026_tutan_P0-AGF_B64 [-0.2314, -0.3144, -0.1487]
+[416s] altili_2026_tutan_P0-AGF_B256 [-0.2246, -0.3098, -0.1382]
+[416s] altili_2026_tutan_KARISIM-AGF_B64 [0.0203, -0.0095, 0.0499]
+[416s] altili_2026_tutan_KARISIM-AGF_B256 [0.0054, -0.026, 0.0363]
+[416s] altili_2026_betim_AGF_B64 {'altili': 739, 'ort_ayak': 3.537212449255751, '6/6': 26, 'ROI': 0.5372600267379679}
+[416s] altili_2026_betim_AGF_B256 {'altili': 739, 'ort_ayak': 4.028416779431664, '6/6': 65, 'ROI': 0.5591769848678804}
+[416s] altili_2026_betim_PF_B64 {'altili': 739, 'ort_ayak': 3.3829499323410013, '6/6': 19, 'ROI': 0.6011383592017738}
+[416s] altili_2026_betim_PF_B256 {'altili': 739, 'ort_ayak': 3.8606224627875507, '6/6': 51, 'ROI': 0.5486699295463815}
+[416s] altili_2026_betim_P0_B64 {'altili': 739, 'ort_ayak': 3.3058186738836266, '6/6': 22, 'ROI': 0.7812640293980918}
+[416s] altili_2026_betim_P0_B256 {'altili': 739, 'ort_ayak': 3.803788903924222, '6/6': 51, 'ROI': 0.6431475876703149}
+[416s] altili_2026_betim_KARISIM_B64 {'altili': 739, 'ort_ayak': 3.557510148849797, '6/6': 32, 'ROI': 0.8454263755847629}
+[416s] altili_2026_betim_KARISIM_B256 {'altili': 739, 'ort_ayak': 4.03382949932341, '6/6': 68, 'ROI': 0.646382096789511}
+[416s] KARAR 1 (kazanan, PF vs AGF): AGF DAHA İSABETLİ
+[416s] KARAR 2 (PF vs P0): FAYDA KANITLANMADI
+[416s] KARAR 3 (altılı tutan ayak, PF vs AGF): KUPONDA AGF'NİN GERİSİNDE
