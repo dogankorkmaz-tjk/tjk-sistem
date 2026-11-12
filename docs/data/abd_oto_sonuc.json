@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-12 17:56 UTC",
+ "uretim": "2026-11-12 18:07 UTC",
  "kayitli_kosu": 1784,
- "eslesmeyen_kosu": 1194,
+ "eslesmeyen_kosu": 1192,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 992,
- "kosu": 590,
+ "bahis": 993,
+ "kosu": 592,
  "isabet": 63,
- "roi": 0.888,
+ "roi": 0.887,
  "ga95": [
-  0.642,
-  1.171
+  0.646,
+  1.162
  ],
  "ulke": {
   "abd": {
-   "bahis": 633,
-   "roi": 0.768
+   "bahis": 634,
+   "roi": 0.766
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1273,
-  "kosu": 572,
+  "bahis": 1278,
+  "kosu": 574,
   "isabet": 123,
-  "roi": 0.631,
+  "roi": 0.629,
   "ga95": [
-   0.485,
-   0.785
+   0.482,
+   0.782
   ]
  },
  "bahis_t1": {
-  "bahis": 1294,
-  "kosu": 562,
+  "bahis": 1299,
+  "kosu": 564,
   "isabet": 130,
-  "roi": 0.682,
+  "roi": 0.68,
   "ga95": [
-   0.496,
-   0.889
+   0.493,
+   0.903
   ]
  },
  "bahis_t3": {
-  "bahis": 1267,
-  "kosu": 545,
+  "bahis": 1272,
+  "kosu": 547,
   "isabet": 141,
-  "roi": 0.682,
+  "roi": 0.679,
   "ga95": [
-   0.51,
-   0.888
+   0.508,
+   0.898
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 9,
-   "at": "JACK LANGLEY",
-   "q": 0.103,
-   "g": 13.35,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Southwell",
@@ -423,6 +414,15 @@
    "at": "GRANDMA'S GIRL",
    "q": 0.125,
    "g": 11.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-12",
+   "pist": "Mahoning Valley",
+   "kosu": 2,
+   "at": "CHICABEE",
+   "q": 0.283,
+   "g": 14.25,
    "kazandi": false
   }
  ]
