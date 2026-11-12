@@ -1,1 +1,1 @@
-{}
+{"ankara|3":{"hipodrom":"ankara","ad":"Ankara","kosu":3,"saat":"13:30","uretim":"13:20","goruntu":"13:20:52","dk":9.12,"ikili_liste_dk":null,"at_sayisi":6,"cins":"ŞARTLI 5","kuponlar":[{"tur":"si_e13","pairs":[[4,6],[4,5],[4,2],[5,4]],"n":4,"misli":1,"p_model":0.1166,"p_piyasa":0.0698,"bedel":4.0},{"tur":"si_e15","pairs":[[4,5],[4,2],[5,4]],"n":3,"misli":1,"p_model":0.0678,"p_piyasa":0.0343,"bedel":3.0},{"tur":"si_e20","pairs":[[4,5]],"n":1,"misli":1,"p_model":0.0256,"p_piyasa":0.0121,"bedel":1.0}]}}
