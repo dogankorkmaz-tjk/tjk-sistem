@@ -2632,5 +2632,47 @@
 "acik_son_dk": -1.4,
 "kapali_ilk_dk": null,
 "n": 10
+},
+"2026-11-11|ISTANBUL-1": {
+"saat": "14:00",
+"acik_son_dk": -1.9,
+"kapali_ilk_dk": null,
+"n": 10
+},
+"2026-11-11|ELAZIG-5": {
+"saat": "20:00",
+"acik_son_dk": 1.5,
+"kapali_ilk_dk": 4.5,
+"n": 17
+},
+"2026-11-11|ELAZIG-6": {
+"saat": "20:30",
+"acik_son_dk": -13.6,
+"kapali_ilk_dk": 5.4,
+"n": 7
+},
+"2026-11-11|ELAZIG-7": {
+"saat": "21:00",
+"acik_son_dk": -1.5,
+"kapali_ilk_dk": 9.7,
+"n": 11
+},
+"2026-11-11|ELAZIG-8": {
+"saat": "21:30",
+"acik_son_dk": 0.4,
+"kapali_ilk_dk": null,
+"n": 1
+},
+"2026-11-11|DUNDALK-6": {
+"saat": "20:02",
+"acik_son_dk": 0.9,
+"kapali_ilk_dk": 2.5,
+"n": 17
+},
+"2026-11-11|DUNDALK-7": {
+"saat": "20:32",
+"acik_son_dk": -15.6,
+"kapali_ilk_dk": 3.4,
+"n": 6
 }
 }
