@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-13 18:56 UTC",
- "kayitli_kosu": 1791,
+ "uretim": "2026-11-13 19:00 UTC",
+ "kayitli_kosu": 1792,
  "eslesmeyen_kosu": 1199,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 993,
- "kosu": 592,
+ "bahis": 995,
+ "kosu": 593,
  "isabet": 63,
- "roi": 0.887,
+ "roi": 0.885,
  "ga95": [
-  0.646,
-  1.162
+  0.636,
+  1.171
  ],
  "ulke": {
   "abd": {
-   "bahis": 634,
-   "roi": 0.766
+   "bahis": 636,
+   "roi": 0.764
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1278,
-  "kosu": 574,
+  "bahis": 1283,
+  "kosu": 575,
   "isabet": 123,
-  "roi": 0.629,
+  "roi": 0.627,
   "ga95": [
-   0.482,
-   0.782
+   0.48,
+   0.783
   ]
  },
  "bahis_t1": {
-  "bahis": 1299,
-  "kosu": 564,
+  "bahis": 1304,
+  "kosu": 565,
   "isabet": 130,
-  "roi": 0.68,
+  "roi": 0.677,
   "ga95": [
-   0.493,
-   0.903
+   0.492,
+   0.896
   ]
  },
  "bahis_t3": {
-  "bahis": 1272,
-  "kosu": 547,
+  "bahis": 1277,
+  "kosu": 548,
   "isabet": 141,
-  "roi": 0.679,
+  "roi": 0.677,
   "ga95": [
-   0.508,
-   0.898
+   0.5,
+   0.89
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 9,
-   "at": "SISTERANDBROTHER",
-   "q": 0.15,
-   "g": 11.2,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Southwell",
-   "kosu": 9,
-   "at": "BEGGARMAN",
-   "q": 0.049,
-   "g": 34.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Woodbine",
@@ -423,6 +405,24 @@
    "at": "CHICABEE",
    "q": 0.283,
    "g": 14.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-13",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "BIKRI",
+   "q": 0.066,
+   "g": 19.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-13",
+   "pist": "Belmont Park",
+   "kosu": 3,
+   "at": "JUDYSDANCIN TONITE",
+   "q": 0.156,
+   "g": 9.45,
    "kazandi": false
   }
  ]
