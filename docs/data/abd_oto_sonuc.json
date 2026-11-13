@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-13 19:21 UTC",
+ "uretim": "2026-11-13 19:30 UTC",
  "kayitli_kosu": 1796,
- "eslesmeyen_kosu": 1203,
+ "eslesmeyen_kosu": 1201,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 995,
- "kosu": 593,
+ "bahis": 996,
+ "kosu": 595,
  "isabet": 63,
- "roi": 0.885,
+ "roi": 0.884,
  "ga95": [
-  0.636,
-  1.171
+  0.635,
+  1.169
  ],
  "ulke": {
   "abd": {
-   "bahis": 636,
-   "roi": 0.764
+   "bahis": 637,
+   "roi": 0.763
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1283,
-  "kosu": 575,
+  "bahis": 1287,
+  "kosu": 577,
   "isabet": 123,
-  "roi": 0.627,
+  "roi": 0.625,
   "ga95": [
-   0.48,
-   0.783
+   0.478,
+   0.78
   ]
  },
  "bahis_t1": {
-  "bahis": 1304,
-  "kosu": 565,
+  "bahis": 1308,
+  "kosu": 567,
   "isabet": 130,
-  "roi": 0.677,
+  "roi": 0.675,
   "ga95": [
-   0.492,
-   0.896
+   0.491,
+   0.893
   ]
  },
  "bahis_t3": {
-  "bahis": 1277,
-  "kosu": 548,
+  "bahis": 1281,
+  "kosu": 550,
   "isabet": 141,
-  "roi": 0.677,
+  "roi": 0.675,
   "ga95": [
-   0.5,
-   0.89
+   0.498,
+   0.887
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 4,
-   "at": "WATSONVILLE RED",
-   "q": 0.075,
-   "g": 22.0,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Woodbine",
@@ -423,6 +414,15 @@
    "at": "JUDYSDANCIN TONITE",
    "q": 0.156,
    "g": 9.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-13",
+   "pist": "Woodbine",
+   "kosu": 3,
+   "at": "BARELY POLISHED",
+   "q": 0.062,
+   "g": 27.05,
    "kazandi": false
   }
  ]
