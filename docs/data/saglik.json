@@ -1,7 +1,7 @@
 {
  "tarih": "2026-11-13",
- "zaman": "2026-11-13 17:33 TR",
- "genel": "ok",
+ "zaman": "2026-11-13 18:25 TR",
+ "genel": "uyari",
  "kontroller": [
   {
    "ad": "veri: sonuclar",
@@ -21,7 +21,7 @@
   {
    "ad": "veri: odeme",
    "durum": "ok",
-   "detay": "son gün 2026-11-12 (1 gün önce)"
+   "detay": "son gün 2026-11-13 (0 gün önce)"
   },
   {
    "ad": "veri: agf",
@@ -31,7 +31,7 @@
   {
    "ad": "veri: galop",
    "durum": "ok",
-   "detay": "son gün 2026-11-12 (1 gün önce)"
+   "detay": "son gün 2026-11-13 (0 gün önce)"
   },
   {
    "ad": "atyarisi arşivi (dün)",
@@ -70,13 +70,13 @@
   },
   {
    "ad": "Benter puanı (z6)",
-   "durum": "ok",
-   "detay": "kapsam %97 (başlamamış koşulardaki atlar)"
+   "durum": "uyari",
+   "detay": "kapsam %94 (başlamamış koşulardaki atlar)"
   },
   {
    "ad": "piyasasız puan (z7)",
-   "durum": "ok",
-   "detay": "kapsam %97 (başlamamış koşulardaki atlar)"
+   "durum": "uyari",
+   "detay": "kapsam %94 (başlamamış koşulardaki atlar)"
   },
   {
    "ad": "Benter-K gölge puanı (zk6)",
