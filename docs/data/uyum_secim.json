@@ -1,8 +1,25 @@
 {
  "gun": "2026-11-14",
- "olusturma": "2026-11-14 23:52 TR",
+ "olusturma": "2026-11-15 00:05 TR",
  "kural": "AGF sırası >=3 ve uyum sırası <=2 (T131, deneysel, bahis önerisi değil)",
  "kosular": [
+  {
+   "hipodrom": "ankara",
+   "kosu": 1,
+   "saat": "13:00",
+   "agf_saat": "13:03",
+   "kayit_saati": "2026-11-15 00:05",
+   "secimler": [
+    {
+     "no": 5,
+     "at": "KIZIL ORMAN",
+     "uyum_sirasi": 2,
+     "agf_sirasi": 6,
+     "agf": 5.4,
+     "U": 0.185
+    }
+   ]
+  },
   {
    "hipodrom": "ankara",
    "kosu": 2,
