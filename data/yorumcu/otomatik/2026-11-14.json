@@ -1,0 +1,202 @@
+{
+ "tarih": "2026-11-14",
+ "kuponlar": {
+  "fenomen-tilki|ankara|2": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "BESNİ",
+   "altili": "Ankara II. Altılı Ganyan",
+   "hip": "ankara",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     4,
+     3,
+     2,
+     1,
+     5,
+     6,
+     7
+    ],
+    [
+     8,
+     4,
+     3,
+     5,
+     1,
+     2,
+     6,
+     9,
+     10,
+     7,
+     11
+    ],
+    [
+     2,
+     3,
+     7,
+     1,
+     5,
+     6,
+     8,
+     4
+    ],
+    [
+     1
+    ],
+    [
+     2
+    ],
+    [
+     1,
+     4,
+     6,
+     2,
+     3,
+     10,
+     13,
+     5,
+     8,
+     7,
+     14
+    ]
+   ],
+   "ilk_gorulme": "17:32:12"
+  },
+  "editorun-kuponu|ankara|2": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "BORN TO TRUST",
+   "altili": "Ankara II. Altılı Ganyan",
+   "hip": "ankara",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     4,
+     3,
+     2,
+     1,
+     5,
+     6,
+     7
+    ],
+    [
+     8,
+     1,
+     4,
+     2,
+     3,
+     5,
+     6,
+     9,
+     7,
+     10,
+     11
+    ],
+    [
+     2,
+     3,
+     7,
+     1,
+     5,
+     6,
+     8,
+     4
+    ],
+    [
+     2
+    ],
+    [
+     6,
+     2,
+     1,
+     4,
+     3,
+     8,
+     5,
+     10,
+     7,
+     9
+    ],
+    [
+     2
+    ]
+   ],
+   "ilk_gorulme": "17:32:12"
+  },
+  "hipodrom-guzeli|ankara|2": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "MIZMIZ MYRTLE",
+   "altili": "Ankara II. Altılı Ganyan",
+   "hip": "ankara",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     4,
+     3,
+     2,
+     1,
+     5,
+     6,
+     7
+    ],
+    [
+     8
+    ],
+    [
+     2,
+     3,
+     7,
+     1,
+     5,
+     6,
+     8,
+     4
+    ],
+    [
+     2,
+     4,
+     3,
+     1,
+     5,
+     6
+    ],
+    [
+     1
+    ],
+    [
+     1,
+     4,
+     6,
+     2,
+     3,
+     10,
+     13,
+     5,
+     8,
+     7,
+     11
+    ]
+   ],
+   "ilk_gorulme": "17:32:12"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|ankara|5": {
+   "ad": "SPRINTMASTER",
+   "at": "THE LAST UNICORN",
+   "hip": "ankara",
+   "kosu": 5,
+   "ilk_gorulme": "17:32:12"
+  },
+  "BEYGİRBOOSTER|ankara|8": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "SEYRAN HANIM",
+   "hip": "ankara",
+   "kosu": 8,
+   "ilk_gorulme": "17:32:12"
+  }
+ },
+ "degisiklik": []
+}
