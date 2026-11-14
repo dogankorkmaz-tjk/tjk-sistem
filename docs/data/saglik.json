@@ -1,6 +1,6 @@
 {
  "tarih": "2026-11-14",
- "zaman": "2026-11-14 09:59 TR",
+ "zaman": "2026-11-14 13:07 TR",
  "genel": "ok",
  "kontroller": [
   {
@@ -81,7 +81,7 @@
   {
    "ad": "Benter-K gölge puanı (zk6)",
    "durum": "ok",
-   "detay": "AGF henüz yok — sabah AGF gelince yazılır"
+   "detay": "kapsam %100 (AGF'si gelmiş başlamamış koşulardaki atlar)"
   },
   {
    "ad": "Benter sıra üstelleri (a_g1)",
