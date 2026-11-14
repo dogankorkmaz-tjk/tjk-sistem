@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-14 20:26 UTC",
- "kayitli_kosu": 1808,
- "eslesmeyen_kosu": 1211,
+ "uretim": "2026-11-14 20:34 UTC",
+ "kayitli_kosu": 1810,
+ "eslesmeyen_kosu": 1212,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 999,
- "kosu": 597,
- "isabet": 63,
- "roi": 0.882,
+ "bahis": 1002,
+ "kosu": 598,
+ "isabet": 64,
+ "roi": 0.894,
  "ga95": [
-  0.631,
-  1.161
+  0.646,
+  1.172
  ],
  "ulke": {
   "abd": {
-   "bahis": 640,
-   "roi": 0.759
+   "bahis": 643,
+   "roi": 0.779
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1289,
-  "kosu": 579,
+  "bahis": 1290,
+  "kosu": 580,
   "isabet": 124,
-  "roi": 0.629,
+  "roi": 0.628,
   "ga95": [
-   0.481,
-   0.785
+   0.48,
+   0.784
   ]
  },
  "bahis_t1": {
-  "bahis": 1310,
-  "kosu": 569,
+  "bahis": 1312,
+  "kosu": 570,
   "isabet": 131,
-  "roi": 0.679,
+  "roi": 0.678,
   "ga95": [
    0.493,
-   0.894
+   0.892
   ]
  },
  "bahis_t3": {
-  "bahis": 1282,
-  "kosu": 552,
+  "bahis": 1283,
+  "kosu": 553,
   "isabet": 141,
   "roi": 0.674,
   "ga95": [
-   0.5,
+   0.499,
    0.893
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "TREVALLY",
-   "q": 0.049,
-   "g": 35.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "FLATTER FOR CAT",
-   "q": 0.209,
-   "g": 7.05,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "GLOBAL LOVE",
-   "q": 0.04,
-   "g": 34.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Woodbine",
@@ -415,6 +388,33 @@
    "q": 0.086,
    "g": 30.8,
    "kazandi": false
+  },
+  {
+   "gun": "2026-11-14",
+   "pist": "Gulfstream",
+   "kosu": 7,
+   "at": "LADY CROSS",
+   "q": 0.159,
+   "g": 7.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-14",
+   "pist": "Gulfstream",
+   "kosu": 7,
+   "at": "SEVEN OF HEARTS",
+   "q": 0.125,
+   "g": 23.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-14",
+   "pist": "Gulfstream",
+   "kosu": 7,
+   "at": "SAYTARA",
+   "q": 0.097,
+   "g": 14.8,
+   "kazandi": true
   },
   {
    "gun": "2026-11-14",
