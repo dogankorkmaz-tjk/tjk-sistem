@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-14 23:24 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-14 23:28 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
+Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 16 · Tanımlayıcı / keşif: 9 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -89,7 +89,7 @@ Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T210 | "Adana'da Çelik jokeylerinin atlarını yazmadan altılı kazanılmaz" (kullanıcı iddiası) | Elendi | (2026-11-15 02:35; yerelde, hızlı; t210.json): A) Adana Çelik biniş n=4.448 (tüm binişlerin ~%18'i): kazanan 799 vs beklenen 789,9, oran 1,012 [0,960; 1,063]; 2023–24 oran 1,019 [0,944; 1,096], 2025–26 1,004 [0,933; 1,072]. Kör g… | KARAR B: iddia piyasanın beklentisinin ötesinde değil → "iddia piyasa fiyatının zaten içinde". Yorum: Çelik atları çok sayıda ve çoğu favori/üst sıra; ~%89 altılıda ≥1 Çelik kazananı çıkması piyasanın beklediği düzey. Çelik atlarını AGF'ye göre yazmak yeterli… |
 | T211 | gün içi pist/kapı yanlılığı piyasada eksik mi fiyatlanıyor? (kullanıcı onayı: "Başlat") | Elendi (yeniden test planlı) | (2026-11-15 02:55; yerelde; t211.json; 13.368 koşu, gün-kümeli bootstrap): β tüm dönem +0,56 [0,17; 0,92]; 2023–24 +0,39 [−0,16; 0,92]; 2025–26 +0,71 [0,21; 1,21]; koşu≥6 +0,84 [0,34; 1,36]. NLL kazancı yalnız +0,0004 nats/koşu (… | KARAR (önkayıtlı kural: iki dönemde de GA alt sınırı >0): 2023–24'te GA 0'ı kapsıyor → kural SAĞLANMADI → "yeterli kanıt yok; fiyatlanmış/etki ihmal edilebilir". Not: yön tutarlı pozitif ve birleşik/2025–26 anlamlı; etki küçük (tipik B=±0,2, uç kapıda oran ~%… |
 
-## Aday: ileri takipte (henüz kanıt değil) — 15
+## Aday: ileri takipte (henüz kanıt değil) — 16
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -108,6 +108,7 @@ Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T200 | altılıda AGF + piyasasız model (PM0) karışımı (kullanıcı: "Başlat test edelim") | Aday / ileri takipte | (2026-11-11 11:55; t200_sonuc.txt, t200_altili.csv; 1.016 altılı: 2025 277 [w fit], 2026 739 [sınama]; PM0 43 özellik): w tek = 0,15; ayak başına w_j = [0; 0; 0,25; 0; 0,20; 0,50]. 2026 sınama, Bonf. %97,5 GA: BC−A kazanan log-ol… | KARAR (kurala göre): BL YOK; BC 'tek w adayı' (ll GA alt>0 ve iki bütçede nokta>0). YORUM: kazanan olabilirliğinde küçük ama tutarlı kazanç (AGF'ye %15 PM0 karışımı); kupon düzeyinde etki ayak başına ~%1 (B=64: 3,54→3,57), tutan ayak GA'sı 0'ı kapsıyor, 2025'… |
 | T203 | → | Aday / ileri takipte | (2026-11-12 02:55; t203_sonuc.txt, t203.json; E kolu, 8.716 kazananlı koşu, 2025Q3→2026Q4; genel kazanç +0,0265 nats/koşu): | KARAR kuralına göre 18 bölüm 'ZAYIF PİYASA ADAYI' (Bonf. GA alt > 0 ve iki yarıda nokta > 0), 2 'işaret' (kocaeli, elazig), 1 'yok' (diyarbakir +0,005); toplam 21 bölüm. DÜZELTME/KURAL KUSURU (sonuç görüldükten sonra tespit): ön kayıtlı kural bölümün kazancın… |
 | T204 | bahis anı denetimi → | Aday / ileri takipte ~ | (2026-11-12 03:35; t204_sonuc.txt, t204.json; 23 gün, 297 yerli koşu (ANA ≥1 dk kala), 348 bahis; model 2026-10-15 öncesiyle fit; ödeme RESMÎ kapanış ganyanı): RB (bahis anı oranıyla seçim) ROI 0,873 [0,679; 1,051], 82 isabet; RC… | (açık karar satırı yok, son cümlelerden çıkarıldı) yeni ön kayıt, n ≥ 500): değer oranı hesabında bahis anı oranını beklenen kapanışa (≈ −%12) indirerek seçmek. Canlı kural DEĞİŞMEDİ. Betik yeni veriyle aynen yeniden koşulabilir (data/muh birikiyor). |
+| T212 | egzotik havuzlarda "numara kalabalığı" (ödeme tarafı; kullanıcı onayı: "Tamam yap") | Aday / ileri takipte ~ | (2026-11-15 03:15; yerelde; t212.json): SIRALI İKİLİ (n=18.627): popüler numaralı (7 veya ≤3) at başına log-ödeme β −0,022 [−0,030; −0,014]; 2023–24 −0,019 [−0,031; −0,008]; 2025+ −0,023 [−0,033; −0,013]. İki dönemde GA üst sınır… | (açık karar satırı yok, son cümlelerden çıkarıldı) kili olabilir (nedensellik kanıtlanmadı; yalnız log A ile kontrol edildi). Kural gereği aday değil; ileri kayıtta 5'li kupon seçiminde "popüler numara ağırlığı"nın etkisi ayrı ön kayıtla ölçülebilir. |
 
 ## Karma sonuç (bir kısmı geçti, bir kısmı olmadı) — 2
 
