@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-14 20:18 UTC",
- "kayitli_kosu": 1807,
- "eslesmeyen_kosu": 1212,
+ "uretim": "2026-11-14 20:26 UTC",
+ "kayitli_kosu": 1808,
+ "eslesmeyen_kosu": 1211,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 996,
- "kosu": 595,
+ "bahis": 999,
+ "kosu": 597,
  "isabet": 63,
- "roi": 0.884,
+ "roi": 0.882,
  "ga95": [
-  0.635,
-  1.169
+  0.631,
+  1.161
  ],
  "ulke": {
   "abd": {
-   "bahis": 637,
-   "roi": 0.763
+   "bahis": 640,
+   "roi": 0.759
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1287,
-  "kosu": 577,
-  "isabet": 123,
-  "roi": 0.625,
+  "bahis": 1289,
+  "kosu": 579,
+  "isabet": 124,
+  "roi": 0.629,
   "ga95": [
-   0.478,
-   0.78
+   0.481,
+   0.785
   ]
  },
  "bahis_t1": {
-  "bahis": 1308,
-  "kosu": 567,
-  "isabet": 130,
-  "roi": 0.675,
+  "bahis": 1310,
+  "kosu": 569,
+  "isabet": 131,
+  "roi": 0.679,
   "ga95": [
-   0.491,
-   0.893
+   0.493,
+   0.894
   ]
  },
  "bahis_t3": {
-  "bahis": 1281,
-  "kosu": 550,
+  "bahis": 1282,
+  "kosu": 552,
   "isabet": 141,
-  "roi": 0.675,
+  "roi": 0.674,
   "ga95": [
-   0.498,
-   0.887
+   0.5,
+   0.893
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "FEARLESS SOLDIER",
-   "q": 0.037,
-   "g": 47.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "ONE MORE BREW",
-   "q": 0.049,
-   "g": 45.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 6,
-   "at": "NOBURU",
-   "q": 0.06,
-   "g": 39.2,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-07",
    "pist": "Woodbine",
@@ -423,6 +396,33 @@
    "at": "BARELY POLISHED",
    "q": 0.062,
    "g": 27.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-14",
+   "pist": "Belmont Park",
+   "kosu": 8,
+   "at": "JUST JOE",
+   "q": 0.111,
+   "g": 15.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-14",
+   "pist": "Belmont Park",
+   "kosu": 8,
+   "at": "RIYADH WAY",
+   "q": 0.086,
+   "g": 30.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-14",
+   "pist": "Woodbine",
+   "kosu": 5,
+   "at": "ANAM CARA",
+   "q": 0.112,
+   "g": 11.85,
    "kazandi": false
   }
  ]
