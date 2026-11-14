@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-14T15:39",
+ "guncelleme": "2026-11-14T16:06",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
-  "Karar belirsiz": 49,
+  "Karar belirsiz": 50,
   "Tanımlayıcı / keşif": 9,
-  "Sonuç bekleniyor": 18,
+  "Sonuç bekleniyor": 17,
   "Karma": 2,
   "Aday / ileri takipte": 15
  },
@@ -1490,10 +1490,10 @@
    "id": "T209",
    "konu": "(geri test %6,3 isabet ↔ ileri kayıt 1/128: gerçekten uyumsuz mu?)",
    "tarih": "2026-11-14",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(test 2026Q1–Q4, katman başına ≤800 koşu) Geri test tam isabet oranı / model beklentisi (B=48 | 96 | 150): 7–11 atlı %7,6/%7,1 | %13,5/%11,1 | %15,8/%13,7 (oran 1,07|1,21|1,15); 12–13: %2,3/%1,6 | %3,6/%2,7 | %5,1/%3,6 (1,39|1,33…",
+   "neden": "KARAR 3: ileri kayıt model başına hüküm için yeterli değil (≥100 koşu ve ≥10 beklenen isabet gerekir; G1-S-G B=150 5/3,6). Sonuç: ileri kayıttaki düşük isabet sayısı şans+büyük alan; model kalibre görünüyor; düzeltme gereksiz.",
+   "satir": 2827
   }
  ]
 }
