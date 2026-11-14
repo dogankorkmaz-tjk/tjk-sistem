@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-14T15:12",
+ "guncelleme": "2026-11-14T15:39",
  "sayim": {
   "Geçti": 17,
   "Elendi": 55,
   "Karar belirsiz": 49,
   "Tanımlayıcı / keşif": 9,
-  "Sonuç bekleniyor": 17,
+  "Sonuç bekleniyor": 18,
   "Karma": 2,
   "Aday / ileri takipte": 15
  },
@@ -1485,6 +1485,15 @@
    "ozet": "(n=7.464 koşu; test 2026Q1–Q4 n=4.627) A) Sürpriz (piyasa sırası ≥6) payı gözlenen/beklenen: 4. sıra 0,397/0,393 (fark +0,004, GA [−0,007; +0,015]); 5. sıra 0,463/0,460 (+0,003, GA [−0,008; +0,014]); 2. ve 3. sıra da ~0.",
    "neden": "KARAR B: 'fark yok'. C) Kupon (bilgi, B=48, 1.000 koşu): tam isabet P0 63 (%6,3; model beklentisi %5,2), P1 64. Dikkat: ileri kayıt 128 koşuda yalnız 1 isabet (beklenti ~6–7; P(≤1)≈%1) → geri test ile ileri kayıt uyumsuz; olası nedenler (doğrulanmadı): ileri…",
    "satir": 2814
+  },
+  {
+   "id": "T209",
+   "konu": "(geri test %6,3 isabet ↔ ileri kayıt 1/128: gerçekten uyumsuz mu?)",
+   "tarih": "2026-11-14",
+   "durum": "Sonuç bekleniyor",
+   "ozet": "",
+   "neden": "",
+   "satir": 0
   }
  ]
 }
