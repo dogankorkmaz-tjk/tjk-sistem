@@ -2823,3 +2823,10 @@ KARAR 1 (popülasyon): geri test beklenen isabet oranı ≥12 atlı katmanlarda 
 KARAR 2 (kalibrasyon): ≥12 atlı birleşik (ileri karışım ağırlıklı) gözlenen/beklenen oranı GA'sı 1'i içeriyorsa → 'model isabet olasılığını doğru tahmin ediyor'; GA üst sınırı <1 ise 'model isabeti fazla tahmin ediyor' (düzeltme adayı, canlı değişiklik ayrı onay); alt sınır >1 ise 'az tahmin'.
 KARAR 3 (ileri kayıt): model başına B=150 Poisson olasılığı (gözlenen ≤ ya da ≥ ile) yalnız betimleyici; model başına ileri hükmü ≥100 koşu ve ≥10 beklenen isabetten sonra.
 Betik sonuca bakılarak ayarlanmaz.
+
+## 2026-11-14 19:45 — SONUÇ T209 (test 2026Q1–Q4, katman başına ≤800 koşu)
+Geri test tam isabet oranı / model beklentisi (B=48 | 96 | 150): 7–11 atlı %7,6/%7,1 | %13,5/%11,1 | %15,8/%13,7 (oran 1,07|1,21|1,15); 12–13: %2,3/%1,6 | %3,6/%2,7 | %5,1/%3,6 (1,39|1,33|1,42; B=150 GA [1,02; 1,84]); 14–15: %1,8/%1,0 | %2,2/%1,7 | %3,4/%2,3 (1,81|1,29|1,48; GA 1'i içeriyor); ≥16 (n=307): %1,0/%0,6 | %1,0/%1,0 | %1,3/%1,4 (1,66|0,97|0,96). İleri karışım ağırlıklı: gözlenen %1,8|2,5|3,7 vs beklenen %1,2|2,0|2,7 (oran 1,54|1,28|1,38).
+KARAR 1: ≥12 atlı katmanlarda geri test beklentisi B=48 için %0,6–1,6 (ileri model beklentisi %1,0–2,4 aralığına yakın/içinde) → 'uyumsuzluk POPÜLASYON FARKIYDI' (T208'deki %5,2 küçük alanlar yüzünden).
+KARAR 2: ileri karışım ağırlıklı birleşik GA betikte hesaplanmadı (ön kayıtta vardı; eksiklik açıklanır). Katman GA'ları: 1 çoğunda içinde, 12–13/B150'de alt sınır 1,02. Nokta tahmin oranı 1,3–1,5 → model 5'li isabetini FAZLA değil, hafif AZ tahmin etmiş olabilir (yön: iyi); kesin hüküm yok. Geri test sızıntısı (a_g1 tüm veriyle) bu yönü şişirebilir.
+KARAR 3: ileri kayıt model başına hüküm için yeterli değil (≥100 koşu ve ≥10 beklenen isabet gerekir; G1-S-G B=150 5/3,6).
+Sonuç: ileri kayıttaki düşük isabet sayısı şans+büyük alan; model kalibre görünüyor; düzeltme gereksiz.
