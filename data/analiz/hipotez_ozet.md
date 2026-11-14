@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-11 23:11 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-14 14:45 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 48 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
+Toplam: Elendi: 55 · Karar belirsiz: 48 · Sonuç bekleniyor: 18 · Geçti: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -181,7 +181,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 48 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T202 | altılıda DEĞER seçimi: AGF'nin az oynadığı ama modelin yüksek gördüğü kombinasyonlar (kullanıcı: "Dene") | Karar belirsiz | (2026-11-12 01:55; t202_sonuc.txt, t202.json, t202_altili.csv; 1.016 altılı; Bonf. %98,75 GA): ANA eşleşmiş ROI farkı (V−AX), 2025+2026 birlikte: V15 B64 −0,546 [−0,764; −0,340]; V50 B64 −0,546 [−0,764; −0,344] (ikisinde 0 adet 6… | KARAR (kurala göre): V15_B64 yok; V50_B64 yok; V50_B256 yok; V15_B256 'işaret' (nokta > 0 iki yılda da, GA alt ≤ 0). YORUM: değer seçimi isabeti ağır düşürüyor (B64'te 1.016 altılıda hiç 6/6 yok); tek 'işaret' yalnız 6 adet 6/6'ya dayanıyor, güven aralığı çok… |
 | T207 | kısa dizili ganyan) | Karar belirsiz | (2026-11-12 03:50; t207_sonuc.txt, t207.json; hizalama: 'son ayak = kosu' kuralı tüm türlerde %97–99 uyum, 'ilk' kuralı düşük → son seçildi; 20.410 kupon satırı; AGF-favori kuponu, ayak başına ilk 5 aday, Πa'ya göre ilk B kombina… |  |
 
-## Ön kayıtlı, sonucu henüz yok — 17
+## Ön kayıtlı, sonucu henüz yok — 18
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -202,3 +202,4 @@ Toplam: Elendi: 55 · Karar belirsiz: 48 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
 | T205 | pist gecikmesi → | Sonuç bekleniyor |  |  |
+| T208 | sıralı beşli/tabelada 4.–5. sıraya sürpriz at girişi: gerçek mi, algı mı, düzeltilebilir mi? (kullanıcı gözle… | Sonuç bekleniyor |  |  |
