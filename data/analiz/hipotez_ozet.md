@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-14 23:28 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-14 23:32 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 16 · Tanımlayıcı / keşif: 9 · Karma: 2
+Toplam: Elendi: 57 · Karar belirsiz: 50 · Sonuç bekleniyor: 18 · Geçti: 17 · Aday / ileri takipte: 16 · Tanımlayıcı / keşif: 9 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -186,7 +186,7 @@ Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T208 | sıralı beşli/tabelada 4.–5. sıraya sürpriz at girişi: gerçek mi, algı mı, düzeltilebilir mi? (kullanıcı gözle… | Karar belirsiz | (n=7.464 koşu; test 2026Q1–Q4 n=4.627) A) Sürpriz (piyasa sırası ≥6) payı gözlenen/beklenen: 4. sıra 0,397/0,393 (fark +0,004, GA [−0,007; +0,015]); 5. sıra 0,463/0,460 (+0,003, GA [−0,008; +0,014]); 2. ve 3. sıra da ~0. | KARAR B: 'fark yok'. C) Kupon (bilgi, B=48, 1.000 koşu): tam isabet P0 63 (%6,3; model beklentisi %5,2), P1 64. Dikkat: ileri kayıt 128 koşuda yalnız 1 isabet (beklenti ~6–7; P(≤1)≈%1) → geri test ile ileri kayıt uyumsuz; olası nedenler (doğrulanmadı): ileri… |
 | T209 | (geri test %6,3 isabet ↔ ileri kayıt 1/128: gerçekten uyumsuz mu?) | Karar belirsiz | (test 2026Q1–Q4, katman başına ≤800 koşu) Geri test tam isabet oranı / model beklentisi (B=48 \| 96 \| 150): 7–11 atlı %7,6/%7,1 \| %13,5/%11,1 \| %15,8/%13,7 (oran 1,07\|1,21\|1,15); 12–13: %2,3/%1,6 \| %3,6/%2,7 \| %5,1/%3,6 (1,39\|1,33… | KARAR 3: ileri kayıt model başına hüküm için yeterli değil (≥100 koşu ve ≥10 beklenen isabet gerekir; G1-S-G B=150 5/3,6). Sonuç: ileri kayıttaki düşük isabet sayısı şans+büyük alan; model kalibre görünüyor; düzeltme gereksiz. |
 
-## Ön kayıtlı, sonucu henüz yok — 17
+## Ön kayıtlı, sonucu henüz yok — 18
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -207,3 +207,4 @@ Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T188 | sıralı ikili 'yüksek eşik' ileriye dönük kâğıt kaydı (kullanıcı: "o kuponları da canlı sekmesine ekle" | Sonuç bekleniyor |  |  |
 | T190 | kamçı gözlemi (kullanıcı: "Tamam test edelim"; fikir: yorumcunun "2 numaralı at 7 kamçı yedi" şüphesi, Bursa… | Sonuç bekleniyor |  |  |
 | T205 | pist gecikmesi → | Sonuç bekleniyor |  |  |
+| T213 | "ana hipodrom" seçimi (zamana göre ayrık, geriye bakış yanlılığı yok; kullanıcı: "ana hipodromları belirleyel… | Sonuç bekleniyor |  |  |
