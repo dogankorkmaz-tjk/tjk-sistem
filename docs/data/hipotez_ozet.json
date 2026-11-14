@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-14T23:35",
+ "guncelleme": "2026-11-14T23:59",
  "sayim": {
   "Geçti": 17,
   "Elendi": 57,
-  "Karar belirsiz": 50,
+  "Karar belirsiz": 51,
   "Tanımlayıcı / keşif": 9,
-  "Sonuç bekleniyor": 19,
+  "Sonuç bekleniyor": 18,
   "Karma": 2,
   "Aday / ileri takipte": 16
  },
@@ -1526,10 +1526,10 @@
    "id": "T213",
    "konu": "\"ana hipodrom\" seçimi (zamana göre ayrık, geriye bakış yanlılığı yok; kullanıcı: \"ana hipodromları belirleyel…",
    "tarih": "2026-11-15",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-15 03:00; t213.json; seçim 2025Q3–2026Q1, doğrulama 2026Q2–Q4; 8 hipodrom, diyarbakir <150 bahis dışarıda): A) seçim-ROI ile doğrulama-ROI Spearman ρ=+0,71, permütasyon p=0,029 → KURAL: \"hipodrom farkı kalıcı\". UYARI (ön…",
    "neden": "",
-   "satir": 0
+   "satir": 2879
   },
   {
    "id": "T214",
