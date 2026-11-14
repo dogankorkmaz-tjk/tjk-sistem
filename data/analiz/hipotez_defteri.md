@@ -2830,3 +2830,6 @@ KARAR 1: ≥12 atlı katmanlarda geri test beklentisi B=48 için %0,6–1,6 (ile
 KARAR 2: ileri karışım ağırlıklı birleşik GA betikte hesaplanmadı (ön kayıtta vardı; eksiklik açıklanır). Katman GA'ları: 1 çoğunda içinde, 12–13/B150'de alt sınır 1,02. Nokta tahmin oranı 1,3–1,5 → model 5'li isabetini FAZLA değil, hafif AZ tahmin etmiş olabilir (yön: iyi); kesin hüküm yok. Geri test sızıntısı (a_g1 tüm veriyle) bu yönü şişirebilir.
 KARAR 3: ileri kayıt model başına hüküm için yeterli değil (≥100 koşu ve ≥10 beklenen isabet gerekir; G1-S-G B=150 5/3,6).
 Sonuç: ileri kayıttaki düşük isabet sayısı şans+büyük alan; model kalibre görünüyor; düzeltme gereksiz.
+
+## 2026-11-14 21:10 — GÖZLEM: İzmir 8. koşu devirli sıralı 5'li (devir 500.495 TL), kullanıcı kuponu
+Kupon: G1-S, 600 kombinasyon (750 TL; tutma_model 0,159, piyasa 0,154). Sonuç ilk5: 7-5-2-11-3. Kupon TUTMADI (1. sıra 2 tek yazılmıştı; 2 üçüncü bitirdi, 7 kazandı). Kullanıcı kararı; kanıt değeri tek gözlem (devirli havuz kuponu ileri kaydı n=1).
