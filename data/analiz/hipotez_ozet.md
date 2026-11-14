@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-14 16:06 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-14 23:19 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 55 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
+Toplam: Elendi: 56 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -27,7 +27,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T183 | görüntü pilotu: tüm koşu boyunca kamera kapsamı (kullanıcı: "bu videoları bize faydalı hale getirecek bir şey… | Geçti ~ | (cv_tum.yml 42425744816; data/cv_tum/ozet.txt; 20 koşu): ≥5 at görülen kare payı medyan %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan kon… | (açık karar satırı yok, son cümlelerden çıkarıldı) %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan konum koşunun büyük kısmında ölçülebilir, bitiş bölümü hariç. |
 | T184-C | yan konumun sıra/perspektif etkisinden arındırılması (kullanıcı: "Yap") | Geçti | (t184c_sonuc.txt; 562 koşu) Birincil LAT (x'e göre artık log h) ~ FM: −0,048 [−0,076; −0,021]; kapı kontrollü −0,047; taban konumu artığı −0,037 [−0,067; −0,005]; öndelik kontrollü −0,039. | KARAR: ÖLÇÜLEMEDİ. Sıra/perspektif etkisi çıkarılınca kutu ölçülerinde yan konum bilgisi kalmıyor (\|r\| < 0,05). SONUÇ (T184/B/C birlikte): Bu yayın görüntüsünden 2B at kutularıyla (tek kamera, sürekli zoom/pan, kamera konumu bilinmiyor) fazladan mesafe ölçüle… |
 
-## Elenenler (modele eklenmedi / kural sağlanmadı) — 55
+## Elenenler (modele eklenmedi / kural sağlanmadı) — 56
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -86,6 +86,7 @@ Toplam: Elendi: 55 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T187-C | (başlık yok) | Elendi (yeniden test planlı) | (t187_c_sonuc.txt; ay-ay ileri-yürüyüş 2025-03→2026-11, 102.603 at-koşu) ANA (p≥0,06 ve p/pm≥1,3): 3.250 at, kazanan 446 (piyasa beklenen 393, model beklenen 553), ROI −22,0% [−29,9; −13,8]. Duyarlılık: ≥1,2 → 7.656 at ROI −25,7%… | KARAR (ön kayıt): ANA ROI nokta <0, GA alt <0 → 'YOK' (aday değil). Yorum: model piyasanın 'az fiyatladığı' atları gerçekten seçiyor (kazanan piyasa beklentisinin +13%'i; ROI referanstan ~9 puan iyi) ama model kendi olasılığını şişiriyor (553 beklenen, 446 ge… |
 | T191 | kilo-düzeltmeli (K) ve rakip-gücü ('zorluk merkezi', Z) hız figürü (kullanıcı: "İkisini de test et"; kaynak:… | Elendi | (2026-11-09 11:10): β = −0,218 sn/kg (n=116.885) → K KOLU ÇALIŞTIRILMADI (kuralı gereği). Neden: veride ağır kilo taşıyan at daha hızlı bitiriyor, çünkü iyi atlara (handikap) daha fazla kilo yükleniyor; kalite ile kilo karışık, v… | KARAR: K = test edilemedi; Z = YOK (GA alt ≤ 0). Etki ≈ %0,05 olasılık kazancı, ROI'ye çevrilmesi beklenmez. Açık: K için sabit, dışarıdan (literatür) bir β ile ayrı ön kayıt yapılabilir; β sonucu gördükten sonra seçilemeyeceğinden onay + yeni giriş gerekir. |
 | T198 | seçici 'ilk3 sürpriz' filtreleri (kullanıcı: "Evet test et" | Elendi ~ | (2026-11-10 23:25; t198_sonuc.txt; T197 verisi, 295 koşu, Bonf. %97,5 GA): S1 (koşuda en yüksek f3'lü etiketli): kazanma %17,3 vs piyasa %13,7 → +3,6 pp [+1,0; +6,5]; ilk-3 %51,9 vs %43,2 → +8,7 pp [+2,0; +15,7] → ADAY; ROI (bilg… | (açık karar satırı yok, son cümlelerden çıkarıldı) gücü etiketin tamamıyla benzer (+3,9 pp) → seçicilik belirgin ek kazanç vermedi; ROI'de kanıt yok; pencere 18 gün. Canlı kural/etiket DEĞİŞMEDİ; aynı betik ileride (daha çok gün) yeniden koşulabilir. |
+| T210 | "Adana'da Çelik jokeylerinin atlarını yazmadan altılı kazanılmaz" (kullanıcı iddiası) | Elendi | (2026-11-15 02:35; yerelde, hızlı; t210.json): A) Adana Çelik biniş n=4.448 (tüm binişlerin ~%18'i): kazanan 799 vs beklenen 789,9, oran 1,012 [0,960; 1,063]; 2023–24 oran 1,019 [0,944; 1,096], 2025–26 1,004 [0,933; 1,072]. Kör g… | KARAR B: iddia piyasanın beklentisinin ötesinde değil → "iddia piyasa fiyatının zaten içinde". Yorum: Çelik atları çok sayıda ve çoğu favori/üst sıra; ~%89 altılıda ≥1 Çelik kazananı çıkması piyasanın beklediği düzey. Çelik atlarını AGF'ye göre yazmak yeterli… |
 
 ## Aday: ileri takipte (henüz kanıt değil) — 15
 

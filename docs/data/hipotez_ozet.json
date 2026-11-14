@@ -1,8 +1,8 @@
 {
- "guncelleme": "2026-11-14T16:06",
+ "guncelleme": "2026-11-14T23:19",
  "sayim": {
   "Geçti": 17,
-  "Elendi": 55,
+  "Elendi": 56,
   "Karar belirsiz": 50,
   "Tanımlayıcı / keşif": 9,
   "Sonuç bekleniyor": 17,
@@ -1494,6 +1494,15 @@
    "ozet": "(test 2026Q1–Q4, katman başına ≤800 koşu) Geri test tam isabet oranı / model beklentisi (B=48 | 96 | 150): 7–11 atlı %7,6/%7,1 | %13,5/%11,1 | %15,8/%13,7 (oran 1,07|1,21|1,15); 12–13: %2,3/%1,6 | %3,6/%2,7 | %5,1/%3,6 (1,39|1,33…",
    "neden": "KARAR 3: ileri kayıt model başına hüküm için yeterli değil (≥100 koşu ve ≥10 beklenen isabet gerekir; G1-S-G B=150 5/3,6). Sonuç: ileri kayıttaki düşük isabet sayısı şans+büyük alan; model kalibre görünüyor; düzeltme gereksiz.",
    "satir": 2827
+  },
+  {
+   "id": "T210",
+   "konu": "\"Adana'da Çelik jokeylerinin atlarını yazmadan altılı kazanılmaz\" (kullanıcı iddiası)",
+   "tarih": "2026-11-15",
+   "durum": "Elendi",
+   "ozet": "(2026-11-15 02:35; yerelde, hızlı; t210.json): A) Adana Çelik biniş n=4.448 (tüm binişlerin ~%18'i): kazanan 799 vs beklenen 789,9, oran 1,012 [0,960; 1,063]; 2023–24 oran 1,019 [0,944; 1,096], 2025–26 1,004 [0,933; 1,072]. Kör g…",
+   "neden": "KARAR B: iddia piyasanın beklentisinin ötesinde değil → \"iddia piyasa fiyatının zaten içinde\". Yorum: Çelik atları çok sayıda ve çoğu favori/üst sıra; ~%89 altılıda ≥1 Çelik kazananı çıkması piyasanın beklediği düzey. Çelik atlarını AGF'ye göre yazmak yeterli…",
+   "satir": 2844
   }
  ]
 }
