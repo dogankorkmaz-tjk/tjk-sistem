@@ -1,9 +1,9 @@
 # Hipotez özeti (otomatik üretilir, elle düzenlemeyin)
-Güncelleme: 2026-11-14 23:19 · kaynak: data/analiz/hipotez_defteri.md
+Güncelleme: 2026-11-14 23:24 · kaynak: data/analiz/hipotez_defteri.md
 
 Durumdaki "~" işareti: defterde açık "Karar:" satırı yok, son cümlelerden çıkarıldı (doğrulanmamış). Düzeltmek için data/analiz/hipotez_duzeltme.json.
 
-Toplam: Elendi: 56 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
+Toplam: Elendi: 57 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 · Aday / ileri takipte: 15 · Tanımlayıcı / keşif: 9 · Karma: 2
 
 ## Geçenler (kural sağlandı) — 17
 
@@ -27,7 +27,7 @@ Toplam: Elendi: 56 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T183 | görüntü pilotu: tüm koşu boyunca kamera kapsamı (kullanıcı: "bu videoları bize faydalı hale getirecek bir şey… | Geçti ~ | (cv_tum.yml 42425744816; data/cv_tum/ozet.txt; 20 koşu): ≥5 at görülen kare payı medyan %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan kon… | (açık karar satırı yok, son cümlelerden çıkarıldı) %66 (ort. %68) → eşik %40 GEÇİLDİ. Segment: start (ilk %20) ve orta %70–95; son %20 çoğunlukla %0–35 (bitişe doğru yakın/önden plan). Yan konum koşunun büyük kısmında ölçülebilir, bitiş bölümü hariç. |
 | T184-C | yan konumun sıra/perspektif etkisinden arındırılması (kullanıcı: "Yap") | Geçti | (t184c_sonuc.txt; 562 koşu) Birincil LAT (x'e göre artık log h) ~ FM: −0,048 [−0,076; −0,021]; kapı kontrollü −0,047; taban konumu artığı −0,037 [−0,067; −0,005]; öndelik kontrollü −0,039. | KARAR: ÖLÇÜLEMEDİ. Sıra/perspektif etkisi çıkarılınca kutu ölçülerinde yan konum bilgisi kalmıyor (\|r\| < 0,05). SONUÇ (T184/B/C birlikte): Bu yayın görüntüsünden 2B at kutularıyla (tek kamera, sürekli zoom/pan, kamera konumu bilinmiyor) fazladan mesafe ölçüle… |
 
-## Elenenler (modele eklenmedi / kural sağlanmadı) — 56
+## Elenenler (modele eklenmedi / kural sağlanmadı) — 57
 
 | # | Konu | Durum | Sonuç ölçüsü | Karar / neden |
 |---|---|---|---|---|
@@ -87,6 +87,7 @@ Toplam: Elendi: 56 · Karar belirsiz: 50 · Geçti: 17 · Sonuç bekleniyor: 17 
 | T191 | kilo-düzeltmeli (K) ve rakip-gücü ('zorluk merkezi', Z) hız figürü (kullanıcı: "İkisini de test et"; kaynak:… | Elendi | (2026-11-09 11:10): β = −0,218 sn/kg (n=116.885) → K KOLU ÇALIŞTIRILMADI (kuralı gereği). Neden: veride ağır kilo taşıyan at daha hızlı bitiriyor, çünkü iyi atlara (handikap) daha fazla kilo yükleniyor; kalite ile kilo karışık, v… | KARAR: K = test edilemedi; Z = YOK (GA alt ≤ 0). Etki ≈ %0,05 olasılık kazancı, ROI'ye çevrilmesi beklenmez. Açık: K için sabit, dışarıdan (literatür) bir β ile ayrı ön kayıt yapılabilir; β sonucu gördükten sonra seçilemeyeceğinden onay + yeni giriş gerekir. |
 | T198 | seçici 'ilk3 sürpriz' filtreleri (kullanıcı: "Evet test et" | Elendi ~ | (2026-11-10 23:25; t198_sonuc.txt; T197 verisi, 295 koşu, Bonf. %97,5 GA): S1 (koşuda en yüksek f3'lü etiketli): kazanma %17,3 vs piyasa %13,7 → +3,6 pp [+1,0; +6,5]; ilk-3 %51,9 vs %43,2 → +8,7 pp [+2,0; +15,7] → ADAY; ROI (bilg… | (açık karar satırı yok, son cümlelerden çıkarıldı) gücü etiketin tamamıyla benzer (+3,9 pp) → seçicilik belirgin ek kazanç vermedi; ROI'de kanıt yok; pencere 18 gün. Canlı kural/etiket DEĞİŞMEDİ; aynı betik ileride (daha çok gün) yeniden koşulabilir. |
 | T210 | "Adana'da Çelik jokeylerinin atlarını yazmadan altılı kazanılmaz" (kullanıcı iddiası) | Elendi | (2026-11-15 02:35; yerelde, hızlı; t210.json): A) Adana Çelik biniş n=4.448 (tüm binişlerin ~%18'i): kazanan 799 vs beklenen 789,9, oran 1,012 [0,960; 1,063]; 2023–24 oran 1,019 [0,944; 1,096], 2025–26 1,004 [0,933; 1,072]. Kör g… | KARAR B: iddia piyasanın beklentisinin ötesinde değil → "iddia piyasa fiyatının zaten içinde". Yorum: Çelik atları çok sayıda ve çoğu favori/üst sıra; ~%89 altılıda ≥1 Çelik kazananı çıkması piyasanın beklediği düzey. Çelik atlarını AGF'ye göre yazmak yeterli… |
+| T211 | gün içi pist/kapı yanlılığı piyasada eksik mi fiyatlanıyor? (kullanıcı onayı: "Başlat") | Elendi (yeniden test planlı) | (2026-11-15 02:55; yerelde; t211.json; 13.368 koşu, gün-kümeli bootstrap): β tüm dönem +0,56 [0,17; 0,92]; 2023–24 +0,39 [−0,16; 0,92]; 2025–26 +0,71 [0,21; 1,21]; koşu≥6 +0,84 [0,34; 1,36]. NLL kazancı yalnız +0,0004 nats/koşu (… | KARAR (önkayıtlı kural: iki dönemde de GA alt sınırı >0): 2023–24'te GA 0'ı kapsıyor → kural SAĞLANMADI → "yeterli kanıt yok; fiyatlanmış/etki ihmal edilebilir". Not: yön tutarlı pozitif ve birleşik/2025–26 anlamlı; etki küçük (tipik B=±0,2, uç kapıda oran ~%… |
 
 ## Aday: ileri takipte (henüz kanıt değil) — 15
 

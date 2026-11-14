@@ -1,8 +1,8 @@
 {
- "guncelleme": "2026-11-14T23:19",
+ "guncelleme": "2026-11-14T23:24",
  "sayim": {
   "Geçti": 17,
-  "Elendi": 56,
+  "Elendi": 57,
   "Karar belirsiz": 50,
   "Tanımlayıcı / keşif": 9,
   "Sonuç bekleniyor": 17,
@@ -1503,6 +1503,15 @@
    "ozet": "(2026-11-15 02:35; yerelde, hızlı; t210.json): A) Adana Çelik biniş n=4.448 (tüm binişlerin ~%18'i): kazanan 799 vs beklenen 789,9, oran 1,012 [0,960; 1,063]; 2023–24 oran 1,019 [0,944; 1,096], 2025–26 1,004 [0,933; 1,072]. Kör g…",
    "neden": "KARAR B: iddia piyasanın beklentisinin ötesinde değil → \"iddia piyasa fiyatının zaten içinde\". Yorum: Çelik atları çok sayıda ve çoğu favori/üst sıra; ~%89 altılıda ≥1 Çelik kazananı çıkması piyasanın beklediği düzey. Çelik atlarını AGF'ye göre yazmak yeterli…",
    "satir": 2844
+  },
+  {
+   "id": "T211",
+   "konu": "gün içi pist/kapı yanlılığı piyasada eksik mi fiyatlanıyor? (kullanıcı onayı: \"Başlat\")",
+   "tarih": "2026-11-15",
+   "durum": "Elendi (yeniden test planlı)",
+   "ozet": "(2026-11-15 02:55; yerelde; t211.json; 13.368 koşu, gün-kümeli bootstrap): β tüm dönem +0,56 [0,17; 0,92]; 2023–24 +0,39 [−0,16; 0,92]; 2025–26 +0,71 [0,21; 1,21]; koşu≥6 +0,84 [0,34; 1,36]. NLL kazancı yalnız +0,0004 nats/koşu (…",
+   "neden": "KARAR (önkayıtlı kural: iki dönemde de GA alt sınırı >0): 2023–24'te GA 0'ı kapsıyor → kural SAĞLANMADI → \"yeterli kanıt yok; fiyatlanmış/etki ihmal edilebilir\". Not: yön tutarlı pozitif ve birleşik/2025–26 anlamlı; etki küçük (tipik B=±0,2, uç kapıda oran ~%…",
+   "satir": 2855
   }
  ]
 }
