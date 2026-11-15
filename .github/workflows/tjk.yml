@@ -22,6 +22,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write      # zincir: bir sonraki canlı çalışmayı GITHUB_TOKEN ile başlatır (workflow_dispatch tetiklemesi izinlidir)
 
 jobs:
   calis:
@@ -76,3 +77,31 @@ jobs:
         run: |
           RC=$(cat /tmp/calistir.rc 2>/dev/null || echo 0)
           if [ "$RC" != "0" ]; then echo "tjk.calistir hata kodu $RC (ayrıntı data/log/son_hata.txt)"; exit 1; fi
+
+  zincir:
+    # OTOMATİK ZİNCİR (15 Kasım 2026): GitHub'ın zamanlanmış (cron) tetikleyicileri saatlerce atlanıyor/gecikiyor
+    # (15 Kasım: 09:15'lik iş 09:53'te koştu, sonraki 10:10–13:15 çalışmaların hiçbiri gelmedi → AGF/piyasa sitede yoktu).
+    # Çözüm: 09:00–23:30 (TR) arasında her canlı/sabah çalışması bitince bir sonrakini kendisi başlatır. Cron yalnızca zinciri BAŞLATIR.
+    needs: calis
+    if: always() && (github.event_name != 'workflow_dispatch' || inputs.mod == 'canli' || inputs.mod == 'sabah' || inputs.mod == 'hizli') && github.event.schedule != '30 0 * * *'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    concurrency:
+      group: tjk-zincir
+      cancel-in-progress: true     # aynı anda tek bekleyen başlatıcı: çift zincir oluşmaz
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: data/log
+          fetch-depth: 1
+      - name: Sonrakini başlat
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f data/log/zincir_dur ]; then echo "zincir_dur var: zincir durduruldu"; exit 0; fi
+          H=$(TZ=Europe/Istanbul date +%H); M=$(TZ=Europe/Istanbul date +%M); DK=$((10#$H*60+10#$M))
+          if [ $DK -lt 540 ] || [ $DK -ge 1410 ]; then echo "pencere dışı (09:00–23:30 TR): zincir bitti"; exit 0; fi
+          # 09:00–12:00 arası 10 dk, 12:00–23:30 arası 5 dk
+          if [ $DK -lt 720 ]; then BEKLE=480; else BEKLE=240; fi
+          sleep $BEKLE
+          gh workflow run tjk.yml -f mod=canli && echo "sonraki canlı çalışma başlatıldı"
