@@ -1,11 +1,11 @@
 {
- "guncelleme": "2026-11-14T23:59",
+ "guncelleme": "2026-11-15T00:31",
  "sayim": {
   "Geçti": 17,
   "Elendi": 57,
-  "Karar belirsiz": 51,
+  "Karar belirsiz": 52,
   "Tanımlayıcı / keşif": 9,
-  "Sonuç bekleniyor": 18,
+  "Sonuç bekleniyor": 17,
   "Karma": 2,
   "Aday / ileri takipte": 16
  },
@@ -1535,10 +1535,10 @@
    "id": "T214",
    "konu": "(KOŞULLU): hipodrom etkisinin tek modelde ölçümü + ana ölçütlerin hipodrom ayrımlı yeniden ölçümü (kullanıcı:…",
    "tarih": "2026-11-15",
-   "durum": "Sonuç bekleniyor",
-   "ozet": "",
-   "neden": "",
-   "satir": 0
+   "durum": "Karar belirsiz",
+   "ozet": "(2026-11-15 03:35; t214.json; E kolu 2025Q3→2026Q4, gün-kümeli bootstrap, Bonferroni %99,86): Hiyerarşik kazanan kazancı: μ=+0,0263 nats/koşu, τ²=3,7e-6 (τ=0,0019), τ² GA95 [0; 0,00024] → alt sınır 0 →",
+   "neden": "KARAR: hipodrom HETEROJENLİĞİ YOK (hipodromlar arası fark gürültü düzeyinde; büzmeli u_h ±0,0007). Hipodrom hücreleri: kazanan kazancı ve 2.–5. sıra kazancı (g25) 8 hipodromda pozitif ve iki yarıda aynı işaretli (dll: istanbul +0,022, ankara +0,027, izmir +0,…",
+   "satir": 2882
   }
  ]
 }
