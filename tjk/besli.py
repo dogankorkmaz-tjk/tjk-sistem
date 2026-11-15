@@ -4,6 +4,7 @@ koşu bitince ilk beş sıraya göre değerlendirilir, ödeme data/odeme'deki 'S
 Birim 1,25 TL. Devir bilgisi kullanılmaz."""
 import os, json, glob, math, itertools
 import pandas as pd
+from . import ortak as _O
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERI, SITE = os.path.join(KOK, "data", "besli"), os.path.join(KOK, "docs", "data")
@@ -506,6 +507,8 @@ def gec_guncelle(obj, kapanis_dk=-60.0, pencere_dk=30.0):
         return 0
     tarih = obj["tarih"]; yol = os.path.join(VERI, tarih + ".json"); kay = json.load(open(yol, encoding="utf-8")); g1v = obj.get("g1_surum"); n = 0
     for h in obj["hipodromlar"]:
+        if h["id"] in _O.MODEL_DISI:
+            continue
         for k in h["kosular"]:
             c = kay.get(f"{h['id']}|{k['kosu']}")
             if not c or "sonuc" in c or k.get("sonuc"):
@@ -593,6 +596,8 @@ def guncelle(obj, simdi=None):
             simdi = None
     od = None
     for h in obj["hipodromlar"]:
+        if h["id"] in _O.MODEL_DISI:
+            continue
         for k in h["kosular"]:
             anahtar = f"{h['id']}|{k['kosu']}"
             saat = k.get("saat") or "99:99"

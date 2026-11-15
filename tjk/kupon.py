@@ -1,6 +1,7 @@
 """Altılı kupon kurucu: değer = model olasılığı / havuz payı (AGF veya kapanış ganyanı).
 Beklenen getiri oranı = (1-kesinti) * Π_ayak Σ_{h∈S} r_h / Π|S|,  r_h = pm_h / pa_h."""
 import math, json, glob, os
+from . import ortak as _O
 import pandas as pd
 
 KESINTI = 0.31
@@ -126,6 +127,8 @@ def guncelle(obj):
         pass
     od = None
     for h in obj["hipodromlar"]:
+        if h["id"] in _O.MODEL_DISI:
+            continue
         k = {x["kosu"]: x for x in h["kosular"]}
         for alt, son in (h.get("altili") or {}).items():
             anahtar = f"{h['id']}|{son}"
@@ -274,6 +277,8 @@ def guncelle_pm0(obj):
         simdi = None
     od = None
     for h in obj["hipodromlar"]:
+        if h["id"] in _O.MODEL_DISI:
+            continue
         k = {x["kosu"]: x for x in h["kosular"]}
         for alt, son in (h.get("altili") or {}).items():
             anahtar = f"{h['id']}|{son}"
@@ -405,6 +410,8 @@ def guncelle7(obj, zorla=False):
         pass
     od = None
     for h in obj["hipodromlar"]:
+        if h["id"] in _O.MODEL_DISI:
+            continue
         k = {x["kosu"]: x for x in h["kosular"]}
         if len(k) < 7:
             continue

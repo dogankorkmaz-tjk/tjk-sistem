@@ -723,8 +723,8 @@ function renderKosu(){
 }
 function hesapGoster(){
   const {h,k}=cur; const out=hesapla(h,k,undefined,true); const yed=!!(out&&out.kaynak==='model'); curOut=yed?null:out;
-  { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0)+'|'+JSON.stringify(ODDS[okey(h.id,k.kosu)]||{}); /* elle girilen oran değişince de yenilenir */ if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!yed&&!k.sonuc?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
-  { const bk2=$('bK'); if(bk2){ try{ bk2.innerHTML=out&&!yed&&!k.sonuc?benterKHtml(h,k,out):''; }catch(e){ bk2.innerHTML=''; } } }
+  { const bx=$('b5'), bk=h.id+'|'+k.kosu+'|'+((LIVE[h.id+'|'+k.kosu]||{}).ts||0)+'|'+JSON.stringify(ODDS[okey(h.id,k.kosu)]||{}); /* elle girilen oran değişince de yenilenir */ if(bx&&!bx.dataset.k||bx&&bx.dataset.k!==bk){ bx.dataset.k=bk; try{ bx.innerHTML=out&&!yed&&!k.sonuc&&h.id!=='diyarbakir'?besliHtml(h,k,out):''; }catch(e){ bx.innerHTML=''; } } }
+  { const bk2=$('bK'); if(bk2){ try{ bk2.innerHTML=out&&!yed&&!k.sonuc&&h.id!=='diyarbakir'?benterKHtml(h,k,out):''; }catch(e){ bk2.innerHTML=''; } } }
   $('kaynak').innerHTML=out?`<span class="pill ${KAYNAK[out.kaynak][1]}">Piyasa: ${KAYNAK[out.kaynak][0]}${out.kaynak==='agf'&&k.agf_saat?' · '+esc(k.agf_saat):''}</span>${out.kaynak==='agf'?' <span class="note">AGF ganyan oranı değildir; EV hesaplanmaz. Güncel ganyanı girersen EV çıkar.</span>':''}`:'<span class="pill">Piyasa verisi yok</span> <span class="note">Ganyanları girince model çalışır.</span>';
   const sira=[];
   k.atlar.forEach((a,i)=>{
@@ -758,7 +758,7 @@ function hesapGoster(){
   const ana=x=>yed?x.pn:x.pj;
   const siraJ=sira.filter(i=>ana(out.map[i])!=null); sira.length=0; sira.push(...siraJ);
   sira.sort((a,b)=>ana(out.map[b])-ana(out.map[a]));
-  $('rkbas').textContent=yed?'Piyasasız sıra (Jason piyasa gelince)':'Model sırası (Jason)';
+  $('rkbas').textContent=(yed?'Piyasasız sıra (Jason piyasa gelince)':'Model sırası (Jason)')+(h.id==='diyarbakir'?' — model dışı hipodrom (kupon/öneri yok, yalnız bilgi)':'');
   clearTimeout(oynaT); oynaT=setTimeout(oynaCiz,500);
   $('rank').innerHTML=out&&sira.length?sira.map(i=>`<span class="rk"><b class="c${(k.atlar[i].no-1)%16+1}">${k.atlar[i].no}</b>${pct(ana(out.map[i]))}%</span>`).join(''):'<span class="note">Jason sıralaması piyasa verisi gelince çıkar.</span>';
   renderKombo(yed?null:out); renderKupon();

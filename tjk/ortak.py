@@ -17,6 +17,7 @@ AD = {"istanbul": "İstanbul", "ankara": "Ankara", "izmir": "İzmir", "bursa": "
       "antalya": "Antalya"}
 TR = str.maketrans('İIıŞşĞğÜüÖöÇç', 'iiissgguuoocc')
 K = ['tarih', 'hipodrom', 'kosu']
+MODEL_DISI = {"diyarbakir"}   # 15 Kasım 2026 kullanıcı kararı (T214: model katkısı yok): kupon/öneri üretilmez; veri toplama ve eğitim sürer
 
 
 def tr_simdi():
