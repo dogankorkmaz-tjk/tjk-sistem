@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-15 21:56 UTC",
- "kayitli_kosu": 1818,
- "eslesmeyen_kosu": 1219,
+ "uretim": "2026-11-16 01:32 UTC",
+ "kayitli_kosu": 1819,
+ "eslesmeyen_kosu": 1215,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1002,
- "kosu": 599,
+ "bahis": 1007,
+ "kosu": 604,
  "isabet": 64,
- "roi": 0.894,
+ "roi": 0.89,
  "ga95": [
-  0.646,
-  1.172
+  0.642,
+  1.163
  ],
  "ulke": {
   "abd": {
-   "bahis": 643,
-   "roi": 0.779
+   "bahis": 648,
+   "roi": 0.773
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,81 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1291,
-  "kosu": 581,
+  "bahis": 1297,
+  "kosu": 585,
   "isabet": 124,
-  "roi": 0.628,
+  "roi": 0.625,
   "ga95": [
-   0.48,
-   0.783
+   0.483,
+   0.784
   ]
  },
  "bahis_t1": {
-  "bahis": 1313,
-  "kosu": 571,
-  "isabet": 131,
-  "roi": 0.677,
+  "bahis": 1319,
+  "kosu": 575,
+  "isabet": 132,
+  "roi": 0.678,
   "ga95": [
-   0.493,
-   0.892
+   0.501,
+   0.899
   ]
  },
  "bahis_t3": {
-  "bahis": 1283,
-  "kosu": 554,
-  "isabet": 141,
-  "roi": 0.674,
+  "bahis": 1289,
+  "kosu": 558,
+  "isabet": 142,
+  "roi": 0.675,
   "ga95": [
-   0.499,
-   0.893
+   0.503,
+   0.894
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "LONGTIMERUNNING",
-   "q": 0.076,
-   "g": 32.45,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 8,
-   "at": "KEEPNUPAPPEARANCES",
-   "q": 0.093,
-   "g": 14.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 9,
-   "at": "WICKED DJANGO",
-   "q": 0.142,
-   "g": 9.9,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "ULTIMATE AUTHORITY",
-   "q": 0.091,
-   "g": 14.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-07",
-   "pist": "Woodbine",
-   "kosu": 10,
-   "at": "EPONINE",
-   "q": 0.117,
-   "g": 11.8,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-08",
    "pist": "Del Mar",
@@ -423,6 +378,51 @@
    "at": "ANAM CARA",
    "q": 0.112,
    "g": 11.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-15",
+   "pist": "Del Mar",
+   "kosu": 2,
+   "at": "MANEE",
+   "q": 0.176,
+   "g": 9.05,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-15",
+   "pist": "Del Mar",
+   "kosu": 8,
+   "at": "SIP IT",
+   "q": 0.134,
+   "g": 11.5,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-15",
+   "pist": "Del Mar",
+   "kosu": 8,
+   "at": "DATS IMPROBABLE",
+   "q": 0.089,
+   "g": 23.95,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-15",
+   "pist": "Gulfstream",
+   "kosu": 9,
+   "at": "FINAL PAYMENT",
+   "q": 0.205,
+   "g": 7.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-15",
+   "pist": "Woodbine",
+   "kosu": 7,
+   "at": "HOLIDAY WITH AMY",
+   "q": 0.116,
+   "g": 17.85,
    "kazandi": false
   }
  ]
