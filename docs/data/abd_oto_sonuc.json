@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-16 19:54 UTC",
+ "uretim": "2026-11-16 20:10 UTC",
  "kayitli_kosu": 1825,
- "eslesmeyen_kosu": 1221,
+ "eslesmeyen_kosu": 1220,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1007,
- "kosu": 604,
+ "bahis": 1008,
+ "kosu": 605,
  "isabet": 64,
- "roi": 0.89,
+ "roi": 0.889,
  "ga95": [
-  0.642,
-  1.163
+  0.648,
+  1.164
  ],
  "ulke": {
   "abd": {
-   "bahis": 648,
-   "roi": 0.773
+   "bahis": 649,
+   "roi": 0.771
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1297,
-  "kosu": 585,
+  "bahis": 1298,
+  "kosu": 586,
   "isabet": 124,
-  "roi": 0.625,
+  "roi": 0.624,
   "ga95": [
-   0.483,
+   0.479,
    0.784
   ]
  },
  "bahis_t1": {
-  "bahis": 1319,
-  "kosu": 575,
+  "bahis": 1320,
+  "kosu": 576,
   "isabet": 132,
   "roi": 0.678,
   "ga95": [
-   0.501,
-   0.899
+   0.496,
+   0.896
   ]
  },
  "bahis_t3": {
-  "bahis": 1289,
-  "kosu": 558,
+  "bahis": 1290,
+  "kosu": 559,
   "isabet": 142,
-  "roi": 0.675,
+  "roi": 0.674,
   "ga95": [
-   0.503,
-   0.894
+   0.501,
+   0.893
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-08",
-   "pist": "Del Mar",
-   "kosu": 2,
-   "at": "LUKA'S CHOICE",
-   "q": 0.116,
-   "g": 23.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-08",
    "pist": "Gulfstream",
@@ -423,6 +414,15 @@
    "at": "HOLIDAY WITH AMY",
    "q": 0.116,
    "g": 17.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-16",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "RACHEL'S ROCK",
+   "q": 0.21,
+   "g": 8.45,
    "kazandi": false
   }
  ]
