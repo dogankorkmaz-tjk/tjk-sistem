@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-16 22:04 UTC",
- "kayitli_kosu": 1825,
+ "uretim": "2026-11-17 02:58 UTC",
+ "kayitli_kosu": 1826,
  "eslesmeyen_kosu": 1220,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1008,
- "kosu": 605,
+ "bahis": 1009,
+ "kosu": 606,
  "isabet": 64,
- "roi": 0.889,
+ "roi": 0.888,
  "ga95": [
-  0.648,
-  1.164
+  0.647,
+  1.163
  ],
  "ulke": {
   "abd": {
-   "bahis": 649,
-   "roi": 0.771
+   "bahis": 650,
+   "roi": 0.77
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -65,15 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-08",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "HANDS OF TIME",
-   "q": 0.086,
-   "g": 21.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-08",
    "pist": "Gulfstream",
@@ -423,6 +414,15 @@
    "at": "RACHEL'S ROCK",
    "q": 0.21,
    "g": 8.45,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-16",
+   "pist": "Mountaineer",
+   "kosu": 3,
+   "at": "MISTRESSOFMISCHIEF",
+   "q": 0.05,
+   "g": 33.25,
    "kazandi": false
   }
  ]
