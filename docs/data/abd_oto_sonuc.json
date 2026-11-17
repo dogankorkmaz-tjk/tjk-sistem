@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-17 20:18 UTC",
- "kayitli_kosu": 1832,
+ "uretim": "2026-11-17 20:34 UTC",
+ "kayitli_kosu": 1833,
  "eslesmeyen_kosu": 1224,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1012,
- "kosu": 608,
+ "bahis": 1013,
+ "kosu": 609,
  "isabet": 64,
- "roi": 0.885,
+ "roi": 0.884,
  "ga95": [
-  0.64,
-  1.168
+  0.639,
+  1.166
  ],
  "ulke": {
   "abd": {
-   "bahis": 653,
-   "roi": 0.767
+   "bahis": 654,
+   "roi": 0.766
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,8 +35,8 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1299,
-  "kosu": 588,
+  "bahis": 1300,
+  "kosu": 589,
   "isabet": 125,
   "roi": 0.625,
   "ga95": [
@@ -45,13 +45,13 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 1320,
-  "kosu": 577,
+  "bahis": 1322,
+  "kosu": 578,
   "isabet": 132,
-  "roi": 0.678,
+  "roi": 0.677,
   "ga95": [
-   0.496,
-   0.896
+   0.492,
+   0.894
   ]
  },
  "bahis_t3": {
@@ -65,15 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-08",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "LITTLE LOLA",
-   "q": 0.087,
-   "g": 17.7,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-08",
    "pist": "Woodbine",
@@ -396,6 +387,15 @@
    "at": "MISTRESSOFMISCHIEF",
    "q": 0.05,
    "g": 33.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-17",
+   "pist": "Finger Lakes",
+   "kosu": 7,
+   "at": "WAR RUNNER",
+   "q": 0.194,
+   "g": 6.65,
    "kazandi": false
   },
   {
