@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-17 20:41 UTC",
+ "uretim": "2026-11-17 20:54 UTC",
  "kayitli_kosu": 1833,
- "eslesmeyen_kosu": 1225,
+ "eslesmeyen_kosu": 1223,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1013,
- "kosu": 609,
- "isabet": 64,
- "roi": 0.884,
+ "bahis": 1015,
+ "kosu": 610,
+ "isabet": 65,
+ "roi": 0.887,
  "ga95": [
-  0.639,
-  1.166
+  0.644,
+  1.169
  ],
  "ulke": {
   "abd": {
-   "bahis": 654,
-   "roi": 0.766
+   "bahis": 656,
+   "roi": 0.77
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1300,
-  "kosu": 589,
-  "isabet": 125,
-  "roi": 0.625,
+  "bahis": 1302,
+  "kosu": 590,
+  "isabet": 126,
+  "roi": 0.627,
   "ga95": [
-   0.482,
-   0.783
+   0.486,
+   0.785
   ]
  },
  "bahis_t1": {
-  "bahis": 1322,
-  "kosu": 578,
-  "isabet": 132,
-  "roi": 0.677,
+  "bahis": 1324,
+  "kosu": 579,
+  "isabet": 133,
+  "roi": 0.679,
   "ga95": [
-   0.492,
-   0.894
+   0.495,
+   0.895
   ]
  },
  "bahis_t3": {
-  "bahis": 1290,
-  "kosu": 560,
-  "isabet": 142,
-  "roi": 0.674,
+  "bahis": 1292,
+  "kosu": 561,
+  "isabet": 143,
+  "roi": 0.677,
   "ga95": [
-   0.501,
-   0.893
+   0.505,
+   0.884
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-08",
-   "pist": "Woodbine",
-   "kosu": 7,
-   "at": "I'VE GOT THE HONEY",
-   "q": 0.049,
-   "g": 35.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-09",
-   "pist": "Finger Lakes",
-   "kosu": 6,
-   "at": "NOSTALGIA'S SMILE",
-   "q": 0.125,
-   "g": 12.5,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-09",
    "pist": "Finger Lakes",
@@ -423,6 +405,24 @@
    "at": "MUTINY",
    "q": 0.086,
    "g": 18.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-17",
+   "pist": "Zia Park",
+   "kosu": 4,
+   "at": "AMAZING MUSIC",
+   "q": 0.373,
+   "g": 4.7,
+   "kazandi": true
+  },
+  {
+   "gun": "2026-11-17",
+   "pist": "Zia Park",
+   "kosu": 4,
+   "at": "KINO KICKS",
+   "q": 0.149,
+   "g": 14.7,
    "kazandi": false
   }
  ]
