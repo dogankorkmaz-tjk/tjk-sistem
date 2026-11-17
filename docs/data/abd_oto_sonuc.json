@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-17 20:04 UTC",
- "kayitli_kosu": 1828,
- "eslesmeyen_kosu": 1222,
+ "uretim": "2026-11-17 20:18 UTC",
+ "kayitli_kosu": 1832,
+ "eslesmeyen_kosu": 1224,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1009,
- "kosu": 606,
+ "bahis": 1012,
+ "kosu": 608,
  "isabet": 64,
- "roi": 0.888,
+ "roi": 0.885,
  "ga95": [
-  0.647,
-  1.163
+  0.64,
+  1.168
  ],
  "ulke": {
   "abd": {
-   "bahis": 650,
-   "roi": 0.77
+   "bahis": 653,
+   "roi": 0.767
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,18 +35,18 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1298,
-  "kosu": 586,
-  "isabet": 124,
-  "roi": 0.624,
+  "bahis": 1299,
+  "kosu": 588,
+  "isabet": 125,
+  "roi": 0.625,
   "ga95": [
-   0.479,
-   0.784
+   0.482,
+   0.783
   ]
  },
  "bahis_t1": {
   "bahis": 1320,
-  "kosu": 576,
+  "kosu": 577,
   "isabet": 132,
   "roi": 0.678,
   "ga95": [
@@ -56,7 +56,7 @@
  },
  "bahis_t3": {
   "bahis": 1290,
-  "kosu": 559,
+  "kosu": 560,
   "isabet": 142,
   "roi": 0.674,
   "ga95": [
@@ -65,33 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-08",
-   "pist": "Gulfstream",
-   "kosu": 8,
-   "at": "PARIS SURPRISE",
-   "q": 0.155,
-   "g": 14.6,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-08",
-   "pist": "Laurel Park",
-   "kosu": 8,
-   "at": "MOONBLAZE",
-   "q": 0.33,
-   "g": 4.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-08",
-   "pist": "Laurel Park",
-   "kosu": 8,
-   "at": "TACIT VALUE",
-   "q": 0.165,
-   "g": 11.1,
-   "kazandi": true
-  },
   {
    "gun": "2026-11-08",
    "pist": "Woodbine",
@@ -423,6 +396,33 @@
    "at": "MISTRESSOFMISCHIEF",
    "q": 0.05,
    "g": 33.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-17",
+   "pist": "Mahoning Valley",
+   "kosu": 7,
+   "at": "WASABI BEACH",
+   "q": 0.06,
+   "g": 23.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-17",
+   "pist": "Mahoning Valley",
+   "kosu": 7,
+   "at": "BLAZING TONY",
+   "q": 0.086,
+   "g": 16.0,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-17",
+   "pist": "Mahoning Valley",
+   "kosu": 7,
+   "at": "MUTINY",
+   "q": 0.086,
+   "g": 18.25,
    "kazandi": false
   }
  ]
