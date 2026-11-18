@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-18 19:20 UTC",
- "kayitli_kosu": 1839,
- "eslesmeyen_kosu": 1228,
+ "uretim": "2026-11-18 19:39 UTC",
+ "kayitli_kosu": 1842,
+ "eslesmeyen_kosu": 1230,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1016,
- "kosu": 611,
+ "bahis": 1017,
+ "kosu": 612,
  "isabet": 65,
- "roi": 0.886,
+ "roi": 0.885,
  "ga95": [
   0.653,
-  1.161
+  1.16
  ],
  "ulke": {
   "abd": {
-   "bahis": 657,
-   "roi": 0.769
+   "bahis": 658,
+   "roi": 0.768
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,18 +35,18 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1302,
-  "kosu": 590,
+  "bahis": 1304,
+  "kosu": 591,
   "isabet": 126,
-  "roi": 0.627,
+  "roi": 0.626,
   "ga95": [
    0.486,
-   0.785
+   0.78
   ]
  },
  "bahis_t1": {
   "bahis": 1324,
-  "kosu": 579,
+  "kosu": 580,
   "isabet": 133,
   "roi": 0.679,
   "ga95": [
@@ -55,25 +55,16 @@
   ]
  },
  "bahis_t3": {
-  "bahis": 1292,
-  "kosu": 561,
+  "bahis": 1294,
+  "kosu": 562,
   "isabet": 143,
-  "roi": 0.677,
+  "roi": 0.676,
   "ga95": [
    0.505,
-   0.884
+   0.887
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-09",
-   "pist": "Horseshoe Indianapolis",
-   "kosu": 3,
-   "at": "SPEIGHT KNIGHT",
-   "q": 0.288,
-   "g": 5.1,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-09",
    "pist": "Lyon La Soie",
@@ -423,6 +414,15 @@
    "at": "TRICKY TIGER",
    "q": 0.22,
    "g": 7.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-18",
+   "pist": "Tampa Bay Downs",
+   "kosu": 4,
+   "at": "MANNERISM",
+   "q": 0.048,
+   "g": 33.85,
    "kazandi": false
   }
  ]
