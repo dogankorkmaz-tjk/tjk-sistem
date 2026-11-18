@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-18 19:59 UTC",
+ "uretim": "2026-11-18 20:14 UTC",
  "kayitli_kosu": 1842,
- "eslesmeyen_kosu": 1230,
+ "eslesmeyen_kosu": 1229,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1017,
- "kosu": 612,
+ "bahis": 1020,
+ "kosu": 613,
  "isabet": 65,
- "roi": 0.885,
+ "roi": 0.883,
  "ga95": [
-  0.653,
-  1.16
+  0.651,
+  1.157
  ],
  "ulke": {
   "abd": {
-   "bahis": 658,
-   "roi": 0.768
+   "bahis": 661,
+   "roi": 0.765
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1304,
-  "kosu": 591,
-  "isabet": 126,
-  "roi": 0.626,
+  "bahis": 1305,
+  "kosu": 592,
+  "isabet": 127,
+  "roi": 0.635,
   "ga95": [
-   0.486,
-   0.78
+   0.493,
+   0.786
   ]
  },
  "bahis_t1": {
-  "bahis": 1324,
-  "kosu": 580,
+  "bahis": 1325,
+  "kosu": 581,
   "isabet": 133,
   "roi": 0.679,
   "ga95": [
-   0.495,
-   0.895
+   0.501,
+   0.89
   ]
  },
  "bahis_t3": {
-  "bahis": 1294,
-  "kosu": 562,
+  "bahis": 1295,
+  "kosu": 563,
   "isabet": 143,
-  "roi": 0.676,
+  "roi": 0.675,
   "ga95": [
-   0.505,
+   0.504,
    0.887
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-09",
-   "pist": "Lyon La Soie",
-   "kosu": 8,
-   "at": "LEVER DE RIDEAU",
-   "q": 0.473,
-   "g": 2.75,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-09",
-   "pist": "Mahoning Valley",
-   "kosu": 6,
-   "at": "QUARANTINO",
-   "q": 0.102,
-   "g": 19.85,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-09",
-   "pist": "Mahoning Valley",
-   "kosu": 6,
-   "at": "MCVICKER",
-   "q": 0.166,
-   "g": 18.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-09",
    "pist": "Mountaineer",
@@ -405,6 +378,33 @@
    "at": "KINO KICKS",
    "q": 0.149,
    "g": 14.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-18",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "NUTSIE",
+   "q": 0.049,
+   "g": 27.6,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-18",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "LADY'S GOLDEN GUY",
+   "q": 0.072,
+   "g": 20.4,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-18",
+   "pist": "Finger Lakes",
+   "kosu": 6,
+   "at": "STORMIN SAMMY",
+   "q": 0.112,
+   "g": 14.25,
    "kazandi": false
   },
   {
