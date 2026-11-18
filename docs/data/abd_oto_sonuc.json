@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-18 19:05 UTC",
- "kayitli_kosu": 1836,
- "eslesmeyen_kosu": 1226,
+ "uretim": "2026-11-18 19:20 UTC",
+ "kayitli_kosu": 1839,
+ "eslesmeyen_kosu": 1228,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1015,
- "kosu": 610,
+ "bahis": 1016,
+ "kosu": 611,
  "isabet": 65,
- "roi": 0.887,
+ "roi": 0.886,
  "ga95": [
-  0.644,
-  1.169
+  0.653,
+  1.161
  ],
  "ulke": {
   "abd": {
-   "bahis": 656,
-   "roi": 0.77
+   "bahis": 657,
+   "roi": 0.769
   },
   "birlesik-krallik": {
    "bahis": 171,
@@ -65,15 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-09",
-   "pist": "Finger Lakes",
-   "kosu": 6,
-   "at": "ISOMARSHALL",
-   "q": 0.055,
-   "g": 27.75,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-09",
    "pist": "Horseshoe Indianapolis",
@@ -423,6 +414,15 @@
    "at": "KINO KICKS",
    "q": 0.149,
    "g": 14.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-18",
+   "pist": "Mahoning Valley",
+   "kosu": 5,
+   "at": "TRICKY TIGER",
+   "q": 0.22,
+   "g": 7.35,
    "kazandi": false
   }
  ]
