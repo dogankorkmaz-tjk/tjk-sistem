@@ -1,7 +1,7 @@
 {
  "tarih": "2026-11-20",
- "zaman": "2026-11-20 04:12 TR",
- "genel": "ok",
+ "zaman": "2026-11-20 09:25 TR",
+ "genel": "uyari",
  "kontroller": [
   {
    "ad": "veri: sonuclar",
@@ -35,8 +35,8 @@
   },
   {
    "ad": "atyarisi arşivi (dün)",
-   "durum": "ok",
-   "detay": "sonuçlar 03:40'ta tamamlanacak"
+   "durum": "uyari",
+   "detay": "sonuçları eksik"
   },
   {
    "ad": "Jason eğitimi",
@@ -81,7 +81,7 @@
   {
    "ad": "Benter-K gölge puanı (zk6)",
    "durum": "ok",
-   "detay": "AGF henüz yok — sabah AGF gelince yazılır"
+   "detay": "kapsam %100 (AGF'si gelmiş başlamamış koşulardaki atlar)"
   },
   {
    "ad": "Benter sıra üstelleri (a_g1)",
