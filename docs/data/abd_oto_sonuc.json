@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-20 17:53 UTC",
+ "uretim": "2026-11-20 18:07 UTC",
  "kayitli_kosu": 1860,
- "eslesmeyen_kosu": 1244,
+ "eslesmeyen_kosu": 1242,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1025,
- "kosu": 616,
- "isabet": 65,
- "roi": 0.878,
+ "bahis": 1026,
+ "kosu": 618,
+ "isabet": 66,
+ "roi": 0.882,
  "ga95": [
-  0.633,
-  1.148
+  0.642,
+  1.155
  ],
  "ulke": {
   "abd": {
-   "bahis": 663,
-   "roi": 0.762
+   "bahis": 664,
+   "roi": 0.769
   },
   "birlesik-krallik": {
    "bahis": 174,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1313,
-  "kosu": 595,
-  "isabet": 127,
-  "roi": 0.631,
+  "bahis": 1320,
+  "kosu": 597,
+  "isabet": 128,
+  "roi": 0.63,
   "ga95": [
-   0.488,
-   0.783
+   0.489,
+   0.784
   ]
  },
  "bahis_t1": {
-  "bahis": 1334,
-  "kosu": 584,
-  "isabet": 133,
-  "roi": 0.674,
+  "bahis": 1342,
+  "kosu": 586,
+  "isabet": 134,
+  "roi": 0.673,
   "ga95": [
-   0.494,
-   0.89
+   0.493,
+   0.881
   ]
  },
  "bahis_t3": {
-  "bahis": 1305,
-  "kosu": 566,
+  "bahis": 1311,
+  "kosu": 568,
   "isabet": 143,
-  "roi": 0.67,
+  "roi": 0.667,
   "ga95": [
-   0.499,
-   0.886
+   0.497,
+   0.876
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-09",
-   "pist": "Mountaineer",
-   "kosu": 3,
-   "at": "MICKELEENE",
-   "q": 0.049,
-   "g": 31.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-09",
    "pist": "Mountaineer",
@@ -424,6 +415,15 @@
    "q": 0.086,
    "g": 26.55,
    "kazandi": false
+  },
+  {
+   "gun": "2026-11-20",
+   "pist": "Belmont Park",
+   "kosu": 1,
+   "at": "GRITTINESS",
+   "q": 0.287,
+   "g": 4.95,
+   "kazandi": true
   }
  ]
 }
