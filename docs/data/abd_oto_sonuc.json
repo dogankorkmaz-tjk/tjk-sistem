@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-21 21:57 UTC",
- "kayitli_kosu": 1864,
- "eslesmeyen_kosu": 1246,
+ "uretim": "2026-11-21 22:17 UTC",
+ "kayitli_kosu": 1867,
+ "eslesmeyen_kosu": 1248,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1026,
- "kosu": 618,
+ "bahis": 1027,
+ "kosu": 619,
  "isabet": 66,
  "roi": 0.882,
  "ga95": [
-  0.642,
+  0.641,
   1.155
  ],
  "ulke": {
   "abd": {
-   "bahis": 664,
-   "roi": 0.769
+   "bahis": 665,
+   "roi": 0.767
   },
   "birlesik-krallik": {
    "bahis": 174,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 1320,
-  "kosu": 597,
+  "kosu": 598,
   "isabet": 128,
   "roi": 0.63,
   "ga95": [
@@ -45,35 +45,26 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 1342,
-  "kosu": 586,
+  "bahis": 1343,
+  "kosu": 587,
   "isabet": 134,
-  "roi": 0.673,
+  "roi": 0.672,
   "ga95": [
    0.493,
-   0.881
+   0.879
   ]
  },
  "bahis_t3": {
-  "bahis": 1311,
-  "kosu": 568,
-  "isabet": 143,
-  "roi": 0.667,
+  "bahis": 1313,
+  "kosu": 569,
+  "isabet": 144,
+  "roi": 0.669,
   "ga95": [
-   0.497,
-   0.876
+   0.495,
+   0.873
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-09",
-   "pist": "Mountaineer",
-   "kosu": 3,
-   "at": "CLARE'S CAUSE",
-   "q": 0.06,
-   "g": 24.55,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-09",
    "pist": "Mountaineer",
@@ -424,6 +415,15 @@
    "q": 0.287,
    "g": 4.95,
    "kazandi": true
+  },
+  {
+   "gun": "2026-11-21",
+   "pist": "Del Mar",
+   "kosu": 4,
+   "at": "PRO PAYNE",
+   "q": 0.09,
+   "g": 20.7,
+   "kazandi": false
   }
  ]
 }
