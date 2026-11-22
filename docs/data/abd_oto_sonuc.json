@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-21 22:19 UTC",
- "kayitli_kosu": 1868,
- "eslesmeyen_kosu": 1249,
+ "uretim": "2026-11-22 06:19 UTC",
+ "kayitli_kosu": 1871,
+ "eslesmeyen_kosu": 1250,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1027,
- "kosu": 619,
+ "bahis": 1029,
+ "kosu": 621,
  "isabet": 66,
- "roi": 0.882,
+ "roi": 0.88,
  "ga95": [
-  0.641,
-  1.155
+  0.64,
+  1.153
  ],
  "ulke": {
   "abd": {
-   "bahis": 665,
-   "roi": 0.767
+   "bahis": 667,
+   "roi": 0.765
   },
   "birlesik-krallik": {
    "bahis": 174,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 1320,
-  "kosu": 598,
+  "kosu": 600,
   "isabet": 128,
   "roi": 0.63,
   "ga95": [
@@ -45,18 +45,18 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 1343,
-  "kosu": 587,
-  "isabet": 134,
-  "roi": 0.672,
+  "bahis": 1345,
+  "kosu": 589,
+  "isabet": 135,
+  "roi": 0.674,
   "ga95": [
    0.493,
-   0.879
+   0.88
   ]
  },
  "bahis_t3": {
   "bahis": 1313,
-  "kosu": 569,
+  "kosu": 571,
   "isabet": 144,
   "roi": 0.669,
   "ga95": [
@@ -65,24 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-09",
-   "pist": "Mountaineer",
-   "kosu": 3,
-   "at": "VIOLIN FINGERS",
-   "q": 0.071,
-   "g": 23.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-10",
-   "pist": "Mahoning Valley",
-   "kosu": 3,
-   "at": "NO QUALMS ABOUT IT",
-   "q": 0.114,
-   "g": 14.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-10",
    "pist": "Mahoning Valley",
@@ -423,6 +405,24 @@
    "at": "PRO PAYNE",
    "q": 0.09,
    "g": 20.7,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-21",
+   "pist": "Gulfstream",
+   "kosu": 11,
+   "at": "SOUPER POWER TAPIT",
+   "q": 0.115,
+   "g": 11.3,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-21",
+   "pist": "Woodbine",
+   "kosu": 9,
+   "at": "FLATTER EFFECT",
+   "q": 0.044,
+   "g": 30.2,
    "kazandi": false
   }
  ]
