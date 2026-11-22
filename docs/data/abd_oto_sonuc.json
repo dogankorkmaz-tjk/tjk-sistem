@@ -1,7 +1,7 @@
 {
- "uretim": "2026-11-22 17:28 UTC",
- "kayitli_kosu": 1872,
- "eslesmeyen_kosu": 1251,
+ "uretim": "2026-11-22 17:41 UTC",
+ "kayitli_kosu": 1876,
+ "eslesmeyen_kosu": 1255,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
  "bahis": 1029,
