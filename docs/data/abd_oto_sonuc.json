@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-22 17:41 UTC",
- "kayitli_kosu": 1876,
+ "uretim": "2026-11-22 17:55 UTC",
+ "kayitli_kosu": 1877,
  "eslesmeyen_kosu": 1255,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1029,
- "kosu": 621,
+ "bahis": 1030,
+ "kosu": 622,
  "isabet": 66,
- "roi": 0.88,
+ "roi": 0.879,
  "ga95": [
-  0.64,
-  1.153
+  0.642,
+  1.158
  ],
  "ulke": {
   "abd": {
-   "bahis": 667,
-   "roi": 0.765
+   "bahis": 668,
+   "roi": 0.764
   },
   "birlesik-krallik": {
    "bahis": 174,
@@ -35,45 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1320,
-  "kosu": 600,
-  "isabet": 128,
-  "roi": 0.63,
+  "bahis": 1321,
+  "kosu": 601,
+  "isabet": 129,
+  "roi": 0.631,
   "ga95": [
-   0.489,
-   0.784
+   0.484,
+   0.782
   ]
  },
  "bahis_t1": {
-  "bahis": 1345,
-  "kosu": 589,
-  "isabet": 135,
+  "bahis": 1346,
+  "kosu": 590,
+  "isabet": 136,
   "roi": 0.674,
   "ga95": [
-   0.493,
-   0.88
+   0.496,
+   0.878
   ]
  },
  "bahis_t3": {
-  "bahis": 1313,
-  "kosu": 571,
+  "bahis": 1314,
+  "kosu": 572,
   "isabet": 144,
-  "roi": 0.669,
+  "roi": 0.668,
   "ga95": [
-   0.495,
-   0.873
+   0.494,
+   0.875
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-10",
-   "pist": "Mahoning Valley",
-   "kosu": 3,
-   "at": "FLASHY IDOL",
-   "q": 0.199,
-   "g": 14.3,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-11",
    "pist": "Dundalk",
@@ -423,6 +414,15 @@
    "at": "FLATTER EFFECT",
    "q": 0.044,
    "g": 30.2,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-22",
+   "pist": "Belmont Park",
+   "kosu": 1,
+   "at": "SERENIQUE",
+   "q": 0.087,
+   "g": 15.8,
    "kazandi": false
   }
  ]
