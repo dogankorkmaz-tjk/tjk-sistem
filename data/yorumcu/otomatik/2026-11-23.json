@@ -1,0 +1,218 @@
+{
+ "tarih": "2026-11-23",
+ "kuponlar": {
+  "fenomen-tilki|bursa|2": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "ŞAH DRAGON",
+   "altili": "Bursa II. Altılı Ganyan",
+   "hip": "bursa",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     7,
+     8,
+     4,
+     9,
+     2,
+     3,
+     1,
+     5,
+     6,
+     10
+    ],
+    [
+     5,
+     11,
+     10,
+     7,
+     1,
+     12,
+     14,
+     13,
+     8,
+     9
+    ],
+    [
+     11,
+     4,
+     9,
+     1,
+     10,
+     2,
+     8,
+     3,
+     6,
+     12
+    ],
+    [
+     1
+    ],
+    [
+     3
+    ],
+    [
+     14,
+     7,
+     1,
+     4,
+     2,
+     5,
+     3,
+     8,
+     9,
+     15,
+     18
+    ]
+   ],
+   "ilk_gorulme": "22:30:06"
+  },
+  "editorun-kuponu|bursa|2": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "ZENG",
+   "altili": "Bursa II. Altılı Ganyan",
+   "hip": "bursa",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     4
+    ],
+    [
+     11,
+     6,
+     5,
+     7,
+     10,
+     12,
+     13,
+     8,
+     9,
+     14
+    ],
+    [
+     9,
+     1,
+     10,
+     11,
+     4,
+     8,
+     6,
+     3,
+     2,
+     12
+    ],
+    [
+     3,
+     4,
+     5,
+     1,
+     2,
+     6,
+     7,
+     8
+    ],
+    [
+     8,
+     3,
+     4,
+     2,
+     1,
+     10,
+     9,
+     6,
+     5,
+     14,
+     12
+    ],
+    [
+     5
+    ]
+   ],
+   "ilk_gorulme": "22:30:06"
+  },
+  "hipodrom-guzeli|bursa|2": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "BAKA BABA",
+   "altili": "Bursa II. Altılı Ganyan",
+   "hip": "bursa",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     4,
+     7,
+     8,
+     9,
+     2,
+     3,
+     1,
+     5,
+     6,
+     10
+    ],
+    [
+     11,
+     6,
+     7,
+     10,
+     5,
+     12,
+     13,
+     8,
+     9,
+     3
+    ],
+    [
+     9,
+     1,
+     10,
+     8,
+     6,
+     3,
+     2,
+     11,
+     4,
+     12
+    ],
+    [
+     3
+    ],
+    [
+     3,
+     2,
+     8,
+     1,
+     4,
+     10,
+     9,
+     5,
+     6,
+     14,
+     12
+    ],
+    [
+     7
+    ]
+   ],
+   "ilk_gorulme": "22:30:06"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|bursa|8": {
+   "ad": "SPRINTMASTER",
+   "at": "BİLGETUNA",
+   "hip": "bursa",
+   "kosu": 8,
+   "ilk_gorulme": "22:30:06"
+  },
+  "BEYGİRBOOSTER|bursa|6": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "KRAL DAYI",
+   "hip": "bursa",
+   "kosu": 6,
+   "ilk_gorulme": "22:30:06"
+  }
+ },
+ "degisiklik": []
+}
