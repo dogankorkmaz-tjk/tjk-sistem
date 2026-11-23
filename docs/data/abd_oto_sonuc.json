@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-22 22:52 UTC",
- "kayitli_kosu": 1878,
+ "uretim": "2026-11-23 06:21 UTC",
+ "kayitli_kosu": 1879,
  "eslesmeyen_kosu": 1256,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1030,
- "kosu": 622,
+ "bahis": 1035,
+ "kosu": 623,
  "isabet": 66,
- "roi": 0.879,
+ "roi": 0.875,
  "ga95": [
-  0.642,
-  1.158
+  0.639,
+  1.153
  ],
  "ulke": {
   "abd": {
-   "bahis": 668,
-   "roi": 0.764
+   "bahis": 673,
+   "roi": 0.758
   },
   "birlesik-krallik": {
    "bahis": 174,
@@ -36,7 +36,7 @@
  },
  "bahis_ani": {
   "bahis": 1321,
-  "kosu": 601,
+  "kosu": 602,
   "isabet": 129,
   "roi": 0.631,
   "ga95": [
@@ -45,12 +45,12 @@
   ]
  },
  "bahis_t1": {
-  "bahis": 1346,
-  "kosu": 590,
+  "bahis": 1347,
+  "kosu": 591,
   "isabet": 136,
   "roi": 0.674,
   "ga95": [
-   0.496,
+   0.495,
    0.878
   ]
  },
@@ -65,51 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-11",
-   "pist": "Dundalk",
-   "kosu": 6,
-   "at": "THALORIA",
-   "q": 0.057,
-   "g": 22.65,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-11",
-   "pist": "Finger Lakes",
-   "kosu": 1,
-   "at": "GRANDMA'S GIRL",
-   "q": 0.125,
-   "g": 11.05,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-12",
-   "pist": "Mahoning Valley",
-   "kosu": 2,
-   "at": "CHICABEE",
-   "q": 0.283,
-   "g": 14.25,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-13",
-   "pist": "Belmont Park",
-   "kosu": 3,
-   "at": "BIKRI",
-   "q": 0.066,
-   "g": 19.4,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-13",
-   "pist": "Belmont Park",
-   "kosu": 3,
-   "at": "JUDYSDANCIN TONITE",
-   "q": 0.156,
-   "g": 9.45,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-13",
    "pist": "Woodbine",
@@ -423,6 +378,51 @@
    "at": "SERENIQUE",
    "q": 0.087,
    "g": 15.8,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-22",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "WEMBLEY AVENUE",
+   "q": 0.036,
+   "g": 36.1,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-22",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "BUIUM",
+   "q": 0.109,
+   "g": 12.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-22",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "GUERRA",
+   "q": 0.059,
+   "g": 25.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-22",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "NOBURU",
+   "q": 0.059,
+   "g": 49.35,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-22",
+   "pist": "Woodbine",
+   "kosu": 10,
+   "at": "STRAWBERRY AGAIN",
+   "q": 0.036,
+   "g": 41.35,
    "kazandi": false
   }
  ]
