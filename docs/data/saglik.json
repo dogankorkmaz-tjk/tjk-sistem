@@ -1,6 +1,6 @@
 {
  "tarih": "2026-11-25",
- "zaman": "2026-11-25 20:28 TR",
+ "zaman": "2026-11-25 20:40 TR",
  "genel": "ok",
  "kontroller": [
   {
@@ -31,7 +31,7 @@
   {
    "ad": "veri: galop",
    "durum": "ok",
-   "detay": "son gün 2026-11-24 (1 gün önce)"
+   "detay": "son gün 2026-11-25 (0 gün önce)"
   },
   {
    "ad": "atyarisi arşivi (dün)",
