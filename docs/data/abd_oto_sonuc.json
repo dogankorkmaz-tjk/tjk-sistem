@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-26 20:40 UTC",
+ "uretim": "2026-11-26 20:56 UTC",
  "kayitli_kosu": 1902,
- "eslesmeyen_kosu": 1275,
+ "eslesmeyen_kosu": 1272,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1037,
- "kosu": 627,
+ "bahis": 1040,
+ "kosu": 630,
  "isabet": 66,
- "roi": 0.873,
+ "roi": 0.871,
  "ga95": [
-  0.63,
-  1.137
+  0.628,
+  1.13
  ],
  "ulke": {
   "abd": {
-   "bahis": 673,
-   "roi": 0.758
+   "bahis": 676,
+   "roi": 0.755
   },
   "birlesik-krallik": {
    "bahis": 176,
@@ -35,63 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1324,
-  "kosu": 606,
-  "isabet": 129,
+  "bahis": 1328,
+  "kosu": 609,
+  "isabet": 130,
   "roi": 0.629,
   "ga95": [
    0.485,
-   0.778
+   0.777
   ]
  },
  "bahis_t1": {
-  "bahis": 1354,
-  "kosu": 595,
-  "isabet": 137,
+  "bahis": 1357,
+  "kosu": 598,
+  "isabet": 138,
   "roi": 0.674,
   "ga95": [
    0.494,
-   0.881
+   0.88
   ]
  },
  "bahis_t3": {
-  "bahis": 1321,
-  "kosu": 575,
-  "isabet": 146,
+  "bahis": 1323,
+  "kosu": 578,
+  "isabet": 147,
   "roi": 0.673,
   "ga95": [
-   0.498,
-   0.874
+   0.5,
+   0.878
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-14",
-   "pist": "Belmont Park",
-   "kosu": 8,
-   "at": "RIYADH WAY",
-   "q": 0.086,
-   "g": 30.8,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-14",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "LADY CROSS",
-   "q": 0.159,
-   "g": 7.95,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-14",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "SEVEN OF HEARTS",
-   "q": 0.125,
-   "g": 23.15,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-14",
    "pist": "Gulfstream",
@@ -423,6 +396,33 @@
    "at": "REBEL PATH",
    "q": 0.107,
    "g": 12.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-26",
+   "pist": "Gulfstream",
+   "kosu": 9,
+   "at": "MEDINAH",
+   "q": 0.192,
+   "g": 6.9,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-26",
+   "pist": "Gulfstream",
+   "kosu": 9,
+   "at": "SASSY SOF",
+   "q": 0.149,
+   "g": 19.15,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-26",
+   "pist": "Woodbine",
+   "kosu": 1,
+   "at": "BACCARO POINT",
+   "q": 0.116,
+   "g": 14.25,
    "kazandi": false
   }
  ]
