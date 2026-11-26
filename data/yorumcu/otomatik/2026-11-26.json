@@ -1,0 +1,113 @@
+{
+ "tarih": "2026-11-26",
+ "kuponlar": {
+  "fenomen-tilki|None|None": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "MUFASA",
+   "altili": "İzmir Altılı Ganyan",
+   "hip": null,
+   "altili_no": null,
+   "ayaklar": [
+    [
+     11
+    ],
+    [
+     2
+    ],
+    [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    [],
+    [
+     2,
+     3,
+     4,
+     8
+    ],
+    []
+   ],
+   "ilk_gorulme": "20:54:10"
+  },
+  "editorun-kuponu|izmir|2": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "MUFASA",
+   "altili": "İzmir II. Altılı Ganyan",
+   "hip": "izmir",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     11
+    ],
+    [],
+    [
+     2
+    ],
+    [],
+    [
+     8
+    ],
+    []
+   ],
+   "ilk_gorulme": "20:54:10"
+  },
+  "hipodrom-guzeli|None|None": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "MUFASA",
+   "altili": "İzmir Altılı Ganyan",
+   "hip": null,
+   "altili_no": null,
+   "ayaklar": [
+    [
+     11
+    ],
+    [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    [
+     3
+    ],
+    [],
+    [
+     2,
+     3,
+     4,
+     7,
+     8
+    ],
+    []
+   ],
+   "ilk_gorulme": "20:54:10"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|izmir|2": {
+   "ad": "SPRINTMASTER",
+   "at": "MUFASA",
+   "hip": "izmir",
+   "kosu": 2,
+   "ilk_gorulme": "20:54:10"
+  },
+  "BEYGİRBOOSTER|izmir|6": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "TALENT QUEEN",
+   "hip": "izmir",
+   "kosu": 6,
+   "ilk_gorulme": "20:54:10"
+  }
+ },
+ "degisiklik": []
+}
