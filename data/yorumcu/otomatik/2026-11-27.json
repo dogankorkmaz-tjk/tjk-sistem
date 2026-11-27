@@ -1,0 +1,207 @@
+{
+ "tarih": "2026-11-27",
+ "kuponlar": {
+  "fenomen-tilki|None|None": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "GÜLNARLI",
+   "altili": "İzmir Altılı Ganyan",
+   "hip": null,
+   "altili_no": null,
+   "ayaklar": [
+    [
+     10,
+     2,
+     3,
+     7,
+     8,
+     5,
+     4,
+     6,
+     9,
+     1
+    ],
+    [
+     4,
+     6,
+     2,
+     1,
+     3,
+     9,
+     5,
+     7,
+     8,
+     11,
+     10
+    ],
+    [
+     4
+    ],
+    [
+     3,
+     6,
+     4,
+     5,
+     1,
+     2,
+     7
+    ],
+    [
+     2
+    ],
+    [
+     2,
+     10,
+     9,
+     6,
+     7,
+     3,
+     1,
+     8,
+     4,
+     5
+    ]
+   ],
+   "ilk_gorulme": "20:39:38"
+  },
+  "editorun-kuponu|None|None": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "TYPHOON",
+   "altili": "İzmir Altılı Ganyan",
+   "hip": null,
+   "altili_no": null,
+   "ayaklar": [
+    [
+     10,
+     3,
+     2,
+     7,
+     8,
+     5,
+     6,
+     9,
+     4,
+     1
+    ],
+    [
+     4,
+     1,
+     2,
+     6,
+     3,
+     5,
+     7,
+     9,
+     8,
+     11,
+     10
+    ],
+    [
+     4,
+     9,
+     2,
+     1,
+     7,
+     6,
+     8,
+     5,
+     3
+    ],
+    [
+     1
+    ],
+    [
+     5,
+     2,
+     1,
+     4,
+     3,
+     6
+    ],
+    [
+     2
+    ]
+   ],
+   "ilk_gorulme": "20:39:38"
+  },
+  "hipodrom-guzeli|None|None": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "QUEEN SEV",
+   "altili": "İzmir Altılı Ganyan",
+   "hip": null,
+   "altili_no": null,
+   "ayaklar": [
+    [
+     10,
+     2,
+     3,
+     7,
+     8,
+     6,
+     5,
+     9,
+     4,
+     1
+    ],
+    [
+     4
+    ],
+    [
+     9,
+     4,
+     2,
+     1,
+     7,
+     6,
+     8,
+     5,
+     3
+    ],
+    [
+     4,
+     3,
+     5,
+     1,
+     2,
+     6,
+     7
+    ],
+    [
+     5
+    ],
+    [
+     2,
+     10,
+     6,
+     1,
+     9,
+     3,
+     7,
+     8,
+     4,
+     5
+    ]
+   ],
+   "ilk_gorulme": "20:39:38"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|izmir|3": {
+   "ad": "SPRINTMASTER",
+   "at": "AÇANAY",
+   "hip": "izmir",
+   "kosu": 3,
+   "ilk_gorulme": "20:39:38"
+  },
+  "BEYGİRBOOSTER|izmir|1": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "NINJA QUEEN",
+   "hip": "izmir",
+   "kosu": 1,
+   "ilk_gorulme": "20:39:38"
+  }
+ },
+ "degisiklik": []
+}
