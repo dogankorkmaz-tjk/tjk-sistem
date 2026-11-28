@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-27 19:55 UTC",
- "kayitli_kosu": 1908,
- "eslesmeyen_kosu": 1278,
+ "uretim": "2026-11-28 01:01 UTC",
+ "kayitli_kosu": 1918,
+ "eslesmeyen_kosu": 1287,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1040,
- "kosu": 630,
+ "bahis": 1043,
+ "kosu": 631,
  "isabet": 66,
- "roi": 0.871,
+ "roi": 0.868,
  "ga95": [
-  0.628,
-  1.13
+  0.626,
+  1.138
  ],
  "ulke": {
   "abd": {
-   "bahis": 676,
-   "roi": 0.755
+   "bahis": 679,
+   "roi": 0.752
   },
   "birlesik-krallik": {
    "bahis": 176,
@@ -35,23 +35,23 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1328,
-  "kosu": 609,
+  "bahis": 1329,
+  "kosu": 610,
   "isabet": 130,
-  "roi": 0.629,
+  "roi": 0.628,
   "ga95": [
    0.485,
-   0.777
+   0.775
   ]
  },
  "bahis_t1": {
-  "bahis": 1357,
-  "kosu": 598,
+  "bahis": 1358,
+  "kosu": 599,
   "isabet": 138,
-  "roi": 0.674,
+  "roi": 0.673,
   "ga95": [
    0.494,
-   0.88
+   0.889
   ]
  },
  "bahis_t3": {
@@ -65,33 +65,6 @@
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-14",
-   "pist": "Gulfstream",
-   "kosu": 7,
-   "at": "SAYTARA",
-   "q": 0.097,
-   "g": 14.8,
-   "kazandi": true
-  },
-  {
-   "gun": "2026-11-14",
-   "pist": "Woodbine",
-   "kosu": 5,
-   "at": "ANAM CARA",
-   "q": 0.112,
-   "g": 11.85,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-15",
-   "pist": "Del Mar",
-   "kosu": 2,
-   "at": "MANEE",
-   "q": 0.176,
-   "g": 9.05,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-15",
    "pist": "Del Mar",
@@ -423,6 +396,33 @@
    "at": "BACCARO POINT",
    "q": 0.116,
    "g": 14.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-27",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "ITS IN THE CARDS",
+   "q": 0.226,
+   "g": 9.85,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-27",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "DEVIL'S TONGUE",
+   "q": 0.088,
+   "g": 14.55,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-27",
+   "pist": "Woodbine",
+   "kosu": 6,
+   "at": "MAD WORLD",
+   "q": 0.158,
+   "g": 7.95,
    "kazandi": false
   }
  ]
