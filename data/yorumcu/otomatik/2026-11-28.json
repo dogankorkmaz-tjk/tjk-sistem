@@ -1,0 +1,222 @@
+{
+ "tarih": "2026-11-28",
+ "kuponlar": {
+  "fenomen-tilki|istanbul|2": {
+   "ad": "FENOMEN TİLKİ",
+   "slug": "fenomen-tilki",
+   "atad": "TORHAN TAY",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     9
+    ],
+    [
+     3,
+     4,
+     9,
+     2,
+     11,
+     10,
+     1,
+     6,
+     8,
+     5,
+     7
+    ],
+    [
+     9,
+     10,
+     1,
+     8,
+     11,
+     7,
+     3,
+     6,
+     4,
+     5,
+     2
+    ],
+    [
+     10
+    ],
+    [
+     9,
+     3,
+     8,
+     2,
+     6,
+     5,
+     4,
+     7,
+     1,
+     10
+    ],
+    [
+     12,
+     2,
+     5,
+     1,
+     17,
+     7,
+     4,
+     10,
+     11,
+     13
+    ]
+   ],
+   "ilk_gorulme": "19:25:19"
+  },
+  "editorun-kuponu|istanbul|2": {
+   "ad": "EDİTÖRÜN KUPONU",
+   "slug": "editorun-kuponu",
+   "atad": "FLAME OF FOREST",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     1,
+     9,
+     2,
+     4,
+     8,
+     5,
+     7,
+     3,
+     6
+    ],
+    [
+     3
+    ],
+    [
+     7
+    ],
+    [
+     10,
+     2,
+     1,
+     3,
+     4,
+     9,
+     12,
+     5,
+     7,
+     6,
+     11
+    ],
+    [
+     9,
+     3,
+     8,
+     2,
+     6,
+     5,
+     10,
+     4,
+     7,
+     1
+    ],
+    [
+     12,
+     2,
+     5,
+     17,
+     7,
+     1,
+     10,
+     4,
+     11,
+     13
+    ]
+   ],
+   "ilk_gorulme": "19:25:19"
+  },
+  "hipodrom-guzeli|istanbul|2": {
+   "ad": "HİPODROM GÜZELİ",
+   "slug": "hipodrom-guzeli",
+   "atad": "ŞIKTURBO",
+   "altili": "İstanbul II. Altılı Ganyan",
+   "hip": "istanbul",
+   "altili_no": 2,
+   "ayaklar": [
+    [
+     2
+    ],
+    [
+     3,
+     9,
+     4,
+     2,
+     10,
+     11,
+     1,
+     6,
+     8,
+     5,
+     7
+    ],
+    [
+     9,
+     10,
+     8,
+     1,
+     11,
+     7,
+     3,
+     6,
+     4,
+     5,
+     2
+    ],
+    [
+     10,
+     2,
+     1,
+     3,
+     4,
+     12,
+     5,
+     9,
+     6,
+     7,
+     11
+    ],
+    [
+     9,
+     8,
+     3,
+     10,
+     2,
+     6,
+     5,
+     4,
+     7,
+     1
+    ],
+    [
+     12
+    ]
+   ],
+   "ilk_gorulme": "19:25:19"
+  }
+ },
+ "yz": {
+  "SPRINTMASTER|istanbul|7": {
+   "ad": "SPRINTMASTER",
+   "at": "NO MORE SORROW",
+   "hip": "istanbul",
+   "kosu": 7,
+   "ilk_gorulme": "19:25:19"
+  },
+  "BEYGİRBOOSTER|istanbul|8": {
+   "ad": "BEYGİRBOOSTER",
+   "at": "MONTEVERA",
+   "hip": "istanbul",
+   "kosu": 8,
+   "ilk_gorulme": "19:25:19"
+  }
+ },
+ "degisiklik": []
+}
