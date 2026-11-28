@@ -1,21 +1,21 @@
 {
- "uretim": "2026-11-28 02:19 UTC",
- "kayitli_kosu": 1918,
+ "uretim": "2026-11-28 06:20 UTC",
+ "kayitli_kosu": 1920,
  "eslesmeyen_kosu": 1287,
  "kural": "q x TJK kapanış ganyanı > 1.25, 1 TL ganyan",
  "durdurma": "300 bahiste ROI GA alt sınırı < 1 ise ABD/İng/İrl testi kapanır (hipotez_defteri 18 Ekim)",
- "bahis": 1043,
- "kosu": 631,
+ "bahis": 1045,
+ "kosu": 633,
  "isabet": 66,
- "roi": 0.868,
+ "roi": 0.866,
  "ga95": [
-  0.626,
-  1.138
+  0.625,
+  1.134
  ],
  "ulke": {
   "abd": {
-   "bahis": 679,
-   "roi": 0.752
+   "bahis": 681,
+   "roi": 0.749
   },
   "birlesik-krallik": {
    "bahis": 176,
@@ -35,54 +35,36 @@
   }
  },
  "bahis_ani": {
-  "bahis": 1329,
-  "kosu": 610,
+  "bahis": 1333,
+  "kosu": 612,
   "isabet": 130,
-  "roi": 0.628,
+  "roi": 0.626,
   "ga95": [
-   0.485,
-   0.775
+   0.484,
+   0.773
   ]
  },
  "bahis_t1": {
-  "bahis": 1358,
-  "kosu": 599,
+  "bahis": 1362,
+  "kosu": 601,
   "isabet": 138,
-  "roi": 0.673,
+  "roi": 0.671,
   "ga95": [
-   0.494,
-   0.889
+   0.493,
+   0.888
   ]
  },
  "bahis_t3": {
-  "bahis": 1323,
-  "kosu": 578,
+  "bahis": 1327,
+  "kosu": 580,
   "isabet": 147,
-  "roi": 0.673,
+  "roi": 0.671,
   "ga95": [
-   0.5,
-   0.878
+   0.498,
+   0.89
   ]
  },
  "bahisler": [
-  {
-   "gun": "2026-11-15",
-   "pist": "Del Mar",
-   "kosu": 8,
-   "at": "SIP IT",
-   "q": 0.134,
-   "g": 11.5,
-   "kazandi": false
-  },
-  {
-   "gun": "2026-11-15",
-   "pist": "Del Mar",
-   "kosu": 8,
-   "at": "DATS IMPROBABLE",
-   "q": 0.089,
-   "g": 23.95,
-   "kazandi": false
-  },
   {
    "gun": "2026-11-15",
    "pist": "Gulfstream",
@@ -396,6 +378,24 @@
    "at": "BACCARO POINT",
    "q": 0.116,
    "g": 14.25,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-27",
+   "pist": "Gulfstream",
+   "kosu": 8,
+   "at": "TIZASWEETLADY",
+   "q": 0.111,
+   "g": 13.65,
+   "kazandi": false
+  },
+  {
+   "gun": "2026-11-27",
+   "pist": "Turf Paradise",
+   "kosu": 3,
+   "at": "KIDINTHECANDYSTORE",
+   "q": 0.113,
+   "g": 11.7,
    "kazandi": false
   },
   {
